@@ -1,0 +1,15 @@
+*.aux
+*.dvi
+*.lof
+*.log
+*.pdf
+*.djvu
+*.ps
+*.out
+_*.tex
+*.toc
+*.synctex.gz
+*~
+*.tex.bak
+*.blg
+*.tex.sav
