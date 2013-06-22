@@ -61,11 +61,11 @@
 \newcommand{\pK}{\mathfrak{p}_K}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\Qp}{\mathbb{Q}_p}
-\newcommand{\Fp}{\mathbb{F}_p}
-\newcommand{\bFq}{{\mathbb{\bar F}_q}}
-\newcommand{\Fq}{{\mathbb{F}_q}}
-\newcommand{\Fqm}{{\mathbb{F}_{q^m}}}
-\newcommand{\bFp}{{\mathbb{\bar F}_p}}
+%\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\bFq}{\bar{k}}
+\newcommand{\Fq}{k}
+\newcommand{\Fqm}{k_m}
+%\newcommand{\bFp}{{\mathbb{\bar F}_p}}
 
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\Weil}{W}
@@ -91,6 +91,7 @@
 \newcommand{\Gm}[1]{\mathbb{G}_{\hskip-2pt\textbf{m},#1}}
 \newcommand{\GN}[1]{\textswab{#1}}
 \newcommand{\bGN}[1]{{\bar{\textswab{#1}}}}
+\newcommand{\TT}{\underline{T}}
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
 \newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
@@ -145,7 +146,7 @@ Since the character sheaves that appear in this paper are not quite an instance 
 Character sheaves on $G$ form a category, denoted by $\CS(G)$. In fact, $\CS(G)$ is a rigid symmetric monoidal category, so isomorphism classes of character sheaves on $G$ form a group, denoted by $\CS(G)_{/\text{iso}}$; this is the Picard group of the category of character sheaves on $G$. Our application of character sheaves to characters of algebraic tori over non-Archimedean local fields rests on the Picard group of character sheaves on $G$, for certain smooth group schemes $G$.
 
 We now say a few words about the commutative group schemes locally of finite type over $\Fq$ that appear in our geometrization of admissible characters of algebraic tori over local fields. Let $K$ be a non-Archimedean local field with residual field $\Fq$; we place no restrictions on the characteristic of $K$ -- in particular, it may be $0$ or not. Write $\OK$ for ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$. 
-Let $T$ be an algebraic torus defined over $K$. Let $\underline{T}$ be a N\'eron model for $T$; recall that this is a smooth group scheme locally of finite type over $\OK$. For each non-negative integer $d$, let $\GN{T}_d$ be the Greenberg transform of $\underline{T} \otimes \OK/\pK^{d+1}$; the commutative group scheme $\GN{T}_d$ plays the r\^{o}le of $G$, above. 
+Let $T$ be an algebraic torus defined over $K$. Let $\TT$ be a N\'eron model for $T$; recall that this is a smooth group scheme locally of finite type over $\OK$. For each non-negative integer $d$, let $\GN{T}_d$ be the Greenberg transform of $\TT \otimes \OK/\pK^{d+1}$; the commutative group scheme $\GN{T}_d$ plays the r\^{o}le of $G$, above. 
  
 The main result of this paper is a canonical isomorphism
 \[
@@ -339,15 +340,15 @@ where $t_\cs{L}: \Weil(\bFq/\Fq)\to \Hom_\text{grp}(G(\bFq),\EE^\times)$ is a co
 To simplify notation, we set $W_\Fq \ceq \Weil(\bFq/\Fq)$ and $G(\bFq)^* \ceq \Hom_\text{grp}(G(\bFq),\EE^\times)$.
 Recall the equivalence between etale group schemes over $\Fq$ and the category of groups equipped with a continuous action of $\Gal(\bFq/\Fq)$ (for the discrete topology on the group), given by $G \mapsto G(\bFq)$. Under this equivalence any character sheaf $\cs{L} =(\gcs{L},\mu,F)$ on $G$ corresponds to: 
 \begin{enumerate}
-\labitem{(cs.0)}{cs.0} an indexed set of one-dimensional $\EE$-vector spaces $\gcs{L}_x \ceq x^*\gcs{L}$, as $x$ runs over $G(\bFp)$; 
-\labitem{(cs.1)}{cs.1} an indexed set of isomorphisms $\mu_{x,y}  \ceq (x \times y)^*\mu : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes \gcs{L}_{y}$, for all $x,y \in G(\bFp)$, such that
+\labitem{(cs.0)}{cs.0} an indexed set of one-dimensional $\EE$-vector spaces $\gcs{L}_x \ceq x^*\gcs{L}$, as $x$ runs over $G(\bFq)$; 
+\labitem{(cs.1)}{cs.1} an indexed set of isomorphisms $\mu_{x,y}  \ceq (x \times y)^*\mu : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes \gcs{L}_{y}$, for all $x,y \in G(\bFq)$, such that
 \[
 \xymatrix{
 \gcs{L}_{x+y+z} \ar[rr]^{\mu_{x+y,z}} \ar[d]_{\mu_{x,y+z}}   &&  \gcs{L}_{x+y}\otimes \gcs{L}_{z} \ar[d]^{\mu_{x,y} \otimes \id} \\
 \gcs{L}_{x} \otimes \gcs{L}_{y+z} \ar[rr]^{\id \otimes \mu_{y,z}} & &  \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes \gcs{L}_{z}\\
 }
 \]
-commutes, for all $x,y,z\in G(\bFp)$; and 
+commutes, for all $x,y,z\in G(\bFq)$; and 
 \labitem{(cs.2)}{cs.2} an indexed set of isomorphisms $F_{x} \ceq x^*F: \gcs{L}_{\Frob(x)} \to \gcs{L}_x$ 
 \Clifton{\textdbend There's hidden subtlety here too: maybe I should explain which Frobenius this is and how it acts. }
 such that
@@ -357,7 +358,7 @@ such that
 \gcs{L}_{x+y} \ar[rr]^{\mu_{x,y}} && \gcs{L}_x \otimes\gcs{L}_y\\
 }
 \]
-commutes, for all $x,y\in G(\bFp)$.
+commutes, for all $x,y\in G(\bFq)$.
 \end{enumerate}
 Under this equivalence, a map $\varphi : \cs{L} \to \cs{L'}$ of character sheaves on $G$ corresponds to:
 \begin{enumerate}
@@ -428,7 +429,7 @@ Now suppose that $[z] \in \Hh^1(\Fq,\Hom(X,\EE^\times))$ with $\rho([z]) = 1$; w
 $$\tilde{f}(x) = \frac{\psi(\Frob(x))}{\psi(x)}$$
 for $x \in X$.  In fact, we may replace the construction of $\psi$ for all $\ZZ[\Gal(\bFq/\Fq)]$-modules $X$ with the construction of analogous $\psi$s for a different class of modules.
 
-Since the action of $\Gal(\bFq/\Fq)$ is continuous, there is an $m$ so that $\Frob^m$ acts trivially on $X$; write $\Gamma_m$ for $\Gal(\Fqm/\Fq)$.  Since $T^m-1$ factors as a squarefree product of cyclotomic polynomials, the Chinese remainder theorem expresses $\ZZ[\Gamma_m]$ as a product of $\ZZ[\zeta_d]$ for $d$ dividing $m$.  Each $\ZZ[\zeta_d]$ is the maximal order in a number field and thus $\ZZ[\Gamma_m]$ is a product of Dedekind domains.  Therefore $X$ decomposes into a direct sum of cyclic $\ZZ[\Gamma_m]$-modules \cite[?]{Brandal}, each of the form $\ZZ[\Gamma_m] / I$ for some ideal $I \subset \ZZ[\Gamma_m]$.  The ideal $I$ corresponds to a direct product of ideals $I_d$ in the $\ZZ[\zeta_d]$, and within each $\ZZ[\zeta_d]$ the Chinese remainder theorem allows a further decomposition of $\ZZ[\zeta_d] / I_d$ as a direct sum of $\ZZ[\zeta_d]$-modules of the form $\ZZ[\zeta_d]/P^s$.  So if we can construct, for every cyclotomic ring $\ZZ[\zeta_d]$, prime ideal $P \subset \ZZ[\zeta_d]$ and positive integer $s$, a $\psi \colon \ZZ[\zeta_d]/P^s \rightarrow \EE^\times$ with
+Since the action of $\Gal(\bFq/\Fq)$ is continuous, there is an $m$ so that $\Frob^m$ acts trivially on $X$; write $\Fqm$ for the degree $m$ extension of $\Fq$ and $\Gamma_m$ for $\Gal(\Fqm/\Fq)$.  Since $T^m-1$ factors as a squarefree product of cyclotomic polynomials, the Chinese remainder theorem expresses $\ZZ[\Gamma_m]$ as a product of $\ZZ[\zeta_d]$ for $d$ dividing $m$.  Each $\ZZ[\zeta_d]$ is the maximal order in a number field and thus $\ZZ[\Gamma_m]$ is a product of Dedekind domains.  Therefore $X$ decomposes into a direct sum of cyclic $\ZZ[\Gamma_m]$-modules \cite[?]{Brandal}, each of the form $\ZZ[\Gamma_m] / I$ for some ideal $I \subset \ZZ[\Gamma_m]$.  The ideal $I$ corresponds to a direct product of ideals $I_d$ in the $\ZZ[\zeta_d]$, and within each $\ZZ[\zeta_d]$ the Chinese remainder theorem allows a further decomposition of $\ZZ[\zeta_d] / I_d$ as a direct sum of $\ZZ[\zeta_d]$-modules of the form $\ZZ[\zeta_d]/P^s$.  So if we can construct, for every cyclotomic ring $\ZZ[\zeta_d]$, prime ideal $P \subset \ZZ[\zeta_d]$ and positive integer $s$, a $\psi \colon \ZZ[\zeta_d]/P^s \rightarrow \EE^\times$ with
 \begin{equation} \label{eq:psi-condition}
 \tilde{f}(x) = \frac{\psi(\zeta_d \cdot x)}{\psi(x)},
 \end{equation}
@@ -511,17 +512,16 @@ As pictured above, the kernel of this pull-back is $A\times A$; indeed, $A\times
 \Clifton{I haven't explained how maps between diagrams define sheaf homomorphisms between local systems.}
 Since the lower sequence is precisely the sequence defining $\cs{E}\boxtimes\cs{E}$, this shows that, by construction, $\cs{E}$ comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \cs{E}\boxtimes\cs{E}$. Now the base change $\cs{E}$ comes equipped with isomorphisms $F^0 : \Frob_{G^0}^* \gcs{E} \to \gcs{E}$ and $\mu^0 : {\bar m}_0^* \gcs{E} \to \gcs{E}\boxtimes \gcs{E}$ satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,F^0)$ is a character sheaf on $G^0$. 
 
-The next step is to show that $\pi: B \to G^0$ extends to a finite etale morphism of group schemes $f: H\to G$, smooth and locally of finite type over $\Fq$, in such a way that $H^0 = B$ (so, $B$ is the identity component of $H$) and $f^0 =\pi$ (so, the restriction of $f$ to $H^0$ is a finite etale cover of $G^0$) and $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component groups.
-\Clifton{David, this paragraph is the lemma you were working on. I'm worried that I won't have time to work on this before your talk, so please keep going, if you can.}
+The next step is to show that $\pi: B \to G^0$ extends to a finite etale morphism of group schemes $f: H\to G$, smooth and locally of finite type over $\Fq$, in such a way that $H^0 = B$, $f^0 =\pi$ and $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component groups.
 \begin{equation} \label{extension-diagram}
     \xymatrix{
         & A \ar[d] \ar@{=}[r] & A \ar[d] &  \\
         & B \ar[r] \ar[d]_{\pi} & H \ar[r] \ar[d]_{f} & \pi_0(H) \ar[d]_{\pi_0(f)}^{\iso} \\
         & G^0 \ar[r] & G \ar[r] & \pi_0(G).}
 \end{equation}
-where all rows and columns are exact and all maps are defined over $\Fq$.  Extensions of $G^0$ by $A$, such as $A \to H^0 \to G^0$, correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0, A)$.  Similarly, extensions of $G$ by $A$ correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G, A)$.  The map $G^0 \to G$ induces a map $\Ext^1_{\ZZ[\Gamma]}(G, A) \to \Ext^1_{\ZZ[\Gamma]}(G^0, A)$, fitting into the long exact sequence derived from applying $\Hom(\mbox{---}, A)$ to $G^0 \to G \to \pi_0(G)$:
-$$\Ext^1_{\ZZ[\Gamma]}(G, A) \to \Ext^1_{\ZZ[\Gamma]}(G^0, A) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G), A).$$
-If we can show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G), A) = 0$ then there will be an extension of $G$ by $A$ fitting into diagram \ref{extension-diagram}.
+where all rows and columns are exact and all maps are defined over $\Fq$.  We will do so by passing back and forth between group schemes over $\Fq$ and their $\bFq$-points.  Extensions of $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to H^0(\bFq) \to G^0(\bFq)$, correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$.  Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map $G^0(\bFq) \to G(\bFq)$ induces a map $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$, fitting into the long exact sequence derived from applying $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
+$$\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).$$
+We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.  
 \todo{Stuff missing here.}
 
 Now we show that $f : H\to G$, as above, together with a character $\psi : \ker {\bar f} \to \EE^\times$, defines a character sheaf on $G$. We will also show that the restriction of this character sheaf on $G$ to $G^0$ is precisely the character sheaf on $G^0$ defined by the pair $(f^0,\psi)$ as above.
@@ -635,21 +635,21 @@ In this section we introduce a group scheme $\GN{T}$ over $\Fq$ obtained by appl
 
 %\subsection{The N\'eron locally finite type model for $T$}
 
-The lft-N\'eron model for $T$, denoted here by $\underline{T}$, is a separated, smooth, commutative group scheme locally of finite type over $\OK$ with generic fibre $T$, that enjoys the N\'eron mapping property: if $X$ is a smooth scheme over $\OK$ then every morphism $X_\eta \to T$ over $K$ extends uniquely to a morphism $X \to \underline{T}$. Equivalently, the N\'eron mapping property states that the function $\Hom_{\OK} (X,\underline{T}) \to \Hom_K(X_\eta,T)$, given by restriction to generic fibres, is a bijection; in particular, this implies $\underline{T}(\OK) = T(K)$.
+The lft-N\'eron model for $T$, denoted here by $\TT$, is a separated, smooth, commutative group scheme locally of finite type over $\OK$ with generic fibre $T$, that enjoys the N\'eron mapping property: if $X$ is a smooth scheme over $\OK$ then every morphism $X_\eta \to T$ over $K$ extends uniquely to a morphism $X \to \TT$. Equivalently, the N\'eron mapping property states that the function $\Hom_{\OK} (X,\TT) \to \Hom_K(X_\eta,T)$, given by restriction to generic fibres, is a bijection; in particular, this implies $\TT(\OK) = T(K)$.
 
-For each $d\in \NN$, let $\underline{T}_{d}$ be the smooth group scheme over $\OK/\pK^{d+1}$ obtained from $\underline{T}$ by base change along $\OK \to \OK/\pK^{d+1}$. Observe that $\OK/\pK^{d+1}$ is an Artin ring and $\underline{T}_{d}$ is locally of finite type over $\OK/\pK^{d+1}$. 
+For each $d\in \NN$, let $\TT_{d}$ be the smooth group scheme over $\OK/\pK^{d+1}$ obtained from $\TT$ by base change along $\OK \to \OK/\pK^{d+1}$. Observe that $\OK/\pK^{d+1}$ is an Artin ring and $\TT_{d}$ is locally of finite type over $\OK/\pK^{d+1}$. 
 %
-Let $\GN{T}_{d}$ be the group scheme over $\Fp$ produced by applying the Greenberg functor to $\underline{T}_{d}$. (See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} for background on the Greenberg functor.) 
-%Then $\GN{T}_d(\Fq) = \underline{T}(\OK/\pK^{d+1})$.
+Let $\GN{T}_{d}$ be the group scheme over $\Fq$ produced by applying the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} for background on the Greenberg functor.) 
+%Then $\GN{T}_d(\Fq) = \TT(\OK/\pK^{d+1})$.
 
 \begin{proposition}\label{prop:GN}
 Fundamental properties of the group $\Fq$-scheme $\GN{T}_d$, for all $d\in \NN$:
 \begin{enumerate}
  \labitem{(GNd.0)}{GN0} $\GN{T}_d^0$, the identity component of $\GN{T}_d$, is a commutative algebraic group over $\Fq$;
 \labitem{(GNd.1)}{GNd} $\GN{T}_d$ is smooth and locally of finite type over $\Fq$;
-\labitem{(GNd.2)}{pi0} $\pi_0(\GN{T}_d) = \pi_0(\underline{T}) \times_{\Spec{\OK}} \Spec{\Fq}$;
+\labitem{(GNd.2)}{pi0} $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$;
 \labitem{(GNd.3)}{fg} the component group of $\GN{T}_d$ is geometrically finitely generated;
-\labitem{(GNd.4)}{dFq} $\GN{T}_d(\Fq) = \underline{T}(\OK/\pK^{d+1})$, canonically;
+\labitem{(GNd.4)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^{d+1})$, canonically;
 \end{enumerate}
 \end{proposition}
 
@@ -672,18 +672,9 @@ By \ref{GNd} and \ref{fg}, we may apply Theorem~\ref{thm:snake} to $\GN{T}_d$ wh
 \[
 \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom(\GN{T}_d(\Fq),\EE^\times).
 \]
-By \ref{dFq}, $\GN{T}_d(\Fq) \iso \underline{T}(\OK/\pK^{d+1})$ canonically.
-To finish the proof we recall the filtration of $T(K)$ used to define depth  . . . $T(K)_{d+1}$
-\Clifton{\color{red} Stuff missing here! I think we need congruence subgroups and JK's filtration of $T(K)$ for arbitrary tori.  Help!}
-So, the theorem follows from the fact that
-\[
-\xymatrix{
-0 \ar[r] & \underline{T}_{d+1}(\OK) \ar[r] &  \underline{T}(\OK) \ar[r] & \underline{T}(\OK/\pK^{d+1}) \ar[r] & 0\\
-0\ar[r] & \ar@{=}[u] T(K)_{d+1} \ar[r] & \ar@{=}[u]T(K)_0 \ar[r] & \ar@{.}[u] T(K)/T(K)_{d+1}\ar[r] & 0 \\
-}
-\]
-is exact.
-\Clifton{\color{red} Is that true?!?!}
+By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^{d+1})$ canonically.
+To finish the proof we recall that the filtration of $T(K)$ used to define depth has the property
+that $\TT(\OK/\pK^{d+1}) \cong T(K) / T(K)_d$ \cite[Prop 5.2]{Yu}.  Thus characters of $\GN{T}_d(\Fq)$ are in bijection with characters of $T(K)$ vanishing on $T(K)_d$.
 \end{proof}
 
 \section{Application to admissible characters}
@@ -694,7 +685,7 @@ To conclude the paper we offer an interpretation of Theorem~\ref{thm:application
 \Clifton{Explain what happens as $d\in \NN$ varies.}
 Suppose $d\leq d'$.
 
-We may now assemble the group $\Fq$-schemes $\underline{T}_{d}$ into one glorious group pro-scheme over $\Fq$:
+We may now assemble the group $\Fq$-schemes $\TT_{d}$ into one glorious group pro-scheme over $\Fq$:
 \begin{equation}\label{projlim}
 \GN{T} \ceq \varprojlim_{d\in \NN} \GN{T}_{d}.
 \end{equation}
@@ -885,6 +876,11 @@ note={http://staff.science.uva.nl/$\sim$bmoonen/boek/BookAV.html}
 %   doi={10.1515/crll.1993.437.167},
 }
 
+
+\bib{Yu}{article}{
+   author={Yu, Jiu-Kang},
+   title={Smooth models associated to concave functions in Bruhat-Tits theory}
+}
 
 \end{biblist}
 \end{bibdiv}
