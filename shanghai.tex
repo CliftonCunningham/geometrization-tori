@@ -140,7 +140,7 @@ we shall find no model for the group of quasi-characters, or even for the group 
 \noindent
 In this paper we show that the monidal category of character sheaves on the Greenberg transform of the locally finite type Neron model of $T$ provides an elegant, canonical model for the group of (quasi-)characters of $T(K)$, where $K$ is any non-Archimedean local field and $T$ is any algebraic torus over $K$.
 
-Since the character sheaves that appear in this paper are not quite an instance of those defined by George Luzstig, who coined the term, we begin by explaining what we mean by `character sheaves' in this paper. Let $G$ be a smooth commutative group scheme locally of finite type over $\Fq$; $G$ need not be reductive, connected, nor of finite type over $\Fq$. Fix a prime $\ell$ that does not divide $q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq (\gcs{L},\mu,F)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf $\gcs{L}$ on the \'etale site of ${\bar G} \ceq G \times_{\Spec\Fq} \Spec{\bFq}$, locally constant of rank-$1$ on every connected component of ${\bar G}$, equipped with an isomorphism $\mu: m^* \gcs{L} \to  \gcs{L}\boxtimes \gcs{L}$, where $m : G\times G \to G$ is the group operation for $G$, and an isomorphism $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$, where $\Frob_{G}$ is the Frobenius automorphism on ${\bar G}$, satisfying natural compatibility conditions with $\mu$; these compatibility conditions are explained below.
+Since the character sheaves that appear in this paper are not quite an instance of those defined by George Luzstig, who coined the term, we begin by explaining what we mean by `character sheaves' in this paper. Let $G$ be a smooth commutative group scheme locally of finite type over $\Fq$ \David{I think our notation is clearer if we use $k$ rather than $\Fq$}; $G$ need not be reductive, connected, nor of finite type over $\Fq$. Fix a prime $\ell$ that does not divide $q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq (\gcs{L},\mu,F)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf $\gcs{L}$ on the \'etale site of ${\bar G} \ceq G \times_{\Spec\Fq} \Spec{\bFq}$, locally constant of rank-$1$ on every connected component of ${\bar G}$, equipped with an isomorphism $\mu: m^* \gcs{L} \to  \gcs{L}\boxtimes \gcs{L}$, where $m : G\times G \to G$ is the group operation for $G$, and an isomorphism $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$, where $\Frob_{G}$ is the Frobenius automorphism on ${\bar G}$, satisfying natural compatibility conditions with $\mu$; these compatibility conditions are explained below.
 
 Character sheaves on $G$ form a category, denoted by $\CS(G)$. In fact, $\CS(G)$ is a rigid symmetric monoidal category, so isomorphism classes of character sheaves on $G$ form a group, denoted by $\CS(G)_{/\text{iso}}$; this is the Picard group of the category of character sheaves on $G$. Our application of character sheaves to characters of algebraic tori over non-Archimedean local fields rests on the Picard group of character sheaves on $G$, for certain smooth group schemes $G$.
 
@@ -337,7 +337,7 @@ where $t_\cs{L}: \Weil(\bFq/\Fq)\to \Hom_\text{grp}(G(\bFq),\EE^\times)$ is a co
 
 \begin{proof}
 To simplify notation, we set $W_\Fq \ceq \Weil(\bFq/\Fq)$ and $G(\bFq)^* \ceq \Hom_\text{grp}(G(\bFq),\EE^\times)$.
-Recall the equivalence between etale group schemes over $\Fq$ and the category of groups equipped with a continuous action of $\Gal(\bFq/\Fq)$ (for the discrete topology on the group), given by $G \mapsto G(\bFp)$. Under this equivalence any character sheaf $\cs{L} =(\gcs{L},\mu,F)$ on $G$ corresponds to: 
+Recall the equivalence between etale group schemes over $\Fq$ and the category of groups equipped with a continuous action of $\Gal(\bFq/\Fq)$ (for the discrete topology on the group), given by $G \mapsto G(\bFq)$. Under this equivalence any character sheaf $\cs{L} =(\gcs{L},\mu,F)$ on $G$ corresponds to: 
 \begin{enumerate}
 \labitem{(cs.0)}{cs.0} an indexed set of one-dimensional $\EE$-vector spaces $\gcs{L}_x \ceq x^*\gcs{L}$, as $x$ runs over $G(\bFp)$; 
 \labitem{(cs.1)}{cs.1} an indexed set of isomorphisms $\mu_{x,y}  \ceq (x \times y)^*\mu : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes \gcs{L}_{y}$, for all $x,y \in G(\bFp)$, such that
@@ -348,7 +348,7 @@ Recall the equivalence between etale group schemes over $\Fq$ and the category o
 }
 \]
 commutes, for all $x,y,z\in G(\bFp)$; and 
-\labitem{(cs.2)}{cs.2} an indexed set of isomorphisms $F_{x} \ceq x^*F: \gcs{L}_{\Frob(x)} \to \gcs{L}$ 
+\labitem{(cs.2)}{cs.2} an indexed set of isomorphisms $F_{x} \ceq x^*F: \gcs{L}_{\Frob(x)} \to \gcs{L}_x$ 
 \Clifton{\textdbend There's hidden subtlety here too: maybe I should explain which Frobenius this is and how it acts. }
 such that
 \[
@@ -376,7 +376,7 @@ To produce the isomorphism between $\CS(G(\bFq))_{/\text{iso}}$ and $H^1(W_{\Fq}
 
 First, however, we show that such global sections exist.
 Since $G(\bFq)$ is finitely-generated abelian, it admits a decomposition $G(\bFq) \iso G(\bFq)_\text{free} \oplus G(\bFq)_\text{tors}$ such that $G(\bFq)_\text{tors}$ is finite.
-Let $x_1, \ldots , x_r$ be a basis for the free part $G(\bFq)_\text{free}$ of $G(\bFq)$ and let $y_1, \ldots , y_t$ be a generators for the torsion part of $G(\bFq)$ corresponding to the decomposition $G(\bFq)_\text{tors} \iso \oplus_{j=1}^t \ZZ/m_1\ZZ$, with $m_1\vert m_2\vert \cdots \vert m_t$. For each such $x_i$ pick $s(x_i)\in \gcs{L}_{x_i}$; for each such $y_j$ pick $s(y_j) \in \gcs{L}_{y_j}$; also set $s({\bar e}) \ceq 0 \in \gcs{L}_{\bar e}$. .... \Clifton{I'll finish this later.} In this way we define a section $s \ceq s_\cs{L} : G(\bFq) \to \coprod_{z\in G(\bFq)} \gcs{L}_z$ of projection $\coprod_{z\in G(\bFq)} \gcs{L}_z \to G(\bFq)$ such that 
+Let $x_1, \ldots , x_r$ be a basis for the free part $G(\bFq)_\text{free}$ of $G(\bFq)$ and let $y_1, \ldots , y_t$ be a generators for the torsion part of $G(\bFq)$ corresponding to the decomposition $G(\bFq)_\text{tors} \iso \oplus_{j=1}^t \ZZ/m_j\ZZ$, with $m_j \vert m_{j+1}$. For each such $x_i$ pick $s(x_i)\in \gcs{L}_{x_i}$; for each such $y_j$ pick $s(y_j) \in \gcs{L}_{y_j}$; also set $s({\bar e}) \ceq 0 \in \gcs{L}_{\bar e}$. .... \Clifton{I'll finish this later.} In this way we define a section $s \ceq s_\cs{L} : G(\bFq) \to \coprod_{z\in G(\bFq)} \gcs{L}_z$ of projection $\coprod_{z\in G(\bFq)} \gcs{L}_z \to G(\bFq)$ such that 
 \begin{equation}\label{section}
 \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
 \end{equation}
@@ -492,7 +492,7 @@ The restriction functor $\CS(G)\to \CS(G^0)$ is essentially surjective.
 Because $G$ is smooth over $\Fq$, the identity component $G^0$ is a geometrically connected algebraic group over $\Fq$, clopen in $G$ \cite{vdG&M}*{3.17}. By Proposition~\ref{prop:connected-1}, every character sheaf $\cs{E} = (\gcs{E},\mu^0,F^0)$ on $G^0$ descends to a line bundle on $G^0$.
 %
 Let us review how line bundles on $G^0$ determine character sheaves on $G^0$.
-Up to isomorphism, line bundles on $G^0$ may be apprehended in terms of pairs $(\pi,\psi)$, where $\pi : B\to G^0$ is a finite etale morphism of algebraic groups and a character $\psi : A\to \EE^\times$, where $\Gal(\bFq/\Fq)$ acts trivially on $A \ceq \ker {\bar \pi}$, as summarized by the following diagram.
+Up to isomorphism, line bundles on $G^0$ may be apprehended in terms of pairs $(\pi,\psi)$, \David{Aren't there line bundles which are not character sheaves, for which $B$ is not an algebraic group?} where $\pi : B\to G^0$ is a finite etale morphism of algebraic groups and a character $\psi : A\to \EE^\times$, where $\Gal(\bFq/\Fq)$ acts trivially on $A \ceq \ker {\bar \pi}$, as summarized by the following diagram.
 \begin{equation}\label{E}
 \xymatrix{
 \EE^\times & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
@@ -507,7 +507,7 @@ To see that $\cs{E}$ is a line bundle on $G^0$, start by pulling back $\pi: B \t
   	& 1\ar[r] & \ar@{.>}@/^1pc/[llu] \ar[u] A\times A  \ar[r]& \ar[u]^{m_{B}} B\times B \ar[r]^{\pi\tighttimes \pi}  & \ar[u]^{m_0} G^0\times G^0 \ar[r] & 1\\
 }
 \end{equation}
-As pictured above, the kernel of this pull-back is $A\times A$; indeed, $A\times A\to B\times B$ is the pull-back of $A\to B$ along $m_{B}$. Use this Cartesian square to define a character (the dotted arrow, above) of $A\times A$; that is, define $A\times A\to \EE^\times$ by the composition of $A\times A$ and $\psi : A\to \EE^\times$. Note that this character is $\psi \otimes \psi : A\times A\to \EE^\times$.
+As pictured above, the kernel of this pull-back is $A\times A$; indeed, $A\times A\to B\times B$ is the pull-back of $A\to B$ along $m_{B}$. Use this Cartesian square to define a character (the dotted arrow, above) of $A\times A$; that is, define $A\times A\to \EE^\times$ by the composition of $A\times A \to A$ and $\psi : A\to \EE^\times$. Note that this character is $\psi \otimes \psi : A\times A\to \EE^\times$.
 \Clifton{I haven't explained how maps between diagrams define sheaf homomorphisms between local systems.}
 Since the lower sequence is precisely the sequence defining $\cs{E}\boxtimes\cs{E}$, this shows that, by construction, $\cs{E}$ comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \cs{E}\boxtimes\cs{E}$. Now the base change $\cs{E}$ comes equipped with isomorphisms $F^0 : \Frob_{G^0}^* \gcs{E} \to \gcs{E}$ and $\mu^0 : {\bar m}_0^* \gcs{E} \to \gcs{E}\boxtimes \gcs{E}$ satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,F^0)$ is a character sheaf on $G^0$. 
 
@@ -529,7 +529,7 @@ Now we show that $f : H\to G$, as above, together with a character $\psi : \ker 
 Set $X \ceq \pi_0(G)\times_{\Spec{\Fq}} \Spec{\bFq}$. We will identify $X$ with $\pi_0(H)\times_{\Spec{\Fq}} \Spec{\bFq}$ using the base change of $\pi_0(f): \pi_0(H)\to \pi_0(G)$. For each $x\in X$, write ${\bar f}^x : {\bar H}^x \to {\bar G}^x$ for the restriction of ${\bar f}$ to ${\bar H}^x$, as a cover of ${\bar G}^x$. For each $x,y\in X$, let ${\bar m}_{x,y} : {\bar H}^x \times {\bar H}^{y} \to {\bar H}^{x+y}$ be the map obtained from ${\bar m}$ by restriction. Define ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ by ${\bar m}_{x}(a): g \mapsto {\bar m}_{0,x}(a,g)$; then ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ is an isomorphism.
 \Clifton{I need to show that ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ is an isomorphism.}
 
-For each $x\in X$ let $\gcs{L}^x$ be the rank-$1$ local system on ${\bar G}^x$ determined by the finite etale cover ${\bar f}^x : {\bar H}^x \to {\bar G}^x$ and the character $\psi_x \ceq \psi \circ {\bar m}_x$.  Since ${\bar G} = \coprod_{x\in X} {\bar G}^x$ (disjoint union), this determines a constructible sheaf $\gcs{L}$ on ${\bar G}$, locally constant of rank-$1$ on each connected component of ${\bar G}$. Taking the case $x=0$ we observe that $\gcs{L}^0 =\gcs{E}$, the latter defined above. To finish the proof of the proposition we equip $\gcs{L}$ with isomorphisms $\mu : {\bar m}^* \gcs{L} \to \gcs{L} \boxtimes\gcs{L}$ and $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1} and \ref{CS.2}.
+For each $x\in X$ let $\gcs{L}^x$ be the rank-$1$ local system on ${\bar G}^x$ determined by the finite etale cover ${\bar f}^x : {\bar H}^x \to {\bar G}^x$ and the character $\psi_x \ceq \psi \circ {\bar m}_x^{-1}$.  Since ${\bar G} = \coprod_{x\in X} {\bar G}^x$ (disjoint union), this determines a constructible sheaf $\gcs{L}$ on ${\bar G}$, locally constant of rank-$1$ on each connected component of ${\bar G}$. Taking the case $x=0$ we observe that $\gcs{L}^0 =\gcs{E}$, the latter defined above. To finish the proof of the proposition we equip $\gcs{L}$ with isomorphisms $\mu : {\bar m}^* \gcs{L} \to \gcs{L} \boxtimes\gcs{L}$ and $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1} and \ref{CS.2}.
 
 Observe that ${\bar m}: {\bar G}\times {\bar G}\to {\bar G}$ is completely determined by the family of maps ${\bar m}_{x,y} : {\bar G}^x \times {\bar G}^{y} \to {\bar G}^{x+y}$. Accordingly, to define $\mu$ for $\gcs{L}$ it is sufficient to define isomorphisms $\mu_{x,y} : {\bar m}_{x,y}^*\gcs{L}^{x+y} \iso \gcs{L}^{x}\boxtimes \gcs{L}^{y}$ for all $x,y\in X$. To do that, note first that the local system $\gcs{L}^{x}\boxtimes \gcs{L}^{y}$ is defined by the following diagram.
 \[
