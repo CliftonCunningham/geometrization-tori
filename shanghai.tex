@@ -279,7 +279,7 @@ We will prove this proposition by reducing it to the functions--sheaves dictiona
 
 First, observe that the forgetful functor $(\gcs{L},\mu,F) \mapsto (\gcs{L},F)$ sends character sheaves on $G$ to Weil local systems on $G$ \cite{Deligne:Weil2}*{1.1.10} (by a Weil local system on $G$ we mean a Weil sheaf on $G$ which is a local system on ${\bar G}$). While is it not true that all Weil local systems on $G$ descend to sheaves on $G$, those that appear in the image of the forgetful functor from character sheaves do. 
 
-To see why this is so, consider the category \cdef{$\CS_0(G)$} of pairs $(\cs{L}_0,\mu_0)$ where $\cs{L}_0$ is a local system on $G$ and $\mu_0: m^*\cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ satisfies condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$ are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}. Let $b : {\bar G} \to G$ be base change (pull-back of $G\to \Spec{\Fq}$ along $\Spec{\bFq} \to \Spec{\Fq}$). The proof of Proposition~\ref{prop:pullback} adapts (simplifies, in fact) to show that  $b^* : \CS_0(G) \to \CS(G)$ is a monoidal functor. This functor is fully faithful; see \cite{SGA7.2}*{Expos\'e XIII} and \cite{BBD}*{Prop. 5.2.1}.  We will show that $b^*$ is essentially surjective. 
+To see why this is so, consider the category \cdef{$\CS_0(G)$} of pairs $(\cs{L}_0,\mu_0)$ where $\cs{L}_0$ is a local system on $G$ and $\mu_0: m^*\cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ satisfies condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$ are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}. \David{Should we move this definition since it will be important elsewhere?} Let $b : {\bar G} \to G$ be base change (pull-back of $G\to \Spec{\Fq}$ along $\Spec{\bFq} \to \Spec{\Fq}$). The proof of Proposition~\ref{prop:pullback} adapts (simplifies, in fact) to show that  $b^* : \CS_0(G) \to \CS(G)$ is a monoidal functor. This functor is fully faithful; see \cite{SGA7.2}*{Expos\'e XIII} and \cite{BBD}*{Prop. 5.2.1}.  We will show that $b^*$ is essentially surjective. 
 
 Let $g$ be any $\Fq$-rational point on $G$ (such as the identity for $G$) and let ${\bar g}$ be the geometric point on $G$ lying above $g$ (we fixed $\Fq \hookrightarrow \bFq$ long ago). Since $G$ is geometrically connected, the geometric point ${\bar g}$ determines an equivalence between the category of Weil local systems on $G$ and $\ell$-adic representations of $\Weil(G,{\bar g})$ \cite{Deligne:Weil2}*{1.1.12}. Now let $(\gcs{L},\mu,F)$ be a character sheaf on $G$. Then the isomorphism class of the Weil local system $(\gcs{L},F)$ corresponds to an $\ell$-adic character of the Weil group $\Weil(G, {\bar g})$. The $\Fq$-rational point $g$ under the geometric point ${\bar g}$ determines a splitting $\Weil(\bFq/\Fq)\to  \Weil(G,{\bar g})$ of the exact sequence
 \[
@@ -323,7 +323,7 @@ is an isomorphism of groups; see \cite{Laumon}*{1.1.3} or \cite{SGA4.5}*{Sommes 
 %In this section we establish a fundamental property of character sheaves on commutative etale group schemes over $\Fq$ that are geometrically finitely generated. 
 
 \begin{proposition}\label{prop:etale}
-If $G$ is a commutative group scheme etale over $\Fq$ and $G(\bFq)$ is finitely generated then there is a canonical isomorphism 
+If $G$ is a commutative \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely generated then there is a canonical isomorphism 
 \[
 \CS(G)_{/\text{iso}} \longrightarrow H^1(\Weil(\bFq/\Fq), \Hom_\text{grp}(G(\bFq),\EE^\times)),
 \qquad \text{given by}\qquad
