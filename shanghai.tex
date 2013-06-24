@@ -521,8 +521,23 @@ The next step is to show that $\pi: B \to G^0$ extends to a finite etale morphis
 \end{equation}
 where all rows and columns are exact and all maps are defined over $\Fq$.  We will do so by passing back and forth between group schemes over $\Fq$ and their $\bFq$-points.  Extensions of $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to H^0(\bFq) \to G^0(\bFq)$, correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$.  Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map $G^0(\bFq) \to G(\bFq)$ induces a map $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$, fitting into the long exact sequence derived from applying $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
 $$\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).$$
-We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.  
-\todo{Stuff missing here.}
+We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.
+
+It suffices to show that $\pi_0(G)(\bFq)$ has a two-term resolution by injective $\ZZ[\Gamma]$-modules.  Since the action of $\Gamma$ on $\pi_0(G)(\bFq)$ is continuous, it factor through a finite quotient $\Gamma_m = \Gamma / H_m$.  Any product of Dedekind domains has cohomological dimension $1$ \cite[?]{?}, so $\pi_0(G)(\bFq)$ has a two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$ be one of these modules: we need to show that $I$ is injective as a $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
+\[
+\xymatrix{
+& B \\
+I & A \ar@{>->}[u] \ar[l]_{a}
+}\]
+where $A$ and $B$ are arbitrary $\ZZ[\Gamma]$-modules.  Since $H_m$ acts trivially on $I$, $I_{H_m}A := \langle (\gamma-1)a : \gamma \in H_m, a \in A \rangle \subseteq \ker(a).$  Since $B / I_{H_m}B \cong B \otimes_A A / I_{H_m}A$, we get
+\[
+\xymatrix{
+& B/I_{H_m}B \ar@{..>}[dl] & B \ar@{->>}[l] \\
+I & A/I_{H_m}A \ar@{>->}[u] \ar[l] & A \ar@{>->}[u] \ar@{->>}[l]
+}\]
+The dotted arrow exists since $I$ is injective as a $\ZZ[\Gamma_m]$-module, and the outer diagram shows that $I$ is injective as a $\ZZ[\Gamma]$-module.
+
+We therefore have the existence of diagram \eqref{extension-diagram} at the level of $\bFq$-points.  This expresses $H(\bFq)$ as a disjoint union of translates of $B(\bFq)$; by transport of structure we may take $H$ to be a group scheme over $\bFq$.  Similarly, the restriction of $f$ to each component of $H$ is a morphism of schemes, and thus $f$ is as well.  Finally, the whole diagram descends to a diagram of $\Fq$-schemes since the $\bFq$-points of the objects come equipped with continuous $\Gamma$-actions, and the morphisms are $\Gamma$-equivariant.
 
 Now we show that $f : H\to G$, as above, together with a character $\psi : \ker {\bar f} \to \EE^\times$, defines a character sheaf on $G$. We will also show that the restriction of this character sheaf on $G$ to $G^0$ is precisely the character sheaf on $G^0$ defined by the pair $(f^0,\psi)$ as above.
 %

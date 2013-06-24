@@ -13,3 +13,4 @@ _*.tex
 *.tex.bak
 *.blg
 *.tex.sav
+*.bbl
