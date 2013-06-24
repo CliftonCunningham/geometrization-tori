@@ -124,7 +124,16 @@
 
 
 \begin{abstract}
-We study the category of character sheaves on smooth commutative group schemes $G$ locally of finite type over finite fields $\mathbb{F}_q$. Assuming that the geometric component group of $G$ is finitely-generated, we show that the group of isomorphism classes of character sheaves on $G$ is canonically isomorphic to the group of characters of $G(\mathbb{F}_q)$. We use this result to exhibit an isomorphism between admissible characters of $T(K)$ and isomorphism classes of character sheaves on the Greenberg transform of the Néron model of $T$, where $K$ is any non-Archimdean local field and $T$ is any algebraic torus over $K$.
+  We study the category of character sheaves on smooth commutative
+  group schemes $G$ locally of finite type over finite fields
+  $\mathbb{F}_q$. Assuming that the geometric component group of $G$
+  is finitely-generated, we show that the group of isomorphism classes
+  of character sheaves on $G$ is canonically isomorphic to the group
+  of characters of $G(\mathbb{F}_q)$. We use this result to exhibit an
+  isomorphism between admissible characters of $T(K)$ and isomorphism
+  classes of character sheaves on the Greenberg transform of the Néron
+  model of $T$, where $K$ is any non-Archimdean local field and $T$ is
+  any algebraic torus over $K$.
 \end{abstract}
 
 \maketitle
@@ -134,19 +143,64 @@ We study the category of character sheaves on smooth commutative group schemes $
 %\input{introduction}
 In his celebrated thesis, John Tate writes 
 \begin{quotation}
-{\it Concerning the characters of $k^*$ [the multiplicative group of a $\mathfrak{p}$-adic field], the situation is different from that of $k^+$.
-First of all, we are interested in continuous multiplicative maps $\alpha \mapsto c(\alpha)$ of $k^*$ into the complex numbers, not only in the bounded ones, and shall call such a map a quasi-character, reserving the word ``character'' for the conventional character of absolute value $1$. Secondly, 
-we shall find no model for the group of quasi-characters, or even for the group of characters, though such a model would be of the utmost importance.}  \cite{Tate:thesis}*{\S 2.3}
+    {\it Concerning the characters of $k^*$ [the
+    multiplicative group of a $\mathfrak{p}$-adic field], the
+    situation is different from that of $k^+$.  First of all, we are
+    interested in continuous multiplicative maps $\alpha \mapsto
+    c(\alpha)$ of $k^*$ into the complex numbers, not only in the
+    bounded ones, and shall call such a map a quasi-character,
+    reserving the word ``character'' for the conventional character of
+    absolute value $1$. Secondly, we shall find no model for the group
+    of quasi-characters, or even for the group of characters, though
+    such a model would be of the utmost importance.}
+  \cite{Tate:thesis}*{\S 2.3}
 \end{quotation}
 \noindent
-In this paper we show that the monidal category of character sheaves on the Greenberg transform of the locally finite type Neron model of $T$ provides an elegant, canonical model for the group of (quasi-)characters of $T(K)$, where $K$ is any non-Archimedean local field and $T$ is any algebraic torus over $K$.
+In this paper we show that the monidal category of character sheaves
+on the Greenberg transform of the locally finite type Neron model of
+$T$ provides an elegant, canonical model for the group of
+(quasi-)characters of $T(K)$, where $K$ is any non-Archimedean local
+field and $T$ is any algebraic torus over $K$.
 
-Since the character sheaves that appear in this paper are not quite an instance of those defined by George Luzstig, who coined the term, we begin by explaining what we mean by `character sheaves' in this paper. Let $G$ be a smooth commutative group scheme locally of finite type over $\Fq$ \David{I think our notation is clearer if we use $k$ rather than $\Fq$}; $G$ need not be reductive, connected, nor of finite type over $\Fq$. Fix a prime $\ell$ that does not divide $q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq (\gcs{L},\mu,F)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf $\gcs{L}$ on the \'etale site of ${\bar G} \ceq G \times_{\Spec\Fq} \Spec{\bFq}$, locally constant of rank-$1$ on every connected component of ${\bar G}$, equipped with an isomorphism $\mu: m^* \gcs{L} \to  \gcs{L}\boxtimes \gcs{L}$, where $m : G\times G \to G$ is the group operation for $G$, and an isomorphism $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$, where $\Frob_{G}$ is the Frobenius automorphism on ${\bar G}$, satisfying natural compatibility conditions with $\mu$; these compatibility conditions are explained below.
+Since the character sheaves that appear in this paper are not quite an
+instance of those defined by George Luzstig, who coined the term, we
+begin by explaining what we mean by `character sheaves' in this
+paper. Let $G$ be a smooth commutative group scheme locally of finite
+type over $\Fq$ \David{I think our notation is clearer if we use $k$
+  rather than $\Fq$}; $G$ need not be reductive, connected, nor of
+finite type over $\Fq$. Fix a prime $\ell$ that does not divide
+$q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq
+(\gcs{L},\mu,F)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf
+$\gcs{L}$ on the \'etale site of ${\bar G} \ceq G \times_{\Spec\Fq}
+\Spec{\bFq}$, locally constant of rank-$1$ on every connected
+component of ${\bar G}$, equipped with an isomorphism $\mu: m^*
+\gcs{L} \to \gcs{L}\boxtimes \gcs{L}$, where $m : G\times G \to G$ is
+the group operation for $G$, and an isomorphism $F : \Frob_{G}^*
+\gcs{L} \to \gcs{L}$, where $\Frob_{G}$ is the Frobenius automorphism
+on ${\bar G}$, satisfying natural compatibility conditions with $\mu$;
+these compatibility conditions are explained below.
 
-Character sheaves on $G$ form a category, denoted by $\CS(G)$. In fact, $\CS(G)$ is a rigid symmetric monoidal category, so isomorphism classes of character sheaves on $G$ form a group, denoted by $\CS(G)_{/\text{iso}}$; this is the Picard group of the category of character sheaves on $G$. Our application of character sheaves to characters of algebraic tori over non-Archimedean local fields rests on the Picard group of character sheaves on $G$, for certain smooth group schemes $G$.
+Character sheaves on $G$ form a category, denoted by $\CS(G)$. In
+fact, $\CS(G)$ is a rigid symmetric monoidal category, so isomorphism
+classes of character sheaves on $G$ form a group, denoted by
+$\CS(G)_{/\text{iso}}$; this is the Picard group of the category of
+character sheaves on $G$. Our application of character sheaves to
+characters of algebraic tori over non-Archimedean local fields rests
+on the Picard group of character sheaves on $G$, for certain smooth
+group schemes $G$.
 
-We now say a few words about the commutative group schemes locally of finite type over $\Fq$ that appear in our geometrization of admissible characters of algebraic tori over local fields. Let $K$ be a non-Archimedean local field with residual field $\Fq$; we place no restrictions on the characteristic of $K$ -- in particular, it may be $0$ or not. Write $\OK$ for ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$. 
-Let $T$ be an algebraic torus defined over $K$. Let $\TT$ be a N\'eron model for $T$; recall that this is a smooth group scheme locally of finite type over $\OK$. For each non-negative integer $d$, let $\GN{T}_d$ be the Greenberg transform of $\TT \otimes \OK/\pK^{d+1}$; the commutative group scheme $\GN{T}_d$ plays the r\^{o}le of $G$, above. 
+We now say a few words about the commutative group schemes locally of
+finite type over $\Fq$ that appear in our geometrization of admissible
+characters of algebraic tori over local fields. Let $K$ be a
+non-Archimedean local field with residual field $\Fq$; we place no
+restrictions on the characteristic of $K$ -- in particular, it may be
+$0$ or not. Write $\OK$ for ring of integers of $K$ and $\pK$ for the
+maximal ideal in $\OK$.  Let $T$ be an algebraic torus defined over
+$K$. Let $\TT$ be a N\'eron model for $T$; recall that this is a
+smooth group scheme locally of finite type over $\OK$. For each
+non-negative integer $d$, let $\GN{T}_d$ be the Greenberg transform of
+$\TT \otimes \OK/\pK^{d+1}$; the commutative group scheme $\GN{T}_d$
+plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
 \[
@@ -154,10 +208,18 @@ The main result of this paper is a canonical isomorphism
 \iso
 \Hom_{\leq d}(T(K),\EE^\times)
 \] 
-between the Picard group of the category of character sheaves on $\textswab{T}_d$ and the group of characters $T(K) \to \EE^\times$ of depth at most $d$.
-Since these isomorphisms are compatible with respect to $d$, we also .....
-\Clifton{I'll come back to working on this when we're closer to being finished. I'd be just as happy if you took this cup from my lips, though.} 
-In particular, by specializing to the case $T= \mathbb{G}_{\hskip-1pt\text{m},K}$ and by choosing an isomorphism $\EE \approx \CC$ (unnatural though it may be), we arrive at a model for the group of quasi-characters of $K^\times$: the monoidal category of character sheaves on the Greenberg transform of the Neron model of $\mathbb{G}_{\hskip-2pt\text{m},K}$.
+between the Picard group of the category of character sheaves on
+$\textswab{T}_d$ and the group of characters $T(K) \to \EE^\times$ of
+depth at most $d$.  Since these isomorphisms are compatible with
+respect to $d$, we also .....  \Clifton{I'll come back to working on
+  this when we're closer to being finished. I'd be just as happy if
+  you took this cup from my lips, though.}  In particular, by
+specializing to the case $T= \mathbb{G}_{\hskip-1pt\text{m},K}$ and by
+choosing an isomorphism $\EE \approx \CC$ (unnatural though it may
+be), we arrive at a model for the group of quasi-characters of
+$K^\times$: the monoidal category of character sheaves on the
+Greenberg transform of the Neron model of
+$\mathbb{G}_{\hskip-2pt\text{m},K}$.
 
 
 Structure of the paper:
@@ -171,93 +233,197 @@ Thanks to:
 %\input{category}
 %\subsection*{Smooth commutative group schemes}
 
-Throughout this paper, $G$ stands for a commutative group scheme, smooth and locally of finite type over a finite field $\Fq$; we write $m : G\tightertimes G\to G$ for the multiplication morphism. We fix an algebraic closure $\bFq$ of $\Fq$ and write ${\bar G} $ for the commutative group scheme, smooth and locally of finite type over $\bFq$ obtained by base change; the multiplication morphism for ${\bar G}$ will be denoted by ${\bar m}$. Let $\Frob_{G}$ (resp. $\Frob_{G\tighttimes G}$) be the Frobenius automorphism of ${\bar G}$ (resp. ${\bar G}\tightertimes {\bar G}$).\Clifton{I'll insert a reference to SGA where Frobenius is defined for a large class of schemes over finite fields.}
+Throughout this paper, $G$ stands for a commutative group scheme,
+smooth and locally of finite type over a finite field $\Fq$; we write
+$m : G\tightertimes G\to G$ for the multiplication morphism. We fix an
+algebraic closure $\bFq$ of $\Fq$ and write ${\bar G} $ for the
+commutative group scheme, smooth and locally of finite type over
+$\bFq$ obtained by base change; the multiplication morphism for
+${\bar G}$ will be denoted by ${\bar m}$. Let $\Frob_{G}$
+(resp. $\Frob_{G\tighttimes G}$) be the Frobenius automorphism of
+${\bar G}$ (resp. ${\bar G}\tightertimes {\bar G}$).
+\Clifton{I'll insert a reference to SGA where Frobenius is defined for
+  a large class of schemes over finite fields.}
 
 %\subsection*{The category of character sheaves}
 
-The category of character sheaves on $G$, denoted by \cdef{$\CS(G)$}, is defined as follows.
-A \cdef{character sheaf} on $G$ is a triple $\cs{L}\ceq (\gcs{L},\mu,F)$ where: 
+The category of character sheaves on $G$, denoted by \cdef{$\CS(G)$},
+is defined as follows.  A \cdef{character sheaf} on $G$ is a triple
+$\cs{L}\ceq (\gcs{L},\mu,F)$ where:
 \begin{enumerate}
-\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic sheaf on (the \'etale site of) ${\bar G}$, locally constant of rank $1$ on connected components of ${\bar G}$; 
-\labitem{(CS.1)}{CS.1} $\mu: {\bar m}^* \gcs{L} \to  \gcs{L}\boxtimes \gcs{L}$ is an isomorphism of sheaves on ${\bar G}\tightertimes {\bar G}$ such that
-\[
-\xymatrix{
-{\bar m}_3^*\gcs{L} \ar[rr]^{({\bar m}\times \id)^*\mu} \ar[d]_{(\id\tightertimes {\bar m})^*\mu}   &&  {\bar m}^*\gcs{L}\boxtimes \gcs{L} \ar[d]^{\mu \boxtimes \id} \\
-\gcs{L} \boxtimes {\bar m}^* \gcs{L} \ar[rr] & &  \gcs{L} \boxtimes\gcs{L} \boxtimes \gcs{L}\\
-}
-\]
-commutes, where $m_3 \ceq m\circ (m\tightertimes\id) = m\circ (\id\tighttimes m)$;
-\labitem{(CS.2)}{CS.2} $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ is an isomorphism of sheaves on ${\bar G}$ compatible with $\mu$ in the sense that 
-\[
-\xymatrix{
-\Frob_{G\tighttimes G}^* {\bar m}^* \gcs{L} \ar[rr]^{\Frob_{G\tighttimes G}^*\mu} && \Frob_{G\tighttimes G}^*(\gcs{L}\boxtimes \gcs{L})\\
-\ar@{=}[u] {\bar m}^*  \Frob_{G}^* \gcs{L} \ar[d]_{{\bar m}^* F} && \ar[d]^{F\boxtimes F} \ar@{=}[u] \Frob_{G}^*\gcs{L}\boxtimes \Frob_{G}^*\gcs{L}\\
-{\bar m}^*\gcs{L} \ar[rr]^{\mu} && \gcs{L} \boxtimes\gcs{L}\\
-}
-\]
-commutes.
+\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic
+  sheaf on (the \'etale site of) ${\bar G}$, locally constant of rank
+  $1$ on connected components of ${\bar G}$;
+
+\labitem{(CS.1)}{CS.1} $\mu: {\bar m}^* \gcs{L} \to \gcs{L}\boxtimes \gcs{L}$
+  is an isomorphism of sheaves on ${\bar G}\tightertimes {\bar G}$ such that
+
+  \[
+  \xymatrix{
+    {\bar m}_3^*\gcs{L} \ar[rr]^{({\bar m}\times \id)^*\mu} \ar[d]_{(\id\tightertimes {\bar m})^*\mu}
+    &&  {\bar m}^*\gcs{L}\boxtimes \gcs{L} \ar[d]^{\mu \boxtimes \id} \\
+    \gcs{L} \boxtimes {\bar m}^* \gcs{L} \ar[rr]
+    &&  \gcs{L} \boxtimes\gcs{L} \boxtimes \gcs{L}\\
+  }
+  \]
+  commutes, where $m_3 \ceq m\circ (m\tightertimes\id) = m\circ (\id\tighttimes m)$;
+
+\labitem{(CS.2)}{CS.2} $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ is an
+  isomorphism of sheaves on ${\bar G}$ compatible with $\mu$ in the sense that
+
+  \[
+  \xymatrix{
+    \Frob_{G\tighttimes G}^* {\bar m}^* \gcs{L} \ar[rr]^{\Frob_{G\tighttimes G}^*\mu}
+    && \Frob_{G\tighttimes G}^*(\gcs{L}\boxtimes \gcs{L})\\
+    \ar@{=}[u] {\bar m}^*  \Frob_{G}^* \gcs{L} \ar[d]_{{\bar m}^* F}
+    && \ar[d]^{F\boxtimes F} \ar@{=}[u] \Frob_{G}^*\gcs{L}\boxtimes \Frob_{G}^*\gcs{L}\\
+    {\bar m}^*\gcs{L} \ar[rr]^{\mu}
+    && \gcs{L} \boxtimes\gcs{L}\\
+  }
+  \]
+  commutes.
 \end{enumerate}
 Morphisms in $\CS(G)$ are defined in the natural way:
 \begin{enumerate}
-\labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,F)$ and $\cs{L'} = (\gcs{L'},\mu',F')$ are character sheaves on $G$ then $\Hom(\cs{L},\cs{L'})$ is the set of morphisms $\varphi : \gcs{L} \to \gcs{L'}$ of constructible $\ell$-adic sheaves on ${\bar G}$ such
-\[
-\xymatrix{
-\ar[d]_{F} \Frob_G^* \gcs{L} \ar[r]^{\Frob_G^* \varphi} & \ar[d]^{F'} \Frob_G^* \gcs{L'} &\text{and}& \ar[d]_{\mu} m^* \gcs{L} \ar[r]^{m^* \varphi} & \ar[d]^{\mu'} m^* \gcs{L'} \\
-\gcs{L} \ar[r]^{\varphi} & \gcs{L'} && \gcs{L}\boxtimes\gcs{L} \ar[r]^{\varphi\boxtimes \varphi} & \gcs{L'} \boxtimes \gcs{L'}\\
-}
-\]
-both commute.
-\end{enumerate} 
+\labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,F)$ and
+  $\cs{L'} = (\gcs{L'},\mu',F')$ are character sheaves on $G$ then
+  $\Hom(\cs{L},\cs{L'})$ is the set of morphisms $\varphi : \gcs{L} \to \gcs{L'}$
+  of constructible $\ell$-adic sheaves on ${\bar G}$ such then
+  \[
+  \xymatrix{
+  \ar[d]_{F} \Frob_G^* \gcs{L} \ar[r]^{\Frob_G^* \varphi} & \ar[d]^{F'} \Frob_G^* \gcs{L'}
+  & \text{and}& \ar[d]_{\mu} m^* \gcs{L} \ar[r]^{m^* \varphi} & \ar[d]^{\mu'} m^* \gcs{L'} \\
+  \gcs{L} \ar[r]^{\varphi} & \gcs{L'}
+  && \gcs{L}\boxtimes\gcs{L} \ar[r]^{\varphi\boxtimes \varphi} & \gcs{L'} \boxtimes \gcs{L'}\\
+  }
+  \]
+  both commute.
+\end{enumerate}
 
 %\subsection*{The Picard group of character sheaves}
 
 %\begin{proposition}\label{tensor}
-The category $\CS(G)$ of character sheaves on $G$ is a rigid monoidal category [insert reference] under $\cs{L} \otimes \cs{L'} \ceq (\gcs{L}\otimes\gcs{L'},  \mu\otimes\mu', F\otimes F')$ with duals formed by applying the functor $\sheafHom(\ - \ ,(\EE)_{\bar G})$ to conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}. 
+The category $\CS(G)$ of character sheaves on $G$ is a rigid monoidal
+category [insert reference] under
+$\cs{L} \otimes \cs{L'} \ceq (\gcs{L}\otimes\gcs{L'}, \mu\otimes\mu', F\otimes F')$
+with duals formed by applying the functor $\sheafHom(\ - \ ,(\EE)_{\bar G})$ to
+conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}.
 %\end{proposition}
-(The category of characters sheaves on $G$ is not abelian, so $\CS(G)$ is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
+(The category of characters sheaves on $G$ is not abelian, so $\CS(G)$
+is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
 %\begin{proof}\end{proof}
 %
-This rigid monoidal category structure for $\CS(G)$ puts a group structure on the set $\CS(G)_{/\text{iso}}$ of isomorphism classes in $\CS(G)$; we refer to this as the \cdef{Picard group} of character sheaves on $G$; {\it cf.} {\tt http://ncatlab.org/nlab/show/Picard+group}. \Clifton{Replace ncatlab with other references.}
+This rigid monoidal category structure for $\CS(G)$ puts a group
+structure on the set $\CS(G)_{/\text{iso}}$ of isomorphism classes in
+$\CS(G)$; we refer to this as the \cdef{Picard group} of character
+sheaves on $G$; {\it cf.} {\tt http://ncatlab.org/nlab/show/Picard+group}.
+\Clifton{Replace ncatlab with other references.}
 
 %\subsection*{Trace of Frobenius}\label{sec:Frob}
 
-Let $\cs{L}$ be a character sheaf on $G$. Every $g\in G(\Fq)$ determines a point ${\bar g}$ on ${\bar G}$ fixed by $\Frob_G$ and therefore an automorphism $F_{\bar g}$ of $\gcs{L}_{\bar g}$. Note that $\Aut_{\EE}(\gcs{L}_{\bar g}) \iso \EE^\times$, canonically (this follows from second condition appearing in the definition of character sheaves). The isomorphism $\mu : {\bar m}^* \gcs{L} \to \gcs{L}\boxtimes\gcs{L}$ guarantees that the function $t^\Frob_\cs{L} : G(\Fq)\to \EE^\times$, defined by $g \mapsto F_{\bar g}$, is a group homomorphism; we refer to $t^\Frob_\cs{L}$ as the \cdef{trace of Frobenius of $\cs{L}$}.\Clifton{There is no actual trace involved, since $\gcs{L}$ is a rank $1$ local system. More generally, trace is needed.} 
-%
-It is clear that $t^\Frob_{\cs{L}\otimes \cs{L'}} = t^\Frob_\cs{L} \cdot t^\Frob_\cs{L'}$ (pointwise multiplication of functions) and that $t^\Frob_\cs{L} = t^\Frob_\cs{L'}$ if $\cs{L} \iso \cs{L'}$ in $\CS(G)$. In this way we obtain a group homomorphism 
+Let $\cs{L}$ be a character sheaf on $G$. Every $g\in G(\Fq)$
+determines a point ${\bar g}$ on ${\bar G}$ fixed by $\Frob_G$ and
+therefore an automorphism $F_{\bar g}$ of $\gcs{L}_{\bar g}$. Note
+that $\Aut_{\EE}(\gcs{L}_{\bar g}) \iso \EE^\times$, canonically (this
+follows from second condition appearing in the definition of character
+sheaves). The isomorphism $\mu : {\bar m}^* \gcs{L} \to \gcs{L}\boxtimes\gcs{L}$
+guarantees that the function $t^\Frob_\cs{L} : G(\Fq)\to \EE^\times$,
+defined by $g \mapsto F_{\bar g}$, is a group homomorphism;
+we refer to $t^\Frob_\cs{L}$ as the \cdef{trace of Frobenius of $\cs{L}$}.
+\Clifton{There is no actual trace involved, since $\gcs{L}$ is a rank
+  $1$ local system. More generally, trace is needed.}
+
+It is clear that $t^\Frob_{\cs{L}\otimes \cs{L'}} = t^\Frob_\cs{L} \cdot t^\Frob_\cs{L'}$
+(pointwise multiplication of functions) and that $t^\Frob_\cs{L} = t^\Frob_\cs{L'}$
+if $\cs{L} \iso \cs{L'}$ in $\CS(G)$. In this way we obtain a group homomorphism
 \[
-\cdef{t_{G}} : \CS(G)_{/\text{iso}} \longrightarrow \Hom_\text{grp}(G(\Fq),\EE^\times), \qquad \text{defined by}\qquad 
-\cs{L} \mapsto t^\Frob_\cs{L},
+\cdef{t_{G}} : \CS(G)_{/\text{iso}} \longrightarrow \Hom_\text{grp}(G(\Fq),\EE^\times),
+\qquad \text{defined by}\qquad \cs{L} \mapsto t^\Frob_\cs{L},
 \]
 from the Picard group of character sheaves on $G$ to the character group of $G(\Fq)$.
 
-Our main result on the geometrization of admissible characters of $p$-adic tori [insert internal reference here] follows from a general fact established later in this paper: if the geometric component group of $G$ is finitely-generated then the trace of Frobenius defines an isomorphism from the Picard group of character sheaves $G$ to the group of characters of $G(\Fq)$ (here, as throughout the paper, $G$ is a commutative group scheme, smooth and locally of finite type over $\Fq$).
+Our main result on the geometrization of admissible characters of
+$p$-adic tori [insert internal reference here] follows from a general
+fact established later in this paper: if the geometric component group
+of $G$ is finitely-generated then the trace of Frobenius defines an
+isomorphism from the Picard group of character sheaves $G$ to the
+group of characters of $G(\Fq)$ (here, as throughout the paper, $G$ is
+a commutative group scheme, smooth and locally of finite type over $\Fq$).
 
 %\subsection*{Pull-back of character sheaves}\label{subsection:pullback}
 
 \begin{proposition}\label{prop:pullback}
-If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then $(\gcs{L},\mu,F) \mapsto ({\bar f}^*\gcs{L},({\bar f}\tightertimes{\bar f})^*\mu,{\bar f}^*F)$ defines a monoidal functor $f^* : \CS(G) \to \CS(H)$ such that
-\[
-\xymatrix{
-\CS(G)_{/\text{iso}} \ar[r]^{f^*} \ar[d]^{t_{G}} &  \ar[d]^{t_{H}} \CS(H)_{/\text{iso}}\\
-\Hom_\text{grp}(G(\Fq),\EE^\times) \ar[r] & \Hom_\text{grp}(H(\Fq),\EE^\times)
-}
-\]
-is a commutative diagram of groups, where the lower homomorphism is dual to $f : H(\Fq)\to G(\Fq)$.  Moreover, $(f\circ g)^* = g^* \circ f^*$.
+  If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
+  $(\gcs{L},\mu,F) \mapsto ({\bar f}^*\gcs{L},({\bar f}\tightertimes{\bar f})^*\mu,{\bar f}^*F)$
+  defines a monoidal functor $f^* : \CS(G) \to \CS(H)$ such that
+  \[
+  \xymatrix{
+  \CS(G)_{/\text{iso}} \ar[r]^{f^*} \ar[d]^{t_{G}} &  \ar[d]^{t_{H}} \CS(H)_{/\text{iso}}\\
+  \Hom_\text{grp}(G(\Fq),\EE^\times) \ar[r] & \Hom_\text{grp}(H(\Fq),\EE^\times)
+  }
+  \]
+  is a commutative diagram of groups, where the lower homomorphism is
+  dual to $f : H(\Fq)\to G(\Fq)$.  Moreover, $(f\circ g)^* = g^* \circ f^*$.
 \end{proposition}
 
 \begin{proof}
-Let $\cs{L}$ be a character sheaf on $G$. We start by showing that ${\bar f}^*\gcs{L}$ is locally constant on connected components of ${\bar H}$. Let $c_j :{\bar H}^j \hookrightarrow {\bar H}$ be any connected component and let $i$ be the image of $j$ under the group homomorphism $\pi_0({\bar G}) \to \pi_0({\bar H})$ obtained by applying the functor $\pi_0$ to ${\bar f}$; see \cite{vdG&M}*{III, 3.28}, for example.\Clifton{Replace with a better reference, eventually.}  Write $c_i : \bar{G}^i \hookrightarrow \bar{G}$ for the inclusion of $\bar{G}^i$ and ${\bar f}^j : {\bar H}^j \to {\bar G}^i$ for the restriction of $f$ to $\bar{H}^j$.  Since $\cs{L}$ is a character sheaf, $\gcs{L}$ is locally constant on the connect components of ${\bar G}$; thus, there is a finite etale covering $a_i : X_i \to {\bar G}^i$ such that $a_i^* (\gcs{L}\vert_{\bar G^i})$ is constant. Let $b_j : Y_j \to {\bar H}^j$ be the pull-back of $a_i$ along ${\bar f}^j$; let $g_j : Y_j \to X_i$ be the map opposite ${\bar f}^j$. Then $b_j$ is a finite etale covering of ${\bar H}^j$ and 
-\[
-b_j^* \left( ({\bar f}^* \gcs{L})\vert_{{\bar H}^j}\right) = ({\bar f}\circ c_j \circ b_j)^*\gcs{L} = (c_i\circ a_i\circ g_j)^*\gcs{L} = g_j^* a_i^* (\gcs{L}\vert_{\bar G^i}).
-\]
-Since $a_i^* (\gcs{L}\vert_{\bar G^i})$ is a constant sheaf and since the pull-back of a constant sheaf (along $g_j$, in this case) is a constant sheaf, it follows that $b_j^* \left( ({\bar f}^* \gcs{L})\vert_{{\bar H}^j}\right)$ is a constant sheaf. Thus, ${\bar f}^*\gcs{L}$ is locally constant on ${\bar H}^j$. Since $({\bar f}^*\gcs{L})_{\bar g} = \gcs{L}_{f({\bar g})}$ for every geometric point ${\bar g}$ on ${\bar G}$, and since $\gcs{L}$ has rank $1$ on connected components of ${\bar G}$, it follows that $f^*\gcs{L}$ also has rank $1$ on connected components of ${\bar G}$. This completes the proof that ${\bar f}^*\gcs{L}$ satisfies condition \ref{CS.0}.
+  Let $\cs{L}$ be a character sheaf on $G$. We start by showing that
+  ${\bar f}^*\gcs{L}$ is locally constant on connected components of
+  ${\bar H}$. Let $c_j :{\bar H}^j \hookrightarrow {\bar H}$ be any
+  connected component and let $i$ be the image of $j$ under the group
+  homomorphism $\pi_0({\bar G}) \to \pi_0({\bar H})$ obtained by
+  applying the functor $\pi_0$ to ${\bar f}$; see \cite{vdG&M}*{III, 3.28}, for example.
+  \Clifton{Replace with a better reference, eventually.}
+  Write $c_i : \bar{G}^i \hookrightarrow \bar{G}$ for
+  the inclusion of $\bar{G}^i$ and ${\bar f}^j : {\bar H}^j \to {\bar G}^i$
+  for the restriction of $f$ to $\bar{H}^j$.  Since $\cs{L}$
+  is a character sheaf, $\gcs{L}$ is locally constant on the connect
+  components of ${\bar G}$; thus, there is a finite etale covering
+  $a_i : X_i \to {\bar G}^i$ such that $a_i^* (\gcs{L}\vert_{\bar G^i})$
+  is constant. Let $b_j : Y_j \to {\bar H}^j$ be the
+  pull-back of $a_i$ along ${\bar f}^j$; let $g_j : Y_j \to X_i$ be
+  the map opposite ${\bar f}^j$. Then $b_j$ is a finite etale covering
+  of ${\bar H}^j$ and
+  \[
+  b_j^* \left( ({\bar f}^* \gcs{L})\vert_{{\bar H}^j}\right)
+  = ({\bar f}\circ c_j \circ b_j)^*\gcs{L}
+  = (c_i\circ a_i\circ g_j)^*\gcs{L} = g_j^* a_i^* (\gcs{L}\vert_{\bar G^i}).
+  \]
 
-To see that $({\bar f}\tightertimes {\bar f})^* \gcs{L}$ satisfies condition \ref{CS.1} simply apply the functor $({\bar f}\tightertimes {\bar f})^*$ to \ref{CS.1} for $\cs{L}$ and use the canonical isomorphism $({\bar f}\tightertimes {\bar f})^*( \gcs{L} \boxtimes\gcs{L}) \iso  {\bar f}^*\gcs{L} \boxtimes {\bar f}^*\gcs{L}$ (a few times). Likewise, to see that ${\bar f}^*\gcs{L}$ satisfies condition \ref{CS.2}, apply the same functor to \ref{CS.2} for $\gcs{L}$. Then use the fact that $f$ is defined over $\Fq$, so $({\bar f}\tightertimes {\bar f})^* \Frob_{G\tighttimes G}^* \iso \Frob_{G\tighttimes G} ({\bar f}\tightertimes {\bar f})^*$, and the fact that $f$ is a morphism of group schemes, so $({\bar f}\tightertimes {\bar f})^* {\bar m}^* \iso {\bar m}^* {\bar f}^*$ (isomorphisms of functors on constructible sheaves).
-%
-To see that $(\gcs{L},\mu,F) \mapsto ({\bar f}^*\gcs{L},({\bar f}\tightertimes {\bar f})^*\mu,{\bar f}^*F)$ defines a functor $f^* : \CS(G) \to \CS(H)$ one applies the functors ${\bar f}^*$ and ${\bar f}^*\tightertimes{\bar f}^*$ to \ref{CS.3} and argue as above. It follows from the fact that sheaf hom commutes with these functors that $f^* : \CS(G) \to \CS(H)$ is a monoidal functor.
+  Since $a_i^* (\gcs{L}\vert_{\bar G^i})$ is a constant sheaf and since the pull-back
+  of a constant sheaf (along $g_j$, in this case) is a constant sheaf,
+  it follows that $b_j^* \left( ({\bar f}^*\gcs{L})\vert_{{\bar H}^j}\right)$
+  is a constant sheaf. Thus, ${\bar f}^*\gcs{L}$ is locally constant on
+  ${\bar H}^j$. Since $({\bar f}^*\gcs{L})_{\bar g} = \gcs{L}_{f({\bar g})}$ for every
+  geometric point ${\bar g}$ on ${\bar G}$, and since $\gcs{L}$ has
+  rank $1$ on connected components of ${\bar G}$, it follows that
+  $f^*\gcs{L}$ also has rank $1$ on connected components of ${\bar G}$.
+  This completes the proof that ${\bar f}^*\gcs{L}$ satisfies condition \ref{CS.0}.
 
-The fact that the functor $f^* : \CS(G) \to \CS(H)$ commutes with the trace of Frobenius, in the sense above, follows immediately from the definitions; see \cite{Laumon}*{1.1.1.2}, where the ambient hypothesis that $X$ is of finite type over $\Fq$ can be replaced by the hypothesis that $X$ is locally of finite type over $\Fq$.
-\Clifton{I have not proved $(f\circ g)^* = g^* \circ f^*$, yet.}
+  To see that $({\bar f}\tightertimes {\bar f})^* \gcs{L}$ satisfies
+  condition \ref{CS.1} simply apply the functor $({\bar f}\tightertimes {\bar f})^*$
+  to \ref{CS.1} for $\cs{L}$ and use the canonical isomorphism
+  $({\bar f}\tightertimes {\bar f})^*(\gcs{L} \boxtimes\gcs{L}) \iso {\bar f}^*\gcs{L} \boxtimes {\bar f}^*\gcs{L}$
+  (a few times). Likewise, to see that ${\bar f}^*\gcs{L}$ satisfies condition
+  \ref{CS.2}, apply the same functor to \ref{CS.2} for $\gcs{L}$.
+  Then use the fact that $f$ is defined over $\Fq$, so
+  $({\bar f}\tightertimes {\bar f})^*\Frob_{G\tighttimes G}^* \iso \Frob_{G\tighttimes G} ({\bar f}\tightertimes {\bar f})^*$,
+  and the fact that $f$ is a morphism of group schemes, so
+  $({\bar f}\tightertimes {\bar f})^* {\bar m}^*\iso {\bar m}^* {\bar f}^*$
+  (isomorphisms of functors on constructible sheaves).
+
+  To see that $(\gcs{L},\mu,F) \mapsto ({\bar f}^*\gcs{L},({\bar f}\tightertimes {\bar f})^*\mu,{\bar f}^*F)$
+  defines a functor $f^* : \CS(G) \to \CS(H)$ one applies the functors ${\bar f}^*$ and
+  ${\bar f}^*\tightertimes{\bar f}^*$ to \ref{CS.3} and argue as
+  above. It follows from the fact that sheaf hom commutes with these
+  functors that $f^* : \CS(G) \to \CS(H)$ is a monoidal functor.
+
+  The fact that the functor $f^* : \CS(G) \to \CS(H)$ commutes with
+  the trace of Frobenius, in the sense above, follows immediately from
+  the definitions; see \cite{Laumon}*{1.1.1.2}, where the ambient
+  hypothesis that $X$ is of finite type over $\Fq$ can be replaced by
+  the hypothesis that $X$ is locally of finite type over $\Fq$.
+  \Clifton{I have not proved $(f\circ g)^* = g^* \circ f^*$, yet.}
 \end{proof}
 
 
@@ -265,216 +431,437 @@ The fact that the functor $f^* : \CS(G) \to \CS(H)$ commutes with the trace of F
 
 %\input{connected-1}
 % !TEX encoding = UTF-8 Unicode
-%In this section we review a fundamental property of character sheaves on geometrically connected, commutative algebraic groups over $\Fq$. 
+%In this section we review a fundamental property of character
+%sheaves on geometrically connected, commutative algebraic groups over $\Fq$.
 
 \begin{proposition}\label{prop:connected-1}
-If $G$ is a geometrically connected commutative algebraic group over $\Fq$ then 
-\[
-t_{G} : \CS(G)_{/\text{iso}} \to \Hom_\text{grp}(G(\Fq),\EE^\times),
-\]
-is an isomorphism of groups.
+  If $G$ is a geometrically connected commutative algebraic group over $\Fq$ then
+  \[
+  t_{G} : \CS(G)_{/\text{iso}} \to \Hom_\text{grp}(G(\Fq),\EE^\times),
+  \]
+  is an isomorphism of groups.
 \end{proposition}
 
 \begin{proof}
-We will prove this proposition by reducing it to the functions--sheaves dictionary \cite{Laumon}*{1.1}. The main point of this proof will therefore be to show that, {\it since $G$ is geometrically connected}, every character sheaf on $G$ descends to a local system on $G$ satisfying the analogue of \ref{CS.1} on $G$. 
+  We will prove this proposition by reducing it to the functions--sheaves dictionary
+  \cite{Laumon}*{1.1}. The main point of this proof will therefore be to show that,
+  {\it since $G$ is geometrically connected}, every character sheaf on $G$ descends to
+  a local system on $G$ satisfying the analogue of \ref{CS.1} on $G$.
 
-First, observe that the forgetful functor $(\gcs{L},\mu,F) \mapsto (\gcs{L},F)$ sends character sheaves on $G$ to Weil local systems on $G$ \cite{Deligne:Weil2}*{1.1.10} (by a Weil local system on $G$ we mean a Weil sheaf on $G$ which is a local system on ${\bar G}$). While is it not true that all Weil local systems on $G$ descend to sheaves on $G$, those that appear in the image of the forgetful functor from character sheaves do. 
+  First, observe that the forgetful functor $(\gcs{L},\mu,F) \mapsto (\gcs{L},F)$
+  sends character sheaves on $G$ to Weil local systems on
+  $G$ \cite{Deligne:Weil2}*{1.1.10} (by a Weil local system on $G$ we
+  mean a Weil sheaf on $G$ which is a local system on ${\bar G}$).
+  While is it not true that all Weil local systems on $G$
+  descend to sheaves on $G$, those that appear in the image of the
+  forgetful functor from character sheaves do.
 
-To see why this is so, consider the category \cdef{$\CS_0(G)$} of pairs $(\cs{L}_0,\mu_0)$ where $\cs{L}_0$ is a local system on $G$ and $\mu_0: m^*\cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ satisfies condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$ are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}. \David{Should we move this definition since it will be important elsewhere?} Let $b : {\bar G} \to G$ be base change (pull-back of $G\to \Spec{\Fq}$ along $\Spec{\bFq} \to \Spec{\Fq}$). The proof of Proposition~\ref{prop:pullback} adapts (simplifies, in fact) to show that  $b^* : \CS_0(G) \to \CS(G)$ is a monoidal functor. This functor is fully faithful; see \cite{SGA7.2}*{Expos\'e XIII} and \cite{BBD}*{Prop. 5.2.1}.  We will show that $b^*$ is essentially surjective. 
+  To see why this is so, consider the category \cdef{$\CS_0(G)$} of
+  pairs $(\cs{L}_0,\mu_0)$ where $\cs{L}_0$ is a local system on $G$
+  and $\mu_0: m^*\cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ satisfies
+  condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$
+  are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}.
+  \David{Should we move this definition since it will be important elsewhere?}
+  Let $b : {\bar G} \to G$ be base change
+  (pull-back of $G\to \Spec{\Fq}$ along $\Spec{\bFq} \to \Spec{\Fq}$).
+  The proof of Proposition~\ref{prop:pullback} adapts
+  (simplifies, in fact) to show that $b^* : \CS_0(G) \to \CS(G)$ is a
+  monoidal functor. This functor is fully faithful; see
+  \cite{SGA7.2}*{Expos\'e XIII} and \cite{BBD}*{Prop. 5.2.1}.  We will
+  show that $b^*$ is essentially surjective.
 
-Let $g$ be any $\Fq$-rational point on $G$ (such as the identity for $G$) and let ${\bar g}$ be the geometric point on $G$ lying above $g$ (we fixed $\Fq \hookrightarrow \bFq$ long ago). Since $G$ is geometrically connected, the geometric point ${\bar g}$ determines an equivalence between the category of Weil local systems on $G$ and $\ell$-adic representations of $\Weil(G,{\bar g})$ \cite{Deligne:Weil2}*{1.1.12}. Now let $(\gcs{L},\mu,F)$ be a character sheaf on $G$. Then the isomorphism class of the Weil local system $(\gcs{L},F)$ corresponds to an $\ell$-adic character of the Weil group $\Weil(G, {\bar g})$. The $\Fq$-rational point $g$ under the geometric point ${\bar g}$ determines a splitting $\Weil(\bFq/\Fq)\to  \Weil(G,{\bar g})$ of the exact sequence
-\[
-\xymatrix{
-1 \ar[r] & \pi_1({\bar G}, {\bar g}) \ar[r] &  \Weil(G,{\bar g}) \ar[r] & \ar@/_1pc/@{.>}[l]_{g} \Weil(\bFq/\Fq) \ar[r] & 1
-}
-\]
-In this way the Weil local system $(\gcs{L},F)$ determines an $\ell$-adic character
-\[
-t_{(\gcs{L},F)}(g) : \Weil(\bFq/\Fq) \to \EE^\times \qquad \text{defined by}\qquad \Frob \mapsto t^\Frob_{(\gcs{L},F)}(g)
-\]
-of the Weil group $\Weil(\bFq/\Fq)$; the image of $\Frob$ under this character is $t^\Frob_\cs{L}(g)$, the trace of Frobenius of $\cs{L}$ at $g$.
+  Let $g$ be any $\Fq$-rational point on $G$ (such as the identity for
+  $G$) and let ${\bar g}$ be the geometric point on $G$ lying above
+  $g$ (we fixed $\Fq \hookrightarrow \bFq$ long ago). Since $G$ is
+  geometrically connected, the geometric point ${\bar g}$ determines
+  an equivalence between the category of Weil local systems on $G$ and
+  $\ell$-adic representations of $\Weil(G,{\bar g})$
+  \cite{Deligne:Weil2}*{1.1.12}. Now let $(\gcs{L},\mu,F)$ be a
+  character sheaf on $G$. Then the isomorphism class of the Weil local
+  system $(\gcs{L},F)$ corresponds to an $\ell$-adic character of the
+  Weil group $\Weil(G, {\bar g})$. The $\Fq$-rational point $g$ under
+  the geometric point ${\bar g}$ determines a splitting
+  $\Weil(\bFq/\Fq)\to \Weil(G,{\bar g})$ of the exact sequence
+  \[
+  \xymatrix{
+    1 \ar[r] & \pi_1({\bar G}, {\bar g}) \ar[r] &  \Weil(G,{\bar g}) \ar[r]
+    & \ar@/_1pc/@{.>}[l]_{g} \Weil(\bFq/\Fq) \ar[r] & 1
+    }
+  \]
+  In this way the Weil local system $(\gcs{L},F)$ determines an $\ell$-adic character
+  \[
+  t_{(\gcs{L},F)}(g) : \Weil(\bFq/\Fq) \to \EE^\times \qquad \text{defined by}\qquad \Frob \mapsto t^\Frob_{(\gcs{L},F)}(g)
+  \]
+  of the Weil group $\Weil(\bFq/\Fq)$; the image of $\Frob$ under this
+  character is $t^\Frob_\cs{L}(g)$, the trace of Frobenius of $\cs{L}$ at $g$.
 
-On the other hand, we have already seen that $t^\Frob_\cs{L} : G(\Fq) \to \EE^\times$ is a group homomorphism. Since $G$ is an algebraic group over $\Fq$, it is a variety over $\Fq$, so finitely generated over $\Fq$, so $G(\Fq)$ is finite; it follows that $t^\Frob_\cs{L}(g) = t^\Frob_{(\gcs{L},F)}(g)$ is a root of unity, for every $g\in G(\Fq)$.  Since $\Weil(\bFq/\Fq)$ is generated by $\Frob$ and $t_{(\gcs{L},F)}(g) : \Weil(\bFq/\Fq) \to \EE^\times$ is a character, it follows that the image of $t_{(\gcs{L},F)}(g)$ is a finite subset of $\mu(\EE)$. Thus, $t_{(\gcs{L},F)}(g)$ extends to an $\ell$-adic character of $\Gal(\bFq/\Fq)$, which will be denoted by the same symbol.
-\[
-\xymatrix{
-1 \ar[r] & \ar@{=}[d] \pi_1({\bar G}, {\bar g}) \ar[r] & \ar[d] \Weil(G,{\bar g}) \ar[r] & \ar[d]  \Weil(\bFq/\Fq) \ar[r] & 1\\
-1 \ar[r] &  \pi_1({\bar G}, {\bar g}) \ar[r] & \pi_1(G,{\bar g}) \ar[r] & \Gal(\bFq/\Fq) \ar[r] & 1\\
-}
-\] 
+  On the other hand, we have already seen that $t^\Frob_\cs{L} : G(\Fq) \to \EE^\times$
+  is a group homomorphism. Since $G$ is an algebraic group over $\Fq$, it is a
+  variety over $\Fq$, so finitely generated over $\Fq$, so $G(\Fq)$ is finite;
+  it follows that $t^\Frob_\cs{L}(g) = t^\Frob_{(\gcs{L},F)}(g)$ is a root of unity,
+  for every $g\in G(\Fq)$.  Since $\Weil(\bFq/\Fq)$ is generated by
+  $\Frob$ and $t_{(\gcs{L},F)}(g) : \Weil(\bFq/\Fq) \to \EE^\times$ is
+  a character, it follows that the image of $t_{(\gcs{L},F)}(g)$ is a
+  finite subset of $\mu(\EE)$. Thus, $t_{(\gcs{L},F)}(g)$ extends to
+  an $\ell$-adic character of $\Gal(\bFq/\Fq)$, which will be denoted
+  by the same symbol.
+  \[
+  \xymatrix{
+    1 \ar[r] & \ar@{=}[d] \pi_1({\bar G}, {\bar g}) \ar[r] & \ar[d] \Weil(G,{\bar g}) \ar[r] & \ar[d]  \Weil(\bFq/\Fq) \ar[r] & 1\\
+    1 \ar[r] &  \pi_1({\bar G}, {\bar g}) \ar[r] & \pi_1(G,{\bar g}) \ar[r] & \Gal(\bFq/\Fq) \ar[r] & 1\\
+    }
+  \]
 
-We may now lift the $\ell$-adic character $t_{(\gcs{L},F)}(g) : \Gal(\bFq/\Fq) \to \EE^\times$ to an $\ell$-adic character of $\pi_1(G,{\bar g})$ using the canonical topological group map $\pi_1(G,{\bar g}) \to \Gal(\bFq/\Fq)$, above. But ${\bar g}$ also determines an equivalence between the category of $\ell$-adic representations of $\pi_1(G,{\bar g})$ and local systems on $G$. Let $\cs{L}_0$ be a local system on $G$ in the isomorphism class determined by this $\ell$-adic character of $\pi_1(G,{\bar g})$. Then $b^*\cs{L}_0 \iso \gcs{L}$, so $b^*$ is essentially surjective.
+  We may now lift the $\ell$-adic character $t_{(\gcs{L},F)}(g) : \Gal(\bFq/\Fq) \to \EE^\times$
+  to an $\ell$-adic character of $\pi_1(G,{\bar g})$ using the canonical topological group map
+  $\pi_1(G,{\bar g}) \to \Gal(\bFq/\Fq)$, above. But ${\bar g}$ also
+  determines an equivalence between the category of $\ell$-adic
+  representations of $\pi_1(G,{\bar g})$ and local systems on $G$. Let
+  $\cs{L}_0$ be a local system on $G$ in the isomorphism class
+  determined by this $\ell$-adic character of $\pi_1(G,{\bar g})$.
+  Then $b^*\cs{L}_0 \iso \gcs{L}$, so $b^*$ is essentially surjective.
 
-We have now shown that $b^* : \CS_0(G) \to \CS(G)$ is an equivalence of  rigid monoidal categories. It follows immediately that $b^*$ determines an isomorphism 
-\[
-b^* : \CS_0(G)_{/\text{iso}} \mathop{\longrightarrow}^{\iso} \CS(G)_{/\text{iso}}
-\] 
-of the Picard groups determined by these rigid monoidal categories.
-\Clifton{\textdbend This last sentence glosses over some subtle points; I might need to address them in the `two perspectives' section.}
+  We have now shown that $b^* : \CS_0(G) \to \CS(G)$ is an equivalence
+  of rigid monoidal categories. It follows immediately that $b^*$
+  determines an isomorphism
+  \[
+  b^* : \CS_0(G)_{/\text{iso}} \mathop{\longrightarrow}^{\iso} \CS(G)_{/\text{iso}}
+  \]
+  of the Picard groups determined by these rigid monoidal categories.
+  \Clifton{\textdbend This last sentence glosses over some subtle points;
+    I might need to address them in the `two perspectives' section.}
 
-To finish the proof observe that the functions--sheaves dictionary, as it pertains to characters, shows that
-\[
-t_{G} : \CS_0(G)_{/\text{iso}}\to \Hom_\text{grp}(G(\Fq),\EE^\times)
-\]
-is an isomorphism of groups; see \cite{Laumon}*{1.1.3} or \cite{SGA4.5}*{Sommes trigonométriques}.
+  To finish the proof observe that the functions--sheaves dictionary,
+  as it pertains to characters, shows that
+  \[
+  t_{G} : \CS_0(G)_{/\text{iso}}\to \Hom_\text{grp}(G(\Fq),\EE^\times)
+  \]
+  is an isomorphism of groups; see \cite{Laumon}*{1.1.3} or \cite{SGA4.5}*{Sommes trigonométriques}.
 \end{proof}
 
 \section{Commutative etale group schemes}
 
 %\input{etale-1}
-%In this section we establish a fundamental property of character sheaves on commutative etale group schemes over $\Fq$ that are geometrically finitely generated. 
+%In this section we establish a fundamental property of character
+% sheaves on commutative etale group schemes over $\Fq$ that are
+% geometrically finitely generated.
 
 \begin{proposition}\label{prop:etale}
-If $G$ is a commutative \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely generated then there is a canonical isomorphism 
-\[
-\CS(G)_{/\text{iso}} \longrightarrow H^1(\Weil(\bFq/\Fq), \Hom_\text{grp}(G(\bFq),\EE^\times)),
-\qquad \text{given by}\qquad
-[\cs{L}] \mapsto [t_\cs{L}],
-\]
-where $t_\cs{L}: \Weil(\bFq/\Fq)\to \Hom_\text{grp}(G(\bFq),\EE^\times)$ is a cocycle such that 
-\[
-\forall g\in G(\Fq), \qquad t_\cs{L}(\Frob)(g) = t^\Frob_\cs{L}(g).
-\]
+  If $G$ is a commutative \'etale group scheme over $\Fq$ and
+  $G(\bFq)$ is finitely generated then there is a canonical
+  isomorphism
+  \[
+  \CS(G)_{/\text{iso}} \longrightarrow H^1(\Weil(\bFq/\Fq), \Hom_\text{grp}(G(\bFq),\EE^\times)),
+  \qquad \text{given by}\qquad
+  [\cs{L}] \mapsto [t_\cs{L}],
+  \]
+  where $t_\cs{L}: \Weil(\bFq/\Fq)\to \Hom_\text{grp}(G(\bFq),\EE^\times)$ is a cocycle such that
+  \[
+  \forall g\in G(\Fq), \qquad t_\cs{L}(\Frob)(g) = t^\Frob_\cs{L}(g).
+  \]
 \end{proposition}
 
 \begin{proof}
-To simplify notation, we set $W_\Fq \ceq \Weil(\bFq/\Fq)$ and $G(\bFq)^* \ceq \Hom_\text{grp}(G(\bFq),\EE^\times)$.
-Recall the equivalence between etale group schemes over $\Fq$ and the category of groups equipped with a continuous action of $\Gal(\bFq/\Fq)$ (for the discrete topology on the group), given by $G \mapsto G(\bFq)$. Under this equivalence any character sheaf $\cs{L} =(\gcs{L},\mu,F)$ on $G$ corresponds to: 
-\begin{enumerate}
-\labitem{(cs.0)}{cs.0} an indexed set of one-dimensional $\EE$-vector spaces $\gcs{L}_x \ceq x^*\gcs{L}$, as $x$ runs over $G(\bFq)$; 
-\labitem{(cs.1)}{cs.1} an indexed set of isomorphisms $\mu_{x,y}  \ceq (x \times y)^*\mu : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes \gcs{L}_{y}$, for all $x,y \in G(\bFq)$, such that
-\[
-\xymatrix{
-\gcs{L}_{x+y+z} \ar[rr]^{\mu_{x+y,z}} \ar[d]_{\mu_{x,y+z}}   &&  \gcs{L}_{x+y}\otimes \gcs{L}_{z} \ar[d]^{\mu_{x,y} \otimes \id} \\
-\gcs{L}_{x} \otimes \gcs{L}_{y+z} \ar[rr]^{\id \otimes \mu_{y,z}} & &  \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes \gcs{L}_{z}\\
-}
-\]
-commutes, for all $x,y,z\in G(\bFq)$; and 
-\labitem{(cs.2)}{cs.2} an indexed set of isomorphisms $F_{x} \ceq x^*F: \gcs{L}_{\Frob(x)} \to \gcs{L}_x$ 
-\Clifton{\textdbend There's hidden subtlety here too: maybe I should explain which Frobenius this is and how it acts. }
-such that
-\[
-\xymatrix{
- \gcs{L}_{\Frob(x)+\Frob(y)} \ar[d]_{F_{x+y}} \ar[rr]^{\mu_{\Frob(x),\Frob(y)}} &&\ar[d]^{F_x\otimes F_y}  \gcs{L}_{\Frob(x)}\otimes \gcs{L}_{\Frob(y)}\\
-\gcs{L}_{x+y} \ar[rr]^{\mu_{x,y}} && \gcs{L}_x \otimes\gcs{L}_y\\
-}
-\]
-commutes, for all $x,y\in G(\bFq)$.
-\end{enumerate}
-Under this equivalence, a map $\varphi : \cs{L} \to \cs{L'}$ of character sheaves on $G$ corresponds to:
-\begin{enumerate}
-\labitem{(cs.3)}{cs.3} an indexed set $\varphi_x \ceq x^*\varphi: \gcs{L}_x \to \gcs{L'}_x$ of linear transformations (of one-dimensional $\EE$-vector spaces), as $x$ runs over $G(\bFq)$, such that
-\[
-\xymatrix{
-\ar[d]_{F_x} \gcs{L}_{\Frob(x)} \ar[r]^{\varphi_{\Frob(x)}} & \ar[d]^{F_x'} \gcs{L'}_{\Frob(x)} &\text{and}& \ar[d]_{\mu} \gcs{L}_{x+y} \ar[r]^{\varphi_{x+y}} & \ar[d]^{\mu'_{x+y}} \gcs{L'}_{x+y} \\
-\gcs{L}_x \ar[r]^{\varphi_x} & \gcs{L'}_x && \gcs{L}_x\otimes\gcs{L}_y \ar[r]^{\varphi_x\otimes \varphi_y} & \gcs{L'}_x \otimes \gcs{L'}_y\\
-}
-\]
-both commute.
-\end{enumerate}
-It is clear that the category defined by conditions \ref{cs.0}, \ref{cs.1}, \ref{cs.2} and \ref{cs.3}, denoted by \cdef{$\CS(G(\bFq))$}, is equivalent to $\CS(G)$. We will prove the proposition by exhibiting an isomorphism between $\CS(G(\bFq))_{/\text{iso}}$ and $H^1(W_{\Fq}, G(\bFq)^*)$.
+  To simplify notation, we set $W_\Fq \ceq \Weil(\bFq/\Fq)$ and
+  $G(\bFq)^* \ceq \Hom_\text{grp}(G(\bFq),\EE^\times)$.  Recall the
+  equivalence between etale group schemes over $\Fq$ and the category
+  of groups equipped with a continuous action of $\Gal(\bFq/\Fq)$ (for
+  the discrete topology on the group), given by $G \mapsto G(\bFq)$.
+  Under this equivalence any character sheaf $\cs{L}=(\gcs{L},\mu,F)$
+  on $G$ corresponds to:
+  \begin{enumerate}
+  \labitem{(cs.0)}{cs.0} an indexed set of one-dimensional
+    $\EE$-vector spaces $\gcs{L}_x \ceq x^*\gcs{L}$, as $x$ runs over
+    $G(\bFq)$;
 
-To produce the isomorphism between $\CS(G(\bFq))_{/\text{iso}}$ and $H^1(W_{\Fq}, G(\bFq)^*)$ we must pick a global section of the line bundle $(\gcs{L},\mu)$, for each character sheaf $\cs{L}$ on $G$. We will show that the group isomorphism does not depend on these choices. 
+  \labitem{(cs.1)}{cs.1} an indexed set of isomorphisms
+    $\mu_{x,y} \ceq (x \times y)^*\mu : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes \gcs{L}_{y}$,
+    for all $x,y \in G(\bFq)$, such that
+    \[
+    \xymatrix{
+      \gcs{L}_{x+y+z} \ar[rr]^{\mu_{x+y,z}} \ar[d]_{\mu_{x,y+z}}
+      && \gcs{L}_{x+y}\otimes \gcs{L}_{z} \ar[d]^{\mu_{x,y} \otimes \id} \\
+      \gcs{L}_{x} \otimes \gcs{L}_{y+z} \ar[rr]^{\id \otimes \mu_{y,z}}
+      && \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes \gcs{L}_{z}\\
+      }
+    \]
+    commutes, for all $x,y,z\in G(\bFq)$; and
 
-First, however, we show that such global sections exist.
-Since $G(\bFq)$ is finitely-generated abelian, it admits a decomposition $G(\bFq) \iso G(\bFq)_\text{free} \oplus G(\bFq)_\text{tors}$ such that $G(\bFq)_\text{tors}$ is finite.
-Let $x_1, \ldots , x_r$ be a basis for the free part $G(\bFq)_\text{free}$ of $G(\bFq)$ and let $y_1, \ldots , y_t$ be a generators for the torsion part of $G(\bFq)$ corresponding to the decomposition $G(\bFq)_\text{tors} \iso \oplus_{j=1}^t \ZZ/m_j\ZZ$, with $m_j \vert m_{j+1}$. For each such $x_i$ pick $s(x_i)\in \gcs{L}_{x_i}$; for each such $y_j$ pick $s(y_j) \in \gcs{L}_{y_j}$; also set $s({\bar e}) \ceq 0 \in \gcs{L}_{\bar e}$. .... \Clifton{I'll finish this later.} In this way we define a section $s \ceq s_\cs{L} : G(\bFq) \to \coprod_{z\in G(\bFq)} \gcs{L}_z$ of projection $\coprod_{z\in G(\bFq)} \gcs{L}_z \to G(\bFq)$ such that 
-\begin{equation}\label{section}
-\forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
-\end{equation}
-Under the equivalence at the beginning of this section, $s = s_\cs{L}$ corresponds to a global section of the line bundle $(\gcs{L},\mu)$.
+  \labitem{(cs.2)}{cs.2} an indexed set of isomorphisms $F_{x} \ceq x^*F: \gcs{L}_{\Frob(x)} \to \gcs{L}_x$
+    \Clifton{\textdbend There's hidden subtlety here too: maybe I
+      should explain which Frobenius this is and how it acts. }
+    such that
+    \[
+    \xymatrix{
+      \gcs{L}_{\Frob(x)+\Frob(y)} \ar[d]_{F_{x+y}} \ar[rr]^{\mu_{\Frob(x),\Frob(y)}}
+      &&\ar[d]^{F_x\otimes F_y}  \gcs{L}_{\Frob(x)}\otimes \gcs{L}_{\Frob(y)}\\
+      \gcs{L}_{x+y} \ar[rr]^{\mu_{x,y}}
+      && \gcs{L}_x \otimes\gcs{L}_y\\
+      }
+    \]
+    commutes, for all $x,y\in G(\bFq)$.
+  \end{enumerate}
+  Under this equivalence, a map $\varphi : \cs{L} \to \cs{L'}$ of
+  character sheaves on $G$ corresponds to:
+  \begin{enumerate}
+  \labitem{(cs.3)}{cs.3} an indexed set $\varphi_x \ceq x^*\varphi: \gcs{L}_x \to \gcs{L'}_x$
+    of linear transformations (of one-dimensional $\EE$-vector spaces),
+    as $x$ runs over $G(\bFq)$, such that
+    \[
+    \xymatrix{
+      \ar[d]_{F_x} \gcs{L}_{\Frob(x)} \ar[r]^{\varphi_{\Frob(x)}} & \ar[d]^{F_x'} \gcs{L'}_{\Frob(x)}
+      &\text{and}& \ar[d]_{\mu} \gcs{L}_{x+y} \ar[r]^{\varphi_{x+y}} & \ar[d]^{\mu'_{x+y}} \gcs{L'}_{x+y} \\
+      \gcs{L}_x \ar[r]^{\varphi_x} & \gcs{L'}_x
+      && \gcs{L}_x\otimes\gcs{L}_y \ar[r]^{\varphi_x\otimes \varphi_y} & \gcs{L'}_x \otimes \gcs{L'}_y\\
+      }
+    \]
+    both commute.
+  \end{enumerate}
+  It is clear that the category defined by conditions \ref{cs.0},
+  \ref{cs.1}, \ref{cs.2} and \ref{cs.3}, denoted by
+  \cdef{$\CS(G(\bFq))$}, is equivalent to $\CS(G)$. We will prove the
+  proposition by exhibiting an isomorphism between
+  $\CS(G(\bFq))_{/\text{iso}}$ and $H^1(W_{\Fq}, G(\bFq)^*)$.
 
-We use the section $s_\cs{L}$ to define a cocycle $z_\cs{L} \in Z^1(W_\Fq,G(\bFq)^*)$ as follows. Recall that $\cs{L}$ also determines a family of linear transformations $F_x : \gcs{L}_{\Frob(x)} \to \gcs{L}_x$ of one-dimensional $\EE$-vector spaces,  so $F_x(s(\Frob(x)))$ is a scalar multiply of $s(x)$, for each $x\in G(\bFq)$; let $t_\cs{L}(\Frob)(x)$ be that scalar, so
-\begin{equation}\label{t}
-\forall x\in G(\bFq),\qquad F_{x}(s(\Frob(x)) = t_\cs{L}(\Frob)(x) s(x).
-\end{equation}
-Conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that the scalar $z_\cs{L}(\Frob)(x)$ is non-zero, while condition~\ref{cs.1} forces $t_\cs{L}(\Frob)(x+y) = t_\cs{L}(\Frob)(x) \ t_\cs{L}(\Frob)(y)$, for all $x,y \in G(\bFq)$. 
-%\Clifton{The alternative to this approach is to change the definition of character sheaves to incorporate the notion of Galois sheaves. That might not be so bad, but would add another layer of complication, which we wouldn't use profitably, expect here.} 
-Now $t_\cs{L} : W_\Fq \to G(\bFq)^*$ is defined, recursively, by $t_\cs{L}(\Frob^n) \ceq t_\cs{L}(\Frob)\cdot \,^\Frob t_\cs{L}(\Frob^{n-1})$, where $\Frob$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers to pointwise multiplication of functions. This gives
-\[
-\obj \CS(G(\bFq)) \longrightarrow Z^1(W_\Fq,G(\bFq)^*), \qquad \text{defined by} \qquad \cs{L} \mapsto t_\cs{L}.
-\]
+  To produce the isomorphism between $\CS(G(\bFq))_{/\text{iso}}$ and
+  $H^1(W_{\Fq}, G(\bFq)^*)$ we must pick a global section of the line
+  bundle $(\gcs{L},\mu)$, for each character sheaf $\cs{L}$ on $G$. We
+  will show that the group isomorphism does not depend on these
+  choices.
 
-Although we used a global section $s_\cs{L}$ in the definition of $t_\cs{L}$, the class of $t_\cs{L}$ does not depend on this choice. To see why, let $s_1$ and $s_2$ be two global sections of the line bundle $(\gcs{L},\mu)$, in the sense above and let $t_1$ and $t_2$ be the cocycles defined by $s_1$ and $s_2$, respectively, as above. Since, for each $x\in G(\bFq)$, $\gcs{L}_x$ is a one-dimensional $\EE$-vector space, there is a unique scalar $a(x) \in \EE$ such that $s_2(x) = a(x) s_1(x)$; moreover, $a(x)$ is non-zero, since $s_2(x)$ is non-zero. Then \eqref{section} and condition~\ref{cs.1} together imply $a(x+y) = a(x)a(y)$, so $a\in G(\bFq)^*$. Now consider the  coboundary $t_0 : W_\Fq \to G(\bFq)^*$ defined by $t_0(\Frob) = \,^\Frob a \cdot a^{-1}$. Then $t_2 = t_0 t_1$, so $t_2$ and $t_1$ are cohomologous. In this way we see that
-\begin{equation}\label{cohomologous}
-\obj \CS(G(\bFq)) \longrightarrow H^1(W_\Fq,G(\bFq)^*), \qquad \text{defined by} \qquad \cs{L} \mapsto [t_\cs{L}],
-\end{equation}
-is independent of the choice of global sections made above.
+  First, however, we show that such global sections exist.  Since
+  $G(\bFq)$ is finitely-generated abelian, it admits a decomposition
+  $G(\bFq) \iso G(\bFq)_\text{free} \oplus G(\bFq)_\text{tors}$ such
+  that $G(\bFq)_\text{tors}$ is finite.  Let $x_1, \ldots , x_r$ be a
+  basis for the free part $G(\bFq)_\text{free}$ of $G(\bFq)$ and let
+  $y_1, \ldots , y_t$ be a generators for the torsion part of
+  $G(\bFq)$ corresponding to the decomposition
+  $G(\bFq)_\text{tors} \iso \oplus_{j=1}^t \ZZ/m_j\ZZ$, with
+  $m_j \vert m_{j+1}$. For each such $x_i$ pick $s(x_i)\in \gcs{L}_{x_i}$;
+  for each such $y_j$ pick $s(y_j) \in \gcs{L}_{y_j}$; also set
+  $s({\bar e}) \ceq 0 \in \gcs{L}_{\bar e}$. ....
+  \Clifton{I'll finish this later.}
+  In this way we define a section
+  $s \ceq s_\cs{L} : G(\bFq) \to \coprod_{z\in G(\bFq)} \gcs{L}_z$ of
+  projection $\coprod_{z\in G(\bFq)} \gcs{L}_z \to G(\bFq)$ such that
 
-We now show that the function $\obj \CS(G(\bFq)) \longrightarrow H^1(W_\Fq,G(\bFq)^*)$ factors through $\obj \CS(G(\bFq)) \to \CS(G(\bFq))_{/\text{iso}}$. To see this, let $\varphi : \cs{L} \to \cs{L'}$ be an isomorphism and let $t$ and $t'$ be any cocycles representing the classes in the image of $\cs{L}$ and $\cs{L'}$ under \eqref{cohomologous}; by construction, $t$ and $t'$ are defined by sections $s$ and $s'$. Now, $\varphi_x(s(x))$ is a non-zero scalar multiple of $s'(x)$; define $\phi: G(\bFq) \to \EE^\times$ by $\varphi_x(s(x)) = \phi(x) s'(x)$. By the second part of condition~\ref{cs.3}, $\phi(x+y) = \phi(x)\phi(y)$, so $\phi \in G(\bFq)^*$. By the first part of condition~\ref{cs.3}, $t'(\Frob) = t(\Frob) \cdot (\,^{\Frob^{-1}}\phi \cdot \phi^{-1})$, so $t$ and $t'$ are cohomologous. This concludes the definition of 
-\begin{equation}\label{pich1}
- \CS(G(\bFq)_{/\text{iso}} \longrightarrow H^1(W_\Fq,G(\bFq)^*), \qquad \text{defined by} \qquad [\cs{L}] \mapsto [t_\cs{L}].
-\end{equation}
-Now it follows from \eqref{t} that the image of the isomorphism class of $\cs{L}$ is indeed represented by a cocycle $t_\cs{L}$ such that $t_\cs{L}(\Frob) = t^\Frob_\cs{L}$ on $G(\Fq)$, which is to say, when evaluated at $\Frob$, the cocycle $t_\cs{L}$ is an extension of the trace of Frobenius of $\cs{L}$.
+  \begin{equation}\label{section}
+    \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
+  \end{equation}
+  Under the equivalence at the beginning of this section, $s = s_\cs{L}$
+  corresponds to a global section of the line bundle $(\gcs{L},\mu)$.
 
-It only remains to show that \eqref{pich1} is a group isomorphism. This is straightforward.
-\Clifton{Straightforward, yes, but it still needs to be written down here.}
+  We use the section $s_\cs{L}$ to define a cocycle $z_\cs{L} \in Z^1(W_\Fq,G(\bFq)^*)$
+  as follows. Recall that $\cs{L}$ also determines a family of linear transformations
+  $F_x : \gcs{L}_{\Frob(x)} \to \gcs{L}_x$ of one-dimensional $\EE$-vector
+  spaces, so $F_x(s(\Frob(x)))$ is a scalar multiply of $s(x)$, for
+  each $x\in G(\bFq)$; let $t_\cs{L}(\Frob)(x)$ be that scalar, so
+  \begin{equation}\label{t}
+    \forall x\in G(\bFq),\qquad F_{x}(s(\Frob(x)) = t_\cs{L}(\Frob)(x) s(x).
+  \end{equation}
+  Conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
+  the scalar $z_\cs{L}(\Frob)(x)$ is non-zero, while condition~\ref{cs.1} forces
+  $t_\cs{L}(\Frob)(x+y) = t_\cs{L}(\Frob)(x) \ t_\cs{L}(\Frob)(y)$,
+  for all $x,y \in G(\bFq)$.
+  % \Clifton{The alternative to this approach is to change the
+  %   definition of character sheaves to incorporate the notion of
+  %   Galois sheaves. That might not be so bad, but would add another
+  %   layer of complication, which we wouldn't use profitably, expect
+  %   here.}
+
+  Now $t_\cs{L} : W_\Fq \to G(\bFq)^*$ is defined, recursively, by
+  $t_\cs{L}(\Frob^n) \ceq t_\cs{L}(\Frob)\cdot \,^\Frob t_\cs{L}(\Frob^{n-1})$,
+  where $\Frob$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
+  to pointwise multiplication of functions. This gives
+  \[
+  \obj \CS(G(\bFq)) \longrightarrow Z^1(W_\Fq,G(\bFq)^*),
+  \qquad \text{defined by} \qquad \cs{L} \mapsto t_\cs{L}.
+  \]
+
+  Although we used a global section $s_\cs{L}$ in the definition of
+  $t_\cs{L}$, the class of $t_\cs{L}$ does not depend on this
+  choice. To see why, let $s_1$ and $s_2$ be two global sections of
+  the line bundle $(\gcs{L},\mu)$, in the sense above and let $t_1$
+  and $t_2$ be the cocycles defined by $s_1$ and $s_2$, respectively,
+  as above. Since, for each $x\in G(\bFq)$, $\gcs{L}_x$ is a
+  one-dimensional $\EE$-vector space, there is a unique scalar
+  $a(x) \in \EE$ such that $s_2(x) = a(x) s_1(x)$; moreover, $a(x)$ is
+  non-zero, since $s_2(x)$ is non-zero. Then \eqref{section} and
+  condition~\ref{cs.1} together imply $a(x+y) = a(x)a(y)$, so
+  $a\in G(\bFq)^*$. Now consider the coboundary $t_0 : W_\Fq \to G(\bFq)^*$
+  defined by $t_0(\Frob) = \,^\Frob a \cdot a^{-1}$. Then $t_2 = t_0 t_1$,
+  so $t_2$ and $t_1$ are cohomologous. In this way we see that
+  \begin{equation}\label{cohomologous}
+    \obj \CS(G(\bFq)) \longrightarrow H^1(W_\Fq,G(\bFq)^*),
+    \qquad \text{defined by} \qquad \cs{L} \mapsto [t_\cs{L}],
+  \end{equation}
+  is independent of the choice of global sections made above.
+
+  We now show that the function $\obj \CS(G(\bFq)) \longrightarrow H^1(W_\Fq,G(\bFq)^*)$
+  factors through $\obj \CS(G(\bFq)) \to \CS(G(\bFq))_{/\text{iso}}$.
+  To see this, let $\varphi : \cs{L} \to \cs{L'}$ be an isomorphism and
+  let $t$ and $t'$ be any cocycles representing the classes in the
+  image of $\cs{L}$ and $\cs{L'}$ under \eqref{cohomologous}; by construction,
+  $t$ and $t'$ are defined by sections $s$ and $s'$. Now, $\varphi_x(s(x))$ is a
+  non-zero scalar multiple of $s'(x)$; define $\phi: G(\bFq) \to \EE^\times$
+  by $\varphi_x(s(x)) = \phi(x) s'(x)$. By the second part of condition~\ref{cs.3},
+  $\phi(x+y) = \phi(x)\phi(y)$, so $\phi \in G(\bFq)^*$. By the first part of
+  condition~\ref{cs.3}, $t'(\Frob) = t(\Frob) \cdot (\,^{\Frob^{-1}}\phi \cdot \phi^{-1})$,
+  so $t$ and $t'$ are cohomologous. This concludes the definition of
+  \begin{equation}\label{pich1}
+    \CS(G(\bFq)_{/\text{iso}} \longrightarrow H^1(W_\Fq,G(\bFq)^*),
+    \qquad \text{defined by} \qquad [\cs{L}] \mapsto [t_\cs{L}].
+  \end{equation}
+  Now it follows from \eqref{t} that the image of the isomorphism
+  class of $\cs{L}$ is indeed represented by a cocycle $t_\cs{L}$ such
+  that $t_\cs{L}(\Frob) = t^\Frob_\cs{L}$ on $G(\Fq)$, which is to
+  say, when evaluated at $\Frob$, the cocycle $t_\cs{L}$ is an
+  extension of the trace of Frobenius of $\cs{L}$.
+
+  It only remains to show that \eqref{pich1} is a group
+  isomorphism. This is straightforward.
+  \Clifton{Straightforward, yes, but it still needs to be written down here.}
 \end{proof}
 
 %\input{etale-2}
-%Define $\rho \colon \Hh^1(W_{\Fq}, \Hom(G(\bFq), \EE^\times)) \rightarrow \Hom(G(\Fq), \EE^\times)$ by $\rho(\phi)(g) = \phi(\Frob)(g)$.
+%Define $\rho \colon \Hh^1(W_{\Fq}, \Hom(G(\bFq), \EE^\times))
+% \rightarrow \Hom(G(\Fq), \EE^\times)$ by $\rho(\phi)(g) =
+% \phi(\Frob)(g)$.
+
 \begin{proposition}\label{prop:X}
-Let $X$ be a finitely generated abelian group equipped with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on $X$.  Then
-\begin{align*}
-\Hh^1(\Fq, \Hom(X, \EE^\times)) &\xrightarrow{\rho} \Hom(\Hh^0(\Fq, X), \EE^\times) \\
-\rho([z])(x) &= z(\Frob)(x)
-\end{align*}
-is an isomorphism of groups.
+  Let $X$ be a finitely generated abelian group equipped with an
+  action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on
+  $X$.  Then
+  \begin{align*}
+    \Hh^1(\Fq, \Hom(X, \EE^\times)) &\xrightarrow{\rho} \Hom(\Hh^0(\Fq, X), \EE^\times) \\
+    \rho([z])(x) &= z(\Frob)(x)
+  \end{align*}
+  is an isomorphism of groups.
 \end{proposition}
 \begin{proof}
-We first prove that $\rho$ is surjective.  Suppose that $f \in \Hom(X^\Frob, \EE^\times).$  Since $\EE^\times$ is divisible as an abelian group it is injective as a $\ZZ$-module and thus $\Ext^1_{\ZZ}(X/X^\Frob, \EE^\times) = 0$.  Applying the functor $\Hom(\mbox{---}, \EE^\times)$ to
-$$0 \rightarrow X^\Frob \rightarrow X \rightarrow X/X^\Frob \rightarrow 0$$
-and considering the associated long exact sequence gives the existence of an $\tilde{f} \in \Hom(X, \EE^\times)$ restricting to $f$.  Define a $1$-cocycle $z \in \Hh^1(\Fq, \Hom(X,\EE^\times))$ by mapping $\Frob$ to $\tilde{f}$.  Then $\rho([z]) = f$.
+  We first prove that $\rho$ is surjective.  Suppose that
+  $f \in \Hom(X^\Frob, \EE^\times).$ Since $\EE^\times$ is divisible
+  as an abelian group it is injective as a $\ZZ$-module and thus
+  $\Ext^1_{\ZZ}(X/X^\Frob, \EE^\times) = 0$.  Applying the functor
+  $\Hom(\mbox{---}, \EE^\times)$ to
+  $$0 \rightarrow X^\Frob \rightarrow X \rightarrow X/X^\Frob \rightarrow 0$$
+  and considering the associated long exact sequence gives the
+  existence of an $\tilde{f} \in \Hom(X, \EE^\times)$ restricting to
+  $f$.  Define a $1$-cocycle $z \in \Hh^1(\Fq, \Hom(X,\EE^\times))$ by
+  mapping $\Frob$ to $\tilde{f}$.  Then $\rho([z]) = f$.
 
-Now suppose that $[z] \in \Hh^1(\Fq,\Hom(X,\EE^\times))$ with $\rho([z]) = 1$; write $\tilde{f}$ for $z(\Frob)$.  The injectivity of $\rho$ is equivalent to the existence of a homomorphism $\psi \colon X \rightarrow \EE^\times$ with 
-$$\tilde{f}(x) = \frac{\psi(\Frob(x))}{\psi(x)}$$
-for $x \in X$.  In fact, we may replace the construction of $\psi$ for all $\ZZ[\Gal(\bFq/\Fq)]$-modules $X$ with the construction of analogous $\psi$s for a different class of modules.
+  Now suppose that $[z] \in \Hh^1(\Fq,\Hom(X,\EE^\times))$ with
+  $\rho([z]) = 1$; write $\tilde{f}$ for $z(\Frob)$.  The injectivity
+  of $\rho$ is equivalent to the existence of a homomorphism $\psi
+  \colon X \rightarrow \EE^\times$ with
+  $$\tilde{f}(x) = \frac{\psi(\Frob(x))}{\psi(x)}$$
+  for $x \in X$.  In fact, we may replace the construction of $\psi$
+  for all $\ZZ[\Gal(\bFq/\Fq)]$-modules $X$ with the construction of
+  analogous $\psi$s for a different class of modules.
 
-Since the action of $\Gal(\bFq/\Fq)$ is continuous, there is an $m$ so that $\Frob^m$ acts trivially on $X$; write $\Fqm$ for the degree $m$ extension of $\Fq$ and $\Gamma_m$ for $\Gal(\Fqm/\Fq)$.  Since $T^m-1$ factors as a squarefree product of cyclotomic polynomials, the Chinese remainder theorem expresses $\ZZ[\Gamma_m]$ as a product of $\ZZ[\zeta_d]$ for $d$ dividing $m$.  Each $\ZZ[\zeta_d]$ is the maximal order in a number field and thus $\ZZ[\Gamma_m]$ is a product of Dedekind domains.  Therefore $X$ decomposes into a direct sum of cyclic $\ZZ[\Gamma_m]$-modules \cite[?]{Brandal}, each of the form $\ZZ[\Gamma_m] / I$ for some ideal $I \subset \ZZ[\Gamma_m]$.  The ideal $I$ corresponds to a direct product of ideals $I_d$ in the $\ZZ[\zeta_d]$, and within each $\ZZ[\zeta_d]$ the Chinese remainder theorem allows a further decomposition of $\ZZ[\zeta_d] / I_d$ as a direct sum of $\ZZ[\zeta_d]$-modules of the form $\ZZ[\zeta_d]/P^s$.  So if we can construct, for every cyclotomic ring $\ZZ[\zeta_d]$, prime ideal $P \subset \ZZ[\zeta_d]$ and positive integer $s$, a $\psi \colon \ZZ[\zeta_d]/P^s \rightarrow \EE^\times$ with
-\begin{equation} \label{eq:psi-condition}
-\tilde{f}(x) = \frac{\psi(\zeta_d \cdot x)}{\psi(x)},
-\end{equation}
-then the existence of the original $\psi$ follows because $X$ is a direct sum of such $\ZZ[\zeta_d]/P^s$.
+  Since the action of $\Gal(\bFq/\Fq)$ is continuous, there is an $m$
+  so that $\Frob^m$ acts trivially on $X$; write $\Fqm$ for the degree
+  $m$ extension of $\Fq$ and $\Gamma_m$ for $\Gal(\Fqm/\Fq)$.  Since
+  $T^m-1$ factors as a squarefree product of cyclotomic polynomials,
+  the Chinese remainder theorem expresses $\ZZ[\Gamma_m]$ as a product
+  of $\ZZ[\zeta_d]$ for $d$ dividing $m$.  Each $\ZZ[\zeta_d]$ is the
+  maximal order in a number field and thus $\ZZ[\Gamma_m]$ is a
+  product of Dedekind domains.  Therefore $X$ decomposes into a direct
+  sum of cyclic $\ZZ[\Gamma_m]$-modules \cite[?]{Brandal}, each of the
+  form $\ZZ[\Gamma_m] / I$ for some ideal $I \subset \ZZ[\Gamma_m]$.
+  The ideal $I$ corresponds to a direct product of ideals $I_d$ in the
+  $\ZZ[\zeta_d]$, and within each $\ZZ[\zeta_d]$ the Chinese remainder
+  theorem allows a further decomposition of $\ZZ[\zeta_d] / I_d$ as a
+  direct sum of $\ZZ[\zeta_d]$-modules of the form $\ZZ[\zeta_d]/P^s$.
+  So if we can construct, for every cyclotomic ring $\ZZ[\zeta_d]$,
+  prime ideal $P \subset \ZZ[\zeta_d]$ and positive integer $s$, a
+  $\psi \colon \ZZ[\zeta_d]/P^s \rightarrow \EE^\times$ with
+  \begin{equation} \label{eq:psi-condition}
+    \tilde{f}(x) = \frac{\psi(\zeta_d \cdot x)}{\psi(x)},
+  \end{equation}
+  then the existence of the original $\psi$ follows because $X$ is a
+  direct sum of such $\ZZ[\zeta_d]/P^s$.
 
-We now fix a $d$, $P$ and $s$, write $\zeta$ for $\zeta_d$ and choose a polynomial
-$$h(T) = a_rT^r + a_{r-1}T^{r-1} + \cdots + a_0$$
-so that $P^s = (p^s, h(\zeta_d))$.
-%Setting $\psi = 1$ will satisfy equation \ref{eq:psi-condition} when $d = 1$.  
-An an abelian group, the quotient $\ZZ[\zeta] / P^s$ is generated by $\zeta^i$ for $0 \le i < \phi(d)$; we define
-\begin{equation} \label{eq:psi-def}
-\psi(\zeta^i) = \alpha \prod_{j=0}^{i-1} \tilde{f}(\zeta^j)
-\end{equation}
-for an $\alpha \in \EE^\times$ to be chosen later.  Since there are relations among the $\zeta^i$ we first need to check that $\psi$ is well-defined.
+  We now fix a $d$, $P$ and $s$, write $\zeta$ for $\zeta_d$ and
+  choose a polynomial
+  $$h(T) = a_rT^r + a_{r-1}T^{r-1} + \cdots + a_0$$
+  so that $P^s = (p^s, h(\zeta_d))$.
+  % Setting $\psi = 1$ will satisfy equation \ref{eq:psi-condition}
+  % when $d = 1$.
+  An an abelian group, the quotient $\ZZ[\zeta] / P^s$ is generated by
+  $\zeta^i$ for $0 \le i < \phi(d)$; we define
+  \begin{equation} \label{eq:psi-def}
+    \psi(\zeta^i) = \alpha \prod_{j=0}^{i-1} \tilde{f}(\zeta^j)
+  \end{equation}
+  for an $\alpha \in \EE^\times$ to be chosen later.  Since there are
+  relations among the $\zeta^i$ we first need to check that $\psi$ is
+  well-defined.
 
-The relations among the generators $\zeta^i$ are additively generated by $\zeta^ch(\zeta)$ as $c$ ranges from $0$ to $\phi(d)-r-1$.  If we set 
-$$A_c = \sum_{i=0}^r a_i \sum_{j=0}^{i+c-1} \zeta^j$$
-then
-$$\psi(\zeta^ch(\zeta)) = \alpha^{h(1)} \tilde{f}(A_c).$$
-Now consider $(\zeta - 1)A_c$: the sums telescope and we get that $(\zeta-1)A_c = \zeta^ch(\zeta) - h(1).$  There are now two possibilities:
-\begin{enumerate}
-\item $d$ is a power of $p$; write $s = \phi(d)m + n$.  We may take $h(T)$ to be $p^m(T-1)^n$, in which case $\zeta^ch(\zeta) - h(1) \in P^s$, so $A_c$ is fixed under multiplication by $\zeta$ in $\ZZ[\zeta]/P^s$ and thus $\tilde{f}(A_c) = 1$.  In this case $\alpha^{h(1)} = 1$ regardless of $\alpha$.
-\item $d$ is not a power of $p$.  If two distinct primes divide $d$ then $\zeta - 1$ is a unit; otherwise $\zeta - 1$ is a unit modulo $P^s$.  Let $\omega \in \ZZ[\zeta]$ satisfy $\omega(\zeta - 1) \equiv 1 \pmod{P^s}$ and set
-\begin{equation} \label{alpha-def}
-\alpha = \tilde{f}(\omega).
-\end{equation}
-Then $A_c + h(1)\omega$ is fixed under multiplication by $\zeta$ and thus $\tilde{f}(A_c) = \tilde{f}(-h(1)\omega)$.
-\end{enumerate}
-In either case, $\psi(\zeta^ch(\zeta)) = 1$ for all $c$.  The only other relations imposed on the $\zeta^i$ are that they are all killed under multiplication by $p^s$.  Since $\tilde{f}$ is also a homomorphism $\ZZ[\zeta]/P^s \rightarrow \EE^\times$ the values of $\tilde{f}$ and thus of $\psi$ will be $p^s$-roots of unity.  Therefore $\psi$ is well defined.
+  The relations among the generators $\zeta^i$ are additively
+  generated by $\zeta^ch(\zeta)$ as $c$ ranges from $0$ to
+  $\phi(d)-r-1$.  If we set
+  $$A_c = \sum_{i=0}^r a_i \sum_{j=0}^{i+c-1} \zeta^j$$
+  then
+  $$\psi(\zeta^ch(\zeta)) = \alpha^{h(1)} \tilde{f}(A_c).$$
+  Now consider $(\zeta - 1)A_c$: the sums telescope and we get that
+  $(\zeta-1)A_c = \zeta^ch(\zeta) - h(1).$ There are now two
+  possibilities:
+  \begin{enumerate}
+  \item $d$ is a power of $p$; write $s = \phi(d)m + n$.  We may take
+    $h(T)$ to be $p^m(T-1)^n$, in which case $\zeta^ch(\zeta) - h(1) \in P^s$,
+    so $A_c$ is fixed under multiplication by $\zeta$ in
+    $\ZZ[\zeta]/P^s$ and thus $\tilde{f}(A_c) = 1$.  In this case
+    $\alpha^{h(1)} = 1$ regardless of $\alpha$.
+  \item $d$ is not a power of $p$.  If two distinct primes divide $d$
+    then $\zeta - 1$ is a unit; otherwise $\zeta - 1$ is a unit modulo
+    $P^s$.  Let $\omega \in \ZZ[\zeta]$ satisfy
+    $\omega(\zeta - 1) \equiv 1 \pmod{P^s}$ and set
+    \begin{equation} \label{alpha-def}
+      \alpha = \tilde{f}(\omega).
+    \end{equation}
+    Then $A_c + h(1)\omega$ is fixed under multiplication by $\zeta$
+    and thus $\tilde{f}(A_c) = \tilde{f}(-h(1)\omega)$.
+  \end{enumerate}
+  In either case, $\psi(\zeta^ch(\zeta)) = 1$ for all $c$.  The only
+  other relations imposed on the $\zeta^i$ are that they are all
+  killed under multiplication by $p^s$.  Since $\tilde{f}$ is also a
+  homomorphism $\ZZ[\zeta]/P^s \rightarrow \EE^\times$ the values of
+  $\tilde{f}$ and thus of $\psi$ will be $p^s$-roots of unity.
+  Therefore $\psi$ is well defined.
 
-We now check equation \ref{eq:psi-condition} for $x = \zeta^{\phi(d)-1}$.  Write $\Phi_d(T) = T^{\phi(d)} - b_{\phi(d)-1}T^{\phi(d)-1} - \cdots - b_0$ and set
-$$B = \sum_{i=0}^{\phi(d)-1} -\zeta^i + b_i \sum_{j=0}^{i-1} \zeta^j.$$
-We have
+  We now check equation \ref{eq:psi-condition} for
+  $x = \zeta^{\phi(d)-1}$.  Write
+  $\Phi_d(T) = T^{\phi(d)} - b_{\phi(d)-1}T^{\phi(d)-1} - \cdots - b_0$
+  and set
+  $$B = \sum_{i=0}^{\phi(d)-1} -\zeta^i + b_i \sum_{j=0}^{i-1} \zeta^j.$$
+  We have
 
-\begin{align*}
-\frac{\psi(\zeta^{\phi(d)})}{\psi(\zeta^{\phi(d)-1})\tilde{f}(\zeta^{\phi(d)-1})} &= \frac{\psi(b_{\phi(d)-1}\zeta^{\phi(d)-1} + \cdots + b_0)}{\psi(\zeta^{\phi(d)-1})\tilde{f}(\zeta^{\phi(d)-1})} \\
-&= \alpha^{-\Phi_d(1)} \tilde{f}(B)
-\end{align*}
-As before we see that $(\zeta - 1)B = \Phi_d(1) - \Phi_d(\zeta) = \Phi_d(1)$.  We consider the same cases as before:
+  \begin{align*}
+    \frac{\psi(\zeta^{\phi(d)})}{\psi(\zeta^{\phi(d)-1})\tilde{f}(\zeta^{\phi(d)-1})}
+    &= \frac{\psi(b_{\phi(d)-1}\zeta^{\phi(d)-1} + \cdots + b_0)}{\psi(\zeta^{\phi(d)-1})\tilde{f}(\zeta^{\phi(d)-1})} \\
+    &= \alpha^{-\Phi_d(1)} \tilde{f}(B)
+  \end{align*}
+  As before we see that $(\zeta - 1)B = \Phi_d(1) - \Phi_d(\zeta) = \Phi_d(1)$.
+  We consider the same cases as before:
 
-\begin{enumerate}
-\item $d$ is a power of $p$, in which case $\Phi_d(1) = p$.  Thus $(\zeta-1)B = p = u(\zeta-1)^{\phi(d)}$ for a unit $u \in \ZZ[\zeta]$ and $B - u(\zeta-1)^{\phi(d)-1}$ is fixed by $\zeta$, so that $\tilde{f}(B) = \tilde{f}(u(\zeta - 1)^{\phi(d)-1})$.  The multiplicative order of $\tilde{f}(u(\zeta-1)^{\phi(d)-1})$ is at most $\lceil \frac{s - 1 - (\phi(d)-1)}{\phi(d)}\rceil = \lceil \frac{s}{\phi(d)} \rceil - 1$ while the additive order of $1 \in \ZZ[\zeta]/P^s$ is $\lceil \frac{s}{\phi(d)} \rceil$.  Thus we may choose $\alpha = \psi(1)$ with $\alpha^p = \tilde{f}(B)$.
-\item $d$ is not a power of $p$ and $\omega$ is the inverse of $\zeta-1$ modulo $P^s$.  Then $\tilde{f}(B) = \tilde{f}(\omega\Phi_d(1))$.
-\end{enumerate}
-In either case, $\alpha^{-\Phi_d(1)}\tilde{f}(B) = 1$ and thus $\psi$ satisfies equation \ref{eq:psi-condition} for $x = \zeta^{\phi(d)-1}$.  The definition of $\psi$ in \ref{eq:psi-def} immediately implies that $\psi$ satisfies equation \ref{eq:psi-condition} for lesser powers of $\zeta$, and thus for all $x$ by linearity.  The existence of $\psi$ shows that $\rho$ is injective.
+  \begin{enumerate}
+  \item $d$ is a power of $p$, in which case $\Phi_d(1) = p$.  Thus
+    $(\zeta-1)B = p = u(\zeta-1)^{\phi(d)}$ for a unit $u \in \ZZ[\zeta]$
+    and $B - u(\zeta-1)^{\phi(d)-1}$ is fixed by $\zeta$,
+    so that $\tilde{f}(B) = \tilde{f}(u(\zeta - 1)^{\phi(d)-1})$.  The
+    multiplicative order of $\tilde{f}(u(\zeta-1)^{\phi(d)-1})$ is at most
+    $\lceil \frac{s - 1 - (\phi(d)-1)}{\phi(d)}\rceil = \lceil \frac{s}{\phi(d)} \rceil - 1$
+    while the additive order of $1 \in \ZZ[\zeta]/P^s$ is $\lceil \frac{s}{\phi(d)} \rceil$.
+    Thus we may choose $\alpha = \psi(1)$ with $\alpha^p = \tilde{f}(B)$.
+  \item $d$ is not a power of $p$ and $\omega$ is the inverse of
+    $\zeta-1$ modulo $P^s$.  Then $\tilde{f}(B) = \tilde{f}(\omega\Phi_d(1))$.
+  \end{enumerate}
+  In either case, $\alpha^{-\Phi_d(1)}\tilde{f}(B) = 1$ and thus
+  $\psi$ satisfies equation \ref{eq:psi-condition} for
+  $x = \zeta^{\phi(d)-1}$.  The definition of $\psi$ in \ref{eq:psi-def}
+  immediately implies that $\psi$ satisfies equation
+  \ref{eq:psi-condition} for lesser powers of $\zeta$, and thus for
+  all $x$ by linearity.  The existence of $\psi$ shows that $\rho$ is injective.
 \end{proof}
 
 \section{Restriction to the identity component}
@@ -482,114 +869,258 @@ In either case, $\alpha^{-\Phi_d(1)}\tilde{f}(B) = 1$ and thus $\psi$ satisfies 
 %\input{restriction}
 % !TEX encoding = UTF-8 Unicode
 %\subsection*{Restriction to the identity component is surjective}
-Let $G^0$ be the connected component of $G$ containing the identity. 
-By Proposition~\ref{prop:pullback}, pull-back along $G^0\hookrightarrow G$ determines a monoidal functor $\cs{L}\mapsto \cs{L}\vert_{G^0}$ from $\CS(G)$ to $\CS(G^0)$.  In this section we show that this functor is essentially surjective. To do this we employ a perspective on characters sheaves which is different from that in Section~\ref{section:category} but which works very well for geometrically connected abelian algebraic groups; this perspective fails to extend properly to the more general context of Section~\ref{section:category}.
+
+Let $G^0$ be the connected component of $G$ containing the identity.
+By Proposition~\ref{prop:pullback}, pull-back along
+$G^0\hookrightarrow G$ determines a monoidal functor
+$\cs{L}\mapsto \cs{L}\vert_{G^0}$ from $\CS(G)$ to $\CS(G^0)$.  In
+this section we show that this functor is essentially surjective. To
+do this we employ a perspective on characters sheaves which is
+different from that in Section~\ref{section:category} but which works
+very well for geometrically connected abelian algebraic groups; this
+perspective fails to extend properly to the more general context of
+Section~\ref{section:category}.
 
 \begin{proposition}\label{prop:restriction}
-The restriction functor $\CS(G)\to \CS(G^0)$ is essentially surjective.
+  The restriction functor $\CS(G)\to \CS(G^0)$ is essentially surjective.
 \end{proposition}
 
 \begin{proof}
-Because $G$ is smooth over $\Fq$, the identity component $G^0$ is a geometrically connected algebraic group over $\Fq$, clopen in $G$ \cite{vdG&M}*{3.17}. By Proposition~\ref{prop:connected-1}, every character sheaf $\cs{E} = (\gcs{E},\mu^0,F^0)$ on $G^0$ descends to a line bundle on $G^0$.
-%
-Let us review how line bundles on $G^0$ determine character sheaves on $G^0$.
-Up to isomorphism, line bundles on $G^0$ may be apprehended in terms of pairs $(\pi,\psi)$, \David{Aren't there line bundles which are not character sheaves, for which $B$ is not an algebraic group?} where $\pi : B\to G^0$ is a finite etale morphism of algebraic groups and a character $\psi : A\to \EE^\times$, where $\Gal(\bFq/\Fq)$ acts trivially on $A \ceq \ker {\bar \pi}$, as summarized by the following diagram.
-\begin{equation}\label{E}
-\xymatrix{
-\EE^\times & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
-}
-\end{equation}
-(In fact, we may always take $B = G^0$ and $\pi = \Lang_{G^0}$, the Lang isogeny for $G^0$.)
-Indeed, $\cs{E}$ is precisely the component of $\pi_! (\EE)_{B}$ on which $A$ acts through $\psi$. 
-To see that $\cs{E}$ is a line bundle on $G^0$, start by pulling back $\pi: B \to G^0$ along $m_0 : G^0\times G^0 \to G^0$.
-\begin{equation}
-\xymatrix{
-\EE^\times & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
-  	& 1\ar[r] & \ar@{.>}@/^1pc/[llu] \ar[u] A\times A  \ar[r]& \ar[u]^{m_{B}} B\times B \ar[r]^{\pi\tighttimes \pi}  & \ar[u]^{m_0} G^0\times G^0 \ar[r] & 1\\
-}
-\end{equation}
-As pictured above, the kernel of this pull-back is $A\times A$; indeed, $A\times A\to B\times B$ is the pull-back of $A\to B$ along $m_{B}$. Use this Cartesian square to define a character (the dotted arrow, above) of $A\times A$; that is, define $A\times A\to \EE^\times$ by the composition of $A\times A \to A$ and $\psi : A\to \EE^\times$. Note that this character is $\psi \otimes \psi : A\times A\to \EE^\times$.
-\Clifton{I haven't explained how maps between diagrams define sheaf homomorphisms between local systems.}
-Since the lower sequence is precisely the sequence defining $\cs{E}\boxtimes\cs{E}$, this shows that, by construction, $\cs{E}$ comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \cs{E}\boxtimes\cs{E}$. Now the base change $\cs{E}$ comes equipped with isomorphisms $F^0 : \Frob_{G^0}^* \gcs{E} \to \gcs{E}$ and $\mu^0 : {\bar m}_0^* \gcs{E} \to \gcs{E}\boxtimes \gcs{E}$ satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,F^0)$ is a character sheaf on $G^0$. 
+  Because $G$ is smooth over $\Fq$, the identity component $G^0$ is a
+  geometrically connected algebraic group over $\Fq$, clopen in $G$
+  \cite{vdG&M}*{3.17}. By Proposition~\ref{prop:connected-1}, every
+  character sheaf $\cs{E} = (\gcs{E},\mu^0,F^0)$ on $G^0$ descends to
+  a line bundle on $G^0$.
 
-The next step is to show that $\pi: B \to G^0$ extends to a finite etale morphism of group schemes $f: H\to G$, smooth and locally of finite type over $\Fq$, in such a way that $H^0 = B$, $f^0 =\pi$ and $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component groups.
-\begin{equation} \label{extension-diagram}
+  Let us review how line bundles on $G^0$ determine character sheaves
+  on $G^0$.  Up to isomorphism, line bundles on $G^0$ may be
+  apprehended in terms of pairs $(\pi,\psi)$,
+  \David{Aren't there line bundles which are not character sheaves,
+    for which $B$ is not an algebraic group?}
+  where $\pi : B\to G^0$ is a finite etale morphism of algebraic
+  groups and a character $\psi : A\to \EE^\times$, where
+  $\Gal(\bFq/\Fq)$ acts trivially on $A \ceq \ker {\bar \pi}$, as
+  summarized by the following diagram.
+  \begin{equation}\label{E}
     \xymatrix{
-        & A \ar[d] \ar@{=}[r] & A \ar[d] &  \\
-        & B \ar[r] \ar[d]_{\pi} & H \ar[r] \ar[d]_{f} & \pi_0(H) \ar[d]_{\pi_0(f)}^{\iso} \\
-        & G^0 \ar[r] & G \ar[r] & \pi_0(G).}
-\end{equation}
-where all rows and columns are exact and all maps are defined over $\Fq$.  We will do so by passing back and forth between group schemes over $\Fq$ and their $\bFq$-points.  Extensions of $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to H^0(\bFq) \to G^0(\bFq)$, correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$.  Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map $G^0(\bFq) \to G(\bFq)$ induces a map $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$, fitting into the long exact sequence derived from applying $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
-$$\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).$$
-We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.
+      \EE^\times & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
+      }
+  \end{equation}
+  (In fact, we may always take $B = G^0$ and $\pi = \Lang_{G^0}$, the
+  Lang isogeny for $G^0$.)  Indeed, $\cs{E}$ is precisely the
+  component of $\pi_! (\EE)_{B}$ on which $A$ acts through $\psi$.  To
+  see that $\cs{E}$ is a line bundle on $G^0$, start by pulling back
+  $\pi: B \to G^0$ along $m_0 : G^0\times G^0 \to G^0$.
+  \begin{equation}
+    \xymatrix{
+      \EE^\times & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
+      & 1\ar[r] & \ar@{.>}@/^1pc/[llu] \ar[u] A\times A  \ar[r]
+      & \ar[u]^{m_{B}} B\times B \ar[r]^{\pi\tighttimes \pi}  & \ar[u]^{m_0} G^0\times G^0 \ar[r] & 1\\
+      }
+  \end{equation}
+  As pictured above, the kernel of this pull-back is $A\times A$;
+  indeed, $A\times A\to B\times B$ is the pull-back of $A\to B$ along
+  $m_{B}$. Use this Cartesian square to define a character (the dotted
+  arrow, above) of $A\times A$; that is, define $A\times A\to \EE^\times$
+  by the composition of $A\times A \to A$ and $\psi : A\to \EE^\times$.
+  Note that this character is $\psi \otimes \psi : A\times A\to \EE^\times$.
+  \Clifton{I haven't explained how maps between diagrams define sheaf
+    homomorphisms between local systems.}
+  Since the lower sequence is precisely the sequence defining
+  $\cs{E}\boxtimes\cs{E}$, this shows that, by construction, $\cs{E}$
+  comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \cs{E}\boxtimes\cs{E}$.
+  Now the base change $\cs{E}$ comes equipped with isomorphisms
+  $F^0 : \Frob_{G^0}^* \gcs{E} \to \gcs{E}$ and
+  $\mu^0 : {\bar m}_0^* \gcs{E} \to \gcs{E}\boxtimes \gcs{E}$
+  satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,F^0)$
+  is a character sheaf of $G^0$.
 
-It suffices to show that $\pi_0(G)(\bFq)$ has a two-term resolution by injective $\ZZ[\Gamma]$-modules.  Since the action of $\Gamma$ on $\pi_0(G)(\bFq)$ is continuous, it factor through a finite quotient $\Gamma_m = \Gamma / H_m$.  Any product of Dedekind domains has cohomological dimension $1$ \cite[?]{?}, so $\pi_0(G)(\bFq)$ has a two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$ be one of these modules: we need to show that $I$ is injective as a $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
-\[
-\xymatrix{
-& B \\
-I & A \ar@{>->}[u] \ar[l]_{a}
-}\]
-where $A$ and $B$ are arbitrary $\ZZ[\Gamma]$-modules.  Since $H_m$ acts trivially on $I$, $I_{H_m}A := \langle (\gamma-1)a : \gamma \in H_m, a \in A \rangle \subseteq \ker(a).$  Since $B / I_{H_m}B \cong B \otimes_A A / I_{H_m}A$, we get
-\[
-\xymatrix{
-& B/I_{H_m}B \ar@{..>}[dl] & B \ar@{->>}[l] \\
-I & A/I_{H_m}A \ar@{>->}[u] \ar[l] & A \ar@{>->}[u] \ar@{->>}[l]
-}\]
-The dotted arrow exists since $I$ is injective as a $\ZZ[\Gamma_m]$-module, and the outer diagram shows that $I$ is injective as a $\ZZ[\Gamma]$-module.
+  The next step is to show that $\pi: B \to G^0$ extends to a finite
+  etale morphism of group schemes $f: H\to G$, smooth and locally of
+  finite type over $\Fq$, in such a way that $H^0 = B$, $f^0 =\pi$ and
+  $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component
+  groups.
+  \begin{equation} \label{extension-diagram}
+    \xymatrix{
+      & A \ar[d] \ar@{=}[r] & A \ar[d] &  \\
+      & B \ar[r] \ar[d]_{\pi} & H \ar[r] \ar[d]_{f} & \pi_0(H) \ar[d]_{\pi_0(f)}^{\iso} \\
+      & G^0 \ar[r] & G \ar[r] & \pi_0(G).
+    }
+  \end{equation}
+  where all rows and columns are exact and all maps are defined over
+  $\Fq$.  We will do so by passing back and forth between group
+  schemes over $\Fq$ and their $\bFq$-points.  Extensions of
+  $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to H^0(\bFq) \to G^0(\bFq)$,
+  correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$.
+  Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
+  classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map
+  $G^0(\bFq) \to G(\bFq)$ induces a map
+  $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$,
+  fitting into the long exact sequence derived from applying
+  $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
+  $$\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).$$
+  We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.
 
-We therefore have the existence of diagram \eqref{extension-diagram} at the level of $\bFq$-points.  This expresses $H(\bFq)$ as a disjoint union of translates of $B(\bFq)$; by transport of structure we may take $H$ to be a group scheme over $\bFq$.  Similarly, the restriction of $f$ to each component of $H$ is a morphism of schemes, and thus $f$ is as well.  Finally, the whole diagram descends to a diagram of $\Fq$-schemes since the $\bFq$-points of the objects come equipped with continuous $\Gamma$-actions, and the morphisms are $\Gamma$-equivariant.
+  It suffices to show that $\pi_0(G)(\bFq)$ has a two-term resolution
+  by injective $\ZZ[\Gamma]$-modules.  Since the action of $\Gamma$ on
+  $\pi_0(G)(\bFq)$ is continuous, it factor through a finite quotient
+  $\Gamma_m = \Gamma / H_m$.  Any product of Dedekind domains has
+  cohomological dimension $1$ \cite[?]{?}, so $\pi_0(G)(\bFq)$ has a
+  two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$
+  be one of these modules: we need to show that $I$ is injective as a
+  $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
+  \[
+  \xymatrix{
+    & B \\
+    I & A \ar@{>->}[u] \ar[l]_{a}
+    }
+  \]
 
-Now we show that $f : H\to G$, as above, together with a character $\psi : \ker {\bar f} \to \EE^\times$, defines a character sheaf on $G$. We will also show that the restriction of this character sheaf on $G$ to $G^0$ is precisely the character sheaf on $G^0$ defined by the pair $(f^0,\psi)$ as above.
-%
-Set $X \ceq \pi_0(G)\times_{\Spec{\Fq}} \Spec{\bFq}$. We will identify $X$ with $\pi_0(H)\times_{\Spec{\Fq}} \Spec{\bFq}$ using the base change of $\pi_0(f): \pi_0(H)\to \pi_0(G)$. For each $x\in X$, write ${\bar f}^x : {\bar H}^x \to {\bar G}^x$ for the restriction of ${\bar f}$ to ${\bar H}^x$, as a cover of ${\bar G}^x$. For each $x,y\in X$, let ${\bar m}_{x,y} : {\bar H}^x \times {\bar H}^{y} \to {\bar H}^{x+y}$ be the map obtained from ${\bar m}$ by restriction. Define ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ by ${\bar m}_{x}(a): g \mapsto {\bar m}_{0,x}(a,g)$; then ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ is an isomorphism.
-\Clifton{I need to show that ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ is an isomorphism.}
+  where $A$ and $B$ are arbitrary $\ZZ[\Gamma]$-modules.  Since $H_m$ acts trivially on $I$,
+  $I_{H_m}A := \langle (\gamma-1)a : \gamma \in H_m, a \in A \rangle \subseteq \ker(a).$
+  Since $B / I_{H_m}B \cong B \otimes_A A / I_{H_m}A$, we get
+  \[
+  \xymatrix{
+    & B/I_{H_m}B \ar@{..>}[dl] & B \ar@{->>}[l] \\
+    I & A/I_{H_m}A \ar@{>->}[u] \ar[l] & A \ar@{>->}[u] \ar@{->>}[l]
+    }
+  \]
+  The dotted arrow exists since $I$ is injective as a
+  $\ZZ[\Gamma_m]$-module, and the outer diagram shows that $I$ is
+  injective as a $\ZZ[\Gamma]$-module.
 
-For each $x\in X$ let $\gcs{L}^x$ be the rank-$1$ local system on ${\bar G}^x$ determined by the finite etale cover ${\bar f}^x : {\bar H}^x \to {\bar G}^x$ and the character $\psi_x \ceq \psi \circ {\bar m}_x^{-1}$.  Since ${\bar G} = \coprod_{x\in X} {\bar G}^x$ (disjoint union), this determines a constructible sheaf $\gcs{L}$ on ${\bar G}$, locally constant of rank-$1$ on each connected component of ${\bar G}$. Taking the case $x=0$ we observe that $\gcs{L}^0 =\gcs{E}$, the latter defined above. To finish the proof of the proposition we equip $\gcs{L}$ with isomorphisms $\mu : {\bar m}^* \gcs{L} \to \gcs{L} \boxtimes\gcs{L}$ and $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1} and \ref{CS.2}.
+  We therefore have the existence of diagram \eqref{extension-diagram}
+  at the level of $\bFq$-points.  This expresses $H(\bFq)$ as a
+  disjoint union of translates of $B(\bFq)$; by transport of structure
+  we may take $H$ to be a group scheme over $\bFq$.  Similarly, the
+  restriction of $f$ to each component of $H$ is a morphism of
+  schemes, and thus $f$ is as well.  Finally, the whole diagram
+  descends to a diagram of $\Fq$-schemes since the $\bFq$-points of
+  the objects come equipped with continuous $\Gamma$-actions, and the
+  morphisms are $\Gamma$-equivariant.
 
-Observe that ${\bar m}: {\bar G}\times {\bar G}\to {\bar G}$ is completely determined by the family of maps ${\bar m}_{x,y} : {\bar G}^x \times {\bar G}^{y} \to {\bar G}^{x+y}$. Accordingly, to define $\mu$ for $\gcs{L}$ it is sufficient to define isomorphisms $\mu_{x,y} : {\bar m}_{x,y}^*\gcs{L}^{x+y} \iso \gcs{L}^{x}\boxtimes \gcs{L}^{y}$ for all $x,y\in X$. To do that, note first that the local system $\gcs{L}^{x}\boxtimes \gcs{L}^{y}$ is defined by the following diagram.
-\[
-\xymatrix{
-\EE^\times && \ar[ll]_{\hskip-20pt \psi_x\otimes \psi_y} \Aut({\bar f}^x)\times \Aut({\bar f}^y)  
-& \ar@(ul,dl) & {\bar H}^x\times {\bar H}^y \ar[rr]^{{\bar f}^x\times {\bar f}^y} && {\bar G}^x\times {\bar G}^y\\ 
-}
-\]
-On the other hand, the diagram for the local system ${\bar m}_{x,y}^* \gcs{L}^{x+y}$ is found by pulling-back the diagram for $\gcs{L}^{x+y}$ along ${\bar m}_{x,y} : {\bar H}^x\times{\bar H}^y \to {\bar H}^{x+y}$; the result is the middle horizontal diagram below, where we use the fact that the covering group of the middle arrow is $\Aut({\bar f}^{x+y})$, canonically.
-\[
-\xymatrix{ 
-& \ar[dl]_{\psi_{x+y}} \Aut({\bar f}^{x+y})  
-& \ar@(ul,dl) & {\bar H}^{x+y} \ar[rr]^{{\bar f}^{x+y}} && {\bar G}^{x+y}\\ 
-\EE^\times & \ar@{.>}[l] \Aut({\bar f}^{x+y})  \ar@{=}[u] &  \ar@{.>}@(ul,dl) & \ar[u] {\bar H}^{x+y} \times_{{\bar G}^x\times{\bar G}^y} {\bar G}^x\times{\bar G}^y \ar[rr] && \ar[u]_{{\bar m}_{x,y}} {\bar G}^x\times {\bar G}^y\\
-& \ar[lu]_{\psi_x\otimes \psi_y} \ar@{.>}[u] \Aut({\bar f}^x)\times \Aut({\bar f}^y)  
-& \ar@(ul,dl) & \ar[u] {\bar H}^x\times {\bar H}^y \ar[rr]^{{\bar f}^x\times {\bar f}^y} && \ar@{=}[u] {\bar G}^x\times {\bar G}^y\\ 
-}
-\]
-Now, the homomorphism from the covering group of ${\bar f}^x\times{\bar f}^y$ to the covering group of ${\bar f}^{x+y}$ induced by the composition $ {\bar H}^x\times {\bar H}^y \to {\bar H}^{x+y} \times_{{\bar G}^x\times{\bar G}^y} {\bar G}^x\times{\bar G}^y \to {\bar H}^{x+y}$ is precisely $({\bar m}_x(a),{\bar m}_y(b)) \mapsto {\bar m}_{x+y}(ab)$. Since this map commutes with the characters $\psi_x\otimes\psi_y$ and $\psi_{x+y}$ (so, the far-left triangle commutes in the diagram above) it follows that, for each $x,y\in X$ the diagram above defines a canonical isomorphism
-$\mu_{x,y} : {\bar m}_{x,y}^* \gcs{L}^{x+y} \to \gcs{L}^x \boxtimes\gcs{L}^y$.
-This defines $\mu: {\bar m}^* \gcs{L} \iso \gcs{L} \boxtimes\gcs{L}$. It is straightforward (but laborious) to show that the pair $(\gcs{L},\mu)$ satisfies condition \ref{CS.1}.
+  Now we show that $f : H\to G$, as above, together with a character
+  $\psi : \ker {\bar f} \to \EE^\times$, defines a character sheaf on
+  $G$. We will also show that the restriction of this character sheaf
+  on $G$ to $G^0$ is precisely the character sheaf on $G^0$ defined by
+  the pair $(f^0,\psi)$ as above.
 
-Now we turn to the definition of $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$. As above, we define this isomorphism through a family of isomorphisms on the connected components of ${\bar G}$. The restriction of $\Frob_{G}$ to ${\bar G}^x$ defines an isomorphism $\Frob_x : {\bar G}^x \to {\bar G}^{\Frob(x)}$. 
-%\[
-%\xymatrix{
-%\ar[d]_{\Frob_x} {\bar G}^x \ar[r] & \ar[d]_{\Frob_{G}} {\bar G}\\
-%{\bar G}^{\Frob(x)} \ar[r] & {\bar G}\\
-%}
-%\]
-Pull back the finite etale covering in the diagram for $\gcs{L}^{\Frob(x)}$ along $\Frob_x$ and compare the result with the finite etale covering in the diagram for $\gcs{L}^{x}$.
-\[
-\xymatrix{ 
-  && \ar[dll]_{\psi_{\Frob(x)}} \Aut({\bar f}^{\Frob(x)}) & \ar@(ul,dl) & {\bar H}^{\Frob(x)} \ar[rr]^{{\bar f}^{\Frob(x)}} && {\bar G}^{\Frob(x)}\\ 
-\EE^\times & & \ar@{.>}[ll] \Aut({\bar f}^{\Frob(x)})  \ar@{=}[u] & \ar@{.>}@(ul,dl)  & \ar[u] {\bar H}^{\Frob(x)} \times_{{\bar G}^{\Frob(x)}} {\bar G}^x \ar[rr] && \ar[u]_{\Frob_{x}} {\bar G}^x\\
-& &  \ar[ull]^{\psi_x}  \ar@{.>}[u] \Aut({\bar f}^{x}) & \ar@(ul,dl) & \ar[u] {\bar H}^x \ar[rr] && \ar@{=} [u] {\bar G}^x\\
-}
-\] 
-The covering group of ${\bar H}^{\Frob(x)} \times_{{\bar G}^{\Frob(x)}} {\bar G}^x$ is isomorphic to $\Aut({\bar f}^{\Frob(x)})$, canonically, so $\Frob_x^* \gcs{L}^{\Frob(x)}$ is defined by the middle (horizontal) diagram, above.  We define the sheaf homomorphism $F_x : \Frob_x^* \gcs{L}^{\Frob(x)} \to \gcs{L}^x$ by the canonical morphism ${\bar H}^x \to  {\bar H}^{\Frob(x)} \times_{{\bar G}^{\Frob(x)}} {\bar G}^x \to $; to see that this defines a sheaf homomorphism it is sufficient to check that the character $\psi_x$ commutes with the  
-The family of isomorphisms  $F_x : (\Frob_{G}^* \gcs{L})\vert_{{\bar G}^x} \iso \Frob_x^* \gcs{L}^{\Frob{x}} \to \gcs{L}^x$ now defines the isomorphism $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$. 
-\Clifton{Add some detail here.}
-This isomorphism is compatible with $\mu$ in the sense of condition~\ref{CS.2}. 
+  Set $X \ceq \pi_0(G)\times_{\Spec{\Fq}} \Spec{\bFq}$. We will
+  identify $X$ with $\pi_0(H)\times_{\Spec{\Fq}} \Spec{\bFq}$ using
+  the base change of $\pi_0(f): \pi_0(H)\to \pi_0(G)$. For each $x\in X$,
+  write ${\bar f}^x : {\bar H}^x \to {\bar G}^x$ for the
+  restriction of ${\bar f}$ to ${\bar H}^x$, as a cover of
+  ${\bar G}^x$. For each $x,y\in X$, let
+  ${\bar m}_{x,y} : {\bar H}^x \times {\bar H}^{y} \to {\bar H}^{x+y}$
+  be the map obtained from ${\bar m}$ by restriction. Define
+  ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ by
+  ${\bar m}_{x}(a): g \mapsto {\bar m}_{0,x}(a,g)$; then
+  ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ is an isomorphism.
+  \Clifton{I need to show that ${\bar m}_{x} : A\to \Aut({\bar f}^x)$ is an isomorphism.}
+
+  For each $x\in X$ let $\gcs{L}^x$ be the rank-$1$ local system on
+  ${\bar G}^x$ determined by the finite etale cover
+  ${\bar f}^x : {\bar H}^x \to {\bar G}^x$ and the character
+  $\psi_x \ceq \psi \circ {\bar m}_x^{-1}$.  Since
+  ${\bar G} = \coprod_{x\in X} {\bar G}^x$ (disjoint union), this
+  determines a constructible sheaf $\gcs{L}$ on ${\bar G}$, locally
+  constant of rank-$1$ on each connected component of ${\bar G}$.
+  Taking the case $x=0$ we observe that $\gcs{L}^0 =\gcs{E}$,
+  the latter defined above. To finish the proof of the proposition we
+  equip $\gcs{L}$ with isomorphisms
+  $\mu : {\bar m}^* \gcs{L} \to \gcs{L} \boxtimes\gcs{L}$ and
+  $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1}
+  and \ref{CS.2}.
+
+  Observe that ${\bar m}: {\bar G}\times {\bar G}\to {\bar G}$ is
+  completely determined by the family of maps
+  ${\bar m}_{x,y} : {\bar G}^x \times {\bar G}^{y} \to {\bar G}^{x+y}$.
+  Accordingly, to define $\mu$ for $\gcs{L}$ it is sufficient to define isomorphisms
+  $\mu_{x,y} : {\bar m}_{x,y}^*\gcs{L}^{x+y} \iso \gcs{L}^{x}\boxtimes \gcs{L}^{y}$
+  for all $x,y\in X$. To do that, note first that the local system
+  $\gcs{L}^{x}\boxtimes \gcs{L}^{y}$ is defined by the following diagram.
+  \[
+  \xymatrix{
+    \EE^\times && \ar[ll]_{\hskip-20pt \psi_x\otimes \psi_y} \Aut({\bar f}^x)\times \Aut({\bar f}^y)
+    & \ar@(ul,dl) & {\bar H}^x\times {\bar H}^y \ar[rr]^{{\bar f}^x\times {\bar f}^y} && {\bar G}^x\times {\bar G}^y\\
+    }
+  \]
+  On the other hand, the diagram for the local system ${\bar m}_{x,y}^* \gcs{L}^{x+y}$
+  is found by pulling-back the diagram for $\gcs{L}^{x+y}$ along
+  ${\bar m}_{x,y} : {\bar H}^x\times{\bar H}^y \to {\bar H}^{x+y}$;
+  the result is the middle horizontal diagram below, where we use the
+  fact that the covering group of the middle arrow is $\Aut({\bar f}^{x+y})$, canonically.
+  \[
+  \xymatrix{
+    & \ar[dl]_{\psi_{x+y}} \Aut({\bar f}^{x+y})
+    & \ar@(ul,dl) & {\bar H}^{x+y} \ar[rr]^{{\bar f}^{x+y}} && {\bar G}^{x+y}\\
+    \EE^\times & \ar@{.>}[l] \Aut({\bar f}^{x+y})  \ar@{=}[u] &  \ar@{.>}@(ul,dl)
+    & \ar[u] {\bar H}^{x+y} \times_{{\bar G}^x\times{\bar G}^y} {\bar G}^x\times{\bar G}^y \ar[rr]
+    && \ar[u]_{{\bar m}_{x,y}} {\bar G}^x\times {\bar G}^y\\
+    & \ar[lu]_{\psi_x\otimes \psi_y} \ar@{.>}[u] \Aut({\bar f}^x)\times \Aut({\bar f}^y)
+    & \ar@(ul,dl) & \ar[u] {\bar H}^x\times {\bar H}^y \ar[rr]^{{\bar f}^x\times {\bar f}^y}
+    && \ar@{=}[u] {\bar G}^x\times {\bar G}^y\\
+    }
+  \]
+  Now, the homomorphism from the covering group of
+  ${\bar f}^x\times{\bar f}^y$ to the covering group of
+  ${\bar f}^{x+y}$ induced by the composition
+  $ {\bar H}^x\times {\bar H}^y \to {\bar H}^{x+y} \times_{{\bar G}^x\times{\bar G}^y} {\bar G}^x\times{\bar G}^y \to {\bar H}^{x+y}$
+  is precisely $({\bar m}_x(a),{\bar m}_y(b)) \mapsto {\bar m}_{x+y}(ab)$.
+  Since this map commutes with the characters $\psi_x\otimes\psi_y$
+  and $\psi_{x+y}$ (so, the far-left triangle commutes in the diagram above)
+  it follows that, for each $x,y\in X$ the diagram above defines a canonical isomorphism
+  $\mu_{x,y} : {\bar m}_{x,y}^* \gcs{L}^{x+y} \to \gcs{L}^x \boxtimes\gcs{L}^y$.
+  This defines $\mu: {\bar m}^* \gcs{L} \iso \gcs{L} \boxtimes\gcs{L}$.
+  It is straightforward (but laborious) to show that the pair
+  $(\gcs{L},\mu)$ satisfies condition \ref{CS.1}.
+
+  Now we turn to the definition of $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$.
+  As above, we define this isomorphism through a family of
+  isomorphisms on the connected components of ${\bar G}$. The
+  restriction of $\Frob_{G}$ to ${\bar G}^x$ defines an isomorphism
+  $\Frob_x : {\bar G}^x \to {\bar G}^{\Frob(x)}$.
+  %\[
+  %\xymatrix{
+  %\ar[d]_{\Frob_x} {\bar G}^x \ar[r] & \ar[d]_{\Frob_{G}} {\bar G}\\
+  %{\bar G}^{\Frob(x)} \ar[r] & {\bar G}\\
+  %}
+  %\]
+  Pull back the finite etale covering in the diagram for
+  $\gcs{L}^{\Frob(x)}$ along $\Frob_x$ and compare the result with the
+  finite etale covering in the diagram for $\gcs{L}^{x}$.
+
+  \[
+  \xymatrix{
+    && \ar[dll]_{\psi_{\Frob(x)}} \Aut({\bar f}^{\Frob(x)}) & \ar@(ul,dl)
+    & {\bar H}^{\Frob(x)} \ar[rr]^{{\bar f}^{\Frob(x)}} && {\bar G}^{\Frob(x)}\\
+    \EE^\times & & \ar@{.>}[ll] \Aut({\bar f}^{\Frob(x)})  \ar@{=}[u] & \ar@{.>}@(ul,dl)
+    & \ar[u] {\bar H}^{\Frob(x)} \times_{{\bar G}^{\Frob(x)}} {\bar G}^x \ar[rr] && \ar[u]_{\Frob_{x}} {\bar G}^x\\
+    & &  \ar[ull]^{\psi_x}  \ar@{.>}[u] \Aut({\bar f}^{x}) & \ar@(ul,dl)
+    & \ar[u] {\bar H}^x \ar[rr] && \ar@{=} [u] {\bar G}^x\\
+    }
+  \]
+  The covering group of ${\bar H}^{\Frob(x)} \times_{{\bar G}^{\Frob(x)}} {\bar G}^x$
+  is isomorphic to $\Aut({\bar f}^{\Frob(x)})$, canonically, so
+  $\Frob_x^* \gcs{L}^{\Frob(x)}$ is defined by the middle (horizontal)
+  diagram, above.  We define the sheaf homomorphism
+  $F_x : \Frob_x^* \gcs{L}^{\Frob(x)} \to \gcs{L}^x$ by the canonical morphism
+  ${\bar H}^x \to {\bar H}^{\Frob(x)} \times_{{\bar G}^{\Frob(x)}} {\bar G}^x \to $;
+  to see that this defines a sheaf homomorphism it is sufficient to
+  check that the character $\psi_x$ commutes with the family of isomorphisms
+  $F_x : (\Frob_{G}^* \gcs{L})\vert_{{\bar G}^x} \iso \Frob_x^* \gcs{L}^{\Frob{x}} \to \gcs{L}^x$
+  now defines the isomorphism $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$.
+  \Clifton{Add some detail here.}
+  This isomorphism is compatible with $\mu$ in the sense of condition~\ref{CS.2}.
 \end{proof}
 
 \begin{remark}
-We have seen that if $f : H\to G$ is a finite etale cover of $G$ by a smooth group scheme and if all geometric automorphisms of $f$ are fixed by Frobenius, then every character of $\ker f$ determines a character sheaf on $G$. However, it is not true that every character sheaf on $G$, in the sense of Section~\ref{sec:category} arises not all character sheaves on $G$ arise in this manner. 
+  We have seen that if $f : H\to G$ is a finite etale cover of $G$ by
+  a smooth group scheme and if all geometric automorphisms of $f$ are
+  fixed by Frobenius, then every character of $\ker f$ determines a
+  character sheaf on $G$. However, it is not true that every character
+  sheaf on $G$, in the sense of Section~\ref{sec:category} arises not
+  all character sheaves on $G$ arise in this manner.
 \end{remark}
 %\input{centralextensions}
 
@@ -597,74 +1128,121 @@ We have seen that if $f : H\to G$ is a finite etale cover of $G$ by a smooth gro
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
-If $G$ is a smooth abelian group scheme, locally of finite type over $\Fq$, and the abelian group $\pi_0(G)(\bFq)$ (the geometric component group) is finitely generated, then the trace of Frobenius homomorphism
-\[
-t_{G} : \CS(G)_{/\text{iso}} \to \Hom(G(\Fq),\EE^\times),
-\]
-from the Picard group of the category of character sheaves on $G$ to the group of characters of $G(\Fq)$, is an isomorphism. 
+  If $G$ is a smooth abelian group scheme, locally of finite type over
+  $\Fq$, and the abelian group $\pi_0(G)(\bFq)$ (the geometric
+  component group) is finitely generated, then the trace of Frobenius
+  homomorphism
+  \[
+  t_{G} : \CS(G)_{/\text{iso}} \to \Hom(G(\Fq),\EE^\times),
+  \]
+  from the Picard group of the category of character sheaves on $G$ to
+  the group of characters of $G(\Fq)$, is an isomorphism.
 \end{theorem}
 
 \begin{proof}
-Consider the short exact sequence in the category of smooth group schemes, locally of finite type over $\Fq$, defining the component group scheme for $G$:
-\begin{equation}\label{eq:pi0}
-\xymatrix{
-1 \ar[r] & G^0 \ar[r] & G \ar[r] & \pi_0(G) \ar[r] & 0.
-}
-\end{equation}
-Let 
-\[
-\xymatrix{
-& \ar[d] \ker t_{\pi_0(G)} & \ar@{.>}[d] \ker t_{G} & \ar[d] \ker t_{G^0} & \\
-0\ar[r] & \ar[d]^{t_{\pi_0(G)}} \CS(\pi_0(G))_{/\text{iso}} \ar[r] & \ar[d]^{t_{G}} \CS(G)_{/\text{iso}} \ar[r] & \ar[d]^{t_{G^0}} \CS(G^0)_{/\text{iso}} \ar[r] & 0\\
-0 \ar[r] & \ar[d] \Hom(\pi_0(G)(\Fq),\EE^\times) \ar[r] & \ar@{.>}[d] \Hom(G(\Fq),\EE^\times) \ar[r] & \ar[d] \Hom(G^0(\Fq),\EE^\times) \ar[r] & 0\\
-& \coker t_{\pi_0(G)} & \coker t_{G} &  \coker t_{G^0} & \\
-}
-\]
-be the commutative diagram of abelian groups obtained by applying Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.
-By Proposition~\ref{prop:connected-1}, $\ker t_{G^0} =0$ and $\coker t_{G^0}=0$. By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker t_{\pi_0(G)}=0$ and $\coker t_{\pi_0(G)}=0$. 
+  Consider the short exact sequence in the category of smooth group
+  schemes, locally of finite type over $\Fq$, defining the component
+  group scheme for $G$:
+  \begin{equation}\label{eq:pi0}
+    \xymatrix{
+      1 \ar[r] & G^0 \ar[r] & G \ar[r] & \pi_0(G) \ar[r] & 0.
+      }
+  \end{equation}
+  Let
+  \[
+  \xymatrix{
+    & \ar[d] \ker t_{\pi_0(G)} & \ar@{.>}[d] \ker t_{G} & \ar[d] \ker t_{G^0} & \\
+    0\ar[r] & \ar[d]^{t_{\pi_0(G)}} \CS(\pi_0(G))_{/\text{iso}} \ar[r]
+    & \ar[d]^{t_{G}} \CS(G)_{/\text{iso}} \ar[r] & \ar[d]^{t_{G^0}} \CS(G^0)_{/\text{iso}} \ar[r] & 0\\
+    0 \ar[r] & \ar[d] \Hom(\pi_0(G)(\Fq),\EE^\times) \ar[r]
+    & \ar@{.>}[d] \Hom(G(\Fq),\EE^\times) \ar[r] & \ar[d] \Hom(G^0(\Fq),\EE^\times) \ar[r] & 0\\
+    & \coker t_{\pi_0(G)} & \coker t_{G} &  \coker t_{G^0} & \\
+    }
+  \]
+  be the commutative diagram of abelian groups obtained by applying
+  Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  By
+  Proposition~\ref{prop:connected-1}, $\ker t_{G^0} =0$ and $\coker t_{G^0}=0$.
+  By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker t_{\pi_0(G)}=0$
+  and $\coker t_{\pi_0(G)}=0$.
 
+  The sequence of character groups is left-exact: by
+  Proposition~\ref{prop:pullback}, it is dual to the exact sequence of
+  abelian groups
+  \begin{equation}\label{eq:pi0}
+    \xymatrix{
+      1 \ar[r] & G^0(\Fq) \ar[r] & G(\Fq) \ar[r] & \pi_0(G)(\Fq) \ar[r] & 0;
+    }
+  \end{equation}
+  since $\Hom(\ - \ ,\EE^\times)$ is left-exact, the sequence of
+  character groups is left exact.
 
-The sequence of character groups is left-exact: by Proposition~\ref{prop:pullback}, it is dual to the exact sequence of abelian groups
-\begin{equation}\label{eq:pi0}
-\xymatrix{
-1 \ar[r] & G^0(\Fq) \ar[r] & G(\Fq) \ar[r] & \pi_0(G)(\Fq) \ar[r] & 0;
-}
-\end{equation}
-since $\Hom(\ - \ ,\EE^\times)$ is left-exact, the sequence of character groups is left exact. 
+  The sequence of Picard groups is right-exact: it is exact at
+  $\CS(G^0)_{/\text{iso}}$ by Proposition~\ref{prop:restriction}; and
+  it is exact at $\CS(G)_{/\text{iso}}$ because the left-square
+  commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
+  is exact at $\Hom(G(\Fq),\EE^\times)$ and $\coker t_{\pi_0(G)} =0$
+  (by Propositions~\ref{prop:etale} and \ref{prop:X}) and
+  \[
+  \image(\CS(\pi_0(G))_{/\text{iso}} \to \CS(G)_{/\text{iso}}) \subseteq \ker(\CS(G)_{/\text{iso}} \to \CS(G^0)_{/\text{iso}}),
+  \]
+  by the last part of Proposition~\ref{prop:pullback}. Specifically,
+  suppose $\cs{L}$ is a character sheaf on $G$ that is trivial on
+  $G^0$. Then $t^\Frob_\cs{L}\vert_{G^0(\Fq)} = t^\Frob_{\cs{L}^0} =0$,
+  by Proposition~\ref{prop:pullback} again. Since the sequence of
+  character groups is exact at $\Hom(G(\Fq),\EE^\times)$, there is
+  some $\chi \in \Hom(\pi_0(G)(\Fq),\EE^\times)$ such that the
+  pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is
+  $t^\Frob_\cs{L}$. By Propositions~\ref{prop:etale} and \ref{prop:X},
+  there is a a character sheaf $\cs{L}_\chi$ on $\pi_0(G)$, unique up
+  to isomorphism, such that $t^\Frob_{\cs{L}_\chi} = \chi$. By
+  Proposition~\ref{prop:pullback} again, $\cs{L}$ is isomorphic to the
+  image of $\cs{L}_\chi$ under the monoidal functor $\CS(\pi_0(G)) \to \CS(G)$.
 
-The sequence of Picard groups is right-exact:  it is exact at $\CS(G^0)_{/\text{iso}}$ by Proposition~\ref{prop:restriction}; and it is exact at $\CS(G)_{/\text{iso}}$ because the left-square commutes (by Proposition~\ref{prop:pullback}), the bottom sequence is exact at $\Hom(G(\Fq),\EE^\times)$ and $\coker t_{\pi_0(G)} =0$ (by Propositions~\ref{prop:etale} and \ref{prop:X}) and
-\[
-\image(\CS(\pi_0(G))_{/\text{iso}} \to \CS(G)_{/\text{iso}}) \subseteq \ker(\CS(G)_{/\text{iso}} \to \CS(G^0)_{/\text{iso}}),
-\]
-by the last part of Proposition~\ref{prop:pullback}. Specifically, suppose $\cs{L}$ is a character sheaf on $G$ that is trivial on $G^0$. Then $t^\Frob_\cs{L}\vert_{G^0(\Fq)} = t^\Frob_{\cs{L}^0} =0$, by Proposition~\ref{prop:pullback} again. Since the sequence of character groups is exact at $\Hom(G(\Fq),\EE^\times)$, there is some $\chi \in \Hom(\pi_0(G)(\Fq),\EE^\times)$ such that the pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is $t^\Frob_\cs{L}$. By Propositions~\ref{prop:etale} and \ref{prop:X}, there is a a character sheaf $\cs{L}_\chi$ on $\pi_0(G)$, unique up to isomorphism, such that $t^\Frob_{\cs{L}_\chi} = \chi$. By Proposition~\ref{prop:pullback} again, $\cs{L}$ is isomorphic to the image of $\cs{L}_\chi$ under the monoidal functor $\CS(\pi_0(G)) \to \CS(G)$.
-
-It now follows immediately from the snake lemma that $t_{G}$ is an isomorphism of groups.
+  It now follows immediately from the snake lemma that $t_{G}$ is an
+  isomorphism of groups.
 \end{proof}
 
 \section{Application to characters of bounded depth}
 
 %\input{GdeN}
-Let $p$ be a prime number. Let $K$ be a local field with residue field $\Fq$, where $p$ divides $q$. Let $\OK$ be the ring of integers of $K$ and let $\pK$ be the maximal ideal in $\OK$.
+Let $p$ be a prime number. Let $K$ be a local field with residue field
+$\Fq$, where $p$ divides $q$. Let $\OK$ be the ring of integers of $K$
+and let $\pK$ be the maximal ideal in $\OK$.
 %
-In this section we introduce a group scheme $\GN{T}$ over $\Fq$ obtained by applying the Greenberg functor to the N\'eron lft-model for $T$ and establish some basic facts about $\GN{T}$
+In this section we introduce a group scheme $\GN{T}$ over $\Fq$
+obtained by applying the Greenberg functor to the N\'eron lft-model
+for $T$ and establish some basic facts about $\GN{T}$
 
 %\subsection{The N\'eron locally finite type model for $T$}
 
-The lft-N\'eron model for $T$, denoted here by $\TT$, is a separated, smooth, commutative group scheme locally of finite type over $\OK$ with generic fibre $T$, that enjoys the N\'eron mapping property: if $X$ is a smooth scheme over $\OK$ then every morphism $X_\eta \to T$ over $K$ extends uniquely to a morphism $X \to \TT$. Equivalently, the N\'eron mapping property states that the function $\Hom_{\OK} (X,\TT) \to \Hom_K(X_\eta,T)$, given by restriction to generic fibres, is a bijection; in particular, this implies $\TT(\OK) = T(K)$.
+The lft-N\'eron model for $T$, denoted here by $\TT$, is a separated,
+smooth, commutative group scheme locally of finite type over $\OK$
+with generic fibre $T$, that enjoys the N\'eron mapping property: if
+$X$ is a smooth scheme over $\OK$ then every morphism $X_\eta \to T$
+over $K$ extends uniquely to a morphism $X \to \TT$. Equivalently, the
+N\'eron mapping property states that the function
+$\Hom_{\OK} (X,\TT) \to \Hom_K(X_\eta,T)$, given by restriction to
+generic fibres, is a bijection; in particular, this implies $\TT(\OK) = T(K)$.
 
-For each $d\in \NN$, let $\TT_{d}$ be the smooth group scheme over $\OK/\pK^{d+1}$ obtained from $\TT$ by base change along $\OK \to \OK/\pK^{d+1}$. Observe that $\OK/\pK^{d+1}$ is an Artin ring and $\TT_{d}$ is locally of finite type over $\OK/\pK^{d+1}$. 
-%
-Let $\GN{T}_{d}$ be the group scheme over $\Fq$ produced by applying the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} for background on the Greenberg functor.) 
+For each $d\in \NN$, let $\TT_{d}$ be the smooth group scheme over
+$\OK/\pK^{d+1}$ obtained from $\TT$ by base change along $\OK \to
+\OK/\pK^{d+1}$. Observe that $\OK/\pK^{d+1}$ is an Artin ring and
+$\TT_{d}$ is locally of finite type over $\OK/\pK^{d+1}$.
+
+Let $\GN{T}_{d}$ be the group scheme over $\Fq$ produced by applying
+the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
+\cite[Ch. 9, \S 6]{BLR} for background on the Greenberg functor.)
 %Then $\GN{T}_d(\Fq) = \TT(\OK/\pK^{d+1})$.
 
 \begin{proposition}\label{prop:GN}
-Fundamental properties of the group $\Fq$-scheme $\GN{T}_d$, for all $d\in \NN$:
-\begin{enumerate}
- \labitem{(GNd.0)}{GN0} $\GN{T}_d^0$, the identity component of $\GN{T}_d$, is a commutative algebraic group over $\Fq$;
-\labitem{(GNd.1)}{GNd} $\GN{T}_d$ is smooth and locally of finite type over $\Fq$;
-\labitem{(GNd.2)}{pi0} $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$;
-\labitem{(GNd.3)}{fg} the component group of $\GN{T}_d$ is geometrically finitely generated;
-\labitem{(GNd.4)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^{d+1})$, canonically;
+  Fundamental properties of the group $\Fq$-scheme $\GN{T}_d$, for all $d\in \NN$:
+  \begin{enumerate}
+  \labitem{(GNd.0)}{GN0} $\GN{T}_d^0$, the identity component of
+    $\GN{T}_d$, is a commutative algebraic group over $\Fq$;
+  \labitem{(GNd.1)}{GNd} $\GN{T}_d$ is smooth and locally of finite type over $\Fq$;
+  \labitem{(GNd.2)}{pi0} $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$;
+  \labitem{(GNd.3)}{fg} the component group of $\GN{T}_d$ is geometrically finitely generated;
+  \labitem{(GNd.4)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^{d+1})$, canonically;
 \end{enumerate}
 \end{proposition}
 
@@ -674,52 +1252,60 @@ Fundamental properties of the group $\Fq$-scheme $\GN{T}_d$, for all $d\in \NN$:
 
 %\input{application}
 \begin{theorem}\label{thm:application}
-Let $T$ be an algebraic torus over a non-Archimdean local field $K$. 
-Let $\GN{T}_d$ and $\GN{T}$ be as above.
-For each $d\in \NN$, the Picard group of the category of character sheaves on $\GN{T}_d$ is canonically isomorphic to the group of characters of $T(K)$ of depth at most $d$:
-\[
-\CS(\GN{T}_d)_{/\text{iso}} \iso \Hom_{\leq d}(T(K),\EE^\times).
-\]
+  Let $T$ be an algebraic torus over a non-Archimdean local field $K$.
+  Let $\GN{T}_d$ and $\GN{T}$ be as above.  For each $d\in \NN$, the
+  Picard group of the category of character sheaves on $\GN{T}_d$ is
+  canonically isomorphic to the group of characters of $T(K)$ of depth
+  at most $d$:
+  \[
+  \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom_{\leq d}(T(K),\EE^\times).
+  \]
 \end{theorem}
 
 \begin{proof}
-By \ref{GNd} and \ref{fg}, we may apply Theorem~\ref{thm:snake} to $\GN{T}_d$ which provides a canonical isomorphism 
-\[
-\CS(\GN{T}_d)_{/\text{iso}} \iso \Hom(\GN{T}_d(\Fq),\EE^\times).
-\]
-By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^{d+1})$ canonically.
-To finish the proof we recall that the filtration of $T(K)$ used to define depth has the property
-that $\TT(\OK/\pK^{d+1}) \cong T(K) / T(K)_d$ \cite[Prop 5.2]{Yu}.  Thus characters of $\GN{T}_d(\Fq)$ are in bijection with characters of $T(K)$ vanishing on $T(K)_d$.
+  By \ref{GNd} and \ref{fg}, we may apply Theorem~\ref{thm:snake} to
+  $\GN{T}_d$ which provides a canonical isomorphism
+  \[
+  \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom(\GN{T}_d(\Fq),\EE^\times).
+  \]
+  By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^{d+1})$ canonically.
+  To finish the proof we recall that the filtration of $T(K)$ used to
+  define depth has the property that $\TT(\OK/\pK^{d+1}) \cong T(K) / T(K)_d$
+  \cite[Prop 5.2]{Yu}.  Thus characters of $\GN{T}_d(\Fq)$ are
+  in bijection with characters of $T(K)$ vanishing on $T(K)_d$.
 \end{proof}
 
 \section{Application to admissible characters}
 
 %\input{pro}
-To conclude the paper we offer an interpretation of Theorem~\ref{thm:application} that makes no mention of depth.
+To conclude the paper we offer an interpretation of
+Theorem~\ref{thm:application} that makes no mention of depth.
 
 \Clifton{Explain what happens as $d\in \NN$ varies.}
 Suppose $d\leq d'$.
 
-We may now assemble the group $\Fq$-schemes $\TT_{d}$ into one glorious group pro-scheme over $\Fq$:
+We may now assemble the group $\Fq$-schemes $\TT_{d}$ into one
+glorious group pro-scheme over $\Fq$:
 \begin{equation}\label{projlim}
-\GN{T} \ceq \varprojlim_{d\in \NN} \GN{T}_{d}.
+  \GN{T} \ceq \varprojlim_{d\in \NN} \GN{T}_{d}.
 \end{equation}
 This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}.
 
-\Clifton{Prove that $\GN{T}$ is a scheme? Strictly speaking, we don't care about \ref{scheme}.}
+\Clifton{Prove that $\GN{T}$ is a scheme? Strictly speaking, we don't
+  care about \ref{scheme}.}
 \begin{proposition}
-Fundamental properties of $\GN{T}$:
-\begin{enumerate}
-\labitem{(GN.0)}{scheme} $\GN{T}$ is a commutative group scheme over $\Fq$;
-\labitem{(GN.1)}{T(K)} $\GN{T}(\Fq) = T(K)$, canonically.
-\end{enumerate}
+  Fundamental properties of $\GN{T}$:
+  \begin{enumerate}
+  \labitem{(GN.0)}{scheme} $\GN{T}$ is a commutative group scheme over $\Fq$;
+  \labitem{(GN.1)}{T(K)} $\GN{T}(\Fq) = T(K)$, canonically.
+  \end{enumerate}
 \end{proposition}
 
 
 \begin{corollary}
-\[
-\CS(\GN{T})_{/\text{iso}} \iso \Hom_\text{ad}(T(K),\EE^\times)
-\]
+  \[
+  \CS(\GN{T})_{/\text{iso}} \iso \Hom_\text{ad}(T(K),\EE^\times)
+  \]
 \end{corollary}
 
 
