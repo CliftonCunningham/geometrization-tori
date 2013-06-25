@@ -199,7 +199,7 @@ maximal ideal in $\OK$.  Let $T$ be an algebraic torus defined over
 $K$. Let $\TT$ be a N\'eron model for $T$; recall that this is a
 smooth group scheme locally of finite type over $\OK$. For each
 non-negative integer $d$, let $\GN{T}_d$ be the Greenberg transform of
-$\TT \otimes \OK/\pK^{d+1}$; the commutative group scheme $\GN{T}_d$
+$\TT \otimes \OK/\pK^d$; the commutative group scheme $\GN{T}_d$
 plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
@@ -1224,15 +1224,15 @@ N\'eron mapping property states that the function
 $\Hom_{\OK} (X,\TT) \to \Hom_K(X_\eta,T)$, given by restriction to
 generic fibres, is a bijection; in particular, this implies $\TT(\OK) = T(K)$.
 
-For each $d\in \NN$, let $\TT_{d}$ be the smooth group scheme over
-$\OK/\pK^{d+1}$ obtained from $\TT$ by base change along $\OK \to
-\OK/\pK^{d+1}$. Observe that $\OK/\pK^{d+1}$ is an Artin ring and
-$\TT_{d}$ is locally of finite type over $\OK/\pK^{d+1}$.
+For each $d\in \ZZ_{>0}$, let $\TT_{d}$ be the smooth group scheme over
+$\OK/\pK^d$ obtained from $\TT$ by base change along $\OK \to
+\OK/\pK^d$. Observe that $\OK/\pK^d$ is an Artin ring and
+$\TT_{d}$ is locally of finite type over $\OK/\pK^d$.
 
 Let $\GN{T}_{d}$ be the group scheme over $\Fq$ produced by applying
 the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 \cite[Ch. 9, \S 6]{BLR} for background on the Greenberg functor.)
-%Then $\GN{T}_d(\Fq) = \TT(\OK/\pK^{d+1})$.
+%Then $\GN{T}_d(\Fq) = \TT(\OK/\pK^d)$.
 
 \begin{proposition}\label{prop:GN}
   Fundamental properties of the group $\Fq$-scheme $\GN{T}_d$, for all $d\in \NN$:
@@ -1242,7 +1242,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
   \labitem{(GNd.1)}{GNd} $\GN{T}_d$ is smooth and locally of finite type over $\Fq$;
   \labitem{(GNd.2)}{pi0} $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$;
   \labitem{(GNd.3)}{fg} the component group of $\GN{T}_d$ is geometrically finitely generated;
-  \labitem{(GNd.4)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^{d+1})$, canonically;
+  \labitem{(GNd.4)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^d)$, canonically;
 \end{enumerate}
 \end{proposition}
 
@@ -1253,12 +1253,12 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 %\input{application}
 \begin{theorem}\label{thm:application}
   Let $T$ be an algebraic torus over a non-Archimdean local field $K$.
-  Let $\GN{T}_d$ and $\GN{T}$ be as above.  For each $d\in \NN$, the
+  Let $\GN{T}_d$ and $\GN{T}$ be as above.  For each $d \in \ZZ_{>0}$, the
   Picard group of the category of character sheaves on $\GN{T}_d$ is
   canonically isomorphic to the group of characters of $T(K)$ of depth
-  at most $d$:
+  less than $d$:
   \[
-  \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom_{\leq d}(T(K),\EE^\times).
+  \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom_{< d}(T(K),\EE^\times).
   \]
 \end{theorem}
 
@@ -1268,10 +1268,10 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
   \[
   \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom(\GN{T}_d(\Fq),\EE^\times).
   \]
-  By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^{d+1})$ canonically.
+  By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^d)$ canonically.
   To finish the proof we recall that the filtration of $T(K)$ used to
-  define depth has the property that $\TT(\OK/\pK^{d+1}) \cong T(K) / T(K)_d$
-  \cite[Prop 5.2]{Yu}.  Thus characters of $\GN{T}_d(\Fq)$ are
+  define depth has the property that $\TT(\OK/\pK^d) \cong T(K) / T(K)_d$
+  \cite[Prop 5.2]{Yu} for $d \in \ZZ_{>0}$.  Thus characters of $\GN{T}_d(\Fq)$ are
   in bijection with characters of $T(K)$ vanishing on $T(K)_d$.
 \end{proof}
 
