@@ -101,6 +101,8 @@
 \newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\cs{#1}^\dagger}
 \newcommand{\CS}{{\mathcal{C\hskip-1.8pt S}}}
+\newcommand{\CSiso}[1]{\CS(#1)_{/\textit{iso}}}
+\newcommand{\CSbiso}[1]{\CS_0(#1)_{/\text{iso}}}
 \newcommand{\CE}{{\mathcal{C\hskip-1.8pt E}}}
 \newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
 \newcommand{\dualgroup}[1]{{\check{#1}}}
@@ -183,7 +185,7 @@ these compatibility conditions are explained below.
 Character sheaves on $G$ form a category, denoted by $\CS(G)$. In
 fact, $\CS(G)$ is a rigid symmetric monoidal category, so isomorphism
 classes of character sheaves on $G$ form a group, denoted by
-$\CS(G)_{/\text{iso}}$; this is the Picard group of the category of
+$\CSiso{G}$; this is the Picard group of the category of
 character sheaves on $G$. Our application of character sheaves to
 characters of algebraic tori over non-Archimedean local fields rests
 on the Picard group of character sheaves on $G$, for certain smooth
@@ -204,7 +206,7 @@ plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
 \[
-\CS(\textswab{T}_d)_{/\text{iso}} 
+\CSiso{\textswab{T}_d} 
 \iso
 \Hom_{\leq d}(T(K),\EE^\times)
 \] 
@@ -314,7 +316,7 @@ is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
 %\begin{proof}\end{proof}
 %
 This rigid monoidal category structure for $\CS(G)$ puts a group
-structure on the set $\CS(G)_{/\text{iso}}$ of isomorphism classes in
+structure on the set $\CSiso{G}$ of isomorphism classes in
 $\CS(G)$; we refer to this as the \cdef{Picard group} of character
 sheaves on $G$; {\it cf.} {\tt http://ncatlab.org/nlab/show/Picard+group}.
 \Clifton{Replace ncatlab with other references.}
@@ -337,7 +339,7 @@ It is clear that $t^\Frob_{\cs{L}\otimes \cs{L'}} = t^\Frob_\cs{L} \cdot t^\Frob
 (pointwise multiplication of functions) and that $t^\Frob_\cs{L} = t^\Frob_\cs{L'}$
 if $\cs{L} \iso \cs{L'}$ in $\CS(G)$. In this way we obtain a group homomorphism
 \[
-\cdef{t_{G}} : \CS(G)_{/\text{iso}} \longrightarrow \Hom_\text{grp}(G(\Fq),\EE^\times),
+\cdef{t_{G}} : \CSiso{G} \longrightarrow \Hom_\text{grp}(G(\Fq),\EE^\times),
 \qquad \text{defined by}\qquad \cs{L} \mapsto t^\Frob_\cs{L},
 \]
 from the Picard group of character sheaves on $G$ to the character group of $G(\Fq)$.
@@ -358,7 +360,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   defines a monoidal functor $f^* : \CS(G) \to \CS(H)$ such that
   \[
   \xymatrix{
-  \CS(G)_{/\text{iso}} \ar[r]^{f^*} \ar[d]^{t_{G}} &  \ar[d]^{t_{H}} \CS(H)_{/\text{iso}}\\
+  \CSiso{G} \ar[r]^{f^*} \ar[d]^{t_{G}} &  \ar[d]^{t_{H}} \CSiso{H}\\
   \Hom_\text{grp}(G(\Fq),\EE^\times) \ar[r] & \Hom_\text{grp}(H(\Fq),\EE^\times)
   }
   \]
@@ -437,7 +439,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
 \begin{proposition}\label{prop:connected-1}
   If $G$ is a geometrically connected commutative algebraic group over $\Fq$ then
   \[
-  t_{G} : \CS(G)_{/\text{iso}} \to \Hom_\text{grp}(G(\Fq),\EE^\times),
+  t_{G} : \CSiso{G} \to \Hom_\text{grp}(G(\Fq),\EE^\times),
   \]
   is an isomorphism of groups.
 \end{proposition}
@@ -525,7 +527,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   of rigid monoidal categories. It follows immediately that $b^*$
   determines an isomorphism
   \[
-  b^* : \CS_0(G)_{/\text{iso}} \mathop{\longrightarrow}^{\iso} \CS(G)_{/\text{iso}}
+  b^* : \CSbiso{G} \mathop{\longrightarrow}^{\iso} \CSiso{G}
   \]
   of the Picard groups determined by these rigid monoidal categories.
   \Clifton{\textdbend This last sentence glosses over some subtle points;
@@ -534,7 +536,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   To finish the proof observe that the functions--sheaves dictionary,
   as it pertains to characters, shows that
   \[
-  t_{G} : \CS_0(G)_{/\text{iso}}\to \Hom_\text{grp}(G(\Fq),\EE^\times)
+  t_{G} : \CSbiso{G} \to \Hom_\text{grp}(G(\Fq),\EE^\times)
   \]
   is an isomorphism of groups; see \cite{Laumon}*{1.1.3} or \cite{SGA4.5}*{Sommes trigonométriques}.
 \end{proof}
@@ -551,7 +553,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   $G(\bFq)$ is finitely generated then there is a canonical
   isomorphism
   \[
-  \CS(G)_{/\text{iso}} \longrightarrow H^1(\Weil(\bFq/\Fq), \Hom_\text{grp}(G(\bFq),\EE^\times)),
+  \CSiso{G} \longrightarrow H^1(\Weil(\bFq/\Fq), \Hom_\text{grp}(G(\bFq),\EE^\times)),
   \qquad \text{given by}\qquad
   [\cs{L}] \mapsto [t_\cs{L}],
   \]
@@ -621,9 +623,9 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   \ref{cs.1}, \ref{cs.2} and \ref{cs.3}, denoted by
   \cdef{$\CS(G(\bFq))$}, is equivalent to $\CS(G)$. We will prove the
   proposition by exhibiting an isomorphism between
-  $\CS(G(\bFq))_{/\text{iso}}$ and $H^1(W_{\Fq}, G(\bFq)^*)$.
+  $\CSiso{G(\bFq)}$ and $H^1(W_{\Fq}, G(\bFq)^*)$.
 
-  To produce the isomorphism between $\CS(G(\bFq))_{/\text{iso}}$ and
+  To produce the isomorphism between $\CSiso{G(\bFq)}$ and
   $H^1(W_{\Fq}, G(\bFq)^*)$ we must pick a global section of the line
   bundle $(\gcs{L},\mu)$, for each character sheaf $\cs{L}$ on $G$. We
   will show that the group isomorphism does not depend on these
@@ -698,7 +700,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   is independent of the choice of global sections made above.
 
   We now show that the function $\obj \CS(G(\bFq)) \longrightarrow H^1(W_\Fq,G(\bFq)^*)$
-  factors through $\obj \CS(G(\bFq)) \to \CS(G(\bFq))_{/\text{iso}}$.
+  factors through $\obj \CS(G(\bFq)) \to \CSiso{G(\bFq)}$.
   To see this, let $\varphi : \cs{L} \to \cs{L'}$ be an isomorphism and
   let $t$ and $t'$ be any cocycles representing the classes in the
   image of $\cs{L}$ and $\cs{L'}$ under \eqref{cohomologous}; by construction,
@@ -709,7 +711,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   condition~\ref{cs.3}, $t'(\Frob) = t(\Frob) \cdot (\,^{\Frob^{-1}}\phi \cdot \phi^{-1})$,
   so $t$ and $t'$ are cohomologous. This concludes the definition of
   \begin{equation}\label{pich1}
-    \CS(G(\bFq)_{/\text{iso}} \longrightarrow H^1(W_\Fq,G(\bFq)^*),
+    \CSiso{G(\bFq} \longrightarrow H^1(W_\Fq,G(\bFq)^*),
     \qquad \text{defined by} \qquad [\cs{L}] \mapsto [t_\cs{L}].
   \end{equation}
   Now it follows from \eqref{t} that the image of the isomorphism
@@ -1133,7 +1135,7 @@ Section~\ref{section:category}.
   component group) is finitely generated, then the trace of Frobenius
   homomorphism
   \[
-  t_{G} : \CS(G)_{/\text{iso}} \to \Hom(G(\Fq),\EE^\times),
+  t_{G} : \CSiso{G} \to \Hom(G(\Fq),\EE^\times),
   \]
   from the Picard group of the category of character sheaves on $G$ to
   the group of characters of $G(\Fq)$, is an isomorphism.
@@ -1152,8 +1154,8 @@ Section~\ref{section:category}.
   \[
   \xymatrix{
     & \ar[d] \ker t_{\pi_0(G)} & \ar@{.>}[d] \ker t_{G} & \ar[d] \ker t_{G^0} & \\
-    0\ar[r] & \ar[d]^{t_{\pi_0(G)}} \CS(\pi_0(G))_{/\text{iso}} \ar[r]
-    & \ar[d]^{t_{G}} \CS(G)_{/\text{iso}} \ar[r] & \ar[d]^{t_{G^0}} \CS(G^0)_{/\text{iso}} \ar[r] & 0\\
+    0\ar[r] & \ar[d]^{t_{\pi_0(G)}} \CSiso{\pi_0(G)} \ar[r]
+    & \ar[d]^{t_{G}} \CSiso{G} \ar[r] & \ar[d]^{t_{G^0}} \CSiso{G^0} \ar[r] & 0\\
     0 \ar[r] & \ar[d] \Hom(\pi_0(G)(\Fq),\EE^\times) \ar[r]
     & \ar@{.>}[d] \Hom(G(\Fq),\EE^\times) \ar[r] & \ar[d] \Hom(G^0(\Fq),\EE^\times) \ar[r] & 0\\
     & \coker t_{\pi_0(G)} & \coker t_{G} &  \coker t_{G^0} & \\
@@ -1177,13 +1179,13 @@ Section~\ref{section:category}.
   character groups is left exact.
 
   The sequence of Picard groups is right-exact: it is exact at
-  $\CS(G^0)_{/\text{iso}}$ by Proposition~\ref{prop:restriction}; and
-  it is exact at $\CS(G)_{/\text{iso}}$ because the left-square
+  $\CSiso{G^0}$ by Proposition~\ref{prop:restriction}; and
+  it is exact at $\CSiso{G}$ because the left-square
   commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
   is exact at $\Hom(G(\Fq),\EE^\times)$ and $\coker t_{\pi_0(G)} =0$
   (by Propositions~\ref{prop:etale} and \ref{prop:X}) and
   \[
-  \image(\CS(\pi_0(G))_{/\text{iso}} \to \CS(G)_{/\text{iso}}) \subseteq \ker(\CS(G)_{/\text{iso}} \to \CS(G^0)_{/\text{iso}}),
+  \image(\CSiso{\pi_0(G)} \to \CSiso{G}) \subseteq \ker(\CSiso{G} \to \CSiso{G^0}),
   \]
   by the last part of Proposition~\ref{prop:pullback}. Specifically,
   suppose $\cs{L}$ is a character sheaf on $G$ that is trivial on
@@ -1258,7 +1260,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
   canonically isomorphic to the group of characters of $T(K)$ of depth
   less than $d$:
   \[
-  \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom_{< d}(T(K),\EE^\times).
+  \CSiso{\GN{T}_d} \iso \Hom_{< d}(T(K),\EE^\times).
   \]
 \end{theorem}
 
@@ -1266,7 +1268,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
   By \ref{GNd} and \ref{fg}, we may apply Theorem~\ref{thm:snake} to
   $\GN{T}_d$ which provides a canonical isomorphism
   \[
-  \CS(\GN{T}_d)_{/\text{iso}} \iso \Hom(\GN{T}_d(\Fq),\EE^\times).
+  \CSiso{\GN{T}_d} \iso \Hom(\GN{T}_d(\Fq),\EE^\times).
   \]
   By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^d)$ canonically.
   To finish the proof we recall that the filtration of $T(K)$ used to
@@ -1304,7 +1306,7 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}.
 
 \begin{corollary}
   \[
-  \CS(\GN{T})_{/\text{iso}} \iso \Hom_\text{ad}(T(K),\EE^\times)
+  \CSiso{\GN{T}} \iso \Hom_\text{ad}(T(K),\EE^\times)
   \]
 \end{corollary}
 
