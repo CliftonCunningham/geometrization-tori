@@ -479,6 +479,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$
   are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}.
   \David{Should we move this definition since it will be important elsewhere?}
+  \Clifton{Agreed. I'll do that.}
   Let $b : \bG \to G$ be base change
   (pull-back of $G\to \Spec{\Fq}$ along $\Spec{\bFq} \to \Spec{\Fq}$).
   The proof of Proposition~\ref{prop:pullback} adapts
@@ -667,6 +668,8 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   \end{equation}
   Under the equivalence at the beginning of this section, $s = s_\cs{L}$
   corresponds to a global section of the line bundle $(\gcs{L},\mu)$.
+  
+\Clifton{I'm going to remove all mention of line bundles from this paper.}
 
   We use the section $s_\cs{L}$ to define a cocycle $z_\cs{L} \in Z^1(W_\Fq,G(\bFq)^*)$
   as follows. Recall that $\cs{L}$ also determines a family of linear transformations
@@ -1136,9 +1139,9 @@ Section~\ref{section:category}.
   a smooth group scheme and if all geometric automorphisms of $f$ are
   fixed by Frobenius, then every character of $\ker f$ determines a
   character sheaf on $G$. However, it is not true that every character
-  sheaf on $G$, in the sense of Section~\ref{sec:category} arises not
-  all character sheaves on $G$ arise in this manner.
+  sheaf on $G$ arises in this manner.
 \end{remark}
+\Clifton{I can flesh out this remark once I've promoted the definition of $\CS_0(G)$ (category of bounded character sheaves on $G$).}
 %\input{centralextensions}
 
 \section{Main result regarding character sheaves}
@@ -1269,7 +1272,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 
 %\input{application}
 \begin{theorem}\label{thm:application}
-  Let $T$ be an algebraic torus over a non-Archimdean local field $K$.
+  Let $T$ be an algebraic torus over a non-Archimedean local field $K$.
   Let $\GN{T}_d$ and $\GN{T}$ be as above.  For each $d \in \ZZ_{>0}$, the
   Picard group of the category of character sheaves on $\GN{T}_d$ is
   canonically isomorphic to the group of characters of $T(K)$ of depth
@@ -1298,7 +1301,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 To conclude the paper we offer an interpretation of
 Theorem~\ref{thm:application} that makes no mention of depth.
 
-\Clifton{Explain what happens as $d\in \NN$ varies.}
+\Clifton{Explain what happens as $d$ varies.}
 Suppose $d\leq d'$.
 
 We may now assemble the group $\Fq$-schemes $\TT_{d}$ into one
@@ -1310,6 +1313,10 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}.
 
 \Clifton{Prove that $\GN{T}$ is a scheme? Strictly speaking, we don't
   care about \ref{scheme}.}
+  
+\Clifton{Must still define $\CS(\GN{T})$, since it is not an instance
+ of our definitions, above.}
+  
 \begin{proposition}
   Fundamental properties of $\GN{T}$:
   \begin{enumerate}
