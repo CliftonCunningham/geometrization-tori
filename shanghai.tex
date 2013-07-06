@@ -82,6 +82,7 @@
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Hh}{H}
+\DeclareMathOperator{\Res}{Res}
 
 \newcommand{\cdef}[1]{{{\color{cyan}#1}\index{#1}}} 
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
@@ -1332,7 +1333,43 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}.
   \]
 \end{corollary}
 
+\section{Functorial properties of the main isomorphism}
 
+We have already seen that the trace of Frobenius defines a canonical isomorphism 
+$t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
+In this section we expand on the canonicity of this group isomorphism 
+by showing that it is a natural transformation. We also show 
+
+\begin{proposition}
+The isomorphism $t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
+is a natural transformation between the following two contravariant functors 
+from the category of algebraic tori over $K$ to the category of abelian groups: 
+\begin{enumerate}
+\item $T \mapsto \CSiso{\GN{T}}$
+\item $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
+\end{enumerate}
+\end{proposition}
+
+\Clifton{I think I can prove this proposition without too much difficulty.}
+\begin{proof}
+\end{proof}
+
+
+\begin{proposition}
+Let $K'/K$ be a finite Galois extension and let $T'$ be an algebraic torus over $K'$... 
+\Clifton{This next part is very much under construction.}
+The functor $\CS(\GN{T}) \to \CS(\GN{T}')$ defined above induces a group homomorphism 
+that commutes, through trace of Frobenius, with ...
+\[
+\xymatrix{
+\CS(\GN{T}) \ar[d] & \CSiso{\GN{T}} \ar[r]^{t_T} \ar[d] & \Hom_\text{ad}(T(K),\EEx) \ar[d] \\
+\CS(\GN{T}') & \CSiso{\GN{T}'} \ar[r]^{t_{T'}} & \Hom_\text{ad}(T'(K),\EEx)\\
+}
+\]
+\end{proposition}
+
+\begin{proof}
+\end{proof}
 
 \begin{bibdiv}
 \begin{biblist}
