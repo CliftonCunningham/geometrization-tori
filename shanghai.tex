@@ -25,6 +25,7 @@
 \usepackage{textcomp}
 \usepackage{mathrsfs}
 \usepackage{yfonts}
+\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
@@ -92,8 +93,8 @@
 \newcommand{\iso}{{\ \cong\ }}
 \newcommand{\obj}{{\text{obj}\, }}
 \newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
-\newcommand{\GN}[1]{\textswab{#1}}
-\newcommand{\bGN}[1]{{\bar{\textswab{#1}}}}
+\newcommand{\GN}[1]{\mathswab{#1}}
+\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
 \newcommand{\TT}{\underline{T}}
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
@@ -222,12 +223,12 @@ plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
 \[
-\CSiso{\textswab{T}_d} 
+\CSiso{\mathswab{T}_d} 
 \iso
 \Hom_{< d}(T(K),\EEx)
 \] 
 between the Picard group of the category of character sheaves on
-$\textswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
+$\mathswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
 depth at most $d$.  Since these isomorphisms are compatible with
 respect to $d$, we also .....  \Clifton{I'll come back to working on
   this when we're closer to being finished. I'd be just as happy if
