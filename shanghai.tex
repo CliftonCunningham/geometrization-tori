@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass[11pt]{amsart}
-\title[Short groovy title goes here]{Long groovy title goes here}
+\title[Geometration of characters of tori]{Geometrization of characters of tori over non-Archimedean local fields}
 \usepackage[british]{babel}
 \usepackage{datetime}
 \date{\today}
@@ -232,14 +232,14 @@ $\mathswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
 depth at most $d$.  Since these isomorphisms are compatible with
 respect to $d$, we also .....  \Clifton{I'll come back to working on
   this when we're closer to being finished. I'd be just as happy if
-  you took this cup from my lips, though.}  In particular, by
-specializing to the case $T= \Gm{K}$ and by
-choosing an isomorphism $\EE \approx \CC$ (unnatural though it may
-be), we arrive at a model for the group of quasi-characters of
-$K^\times$: the monoidal category of character sheaves on the
-Greenberg transform of the Neron model of
-$\Gm{K}$.
-
+  you took this cup from my lips, though.}  
+%In particular, by
+%specializing to the case $T= \Gm{K}$ and by
+%choosing an isomorphism $\EE \approx \CC$ (unnatural though it may
+%be), we arrive at a model for the group of quasi-characters of
+%$K^\times$: the monoidal category of character sheaves on the
+%Greenberg transform of the Neron model of
+%$\Gm{K}$.
 
 Structure of the paper:
 
@@ -445,6 +445,27 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   \Clifton{I have not proved $(f\circ g)^* = g^* \circ f^*$, yet.}
 \end{proof}
 
+Consider the short exact sequence in the category of smooth group
+schemes, locally of finite type over $\Fq$, defining the component
+group scheme for $G$:
+ \begin{equation}\label{eq:pi-1}
+   \xymatrix{
+     0 \ar[r] & G^0 \ar[r] & G \ar[r] & \pi_0(G) \ar[r] & 0.
+    }
+ \end{equation}
+Since $\pi_0(G)$ is an étale group scheme locally of finite type over $\Fq$, 
+it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1}defines a sequence of functors
+ \[
+  \xymatrix{
+\CS(0) \ar[r] & \CS(\pi_0(G)) \ar[r] & \CS(G) \ar[r] & \CS(G^0) \ar[r] & \CS(0).
+  }
+ \]
+We will see that
+ 
+
+\section{Bounded character sheaves}
+
+[Introduce category $\CS_0(G)$]
 
 \section{Connected abelian algebraic groups}
 
@@ -1190,7 +1211,7 @@ Section~\ref{section:category}.
   The sequence of character groups is left-exact: by
   Proposition~\ref{prop:pullback}, it is dual to the exact sequence of
   abelian groups
-  \begin{equation}\label{eq:pi0}
+  \begin{equation}\label{eq:pi1}
     \xymatrix{
       1 \ar[r] & G^0(\Fq) \ar[r] & G(\Fq) \ar[r] & \pi_0(G)(\Fq) \ar[r] & 0;
     }
