@@ -27,7 +27,7 @@
 \usepackage{yfonts}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{shapes,arrows,calc}
 \usepackage{manfnt}
 
 %\include{definitions}
@@ -1067,6 +1067,37 @@ Section~\ref{section:category}.
   $\bm_{x,y} : \bH^x\times\bH^y \to \bH^{x+y}$;
   the result is the middle horizontal diagram below, where we use the
   fact that the covering group of the middle arrow is $\Aut(\bf^{x+y})$, canonically.
+  
+  \vspace{0.2in}
+  
+  \begin{tikzpicture}[style={rectangle, scale=1.2}]
+  \node (12) [anchor=east] at (4,2) {$\Aut(\bf^{x+y})$};
+  \node (22) [anchor=west] at (4.4,2) {$\bH^{x+y}$};
+  \node (32) [anchor=east] at (11,2) {$\bG^{x+y}$};
+  \node (01) at (0,1) {$\EEx$};
+  \node (11) [anchor=east] at (4,1) {$\Aut(\bf^{x+y})$};
+  \node (21) [anchor=west] at (4.4,1) {$\bH^{x+y} \times_{\bG^x\times\bG^y} \bG^x\times\bG^y$};
+  \node (31) [anchor=east] at (11,1) {$\bG^x\times \bG^y$};
+  \node (10) [anchor=east] at (4,0) {$\Aut(\bf^x)\times \Aut(\bf^y)$};
+  \node (20) [anchor=west] at (4.4,0) {$\bG^x\times \bG^y$};
+  \node (30) [anchor=east] at (11,0) {$\bG^x\times \bG^y$};
+  \draw [->] (4.3,1.94) arc (330:30:0.12);
+  \draw [->, densely dotted] (4.3,0.94) arc (330:30:0.12);
+  \draw [->] (4.3,-0.06) arc (330:30:0.12);
+  \draw [->] (12) -- (01);
+  \draw [->, densely dotted] (11) -- (01);
+  \draw [->] (10) -- (01);
+  \draw [->, densely dotted] ($(11.south) + (0,-0.5)$) -- (11);
+  \draw [double equal sign distance] (11) -- (12);
+  \draw [->] (22) -- (32);
+  \draw [->] ($(22.south) + (0,-0.5)$) -- (22);
+  \draw [->] (21) -- (31);
+  \draw [->] ($(32.south) + (0,-0.5)$) -- (32);
+  \draw [->] ($(22.south) + (0,-1.5)$) -- ($(22.south) + (0,-1)$);
+  \draw [->] (20) -- (30);
+  \draw [->] ($(32.south) + (0,-1.5)$) -- ($(32.south) + (0,-1)$);
+  \end{tikzpicture}
+  
   \[
   \xymatrix{
     & \ar[dl]_{\psi_{x+y}} \Aut(\bf^{x+y})
