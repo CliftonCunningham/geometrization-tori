@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass[11pt]{amsart}
-\title[Short groovy title goes here]{Long groovy title goes here}
+\title[Geometration of characters of tori]{Geometrization of characters of tori over non-Archimedean local fields}
 \usepackage[british]{babel}
 \usepackage{datetime}
 \date{\today}
@@ -25,6 +25,7 @@
 \usepackage{textcomp}
 \usepackage{mathrsfs}
 \usepackage{yfonts}
+\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc}
@@ -82,6 +83,7 @@
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Hh}{H}
+\DeclareMathOperator{\Res}{Res}
 
 \newcommand{\cdef}[1]{{{\color{cyan}#1}\index{#1}}} 
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
@@ -91,8 +93,8 @@
 \newcommand{\iso}{{\ \cong\ }}
 \newcommand{\obj}{{\text{obj}\, }}
 \newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
-\newcommand{\GN}[1]{\textswab{#1}}
-\newcommand{\bGN}[1]{{\bar{\textswab{#1}}}}
+\newcommand{\GN}[1]{\mathswab{#1}}
+\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
 \newcommand{\TT}{\underline{T}}
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
@@ -158,21 +160,21 @@
 \section{Introduction}
 
 %\input{introduction}
-In his celebrated thesis, John Tate writes 
-\begin{quotation}
-    {\it Concerning the characters of $k^*$ [the
-    multiplicative group of a $\mathfrak{p}$-adic field], the
-    situation is different from that of $k^+$.  First of all, we are
-    interested in continuous multiplicative maps $\alpha \mapsto
-    c(\alpha)$ of $k^*$ into the complex numbers, not only in the
-    bounded ones, and shall call such a map a quasi-character,
-    reserving the word ``character'' for the conventional character of
-    absolute value $1$. Secondly, we shall find no model for the group
-    of quasi-characters, or even for the group of characters, though
-    such a model would be of the utmost importance.}
-  \cite{Tate:thesis}*{\S 2.3}
-\end{quotation}
-\noindent
+%In his celebrated thesis, John Tate writes 
+%\begin{quotation}
+%    {\it Concerning the characters of $k^*$ [the
+%    multiplicative group of a $\mathfrak{p}$-adic field], the
+%    situation is different from that of $k^+$.  First of all, we are
+%    interested in continuous multiplicative maps $\alpha \mapsto
+%    c(\alpha)$ of $k^*$ into the complex numbers, not only in the
+%    bounded ones, and shall call such a map a quasi-character,
+%    reserving the word ``character'' for the conventional character of
+%    absolute value $1$. Secondly, we shall find no model for the group
+%    of quasi-characters, or even for the group of characters, though
+%    such a model would be of the utmost importance.}
+%  \cite{Tate:thesis}*{\S 2.3}
+%\end{quotation}
+%\noindent
 In this paper we show that the monidal category of character sheaves
 on the Greenberg transform of the locally finite type Neron model of
 $T$ provides an elegant, canonical model for the group of
@@ -221,23 +223,23 @@ plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
 \[
-\CSiso{\textswab{T}_d} 
+\CSiso{\mathswab{T}_d} 
 \iso
 \Hom_{< d}(T(K),\EEx)
 \] 
 between the Picard group of the category of character sheaves on
-$\textswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
+$\mathswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
 depth at most $d$.  Since these isomorphisms are compatible with
 respect to $d$, we also .....  \Clifton{I'll come back to working on
   this when we're closer to being finished. I'd be just as happy if
-  you took this cup from my lips, though.}  In particular, by
-specializing to the case $T= \Gm{K}$ and by
-choosing an isomorphism $\EE \approx \CC$ (unnatural though it may
-be), we arrive at a model for the group of quasi-characters of
-$K^\times$: the monoidal category of character sheaves on the
-Greenberg transform of the Neron model of
-$\Gm{K}$.
-
+  you took this cup from my lips, though.}  
+%In particular, by
+%specializing to the case $T= \Gm{K}$ and by
+%choosing an isomorphism $\EE \approx \CC$ (unnatural though it may
+%be), we arrive at a model for the group of quasi-characters of
+%$K^\times$: the monoidal category of character sheaves on the
+%Greenberg transform of the Neron model of
+%$\Gm{K}$.
 
 Structure of the paper:
 
@@ -443,6 +445,27 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   \Clifton{I have not proved $(f\circ g)^* = g^* \circ f^*$, yet.}
 \end{proof}
 
+Consider the short exact sequence in the category of smooth group
+schemes, locally of finite type over $\Fq$, defining the component
+group scheme for $G$:
+ \begin{equation}\label{eq:pi-1}
+   \xymatrix{
+     0 \ar[r] & G^0 \ar[r] & G \ar[r] & \pi_0(G) \ar[r] & 0.
+    }
+ \end{equation}
+Since $\pi_0(G)$ is an étale group scheme locally of finite type over $\Fq$, 
+it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1}defines a sequence of functors
+ \[
+  \xymatrix{
+\CS(0) \ar[r] & \CS(\pi_0(G)) \ar[r] & \CS(G) \ar[r] & \CS(G^0) \ar[r] & \CS(0).
+  }
+ \]
+We will see that
+ 
+
+\section{Bounded character sheaves}
+
+[Introduce category $\CS_0(G)$]
 
 \section{Connected abelian algebraic groups}
 
@@ -479,6 +502,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$
   are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}.
   \David{Should we move this definition since it will be important elsewhere?}
+  \Clifton{Agreed. I'll do that.}
   Let $b : \bG \to G$ be base change
   (pull-back of $G\to \Spec{\Fq}$ along $\Spec{\bFq} \to \Spec{\Fq}$).
   The proof of Proposition~\ref{prop:pullback} adapts
@@ -667,6 +691,8 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   \end{equation}
   Under the equivalence at the beginning of this section, $s = s_\cs{L}$
   corresponds to a global section of the line bundle $(\gcs{L},\mu)$.
+  
+\Clifton{I'm going to remove all mention of line bundles from this paper.}
 
   We use the section $s_\cs{L}$ to define a cocycle $z_\cs{L} \in Z^1(W_\Fq,G(\bFq)^*)$
   as follows. Recall that $\cs{L}$ also determines a family of linear transformations
@@ -1167,9 +1193,9 @@ Section~\ref{section:category}.
   a smooth group scheme and if all geometric automorphisms of $f$ are
   fixed by Frobenius, then every character of $\ker f$ determines a
   character sheaf on $G$. However, it is not true that every character
-  sheaf on $G$, in the sense of Section~\ref{sec:category} arises not
-  all character sheaves on $G$ arise in this manner.
+  sheaf on $G$ arises in this manner.
 \end{remark}
+\Clifton{I can flesh out this remark once I've promoted the definition of $\CS_0(G)$ (category of bounded character sheaves on $G$).}
 %\input{centralextensions}
 
 \section{Main result regarding character sheaves}
@@ -1216,7 +1242,7 @@ Section~\ref{section:category}.
   The sequence of character groups is left-exact: by
   Proposition~\ref{prop:pullback}, it is dual to the exact sequence of
   abelian groups
-  \begin{equation}\label{eq:pi0}
+  \begin{equation}\label{eq:pi1}
     \xymatrix{
       1 \ar[r] & G^0(\Fq) \ar[r] & G(\Fq) \ar[r] & \pi_0(G)(\Fq) \ar[r] & 0;
     }
@@ -1300,7 +1326,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 
 %\input{application}
 \begin{theorem}\label{thm:application}
-  Let $T$ be an algebraic torus over a non-Archimdean local field $K$.
+  Let $T$ be an algebraic torus over a non-Archimedean local field $K$.
   Let $\GN{T}_d$ and $\GN{T}$ be as above.  For each $d \in \ZZ_{>0}$, the
   Picard group of the category of character sheaves on $\GN{T}_d$ is
   canonically isomorphic to the group of characters of $T(K)$ of depth
@@ -1329,7 +1355,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 To conclude the paper we offer an interpretation of
 Theorem~\ref{thm:application} that makes no mention of depth.
 
-\Clifton{Explain what happens as $d\in \NN$ varies.}
+\Clifton{Explain what happens as $d$ varies.}
 Suppose $d\leq d'$.
 
 We may now assemble the group $\Fq$-schemes $\TT_{d}$ into one
@@ -1341,6 +1367,10 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}.
 
 \Clifton{Prove that $\GN{T}$ is a scheme? Strictly speaking, we don't
   care about \ref{scheme}.}
+  
+\Clifton{Must still define $\CS(\GN{T})$, since it is not an instance
+ of our definitions, above.}
+  
 \begin{proposition}
   Fundamental properties of $\GN{T}$:
   \begin{enumerate}
@@ -1356,7 +1386,43 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}.
   \]
 \end{corollary}
 
+\section{Functorial properties of the main isomorphism}
 
+We have already seen that the trace of Frobenius defines a canonical isomorphism 
+$t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
+In this section we expand on the canonicity of this group isomorphism 
+by showing that it is a natural transformation. We also show 
+
+\begin{proposition}
+The isomorphism $t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
+is a natural transformation between the following two contravariant functors 
+from the category of algebraic tori over $K$ to the category of abelian groups: 
+\begin{enumerate}
+\item $T \mapsto \CSiso{\GN{T}}$
+\item $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
+\end{enumerate}
+\end{proposition}
+
+\Clifton{I think I can prove this proposition without too much difficulty.}
+\begin{proof}
+\end{proof}
+
+
+\begin{proposition}
+Let $K'/K$ be a finite Galois extension and let $T'$ be an algebraic torus over $K'$... 
+\Clifton{This next part is very much under construction.}
+The functor $\CS(\GN{T}) \to \CS(\GN{T}')$ defined above induces a group homomorphism 
+that commutes, through trace of Frobenius, with ...
+\[
+\xymatrix{
+\CS(\GN{T}) \ar[d] & \CSiso{\GN{T}} \ar[r]^{t_T} \ar[d] & \Hom_\text{ad}(T(K),\EEx) \ar[d] \\
+\CS(\GN{T}') & \CSiso{\GN{T}'} \ar[r]^{t_{T'}} & \Hom_\text{ad}(T'(K),\EEx)\\
+}
+\]
+\end{proposition}
+
+\begin{proof}
+\end{proof}
 
 \begin{bibdiv}
 \begin{biblist}
