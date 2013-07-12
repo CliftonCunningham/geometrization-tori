@@ -44,6 +44,10 @@
       \theoremstyle{remark}
       \newtheorem{remark}[theorem]{Remark}
 
+%% Global TikZ settings
+
+\tikzset{every picture/.style={>=stealth}}
+
 %%%% Some Named Categories
 
 %%%% Functors
@@ -120,20 +124,22 @@
 \def\@currentlabel{#1}\label{#2}}
 \makeatother
 
-\newcommand{\tighttimes}{\hskip-1pt\times\hskip-1pt}
-\newcommand{\tightertimes}{\hskip-3pt\times\hskip-3pt}
-\newcommand{\tighterboxtimes}{\hspace{-2pt}\boxtimes\hspace{-2pt}}
-
 \renewcommand{\bf}{\bar{f}}
 \newcommand{\bg}{\bar{g}}
 \newcommand{\bm}{\bar{m}}
 \newcommand{\bG}{\bar{G}}
 \newcommand{\bH}{\bar{H}}
-\newcommand{\GxG}{G \tightertimes G}
-\newcommand{\bGxG}{\bar{G} \tightertimes \bar{G}}
-\newcommand{\bfxf}{\bar{f} \tightertimes \bar{f}}
-\newcommand{\GxxG}{G \tighttimes G}
-\newcommand{\LxL}{\gcs{L} \tighterboxtimes \gcs{L}}
+\newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
+\newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
+\newcommand{\bfxf}{\text{$\bar{f} \tight{1}{\times}{1} \bar{f}$}}
+\newcommand{\GxxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\LxL}{\text{$\gcs{L} \tight{0}{\boxtimes}{0} \gcs{L}$}}
+\newcommand{\ExE}{\text{$\cs{E}\tight{0}{\boxtimes}{0}\cs{E}$}}
+\newcommand{\bExE}{\text{$\gcs{E}\tight{0}{\boxtimes}{0}\gcs{E}$}}
+\newcommand{\AxA}{\text{$A \tight{1}{\times}{1} A$}}
+\newcommand{\BxB}{\text{$B \tight{1}{\times}{1} B$}}
+\newcommand{\GzxGz}{\text{$G^0 \tight{1}{\times}{1} G^0$}}
 
 \newcommand\todo[1]{\ \vspace{5mm}\par \noindent\framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
 \newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
@@ -279,13 +285,13 @@ $\cs{L}\ceq (\gcs{L},\mu,F)$ where:
 
   \[
   \xymatrix{
-    \bm_3^*\gcs{L} \ar[rr]^{(\bm\times \id)^*\mu} \ar[d]_{(\id\tightertimes \bm)^*\mu}
-    &&  \bm^*\LxL \ar[d]^{\mu \boxtimes \id} \\
-    \gcs{L} \boxtimes \bm^* \gcs{L} \ar[rr]
-    &&  \gcs{L} \boxtimes\LxL\\
+    \bm_3^*\gcs{L} \ar[rr]^{(\bm \tight{1}{\times}{2} \id)^*\mu} \ar[d]_{(\id \tight{2}{\times}{1} \bm)^*\mu}
+    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \ar[d]^{\mu \boxtimes \id} \\
+    \gcs{L} \boxtimes \bm^* \gcs{L} \ar[rr]^{\id \boxtimes \mu}
+    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL\\
   }
   \]
-  commutes, where $m_3 \ceq m\circ (m\tightertimes\id) = m\circ (\id\tighttimes m)$;
+  commutes, where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
 
 \labitem{(CS.2)}{CS.2} $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ is an
   isomorphism of sheaves on $\bG$ compatible with $\mu$ in the sense that
@@ -307,13 +313,13 @@ Morphisms in $\CS(G)$ are defined in the natural way:
 \labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,F)$ and
   $\cs{L'} = (\gcs{L'},\mu',F')$ are character sheaves on $G$ then
   $\Hom(\cs{L},\cs{L'})$ is the set of morphisms $\varphi : \gcs{L} \to \gcs{L'}$
-  of constructible $\ell$-adic sheaves on $\bG$ such then
+  of constructible $\ell$-adic sheaves on $\bG$ such that
   \[
   \xymatrix{
   \ar[d]_{F} \Frob_G^* \gcs{L} \ar[r]^{\Frob_G^* \varphi} & \ar[d]^{F'} \Frob_G^* \gcs{L'}
   & \text{and}& \ar[d]_{\mu} m^* \gcs{L} \ar[r]^{m^* \varphi} & \ar[d]^{\mu'} m^* \gcs{L'} \\
   \gcs{L} \ar[r]^{\varphi} & \gcs{L'}
-  && \gcs{L}\boxtimes\gcs{L} \ar[r]^{\varphi\boxtimes \varphi} & \gcs{L'} \boxtimes \gcs{L'}\\
+  && \LxL \ar[r]^{\varphi\boxtimes \varphi} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}\\
   }
   \]
   both commute.
@@ -345,7 +351,7 @@ determines a point $\bg$ on $\bG$ fixed by $\Frob_G$ and
 therefore an automorphism $F_{\bg}$ of $\gcs{L}_{\bg}$. Note
 that $\Aut_{\EE}(\gcs{L}_{\bg}) \iso \EEx$, canonically (this
 follows from second condition appearing in the definition of character
-sheaves). The isomorphism $\mu : \bm^* \gcs{L} \to \gcs{L}\boxtimes\gcs{L}$
+sheaves). The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
 guarantees that the function $t^\Frob_\cs{L} : G(\Fq)\to \EEx$,
 defined by $g \mapsto F_{\bg}$, is a group homomorphism;
 we refer to $t^\Frob_\cs{L}$ as the \cdef{trace of Frobenius of $\cs{L}$}.
@@ -422,7 +428,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   To see that $(\bfxf)^* \gcs{L}$ satisfies
   condition \ref{CS.1} simply apply the functor $(\bfxf)^*$
   to \ref{CS.1} for $\cs{L}$ and use the canonical isomorphism
-  $(\bfxf)^*(\LxL) \iso \bf^*\gcs{L} \boxtimes \bf^*\gcs{L}$
+  $(\bfxf)^*(\LxL) \iso \bf^*\gcs{L} \tight{-3}{\boxtimes}{-3} \bf^*\gcs{L}$
   (a few times). Likewise, to see that $\bf^*\gcs{L}$ satisfies condition
   \ref{CS.2}, apply the same functor to \ref{CS.2} for $\gcs{L}$.
   Then use the fact that $f$ is defined over $\Fq$, so
@@ -433,7 +439,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
 
   To see that $(\gcs{L},\mu,F) \mapsto (\bf^*\gcs{L},(\bfxf)^*\mu,\bf^*F)$
   defines a functor $f^* : \CS(G) \to \CS(H)$ one applies the functors $\bf^*$ and
-  $\bf^*\tightertimes\bf^*$ to \ref{CS.3} and argue as
+  $\bf^*\tight{1}{\times}{1}\bf^*$ to \ref{CS.3} and argue as
   above. It follows from the fact that sheaf hom commutes with these
   functors that $f^* : \CS(G) \to \CS(H)$ is a monoidal functor.
 
@@ -498,7 +504,7 @@ We will see that
 
   To see why this is so, consider the category \cdef{$\CS_0(G)$} of
   pairs $(\cs{L}_0,\mu_0)$ where $\cs{L}_0$ is a local system on $G$
-  and $\mu_0: m^*\cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ satisfies
+  and $\mu_0: m^*\cs{L}_0 \to \cs{L}_0 \tight{0}{\boxtimes}{0} \cs{L}_0$ satisfies
   condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$
   are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}.
   \David{Should we move this definition since it will be important elsewhere?}
@@ -953,28 +959,28 @@ Section~\ref{section:category}.
   Lang isogeny for $G^0$.)  Indeed, $\cs{E}$ is precisely the
   component of $\pi_! (\EE)_{B}$ on which $A$ acts through $\psi$.  To
   see that $\cs{E}$ is a line bundle on $G^0$, start by pulling back
-  $\pi: B \to G^0$ along $m_0 : G^0\times G^0 \to G^0$.
+  $\pi: B \to G^0$ along $m_0 : \GzxGz \to G^0$.
   \begin{equation}
     \xymatrix{
       \EEx & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
-      & 1\ar[r] & \ar@{.>}@/^1pc/[llu] \ar[u] A\times A  \ar[r]
-      & \ar[u]^{m_{B}} B\times B \ar[r]^{\pi\tighttimes \pi}  & \ar[u]^{m_0} G^0\times G^0 \ar[r] & 1\\
+      & 1\ar[r] & \ar@{.>}@/^1pc/[llu] \ar[u] \AxA  \ar[r]
+      & \ar[u]^{m_{B}} \BxB \ar[r]^{\pi\tight{1}{\times}{1} \pi}  & \ar[u]^{m_0} \GzxGz \ar[r] & 1\\
       }
   \end{equation}
-  As pictured above, the kernel of this pull-back is $A\times A$;
-  indeed, $A\times A\to B\times B$ is the pull-back of $A\to B$ along
+  As pictured above, the kernel of this pull-back is $\AxA$;
+  indeed, $\AxA \to \BxB$ is the pull-back of $A\to B$ along
   $m_{B}$. Use this Cartesian square to define a character (the dotted
-  arrow, above) of $A\times A$; that is, define $A\times A\to \EEx$
-  by the composition of $A\times A \to A$ and $\psi : A\to \EEx$.
-  Note that this character is $\psi \otimes \psi : A\times A\to \EEx$.
+  arrow, above) of $\AxA$; that is, define $\AxA \to \EEx$
+  by the composition of $\AxA \to A$ and $\psi : A\to \EEx$.
+  Note that this character is $\psi \otimes \psi : \AxA \to \EEx$.
   \Clifton{I haven't explained how maps between diagrams define sheaf
     homomorphisms between local systems.}
   Since the lower sequence is precisely the sequence defining
-  $\cs{E}\boxtimes\cs{E}$, this shows that, by construction, $\cs{E}$
-  comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \cs{E}\boxtimes\cs{E}$.
-  Now the base change $\cs{E}$ comes equipped with isomorphisms
+  $\ExE$, this shows that, by construction, $\cs{E}$
+  comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \ExE$.
+  Now the base change $\gcs{E}$ comes equipped with isomorphisms
   $F^0 : \Frob_{G^0}^* \gcs{E} \to \gcs{E}$ and
-  $\mu^0 : \bm_0^* \gcs{E} \to \gcs{E}\boxtimes \gcs{E}$
+  $\mu^0 : \bm_0^* \gcs{E} \to \bExE$
   satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,F^0)$
   is a character sheaf of $G^0$.
 
@@ -1075,13 +1081,14 @@ Section~\ref{section:category}.
   $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1}
   and \ref{CS.2}.
 
-  Observe that $\bm: \bG\times \bG\to \bG$ is
+  Observe that $\bm: \bGxG \to \bG$ is
   completely determined by the family of maps
   $\bm_{x,y} : \bG^x \times \bG^{y} \to \bG^{x+y}$.
   Accordingly, to define $\mu$ for $\gcs{L}$ it is sufficient to define isomorphisms
   $\mu_{x,y} : \bm_{x,y}^*\gcs{L}^{x+y} \iso \gcs{L}^{x}\boxtimes \gcs{L}^{y}$
   for all $x,y\in X$. To do that, note first that the local system
   $\gcs{L}^{x}\boxtimes \gcs{L}^{y}$ is defined by the following diagram.
+  
   \[
   \xymatrix{
     \EEx && \ar[ll]_{\hskip-20pt \psi_x\otimes \psi_y} \Aut(\bf^x)\times \Aut(\bf^y)
@@ -1096,7 +1103,7 @@ Section~\ref{section:category}.
   
   \vspace{0.2in}
   
-  \begin{tikzpicture}[style={rectangle, scale=1.2}]
+  \begin{tikzpicture}[auto,style={rectangle, scale=1.2}]
   \node (12) [anchor=east] at (4,2) {$\Aut(\bf^{x+y})$};
   \node (22) [anchor=west] at (4.4,2) {$\bH^{x+y}$};
   \node (32) [anchor=east] at (11,2) {$\bG^{x+y}$};
@@ -1110,17 +1117,17 @@ Section~\ref{section:category}.
   \draw [->] (4.3,1.94) arc (330:30:0.12);
   \draw [->, densely dotted] (4.3,0.94) arc (330:30:0.12);
   \draw [->] (4.3,-0.06) arc (330:30:0.12);
-  \draw [->] (12) -- (01);
+  \draw [->] (12) to node[swap] {\footnotesize{$\psi_{x+y}$}} (01);
   \draw [->, densely dotted] (11) -- (01);
-  \draw [->] (10) -- (01);
+  \draw [->] (10) to node {\footnotesize{$\psi_x \otimes \psi_y$}} (01);
   \draw [->, densely dotted] ($(11.south) + (0,-0.5)$) -- (11);
   \draw [double equal sign distance] (11) -- (12);
-  \draw [->] (22) -- (32);
+  \draw [->] (22) to node {\footnotesize{$\bf^{x+y}$}} (32);
   \draw [->] ($(22.south) + (0,-0.5)$) -- (22);
   \draw [->] (21) -- (31);
-  \draw [->] ($(32.south) + (0,-0.5)$) -- (32);
+  \draw [->] ($(32.south) + (0,-0.5)$) to node[swap] {\footnotesize{$\bm_{x,y}$}} (32);
   \draw [->] ($(22.south) + (0,-1.5)$) -- ($(22.south) + (0,-1)$);
-  \draw [->] (20) -- (30);
+  \draw [->] (20) to node {\footnotesize{$\bf^x \times \bf^y$}} (30);
   \draw [->] ($(32.south) + (0,-1.5)$) -- ($(32.south) + (0,-1)$);
   \end{tikzpicture}
   
