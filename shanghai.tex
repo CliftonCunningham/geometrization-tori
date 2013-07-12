@@ -454,24 +454,56 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
 Consider the short exact sequence in the category of smooth group
 schemes, locally of finite type over $\Fq$, defining the component
 group scheme for $G$:
- \begin{equation}\label{eq:pi-1}
+ \begin{equation}\label{eq:pi-2}
    \xymatrix{
      0 \ar[r] & G^0 \ar[r] & G \ar[r] & \pi_0(G) \ar[r] & 0.
     }
  \end{equation}
-Since $\pi_0(G)$ is an étale group scheme locally of finite type over $\Fq$, 
-it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1}defines a sequence of functors
+Since $\pi_0(G)$ is an Abelian group scheme, smooth (in fact, etale) and locally of finite type over $\Fq$, 
+it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1} defines a sequence of functors
  \[
   \xymatrix{
-\CS(0) \ar[r] & \CS(\pi_0(G)) \ar[r] & \CS(G) \ar[r] & \CS(G^0) \ar[r] & \CS(0).
+\CS(0) \ar[r] & \CS(\pi_0(G)) \ar[r] & \CS(G) \ar[r] & \CS(G^0) \ar[r] & \CS(0)
   }
  \]
-We will see that
+which induces, upon passage to Picard groups, a sequence of group homomorphisms 
+ \begin{equation}\label{eq:pi-1}
+  \xymatrix{
+\CSiso{0} \ar[r] & \CSiso{\pi_0(G)} \ar[r] & \CSiso{G} \ar[r] & \CSiso{G^0} \ar[r] & \CSiso{0}.
+  }
+ \end{equation}
+It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact; this allows us to find $\CSiso{G}$. To prove this, we find it useful to offer an alternate perspective on a subcategory of $\CS(G)$, in the next section.
  
-
 \section{Bounded character sheaves}
 
-[Introduce category $\CS_0(G)$]
+In this section we describe a full subcategory of $\CS(G)$, called the category of bounded character sheaves on $G$ and denoted by $\CS_b(G)$, which will illuminate the nature of $\CS(G)$ and will also play a role in the arguments later in this paper.
+
+In order to define $\CS_b(G)$ as must recall a fundamental fact about finite etale covers of schemes. Let $X$ be a scheme, locally of finite type over $k$, and let $\pi : Y\to X$ and $\pi_1: Y_1\to X$ be finite etale covers and let $f_1 : Y_1\to Y$ be a morphism such that $\pi_1 = \pi \circ f_1$. Then $f_1$ determines a group homomorphism $\Aut(\pi_1)\to \Aut(\pi)$, as follows  . . .
+
+Now we may define $\CS_b(G)$, where $G$ is a smooth group scheme locally of finite type over $\Fq$.
+\begin{enumerate}
+\labitem{(CSb.0)}{CSb.0}
+An object in $\CS_b(G)$ is a pair $(\pi,\psi)$ where $\pi : H\to G$ is a finite etale cover in the category of group schemes over $\Fq$ such that $\Gal(\bFq/\Fq)$ acts trivially on $\ker {\bar \pi}$ (so $\ker {\bar \pi} = \ker \pi$) and $\psi : \ker \pi \to \Aut(V)$ is an irreducible representation on a $\EE$-vector space $V$.
+\[
+\xymatrix{
+V & \Aut(V) & 1 \ar[r] & \ar@/_2pc/[ll]^{\psi} \ker \pi \ar[r] & H \ar[r]^{\pi} & G \ar[r] &1 
+}
+\]
+\labitem{(CSb.1)}{CSb.1}
+A morphism $T : (\pi,\psi) \to (\pi',\psi')$ is a linear transformation $T : V \to V'$ which, if non-trivial, has the property that there is a finite etale cover $\pi_1 : H_1 \to G$ in the category of group schemes over $\Fq$ and morphisms $H_1\to H$, $H_1\to H'$ inducing homomorphisms $\ker \pi_1 \to \ker\pi$ and $\ker\pi_1\to \ker\pi$ such that the following diagram commutes.
+\[
+\xymatrix{
+V \ar[dd] & \Aut(V) \ar@{=}[dd] & 1 \ar[r] & \ar@/^2pc/[ll]_{\psi} \ker \pi \ar[r] & H \ar[r]^{\pi} & G \ar[r] &1\\
+ &  & 1 \ar[r] & \ar[u] \ar[d] \ker \pi \ar[r] & \ar[u] \ar[d] H_1 \ar[r]^{\pi_1} & \ar@{=}[u] \ar@{=}[d] G \ar[r] &1\\
+V' & \Aut(V) & 1 \ar[r] & \ar@/_2pc/[ll]^{\psi'} \ker \pi' \ar[r] & H' \ar[r]^{\pi} & G \ar[r] &1\\ 
+}
+\]
+\end{enumerate}
+We refer to $\CS_b(G)$ as the category of \cdef{bounded character sheaves on $G$}.
+\Clifton{I'd love to find a way to define $\CS_b(G)$ without insisting that $\psi$ is an \emph{irreducible} representation, and then prove that the full subcategory of simple objects in $\CS_b(G)$ is a full subcategory of $\CS(G)$. I'm studying my notes from BIRS, letters from Masoud, and SGA7, to see how to do this.}
+\begin{proposition}
+$\CS_b(G)$ is a full subcategory of $\CS(G)$.
+\end{proposition}
 
 \section{Connected abelian algebraic groups}
 
