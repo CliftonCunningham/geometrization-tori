@@ -28,7 +28,7 @@
 \newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows,calc}
+\usetikzlibrary{shapes,arrows,calc,matrix}
 \usepackage{manfnt}
 
 %\include{definitions}
@@ -46,7 +46,7 @@
 
 %% Global TikZ settings
 
-\tikzset{every picture/.style={>=stealth}}
+\tikzset{every picture/.style={>=stealth},label/.style={font=\footnotesize}}
 
 %%%% Some Named Categories
 
@@ -960,6 +960,17 @@ Section~\ref{section:category}.
   component of $\pi_! (\EE)_{B}$ on which $A$ acts through $\psi$.  To
   see that $\cs{E}$ is a line bundle on $G^0$, start by pulling back
   $\pi: B \to G^0$ along $m_0 : \GzxGz \to G^0$.
+  
+  \begin{center}
+  \begin{tikzpicture}
+  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
+  \EEx & 1 & A & B & G^0 & 1 \\
+  & 1 & \AxA & \BxB & \GzxGz & 1\\ };
+  %\foreach \x in {2,3,4,5} \let \x1={\x+1} 
+  %\draw [->] (m-1-\x) -- (m-1-\x1);
+  \end{tikzpicture}
+  \end{center}
+  
   \begin{equation}
     \xymatrix{
       \EEx & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
@@ -989,6 +1000,26 @@ Section~\ref{section:category}.
   finite type over $\Fq$, in such a way that $H^0 = B$, $f^0 =\pi$ and
   $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component
   groups.
+  
+  \begin{center}
+  \begin{tikzpicture}[auto]
+  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
+  A & A & \\
+  B & H & \pi_0(H) \\
+  G^0 & G & \pi_0(G) \\};
+  \draw [double equal sign distance] (m-1-1) -- (m-1-2);
+  \draw [->] (m-1-1) -- (m-2-1);
+  \draw [->] (m-2-1) -- (m-2-2);
+  \draw [->] (m-1-2) -- (m-2-2);
+  \draw [->] (m-2-1) to node[label,swap] {$\pi$} (m-3-1);
+  \draw [->] (m-3-1) -- (m-3-2);
+  \draw [->] (m-2-2) to node[label,swap] {$f$} (m-3-2);
+  \draw [->] (m-2-2) -- (m-2-3);
+  \draw [->] (m-3-2) -- (m-3-3);
+  \draw [->] (m-2-3) to node[below,rotate=90] {$\sim$} node[label,swap] {$\pi_0(f)$} (m-3-3);
+  \end{tikzpicture}
+  \end{center}
+  
   \begin{equation} \label{extension-diagram}
     \xymatrix{
       & A \ar[d] \ar@{=}[r] & A \ar[d] &  \\
@@ -1018,6 +1049,17 @@ Section~\ref{section:category}.
   two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$
   be one of these modules: we need to show that $I$ is injective as a
   $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
+  
+  \begin{center}
+  \begin{tikzpicture}[auto]
+  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
+  & B \\
+  I & A \\};
+  \draw [right hook->] (m-2-2) -- (m-1-2);
+  \draw [->] (m-2-2) to node[swap,label] {$a$} (m-2-1);
+  \end{tikzpicture}
+  \end{center}
+  
   \[
   \xymatrix{
     & B \\
@@ -1028,6 +1070,21 @@ Section~\ref{section:category}.
   where $A$ and $B$ are arbitrary $\ZZ[\Gamma]$-modules.  Since $H_m$ acts trivially on $I$,
   $I_{H_m}A := \langle (\gamma-1)a : \gamma \in H_m, a \in A \rangle \subseteq \ker(a).$
   Since $B / I_{H_m}B \cong B \otimes_A A / I_{H_m}A$, we get
+  
+  \begin{center}
+  \begin{tikzpicture}
+  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
+  & B/I_{H_m}B & B \\
+  I & A/I_{H_m}A & A \\};
+  \draw [->,dashed] (m-1-2) -- (m-2-1);
+  \draw [right hook->] (m-2-2) -- (m-1-2);
+  \draw [->] (m-2-2) -- (m-2-1);
+  \draw [->>] (m-2-3) -- (m-2-2);
+  \draw [right hook->] (m-2-3) -- (m-1-3);
+  \draw [->>] (m-1-3) -- (m-1-2);
+  \end{tikzpicture}
+  \end{center}
+  
   \[
   \xymatrix{
     & B/I_{H_m}B \ar@{..>}[dl] & B \ar@{->>}[l] \\
@@ -1089,6 +1146,16 @@ Section~\ref{section:category}.
   for all $x,y\in X$. To do that, note first that the local system
   $\gcs{L}^{x}\boxtimes \gcs{L}^{y}$ is defined by the following diagram.
   
+  \begin{tikzpicture}[auto,style={rectangle}]
+  \node (0) at (0,0) {$\EEx$};
+  \node (1) [anchor=east] at (7,0) {$\Aut(\bf^x) \times \Aut(\bf^y)$};
+  \node (2) [anchor=west] at (7.4,0) {$\bH^x \times \bH^y$};
+  \node (3) at (12,0) {$\bG^x \times \bG^y$};
+  \draw [->] (1) to node[swap, label] {$\psi_x \otimes \psi_y$} (0);
+  \draw [->] (7.3,-0.06) arc (330:40:0.12) -- (7.3,0.07);
+  \draw [->] (2) to node[label] {$\bf^x \tight{0}{\times}{0} \bf^y$} (3);
+  \end{tikzpicture}
+  
   \[
   \xymatrix{
     \EEx && \ar[ll]_{\hskip-20pt \psi_x\otimes \psi_y} \Aut(\bf^x)\times \Aut(\bf^y)
@@ -1103,7 +1170,7 @@ Section~\ref{section:category}.
   
   \vspace{0.2in}
   
-  \begin{tikzpicture}[auto,style={rectangle, scale=1.2}]
+  \begin{tikzpicture}[auto,style={rectangle},scale=1.2]
   \node (12) [anchor=east] at (4,2) {$\Aut(\bf^{x+y})$};
   \node (22) [anchor=west] at (4.4,2) {$\bH^{x+y}$};
   \node (32) [anchor=east] at (11,2) {$\bG^{x+y}$};
@@ -1114,21 +1181,21 @@ Section~\ref{section:category}.
   \node (10) [anchor=east] at (4,0) {$\Aut(\bf^x)\times \Aut(\bf^y)$};
   \node (20) [anchor=west] at (4.4,0) {$\bG^x\times \bG^y$};
   \node (30) [anchor=east] at (11,0) {$\bG^x\times \bG^y$};
-  \draw [->] (4.3,1.94) arc (330:30:0.12);
-  \draw [->, densely dotted] (4.3,0.94) arc (330:30:0.12);
-  \draw [->] (4.3,-0.06) arc (330:30:0.12);
-  \draw [->] (12) to node[swap] {\footnotesize{$\psi_{x+y}$}} (01);
+  \draw [->] (4.3,1.94) arc (330:40:0.12) -- (4.3,2.07);
+  \draw [->, densely dotted] (4.3,0.94) arc (330:40:0.12) -- (4.3,1.07);
+  \draw [->] (4.3,-0.06) arc (330:40:0.12) -- (4.3,0.07);
+  \draw [->] (12) to node[swap,label] {$\psi_{x+y}$} (01);
   \draw [->, densely dotted] (11) -- (01);
-  \draw [->] (10) to node {\footnotesize{$\psi_x \otimes \psi_y$}} (01);
+  \draw [->] (10) to node[label] {$\psi_x \otimes \psi_y$} (01);
   \draw [->, densely dotted] ($(11.south) + (0,-0.5)$) -- (11);
   \draw [double equal sign distance] (11) -- (12);
-  \draw [->] (22) to node {\footnotesize{$\bf^{x+y}$}} (32);
+  \draw [->] (22) to node[label] {$\bf^{x+y}$} (32);
   \draw [->] ($(22.south) + (0,-0.5)$) -- (22);
   \draw [->] (21) -- (31);
-  \draw [->] ($(32.south) + (0,-0.5)$) to node[swap] {\footnotesize{$\bm_{x,y}$}} (32);
+  \draw [->] ($(32.225) + (0,-0.5)$) to node[swap] {\footnotesize{$\bm_{x,y}$}} (32.225);
   \draw [->] ($(22.south) + (0,-1.5)$) -- ($(22.south) + (0,-1)$);
-  \draw [->] (20) to node {\footnotesize{$\bf^x \times \bf^y$}} (30);
-  \draw [->] ($(32.south) + (0,-1.5)$) -- ($(32.south) + (0,-1)$);
+  \draw [->] (20) to node[label] {$\bf^x \times \bf^y$} (30);
+  \draw [->] ($(32.225) + (0,-1.5)$) -- ($(32.225) + (0,-1)$);
   \end{tikzpicture}
   
   \[
