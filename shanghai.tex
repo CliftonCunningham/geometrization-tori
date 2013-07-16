@@ -29,6 +29,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
 \usepackage{manfnt}
 
 %\include{definitions}
@@ -284,12 +285,12 @@ $\cs{L}\ceq (\gcs{L},\mu,F)$ where:
   is an isomorphism of sheaves on $\bGxG$ such that
 
   \[
-  \xymatrix{
-    \bm_3^*\gcs{L} \ar[rr]^{(\bm \tight{1}{\times}{2} \id)^*\mu} \ar[d]_{(\id \tight{2}{\times}{1} \bm)^*\mu}
-    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \ar[d]^{\mu \boxtimes \id} \\
-    \gcs{L} \boxtimes \bm^* \gcs{L} \ar[rr]^{\id \boxtimes \mu}
+  \begin{tikzcd}[row sep=40]
+  \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu}
+    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id} \\
+    \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
     &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL\\
-  }
+  \end{tikzcd}
   \]
   commutes, where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
 
@@ -297,14 +298,14 @@ $\cs{L}\ceq (\gcs{L},\mu,F)$ where:
   isomorphism of sheaves on $\bG$ compatible with $\mu$ in the sense that
 
   \[
-  \xymatrix{
-    \Frob_{\GxxG}^* \bm^* \gcs{L} \ar[rr]^{\Frob_{\GxxG}^*\mu}
+  \begin{tikzcd}
+  \Frob_{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob_{\GxxG}^*\mu}
     && \Frob_{\GxxG}^*(\LxL)\\
-    \ar@{=}[u] \bm^*  \Frob_{G}^* \gcs{L} \ar[d]_{\bm^* F}
-    && \ar[d]^{F\boxtimes F} \ar@{=}[u] \Frob_{G}^*\gcs{L}\boxtimes \Frob_{G}^*\gcs{L}\\
-    \bm^*\gcs{L} \ar[rr]^{\mu}
+    \arrow[equal]{u} \bm^*  \Frob_{G}^* \gcs{L} \arrow[swap]{d}{\bm^* F}
+    && \Frob_{G}^*\gcs{L}\boxtimes \Frob_{G}^*\gcs{L} \dar{F\boxtimes F} \arrow[equal]{u} \\
+    \bm^*\gcs{L} \arrow{rr}{\mu}
     && \LxL\\
-  }
+  \end{tikzcd}
   \]
   commutes.
 \end{enumerate}
@@ -315,12 +316,12 @@ Morphisms in $\CS(G)$ are defined in the natural way:
   $\Hom(\cs{L},\cs{L'})$ is the set of morphisms $\varphi : \gcs{L} \to \gcs{L'}$
   of constructible $\ell$-adic sheaves on $\bG$ such that
   \[
-  \xymatrix{
-  \ar[d]_{F} \Frob_G^* \gcs{L} \ar[r]^{\Frob_G^* \varphi} & \ar[d]^{F'} \Frob_G^* \gcs{L'}
-  & \text{and}& \ar[d]_{\mu} m^* \gcs{L} \ar[r]^{m^* \varphi} & \ar[d]^{\mu'} m^* \gcs{L'} \\
-  \gcs{L} \ar[r]^{\varphi} & \gcs{L'}
-  && \LxL \ar[r]^{\varphi\boxtimes \varphi} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}\\
-  }
+  \begin{tikzcd}[column sep=40]
+  \Frob_G^* \gcs{L} \rar{\Frob_G^* \varphi} \arrow[swap]{d}{F} & \Frob_G^* \gcs{L'} \dar{F'}
+  & \arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}} & \arrow[swap]{d}{\mu} m^* \gcs{L} \rar{m^* \varphi} & m^* \gcs{L'} \dar{\mu'} \\
+  \gcs{L} \rar{\varphi} & \gcs{L'}
+  & {} & \LxL \rar{\tight{1}{\varphi\boxtimes \varphi}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
+  \end{tikzcd}
   \]
   both commute.
 \end{enumerate}
@@ -382,10 +383,10 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   $(\gcs{L},\mu,F) \mapsto (\bf^*\gcs{L},(\bfxf)^*\mu,\bf^*F)$
   defines a monoidal functor $f^* : \CS(G) \to \CS(H)$ such that
   \[
-  \xymatrix{
-  \CSiso{G} \ar[r]^{f^*} \ar[d]^{t_{G}} &  \ar[d]^{t_{H}} \CSiso{H}\\
-  \Hom_\text{grp}(G(\Fq),\EEx) \ar[r] & \Hom_\text{grp}(H(\Fq),\EEx)
-  }
+  \begin{tikzcd}[row sep=40]
+   \CSiso{G} \rar{f^*} \arrow[swap]{d}{t_{G}} & \CSiso{H} \dar{t_H} \\
+  \Hom_\text{grp}(G(\Fq),\EEx) \rar & \Hom_\text{grp}(H(\Fq),\EEx)
+  \end{tikzcd}
   \]
   is a commutative diagram of groups, where the lower homomorphism is
   dual to $f : H(\Fq)\to G(\Fq)$.  Moreover, $(f\circ g)^* = g^* \circ f^*$.
@@ -454,24 +455,24 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
 Consider the short exact sequence in the category of smooth group
 schemes, locally of finite type over $\Fq$, defining the component
 group scheme for $G$:
- \begin{equation}\label{eq:pi-2}
-   \xymatrix{
-     0 \ar[r] & G^0 \ar[r] & G \ar[r] & \pi_0(G) \ar[r] & 0.
-    }
- \end{equation}
+\begin{equation}\label{eq:pi-2}
+\begin{tikzcd}
+0 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
+\end{tikzcd}
+\end{equation}
 Since $\pi_0(G)$ is an Abelian group scheme, smooth (in fact, etale) and locally of finite type over $\Fq$, 
 it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1} defines a sequence of functors
- \[
-  \xymatrix{
-\CS(0) \ar[r] & \CS(\pi_0(G)) \ar[r] & \CS(G) \ar[r] & \CS(G^0) \ar[r] & \CS(0)
-  }
- \]
+\[
+\begin{tikzcd}
+\CS(0) \rar & \CS(\pi_0(G)) \rar & \CS(G) \rar & \CS(G^0) \rar & \CS(0)
+\end{tikzcd}
+\]
 which induces, upon passage to Picard groups, a sequence of group homomorphisms 
- \begin{equation}\label{eq:pi-1}
-  \xymatrix{
-\CSiso{0} \ar[r] & \CSiso{\pi_0(G)} \ar[r] & \CSiso{G} \ar[r] & \CSiso{G^0} \ar[r] & \CSiso{0}.
-  }
- \end{equation}
+\begin{equation}\label{eq:pi-1}
+\begin{tikzcd}
+\CSiso{0} \rar & \CSiso{\pi_0(G)} \rar & \CSiso{G} \rar & \CSiso{G^0} \rar & \CSiso{0}.
+\end{tikzcd}
+\end{equation}
 It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact; this allows us to find $\CSiso{G}$. To prove this, we find it useful to offer an alternate perspective on a subcategory of $\CS(G)$, in the next section.
  
 \section{Bounded character sheaves}
@@ -485,18 +486,18 @@ Now we may define $\CS_b(G)$, where $G$ is a smooth group scheme locally of fini
 \labitem{(CSb.0)}{CSb.0}
 An object in $\CS_b(G)$ is a pair $(\pi,\psi)$ where $\pi : H\to G$ is a finite etale cover in the category of group schemes over $\Fq$ such that $\Gal(\bFq/\Fq)$ acts trivially on $\ker {\bar \pi}$ (so $\ker {\bar \pi} = \ker \pi$) and $\psi : \ker \pi \to \Aut(V)$ is an irreducible representation on a $\EE$-vector space $V$.
 \[
-\xymatrix{
-V & \Aut(V) & 1 \ar[r] & \ar@/_2pc/[ll]^{\psi} \ker \pi \ar[r] & H \ar[r]^{\pi} & G \ar[r] &1 
-}
+\begin{tikzcd}
+V & \Aut(V) & 1 \rar & \arrow[bend right,swap]{ll}{\psi} \ker \pi \rar & H \rar{\pi} & G \rar &1
+\end{tikzcd}
 \]
 \labitem{(CSb.1)}{CSb.1}
 A morphism $T : (\pi,\psi) \to (\pi',\psi')$ is a linear transformation $T : V \to V'$ which, if non-trivial, has the property that there is a finite etale cover $\pi_1 : H_1 \to G$ in the category of group schemes over $\Fq$ and morphisms $H_1\to H$, $H_1\to H'$ inducing homomorphisms $\ker \pi_1 \to \ker\pi$ and $\ker\pi_1\to \ker\pi$ such that the following diagram commutes.
 \[
-\xymatrix{
-V \ar[dd] & \Aut(V) \ar@{=}[dd] & 1 \ar[r] & \ar@/^2pc/[ll]_{\psi} \ker \pi \ar[r] & H \ar[r]^{\pi} & G \ar[r] &1\\
- &  & 1 \ar[r] & \ar[u] \ar[d] \ker \pi \ar[r] & \ar[u] \ar[d] H_1 \ar[r]^{\pi_1} & \ar@{=}[u] \ar@{=}[d] G \ar[r] &1\\
-V' & \Aut(V) & 1 \ar[r] & \ar@/_2pc/[ll]^{\psi'} \ker \pi' \ar[r] & H' \ar[r]^{\pi} & G \ar[r] &1\\ 
-}
+\begin{tikzcd}
+V \arrow{dd} & \Aut(V) \ar[equal]{dd} & 1 \rar & \arrow[swap,bend left]{ll}{\psi} \ker \pi \rar & H \rar{\pi} & G \rar &1\\
+ &  & 1 \rar & \ker \pi_1 \rar \uar \dar & H_1 \uar \dar \rar{\pi_1} & \ar[equal]{u} \arrow[equal]{d} G \rar &1\\
+V' & \Aut(V') & 1 \rar & \arrow[bend right]{ll}{\psi'} \ker \pi' \rar & H' \rar{\pi'} & G \rar &1
+\end{tikzcd}
 \]
 \end{enumerate}
 We refer to $\CS_b(G)$ as the category of \cdef{bounded character sheaves on $G$}.
@@ -562,10 +563,10 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
   the geometric point $\bg$ determines a splitting
   $\Weil(\bFq/\Fq)\to \Weil(G,\bg)$ of the exact sequence
   \[
-  \xymatrix{
-    1 \ar[r] & \pi_1(\bG, \bg) \ar[r] &  \Weil(G,\bg) \ar[r]
-    & \ar@/_1pc/@{.>}[l]_{g} \Weil(\bFq/\Fq) \ar[r] & 1
-    }
+  \begin{tikzcd}
+  1 \rar & \pi_1(\bG, \bg) \rar &  \Weil(G,\bg) \rar
+  & \ar[swap,bend right, dotted]{l}{g} \Weil(\bFq/\Fq) \rar & 1
+  \end{tikzcd}
   \]
   In this way the Weil local system $(\gcs{L},F)$ determines an $\ell$-adic character
   \[
@@ -585,10 +586,10 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
   an $\ell$-adic character of $\Gal(\bFq/\Fq)$, which will be denoted
   by the same symbol.
   \[
-  \xymatrix{
-    1 \ar[r] & \ar@{=}[d] \pi_1(\bG, \bg) \ar[r] & \ar[d] \Weil(G,\bg) \ar[r] & \ar[d]  \Weil(\bFq/\Fq) \ar[r] & 1\\
-    1 \ar[r] &  \pi_1(\bG, \bg) \ar[r] & \pi_1(G,\bg) \ar[r] & \Gal(\bFq/\Fq) \ar[r] & 1\\
-    }
+  \begin{tikzcd}
+  1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \Weil(G,\bg) \rar \dar & \Weil(\bFq/\Fq) \rar \dar & 1\\
+  1 \rar &  \pi_1(\bG, \bg) \rar & \pi_1(G,\bg) \rar & \Gal(\bFq/\Fq) \rar & 1
+  \end{tikzcd}
   \]
 
   We may now lift the $\ell$-adic character $t_{(\gcs{L},F)}(g) : \Gal(\bFq/\Fq) \to \EEx$
@@ -657,12 +658,12 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
     $\mu_{x,y} \ceq (x \times y)^*\mu : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes \gcs{L}_{y}$,
     for all $x,y \in G(\bFq)$, such that
     \[
-    \xymatrix{
-      \gcs{L}_{x+y+z} \ar[rr]^{\mu_{x+y,z}} \ar[d]_{\mu_{x,y+z}}
-      && \gcs{L}_{x+y}\otimes \gcs{L}_{z} \ar[d]^{\mu_{x,y} \otimes \id} \\
-      \gcs{L}_{x} \otimes \gcs{L}_{y+z} \ar[rr]^{\id \otimes \mu_{y,z}}
-      && \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes \gcs{L}_{z}\\
-      }
+    \begin{tikzcd}[row sep=40]
+      \gcs{L}_{x+y+z} \arrow{rr}{\mu_{x+y,z}} \arrow[swap]{d}{\mu_{x,y+z}}
+      && \gcs{L}_{x+y}\otimes \gcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
+      \gcs{L}_{x} \otimes \gcs{L}_{y+z} \arrow{rr}{\id \otimes \mu_{y,z}}
+      && \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes \gcs{L}_{z}
+    \end{tikzcd}
     \]
     commutes, for all $x,y,z\in G(\bFq)$; and
 
@@ -671,12 +672,12 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
       should explain which Frobenius this is and how it acts. }
     such that
     \[
-    \xymatrix{
-      \gcs{L}_{\Frob(x)+\Frob(y)} \ar[d]_{F_{x+y}} \ar[rr]^{\mu_{\Frob(x),\Frob(y)}}
-      &&\ar[d]^{F_x\otimes F_y}  \gcs{L}_{\Frob(x)}\otimes \gcs{L}_{\Frob(y)}\\
-      \gcs{L}_{x+y} \ar[rr]^{\mu_{x,y}}
-      && \gcs{L}_x \otimes\gcs{L}_y\\
-      }
+    \begin{tikzcd}[row sep=40]
+      \gcs{L}_{\Frob(x)+\Frob(y)} \arrow[swap]{d}{F_{x+y}} \arrow{rr}{\mu_{\Frob(x),\Frob(y)}}
+      && \gcs{L}_{\Frob(x)}\otimes \gcs{L}_{\Frob(y)} \dar{F_x \tight{0}{\otimes}{0} F_y} \\
+      \gcs{L}_{x+y} \arrow{rr}{\mu_{x,y}}
+      && \gcs{L}_x \otimes\gcs{L}_y
+    \end{tikzcd}
     \]
     commutes, for all $x,y\in G(\bFq)$.
   \end{enumerate}
@@ -687,12 +688,12 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
     of linear transformations (of one-dimensional $\EE$-vector spaces),
     as $x$ runs over $G(\bFq)$, such that
     \[
-    \xymatrix{
-      \ar[d]_{F_x} \gcs{L}_{\Frob(x)} \ar[r]^{\varphi_{\Frob(x)}} & \ar[d]^{F_x'} \gcs{L'}_{\Frob(x)}
-      &\text{and}& \ar[d]_{\mu} \gcs{L}_{x+y} \ar[r]^{\varphi_{x+y}} & \ar[d]^{\mu'_{x+y}} \gcs{L'}_{x+y} \\
-      \gcs{L}_x \ar[r]^{\varphi_x} & \gcs{L'}_x
-      && \gcs{L}_x\otimes\gcs{L}_y \ar[r]^{\varphi_x\otimes \varphi_y} & \gcs{L'}_x \otimes \gcs{L'}_y\\
-      }
+    \begin{tikzcd}[column sep=40]
+      \arrow[swap]{d}{F_x} \gcs{L}_{\Frob(x)} \rar{\varphi_{\Frob(x)}} & \gcs{L'}_{\Frob(x)} \dar{F_x'}
+      &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}& \arrow[swap]{d}{\mu} \gcs{L}_{x+y} \rar{\varphi_{x+y}} & \gcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
+      \gcs{L}_x \rar{\varphi_x} & \gcs{L'}_x
+      & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\varphi_x\otimes \varphi_y} & \gcs{L'}_x \otimes \gcs{L'}_y
+    \end{tikzcd}
     \]
     both commute.
   \end{enumerate}
@@ -825,7 +826,11 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
   as an abelian group it is injective as a $\ZZ$-module and thus
   $\Ext^1_{\ZZ}(X/X^\Frob, \EEx) = 0$.  Applying the functor
   $\Hom(\mbox{---}, \EEx)$ to
-  $$0 \rightarrow X^\Frob \rightarrow X \rightarrow X/X^\Frob \rightarrow 0$$
+  \[
+  \begin{tikzcd}
+  0 \rar & X^\Frob \rar & X \rar & X/X^\Frob \rar & 0
+  \end{tikzcd}
+  \]
   and considering the associated long exact sequence gives the
   existence of an $\tilde{f} \in \Hom(X, \EEx)$ restricting to
   $f$.  Define a $1$-cocycle $z \in \Hh^1(\Fq, \Hom(X,\EEx))$ by
@@ -983,32 +988,21 @@ Section~\ref{section:category}.
   $\Gal(\bFq/\Fq)$ acts trivially on $A \ceq \ker {\bar \pi}$, as
   summarized by the following diagram.
   \begin{equation}\label{E}
-    \xymatrix{
-      \EEx & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
-      }
+  \begin{tikzcd}
+  \EEx & 1\rar & A \arrow[bend right,swap]{ll}{\psi} \rar & B \rar{\pi} & G^0 \rar & 1
+  \end{tikzcd}
   \end{equation}
   (In fact, we may always take $B = G^0$ and $\pi = \Lang_{G^0}$, the
   Lang isogeny for $G^0$.)  Indeed, $\cs{E}$ is precisely the
   component of $\pi_! (\EE)_{B}$ on which $A$ acts through $\psi$.  To
   see that $\cs{E}$ is a line bundle on $G^0$, start by pulling back
   $\pi: B \to G^0$ along $m_0 : \GzxGz \to G^0$.
-  
-  \begin{center}
-  \begin{tikzpicture}
-  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
-  \EEx & 1 & A & B & G^0 & 1 \\
-  & 1 & \AxA & \BxB & \GzxGz & 1\\ };
-  %\foreach \x in {2,3,4,5} \let \x1={\x+1} 
-  %\draw [->] (m-1-\x) -- (m-1-\x1);
-  \end{tikzpicture}
-  \end{center}
-  
   \begin{equation}
-    \xymatrix{
-      \EEx & 1\ar[r] & \ar@/_1pc/[ll]_{\psi} A  \ar[r] & B \ar[r]^{\pi} & G^0 \ar[r] & 1\\
-      & 1\ar[r] & \ar@{.>}@/^1pc/[llu] \ar[u] \AxA  \ar[r]
-      & \ar[u]^{m_{B}} \BxB \ar[r]^{\pi\tight{1}{\times}{1} \pi}  & \ar[u]^{m_0} \GzxGz \ar[r] & 1\\
-      }
+  \begin{tikzcd}
+  \EEx & 1\rar & A \arrow[bend right,swap]{ll}{\psi} \rar & B \rar{\pi} & G^0 \rar & 1\\
+      & 1\rar & \AxA \arrow[dashed]{llu} \uar \rar
+      & \BxB \rar{\pi\tight{1}{\times}{1} \pi} \uar{m_{B}} & \GzxGz \uar{m_0} \rar & 1
+  \end{tikzcd}
   \end{equation}
   As pictured above, the kernel of this pull-back is $\AxA$;
   indeed, $\AxA \to \BxB$ is the pull-back of $A\to B$ along
@@ -1032,32 +1026,12 @@ Section~\ref{section:category}.
   finite type over $\Fq$, in such a way that $H^0 = B$, $f^0 =\pi$ and
   $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component
   groups.
-  
-  \begin{center}
-  \begin{tikzpicture}[auto]
-  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
-  A & A & \\
-  B & H & \pi_0(H) \\
-  G^0 & G & \pi_0(G) \\};
-  \draw [double equal sign distance] (m-1-1) -- (m-1-2);
-  \draw [->] (m-1-1) -- (m-2-1);
-  \draw [->] (m-2-1) -- (m-2-2);
-  \draw [->] (m-1-2) -- (m-2-2);
-  \draw [->] (m-2-1) to node[label,swap] {$\pi$} (m-3-1);
-  \draw [->] (m-3-1) -- (m-3-2);
-  \draw [->] (m-2-2) to node[label,swap] {$f$} (m-3-2);
-  \draw [->] (m-2-2) -- (m-2-3);
-  \draw [->] (m-3-2) -- (m-3-3);
-  \draw [->] (m-2-3) to node[below,rotate=90] {$\sim$} node[label,swap] {$\pi_0(f)$} (m-3-3);
-  \end{tikzpicture}
-  \end{center}
-  
-  \begin{equation} \label{extension-diagram}
-    \xymatrix{
-      & A \ar[d] \ar@{=}[r] & A \ar[d] &  \\
-      & B \ar[r] \ar[d]_{\pi} & H \ar[r] \ar[d]_{f} & \pi_0(H) \ar[d]_{\pi_0(f)}^{\iso} \\
-      & G^0 \ar[r] & G \ar[r] & \pi_0(G).
-    }
+  \begin{equation}\label{extension-diagram}
+  \begin{tikzcd}
+  A \arrow[equal]{r} \dar & A \dar \\
+  B \rar \dar[swap]{\pi} & H \rar \dar[swap]{f} & \pi_0(H) \arrow{d}[below,rotate=90]{\sim}[swap]{\pi_0(f)} \\
+  G^0 \rar & G \rar & \pi_0(G)
+  \end{tikzcd}
   \end{equation}
   where all rows and columns are exact and all maps are defined over
   $\Fq$.  We will do so by passing back and forth between group
@@ -1082,46 +1056,20 @@ Section~\ref{section:category}.
   be one of these modules: we need to show that $I$ is injective as a
   $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
   
-  \begin{center}
-  \begin{tikzpicture}[auto]
-  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
-  & B \\
-  I & A \\};
-  \draw [right hook->] (m-2-2) -- (m-1-2);
-  \draw [->] (m-2-2) to node[swap,label] {$a$} (m-2-1);
-  \end{tikzpicture}
-  \end{center}
-  
   \[
-  \xymatrix{
-    & B \\
-    I & A \ar@{>->}[u] \ar[l]_{a}
-    }
+  \begin{tikzcd}
+  A \rar{a} \arrow[hook]{d} & I \\
+  B
+  \end{tikzcd}
   \]
-
   where $A$ and $B$ are arbitrary $\ZZ[\Gamma]$-modules.  Since $H_m$ acts trivially on $I$,
   $I_{H_m}A := \langle (\gamma-1)a : \gamma \in H_m, a \in A \rangle \subseteq \ker(a).$
   Since $B / I_{H_m}B \cong B \otimes_A A / I_{H_m}A$, we get
-  
-  \begin{center}
-  \begin{tikzpicture}
-  \matrix (m) [matrix of math nodes,row sep=3em,column sep=3em,minimum width=2em] {
-  & B/I_{H_m}B & B \\
-  I & A/I_{H_m}A & A \\};
-  \draw [->,dashed] (m-1-2) -- (m-2-1);
-  \draw [right hook->] (m-2-2) -- (m-1-2);
-  \draw [->] (m-2-2) -- (m-2-1);
-  \draw [->>] (m-2-3) -- (m-2-2);
-  \draw [right hook->] (m-2-3) -- (m-1-3);
-  \draw [->>] (m-1-3) -- (m-1-2);
-  \end{tikzpicture}
-  \end{center}
-  
   \[
-  \xymatrix{
-    & B/I_{H_m}B \ar@{..>}[dl] & B \ar@{->>}[l] \\
-    I & A/I_{H_m}A \ar@{>->}[u] \ar[l] & A \ar@{>->}[u] \ar@{->>}[l]
-    }
+  \begin{tikzcd}
+  A \arrow[two heads]{r} \arrow[hook]{d} & A/I_{H_m}A \rar \arrow[hook]{d} & I \\
+  B \arrow[two heads]{r} & B/I_{H_m}B \arrow[dashed]{ur} & {}
+  \end{tikzcd}
   \]
   The dotted arrow exists since $I$ is injective as a
   $\ZZ[\Gamma_m]$-module, and the outer diagram shows that $I$ is
@@ -1177,22 +1125,16 @@ Section~\ref{section:category}.
   $\mu_{x,y} : \bm_{x,y}^*\gcs{L}^{x+y} \iso \gcs{L}^{x}\boxtimes \gcs{L}^{y}$
   for all $x,y\in X$. To do that, note first that the local system
   $\gcs{L}^{x}\boxtimes \gcs{L}^{y}$ is defined by the following diagram.
-  
+  \[
   \begin{tikzpicture}[auto,style={rectangle}]
   \node (0) at (0,0) {$\EEx$};
-  \node (1) [anchor=east] at (7,0) {$\Aut(\bf^x) \times \Aut(\bf^y)$};
-  \node (2) [anchor=west] at (7.4,0) {$\bH^x \times \bH^y$};
-  \node (3) at (12,0) {$\bG^x \times \bG^y$};
+  \node (1) [anchor=east] at (6,0) {$\Aut(\bf^x) \times \Aut(\bf^y)$};
+  \node (2) [anchor=west] at (6.4,0) {$\bH^x \times \bH^y$};
+  \node (3) at (11,0) {$\bG^x \times \bG^y$};
   \draw [->] (1) to node[swap, label] {$\psi_x \otimes \psi_y$} (0);
-  \draw [->] (7.3,-0.06) arc (330:40:0.12) -- (7.3,0.07);
+  \draw [->] (6.3,-0.06) arc (330:40:0.12) -- (6.3,0.07);
   \draw [->] (2) to node[label] {$\bf^x \tight{0}{\times}{0} \bf^y$} (3);
   \end{tikzpicture}
-  
-  \[
-  \xymatrix{
-    \EEx && \ar[ll]_{\hskip-20pt \psi_x\otimes \psi_y} \Aut(\bf^x)\times \Aut(\bf^y)
-    & \ar@(ul,dl) & \bH^x\times \bH^y \ar[rr]^{\bf^x\times \bf^y} && \bG^x\times \bG^y\\
-    }
   \]
   On the other hand, the diagram for the local system $\bm_{x,y}^* \gcs{L}^{x+y}$
   is found by pulling-back the diagram for $\gcs{L}^{x+y}$ along
@@ -1202,45 +1144,34 @@ Section~\ref{section:category}.
   
   \vspace{0.2in}
   
-  \begin{tikzpicture}[auto,style={rectangle},scale=1.2]
-  \node (12) [anchor=east] at (4,2) {$\Aut(\bf^{x+y})$};
-  \node (22) [anchor=west] at (4.4,2) {$\bH^{x+y}$};
-  \node (32) [anchor=east] at (11,2) {$\bG^{x+y}$};
-  \node (01) at (0,1) {$\EEx$};
-  \node (11) [anchor=east] at (4,1) {$\Aut(\bf^{x+y})$};
-  \node (21) [anchor=west] at (4.4,1) {$\bH^{x+y} \times_{\bG^x\times\bG^y} \bG^x\times\bG^y$};
-  \node (31) [anchor=east] at (11,1) {$\bG^x\times \bG^y$};
+  \[
+  \begin{tikzpicture}[auto,style={shape={asymmetrical rectangle}},scale=1.2]
+  \node (12) [anchor=east] at (4,2.4) {$\Aut(\bf^{x+y})$};
+  \node (22) [anchor=west] at (4.4,2.4) {$\bH^{x+y}$};
+  \node (32) [anchor=east] at (11,2.4) {$\bG^{x+y}$};
+  \node (01) at (0,1.2) {$\EEx$};
+  \node (11) [anchor=east] at (4,1.2) {$\Aut(\bf^{x+y})$};
+  \node (21) [anchor=west] at (4.4,1.2) {$\bH^{x+y} \times_{\bG^{x+y}} (\bG^x\times\bG^y)$};
+  \node (31) [anchor=east] at (11,1.2) {$\bG^x\times \bG^y$};
   \node (10) [anchor=east] at (4,0) {$\Aut(\bf^x)\times \Aut(\bf^y)$};
-  \node (20) [anchor=west] at (4.4,0) {$\bG^x\times \bG^y$};
+  \node (20) [anchor=west] at (4.4,0) {$\bH^x\times \bH^y$};
   \node (30) [anchor=east] at (11,0) {$\bG^x\times \bG^y$};
-  \draw [->] (4.3,1.94) arc (330:40:0.12) -- (4.3,2.07);
-  \draw [->, densely dotted] (4.3,0.94) arc (330:40:0.12) -- (4.3,1.07);
+  \draw [->] (4.3,2.34) arc (330:40:0.12) -- (4.3,2.47);
+  \draw [->, densely dotted] (4.3,1.14) arc (330:40:0.12) -- (4.3,1.27);
   \draw [->] (4.3,-0.06) arc (330:40:0.12) -- (4.3,0.07);
   \draw [->] (12) to node[swap,label] {$\psi_{x+y}$} (01);
-  \draw [->, densely dotted] (11) -- (01);
+  \draw [->, dashed] (11) -- (01);
   \draw [->] (10) to node[label] {$\psi_x \otimes \psi_y$} (01);
-  \draw [->, densely dotted] ($(11.south) + (0,-0.5)$) -- (11);
+  \draw [->, dashed] ($(11.south) + (0,-0.7)$) -- (11);
   \draw [double equal sign distance] (11) -- (12);
   \draw [->] (22) to node[label] {$\bf^{x+y}$} (32);
-  \draw [->] ($(22.south) + (0,-0.5)$) -- (22);
+  \draw [->] ($(22.south) + (0,-0.7)$) -- (22);
   \draw [->] (21) -- (31);
-  \draw [->] ($(32.225) + (0,-0.5)$) to node[swap] {\footnotesize{$\bm_{x,y}$}} (32.225);
-  \draw [->] ($(22.south) + (0,-1.5)$) -- ($(22.south) + (0,-1)$);
+  \draw [->] ($(32.225) + (0,-0.7)$) to node[swap] {\footnotesize{$\bm_{x,y}$}} (32.225);
+  \draw [->] ($(22.south) + (0,-1.9)$) -- ($(22.south) + (0,-1.2)$);
   \draw [->] (20) to node[label] {$\bf^x \times \bf^y$} (30);
-  \draw [->] ($(32.225) + (0,-1.5)$) -- ($(32.225) + (0,-1)$);
+  \draw [double equal sign distance] ($(32.225) + (0,-1.9)$) -- ($(32.225) + (0,-1.2)$);
   \end{tikzpicture}
-  
-  \[
-  \xymatrix{
-    & \ar[dl]_{\psi_{x+y}} \Aut(\bf^{x+y})
-    & \ar@(ul,dl) & \bH^{x+y} \ar[rr]^{\bf^{x+y}} && \bG^{x+y}\\
-    \EEx & \ar@{.>}[l] \Aut(\bf^{x+y})  \ar@{=}[u] &  \ar@{.>}@(ul,dl)
-    & \ar[u] \bH^{x+y} \times_{\bG^x\times\bG^y} \bG^x\times\bG^y \ar[rr]
-    && \ar[u]_{\bm_{x,y}} \bG^x\times \bG^y\\
-    & \ar[lu]_{\psi_x\otimes \psi_y} \ar@{.>}[u] \Aut(\bf^x)\times \Aut(\bf^y)
-    & \ar@(ul,dl) & \ar[u] \bH^x\times \bH^y \ar[rr]^{\bf^x\times \bf^y}
-    && \ar@{=}[u] \bG^x\times \bG^y\\
-    }
   \]
   Now, the homomorphism from the covering group of
   $\bf^x\times\bf^y$ to the covering group of
@@ -1271,14 +1202,33 @@ Section~\ref{section:category}.
   finite etale covering in the diagram for $\gcs{L}^{x}$.
 
   \[
-  \xymatrix{
-    && \ar[dll]_{\psi_{\Frob(x)}} \Aut(\bf^{\Frob(x)}) & \ar@(ul,dl)
-    & \bH^{\Frob(x)} \ar[rr]^{\bf^{\Frob(x)}} && \bG^{\Frob(x)}\\
-    \EEx & & \ar@{.>}[ll] \Aut(\bf^{\Frob(x)})  \ar@{=}[u] & \ar@{.>}@(ul,dl)
-    & \ar[u] \bH^{\Frob(x)} \times_{\bG^{\Frob(x)}} \bG^x \ar[rr] && \ar[u]_{\Frob_{x}} \bG^x\\
-    & &  \ar[ull]^{\psi_x}  \ar@{.>}[u] \Aut(\bf^{x}) & \ar@(ul,dl)
-    & \ar[u] \bH^x \ar[rr] && \ar@{=} [u] \bG^x\\
-    }
+  \begin{tikzpicture}[auto,style={rectangle},scale=1.2]
+  \node (12) [anchor=east] at (4,2.4) {$\Aut(\bf^{\Frob(x)})$};
+  \node (22) [anchor=west] at (4.4,2.4) {$\bH^{\Frob(x)}$};
+  \node (32) [anchor=west] at (8,2.4) {$\bG^{\Frob(x)}$};
+  \node (01) at (0,1.2) {$\EEx$};
+  \node (11) [anchor=east] at (4,1.2) {$\Aut(\bf^{\Frob(x)})$};
+  \node (21) [anchor=west] at (4.4,1.2) {$\bH^{\Frob(x)} \times_{\bG^{\Frob(x)}} \bG^x$};
+  \node (31) [anchor=west] at (8,1.2) {$\bG^x$};
+  \node (10) [anchor=east] at (4,0) {$\Aut(\bf^x)$};
+  \node (20) [anchor=west] at (4.4,0) {$\bH^x$};
+  \node (30) [anchor=west] at (8,0) {$\bG^x$};
+  \draw [->] (4.3,2.34) arc (330:40:0.12) -- (4.3,2.47);
+  \draw [->, densely dotted] (4.3,1.14) arc (330:40:0.12) -- (4.3,1.27);
+  \draw [->] (4.3,-0.06) arc (330:40:0.12) -- (4.3,0.07);
+  \draw [->] (12) to node[swap,label] {$\psi_{\Frob(x)}$} (01);
+  \draw [->, dashed] (11) -- (01);
+  \draw [->] (10) to node[label] {$\psi_x$} (01);
+  \draw [->, dashed] ($(11.south) + (0,-0.7)$) -- (11);
+  \draw [double equal sign distance] (11) -- (12);
+  \draw [->] (22) to node[label] {$\bf^{\Frob(x)}$} (32);
+  \draw [->] ($(22.225) + (0,-0.7)$) -- (22.225);
+  \draw [->] (21) -- (31);
+  \draw [->] ($(32.222) + (0,-0.7)$) to node[swap] {\footnotesize{$\Frob_x$}} (32.222);
+  \draw [->] ($(22.225) + (0,-1.9)$) -- ($(22.225) + (0,-1.2)$);
+  \draw [->] (20) -- (30);
+  \draw [double equal sign distance] ($(32.222) + (0,-1.9)$) -- ($(32.222) + (0,-1.2)$);
+  \end{tikzpicture}
   \]
   The covering group of $\bH^{\Frob(x)} \times_{\bG^{\Frob(x)}} \bG^x$
   is isomorphic to $\Aut(\bf^{\Frob(x)})$, canonically, so
@@ -1324,20 +1274,20 @@ Section~\ref{section:category}.
   schemes, locally of finite type over $\Fq$, defining the component
   group scheme for $G$:
   \begin{equation}\label{eq:pi0}
-    \xymatrix{
-      1 \ar[r] & G^0 \ar[r] & G \ar[r] & \pi_0(G) \ar[r] & 0.
-      }
+  \begin{tikzcd}
+    1 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
+  \end{tikzcd}
   \end{equation}
   Let
   \[
-  \xymatrix{
-    & \ar[d] \ker t_{\pi_0(G)} & \ar@{.>}[d] \ker t_{G} & \ar[d] \ker t_{G^0} & \\
-    0\ar[r] & \ar[d]^{t_{\pi_0(G)}} \CSiso{\pi_0(G)} \ar[r]
-    & \ar[d]^{t_{G}} \CSiso{G} \ar[r] & \ar[d]^{t_{G^0}} \CSiso{G^0} \ar[r] & 0\\
-    0 \ar[r] & \ar[d] \Hom(\pi_0(G)(\Fq),\EEx) \ar[r]
-    & \ar@{.>}[d] \Hom(G(\Fq),\EEx) \ar[r] & \ar[d] \Hom(G^0(\Fq),\EEx) \ar[r] & 0\\
-    & \coker t_{\pi_0(G)} & \coker t_{G} &  \coker t_{G^0} & \\
-    }
+  \begin{tikzcd}[row sep=30]
+    {}& \ker t_{\pi_0(G)} \dar & \arrow[dashed]{d} \ker t_{G} & \ker t_{G^0} \dar & \\
+    0 \rar & \CSiso{\pi_0(G)} \rar \dar{t_{\pi_0(G)}}
+    & \CSiso{G} \rar \dar{t_{G}} & \CSiso{G^0} \rar \dar{t_{G^0}} & 0\\
+    0 \rar & \Hom(\pi_0(G)(\Fq),\EEx) \rar \dar
+    & \arrow[dashed]{d} \Hom(G(\Fq),\EEx) \rar & \Hom(G^0(\Fq),\EEx) \rar \dar & 0\\
+    & \coker t_{\pi_0(G)} & \coker t_{G} &  \coker t_{G^0} &
+  \end{tikzcd}
   \]
   be the commutative diagram of abelian groups obtained by applying
   Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  By
@@ -1349,9 +1299,9 @@ Section~\ref{section:category}.
   Proposition~\ref{prop:pullback}, it is dual to the exact sequence of
   abelian groups
   \begin{equation}\label{eq:pi1}
-    \xymatrix{
-      1 \ar[r] & G^0(\Fq) \ar[r] & G(\Fq) \ar[r] & \pi_0(G)(\Fq) \ar[r] & 0;
-    }
+  \begin{tikzcd}
+    1 \rar & G^0(\Fq) \rar & G(\Fq) \rar & \pi_0(G)(\Fq) \rar & 0;
+  \end{tikzcd}
   \end{equation}
   since $\Hom(\ - \ ,\EEx)$ is left-exact, the sequence of
   character groups is left exact.
@@ -1520,10 +1470,10 @@ Let $K'/K$ be a finite Galois extension and let $T'$ be an algebraic torus over 
 The functor $\CS(\GN{T}) \to \CS(\GN{T}')$ defined above induces a group homomorphism 
 that commutes, through trace of Frobenius, with ...
 \[
-\xymatrix{
-\CS(\GN{T}) \ar[d] & \CSiso{\GN{T}} \ar[r]^{t_T} \ar[d] & \Hom_\text{ad}(T(K),\EEx) \ar[d] \\
-\CS(\GN{T}') & \CSiso{\GN{T}'} \ar[r]^{t_{T'}} & \Hom_\text{ad}(T'(K),\EEx)\\
-}
+\begin{tikzcd}
+\CS(\GN{T}) \dar & \CSiso{\GN{T}} \rar{t_T} \dar & \Hom_\text{ad}(T(K),\EEx) \dar \\
+\CS(\GN{T}') & \CSiso{\GN{T}'} \rar{t_{T'}} & \Hom_\text{ad}(T'(K),\EEx)
+\end{tikzcd}
 \]
 \end{proposition}
 
