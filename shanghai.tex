@@ -190,10 +190,9 @@ field and $T$ is any algebraic torus over $K$.
 
 Since the character sheaves that appear in this paper are not quite an
 instance of those defined by George Luzstig, who coined the term, we
-begin by explaining what we mean by `character sheaves' in this
-paper. Let $G$ be a smooth commutative group scheme locally of finite
-type over $\Fq$ \David{I think our notation is clearer if we use $k$
-  rather than $\Fq$}; $G$ need not be reductive, connected, nor of
+begin by explaining what we mean by `character sheaves' here. 
+Let $G$ be a smooth commutative group scheme locally of finite
+type over $\Fq$; $G$ need not be reductive, connected, nor of
 finite type over $\Fq$. Fix a prime $\ell$ that does not divide
 $q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq
 (\gcs{L},\mu,F)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf
@@ -212,11 +211,12 @@ classes of character sheaves on $G$ form a group, denoted by
 $\CSiso{G}$; this is the Picard group of the category of
 character sheaves on $G$. Our application of character sheaves to
 characters of algebraic tori over non-Archimedean local fields rests
-on the Picard group of character sheaves on $G$, for certain smooth
-group schemes $G$.
+on the Picard group of character sheaves on $G$, for all smooth
+commutative group schemes $G$, locally of finite type over $\Fq$, 
+for which the geometric component group is finitely generated.
 
-We now say a few words about the commutative group schemes locally of
-finite type over $\Fq$ that appear in our geometrization of admissible
+We now say a few words about the group schemes 
+that appear in our geometrization of admissible
 characters of algebraic tori over local fields. Let $K$ be a
 non-Archimedean local field with residual field $\Fq$; we place no
 restrictions on the characteristic of $K$ -- in particular, it may be
@@ -224,18 +224,18 @@ $0$ or not. Write $\OK$ for ring of integers of $K$ and $\pK$ for the
 maximal ideal in $\OK$.  Let $T$ be an algebraic torus defined over
 $K$. Let $\TT$ be a N\'eron model for $T$; recall that this is a
 smooth group scheme locally of finite type over $\OK$. For each
-non-negative integer $d$, let $\GN{T}_d$ be the Greenberg transform of
+positive integer $d$, let $\GN{T}_d$ be the Greenberg transform of
 $\TT \otimes \OK/\pK^d$; the commutative group scheme $\GN{T}_d$
 plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
 \[
-\CSiso{\mathswab{T}_d} 
+\CSiso{\GN{T}_d} 
 \iso
 \Hom_{< d}(T(K),\EEx)
 \] 
 between the Picard group of the category of character sheaves on
-$\mathswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
+$\GN{T}_d$ and the group of characters $T(K) \to \EEx$ of
 depth at most $d$.  Since these isomorphisms are compatible with
 respect to $d$, we also .....  \Clifton{I'll come back to working on
   this when we're closer to being finished. I'd be just as happy if
@@ -473,10 +473,11 @@ which induces, upon passage to Picard groups, a sequence of group homomorphisms
 \CSiso{0} \rar & \CSiso{\pi_0(G)} \rar & \CSiso{G} \rar & \CSiso{G^0} \rar & \CSiso{0}.
 \end{tikzcd}
 \end{equation}
-It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact; this allows us to find $\CSiso{G}$. To prove this, we find it useful to offer an alternate perspective on a subcategory of $\CS(G)$, in the next section.
+It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact; this allows us to find $\CSiso{G}$. 
  
 \section{Bounded character sheaves}
 
+%We find it useful to offer an alternate perspective on a subcategory of $\CS(G)$.
 In this section we describe a full subcategory of $\CS(G)$, called the category of bounded character sheaves on $G$ and denoted by $\CS_b(G)$, which will illuminate the nature of $\CS(G)$ and will also play a role in the arguments later in this paper.
 
 In order to define $\CS_b(G)$ as must recall a fundamental fact about finite etale covers of schemes. Let $X$ be a scheme, locally of finite type over $k$, and let $\pi : Y\to X$ and $\pi_1: Y_1\to X$ be finite etale covers and let $f_1 : Y_1\to Y$ be a morphism such that $\pi_1 = \pi \circ f_1$. Then $f_1$ determines a group homomorphism $\Aut(\pi_1)\to \Aut(\pi)$, as follows  . . .
