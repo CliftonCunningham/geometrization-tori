@@ -191,13 +191,8 @@ field and $T$ is any algebraic torus over $K$.
 
 Since the character sheaves that appear in this paper are not quite an
 instance of those defined by George Luzstig, who coined the term, we
-<<<<<<< HEAD
-begin by explaining what we mean by `character sheaves' in this
-paper. Let $G$ be a smooth commutative group scheme locally of finite
-=======
 begin by explaining what we mean by `character sheaves' here. 
 Let $G$ be a smooth commutative group scheme locally of finite
->>>>>>> 8cc1ebf501d3097d83f992a6ab415474d57501f2
 type over $\Fq$; $G$ need not be reductive, connected, nor of
 finite type over $\Fq$. Fix a prime $\ell$ that does not divide
 $q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq
@@ -480,11 +475,7 @@ which induces, upon passage to Picard groups, a sequence of group homomorphisms
 \CSiso{0} \rar & \CSiso{\pi_0(G)} \rar & \CSiso{G} \rar & \CSiso{G^0} \rar & \CSiso{0}.
 \end{tikzcd}
 \end{equation}
-<<<<<<< HEAD
-It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact \David{is it really split?}; this allows us to find $\CSiso{G}$. To prove this, we find it useful to offer an alternate perspective on a subcategory of $\CS(G)$, in the next section.
-=======
-It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact; this allows us to find $\CSiso{G}$. 
->>>>>>> 8cc1ebf501d3097d83f992a6ab415474d57501f2
+It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; the snake lemma then allows us to find $\CSiso{G}$.
  
 \section{Bounded character sheaves}
 
@@ -1338,6 +1329,54 @@ Section~\ref{section:category}.
   It now follows immediately from the snake lemma that $t_{G}$ is an
   isomorphism of groups.
 \end{proof}
+
+When using character sheaves to study characters, it is useful to understand
+how character sheaves behave under change of fields.
+Suppose that $k'$ is a finite extension of $k$, $G$ is an abelian group scheme
+over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to $k'$.
+We define a functor $\CS(G_{k'}) \to \CS(G)$ by.... \David{We can't define this by pullback
+since $G_{k'} \to G$ goes in the wrong direction}
+\begin{proposition} \label{prop:csbe}
+The diagram
+\[
+\begin{tikzcd}
+\CSiso{G_{k'}} \arrow[two heads]{r} \dar & \CSiso{G} \dar \\
+\Hom(G(k'), \EEx) \arrow[two heads]{r} & \Hom(G(k), \EEx)
+\end{tikzcd}
+\]
+commutes, where the vertical arrows are as in Theorem \ref{thm:snake}.
+\end{proposition}
+
+Now suppose that $G'$ is an abelian group scheme over $k'$, satisfying the conditions of Theorem \ref{thm:snake}.
+There is a canonical isomorphism between $G'(k')$ and $(\Res_{k'/k}G')(k)$;
+we now describe the corresponding functor from
+$\CS(G')$ to $\CS(\Res_{k'/k}G')$.  The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
+decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
+\[
+(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
+\]
+The component corresponding to the identity element yields a natural inclusion 
+\[
+G' \hookrightarrow (\Res_{k'/k}G')_{k'}
+\]
+of $k'$-schemes.  The definition of base change yields a map of $k$-schemes
+\[
+(\Res_{k'/k}G')_{k'} \to \Res_{k'/k}G'.
+\]
+Consecutive pullback along these maps yields a functor
+\[
+\CS(G') \to \CS(\Res_{k'/k}G').
+\]
+
+\begin{proposition}
+  Then the following diagram commutes:
+\[
+\begin{tikzcd}
+\CSiso{G} \rar{t_G} \dar & \Hom(G(k'), \EEx) \dar \\
+\CSiso{\Res_{k'/k} G} \rar{t_{\Res_{k'/k} G}} & \Hom((\Res_{k'/k}G)(k), \EEx)
+\end{tikzcd}
+\]
+\end{proposition}
 
 \section{Application to characters of bounded depth}
 
