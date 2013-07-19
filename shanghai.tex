@@ -192,8 +192,7 @@ Since the character sheaves that appear in this paper are not quite an
 instance of those defined by George Luzstig, who coined the term, we
 begin by explaining what we mean by `character sheaves' in this
 paper. Let $G$ be a smooth commutative group scheme locally of finite
-type over $\Fq$ \David{I think our notation is clearer if we use $k$
-  rather than $\Fq$}; $G$ need not be reductive, connected, nor of
+type over $\Fq$; $G$ need not be reductive, connected, nor of
 finite type over $\Fq$. Fix a prime $\ell$ that does not divide
 $q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq
 (\gcs{L},\mu,F)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf
@@ -237,9 +236,7 @@ The main result of this paper is a canonical isomorphism
 between the Picard group of the category of character sheaves on
 $\mathswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
 depth at most $d$.  Since these isomorphisms are compatible with
-respect to $d$, we also .....  \Clifton{I'll come back to working on
-  this when we're closer to being finished. I'd be just as happy if
-  you took this cup from my lips, though.}  
+respect to $d$, we also .....  \David{I'll do this when we're closer to being finished.}  
 %In particular, by
 %specializing to the case $T= \Gm{K}$ and by
 %choosing an isomorphism $\EE \approx \CC$ (unnatural though it may
@@ -449,7 +446,10 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   the definitions; see \cite{Laumon}*{1.1.1.2}, where the ambient
   hypothesis that $X$ is of finite type over $\Fq$ can be replaced by
   the hypothesis that $X$ is locally of finite type over $\Fq$.
-  \Clifton{I have not proved $(f\circ g)^* = g^* \circ f^*$, yet.}
+  
+  Finally, the fact that $(f\circ g)^* = g^* \circ f^*$ follows from the analogous
+  statements about pullbacks of sheaves and maps of sheaves.
+  \David{Is this explanation of $(f\circ g)^* = g^* \circ f^*$ sufficient?}
 \end{proof}
 
 Consider the short exact sequence in the category of smooth group
@@ -473,7 +473,7 @@ which induces, upon passage to Picard groups, a sequence of group homomorphisms
 \CSiso{0} \rar & \CSiso{\pi_0(G)} \rar & \CSiso{G} \rar & \CSiso{G^0} \rar & \CSiso{0}.
 \end{tikzcd}
 \end{equation}
-It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact; this allows us to find $\CSiso{G}$. To prove this, we find it useful to offer an alternate perspective on a subcategory of $\CS(G)$, in the next section.
+It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact \David{is it really split?}; this allows us to find $\CSiso{G}$. To prove this, we find it useful to offer an alternate perspective on a subcategory of $\CS(G)$, in the next section.
  
 \section{Bounded character sheaves}
 
@@ -540,8 +540,7 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
   and $\mu_0: m^*\cs{L}_0 \to \cs{L}_0 \tight{0}{\boxtimes}{0} \cs{L}_0$ satisfies
   condition \ref{CS.1} adapted to sheaves on $G$; maps in $\CS_0(G)$
   are defined by the second part of condition \ref{CS.2}, {\it mutatis mutandis}.
-  \David{Should we move this definition since it will be important elsewhere?}
-  \Clifton{Agreed. I'll do that.}
+  \David{This section should be modified once we're done with the section on bounded character sheaves}
   Let $b : \bG \to G$ be base change
   (pull-back of $G\to \Spec{\Fq}$ along $\Spec{\bFq} \to \Spec{\Fq}$).
   The proof of Proposition~\ref{prop:pullback} adapts
@@ -956,6 +955,7 @@ $\CS_b(G)$ is a full subcategory of $\CS(G)$.
 % !TEX encoding = UTF-8 Unicode
 %\subsection*{Restriction to the identity component is surjective}
 
+\David{This section needs to be modified once the bounded character sheaves section is done}
 Let $G^0$ be the connected component of $G$ containing the identity.
 By Proposition~\ref{prop:pullback}, pull-back along
 $G^0\hookrightarrow G$ determines a monoidal functor
