@@ -110,6 +110,7 @@
 \newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\cs{#1}^\dagger}
 \newcommand{\CS}{{\mathcal{C\hskip-1.8pt S}}}
+\newcommand{\GC}{{\mathcal{G\hskip-0.8pt C}}}
 \newcommand{\CSiso}[1]{\CS(#1)_{/\textit{iso}}}
 \newcommand{\CSbiso}[1]{\CS_0(#1)_{/\text{iso}}}
 \newcommand{\CE}{{\mathcal{C\hskip-1.8pt E}}}
@@ -190,8 +191,13 @@ field and $T$ is any algebraic torus over $K$.
 
 Since the character sheaves that appear in this paper are not quite an
 instance of those defined by George Luzstig, who coined the term, we
+<<<<<<< HEAD
 begin by explaining what we mean by `character sheaves' in this
 paper. Let $G$ be a smooth commutative group scheme locally of finite
+=======
+begin by explaining what we mean by `character sheaves' here. 
+Let $G$ be a smooth commutative group scheme locally of finite
+>>>>>>> 8cc1ebf501d3097d83f992a6ab415474d57501f2
 type over $\Fq$; $G$ need not be reductive, connected, nor of
 finite type over $\Fq$. Fix a prime $\ell$ that does not divide
 $q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq
@@ -211,11 +217,12 @@ classes of character sheaves on $G$ form a group, denoted by
 $\CSiso{G}$; this is the Picard group of the category of
 character sheaves on $G$. Our application of character sheaves to
 characters of algebraic tori over non-Archimedean local fields rests
-on the Picard group of character sheaves on $G$, for certain smooth
-group schemes $G$.
+on the Picard group of character sheaves on $G$, for all smooth
+commutative group schemes $G$, locally of finite type over $\Fq$, 
+for which the geometric component group is finitely generated.
 
-We now say a few words about the commutative group schemes locally of
-finite type over $\Fq$ that appear in our geometrization of admissible
+We now say a few words about the group schemes 
+that appear in our geometrization of admissible
 characters of algebraic tori over local fields. Let $K$ be a
 non-Archimedean local field with residual field $\Fq$; we place no
 restrictions on the characteristic of $K$ -- in particular, it may be
@@ -223,18 +230,18 @@ $0$ or not. Write $\OK$ for ring of integers of $K$ and $\pK$ for the
 maximal ideal in $\OK$.  Let $T$ be an algebraic torus defined over
 $K$. Let $\TT$ be a N\'eron model for $T$; recall that this is a
 smooth group scheme locally of finite type over $\OK$. For each
-non-negative integer $d$, let $\GN{T}_d$ be the Greenberg transform of
+positive integer $d$, let $\GN{T}_d$ be the Greenberg transform of
 $\TT \otimes \OK/\pK^d$; the commutative group scheme $\GN{T}_d$
 plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
 \[
-\CSiso{\mathswab{T}_d} 
+\CSiso{\GN{T}_d} 
 \iso
 \Hom_{< d}(T(K),\EEx)
 \] 
 between the Picard group of the category of character sheaves on
-$\mathswab{T}_d$ and the group of characters $T(K) \to \EEx$ of
+$\GN{T}_d$ and the group of characters $T(K) \to \EEx$ of
 depth at most $d$.  Since these isomorphisms are compatible with
 respect to $d$, we also .....  \David{I'll do this when we're closer to being finished.}  
 %In particular, by
@@ -473,38 +480,38 @@ which induces, upon passage to Picard groups, a sequence of group homomorphisms
 \CSiso{0} \rar & \CSiso{\pi_0(G)} \rar & \CSiso{G} \rar & \CSiso{G^0} \rar & \CSiso{0}.
 \end{tikzcd}
 \end{equation}
+<<<<<<< HEAD
 It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact \David{is it really split?}; this allows us to find $\CSiso{G}$. To prove this, we find it useful to offer an alternate perspective on a subcategory of $\CS(G)$, in the next section.
+=======
+It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated, and we will also see that \eqref{eq:pi-1} is split exact; this allows us to find $\CSiso{G}$. 
+>>>>>>> 8cc1ebf501d3097d83f992a6ab415474d57501f2
  
 \section{Bounded character sheaves}
 
-In this section we describe a full subcategory of $\CS(G)$, called the category of bounded character sheaves on $G$ and denoted by $\CS_b(G)$, which will illuminate the nature of $\CS(G)$ and will also play a role in the arguments later in this paper.
+In this section we describe full subcategory of $\CS(G)$, 
+called the category of bounded character sheaves on $G$ and denoted by $\CS_b(G)$, 
+which will illuminate the nature of $\CS(G)$ and will also play a role in the arguments later in this paper.
 
-In order to define $\CS_b(G)$ as must recall a fundamental fact about finite etale covers of schemes. Let $X$ be a scheme, locally of finite type over $k$, and let $\pi : Y\to X$ and $\pi_1: Y_1\to X$ be finite etale covers and let $f_1 : Y_1\to Y$ be a morphism such that $\pi_1 = \pi \circ f_1$. Then $f_1$ determines a group homomorphism $\Aut(\pi_1)\to \Aut(\pi)$, as follows  . . .
+Consider the category $\GC(G)$ of finite etale covers of $G$ that are also morphisms of abelian group schemes.
+Recall that we fixed an algebraic closure $\bFq$ of $\Fq$ long ago; 
+let ${\bar e} : \Spec{\bFq} \to G$ be the geometric point on $G$ obtained by composing $\Spec{\bFq} \to \Spec{\Fq}$ with the identity $e : \Spec{\Fq} \to G$ for $G$.
+Let $\ker_{\bar e}$ be the set-valued functor on $\GC(G)$
+defined by pull-back along the geometric point ${\bar e} : \Spec{\bFq} \to G$ 
+followed by forgetting the structure sheaf and topology; 
+thus, if $f : H\to G$ is a finite etale morphism of group schemes, then $\ker_{\bar e}(f)$ is the set underlying 
+$\ker{\bar f} = H_{\bar e}$.
+Let $\pi_1^\text{gp}(G)$ be the automorphism group of the functor $\ker_{\bar e}$. 
+We will see that $\pi_1^\text{gp}(G)$ is a profinite abelian group.
+A \cdef{bounded character sheaf on $G$} is a continuous irreducible representation of $\pi_1^\text{gp}(G)$. 
+Let $\CS_b(G)$ be the monoidal category of irreducible continuous $\ell$-adic representations of $\pi_1^\text{gp}(G)$. 
 
-Now we may define $\CS_b(G)$, where $G$ is a smooth group scheme locally of finite type over $\Fq$.
-\begin{enumerate}
-\labitem{(CSb.0)}{CSb.0}
-An object in $\CS_b(G)$ is a pair $(\pi,\psi)$ where $\pi : H\to G$ is a finite etale cover in the category of group schemes over $\Fq$ such that $\Gal(\bFq/\Fq)$ acts trivially on $\ker {\bar \pi}$ (so $\ker {\bar \pi} = \ker \pi$) and $\psi : \ker \pi \to \Aut(V)$ is an irreducible representation on a $\EE$-vector space $V$.
-\[
-\begin{tikzcd}
-V & \Aut(V) & 1 \rar & \arrow[bend right,swap]{ll}{\psi} \ker \pi \rar & H \rar{\pi} & G \rar &1
-\end{tikzcd}
-\]
-\labitem{(CSb.1)}{CSb.1}
-A morphism $T : (\pi,\psi) \to (\pi',\psi')$ is a linear transformation $T : V \to V'$ which, if non-trivial, has the property that there is a finite etale cover $\pi_1 : H_1 \to G$ in the category of group schemes over $\Fq$ and morphisms $H_1\to H$, $H_1\to H'$ inducing homomorphisms $\ker \pi_1 \to \ker\pi$ and $\ker\pi_1\to \ker\pi$ such that the following diagram commutes.
-\[
-\begin{tikzcd}
-V \arrow{dd} & \Aut(V) \ar[equal]{dd} & 1 \rar & \arrow[swap,bend left]{ll}{\psi} \ker \pi \rar & H \rar{\pi} & G \rar &1\\
- &  & 1 \rar & \ker \pi_1 \rar \uar \dar & H_1 \uar \dar \rar{\pi_1} & \ar[equal]{u} \arrow[equal]{d} G \rar &1\\
-V' & \Aut(V') & 1 \rar & \arrow[bend right]{ll}{\psi'} \ker \pi' \rar & H' \rar{\pi'} & G \rar &1
-\end{tikzcd}
-\]
-\end{enumerate}
-We refer to $\CS_b(G)$ as the category of \cdef{bounded character sheaves on $G$}.
-\Clifton{I'd love to find a way to define $\CS_b(G)$ without insisting that $\psi$ is an \emph{irreducible} representation, and then prove that the full subcategory of simple objects in $\CS_b(G)$ is a full subcategory of $\CS(G)$. I'm studying my notes from BIRS, letters from Masoud, and SGA7, to see how to do this.}
 \begin{proposition}
-$\CS_b(G)$ is a full subcategory of $\CS(G)$.
+ $G\mapsto \pi_1^\text{gp}(G)$ is a functor from group schemes over $\Fq$ to profinite abelian groups, and .....
 \end{proposition}
+
+\begin{proof}
+The category $\GC(G)$, together with the set-valued functor $\ker_{\bar e}$ satisfy conditions (G1) through (G6) appearing in \cite[Exposé V, \S 4, p. 118-119]{SGA1a}.
+\end{proof}
 
 \section{Connected abelian algebraic groups}
 
@@ -1565,6 +1572,19 @@ that commutes, through trace of Frobenius, with ...
    pages={256--266},
 %   issn={0003-486X},
 %   review={\MR{0156855 (28 \#98)}},
+}
+
+\bib{SGA1a}{book}{
+   author={Grothendieck, Alexander},
+   title={Rev\^etements \'etales et groupe fondamental. Fasc. I: Expos\'es 1
+   \`a 5},
+   series={S\'eminaire de G\'eom\'etrie Alg\'ebrique},
+   volume={1960/61},
+   publisher={Institut des Hautes \'Etudes Scientifiques},
+   place={Paris},
+   date={1963},
+%   pages={iv+143 pp. (not consecutively paged) (loose errata)},
+%   review={\MR{0217087 (36 \#179a)}},
 }
 
 \bib{Laumon}{article}{
