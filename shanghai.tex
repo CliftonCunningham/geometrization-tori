@@ -344,6 +344,17 @@ $\CS(G)$; we refer to this as the \cdef{Picard group} of character
 sheaves on $G$; {\it cf.} {\tt http://ncatlab.org/nlab/show/Picard+group}.
 \Clifton{Replace ncatlab with other references.}
 
+\begin{remark} \label{rem:CS-action}
+If $W$ is a group equipped with a homomorphism $\alpha : W \to \Gal(\bFq/\Fq)$
+then an \emph{action} of $W$ on $\gcs{L}$ is a collection of isomorphisms
+\[
+\gamma_w : \alpha(w)^* \gcs{L} \to \gcs{L}
+\]
+so that $\gamma_{uw} = \gamma_w \circ \alpha(w)^*\gamma_u$. \David{make sure I have the order right and add a reference}
+Specifying an $F$ as in \ref{CS.2} is the same as giving an action of the Weil group $W_k$
+on $\gcs{L}$ compatible with $\mu$.
+\end{remark}
+
 %\subsection*{Trace of Frobenius}\label{sec:Frob}
 
 Let $\cs{L}$ be a character sheaf on $G$. Every $g\in G(\Fq)$
@@ -1332,8 +1343,27 @@ Section~\ref{section:category}.
 
 When using character sheaves to study characters, it is useful to understand
 how character sheaves behave under change of fields.
-Suppose that $k'$ is a finite extension of $k$, $G$ is an abelian group scheme
+Suppose that $k'$ is a finite extension of $k$ of degree $n$, $G$ is an abelian group scheme
 over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to $k'$.
+If $\cs{L} = (\gcs{L}, \mu, F)$ is a character sheaf on $G$ we may define
+a character sheaf $\cs{L}_{k'} = (\gcs{L}, \mu, F_{k'})$ on $G_{k'}$ by setting
+\[
+F_{k'} = F \circ \Frob_G^*(F) \circ \cdots \circ (\Frob_G^{n-1})^*(F).
+\]
+The commutativity of the diagram (CS.2) for $F_{k'}$ follows from the fact that $\Frob_{G_{k'}} = \Frob_G^n$.
+
+\begin{proposition}
+The diagram
+\[
+\begin{tikzcd}
+\CSiso{G} \rar \dar & \CSiso{G_{k'}} \dar \\
+\Hom(G(k), \EEx) \rar & \Hom(G(k'), \EEx)
+\end{tikzcd}
+\]
+commutes, where vertical arrows are as in Theorem \ref{thm:snake}, the top arrow is as above,
+and the bottom is induced by the norm map $G(k') \to G(k)$.
+\end{proposition}
+
 We define a functor $\CS(G_{k'}) \to \CS(G)$ by.... \David{We can't define this by pullback
 since $G_{k'} \to G$ goes in the wrong direction}
 \begin{proposition} \label{prop:csbe}
