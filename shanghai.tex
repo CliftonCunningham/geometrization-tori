@@ -1357,7 +1357,7 @@ Note that we may also think about the construction of $F_{k'}$ as taking the act
 \ref{rem:CS-action} and restricting it to $\Weil{k'}$.
 
 \begin{proposition}
-The following diagram commutes:
+The following diagram commutes, where the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
 \[
 \begin{tikzcd}
 \CSiso{G} \rar{\nu} \dar{t_G} & \CSiso{G_{k'}} \dar{t_{G_{k'}}} \\
@@ -1366,17 +1366,19 @@ The following diagram commutes:
 \]
 \end{proposition}
 
-We define a functor $\CS(G_{k'}) \to \CS(G)$ by.... \David{We can't define this by pullback
-since $G_{k'} \to G$ goes in the wrong direction}
+In the opposite direction, there is a canonical closed immersion of $k$-schemes
+$G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}.  Pullback yields a functor
+\[
+\CS(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota} \CS(G).
+\]
 \begin{proposition} \label{prop:csbe}
-The diagram
+The following diagram commutes, where the bottom map is induced by the inclusion $G(k) \hookrightarrow G(k')$:
 \[
 \begin{tikzcd}
-\CSiso{G_{k'}} \arrow[two heads]{r} \dar & \CSiso{G} \dar \\
-\Hom(G(k'), \EEx) \arrow[two heads]{r} & \Hom(G(k), \EEx)
+\CSiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar{t_{\Res_{k'/k}(G_{k'})}} & \CSiso{G} \dar{t_G} \\
+\Hom(G(k'), \EEx) \arrow[two heads]{r} & \Hom(G(k), \EEx).
 \end{tikzcd}
 \]
-commutes, where the vertical arrows are as in Theorem \ref{thm:snake}.
 \end{proposition}
 
 Now suppose that $G'$ is an abelian group scheme over $k'$, satisfying the conditions of Theorem \ref{thm:snake}.
@@ -1404,8 +1406,8 @@ Consecutive pullback along these maps yields a functor
   Then the following diagram commutes:
 \[
 \begin{tikzcd}
-\CSiso{G} \rar{t_G} \dar & \Hom(G(k'), \EEx) \dar \\
-\CSiso{\Res_{k'/k} G} \rar{t_{\Res_{k'/k} G}} & \Hom((\Res_{k'/k}G)(k), \EEx)
+\CSiso{G'} \dar{t_{G'}} \rar & \CSiso{\Res_{k'/k} G'} \dar{t_{\Res_{k'/k} G'}} \\
+ \Hom(G'(k'), \EEx) \rar & \Hom((\Res_{k'/k}G')(k), \EEx)
 \end{tikzcd}
 \]
 \end{proposition}
