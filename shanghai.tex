@@ -65,6 +65,7 @@
 \newcommand{\EE}{\mathbb{\bar Q}_\ell}
 \newcommand{\OK}{\mathcal{O}_K}
 \newcommand{\pK}{\mathfrak{p}_K}
+\newcommand{\OL}{\mathcal{O}_L}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\Qp}{\mathbb{Q}_p}
 %\newcommand{\Fp}{\mathbb{F}_p}
@@ -102,6 +103,7 @@
 \newcommand{\GN}[1]{\mathswab{#1}}
 \newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
 \newcommand{\TT}{\underline{T}}
+\newcommand{\TL}{\underline{T_L}}
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
 \newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
@@ -1439,7 +1441,7 @@ $\OK/\pK^d$ obtained from $\TT$ by base change along $\OK \to
 \OK/\pK^d$. Observe that $\OK/\pK^d$ is an Artin ring and
 $\TT_{d}$ is locally of finite type over $\OK/\pK^d$.
 
-Let $\GN{T}_{d}$ be the group scheme over $\Fq$ produced by applying
+Let $\GN{T}_{d} = \Gr(\TT_d)$ be the group scheme over $\Fq$ produced by applying
 the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 \cite[Ch. 9, \S 6]{BLR} for background on the Greenberg functor.)
 %Then $\GN{T}_d(\Fq) = \TT(\OK/\pK^d)$.
@@ -1499,7 +1501,7 @@ glorious group pro-scheme over $\Fq$:
 \begin{equation}\label{projlim}
   \GN{T} \ceq \varprojlim_{d\in \NN} \GN{T}_{d}.
 \end{equation}
-This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}.
+This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}; we will also write $\Gr$ for this functor on $\OK$-schemes.
 
 \Clifton{Prove that $\GN{T}$ is a scheme? Strictly speaking, we don't
   care about \ref{scheme}.}
@@ -1543,22 +1545,53 @@ from the category of algebraic tori over $K$ to the category of abelian groups:
 \begin{proof}
 \end{proof}
 
+Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
+\[
+\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
+\]
+The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
+\[
+\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
+\]
+and thus a map on character sheaves.
 
 \begin{proposition}
-Let $K'/K$ be a finite Galois extension and let $T'$ be an algebraic torus over $K'$... 
-\Clifton{This next part is very much under construction.}
-The functor $\CS(\GN{T}) \to \CS(\GN{T}')$ defined above induces a group homomorphism 
-that commutes, through trace of Frobenius, with ...
+The following diagram commutes:
 \[
 \begin{tikzcd}
-\CS(\GN{T}) \dar & \CSiso{\GN{T}} \rar{t_T} \dar & \Hom_\text{ad}(T(K),\EEx) \dar \\
-\CS(\GN{T}') & \CSiso{\GN{T}'} \rar{t_{T'}} & \Hom_\text{ad}(T'(K),\EEx)
+\CSiso{\Res_{k'/k} \Gr(\TL)} \arrow[two heads]{r} \dar & \CSiso{\GN{T}} \dar\\
+\Hom(T(L), \EEx) \arrow[two heads]{r} & \Hom(T(K), \EEx)
 \end{tikzcd}
 \]
 \end{proposition}
 
-\begin{proof}
-\end{proof}
+We now translate the norm map $T(L) \to T(K)$ to character sheaves.  There is an open immersion
+\[
+\TT \times_{\OK} \OL \to \TL
+\]
+induced by the canonical isomorphism of generic fibers \cite[p. 1]{Chai}.  After taking Greenberg transforms,
+we obtain a diagram
+\[
+\begin{tikzcd}
+\Gr(\TT) \dar & \Gr(\TT) \times_{\Gr(\OK)} \Gr(\OL) \lar{\alpha} \rar{\beta} \dar & \Gr(\TL) \dar \\
+\Spec{k} & \Spec{k'} \lar \rar & \Spec{k'}
+\end{tikzcd}
+\]
+In the case that $L/K$ is unramified, the left hand square is a pullback square and the right hand horizontal maps are isomorphisms.  In general, we may define a functor
+\begin{align*}
+\CS(\GN{T}) &\to \CS(\Gr(\TL)) \\
+\cs{L} &\mapsto \beta_* \alpha^* \cs{L}.
+\end{align*}
+
+\begin{proposition}
+The following diagram commutes:
+\[
+\begin{tikzcd}
+\CSiso{\GN{T}} \rar{\beta_* \circ \alpha^*} \dar & \CSiso{\Gr(\TL)} \dar \\
+\Hom(T(K), \EEx) \rar{\Nm} & \Hom(T(L), \EEx)
+\end{tikzcd}
+\]
+\end{proposition}
 
 \begin{bibdiv}
 \begin{biblist}
@@ -1609,6 +1642,15 @@ that commutes, through trace of Frobenius, with ...
  series={Lecture Notes in Mathematics}
  number={723}
 }
+
+\bib{Chai}{article}{
+   author={Chai, C.L.},
+   title={N\'eron models for semiabelian varieties: congruence and change of base field.},
+   journal={Asian J. Math.},
+   volume={4},
+   number={4},
+   date={2000},
+   pages={715--736}}
 
 \bib{Deligne:tensorielles}{article}{
    author={Deligne, P.},
