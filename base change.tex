@@ -1,0 +1,329 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[11pt]{amsart}
+\title[Geometrization leftovers]{Geometrization leftovers}
+\usepackage[british]{babel}
+\usepackage{datetime}
+\date{\today}
+\author{Clifton Cunningham}
+\address{University of Calgary}
+\email{cunning@math.ucalgary.ca}
+\author{David Roe}
+\address{Pacific Institute for the Mathematical Sciences at the University of Calgary}
+\email{roed.math@gmail.com}
+\usepackage[utf8]{inputenc}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage[notcite,color]{showkeys}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage[shortalphabetic]{amsrefs}
+\usepackage[alphabetic]{amsrefs}
+\renewcommand\MR{\relax}
+\usepackage{xypic}
+\usepackage{textcomp}
+\usepackage{mathrsfs}
+\usepackage{yfonts}
+\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
+\usepackage{manfnt}
+
+%\include{definitions}
+\theoremstyle{plain}
+      \newtheorem{theorem}{Theorem}[section]
+      \newtheorem{proposition}[theorem]{Proposition}
+      \newtheorem{lemma}[theorem]{Lemma}
+      \newtheorem{corollary}[theorem]{Corollary}
+      
+      \theoremstyle{definition}
+      \newtheorem{definition}[theorem]{Definition}
+      
+      \theoremstyle{remark}
+      \newtheorem{remark}[theorem]{Remark}
+
+%% Global TikZ settings
+
+\tikzset{every picture/.style={>=stealth},label/.style={font=\footnotesize}}
+
+%%%% Some Named Categories
+
+%%%% Functors
+
+\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
+
+\newcommand{\FF}{{\mathbb{F}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\QQ}{{\mathbb{Q}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\EE}{\mathbb{\bar Q}_\ell}
+\newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\pK}{\mathfrak{p}_K}
+\newcommand{\OL}{\mathcal{O}_L}
+\newcommand{\OO}[1]{\mathcal{O}_{#1}}
+\newcommand{\Zp}{\mathbb{Z}_p}
+\newcommand{\Qp}{\mathbb{Q}_p}
+%\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\bFq}{\bar{k}}
+\newcommand{\Fq}{k}
+\newcommand{\Fqm}{k_m}
+%\newcommand{\bFp}{{\mathbb{\bar F}_p}}
+
+\newcommand{\EEx}{\EE^\times}
+
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\W}{W}
+\newcommand{\Frob}{{\operatorname{Fr}}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Irrep}{Irrep}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hh}{H}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Nm}{Nm}
+
+\newcommand{\cdef}[1]{{{\color{cyan}#1}\index{#1}}} 
+\newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
+\newcommand{\abs}[1]{{\vert #1 \vert}}
+\newcommand{\ceq}{{\, :=\, }}
+\newcommand{\tq}{{\ \vert\ }}
+\newcommand{\iso}{{\ \cong\ }}
+\newcommand{\obj}{{\text{obj}\, }}
+\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
+\newcommand{\GN}[1]{\mathswab{#1}}
+\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
+\newcommand{\TT}{\underline{T}}
+\newcommand{\TL}{\underline{T_L}}
+\newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
+\newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
+\newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
+\newcommand{\colimit}[1]{\mathop{\textsc{colim}}\limits_{#1}}
+\newcommand{\cs}[1]{{\mathcal{#1}}}
+\newcommand{\gcs}[1]{{\mathcal{\bar #1}}}
+\newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
+\newcommand{\dualcs}[1]{\cs{#1}^\dagger}
+\newcommand{\CS}{{\mathcal{C\hskip-1.8pt S}}}
+\newcommand{\GC}{{\mathcal{G\hskip-0.8pt C}}}
+\newcommand{\CSiso}[1]{\CS(#1)_{/\textit{iso}}}
+\newcommand{\CSbiso}[1]{\CS_0(#1)_{/\text{iso}}}
+\newcommand{\CE}{{\mathcal{C\hskip-1.8pt E}}}
+\newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
+\newcommand{\dualgroup}[1]{{\check{#1}}}
+\newcommand{\Lang}{{\operatorname{Lang}}}
+\newcommand{\image}{{\operatorname{im}}}
+\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
+\newcommand{\level}[1]{(\mathrm{level} N)}
+
+\makeatletter
+\newcommand{\labitem}[2]{%
+\def\@itemlabel{\textbf{#1}}
+\item
+\def\@currentlabel{#1}\label{#2}}
+\makeatother
+
+\renewcommand{\bf}{\bar{f}}
+\newcommand{\bg}{\bar{g}}
+\newcommand{\bm}{\bar{m}}
+\newcommand{\bG}{\bar{G}}
+\newcommand{\bH}{\bar{H}}
+\newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
+\newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
+\newcommand{\bfxf}{\text{$\bar{f} \tight{1}{\times}{1} \bar{f}$}}
+\newcommand{\GxxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\LxL}{\text{$\gcs{L} \tight{0}{\boxtimes}{0} \gcs{L}$}}
+\newcommand{\ExE}{\text{$\cs{E}\tight{0}{\boxtimes}{0}\cs{E}$}}
+\newcommand{\bExE}{\text{$\gcs{E}\tight{0}{\boxtimes}{0}\gcs{E}$}}
+\newcommand{\AxA}{\text{$A \tight{1}{\times}{1} A$}}
+\newcommand{\BxB}{\text{$B \tight{1}{\times}{1} B$}}
+\newcommand{\GzxGz}{\text{$G^0 \tight{1}{\times}{1} G^0$}}
+
+\newcommand\todo[1]{\ \vspace{5mm}\par \noindent\framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
+\newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
+\newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
+
+\begin{document}
+
+\section{Base change over the residue field}
+
+When using character sheaves to study characters, it is useful to understand
+how character sheaves behave under change of fields.
+Suppose that $k'$ is a finite extension of $k$ of degree $n$, $G$ is an abelian group scheme
+over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to $k'$.
+If $\cs{L} = (\gcs{L}, \mu, F)$ is a character sheaf on $G$ we may define
+a character sheaf $\nu(\cs{L}) = (\gcs{L}, \mu, F_{k'})$ on $G_{k'}$ by setting
+\[
+F_{k'} = F \circ \Frob_G^*(F) \circ \cdots \circ (\Frob_G^{n-1})^*(F).
+\]
+The commutativity of the diagram (CS.2) for $F_{k'}$ follows from the fact that $\Frob_{G_{k'}} = \Frob_G^n$.
+Note that we may also think about the construction of $F_{k'}$ as taking the action of $\Weil{k}$ defined in Remark
+\ref{rem:CS-action} and restricting it to $\Weil{k'}$.
+
+\begin{proposition}
+The following diagram commutes, where the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
+\[
+\begin{tikzcd}
+\CSiso{G} \rar{\nu} \dar{t_G} & \CSiso{G_{k'}} \dar{t_{G_{k'}}} \\
+\Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
+\end{tikzcd}
+\]
+\end{proposition}
+
+In the opposite direction, there is a canonical closed immersion of $k$-schemes
+$G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}.  Pullback yields a functor
+\[
+\CS(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota} \CS(G).
+\]
+\begin{proposition} \label{prop:csbe}
+The following diagram commutes, where the bottom map is induced by the inclusion $G(k) \hookrightarrow G(k')$:
+\[
+\begin{tikzcd}
+\CSiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar{t_{\Res_{k'/k}(G_{k'})}} & \CSiso{G} \dar{t_G} \\
+\Hom(G(k'), \EEx) \arrow[two heads]{r} & \Hom(G(k), \EEx).
+\end{tikzcd}
+\]
+\end{proposition}
+
+Now suppose that $G'$ is an abelian group scheme over $k'$, satisfying the conditions of Theorem \ref{thm:snake}.
+There is a canonical isomorphism between $G'(k')$ and $(\Res_{k'/k}G')(k)$;
+we now describe the corresponding functor from
+$\CS(G')$ to $\CS(\Res_{k'/k}G')$.  The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
+decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
+\[
+(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
+\]
+The component corresponding to the identity element yields a natural inclusion 
+\[
+G' \hookrightarrow (\Res_{k'/k}G')_{k'}
+\]
+of $k'$-schemes.  The definition of base change yields a map of $k$-schemes
+\[
+(\Res_{k'/k}G')_{k'} \to \Res_{k'/k}G'.
+\]
+Consecutive pullback along these maps yields a functor
+\[
+\CS(G') \to \CS(\Res_{k'/k}G').
+\]
+
+\begin{proposition}
+  Then the following diagram commutes:
+\[
+\begin{tikzcd}
+\CSiso{G'} \dar{t_{G'}} \rar & \CSiso{\Res_{k'/k} G'} \dar{t_{\Res_{k'/k} G'}} \\
+ \Hom(G'(k'), \EEx) \rar & \Hom((\Res_{k'/k}G')(k), \EEx)
+\end{tikzcd}
+\]
+\end{proposition}
+
+\section{Base change over the local field}
+
+We have already seen that the trace of Frobenius defines a canonical isomorphism 
+$t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
+In this section we expand on the canonicity of this group isomorphism 
+by showing that it is a natural transformation. We also show 
+
+\begin{proposition}
+The isomorphism $t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
+is a natural transformation between the following two contravariant functors 
+from the category of algebraic tori over $K$ to the category of abelian groups: 
+\begin{enumerate}
+\item $T \mapsto \CSiso{\GN{T}}$
+\item $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
+\end{enumerate}
+\end{proposition}
+
+\Clifton{I think I can prove this proposition without too much difficulty.}
+\begin{proof}
+\end{proof}
+
+Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
+\[
+\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
+\]
+The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
+\[
+\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
+\]
+and thus a functor on character sheaves through pullback.
+
+\begin{proposition}
+The following diagram commutes:
+\[
+\begin{tikzcd}
+\CSiso{\Res_{k'/k} \Gr(\TL)} \arrow[two heads]{r} \dar & \CSiso{\GN{T}} \dar\\
+\Hom(T(L), \EEx) \arrow[two heads]{r} & \Hom(T(K), \EEx)
+\end{tikzcd}
+\]
+\end{proposition}
+
+We now translate the norm map $T(L) \to T(K)$ to character sheaves.  There is an open immersion
+\[
+\TT \times_{\OK} \OL \to \TL
+\]
+induced by the canonical isomorphism of generic fibers \cite[p. 1]{Chai}.  After taking Greenberg transforms,
+we obtain a diagram
+\[
+\begin{tikzcd}
+\Gr(\TT) \dar & \Gr(\TT) \times_{\Gr(\OK)} \Gr(\OL) \lar{\alpha} \rar{\beta} \dar & \Gr(\TL) \dar \\
+\Spec{k} & \Spec{k'} \lar \rar & \Spec{k'}.
+\end{tikzcd}
+\]
+In the case that $L/K$ is unramified, the left hand square is a pullback square and the right hand horizontal maps are isomorphisms.  In general, we may define a functor
+\begin{align*}
+\CS(\GN{T}) &\to \CS(\Gr(\TL)) \\
+\cs{L} &\mapsto \beta_* \alpha^* \cs{L}.
+\end{align*}
+
+\begin{proposition}
+The following diagram commutes:
+\[
+\begin{tikzcd}
+\CSiso{\GN{T}} \rar{\beta_* \circ \alpha^*} \dar & \CSiso{\Gr(\TL)} \dar \\
+\Hom(T(K), \EEx) \rar{\Nm} & \Hom(T(L), \EEx)
+\end{tikzcd}
+\]
+\end{proposition}
+
+\begin{bibdiv}
+\begin{biblist}
+
+\bib{BLR}{book}{
+   author={Bosch, Siegfried},
+   author={L{\"u}tkebohmert, Werner},
+   author={Raynaud, Michel},
+   title={N\'eron models},
+   series={Ergebnisse der Mathematik und ihrer Grenzgebiete (3) [Results in
+   Mathematics and Related Areas (3)]},
+   volume={21},
+   publisher={Springer-Verlag},
+   place={Berlin},
+   date={1990},
+%   pages={x+325},
+%   isbn={3-540-50587-3},
+%   review={\MR{1045822 (91i:14034)}},
+}
+
+\bib{Chai}{article}{
+   author={Chai, C.L.},
+   title={N\'eron models for semiabelian varieties: congruence and change of base field.},
+   journal={Asian J. Math.},
+   volume={4},
+   number={4},
+   date={2000},
+   pages={715--736}}
+
+\end{biblist}
+\end{bibdiv}
+
+\end{document}

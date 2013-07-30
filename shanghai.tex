@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass[11pt]{amsart}
-\title[Geometration of characters of tori]{Geometrization of characters of tori over non-Archimedean local fields}
+\title[Geometrization of characters of tori]{Geometrization of characters of tori over non-Archimedean local fields}
 \usepackage[british]{babel}
 \usepackage{datetime}
 \date{\today}
@@ -66,6 +66,7 @@
 \newcommand{\OK}{\mathcal{O}_K}
 \newcommand{\pK}{\mathfrak{p}_K}
 \newcommand{\OL}{\mathcal{O}_L}
+\newcommand{\OO}[1]{\mathcal{O}_{#1}}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\Qp}{\mathbb{Q}_p}
 %\newcommand{\Fp}{\mathbb{F}_p}
@@ -122,6 +123,7 @@
 \newcommand{\Lang}{{\operatorname{Lang}}}
 \newcommand{\image}{{\operatorname{im}}}
 \newcommand{\Weil}[1]{\mathcal{W}_{#1}}
+\newcommand{\level}[1]{(\mathrm{level} N)}
 
 \makeatletter
 \newcommand{\labitem}[2]{%
@@ -1345,75 +1347,6 @@ Section~\ref{section:category}.
   isomorphism of groups.
 \end{proof}
 
-When using character sheaves to study characters, it is useful to understand
-how character sheaves behave under change of fields.
-Suppose that $k'$ is a finite extension of $k$ of degree $n$, $G$ is an abelian group scheme
-over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to $k'$.
-If $\cs{L} = (\gcs{L}, \mu, F)$ is a character sheaf on $G$ we may define
-a character sheaf $\nu(\cs{L}) = (\gcs{L}, \mu, F_{k'})$ on $G_{k'}$ by setting
-\[
-F_{k'} = F \circ \Frob_G^*(F) \circ \cdots \circ (\Frob_G^{n-1})^*(F).
-\]
-The commutativity of the diagram (CS.2) for $F_{k'}$ follows from the fact that $\Frob_{G_{k'}} = \Frob_G^n$.
-Note that we may also think about the construction of $F_{k'}$ as taking the action of $\Weil{k}$ defined in Remark
-\ref{rem:CS-action} and restricting it to $\Weil{k'}$.
-
-\begin{proposition}
-The following diagram commutes, where the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
-\[
-\begin{tikzcd}
-\CSiso{G} \rar{\nu} \dar{t_G} & \CSiso{G_{k'}} \dar{t_{G_{k'}}} \\
-\Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
-\end{tikzcd}
-\]
-\end{proposition}
-
-In the opposite direction, there is a canonical closed immersion of $k$-schemes
-$G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}.  Pullback yields a functor
-\[
-\CS(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota} \CS(G).
-\]
-\begin{proposition} \label{prop:csbe}
-The following diagram commutes, where the bottom map is induced by the inclusion $G(k) \hookrightarrow G(k')$:
-\[
-\begin{tikzcd}
-\CSiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar{t_{\Res_{k'/k}(G_{k'})}} & \CSiso{G} \dar{t_G} \\
-\Hom(G(k'), \EEx) \arrow[two heads]{r} & \Hom(G(k), \EEx).
-\end{tikzcd}
-\]
-\end{proposition}
-
-Now suppose that $G'$ is an abelian group scheme over $k'$, satisfying the conditions of Theorem \ref{thm:snake}.
-There is a canonical isomorphism between $G'(k')$ and $(\Res_{k'/k}G')(k)$;
-we now describe the corresponding functor from
-$\CS(G')$ to $\CS(\Res_{k'/k}G')$.  The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
-decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
-\[
-(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
-\]
-The component corresponding to the identity element yields a natural inclusion 
-\[
-G' \hookrightarrow (\Res_{k'/k}G')_{k'}
-\]
-of $k'$-schemes.  The definition of base change yields a map of $k$-schemes
-\[
-(\Res_{k'/k}G')_{k'} \to \Res_{k'/k}G'.
-\]
-Consecutive pullback along these maps yields a functor
-\[
-\CS(G') \to \CS(\Res_{k'/k}G').
-\]
-
-\begin{proposition}
-  Then the following diagram commutes:
-\[
-\begin{tikzcd}
-\CSiso{G'} \dar{t_{G'}} \rar & \CSiso{\Res_{k'/k} G'} \dar{t_{\Res_{k'/k} G'}} \\
- \Hom(G'(k'), \EEx) \rar & \Hom((\Res_{k'/k}G')(k), \EEx)
-\end{tikzcd}
-\]
-\end{proposition}
-
 \section{Application to characters of bounded depth}
 
 %\input{GdeN}
@@ -1526,72 +1459,40 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}; we will 
 
 \section{Functorial properties of the main isomorphism}
 
-We have already seen that the trace of Frobenius defines a canonical isomorphism 
-$t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
-In this section we expand on the canonicity of this group isomorphism 
-by showing that it is a natural transformation. We also show 
 
-\begin{proposition}
-The isomorphism $t_T : \CSiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
-is a natural transformation between the following two contravariant functors 
-from the category of algebraic tori over $K$ to the category of abelian groups: 
-\begin{enumerate}
-\item $T \mapsto \CSiso{\GN{T}}$
-\item $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
-\end{enumerate}
-\end{proposition}
 
-\Clifton{I think I can prove this proposition without too much difficulty.}
-\begin{proof}
-\end{proof}
+\section{The transfer principle}
 
-Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
-\[
-\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
-\]
-The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
-\[
-\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
-\]
-and thus a map on character sheaves.
+We recall the notion of $N$-congruent tori from \cite[\S 2]{CY}.  Suppose $T$ and $T'$
+are tori over non-Archimedian local fields $K$ and $K'$, splitting over $L$ and $L'$ respectively.
 
-\begin{proposition}
-The following diagram commutes:
-\[
-\begin{tikzcd}
-\CSiso{\Res_{k'/k} \Gr(\TL)} \arrow[two heads]{r} \dar & \CSiso{\GN{T}} \dar\\
-\Hom(T(L), \EEx) \arrow[two heads]{r} & \Hom(T(K), \EEx)
-\end{tikzcd}
-\]
-\end{proposition}
-
-We now translate the norm map $T(L) \to T(K)$ to character sheaves.  There is an open immersion
-\[
-\TT \times_{\OK} \OL \to \TL
-\]
-induced by the canonical isomorphism of generic fibers \cite[p. 1]{Chai}.  After taking Greenberg transforms,
-we obtain a diagram
-\[
-\begin{tikzcd}
-\Gr(\TT) \dar & \Gr(\TT) \times_{\Gr(\OK)} \Gr(\OL) \lar{\alpha} \rar{\beta} \dar & \Gr(\TL) \dar \\
-\Spec{k} & \Spec{k'} \lar \rar & \Spec{k'}
-\end{tikzcd}
-\]
-In the case that $L/K$ is unramified, the left hand square is a pullback square and the right hand horizontal maps are isomorphisms.  In general, we may define a functor
+\begin{definition}
+We say that $T$ and $T'$ are \emph{$N$-congruent} if there are isomorphisms
 \begin{align*}
-\CS(\GN{T}) &\to \CS(\Gr(\TL)) \\
-\cs{L} &\mapsto \beta_* \alpha^* \cs{L}.
+\alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
+\beta : \Gal(L/K) &\to \Gal(L'/K') \\
+\phi : X^*(T) &\to X^*(T')
 \end{align*}
+satisfying the following conditions:
+\begin{enumerate}
+\item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
+\item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$: $\alpha(\gamma x) = \beta(\gamma) \alpha(x)$
+for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
+\item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
+\end{enumerate}
+\end{definition}
 
-\begin{proposition}
-The following diagram commutes:
+One of the main results of \cite{CY} gives an isomorphism of group schemes between $\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.  They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite[\S 8.1]{CY}.  They then prove the following theorem:
+
+\begin{theorem}[{\cite[Thm. 8.5]{CY}}]
+Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical isomorphism
 \[
-\begin{tikzcd}
-\CSiso{\GN{T}} \rar{\beta_* \circ \alpha^*} \dar & \CSiso{\Gr(\TL)} \dar \\
-\Hom(T(K), \EEx) \rar{\Nm} & \Hom(T(L), \EEx)
-\end{tikzcd}
+\TT_{N-3h} \to \TT'_{N-3h}
 \]
-\end{proposition}
+determined by $\alpha, \beta$ and $\phi$.
+\end{theorem}
+
+
 
 \begin{bibdiv}
 \begin{biblist}
@@ -1651,6 +1552,16 @@ The following diagram commutes:
    number={4},
    date={2000},
    pages={715--736}}
+   
+\bib{CY}{article}{
+   author={Chai, C.L.},
+   author={Yu, J.-K.},
+   title={Congruences of N\'eron models for tori and the Artin conductor},
+   journal={Ann. of Math.},
+   volume={154},
+   number={2},
+   date={2001},
+   pages={347-382}}
 
 \bib{Deligne:tensorielles}{article}{
    author={Deligne, P.},
