@@ -1457,42 +1457,54 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}; we will 
   \]
 \end{corollary}
 
-\section{Functorial properties of the main isomorphism}
-
-
-
 \section{The transfer principle}
 
+\David{We should add a discussion of why we care about the transfer principle.}
 We recall the notion of $N$-congruent tori from \cite[\S 2]{CY}.  Suppose $T$ and $T'$
 are tori over non-Archimedian local fields $K$ and $K'$, splitting over $L$ and $L'$ respectively.
 
 \begin{definition}
-We say that $T$ and $T'$ are \emph{$N$-congruent} if there are isomorphisms
-\begin{align*}
-\alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
-\beta : \Gal(L/K) &\to \Gal(L'/K') \\
-\phi : X^*(T) &\to X^*(T')
-\end{align*}
-satisfying the following conditions:
-\begin{enumerate}
-\item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
-\item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$: $\alpha(\gamma x) = \beta(\gamma) \alpha(x)$
-for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
-\item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
-\end{enumerate}
+ We say that $T$ and $T'$ are \emph{$N$-congruent} if there are isomorphisms
+ \begin{align*}
+  \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
+  \beta : \Gal(L/K) &\to \Gal(L'/K') \\
+  \phi : X^*(T) &\to X^*(T')
+ \end{align*}
+ satisfying the following conditions:
+ \begin{enumerate}
+  \item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
+  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$: $\alpha(\gamma x) = \beta(\gamma) \alpha(x)$
+  for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
+  \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
+ \end{enumerate}
 \end{definition}
 
-One of the main results of \cite{CY} gives an isomorphism of group schemes between $\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.  They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite[\S 8.1]{CY}.  They then prove the following theorem:
+One of the main results of \cite{CY} gives an isomorphism of group schemes between
+$\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.
+They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
+Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite[\S 8.1]{CY}.
+They then prove the following theorem:
 
 \begin{theorem}[{\cite[Thm. 8.5]{CY}}]
-Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical isomorphism
-\[
-\TT_{N-3h} \to \TT'_{N-3h}
-\]
-determined by $\alpha, \beta$ and $\phi$.
+ Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical isomorphism
+ \[
+  \TT_{N-3h} \to \TT'_{N-3h}
+ \]
+ determined by $\alpha, \beta$ and $\phi$.
 \end{theorem}
 
+As an immediate consequence of this theorem and Theorem \ref{thm:application} we have the following corollary:
 
+\begin{corollary}
+ Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical equivalence of categories
+ \[
+  \CS(\GN{T}_{N-3h}) \to \CS(\GN{T}'_{N-3h})
+ \]
+ determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
+ \[
+  \Hom(T(K) / T(K)_{N-3h}, \EEx) \to \Hom(T'(K') / T'(K')_{N-3h}, \EEx)
+ \]
+\end{corollary}
 
 \begin{bibdiv}
 \begin{biblist}
