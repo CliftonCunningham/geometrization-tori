@@ -167,7 +167,7 @@
 
 \maketitle
 
-\section{Introduction}
+\section*{Introduction}
 
 %\input{introduction}
 %In his celebrated thesis, John Tate writes 
@@ -255,10 +255,8 @@ Thanks to:
 
 \tableofcontents
 
-\section{The Picard group of character sheaves}\label{section:category}
 
-%\input{category}
-%\subsection*{Smooth commutative group schemes}
+\section{The category of character sheaves}\label{section:category}
 
 Throughout this paper, $G$ stands for a commutative group scheme,
 smooth and locally of finite type over a finite field $\Fq$; we write
@@ -271,35 +269,32 @@ $\bG$ will be denoted by $\bm$. Let $\Frob_{G}$
 $\bG$ (resp. $\bGxG$).
 \Clifton{I'll insert a reference to SGA where Frobenius is defined for
   a large class of schemes over finite fields.}
-
-%\subsection*{The category of character sheaves}
-
+  
 The category of character sheaves on $G$, denoted by \cdef{$\CS(G)$},
 is defined as follows.  A \cdef{character sheaf} on $G$ is a triple
 $\cs{L}\ceq (\gcs{L},\mu,F)$ where:
 \begin{enumerate}
-\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic
-  sheaf on (the \'etale site of) $\bG$, locally constant of rank
-  $1$ on connected components of $\bG$;
-
+\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a rank-$1$ $\ell$-adic
+  local system on (the \'etale site of) $\bG$;
 \labitem{(CS.1)}{CS.1} $\mu: \bm^* \gcs{L} \to \LxL$
-  is an isomorphism of sheaves on $\bGxG$ such that
-
+  is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
+  where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
+%
   \[
-  \begin{tikzcd}[row sep=40]
+  \begin{tikzcd}[row sep=30]
   \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu}
     &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id} \\
     \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
     &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL\\
   \end{tikzcd}
   \]
-  commutes, where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
-
+  
+%
 \labitem{(CS.2)}{CS.2} $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ is an
-  isomorphism of sheaves on $\bG$ compatible with $\mu$ in the sense that
-
+  isomorphism of sheaves on $\bG$ compatible with $\mu$ in the sense that the following diagram commutes.
+%
   \[
-  \begin{tikzcd}
+  \begin{tikzcd}[row sep=20]
   \Frob_{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob_{\GxxG}^*\mu}
     && \Frob_{\GxxG}^*(\LxL)\\
     \arrow[equal]{u} \bm^*  \Frob_{G}^* \gcs{L} \arrow[swap]{d}{\bm^* F}
@@ -308,14 +303,13 @@ $\cs{L}\ceq (\gcs{L},\mu,F)$ where:
     && \LxL\\
   \end{tikzcd}
   \]
-  commutes.
 \end{enumerate}
 Morphisms in $\CS(G)$ are defined in the natural way:
 \begin{enumerate}
 \labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,F)$ and
   $\cs{L'} = (\gcs{L'},\mu',F')$ are character sheaves on $G$ then
-  $\Hom(\cs{L},\cs{L'})$ is the set of morphisms $\varphi : \gcs{L} \to \gcs{L'}$
-  of constructible $\ell$-adic sheaves on $\bG$ such that
+  $\Hom_{\CS(G)}(\cs{L},\cs{L'})$ is the set of morphisms $\varphi : \gcs{L} \to \gcs{L'}$
+  of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
   \[
   \begin{tikzcd}[column sep=40]
   \Frob_G^* \gcs{L} \rar{\Frob_G^* \varphi} \arrow[swap]{d}{F} & \Frob_G^* \gcs{L'} \dar{F'}
@@ -324,10 +318,9 @@ Morphisms in $\CS(G)$ are defined in the natural way:
   & {} & \LxL \rar{\tight{1}{\varphi\boxtimes \varphi}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
   \end{tikzcd}
   \]
-  both commute.
 \end{enumerate}
 
-%\subsection*{The Picard group of character sheaves}
+\section{The Picard group of character sheaves}
 
 %\begin{proposition}\label{tensor}
 The category $\CS(G)$ of character sheaves on $G$ is a rigid monoidal
@@ -357,7 +350,7 @@ Specifying an $F$ as in \ref{CS.2} is the same as giving an action of the Weil g
 on $\gcs{L}$ compatible with $\mu$.
 \end{remark}
 
-%\subsection*{Trace of Frobenius}\label{sec:Frob}
+\section{Trace of Frobenius}\label{sec:Frob}
 
 Let $\cs{L}$ be a character sheaf on $G$. Every $g\in G(\Fq)$
 determines a point $\bg$ on $\bG$ fixed by $\Frob_G$ and
@@ -395,7 +388,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   $(\gcs{L},\mu,F) \mapsto (\bf^*\gcs{L},(\bfxf)^*\mu,\bf^*F)$
   defines a monoidal functor $f^* : \CS(G) \to \CS(H)$ such that
   \[
-  \begin{tikzcd}[row sep=40]
+  \begin{tikzcd}[row sep=30, column sep=30]
    \CSiso{G} \rar{f^*} \arrow[swap]{d}{t_{G}} & \CSiso{H} \dar{t_H} \\
   \Hom_\text{grp}(G(\Fq),\EEx) \rar & \Hom_\text{grp}(H(\Fq),\EEx)
   \end{tikzcd}
@@ -509,7 +502,7 @@ This is the category of \cdef{bounded character sheaves} on $G$.
 Let $b_G : {\bar G} \to G$ be the pull-back of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
 If $(\cs{L}_0,\mu_0)$ is bounded character sheaf then $b_G^* \cs{L}_0$ comes equipped with an isomorphism $F : \Frob_G^* b_G^*\cs{L}_0 \to b_G^*\cs{L}_0$ which is compatible with $b_G^* \mu_0$, in the sense of Condition~\ref{CS.3}.
 Thus, base change gives us a functor $b_G^* : \CS_f(G) \to \CS(G)$.
-This functor is fully faithful; see \cite{SGA7.2}*{Expos\'e XIII} and \cite{BBD}*{Prop. 5.2.1}.
+This functor is full and faithful; see \cite{SGA7.2}*{Expos\'e XIII} or even \cite{BBD}*{Prop. 5.2.1}.
 
 To define the category of finite character sheaves we must work a bit harder.
 Consider the following category $C(G)$:
@@ -529,7 +522,7 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
 \end{proposition}
 
 \begin{proof}
- To prove the proposition we exhibit a fully faithful monoidal functor $L_G : \CS_f(G) \to \CS_0(G)$.
+ To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \CS_f(G) \to \CS_0(G)$.
  %
  We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \CS_0(G)$ 
  such that ${\bar L}(\varphi,T)$ is an isomorphism precisely when $(\varphi,T)$ is a weak isomorphism. 
@@ -598,7 +591,17 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
  %\]
  %where $(f',\psi') \to (f_0,\psi_0)$ is a weak isomorphism.
 
- Observe that $L$ takes weak isomorphisms in $C(G)$ to isomorphisms in $\Loc(G)$. To see this, let $(\varphi,T) : (f,\psi)\to (f',\psi')$ be a weak isomorphism, where $f:H\to G$ and $f':H'\to G$ as above. Since $T$ is an isomorphism, we may replace $V'$ with $V$ and $T$ with $\id_V$, without loss of generality. Then the equivariance condition on $T$ becomes $\psi' = \psi\circ \varphi$ on the finite etale group scheme $\ker f'$. Since $f' = f \circ \varphi$ and $f$ and $f'$ are etale covers, it follows that $\varphi$ is also an etale cover. It follows that $\varphi : H'\to H$ admits a section $\varphi' : H \to H'$, which provides the inverse to $L(\varphi,T) : L(f,\psi) \to L(f',\psi')$, above. It is also clear that if $L(\varphi,T)$ is an isomorphism of local systems, then $T$ must be an isomorphism of vector spaces, whence $(\varphi,T)$ is a weak isomorphism: $W$ is saturated.
+ Observe that $L$ takes weak isomorphisms in $C(G)$ to isomorphisms in $\Loc(G)$. 
+ To see this, let $(\varphi,T) : (f,\psi)\to (f',\psi')$ be a weak isomorphism, 
+ where $f:H\to G$ and $f':H'\to G$ as above. 
+ Since $T$ is an isomorphism, we may replace $V'$ with $V$ and $T$ with $\id_V$, without loss of generality. 
+ Then the equivariance condition on $T$ becomes $\psi' = \psi\circ \varphi$ on the finite etale group scheme $\ker f'$. 
+ Since $f' = f \circ \varphi$ and $f$ and $f'$ are etale covers, it follows that $\varphi$ is also an etale cover. 
+ It follows that $\varphi : H'\to H$ admits a section $\varphi' : H \to H'$, 
+ which provides the inverse to $L(\varphi,T) : L(f,\psi) \to L(f',\psi')$, above. 
+ It is also clear that if $L(\varphi,T)$ is an isomorphism of local systems, 
+ then $T$ must be an isomorphism of vector spaces, 
+ whence $(\varphi,T)$ is a weak isomorphism: $W$ is saturated.
   
  Since $L : C(G) \to \Loc(G)$ takes weak isomorphisms to isomorphisms,
  it factors (uniquely!) through the localisation functor $C(G) \to C(G)[W^{-1}]$ 
@@ -610,9 +613,9 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
  $m^*L(f,\psi) \iso L(f,\psi) \boxtimes L(f,\psi)$ in $C_1(G\times G)$, canonically.
  It follows immediately that 
   \[
-  L_G  \ceq  L_{W}\vert_{\CS_b(G)} : \CS_b(G) \to \CS(G)
+  L_G  \ceq  L_{W}\vert_{\CS_b(G)} : \CS_b(G) \to \CS_0(G)
   \]
- is a fully faithfull monoidal functor, completing the proof.
+ is a full and faithfull monoidal functor, completing the proof.
 \end{proof}
 
 \Clifton{I'll address this point in the next section: "Because $\Gal(\bFq/\Fq)$ acts trivially on $\Aut({\bar f})$, the local system
@@ -627,12 +630,12 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
 %sheaves on geometrically connected, commutative algebraic groups over $\Fq$.
 
 \begin{proposition}\label{prop:connected-1}
-  If $G$ is a geometrically connected commutative algebraic group over $\Fq$ then 
-  the full subcategories $\CS_b(G) \hookrightarrow \CS_0(G) \hookrightarrow \CS(G)$ 
+  If $G$ is a connected commutative algebraic group over $\Fq$ then 
+  the full subcategories $\CS_f(G) \hookrightarrow \CS_0(G) \hookrightarrow \CS(G)$ 
   appearing in Section~\ref{sec:bounded} are equivalences 
   and
   \[
-  t_{G} : \CSiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx),
+  t_{G} : \CSiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
   \]
   is an isomorphism of groups.
 \end{proposition}
@@ -640,70 +643,73 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
 \begin{proof}
  %Let $G$ be a geometrically connected algebraic group over $\Fq$.
   Observe that the forgetful functor $(\gcs{L},\mu,F) \mapsto (\gcs{L},F)$
-  sends character sheaves on $G$ to Weil local systems on
-  $G$ \cite{Deligne:Weil2}*{1.1.10} (by a Weil local system on $G$ we
-  mean a Weil sheaf on $G$ which is a local system on $\bG$).
-  While is it not true that all Weil local systems on $G$
-  descend to local systems on $G$, we will see that those that appear in the image of the
-  forgetful functor from character sheaves do. 
-  Then we will see that these local systems further appear in the image of 
+  sends character sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{Deligne:Weil2}*{1.1.10}.
+  While is it not true that all Weil sheaves on $G$ descend to local systems on $G$, 
+  we will see that those that appear in the image of this forgetful functor from character sheaves do. 
 
-  Let $g$ be any $\Fq$-rational point on $G$ (such as the identity for
-  $G$) and let $\bg$ be the geometric point on $G$ lying above
-  $g$ (we fixed $\Fq \hookrightarrow \bFq$ long ago). Since $G$ is
-  geometrically connected, the geometric point $\bg$ determines
-  an equivalence between the category of Weil local systems on $G$ and
-  $\ell$-adic representations of $\W(G,\bg)$
-  \cite{Deligne:Weil2}*{1.1.12}. Now let $(\gcs{L},\mu,F)$ be a
-  character sheaf on $G$. Then the isomorphism class of the Weil local
-  system $(\gcs{L},F)$ corresponds to an $\ell$-adic character of the
-  Weil group $\W(G, \bg)$. The $\Fq$-rational point $g$ under
-  the geometric point $\bg$ determines a splitting
-  $\Weil{\Fq}\to \W(G,\bg)$ of the exact sequence
+  Let $g$ be any $\Fq$-rational point on $G$ 
+  and let $\bg$ be the geometric point on $G$ lying above $g$ (we fixed $\Fq \hookrightarrow \bFq$ long ago). 
+  Since $G$ is connected, the geometric point $\bg$ determines
+  an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
+  $\ell$-adic representations of $\W(G,\bg)$ \cite{Deligne:Weil2}*{1.1.12}. 
+  Now let $(\gcs{L},\mu,F)$ be a character sheaf on $G$ 
+  and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gcs{L},F)$. 
+  The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
+  $\Weil{\Fq}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{\Fq}$. 
+  In this way the Weil local system $(\gcs{L},F)$ determines an $\ell$-adic character $\rho_g : \Weil{\Fq} \to \EEx$.
+  %\[
+  %\begin{tikzcd}
+  %1 \rar & \pi_1(\bG, \bg) \rar &  \arrow{d}{\rho} \W(G,\bg) \rar
+  %& \ar[swap,bend right, dotted]{l}{g} \arrow[dotted]{dl}{\rho_g} \Weil{\Fq} \rar & 1\\
+  %&&\EEx&&
+  %\end{tikzcd}
+  %\]
+  This character is given by the trace of Frobenius of $\cs{L}$ at $g$, as defined in Section~\ref{sec:Frob}:
   \[
-  \begin{tikzcd}
-  1 \rar & \pi_1(\bG, \bg) \rar &  \W(G,\bg) \rar
-  & \ar[swap,bend right, dotted]{l}{g} \Weil{\Fq} \rar & 1
-  \end{tikzcd}
+  \rho_g(\Frob) =  t^\Frob_\cs{L}(g).
   \]
-  In this way the Weil local system $(\gcs{L},F)$ determines an $\ell$-adic character
-  \[
-  t_{(\gcs{L},F)}(g) : \Weil{\Fq} \to \EEx \qquad \text{defined by}\qquad \Frob \mapsto t^\Frob_{(\gcs{L},F)}(g)
-  \]
-  of the Weil group $\Weil{\Fq}$; the image of $\Frob$ under this
-  character is $t^\Frob_\cs{L}(g)$, the trace of Frobenius of $\cs{L}$ at $g$.
-
+  
   On the other hand, we have already seen that $t^\Frob_\cs{L} : G(\Fq) \to \EEx$
   is a group homomorphism. Since $G$ is an algebraic group over $\Fq$, it is a
   variety over $\Fq$, so finitely generated over $\Fq$, so $G(\Fq)$ is finite;
-  it follows that $t^\Frob_\cs{L}(g) = t^\Frob_{(\gcs{L},F)}(g)$ is a root of unity,
+  it follows that $t^\Frob_\cs{L}(g) = \rho_g(\Frob)$ is a root of unity,
   for every $g\in G(\Fq)$.  Since $\Weil{\Fq}$ is generated by
-  $\Frob$ and $t_{(\gcs{L},F)}(g) : \Weil{\Fq} \to \EEx$ is
-  a character, it follows that the image of $t_{(\gcs{L},F)}(g)$ is a
-  finite subset of $\mu(\EE)$. Thus, $t_{(\gcs{L},F)}(g)$ extends to
-  an $\ell$-adic character of $\Gal(\bFq/\Fq)$, which will be denoted
-  by the same symbol.
+  $\Frob$ and $\rho_g : \Weil{\Fq} \to \EEx$ is
+  a character, it follows that the image of $\rho_g$ is a finite group.
+  Thus, $\rho_g$ extends to an $\ell$-adic character of $\Gal(\bFq/\Fq)$, 
+  denoted by the same symbol, below.
   \[
   \begin{tikzcd}
-  1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \W(G,\bg) \rar \dar & \Weil{\Fq} \rar \dar & 1\\
-  1 \rar &  \pi_1(\bG, \bg) \rar & \pi_1(G,\bg) \rar & \Gal(\bFq/\Fq) \rar & 1
+  1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \W(G,\bg) \rar \dar & \Weil{\Fq} \arrow[bend left]{rr}{\rho_g} \rar \dar & 1 & \EEx\\
+  1 \rar &  \pi_1(\bG, \bg) \rar & \pi_1(G,\bg) \rar & \Gal(\bFq/\Fq) \arrow[dotted]{rru} \rar & 1 &
   \end{tikzcd}
   \]
 
-  We may now lift the $\ell$-adic character $t_{(\gcs{L},F)}(g) : \Gal(\bFq/\Fq) \to \EEx$
-  to an $\ell$-adic character of $\pi_1(G,\bg)$ using the canonical topological group map
-  $\pi_1(G,\bg) \to \Gal(\bFq/\Fq)$, above. But $\bg$ also
+  We may now lift the $\ell$-adic character $\rho_g : \Gal(\bFq/\Fq) \to \EEx$
+  to an $\ell$-adic character $\pi_1(G,\bg) \to \EEx$ using the canonical topological group homomorphism
+  $\pi_1(G,\bg) \to \Gal(\bFq/\Fq)$ determined by the structure map for $G$. But $\bg$ also
   determines an equivalence between the category of $\ell$-adic
-  representations of $\pi_1(G,\bg)$ and local systems on $G$. Let
+  representations of $\pi_1(G,\bg)$ and $\ell$-adic local systems on $G$. Let
   $\cs{L}_0$ be a local system on $G$ in the isomorphism class
   determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
-  Then $b^*\cs{L}_0 \iso \gcs{L}$, so $b^*$ is essentially surjective.
-
-  We have now shown that $b^* : \CS_0(G) \to \CS(G)$ is an equivalence
-  of rigid monoidal categories. It follows immediately that $b^*$
+  Then $b_G^*\cs{L}_0 \iso \gcs{L}$.
+  Since $b_G^*$ is full and faithful (again, see \cite{SGA7.2}*{Expos\'e XIII} or even \cite{BBD}*{Prop. 5.2.1}),
+  $
+  b_G^* : \Hom(m^*\cs{L}_0,\cs{L}_0\boxtimes\cs{L}_0) \to \Hom({\bar m}^*\gcs{L},\gcs{L}\boxtimes\gcs{L})
+  $ 
+  is a bijection. Let $\mu_0 : m^*\cs{L}_0 \to \cs{L}_0\boxtimes\cs{L}_0$ be the isomorphism matching 
+  $\mu : {\bar m}^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$, from the definition of $\cs{L}$. 
+  Then $(\cs{L}_0,\mu_0)$ is an object in $\CS_0(G)$ 
+  and $\cs{L} = (\gcs{L},\mu,F)$ is isomorphic to $(b_G^*\cs{L}_0,b_G^*\mu_0)$ in $\CS(G)$.
+  Thus, $b_G^* : \CS_0(G) \to \CS(G)$ is essentially surjective. 
+  
+  \todo{Clifton is here. I will use \cite{Kamgarpour} to finish the proof.}
+  
+  We have now shown that $b_G^* : \CS_0(G) \to \CS(G)$ is an equivalence
+  of rigid monoidal categories. It follows immediately that $b_G^*$
   determines an isomorphism
   \[
-  b^* : \CSbiso{G} \mathop{\longrightarrow}^{\iso} \CSiso{G}
+  b_G^* : \CSbiso{G} \mathop{\longrightarrow}^{\iso} \CSiso{G}
   \]
   of the Picard groups determined by these rigid monoidal categories.
   \Clifton{\textdbend This last sentence glosses over some subtle points;
