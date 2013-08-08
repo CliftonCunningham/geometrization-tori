@@ -648,7 +648,8 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
   we will see that those that appear in the image of this forgetful functor from character sheaves do. 
 
   Let $g$ be any $\Fq$-rational point on $G$ 
-  and let $\bg$ be the geometric point on $G$ lying above $g$ (we fixed $\Fq \hookrightarrow \bFq$ long ago). 
+  and let $\bg$ be the geometric point on $G$ lying above $g$ 
+  (we fixed $\Fq \hookrightarrow \bFq$ long ago). 
   Since $G$ is connected, the geometric point $\bg$ determines
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
   $\ell$-adic representations of $\W(G,\bg)$ \cite{Deligne:Weil2}*{1.1.12}. 
@@ -701,7 +702,14 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
   $\mu : {\bar m}^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$, from the definition of $\cs{L}$. 
   Then $(\cs{L}_0,\mu_0)$ is an object in $\CS_0(G)$ 
   and $\cs{L} = (\gcs{L},\mu,F)$ is isomorphic to $(b_G^*\cs{L}_0,b_G^*\mu_0)$ in $\CS(G)$.
-  Thus, $b_G^* : \CS_0(G) \to \CS(G)$ is essentially surjective. 
+  Thus, the full and faithful functor $b_G^* : \CS_0(G) \to \CS(G)$ is also essentially surjective,
+  hence an equivalence (when $G$ is a connected, commutative algebraic group over $\Fq$).
+  
+  In Proposition~\ref{prop:bounded} we saw that $\CS_f(G)$ is a full subcategory of $\CS_0(G)$;
+  more precisely, we exhibited a full and faithful functor $L_G : \CS_f(G) \to \CS_0(G)$.
+  We now show that this functor is essentially surjective 
+  when $G$ is a connected, commutative algebraic group over $\Fq$.
+  Let $(\cs{L}_0,\mu_0)$ be a bounded character sheaf. 
   
   \todo{Clifton is here. I will use \cite{Kamgarpour} to finish the proof.}
   
@@ -809,34 +817,11 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
 
   To produce the isomorphism between $\CSiso{G(\bFq)}$ and
   $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ we must pick a global section of the line
-  bundle $(\gcs{L},\mu)$, for each character sheaf $\cs{L}$ on $G$. We
-  will show that the group isomorphism does not depend on these
+  bundle $(\gcs{L},\mu)$, for each character sheaf $\cs{L}$ on $G$; 
+  such a section exists by Lemma~\ref{lemma:section}.
+  We will show that the group isomorphism does not depend on these
   choices.
-
-  First, however, we show that such global sections exist.  Since
-  $G(\bFq)$ is finitely-generated abelian, it admits a decomposition
-  $G(\bFq) \iso G(\bFq)_\text{free} \oplus G(\bFq)_\text{tors}$ such
-  that $G(\bFq)_\text{tors}$ is finite.  Let $x_1, \ldots , x_r$ be a
-  basis for the free part $G(\bFq)_\text{free}$ of $G(\bFq)$ and let
-  $y_1, \ldots , y_t$ be a generators for the torsion part of
-  $G(\bFq)$ corresponding to the decomposition
-  $G(\bFq)_\text{tors} \iso \oplus_{j=1}^t \ZZ/m_j\ZZ$, with
-  $m_j \vert m_{j+1}$. For each such $x_i$ pick $s(x_i)\in \gcs{L}_{x_i}$;
-  for each such $y_j$ pick $s(y_j) \in \gcs{L}_{y_j}$; also set
-  $s({\bar e}) \ceq 0 \in \gcs{L}_{\bar e}$. ....
-  \Clifton{I'll finish this later.}
-  In this way we define a section
-  $s \ceq s_\cs{L} : G(\bFq) \to \coprod_{z\in G(\bFq)} \gcs{L}_z$ of
-  projection $\coprod_{z\in G(\bFq)} \gcs{L}_z \to G(\bFq)$ such that
-
-  \begin{equation}\label{section}
-    \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
-  \end{equation}
-  Under the equivalence at the beginning of this section, $s = s_\cs{L}$
-  corresponds to a global section of the line bundle $(\gcs{L},\mu)$.
-  
-\Clifton{I'm going to remove all mention of line bundles from this paper.}
-
+%
   We use the section $s_\cs{L}$ to define a cocycle $z_\cs{L} \in Z^1(\Weil{\Fq},G(\bFq)^*)$
   as follows. Recall that $\cs{L}$ also determines a family of linear transformations
   $F_x : \gcs{L}_{\Frob(x)} \to \gcs{L}_x$ of one-dimensional $\EE$-vector
@@ -907,6 +892,37 @@ and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. This is
   It only remains to show that \eqref{pich1} is a group
   isomorphism. This is straightforward.
   \Clifton{Straightforward, yes, but it still needs to be written down here.}
+\end{proof}
+
+\begin{lemma}
+ If $\cs{L}$ is a character sheaf then there is a non-trivial section of $\gcs{L}$ 
+ compatible with $\mu$ in the sense that 
+ \begin{equation}\label{section}
+  \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
+ \end{equation}
+\end{lemma}
+
+\begin{proof}
+First, however, we show that such global sections exist.  Since
+  $G(\bFq)$ is finitely-generated abelian, it admits a decomposition
+  $G(\bFq) \iso G(\bFq)_\text{free} \oplus G(\bFq)_\text{tors}$ such
+  that $G(\bFq)_\text{tors}$ is finite.  Let $x_1, \ldots , x_r$ be a
+  basis for the free part $G(\bFq)_\text{free}$ of $G(\bFq)$ and let
+  $y_1, \ldots , y_t$ be a generators for the torsion part of
+  $G(\bFq)$ corresponding to the decomposition
+  $G(\bFq)_\text{tors} \iso \oplus_{j=1}^t \ZZ/m_j\ZZ$, with
+  $m_j \vert m_{j+1}$. For each such $x_i$ pick $s(x_i)\in \gcs{L}_{x_i}$;
+  for each such $y_j$ pick $s(y_j) \in \gcs{L}_{y_j}$; also set
+  $s({\bar e}) \ceq 0 \in \gcs{L}_{\bar e}$. ....
+  \todo{under construction}
+  In this way we define a section
+  $s \ceq s_\cs{L} : G(\bFq) \to \coprod_{z\in G(\bFq)} \gcs{L}_z$ of
+  projection $\coprod_{z\in G(\bFq)} \gcs{L}_z \to G(\bFq)$ such that
+  $\mu_{x,y}(s(x+y)) = s(x)\otimes s(y)$ for all $x,y \in G(\bFq)$.
+  Under the equivalence at the beginning of this section, $s = s_\cs{L}$
+  corresponds to a global section of the line bundle $(\gcs{L},\mu)$.
+  
+\Clifton{I'm going to remove all mention of line bundles from this paper.}
 \end{proof}
 
 %\input{etale-2}
