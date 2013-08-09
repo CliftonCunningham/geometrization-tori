@@ -328,7 +328,8 @@ Morphisms in $\CS(G)$ are defined in the natural way:
 The category $\CS(G)$ of character sheaves on $G$ is a rigid monoidal
 category [insert reference] under
 $\cs{L} \otimes \cs{L'} \ceq (\gcs{L}\otimes\gcs{L'}, \mu\otimes\mu', F\otimes F')$
-with duals given by applying the functor $\sheafHom(\ - \ ,(\EE)_{\bG})$ (sheaf hom) to
+with duals given by applying the functor 
+\Clifton{Should this be $\sheafHom(\ - \ ,\EE)$?} $\sheafHom(\ - \ ,(\EE)_{\bG})$ (sheaf hom) to
 conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}.
 %\end{proposition}
 (The category of characters sheaves on $G$ is not abelian, so $\CS(G)$
@@ -405,7 +406,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   connected component and let $i$ be the image of $j$ under the group
   homomorphism $\pi_0(\bG) \to \pi_0(\bH)$ obtained by
   applying the functor $\pi_0$ to $\bf$; see \cite{vdG&M}*{III, 3.28}, for example.
-  \Clifton{Replace with a better reference, eventually.}
+  \Clifton{I haven't found a better reference for this yet!}
   Write $c_i : \bG^i \hookrightarrow \bG$ for
   the inclusion of $\bG^i$ and $\bf^j : \bH^j \to \bG^i$
   for the restriction of $f$ to $\bH^j$.  Since $\cs{L}$
@@ -515,7 +516,7 @@ The following diagram commutes, where the bottom map is induced by the norm $G(k
 \end{proposition}
 
 \begin{proof}
-\todo{This proof is missing.}
+\Clifton{This proof is missing! Can David insert it?}
 \end{proof}
 
 \section{Bounded character sheaves}\label{sec:bounded}
@@ -527,6 +528,7 @@ equipped with an isomorphism $\mu_0 : m^* \cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}
 satisfying the analogue of Condition~\ref{CS.1} on $G$; 
 morphisms in $\CSf(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
 This is the category of \cdef{bounded character sheaves} on $G$. 
+\Clifton{Should this be $\sheafHom(\cs{L}_0,\EE)$?}
 This is a rigid monoidal category in the obvious way, 
 with duals given by $\cs{L}_0^\vee \ceq \sheafHom(\cs{L}_0,(\EE)_{G})$.
 
@@ -567,27 +569,8 @@ where $\varphi$ is a morphism of schemes such that $f' = f\circ \varphi$
 and $T : V\to V'$ is a linear transformation equivariant 
 for the action of $\ker f'$ on $V'$ by $\psi'$ 
 and the action of $\ker f'$ on $V$ by $\psi \circ \varphi$.
-%
-We say that $(\varphi,T)$ in $C(G)$ is a weak isomorphism if $T$ is an isomorphism of vector spaces. 
-Let $C(G)[W^{-1}]$ be the localization of $C(G)$ at weak isomorphisms.
-Now, let $C_1(G)$ be the subcategory of $C(G)$ such that $\psi$ is a one-dimensional representation
-and let $\CSf(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. 
-This is the category of \cdef{finite character sheaves} on $G$.
 
-\Clifton{Add the monoidal category structure here.}
-
-\begin{proposition}\label{prop:bounded}
- $\CSf(G)$ is (equivalent to) a full subcategory of $\CSb(G)$.
-\end{proposition}
-
-\begin{proof}
- To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \CSf(G) \to \CSb(G)$.
- %
- We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \CSb(G)$ 
- such that ${\bar L}(\varphi,T)$ is an isomorphism precisely when $(\varphi,T)$ is a weak isomorphism. 
- Factoring along $C_1(G) \to \CSb(G)$ will produce the full and faithful monoidal functor we seek.
-
- We start by putting a tensor category structure on $C(G)$. 
+We put a tensor category structure on $C(G)$ as follows.
  Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
  The category of isogenies to $G$ admits products: 
  write $f\times_G f' : H\times_G H' \to G$ for the product of $f : H\to G$ and $f' : H'\to G$. 
@@ -599,11 +582,28 @@ This is the category of \cdef{finite character sheaves} on $G$.
  The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
  where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee = \Hom_\text{vec}(V,\EE)$. 
  The verification that these operations make $C(G)$ a tensor category is routine. 
-  
+
+We say that $(\varphi,T)$ in $C(G)$ is a weak isomorphism if $T$ is an isomorphism of vector spaces. 
+Let $C(G)[W^{-1}]$ be the localization of $C(G)$ at weak isomorphisms.
+Now, let $C_1(G)$ be the subcategory of $C(G)$ such that $\psi$ is a one-dimensional representation
+and let $\CSf(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. 
+This is the rigid symmetric monoidal category of \cdef{finite character sheaves} on $G$.
+
+\begin{proposition}\label{prop:bounded}
+ $\CSf(G)$ is (equivalent to) a full subcategory of $\CSb(G)$.
+\end{proposition}
+
+\begin{proof}
+ To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \CSf(G) \to \CSb(G)$.
+ %
+ We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \CSb(G)$ 
+ such that $L(\varphi,T)$ is an isomorphism precisely when $(\varphi,T)$ is a weak isomorphism. 
+ Factoring along $C_1(G) \to \CSb(G)$ will produce the full and faithful monoidal functor we seek.
+
  Now we introduce a faithful functor $L : C(G) \to \Loc(G)$ to the category of local systems on $G$.
  For any object $(f,\psi)$ in $C(G)$, let $L(f,\psi)$ be the $\psi$-isotypic component of $f_* V_H$, 
  where $V_H$ refers to $V$ as a constant sheaf on $H$. 
- Note that we may identify the stalk $(f_* V_H)_{\bar g}$ of $f_* V_H$ at a geometric point ${\bar g}$ on $G$ 
+ We may identify the stalk $(f_* V_H)_{\bar g}$ of $f_* V_H$ at a geometric point ${\bar g}$ on $G$ 
  with the $\EE$-vector space $\Hom_\text{set}(\abs{f^{-1}({\bar g})},V)$ 
  and the stalk $L(f,\psi)_{\bar g}$ of $L(f,\psi)$ at a geometric point ${\bar g}$ on $G$ 
  with the $\EE$-vector space consisting of those functions $s: \abs{f^{-1}({\bar g})} \to V$ such that 
