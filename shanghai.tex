@@ -75,7 +75,7 @@
 
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\W}{W}
-\newcommand{\Frob}{{\operatorname{Fr}}}
+\newcommand{\Frob}[1]{{\operatorname{F}_{#1}}}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\ord}{ord}
@@ -88,6 +88,7 @@
 \DeclareMathOperator{\Hh}{H}
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\Nm}{Nm}
+\DeclareMathOperator{\trace}{Tr}
 
 \newcommand{\cdef}[1]{{{\color{blue}#1}\index{#1}}} 
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
@@ -205,8 +206,8 @@ $\gcs{L}$ on the \'etale site of $\bG \ceq G \times_{\Spec\Fq}
 \Spec{\bFq}$, locally constant of rank-$1$ on every connected
 component of $\bG$, equipped with an isomorphism $\mu: m^*
 \gcs{L} \to \LxL$, where $m : \GxG \to G$ is
-the group operation for $G$, and an isomorphism $F : \Frob_{G}^*
-\gcs{L} \to \gcs{L}$, where $\Frob_{G}$ is the Frobenius automorphism
+the group operation for $G$, and an isomorphism $F : \Frob{G}^*
+\gcs{L} \to \gcs{L}$, where $\Frob{G}$ is the Frobenius automorphism
 on $\bG$, satisfying natural compatibility conditions with $\mu$;
 these compatibility conditions are explained below.
 
@@ -266,12 +267,14 @@ $m : \GxG\to G$ for the multiplication morphism. We fix an
 algebraic closure $\bFq$ of $\Fq$ and write $\bG $ for the
 commutative group scheme, smooth and locally of finite type over
 $\bFq$ obtained by base change; the multiplication morphism for
-$\bG$ will be denoted by $\bm$. Let $\Frob_{G}$
-(resp. $\Frob_{\GxxG}$) be the Frobenius automorphism of
-$\bG$ (resp. $\bGxG$).
-\Clifton{I'll insert a reference to SGA where Frobenius is defined for
-  a large class of schemes over finite fields.}
-  
+$\bG$ will be denoted by $\bm$. 
+Let $\Frob{G}$ be the Frobenius automorphism of $\bG$.
+\Clifton{I was a bit glib about Frobenius, previously.
+Now I've made things more precise here; I'm in the process of tracking this improvement through the paper.}
+Recall that $\Frob{G} = \id_{G}\times \Frob{\Spec{\bFq}}$ where
+$\Frob{\Spec{\bFq}}$ is the automorphism of $\Spec{\bFq}$ 
+opposite to the geometric Frobenius element $\Frob{\Fq}$ in $\Weil{\Fq} \subset \Gal(\bFq/\Fq)$.
+
 The category of character sheaves on $G$, denoted by \cdef{$\CS(G)$},
 is defined as follows.  A \cdef{character sheaf} on $G$ is a triple
 $\cs{L}\ceq (\gcs{L},\mu,F)$ where:
@@ -292,15 +295,15 @@ $\cs{L}\ceq (\gcs{L},\mu,F)$ where:
   \]
   
 %
-\labitem{(CS.2)}{CS.2} $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ is an
+\labitem{(CS.2)}{CS.2} $F : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
   isomorphism of sheaves on $\bG$ compatible with $\mu$ in the sense that the following diagram commutes.
 %
   \[
   \begin{tikzcd}[row sep=20]
-  \Frob_{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob_{\GxxG}^*\mu}
-    && \Frob_{\GxxG}^*(\LxL)\\
-    \arrow[equal]{u} \bm^*  \Frob_{G}^* \gcs{L} \arrow[swap]{d}{\bm^* F}
-    && \Frob_{G}^*\gcs{L}\boxtimes \Frob_{G}^*\gcs{L} \dar{F\boxtimes F} \arrow[equal]{u} \\
+  \Frob{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
+    && \Frob{\GxxG}^*(\LxL)\\
+    \arrow[equal]{u} \bm^*  \Frob{G}^* \gcs{L} \arrow[swap]{d}{\bm^* F}
+    && \Frob{G}^*\gcs{L}\boxtimes \Frob{G}^*\gcs{L} \dar{F\boxtimes F} \arrow[equal]{u} \\
     \bm^*\gcs{L} \arrow{rr}{\mu}
     && \LxL\\
   \end{tikzcd}
@@ -314,7 +317,7 @@ Morphisms in $\CS(G)$ are defined in the natural way:
   of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
   \[
   \begin{tikzcd}[column sep=40]
-  \Frob_G^* \gcs{L} \rar{\Frob_G^* \varphi} \arrow[swap]{d}{F} & \Frob_G^* \gcs{L'} \dar{F'}
+  \Frob{G}^* \gcs{L} \rar{\Frob{G}^* \varphi} \arrow[swap]{d}{F} & \Frob{G}^* \gcs{L'} \dar{F'}
   & \arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}} & \arrow[swap]{d}{\mu} m^* \gcs{L} \rar{m^* \varphi} & m^* \gcs{L'} \dar{\mu'} \\
   \gcs{L} \rar{\varphi} & \gcs{L'}
   & {} & \LxL \rar{\tight{1}{\varphi\boxtimes \varphi}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
@@ -339,8 +342,7 @@ is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
 This rigid monoidal category structure for $\CS(G)$ puts a group
 structure on the set $\CSiso{G}$ of isomorphism classes in
 $\CS(G)$; we refer to this as the \cdef{Picard group of character
-sheaves} on $G$; {\it cf.} {\tt http://ncatlab.org/nlab/show/Picard+group}.
-\Clifton{Replace ncatlab with other references.}
+sheaves} on $G$.\footnote{See {\tt http://ncatlab.org/nlab/show/Picard+group}.}
 
 \begin{remark} \label{rem:CS-action}
 If $W$ is a group equipped with a homomorphism $\alpha : W \to \Gal(\bFq/\Fq)$
@@ -356,22 +358,23 @@ on $\gcs{L}$ compatible with $\mu$.
 \section{Trace of Frobenius}\label{sec:Frob}
 
 Let $\cs{L}$ be a character sheaf on $G$. Every $g\in G(\Fq)$
-determines a point $\bg$ on $\bG$ fixed by $\Frob_G$ and
+determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$ and
 therefore an automorphism $F_{\bg}$ of $\gcs{L}_{\bg}$. Note
 that $\Aut_{\EE}(\gcs{L}_{\bg}) \iso \EEx$, canonically (this
 follows from the Condition~\ref{CS.1}). The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
-guarantees that the function $t^\Frob_\cs{L} : G(\Fq)\to \EEx$,
+guarantees that the function $t^\Frob{\Fq}\cs{L} : G(\Fq)\to \EEx$,
 defined by $g \mapsto F_{\bg}$, is a group homomorphism;
-we refer to $t^\Frob_\cs{L}$ as the \cdef{trace of Frobenius of $\cs{L}$}.
-\Clifton{There is no actual trace involved, since $\gcs{L}$ is a rank
-  $1$ local system. More generally, trace is needed.}
+we refer to $t^\Frob{\Fq}\cs{L}$ as the \cdef{trace of Frobenius of $\cs{L}$}, 
+even though no trace is involved in the definition, because the notion extends 
+to any constructible $\ell$-adic Weil sheaf $(\gcs{L},F)$ on $G$, in which context,
+$t^\Frob{(\gcs{L},F)} : G(\Fq)\to \EE$ is defined by $t^\Frob{(\gcs{L},F)}(g) \ceq \trace F_{\bg}$.
 
-It is clear that $t^\Frob_{\cs{L}\otimes \cs{L'}} = t^\Frob_\cs{L} \cdot t^\Frob_\cs{L'}$
-(pointwise multiplication of functions) and that $t^\Frob_\cs{L} = t^\Frob_\cs{L'}$
+It is clear that $t^\Frob{\cs{L}\otimes \cs{L'}} = t^\Frob{\Fq}\cs{L} \cdot t^\Frob{\Fq}\cs{L'}$
+(pointwise multiplication of functions) and that $t^\Frob{\Fq}\cs{L} = t^\Frob{\Fq}\cs{L'}$
 if $\cs{L} \iso \cs{L'}$ in $\CS(G)$. In this way we obtain a group homomorphism
 \[
 \cdef{t_{G}} : \CSiso{G} \longrightarrow \Hom_\text{grp}(G(\Fq),\EEx),
-\qquad \text{defined by}\qquad \cs{L} \mapsto t^\Frob_\cs{L},
+\qquad \text{defined by}\qquad \cs{L} \mapsto t^\Frob{\Fq}\cs{L},
 \]
 from the Picard group of character sheaves on $G$ to the character group of $G(\Fq)$.
 
@@ -440,7 +443,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   (a few times). Likewise, to see that $\bf^*\gcs{L}$ satisfies condition
   \ref{CS.2}, apply the same functor to \ref{CS.2} for $\gcs{L}$.
   Then use the fact that $f$ is defined over $\Fq$, so
-  $(\bfxf)^*\Frob_{\GxxG}^* \iso \Frob_{\GxxG} (\bfxf)^*$,
+  $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG} (\bfxf)^*$,
   and the fact that $f$ is a morphism of group schemes, so
   $(\bfxf)^* \bm^*\iso \bm^* \bf^*$
   (isomorphisms of functors on constructible sheaves).
@@ -499,9 +502,9 @@ over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to
 If $\cs{L} = (\gcs{L}, \mu, F)$ is a character sheaf on $G$ we may define
 a character sheaf $\nu(\cs{L}) = (\gcs{L}, \mu, F_{k'})$ on $G_{k'}$ by setting
 \[
-F_{k'} = F \circ \Frob_G^*(F) \circ \cdots \circ (\Frob_G^{n-1})^*(F).
+F_{k'} = F \circ \Frob{G}^*(F) \circ \cdots \circ (\Frob{G}^{n-1})^*(F).
 \]
-The commutativity of the diagram (CS.2) for $F_{k'}$ follows from the fact that $\Frob_{G_{k'}} = \Frob_G^n$.
+The commutativity of the diagram (CS.2) for $F_{k'}$ follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
 Note that we may also think about the construction of $F_{k'}$ as taking the action of $\Weil{k}$ defined in Remark
 \ref{rem:CS-action} and restricting it to $\Weil{k'}$.
 
@@ -541,7 +544,7 @@ $\CSb(G)$ is (equivalent to) a full subcategory of $\CS(G)$.
  Let $(\cs{L}_0,\mu_0)$ be a bounded character sheaf on $G$. 
  Then $\cs{L}_0$ is, in particular, an $\ell$-adic constructible sheaf on $G$. 
  Then $b_G^* \cs{L}_0$ comes equipped with an isomorphism 
- $F : \Frob_G^* b_G^*\cs{L}_0 \to b_G^* \cs{L}_0$; 
+ $F : \Frob{G}^* b_G^*\cs{L}_0 \to b_G^* \cs{L}_0$; 
  moreover, the functor $\cs{L}_0 \mapsto (b_G^* \cs{L}_0,F)$  
  from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
  is full and faithful; see \cite{SGA7.2}*{Expos\'e XIII} or even \cite{BBD}*{Prop. 5.2.1}. 
@@ -686,7 +689,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
  is a full and faithfull monoidal functor, completing the proof.
 \end{proof}
 
-%\Clifton{I'll address this point in the next section: "Because $\Gal(\bFq/\Fq)$ acts trivially on $\Aut({\bar f})$, the local system ${\bar L}_G(f,\psi)\ceq b_G^* L(f,\psi)$ comes equipped with a canonical isomorphism $F : \Frob_G^* {\bar L}_G(f,\psi) \to {\bar L}_G(f,\psi)$ of constructible sheaves on ${\bar G}$."}
+%\Clifton{I'll address this point in the next section: "Because $\Gal(\bFq/\Fq)$ acts trivially on $\Aut({\bar f})$, the local system ${\bar L}_G(f,\psi)\ceq b_G^* L(f,\psi)$ comes equipped with a canonical isomorphism $F : \Frob{G}^* {\bar L}_G(f,\psi) \to {\bar L}_G(f,\psi)$ of constructible sheaves on ${\bar G}$."}
  
 \section{Connected abelian algebraic groups}
 
@@ -733,15 +736,15 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   %\]
   This character is given by the trace of Frobenius of $\cs{L}$ at $g$, as defined in Section~\ref{sec:Frob}:
   \[
-  \rho_g(\Frob) =  t^\Frob_\cs{L}(g).
+  \rho_g(\Frob) =  t^\Frob{\Fq}\cs{L}(g).
   \]
   
-  On the other hand, we have already seen that $t^\Frob_\cs{L} : G(\Fq) \to \EEx$
+  On the other hand, we have already seen that $t^\Frob{\Fq}\cs{L} : G(\Fq) \to \EEx$
   is a group homomorphism. Since $G$ is an algebraic group over $\Fq$, it is a
   variety over $\Fq$, so finitely generated over $\Fq$, so $G(\Fq)$ is finite;
-  it follows that $t^\Frob_\cs{L}(g) = \rho_g(\Frob)$ is a root of unity,
+  it follows that $t^\Frob{\Fq}\cs{L}(g) = \rho_g(\Frob)$ is a root of unity,
   for every $g\in G(\Fq)$.  Since $\Weil{\Fq}$ is generated by
-  $\Frob$ and $\rho_g : \Weil{\Fq} \to \EEx$ is
+  $\Frob{\Fq}$ and $\rho_g : \Weil{\Fq} \to \EEx$ is
   a character, it follows that the image of $\rho_g$ is a finite group.
   Thus, $\rho_g$ extends to an $\ell$-adic character of $\Gal(\bFq/\Fq)$, 
   denoted by the same symbol, below.
@@ -786,17 +789,17 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   Then $\cs{L}\ceq B_G^*(\cs{L}_0,\mu_0)$ is a character sheaf on $G$.
   Recall the definition of the character $t_\cs{L}^\Frob : G(\Fq) \to \EEx$ from Section~\ref{sec:Frob}. 
   Let $f : G\to G$ be the Lang isogeny.
-  Recall that $\ker f = G(\Fq) = G^\Frob$; 
+  Recall that $\ker f = G(\Fq) = G^\Frob{\Fq}$; 
   in particular, the action of $\Gal(\bFq/\Fq)$ on $\ker f$ is trivial.
   Let $V = \EE$ and let $\psi : \ker f \to \Aut(V)$ be the representation given by 
-  $\psi(g)(v) = t_\cs{L}^\Frob(g) v$ for $v\in V$. 
+  $\psi(g)(v) = t_\cs{L}^\Frob{\Fq}(g) v$ for $v\in V$. 
   Then $(f,\psi)$ is a finite character sheaf. 
   
   To show that $L_G(f,\psi) \iso (\cs{L}_0,\mu_0)$ we simply apply the functions--sheaves dictionary
   as follows ({\it cf} \cite{Laumon}*{1.1.3} or, ultimately, \cite{SGA4.5}*{Sommes trigonométriques}).
   First, recall that $L_G(f,\psi) = (L(f,\psi), \mu(f,\psi))$. 
-  By  \cite{Laumon}*{1.1.3.3}, $t_{L(f,\psi)}^{\Frob^n} = t_{\cs{L}}^{\Frob}\circ N_{\FF_{q^n}/\FF_q}$, for each positive integer $n$.
-  On the other hand, $t_{\cs{L}}^{\Frob} \circ N_{\FF_{q^n}/\FF_q} = t_{\cs{L}}^{\Frob^n}$, for each positive integer $n$, 
+  By  \cite{Laumon}*{1.1.3.3}, $t_{L(f,\psi)}^\Frob{k'} = t_{\cs{L}}^\Frob{k}\circ N_{k'/k}$, for each finite extension $k'/k$.
+  On the other hand, $t_{\cs{L}}^\Frob{k} \circ N_{k'/k} = t_{\cs{L}}^\Frob{k'}$, for each for each finite extension $k'/k$, 
   by Proposition~\ref{prop:basechange}.
   %Using notation from \cite{Laumon}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \cs{L}_0}$.
   Using \cite{Laumon}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \cs{L}_0$ in $\Loc(G)$.
@@ -832,7 +835,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   \]
   where $t_\cs{L}: \Weil{\Fq}\to \Hom_\text{grp}(G(\bFq),\EEx)$ is a cocycle such that
   \[
-  \forall g\in G(\Fq), \qquad t_\cs{L}(\Frob)(g) = t^\Frob_\cs{L}(g).
+  \forall g\in G(\Fq), \qquad t_\cs{L}(\Frob)(g) = t^\Frob{\Fq}\cs{L}(g).
   \]
 \end{proposition}
 
@@ -862,14 +865,14 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
     \]
     commutes, for all $x,y,z\in G(\bFq)$; and
 
-  \labitem{(cs.2)}{cs.2} an indexed set of isomorphisms $F_{x} \ceq x^*F: \gcs{L}_{\Frob(x)} \to \gcs{L}_x$
+  \labitem{(cs.2)}{cs.2} an indexed set of isomorphisms $F_{x} \ceq x^*F: \gcs{L}_{\Frob{\Fq}(x)} \to \gcs{L}_x$
     \Clifton{\textdbend There's hidden subtlety here too: maybe I
       should explain which Frobenius this is and how it acts. }
     such that
     \[
     \begin{tikzcd}[row sep=40]
-      \gcs{L}_{\Frob(x)+\Frob(y)} \arrow[swap]{d}{F_{x+y}} \arrow{rr}{\mu_{\Frob(x),\Frob(y)}}
-      && \gcs{L}_{\Frob(x)}\otimes \gcs{L}_{\Frob(y)} \dar{F_x \tight{0}{\otimes}{0} F_y} \\
+      \gcs{L}_{\Frob{\Fq}(x)+\Frob(y)} \arrow[swap]{d}{F_{x+y}} \arrow{rr}{\mu_{\Frob{\Fq}(x),\Frob(y)}}
+      && \gcs{L}_{\Frob{\Fq}(x)}\otimes \gcs{L}_{\Frob(y)} \dar{F_x \tight{0}{\otimes}{0} F_y} \\
       \gcs{L}_{x+y} \arrow{rr}{\mu_{x,y}}
       && \gcs{L}_x \otimes\gcs{L}_y
     \end{tikzcd}
@@ -884,7 +887,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
     as $x$ runs over $G(\bFq)$, such that
     \[
     \begin{tikzcd}[column sep=40]
-      \arrow[swap]{d}{F_x} \gcs{L}_{\Frob(x)} \rar{\varphi_{\Frob(x)}} & \gcs{L'}_{\Frob(x)} \dar{F_x'}
+      \arrow[swap]{d}{F_x} \gcs{L}_{\Frob{\Fq}(x)} \rar{\varphi_{\Frob{\Fq}(x)}} & \gcs{L'}_{\Frob{\Fq}(x)} \dar{F_x'}
       &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}& \arrow[swap]{d}{\mu} \gcs{L}_{x+y} \rar{\varphi_{x+y}} & \gcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
       \gcs{L}_x \rar{\varphi_x} & \gcs{L'}_x
       & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\varphi_x\otimes \varphi_y} & \gcs{L'}_x \otimes \gcs{L'}_y
@@ -907,11 +910,11 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
 %
   We use the section $s_\cs{L}$ to define a cocycle $z_\cs{L} \in Z^1(\Weil{\Fq},G(\bFq)^*)$
   as follows. Recall that $\cs{L}$ also determines a family of linear transformations
-  $F_x : \gcs{L}_{\Frob(x)} \to \gcs{L}_x$ of one-dimensional $\EE$-vector
-  spaces, so $F_x(s(\Frob(x)))$ is a scalar multiply of $s(x)$, for
+  $F_x : \gcs{L}_{\Frob{\Fq}(x)} \to \gcs{L}_x$ of one-dimensional $\EE$-vector
+  spaces, so $F_x(s(\Frob{\Fq}(x)))$ is a scalar multiply of $s(x)$, for
   each $x\in G(\bFq)$; let $t_\cs{L}(\Frob)(x)$ be that scalar, so
   \begin{equation}\label{t}
-    \forall x\in G(\bFq),\qquad F_{x}(s(\Frob(x)) = t_\cs{L}(\Frob)(x) s(x).
+    \forall x\in G(\bFq),\qquad F_{x}(s(\Frob{\Fq}(x)) = t_\cs{L}(\Frob)(x) s(x).
   \end{equation}
   Conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
   the scalar $z_\cs{L}(\Frob)(x)$ is non-zero, while condition~\ref{cs.1} forces
@@ -924,8 +927,8 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   %   here.}
 
   Now $t_\cs{L} : \Weil{\Fq} \to G(\bFq)^*$ is defined, recursively, by
-  $t_\cs{L}(\Frob^n) \ceq t_\cs{L}(\Frob)\cdot \,^\Frob t_\cs{L}(\Frob^{n-1})$,
-  where $\Frob$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
+  $t_\cs{L}(\Frob{\Fq}^n) \ceq t_\cs{L}(\Frob{\Fq})\cdot \,^\Frob{\Fq} t_\cs{L}(\Frob{\Fq}^{n-1})$,
+  where $\Frob{\Fq}$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
   to pointwise multiplication of functions. This gives
   \[
   \obj \CS(G(\bFq)) \longrightarrow Z^1(\Weil{\Fq},G(\bFq)^*),
@@ -960,7 +963,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   non-zero scalar multiple of $s'(x)$; define $\phi: G(\bFq) \to \EEx$
   by $\varphi_x(s(x)) = \phi(x) s'(x)$. By the second part of condition~\ref{cs.3},
   $\phi(x+y) = \phi(x)\phi(y)$, so $\phi \in G(\bFq)^*$. By the first part of
-  condition~\ref{cs.3}, $t'(\Frob) = t(\Frob) \cdot (\,^{\Frob^{-1}}\phi \cdot \phi^{-1})$,
+  condition~\ref{cs.3}, $t'(\Frob{\Fq}) = t(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}\phi \cdot \phi^{-1})$,
   so $t$ and $t'$ are cohomologous. This concludes the definition of
   \begin{equation}\label{pich1}
     \CSiso{G(\bFq} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
@@ -968,8 +971,8 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   \end{equation}
   Now it follows from \eqref{t} that the image of the isomorphism
   class of $\cs{L}$ is indeed represented by a cocycle $t_\cs{L}$ such
-  that $t_\cs{L}(\Frob) = t^\Frob_\cs{L}$ on $G(\Fq)$, which is to
-  say, when evaluated at $\Frob$, the cocycle $t_\cs{L}$ is an
+  that $t_\cs{L}(\Frob{\Fq}) = t^\Frob{\Fq}_\cs{L}$ on $G(\Fq)$, which is to
+  say, when evaluated at $\Frob{\Fq}$, the cocycle $t_\cs{L}$ is an
   extension of the trace of Frobenius of $\cs{L}$.
 
   It only remains to show that \eqref{pich1} is a group
@@ -1042,19 +1045,19 @@ Theorem~\ref{thm:snake}.
   and considering the associated long exact sequence gives the
   existence of an $\tilde{f} \in \Hom(X, \EEx)$ restricting to
   $f$.  Define a $1$-cocycle $z \in \Hh^1(\Fq, \Hom(X,\EEx))$ by
-  mapping $\Frob$ to $\tilde{f}$.  Then $\rho([z]) = f$.
+  mapping $\Frob{\Fq}$ to $\tilde{f}$.  Then $\rho([z]) = f$.
 
   Now suppose that $[z] \in \Hh^1(\Fq,\Hom(X,\EEx))$ with
   $\rho([z]) = 1$; write $\tilde{f}$ for $z(\Frob)$.  The injectivity
   of $\rho$ is equivalent to the existence of a homomorphism $\psi
   \colon X \rightarrow \EEx$ with
-  $$\tilde{f}(x) = \frac{\psi(\Frob(x))}{\psi(x)}$$
+  $$\tilde{f}(x) = \frac{\psi(\Frob{\Fq}(x))}{\psi(x)}$$
   for $x \in X$.  In fact, we may replace the construction of $\psi$
   for all $\ZZ[\Gal(\bFq/\Fq)]$-modules $X$ with the construction of
   analogous $\psi$s for a different class of modules.
 
   Since the action of $\Gal(\bFq/\Fq)$ is continuous, there is an $m$
-  so that $\Frob^m$ acts trivially on $X$; write $\Fqm$ for the degree
+  so that $\Frob{\Fq}^m$ acts trivially on $X$; write $\Fqm$ for the degree
   $m$ extension of $\Fq$ and $\Gamma_m$ for $\Gal(\Fqm/\Fq)$.  Since
   $T^m-1$ factors as a squarefree product of cyclotomic polynomials,
   the Chinese remainder theorem expresses $\ZZ[\Gamma_m]$ as a product
@@ -1225,7 +1228,7 @@ Section~\ref{section:category}.
   $\ExE$, this shows that, by construction, $\cs{E}$
   comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \ExE$.
   Now the base change $\gcs{E}$ comes equipped with isomorphisms
-  $F^0 : \Frob_{G^0}^* \gcs{E} \to \gcs{E}$ and
+  $F^0 : \Frob{G^0}^* \gcs{E} \to \gcs{E}$ and
   $\mu^0 : \bm_0^* \gcs{E} \to \bExE$
   satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,F^0)$
   is a character sheaf of $G^0$.
@@ -1324,7 +1327,7 @@ Section~\ref{section:category}.
   the latter defined above. To finish the proof of the proposition we
   equip $\gcs{L}$ with isomorphisms
   $\mu : \bm^* \gcs{L} \to \LxL$ and
-  $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1}
+  $F : \Frob{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1}
   and \ref{CS.2}.
 
   Observe that $\bm: \bGxG \to \bG$ is
@@ -1395,29 +1398,29 @@ Section~\ref{section:category}.
   It is straightforward (but laborious) to show that the pair
   $(\gcs{L},\mu)$ satisfies condition \ref{CS.1}.
 
-  Now we turn to the definition of $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$.
+  Now we turn to the definition of $F : \Frob{G}^* \gcs{L} \to \gcs{L}$.
   As above, we define this isomorphism through a family of
   isomorphisms on the connected components of $\bG$. The
-  restriction of $\Frob_{G}$ to $\bG^x$ defines an isomorphism
-  $\Frob_x : \bG^x \to \bG^{\Frob(x)}$.
+  restriction of $\Frob{G}$ to $\bG^x$ defines an isomorphism
+  $\Frob{G}^x : \bG^x \to \bG^{\Frob{\Fq}(x)}$.
   %\[
   %\xymatrix{
-  %\ar[d]_{\Frob_x} \bG^x \ar[r] & \ar[d]_{\Frob_{G}} \bG\\
-  %\bG^{\Frob(x)} \ar[r] & \bG\\
+  %\ar[d]_{\Frob_x} \bG^x \ar[r] & \ar[d]_{\Frob{G}} \bG\\
+  %\bG^{\Frob{\Fq}(x)} \ar[r] & \bG\\
   %}
   %\]
   Pull back the finite etale covering in the diagram for
-  $\gcs{L}^{\Frob(x)}$ along $\Frob_x$ and compare the result with the
+  $\gcs{L}^{\Frob{\Fq}(x)}$ along $\Frob{G}^x$ and compare the result with the
   finite etale covering in the diagram for $\gcs{L}^{x}$.
 
   \[
   \begin{tikzpicture}[auto,style={rectangle},scale=1.2]
-  \node (12) [anchor=east] at (4,2.4) {$\Aut(\bf^{\Frob(x)})$};
-  \node (22) [anchor=west] at (4.4,2.4) {$\bH^{\Frob(x)}$};
-  \node (32) [anchor=west] at (8,2.4) {$\bG^{\Frob(x)}$};
+  \node (12) [anchor=east] at (4,2.4) {$\Aut(\bf^{\Frob{\Fq}(x)})$};
+  \node (22) [anchor=west] at (4.4,2.4) {$\bH^{\Frob{\Fq}(x)}$};
+  \node (32) [anchor=west] at (8,2.4) {$\bG^{\Frob{\Fq}(x)}$};
   \node (01) at (0,1.2) {$\EEx$};
-  \node (11) [anchor=east] at (4,1.2) {$\Aut(\bf^{\Frob(x)})$};
-  \node (21) [anchor=west] at (4.4,1.2) {$\bH^{\Frob(x)} \times_{\bG^{\Frob(x)}} \bG^x$};
+  \node (11) [anchor=east] at (4,1.2) {$\Aut(\bf^{\Frob{\Fq}(x)})$};
+  \node (21) [anchor=west] at (4.4,1.2) {$\bH^{\Frob{\Fq}(x)} \times_{\bG^{\Frob{\Fq}(x)}} \bG^x$};
   \node (31) [anchor=west] at (8,1.2) {$\bG^x$};
   \node (10) [anchor=east] at (4,0) {$\Aut(\bf^x)$};
   \node (20) [anchor=west] at (4.4,0) {$\bH^x$};
@@ -1425,30 +1428,30 @@ Section~\ref{section:category}.
   \draw [->] (4.3,2.34) arc (330:40:0.12) -- (4.3,2.47);
   \draw [->, densely dotted] (4.3,1.14) arc (330:40:0.12) -- (4.3,1.27);
   \draw [->] (4.3,-0.06) arc (330:40:0.12) -- (4.3,0.07);
-  \draw [->] (12) to node[swap,label] {$\psi_{\Frob(x)}$} (01);
+  \draw [->] (12) to node[swap,label] {$\psi_{\Frob{\Fq}(x)}$} (01);
   \draw [->, dashed] (11) -- (01);
   \draw [->] (10) to node[label] {$\psi_x$} (01);
   \draw [->, dashed] ($(11.south) + (0,-0.7)$) -- (11);
   \draw [double equal sign distance] (11) -- (12);
-  \draw [->] (22) to node[label] {$\bf^{\Frob(x)}$} (32);
+  \draw [->] (22) to node[label] {$\bf^{\Frob{\Fq}(x)}$} (32);
   \draw [->] ($(22.225) + (0,-0.7)$) -- (22.225);
   \draw [->] (21) -- (31);
-  \draw [->] ($(32.222) + (0,-0.7)$) to node[swap] {\footnotesize{$\Frob_x$}} (32.222);
+  \draw [->] ($(32.222) + (0,-0.7)$) to node[swap] {\footnotesize{$\Frob{G}^x$}} (32.222);
   \draw [->] ($(22.225) + (0,-1.9)$) -- ($(22.225) + (0,-1.2)$);
   \draw [->] (20) -- (30);
   \draw [double equal sign distance] ($(32.222) + (0,-1.9)$) -- ($(32.222) + (0,-1.2)$);
   \end{tikzpicture}
   \]
-  The covering group of $\bH^{\Frob(x)} \times_{\bG^{\Frob(x)}} \bG^x$
-  is isomorphic to $\Aut(\bf^{\Frob(x)})$, canonically, so
-  $\Frob_x^* \gcs{L}^{\Frob(x)}$ is defined by the middle (horizontal)
+  The covering group of $\bH^{\Frob{\Fq}(x)} \times_{\bG^{\Frob{\Fq}(x)}} \bG^x$
+  is isomorphic to $\Aut(\bf^{\Frob{\Fq}(x)})$, canonically, so
+  $(\Frob{G}^x)^* \gcs{L}^{\Frob{\Fq}(x)}$ is defined by the middle (horizontal)
   diagram, above.  We define the sheaf homomorphism
-  $F_x : \Frob_x^* \gcs{L}^{\Frob(x)} \to \gcs{L}^x$ by the canonical morphism
-  $\bH^x \to \bH^{\Frob(x)} \times_{\bG^{\Frob(x)}} \bG^x \to $;
+  $F_x : (\Frob{G}^x)^* \gcs{L}^{\Frob{\Fq}(x)} \to \gcs{L}^x$ by the canonical morphism
+  $\bH^x \to \bH^{\Frob{\Fq}(x)} \times_{\bG^{\Frob{\Fq}(x)}} \bG^x \to $;
   to see that this defines a sheaf homomorphism it is sufficient to
   check that the character $\psi_x$ commutes with the family of isomorphisms
-  $F_x : (\Frob_{G}^* \gcs{L})\vert_{\bG^x} \iso \Frob_x^* \gcs{L}^{\Frob{x}} \to \gcs{L}^x$
-  now defines the isomorphism $F : \Frob_{G}^* \gcs{L} \to \gcs{L}$.
+  $F_x : (\Frob{G}^* \gcs{L})\vert_{\bG^x} \iso (\Frob{G}^x)^* \gcs{L}^{\Frob{x}} \to \gcs{L}^x$
+  now defines the isomorphism $F : \Frob{G}^* \gcs{L} \to \gcs{L}$.
   \Clifton{Add some detail here.}
   This isomorphism is compatible with $\mu$ in the sense of condition~\ref{CS.2}.
 \end{proof}
@@ -1526,14 +1529,14 @@ Section~\ref{section:category}.
   \]
   by the last part of Proposition~\ref{prop:pullback}. Specifically,
   suppose $\cs{L}$ is a character sheaf on $G$ that is trivial on
-  $G^0$. Then $t^\Frob_\cs{L}\vert_{G^0(\Fq)} = t^\Frob_{\cs{L}^0} =0$,
+  $G^0$. Then $t^\Frob{\Fq}\cs{L}\vert_{G^0(\Fq)} = t^\Frob{\cs{L}^0} =0$,
   by Proposition~\ref{prop:pullback} again. Since the sequence of
   character groups is exact at $\Hom(G(\Fq),\EEx)$, there is
   some $\chi \in \Hom(\pi_0(G)(\Fq),\EEx)$ such that the
   pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is
-  $t^\Frob_\cs{L}$. By Propositions~\ref{prop:etale} and \ref{prop:X},
+  $t^\Frob{\Fq}\cs{L}$. By Propositions~\ref{prop:etale} and \ref{prop:X},
   there is a a character sheaf $\cs{L}_\chi$ on $\pi_0(G)$, unique up
-  to isomorphism, such that $t^\Frob_{\cs{L}_\chi} = \chi$. By
+  to isomorphism, such that $t^\Frob{\cs{L}_\chi} = \chi$. By
   Proposition~\ref{prop:pullback} again, $\cs{L}$ is isomorphic to the
   image of $\cs{L}_\chi$ under the monoidal functor $\CS(\pi_0(G)) \to \CS(G)$.
 
