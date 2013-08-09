@@ -155,30 +155,7 @@
 
 \begin{document}
 
-\section{Base change over the residue field}
-
-When using character sheaves to study characters, it is useful to understand
-how character sheaves behave under change of fields.
-Suppose that $k'$ is a finite extension of $k$ of degree $n$, $G$ is an abelian group scheme
-over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to $k'$.
-If $\cs{L} = (\gcs{L}, \mu, F)$ is a character sheaf on $G$ we may define
-a character sheaf $\nu(\cs{L}) = (\gcs{L}, \mu, F_{k'})$ on $G_{k'}$ by setting
-\[
-F_{k'} = F \circ \Frob_G^*(F) \circ \cdots \circ (\Frob_G^{n-1})^*(F).
-\]
-The commutativity of the diagram (CS.2) for $F_{k'}$ follows from the fact that $\Frob_{G_{k'}} = \Frob_G^n$.
-Note that we may also think about the construction of $F_{k'}$ as taking the action of $\Weil{k}$ defined in Remark
-\ref{rem:CS-action} and restricting it to $\Weil{k'}$.
-
-\begin{proposition}
-The following diagram commutes, where the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
-\[
-\begin{tikzcd}
-\CSiso{G} \rar{\nu} \dar{t_G} & \CSiso{G_{k'}} \dar{t_{G_{k'}}} \\
-\Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
-\end{tikzcd}
-\]
-\end{proposition}
+\section{Restriction of scalars}
 
 In the opposite direction, there is a canonical closed immersion of $k$-schemes
 $G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}.  Pullback yields a functor

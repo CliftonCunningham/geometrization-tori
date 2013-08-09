@@ -110,9 +110,11 @@
 \newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\cs{#1}^\dagger}
 \newcommand{\CS}{{\mathcal{C\hskip-1.8pt S}}}
-\newcommand{\GC}{{\mathcal{G\hskip-0.8pt C}}}
+\newcommand{\CSb}{{\mathcal{C\hskip-1.8pt S}_0}}
+\newcommand{\CSf}{{\mathcal{C\hskip-1.8pt S}_{f}}}
 \newcommand{\CSiso}[1]{\CS(#1)_{/\textit{iso}}}
-\newcommand{\CSbiso}[1]{\CS_0(#1)_{/\text{iso}}}
+\newcommand{\CSbiso}[1]{\CSb(#1)_{/\text{iso}}}
+\newcommand{\CSfiso}[1]{\CSf(#1)_{/\text{iso}}}
 \newcommand{\CE}{{\mathcal{C\hskip-1.8pt E}}}
 \newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
 \newcommand{\dualgroup}[1]{{\check{#1}}}
@@ -487,20 +489,49 @@ the snake lemma will then allow us to show
 \]
 canonically.
 
+\section{Base change over the residue field}\label{sec:basechange}
+
+When using character sheaves to study characters, it is useful to understand
+how character sheaves behave under change of fields.
+Suppose that $k'$ is a finite extension of $k$ of degree $n$, $G$ is an abelian group scheme
+over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to $k'$.
+If $\cs{L} = (\gcs{L}, \mu, F)$ is a character sheaf on $G$ we may define
+a character sheaf $\nu(\cs{L}) = (\gcs{L}, \mu, F_{k'})$ on $G_{k'}$ by setting
+\[
+F_{k'} = F \circ \Frob_G^*(F) \circ \cdots \circ (\Frob_G^{n-1})^*(F).
+\]
+The commutativity of the diagram (CS.2) for $F_{k'}$ follows from the fact that $\Frob_{G_{k'}} = \Frob_G^n$.
+Note that we may also think about the construction of $F_{k'}$ as taking the action of $\Weil{k}$ defined in Remark
+\ref{rem:CS-action} and restricting it to $\Weil{k'}$.
+
+\begin{proposition}\label{prop:basechange}
+The following diagram commutes, where the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
+\[
+\begin{tikzcd}
+\CSiso{G} \rar{\nu} \dar{t_G} & \CSiso{G_{k'}} \dar{t_{G_{k'}}} \\
+\Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
+\end{tikzcd}
+\]
+\end{proposition}
+
+\begin{proof}
+\todo{This proof is missing.}
+\end{proof}
+
 \section{Bounded character sheaves}\label{sec:bounded}
 
-Let $\CS_0(G)$ be the category of pairs $(\cs{L}_0,\mu_0)$ 
+Let $\CSb(G)$ be the category of pairs $(\cs{L}_0,\mu_0)$ 
 where $\cs{L}_0$ is a constructible $\ell$-adic sheaf on $G$, 
 which is a rank-$1$ local system on each connected component of $G$, 
 equipped with an isomorphism $\mu_0 : m^* \cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ 
 satisfying the analogue of Condition~\ref{CS.1} on $G$; 
-morphisms in $\CS_f(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
+morphisms in $\CSf(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
 This is the category of \cdef{bounded character sheaves} on $G$. 
 This is a rigid monoidal category in the obvious way, 
 with duals given by $\cs{L}_0^\vee \ceq \sheafHom(\cs{L}_0,(\EE)_{G})$.
 
 \begin{proposition}
-$\CS_0(G)$ is (equivalent to) a full subcategory of $\CS(G)$.
+$\CSb(G)$ is (equivalent to) a full subcategory of $\CS(G)$.
 \end{proposition}
 
 \begin{proof}
@@ -516,15 +547,14 @@ $\CS_0(G)$ is (equivalent to) a full subcategory of $\CS(G)$.
  Set $\mu = b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
  with $b_G^*\cs{L}_0$ playing the role of $\gcs{L}$.
  Moreover, $F$ is compatible with $\mu$ in the sense of Condition~\ref{CS.3}.
- It follows that functor $(\cs{L}_0,\mu_0) \mapsto (b_G^*\cs{L}_0,b_{G\times G}^* \mu_0, F)$, denoted by  $B_G^*: \CS_0(G) \hookrightarrow \CS(G)$ below, is full and faithful.
+ It follows that functor $(\cs{L}_0,\mu_0) \mapsto (b_G^*\cs{L}_0,b_{G\times G}^* \mu_0, F)$, denoted by  $B_G^*: \CSb(G) \hookrightarrow \CS(G)$ below, is full and faithful.
 \end{proof}
 
-\Clifton{Address the elephant in the room: Is $B_G^*: \CS_0(G) \hookrightarrow \CS(G)$ an equivalence? I'm pretty sure I can show that the answer is `no', using trace of Frobenius, as you have suggested.}
 
 \section{Finite character sheaves}\label{sec:finite}
 
- %In this section we describe a full subcategory of $\CS_0(G)$
- %which will illuminate some features of $\CS_0(G)$ and also play a role in some arguments below.
+ %In this section we describe a full subcategory of $\CSb(G)$
+ %which will illuminate some features of $\CSb(G)$ and also play a role in some arguments below.
  
 To define the category of finite character sheaves we must work a bit harder.
 Consider the following category $C(G)$:
@@ -541,21 +571,21 @@ and the action of $\ker f'$ on $V$ by $\psi \circ \varphi$.
 We say that $(\varphi,T)$ in $C(G)$ is a weak isomorphism if $T$ is an isomorphism of vector spaces. 
 Let $C(G)[W^{-1}]$ be the localization of $C(G)$ at weak isomorphisms.
 Now, let $C_1(G)$ be the subcategory of $C(G)$ such that $\psi$ is a one-dimensional representation
-and let $\CS_f(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. 
+and let $\CSf(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. 
 This is the category of \cdef{finite character sheaves} on $G$.
 
 \Clifton{Add the monoidal category structure here.}
 
 \begin{proposition}\label{prop:bounded}
- $\CS_f(G)$ is (equivalent to) a full subcategory of $\CS_0(G)$.
+ $\CSf(G)$ is (equivalent to) a full subcategory of $\CSb(G)$.
 \end{proposition}
 
 \begin{proof}
- To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \CS_f(G) \to \CS_0(G)$.
+ To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \CSf(G) \to \CSb(G)$.
  %
- We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \CS_0(G)$ 
+ We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \CSb(G)$ 
  such that ${\bar L}(\varphi,T)$ is an isomorphism precisely when $(\varphi,T)$ is a weak isomorphism. 
- Factoring along $C_1(G) \to \CS_0(G)$ will produce the full and faithful monoidal functor we seek.
+ Factoring along $C_1(G) \to \CSb(G)$ will produce the full and faithful monoidal functor we seek.
 
  We start by putting a tensor category structure on $C(G)$. 
  Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
@@ -629,8 +659,8 @@ This is the category of \cdef{finite character sheaves} on $G$.
  to define a faithful functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$. 
  Since $W$ is saturated, the functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$ is full. 
  
- One more ingredient is needed before we can exhibit the full functor $L_G: \CS_f(G) \to \CS_0(G)$ promised above: 
- we must put rigid monoidal category structures on $\CS_f(G)$ and $\CS_0(G)$.
+ One more ingredient is needed before we can exhibit the full functor $L_G: \CSf(G) \to \CSb(G)$ promised above: 
+ we must put rigid monoidal category structures on $\CSf(G)$ and $\CSb(G)$.
  
   It is also a matter of routine to verify that every morphism of group schemes $G'\to G$ 
   induces a monoidal functor $C(G) \to C(G')$ by base-change along $G'\to G$ ({\it cf.}, Proposition~\ref{prop:pullback}); 
@@ -648,12 +678,10 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
    \end{tikzcd}
   \]
 
-
- 
  If $(f,\psi)$ in an object in $C_1(G)$ then, as we have already seen, 
  $m^*L(f,\psi) \iso L(f,\psi) \boxtimes L(f,\psi)$ in $C_1(G\times G)$, canonically;
  let $\mu(f,\psi)$ be that isomorphism of $\ell$-adic sheaves on $G$,
- It follows immediately that the functor $L_G  \ceq  L_{W}\vert_{\CS_f(G)} : \CS_b(G) \to \CS_0(G)$, 
+ It follows immediately that the functor $L_G  \ceq  L_{W}\vert_{\CSf(G)} : \CS_b(G) \to \CSb(G)$, 
  given on objects by $(f,\psi) \mapsto (L(f,\psi), \mu(f,\psi))$,
  is a full and faithfull monoidal functor, completing the proof.
 \end{proof}
@@ -667,9 +695,9 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
 %In this section we review a fundamental property of character
 %sheaves on geometrically connected, commutative algebraic groups over $\Fq$.
 
-\begin{proposition}\label{prop:connected-1}
+\begin{proposition}\label{prop:connected}
   If $G$ is a connected commutative algebraic group over $\Fq$ then 
-  the full subcategories $\CS_f(G) \hookrightarrow \CS_0(G) \hookrightarrow \CS(G)$ 
+  the full subcategories $\CSf(G) \hookrightarrow \CSb(G) \hookrightarrow \CS(G)$ 
   appearing in Section~\ref{sec:bounded} are equivalences 
   and (with reference to Section~\ref{sec:Frob})
   \[
@@ -743,14 +771,14 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   Let $\mu_0 : m^*\cs{L}_0 \to \cs{L}_0\boxtimes\cs{L}_0$ be the isomorphism matching 
   $\mu : {\bar m}^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$, 
   the latter appearing in the definition of $\cs{L}$. 
-  Then, as in Section~\ref{sec:bounded}, $(\cs{L}_0,\mu_0)$ is an object in $\CS_0(G)$ 
+  Then, as in Section~\ref{sec:bounded}, $(\cs{L}_0,\mu_0)$ is an object in $\CSb(G)$ 
   and $\cs{L} = (\gcs{L},\mu,F)$ is isomorphic to $(b_G^*\cs{L}_0,b_{G\times G}^*\mu_0)$ in $\CS(G)$.
-  Thus, the full and faithful functor $B_G^* : \CS_0(G) \to \CS(G)$ from Section~\ref{sec:bounded}
+  Thus, the full and faithful functor $B_G^* : \CSb(G) \to \CS(G)$ from Section~\ref{sec:bounded}
   is also essentially surjective, hence an equivalence.
   %(when $G$ is a connected, commutative algebraic group over $\Fq$).
   
-  In Section~\ref{sec:finite} we saw that $\CS_f(G)$ is a full subcategory of $\CS_0(G)$;
-  more precisely, we exhibited a full and faithful functor $L_G : \CS_f(G) \to \CS_0(G)$.
+  In Section~\ref{sec:finite} we saw that $\CSf(G)$ is a full subcategory of $\CSb(G)$;
+  more precisely, we exhibited a full and faithful functor $L_G : \CSf(G) \to \CSb(G)$.
   We now show that this functor is essentially surjective 
   when $G$ is a connected, commutative algebraic group over $\Fq$.
   
@@ -764,52 +792,29 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   $\psi(g)(v) = t_\cs{L}^\Frob(g) v$ for $v\in V$. 
   Then $(f,\psi)$ is a finite character sheaf. 
   
-  We now show that $L_G(f,\psi) \iso (\cs{L}_0,\mu_0)$. 
+  To show that $L_G(f,\psi) \iso (\cs{L}_0,\mu_0)$ we simply apply the functions--sheaves dictionary
+  as follows ({\it cf} \cite{Laumon}*{1.1.3} or, ultimately, \cite{SGA4.5}*{Sommes trigonométriques}).
   First, recall that $L_G(f,\psi) = (L(f,\psi), \mu(f,\psi))$. 
-  By  \cite{Laumon}*{1.1.3.3}, $t_{L(f,\psi)}^{\Frob^n} = t_{\cs{L}}^{\Frob}\circ N_{\FF_{q^n}/\FF_q}$, for each positive integer $n$
-  On the other hand, $t_{\cs{L}}^{\Frob}\circ N_{\FF_{q^n}/\FF_q} = 
-  Using notation from \cite{Laumon}*{1.1},  this means $t_{\bullet L(f,\psi)} = t_{\bullet \cs{L}_0}$.
-  It now \cite{Laumon}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \cs{L}_0$ in $\Loc(G)$ (admittedly, this is a big hammer).
-  
-  
-   we simply apply the functions--sheaves dictionary
-  (see \cite{Laumon}*{1.1.3} or \cite{SGA4.5}*{Sommes trigonométriques}) as follows.
-  
-  
- 
-  As we saw in Section~\ref{sec:finite}, the $\ell$-adic local system $L(f,\psi)$ on $G$ comes equipped with an isomorphism
-  $m^* L(f,\psi) \iso L(f,\psi) \boxtimes L(f,\psi)$ in $\CS_b(G)$; 
-  in the case at hand, this isomorphism is \cite[1.1.3.2]{Laumon}.
-  By \cite[1.1.3.2]{Laumon}, 
-  
+  By  \cite{Laumon}*{1.1.3.3}, $t_{L(f,\psi)}^{\Frob^n} = t_{\cs{L}}^{\Frob}\circ N_{\FF_{q^n}/\FF_q}$, for each positive integer $n$.
+  On the other hand, $t_{\cs{L}}^{\Frob} \circ N_{\FF_{q^n}/\FF_q} = t_{\cs{L}}^{\Frob^n}$, for each positive integer $n$, 
+  by Proposition~\ref{prop:basechange}.
+  %Using notation from \cite{Laumon}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \cs{L}_0}$.
+  Using \cite{Laumon}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \cs{L}_0$ in $\Loc(G)$.
+  It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\cs{L}_0,\mu_0)$ in $\CSb(G)$.
+  This completes the proof that $L_G : \CSf(G) \to \CS(G)$ is essentially surjective.
   Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful, 
-  it will then follow that $L_G$ is an equivalence.
+  it follows that $L_G$ is an equivalence.
   
-  
-  
-  
-  
-  \todo{Clifton is here. I will use \cite{Kamgarpour} to finish the proof.}
-  
-  We have now shown that $b_G^* : \CS_0(G) \to \CS(G)$ is an equivalence
-  of rigid monoidal categories. It follows immediately that $b_G^*$
-  determines an isomorphism
+  To finish the proof of Proposition~\ref{prop:connected}, it suffices to observe that the group homomorphism
   \[
-  b_G^* : \CSbiso{G} \mathop{\longrightarrow}^{\iso} \CSiso{G}
+  t_{G} : \CSiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
   \]
-  of the Picard groups determined by these rigid monoidal categories.
-  \Clifton{\textdbend This last sentence glosses over some subtle points;
-    I might need to address them in the `two perspectives' section.}
-
-  To finish the proof observe that the functions--sheaves dictionary,
-  as it pertains to characters, shows that
-  \[
-  t_{G} : \CSbiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
-  \]
-  is an isomorphism of groups; see \cite{Laumon}*{1.1.3} or \cite{SGA4.5}*{Sommes trigonométriques}.
+  is surjective because, as we have seen, 
+  each character $\chi \in \Hom_\text{grp}(G(\Fq),\EEx)$ determines a finite character sheaf $(\Lang,\chi)$
+  such that the trace of Frobenius of the character sheaf $B_G^* (L_G(\Lang,\chi))$ is $\chi$.
 \end{proof}
 
-\section{Commutative etale group schemes}
+\section{Character sheaves on commutative etale group schemes}
 
 %\input{etale-1}
 %In this section we establish a fundamental property of character
@@ -1003,10 +1008,15 @@ First, however, we show that such global sections exist.  Since
 \Clifton{I'm going to remove all mention of line bundles from this paper.}
 \end{proof}
 
+\section{On the cohomology of the dual of an etale group scheme}
 %\input{etale-2}
 %Define $\rho \colon \Hh^1(\Weil{\Fq}, \Hom(G(\bFq), \EEx))
 % \rightarrow \Hom(G(\Fq), \EEx)$ by $\rho(\phi)(g) =
 % \phi(\Frob)(g)$.
+
+Although this section does not mention character sheaves, 
+we will need Proposition~\ref{prop:X} to prove our main result on character sheaves, 
+Theorem~\ref{thm:snake}.
 
 \begin{proposition}\label{prop:X}
   Let $X$ be a finitely generated abelian group equipped with an
@@ -1173,7 +1183,7 @@ Section~\ref{section:category}.
 \begin{proof}
   Because $G$ is smooth over $\Fq$, the identity component $G^0$ is a
   geometrically connected algebraic group over $\Fq$, clopen in $G$
-  \cite{vdG&M}*{3.17}. By Proposition~\ref{prop:connected-1}, every
+  \cite{vdG&M}*{3.17}. By Proposition~\ref{prop:connected}, every
   character sheaf $\cs{E} = (\gcs{E},\mu^0,F^0)$ on $G^0$ descends to
   a line bundle on $G^0$.
 
@@ -1442,7 +1452,7 @@ Section~\ref{section:category}.
   \Clifton{Add some detail here.}
   This isomorphism is compatible with $\mu$ in the sense of condition~\ref{CS.2}.
 \end{proof}
-
+\Clifton{I can flesh out this remark once I've promoted the definition of $\CSb(G)$ (category of bounded character sheaves on $G$).}
 \begin{remark}
   We have seen that if $f : H\to G$ is a finite etale cover of $G$ by
   a smooth group scheme and if all geometric automorphisms of $f$ are
@@ -1450,7 +1460,7 @@ Section~\ref{section:category}.
   character sheaf on $G$. However, it is not true that every character
   sheaf on $G$ arises in this manner.
 \end{remark}
-\Clifton{I can flesh out this remark once I've promoted the definition of $\CS_0(G)$ (category of bounded character sheaves on $G$).}
+
 %\input{centralextensions}
 
 \section{Main result regarding character sheaves}
@@ -1490,7 +1500,7 @@ Section~\ref{section:category}.
   \]
   be the commutative diagram of abelian groups obtained by applying
   Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  By
-  Proposition~\ref{prop:connected-1}, $\ker t_{G^0} =0$ and $\coker t_{G^0}=0$.
+  Proposition~\ref{prop:connected}, $\ker t_{G^0} =0$ and $\coker t_{G^0}=0$.
   By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker t_{\pi_0(G)}=0$
   and $\coker t_{\pi_0(G)}=0$.
 
