@@ -218,9 +218,7 @@ classes of character sheaves on $G$ form a group, denoted by
 $\CSiso{G}$; this is the Picard group of the category of
 character sheaves on $G$. Our application of character sheaves to
 characters of algebraic tori over non-Archimedean local fields rests
-on the Picard group of character sheaves on $G$, for all smooth
-commutative group schemes $G$, locally of finite type over $\Fq$, 
-for which the geometric component group is finitely generated.
+on finding the Picard group of character sheaves on $G$, for all smooth commutative group schemes $G$, locally of finite type over $\Fq$, for which the geometric component group is finitely generated.
 
 We now say a few words about the group schemes 
 that appear in our geometrization of admissible
@@ -265,20 +263,17 @@ Throughout this paper, $G$ is a commutative group scheme,
 smooth and locally of finite type over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
-commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$, over $\bFq$ obtained by base change from $k$. The multiplication morphism for $\bG$ will be denoted by $\bm$. 
-%
+commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$ over $\bFq$ obtained by base change from $k$. The multiplication morphism for $\bG$ will be denoted by $\bm$. 
+
 Let $\Frob{G}$ be the Frobenius automorphism of $\bG$.
-\Clifton{I was a bit glib about Frobenius, previously.
-Now I've made things more precise here; I'm in the process of tracking this improvement through the paper.}
 Recall that $\Frob{G} = \id_{G}\times \Frob{\Spec{\bFq}}$ where
-$\Frob{\Spec{\bFq}} = \Spec\Frob{\Fq}$ and $\Frob{\Fq}$  is the geometric Frobenius element in $\Weil{\Fq} \subset \Gal(\bFq/\Fq)$.
+$\Frob{\Spec{\bFq}} = \Spec{\Frob{\Fq}}$ and $\Frob{\Fq}$  is the geometric Frobenius element in $\Gal(\bFq/\Fq)$.
 
 The category of character sheaves on $G$, denoted by \cdef{$\CS(G)$},
 is defined as follows.  A \cdef{character sheaf} on $G$ is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a rank-$1$ $\ell$-adic
-  local system on (the \'etale site of) $\bG$;
+\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic sheaf on  (the \'etale site of) $\bG$, locally constant of rank-$1$ on each connected component of $\bG$;
 \labitem{(CS.1)}{CS.1} $\mu: \bm^* \gcs{L} \to \LxL$
   is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
@@ -294,7 +289,7 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   
 %
 \labitem{(CS.2)}{CS.2} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
-  isomorphism of sheaves on $\bG$ compatible with $\mu$ in the sense that the following diagram commutes.
+  isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with $\mu$ in the sense that the following diagram commutes.
 %
   \[
   \begin{tikzcd}[row sep=20]
@@ -323,6 +318,32 @@ Morphisms in $\CS(G)$ are defined in the natural way:
   \]
 \end{enumerate}
 
+%\begin{remark} \label{rem:CS-action}
+The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from character sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{Deligne:Weil2}*{Def.~1.1.10 (i)}.
+As remarked after \cite{Deligne:Weil2}*{Def.~1.1.10}, a $\ell$-adic Weil sheaf $(\gcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. Since we will need this point of view later, we review that interpretation here. Setting 
+\[
+\phi(\Frob{\Fq}^n) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi)
+\]
+defines, for every $w\in \Weil{\Fq}$, an isomorphism
+\[
+\phi(w) : w_G^* \gcs{L}\to \gcs{L},
+\]
+such that
+\[
+\phi(uv) = \phi(v) \circ v_G^* \phi(u), \qquad \forall u,v\in \Weil{\Fq}.
+\]
+Note that $\phi = \phi(\Frob{\Fq})$. 
+If we further define $\phi_1(w) \ceq (w_G)_*(\phi(w)^{-1})$ then
+\[
+\phi_1(w) : (w_G)_* \gcs{L}\to \gcs{L},
+\]
+is an isomorphism and
+\[
+\phi_1(uv) = \phi_1(u) \circ (u_G)_* \phi_1(v), \qquad \forall u,v\in \Weil{\Fq},
+\]
+which means the pair $(\gcs{L},\phi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\phi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\CS(G)$.
+%\end{remark}
+
 \section{The Picard group of character sheaves}
 
 %\begin{proposition}\label{tensor}
@@ -341,17 +362,8 @@ This rigid monoidal category structure for $\CS(G)$ puts a group
 structure on the set $\CSiso{G}$ of isomorphism classes in
 $\CS(G)$; we refer to this as the \cdef{Picard group of character
 sheaves} on $G$.\footnote{See {\tt http://ncatlab.org/nlab/show/Picard+group}.}
+The main result in this paper is the determination of the Picard group of character sheaves on $G$, when the geometric component group of $G$ is finitely generated.
 
-\begin{remark} \label{rem:CS-action}
-If $W$ is a group equipped with a homomorphism $\alpha : W \to \Gal(\bFq/\Fq)$
-then an \emph{action} of $W$ on $\gcs{L}$ is a collection of isomorphisms
-\[
-\gamma_w : \alpha(w)^* \gcs{L} \to \gcs{L}
-\]
-so that $\gamma_{uw} = \gamma_w \circ \alpha(w)^*\gamma_u$. \David{make sure I have the order right and add a reference}
-Specifying an $F$ as in \ref{CS.2} is the same as giving an action of the Weil group $\Weil{k}$
-on $\gcs{L}$ compatible with $\mu$.
-\end{remark}
 
 \section{Trace of Frobenius}\label{sec:Frob}
 
@@ -561,14 +573,14 @@ $\CSb(G)$ is (equivalent to) a full subcategory of $\CS(G)$.
 To define the category of finite character sheaves we must work a bit harder.
 Consider the following category $C(G)$:
 an object in $C(G)$ is a pair $(f,\psi)$ where: 
-$f : H\to G$ is an isogeny (a finite, surjective, etale, morphism of commutative group $\Fq$-schemes) 
+$f : H\to G$ an etale cover and a morphism of commutative group $\Fq$-schemes (an isogeny) 
 for which the action of $\Gal(\bFq/\Fq)$ on the etale group scheme $\ker f$ is trivial, 
 and $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$;
-a map $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\varphi,T)$ 
-where $\varphi$ is a morphism of schemes such that $f' = f\circ \varphi$
+a map $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$ 
+where $\alpha$ is a morphism of schemes such that $f' = f\circ \alpha$
 and $T : V\to V'$ is a linear transformation equivariant 
 for the action of $\ker f'$ on $V'$ by $\psi'$ 
-and the action of $\ker f'$ on $V$ by $\psi \circ \varphi$.
+and the action of $\ker f'$ on $V$ by $\psi \circ h$.
 
 We put a tensor category structure on $C(G)$ as follows.
  Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
@@ -583,7 +595,7 @@ We put a tensor category structure on $C(G)$ as follows.
  where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee = \Hom_\text{vec}(V,\EE)$. 
  The verification that these operations make $C(G)$ a tensor category is routine. 
 
-We say that $(\varphi,T)$ in $C(G)$ is a weak isomorphism if $T$ is an isomorphism of vector spaces. 
+We say that $(\alpha,T)$ in $C(G)$ is a weak isomorphism if $T$ is an isomorphism of vector spaces. 
 Let $C(G)[W^{-1}]$ be the localization of $C(G)$ at weak isomorphisms.
 Now, let $C_1(G)$ be the subcategory of $C(G)$ such that $\psi$ is a one-dimensional representation
 and let $\CSf(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. 
@@ -597,7 +609,7 @@ This is the rigid symmetric monoidal category of \cdef{finite character sheaves}
  To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \CSf(G) \to \CSb(G)$.
  %
  We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \CSb(G)$ 
- such that $L(\varphi,T)$ is an isomorphism precisely when $(\varphi,T)$ is a weak isomorphism. 
+ such that $L(\alpha,T)$ is an isomorphism precisely when $(h,T)$ is a weak isomorphism. 
  Factoring along $C_1(G) \to \CSb(G)$ will produce the full and faithful monoidal functor we seek.
 
  Now we introduce a faithful functor $L : C(G) \to \Loc(G)$ to the category of local systems on $G$.
@@ -606,12 +618,12 @@ This is the rigid symmetric monoidal category of \cdef{finite character sheaves}
  We may identify the stalk $(f_* V_H)_{\bar g}$ of $f_* V_H$ at a geometric point ${\bar g}$ on $G$ 
  with the $\EE$-vector space $\Hom_\text{set}(\abs{f^{-1}({\bar g})},V)$ 
  and the stalk $L(f,\psi)_{\bar g}$ of $L(f,\psi)$ at a geometric point ${\bar g}$ on $G$ 
- with the $\EE$-vector space consisting of those functions $s: \abs{f^{-1}({\bar g})} \to V$ such that 
+ with the $\EE$-vector space consisting of those functions $s: \abs{f^{-1}({\bar s})} \to V$ such that 
  $s(a\cdot {\bar h}) = \psi(a)(s({\bar h}))$ for all $a\in \ker f$ and for all ${\bar h} \in f^{-1}({\bar g})$.
  Since $L(f,\psi)$ is trivialized by $f$, it is a local system on $G$.
- For any map $(\varphi,T)$ in $C(G)$, let $L(\varphi,T) : L(f,\psi) \to L(f',\psi')$ be the homomorphism of local systems defined 
- %at geometric points $L(\varphi,T)_{\bar g} : L(f,\psi)_{\bar g} \to L(f',\psi')_{\bar g}$ 
- by $s \mapsto s' \ceq T\circ s\circ \varphi$. 
+ For any map $(\alpha,T)$ in $C(G)$, let $L(\alpha,T) : L(f,\psi) \to L(f',\psi')$ be the homomorphism of local systems defined 
+ %at geometric points $L(\alpha,T)_{\bar g} : L(f,\psi)_{\bar g} \to L(f',\psi')_{\bar g}$ 
+ by $s \mapsto s' \ceq T\circ s\circ \alpha$. 
  This defines a monoidal functor $L$ from $C(G)$ to $\Loc(G)$. 
  This functor commutes with pull-back along any morphism of group schemes.
   
@@ -624,35 +636,36 @@ This is the rigid symmetric monoidal category of \cdef{finite character sheaves}
  It follows that a morphism in $C(G)[W^{-1}]$ is the equivalence class of 
   \[
    \begin{tikzcd}
-   (f,\psi) \arrow{r}{(\varphi_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(\varphi'_1,T'_1)} (f',\psi')
+   (f,\psi) \arrow{r}{(\alpha_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(\alpha'_1,T'_1)} (f',\psi')
    \end{tikzcd}
   \]
- where $(\varphi',T') : (f,\psi) \to (f',T')$ is any map in $C(G)$ 
- and $(\varphi'_1,T'_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism; 
- this morphism is commonly denoted by $(\varphi_1,T_1)^{-1}\circ (\varphi'_1,T'_1)$. 
- %The equivalence relation identifies $(\varphi_1,T_1)^{-1}\circ (\varphi'_1,T'_1)$ 
- % with $(\varphi_2,T_2)^{-1}\circ (\varphi'_2,T'_2)$ if there are maps 
+ where $(\alpha',T') : (f,\psi) \to (f',T')$ is any map in $C(G)$ 
+ and $(\alpha'_1,T'_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism.
+% this morphism is commonly denoted by $(\alpha_1,T_1)^{-1}\circ (\alpha'_1,T'_1)$. 
+ %The equivalence relation identifies $(\alpha_1,T_1)^{-1}\circ (\alpha'_1,T'_1)$ 
+ % with $(\alpha_2,T_2)^{-1}\circ (\alpha'_2,T'_2)$ if there are maps 
  %$(f_1,\psi_1)\to (f_0,\psi_0)$ and $(f_2,\psi_2)\to (f_0,\psi_0)$ making the following diagram commute
  %\[
  %  \begin{tikzcd}
  %  & (f_1,\psi_1) \arrow{d} & \\
- %  (f,\psi) \arrow{ur}{(\varphi_1,T_1)} \arrow{dr}{(\varphi_2,T_2)} & (f_0,\psi_0)  & \arrow[swap]{ld}{(\varphi'_2,T'_2)} \arrow[swap]{lu}{(\varphi'_1,T'_1)} (f',\psi')\\
+ %  (f,\psi) \arrow{ur}{(\alpha_1,T_1)} \arrow{dr}{(\alpha_2,T_2)} & (f_0,\psi_0)  & \arrow[swap]{ld}{(\alpha'_2,T'_2)} \arrow[swap]{lu}{(\alpha'_1,T'_1)} (f',\psi')\\
  %  & (f_2,\psi_2) \arrow{u} & \\
  %  \end{tikzcd}
  %\]
  %where $(f',\psi') \to (f_0,\psi_0)$ is a weak isomorphism.
 
  Observe that $L$ takes weak isomorphisms in $C(G)$ to isomorphisms in $\Loc(G)$. 
- To see this, let $(\varphi,T) : (f,\psi)\to (f',\psi')$ be a weak isomorphism, 
+ To see this, let $(h,T) : (f,\psi)\to (f',\psi')$ be a weak isomorphism, 
  where $f:H\to G$ and $f':H'\to G$ as above. 
  Since $T$ is an isomorphism, we may replace $V'$ with $V$ and $T$ with $\id_V$, without loss of generality. 
- Then the equivariance condition on $T$ becomes $\psi' = \psi\circ \varphi$ on the finite etale group scheme $\ker f'$. 
- Since $f' = f \circ \varphi$ and $f$ and $f'$ are etale covers, it follows that $\varphi$ is also an etale cover. 
- It follows that $\varphi : H'\to H$ admits a section $\varphi' : H \to H'$, 
- which provides the inverse to $L(\varphi,T) : L(f,\psi) \to L(f',\psi')$, above. 
- It is also clear that if $L(\varphi,T)$ is an isomorphism of local systems, 
+ Then the equivariance condition on $T$ becomes $\psi' = \psi\circ h$ on the finite etale group scheme $\ker f'$. 
+ Since $f' = f \circ \alpha$ and $f$ and $f'$ are etale covers, it follows that $\alpha$ is also an etale cover. 
+ It follows that $\alpha : H'\to H$ admits a section $\alpha' : H \to H'$, 
+ which provides the inverse to $L(\alpha,T) : L(f,\psi) \to L(f',\psi')$, above. 
+ \Clifton{Is it clear?}
+ It is also clear that if $L(\alpha,T)$ is an isomorphism of local systems, 
  then $T$ must be an isomorphism of vector spaces, 
- whence $(\varphi,T)$ is a weak isomorphism: $W$ is saturated.
+ whence $(\alpha,T)$ is a weak isomorphism: $W$ is saturated.
   
  Since $L : C(G) \to \Loc(G)$ takes weak isomorphisms to isomorphisms,
  it factors (uniquely!) through the localisation functor $C(G) \to C(G)[W^{-1}]$ 
@@ -908,7 +921,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   spaces, so $\phi_x(s(\Frob{\Fq}(x)))$ is a scalar multiply of $s(x)$, for
   each $x\in G(\bFq)$; let $\tau_\cs{L}(\Frob{\Fq})(x)$ be that scalar, so
   \begin{equation}\label{t}
-    \forall x\in G(\bFq),\qquad F_{x}(s(\Frob{\Fq}(x)) = \tau_\cs{L}(\Frob{\Fq})(x) s(x).
+    \forall x\in G(\bFq),\qquad \phi_{x}(s(\Frob{\Fq}(x)) = \tau_\cs{L}(\Frob{\Fq})(x) s(x).
   \end{equation}
   Conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
   the scalar $z_\cs{L}(\Frob)(x)$ is non-zero, while condition~\ref{cs.1} forces
@@ -976,7 +989,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   \Clifton{Straightforward, yes, but it still needs to be written down here.}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:section}
  If $\cs{L}$ is a character sheaf then there is a non-trivial section of $\gcs{L}$ 
  compatible with $\mu$ in the sense that 
  \begin{equation}\label{section}
@@ -1856,8 +1869,20 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
    place={Berlin},
 %date={4h},
    date={1977},
-   pages={iv+312pp},
+%   pages={iv+312pp},
 %   review={\MR{0463174 (57 \#3132)}},
+}
+
+\bib{Deligne:Weil2}{article}{
+   author={Deligne, Pierre},
+   title={La conjecture de Weil. II},
+%   language={French},
+   journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
+   number={52},
+   date={1980},
+   pages={137--252},
+%   issn={0073-8301},
+%   review={\MR{601520 (83c:14017)}},
 }
 
 \bib{SGA7.2}{book}{
@@ -1872,7 +1897,7 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
    publisher={Springer-Verlag},
    place={Berlin},
    date={1973},
-   pages={x+438},
+%   pages={x+438},
 %   review={\MR{0354657 (50 \#7135)}},
 }
 
