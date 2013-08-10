@@ -110,12 +110,12 @@
 \newcommand{\gcs}[1]{{\mathcal{\bar #1}}}
 \newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\cs{#1}^\dagger}
-\newcommand{\CS}{{\mathcal{C\hskip-1.8pt S}}}
-\newcommand{\CSb}{{\mathcal{C\hskip-1.8pt S}_0}}
-\newcommand{\CSf}{{\mathcal{C\hskip-1.8pt S}_{f}}}
-\newcommand{\CSiso}[1]{\CS(#1)_{/\textit{iso}}}
-\newcommand{\CSbiso}[1]{\CSb(#1)_{/\text{iso}}}
-\newcommand{\CSfiso}[1]{\CSf(#1)_{/\text{iso}}}
+\newcommand{\GC}{{\mathcal{G\hskip-0.8pt C}}}
+\newcommand{\GCb}{{\GC_0}}
+\newcommand{\GCf}{{\GC_f}}
+\newcommand{\GCiso}[1]{\GC(#1)_{/\textit{iso}}}
+\newcommand{\GCbiso}[1]{\GCb(#1)_{/\text{iso}}}
+\newcommand{\GCfiso}[1]{\GCf(#1)_{/\text{iso}}}
 \newcommand{\CE}{{\mathcal{C\hskip-1.8pt E}}}
 \newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
 \newcommand{\dualgroup}[1]{{\check{#1}}}
@@ -157,14 +157,14 @@
 
 
 \begin{abstract}
-  We study the category of character sheaves on smooth commutative
+  We study the category of geometrized characters on smooth commutative
   group schemes $G$ locally of finite type over finite fields
   $\Fq$. Assuming that the geometric component group of $G$
   is finitely-generated, we show that the group of isomorphism classes
-  of character sheaves on $G$ is canonically isomorphic to the group
+  of geometrized characters on $G$ is canonically isomorphic to the group
   of characters of $G(\Fq)$. We use this result to exhibit an
   isomorphism between admissible characters of $T(K)$ and isomorphism
-  classes of character sheaves on the Greenberg transform of the Néron
+  classes of geometrized characters on the Greenberg transform of the Néron
   model of $T$, where $K$ is any non-Archimdean local field and $T$ is
   any algebraic torus over $K$.
 \end{abstract}
@@ -189,19 +189,17 @@
 %  \cite{Tate:thesis}*{\S 2.3}
 %\end{quotation}
 %\noindent
-In this paper we show that the monidal category of character sheaves
+In this paper we show that the monidal category of geometrized characters
 on the Greenberg transform of the locally finite type Neron model of
 $T$ provides an elegant, canonical model for the group of
 (quasi-)characters of $T(K)$, where $K$ is any non-Archimedean local
 field and $T$ is any algebraic torus over $K$.
 
-Since the character sheaves that appear in this paper are not quite an
-instance of those defined by George Luzstig, who coined the term, we
-begin by explaining what we mean by `character sheaves' here. 
+We begin by explaining what we mean by `geometrized characters'. 
 Let $G$ be a smooth commutative group scheme locally of finite
 type over $\Fq$; $G$ need not be reductive, connected, nor of
 finite type over $\Fq$. Fix a prime $\ell$ that does not divide
-$q$. By a {character sheaf} on $G$ we mean a triple $\cs{L}\ceq
+$q$. By a {geometrized character} on $G$ we mean a triple $\cs{L}\ceq
 (\gcs{L},\mu,\phi)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf
 $\gcs{L}$ on the \'etale site of $\bG \ceq G \times_{\Spec\Fq}
 \Spec{\bFq}$, locally constant of rank-$1$ on every connected
@@ -212,13 +210,15 @@ the group operation for $G$, and an isomorphism $F : \Frob{G}^*
 on $\bG$, satisfying natural compatibility conditions with $\mu$;
 these compatibility conditions are explained below.
 
-Character sheaves on $G$ form a category, denoted by $\CS(G)$. In
-fact, $\CS(G)$ is a rigid symmetric monoidal category, so isomorphism
-classes of character sheaves on $G$ form a group, denoted by
-$\CSiso{G}$; this is the Picard group of the category of
-character sheaves on $G$. Our application of character sheaves to
+Geometrized characters on $G$ form a category, denoted by $\GC(G)$. In
+fact, $\GC(G)$ is a rigid symmetric monoidal category, so isomorphism
+classes of geometrized characters on $G$ form a group, denoted by
+$\GCiso{G}$; this is the Picard group of the category of
+geometrized characters on $G$. Our application of geometrized characters to
 characters of algebraic tori over non-Archimedean local fields rests
-on finding the Picard group of character sheaves on $G$, for all smooth commutative group schemes $G$, locally of finite type over $\Fq$, for which the geometric component group is finitely generated.
+on finding the Picard group of geometrized characters on $G$, 
+for all smooth commutative group schemes $G$, locally of finite type over $\Fq$, 
+for which the geometric component group is finitely generated.
 
 We now say a few words about the group schemes 
 that appear in our geometrization of admissible
@@ -235,11 +235,11 @@ plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
 \[
-\CSiso{\GN{T}_d} 
+\GCiso{\GN{T}_d} 
 \iso
 \Hom_{< d}(T(K),\EEx)
 \] 
-between the Picard group of the category of character sheaves on
+between the Picard group of the category of geometrized characters on
 $\GN{T}_d$ and the group of characters $T(K) \to \EEx$ of
 depth at most $d$.  Since these isomorphisms are compatible with
 respect to $d$, we also .....  \David{I'll do this when we're closer to being finished.}  
@@ -247,7 +247,7 @@ respect to $d$, we also .....  \David{I'll do this when we're closer to being fi
 %specializing to the case $T= \Gm{K}$ and by
 %choosing an isomorphism $\EE \approx \CC$ (unnatural though it may
 %be), we arrive at a model for the group of quasi-characters of
-%$K^\times$: the monoidal category of character sheaves on the
+%$K^\times$: the monoidal category of geometrized characters on the
 %Greenberg transform of the Neron model of
 %$\Gm{K}$.
 
@@ -257,7 +257,7 @@ Thanks to:
 
 \tableofcontents
 
-\section{The category of character sheaves}\label{section:category}
+\section{The category of geometrized characters}\label{sec:category}
 
 Throughout this paper, $G$ is a commutative group scheme,
 smooth and locally of finite type over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
@@ -269,8 +269,8 @@ Let $\Frob{G}$ be the Frobenius automorphism of $\bG$.
 Recall that $\Frob{G} = \id_{G}\times \Frob{\Spec{\bFq}}$ where
 $\Frob{\Spec{\bFq}} = \Spec{\Frob{\Fq}}$ and $\Frob{\Fq}$  is the geometric Frobenius element in $\Gal(\bFq/\Fq)$.
 
-The category of character sheaves on $G$, denoted by \cdef{$\CS(G)$},
-is defined as follows.  A \cdef{character sheaf} on $G$ is a triple
+The category of geometrized characters on $G$, denoted by \cdef{$\GC(G)$},
+is defined as follows.  A \cdef{geometrized character} on $G$ is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
 \labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic sheaf on  (the \'etale site of) $\bG$, locally constant of rank-$1$ on each connected component of $\bG$;
@@ -302,73 +302,73 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \end{tikzcd}
   \]
 \end{enumerate}
-Morphisms in $\CS(G)$ are defined in the natural way:
+Morphisms in $\GC(G)$ are defined in the natural way:
 \begin{enumerate}
 \labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
-  $\cs{L'} = (\gcs{L'},\mu',\phi')$ are character sheaves on $G$ then
-  $\Hom_{\CS(G)}(\cs{L},\cs{L'})$ is the set of morphisms $\varphi : \gcs{L} \to \gcs{L'}$
+  $\cs{L'} = (\gcs{L'},\mu',\phi')$ are geometrized characters on $G$ then
+  $\Hom_{\GC(G)}(\cs{L},\cs{L'})$ is the set of morphisms $\alpha : \gcs{L} \to \gcs{L'}$
   of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
   \[
   \begin{tikzcd}[column sep=40]
-  \Frob{G}^* \gcs{L} \rar{\Frob{G}^* \varphi} \arrow[swap]{d}{F} & \Frob{G}^* \gcs{L'} \dar{F'}
-  & \arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}} & \arrow[swap]{d}{\mu} m^* \gcs{L} \rar{m^* \varphi} & m^* \gcs{L'} \dar{\mu'} \\
-  \gcs{L} \rar{\varphi} & \gcs{L'}
-  & {} & \LxL \rar{\tight{1}{\varphi\boxtimes \varphi}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
+  \Frob{G}^* \gcs{L} \rar{\Frob{G}^* \alpha} \arrow[swap]{d}{\phi} & \Frob{G}^* \gcs{L'} \dar{\phi'}
+  & \arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}} & \arrow[swap]{d}{\mu} m^* \gcs{L} \rar{m^* \alpha} & m^* \gcs{L'} \dar{\mu'} \\
+  \gcs{L} \rar{\alpha} & \gcs{L'}
+  & {} & \LxL \rar{\tight{1}{\alpha\boxtimes \alpha}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
   \end{tikzcd}
   \]
 \end{enumerate}
 
 %\begin{remark} \label{rem:CS-action}
-The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from character sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{Deligne:Weil2}*{Def.~1.1.10 (i)}.
-
-As remarked after \cite{Deligne:Weil2}*{Def.~1.1.10}, a $\ell$-adic Weil sheaf $(\gcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. Since we will need this point of view later, we review that interpretation here. Setting 
+The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from geometrized characters on $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{Deligne:Weil2}*{Def.~1.1.10 (i)}.
+%
+As remarked after \cite{Deligne:Weil2}*{Def.~1.1.10}, a Weil sheaf $(\gcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. Since we will need this point of view later, we review that interpretation here. Setting 
 \[
-\phi(\Frob{\Fq}^n) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi)
+\varphi(\Frob{\Fq}^n) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi)
 \]
 defines, for every $w\in \Weil{\Fq}$, an isomorphism
 \[
-\phi(w) : w_G^* \gcs{L}\to \gcs{L},
+\varphi(w) : w_G^* \gcs{L}\to \gcs{L},
 \]
 such that
 \[
-\phi(uv) = \phi(v) \circ v_G^* \phi(u), \qquad \forall u,v\in \Weil{\Fq}.
+\forall u,v\in \Weil{\Fq},\qquad \varphi(uv) = \varphi(v) \circ v_G^* \varphi(u).
 \]
-Note that $\phi = \phi(\Frob{\Fq})$. 
-If we further define $\phi_1(w) \ceq (w_G)_*(\phi(w)^{-1})$ then
+Note that $\phi = \varphi(\Frob{\Fq})$. 
+If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then
 \[
-\phi_1(w) : (w_G)_* \gcs{L}\to \gcs{L},
+\varphi_1(w) : (w_G)_* \gcs{L}\to \gcs{L},
 \]
 is an isomorphism and
 \[
-\phi_1(uv) = \phi_1(u) \circ (u_G)_* \phi_1(v), \qquad \forall u,v\in \Weil{\Fq},
+ \forall u,v\in \Weil{\Fq},\qquad \varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v),
 \]
-which means the pair $(\gcs{L},\phi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\phi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\CS(G)$. 
+which means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\varphi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\GC(G)$. 
 %\end{remark}
 
-\section{The Picard group of character sheaves}
+\section{The Picard group of geometrized characters}
 
 %\begin{proposition}\label{tensor}
-The category $\CS(G)$ of character sheaves on $G$ is a rigid monoidal
+The category $\GC(G)$ of geometrized characters on $G$ is a rigid monoidal
 category [insert reference] under
 $\cs{L} \otimes \cs{L'} \ceq (\gcs{L}\otimes\gcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$
 with duals given by applying the functor 
 \Clifton{Should this be $\sheafHom(\ - \ ,\EE)$?} $\sheafHom(\ - \ ,(\EE)_{\bG})$ (sheaf hom) to
 conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}.
 %\end{proposition}
-(The category of characters sheaves on $G$ is not abelian, so $\CS(G)$
+(The category of characters sheaves on $G$ is not abelian, so $\GC(G)$
 is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
 %\begin{proof}\end{proof}
 %
-This rigid monoidal category structure for $\CS(G)$ puts a group
-structure on the set $\CSiso{G}$ of isomorphism classes in
-$\CS(G)$; we refer to this as the \cdef{Picard group of character
+This rigid monoidal category structure for $\GC(G)$ puts a group
+structure on the set $\GCiso{G}$ of isomorphism classes in
+$\GC(G)$; we refer to this as the \cdef{Picard group of character
 sheaves} on $G$.\footnote{See {\tt http://ncatlab.org/nlab/show/Picard+group}.}
-The main result in this paper is the determination of the Picard group of character sheaves on $G$, when the geometric component group of $G$ is finitely generated.
+The main result in this paper is the determination of the Picard group of geometrized characters on $G$, when the geometric component group of $G$ is finitely generated.
 
 
 \section{Trace of Frobenius}\label{sec:Frob}
 
-Let $\cs{L}$ be a character sheaf on $G$. Every $g\in G(\Fq)$
+Let $\cs{L}$ be a geometrized character on $G$. Every $g\in G(\Fq)$
 determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$ and
 therefore an automorphism $\phi_{\bg}$ of $\gcs{L}_{\bg}$. Note
 that $\Aut_{\EE}(\gcs{L}_{\bg}) \iso \EEx$, canonically. The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
@@ -381,30 +381,30 @@ $\trFrob{(\gcs{L},\phi)} : G(\Fq)\to \EE$ is defined by $\trFrob{(\gcs{L},\phi)}
 
 It is clear that $\trFrob{\cs{L}\otimes \cs{L'}} = \trFrob{\cs{L}} \cdot \trFrob{\cs{L'}}$
 (pointwise multiplication of functions) and that $\trFrob{\cs{L}} = \trFrob{\cs{L'}}$
-if $\cs{L} \iso \cs{L'}$ in $\CS(G)$. In this way we obtain a group homomorphism
+if $\cs{L} \iso \cs{L'}$ in $\GC(G)$. In this way we obtain a group homomorphism
 \[
-\cdef{\trFrob{G}} : \CSiso{G} \longrightarrow \Hom_\text{grp}(G(\Fq),\EEx),
+\cdef{\trFrob{G}} : \GCiso{G} \longrightarrow \Hom_\text{grp}(G(\Fq),\EEx),
 \qquad \text{defined by}\qquad \cs{L} \mapsto \trFrob{\cs{L}},
 \]
-from the Picard group of character sheaves on $G$ to the character group of $G(\Fq)$.
+from the Picard group of geometrized characters on $G$ to the character group of $G(\Fq)$.
 
 Our main result on the geometrization of admissible characters of
 $p$-adic tori [insert internal reference here] follows from a general
 fact established later in this paper: if the geometric component group
 of $G$ is finitely-generated then the trace of Frobenius defines an
-isomorphism from the Picard group of character sheaves $G$ to the
+isomorphism from the Picard group of geometrized characters $G$ to the
 group of characters of $G(\Fq)$ (here, as throughout the paper, $G$ is
 a commutative group scheme, smooth and locally of finite type over $\Fq$).
 
-\section{Pull-back of character sheaves}\label{subsection:pullback}
+\section{Pull-back of geometrized characters}\label{subsection:pullback}
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
   $(\gcs{L},\mu,\phi) \mapsto (\bf^*\gcs{L},(\bfxf)^*\mu,\bf^*F)$
-  defines a monoidal functor $f^* : \CS(G) \to \CS(H)$ such that
+  defines a monoidal functor $f^* : \GC(G) \to \GC(H)$ such that
   \[
   \begin{tikzcd}[row sep=20, column sep=30]
-   \CSiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \CSiso{H} \dar{t_H} \\
+   \GCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \GCiso{H} \dar{t_H} \\
   \Hom_\text{grp}(G(\Fq),\EEx) \rar & \Hom_\text{grp}(H(\Fq),\EEx)
   \end{tikzcd}
   \]
@@ -413,7 +413,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
 \end{proposition}
 
 \begin{proof}
-  Let $\cs{L}$ be a character sheaf on $G$. We start by showing that
+  Let $\cs{L}$ be a geometrized character on $G$. We start by showing that
   $\bf^*\gcs{L}$ is locally constant on connected components of
   $\bH$. Let $c_j :\bH^j \hookrightarrow \bH$ be any
   connected component and let $i$ be the image of $j$ under the group
@@ -423,7 +423,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   Write $c_i : \bG^i \hookrightarrow \bG$ for
   the inclusion of $\bG^i$ and $\bf^j : \bH^j \to \bG^i$
   for the restriction of $f$ to $\bH^j$.  Since $\cs{L}$
-  is a character sheaf, $\gcs{L}$ is locally constant on the connect
+  is a geometrized character, $\gcs{L}$ is locally constant on the connect
   components of $\bG$; thus, there is a finite etale covering
   $a_i : X_i \to \bG^i$ such that $a_i^* (\gcs{L}\vert_{\bG^i})$
   is constant. Let $b_j : Y_j \to \bH^j$ be the
@@ -459,12 +459,12 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   (isomorphisms of functors on constructible sheaves).
 
   To see that $(\gcs{L},\mu,\phi) \mapsto (\bf^*\gcs{L},(\bfxf)^*\mu,\bf^*F)$
-  defines a functor $f^* : \CS(G) \to \CS(H)$ one applies the functors $\bf^*$ and
+  defines a functor $f^* : \GC(G) \to \GC(H)$ one applies the functors $\bf^*$ and
   $\bf^*\tight{1}{\times}{1}\bf^*$ to \ref{CS.3} and argue as
   above. It follows from the fact that sheaf hom commutes with these
-  functors that $f^* : \CS(G) \to \CS(H)$ is a monoidal functor.
+  functors that $f^* : \GC(G) \to \GC(H)$ is a monoidal functor.
 %
-  The fact that the functor $f^* : \CS(G) \to \CS(H)$ commutes with
+  The fact that the functor $f^* : \GC(G) \to \GC(H)$ commutes with
   the trace of Frobenius, in the sense above, follows immediately from
   the definitions; see \cite{Laumon}*{1.1.1.2}, where the ambient
   hypothesis that $X$ is of finite type over $\Fq$ can be replaced by
@@ -487,72 +487,78 @@ Since $\pi_0(G)$ is an Abelian group scheme, smooth (in fact, etale) and locally
 it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1} defines a sequence of functors
 \[
 \begin{tikzcd}
-\CS(0) \rar & \CS(\pi_0(G)) \rar & \CS(G) \rar & \CS(G^0) \rar & \CS(0)
+\GC(0) \rar & \GC(\pi_0(G)) \rar & \GC(G) \rar & \GC(G^0) \rar & \GC(0)
 \end{tikzcd}
 \]
 which induces, upon passage to Picard groups, a sequence of group homomorphisms 
 \begin{equation}\label{eq:pi-1}
 \begin{tikzcd}
-\CSiso{0} \rar & \CSiso{\pi_0(G)} \rar & \CSiso{G} \rar & \CSiso{G^0} \rar & \CSiso{0}.
+\GCiso{0} \rar & \GCiso{\pi_0(G)} \rar & \GCiso{G} \rar & \GCiso{G^0} \rar & \GCiso{0}.
 \end{tikzcd}
 \end{equation}
-It is easy to see that $\CSiso{0}$ is trivial. In this paper we will find $\CSiso{G^0}$ and $\CSiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; 
+It is easy to see that $\GCiso{0}$ is trivial. In this paper we will find $\GCiso{G^0}$ and $\GCiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; 
 the snake lemma will then allow us to show
 \[
-\CSiso{G} \iso \Hom(G(\Fq),\EE^\times),
+\GCiso{G} \iso \Hom(G(\Fq),\EE^\times),
 \]
 canonically.
 
 \section{Base change over the residue field}\label{sec:basechange}
 
-When using character sheaves to study characters, it is useful to understand
-how character sheaves behave under change of fields.
-Suppose that $k'$ is a finite extension of $k$ of degree $n$, $G$ is an abelian group scheme
-over $k$ as in Theorem \ref{thm:snake} and $G_{k'}$ is the base change of $G$ to $k'$.
-If $\cs{L} = (\gcs{L}, \mu, \phi)$ is a character sheaf on $G$ we may define
-a character sheaf $\nu(\cs{L}) = (\gcs{L}, \mu, \phi_{k'})$ on $G_{k'}$ by setting
+When using geometrized characters to study characters, it is useful to understand
+how geometrized characters behave under change of fields.
+Suppose that $k'$ is a finite extension of $k$ of degree $n$, 
+$G$ is a commutative smooth group scheme locally of finite type over $k$.
+If $\cs{L} = (\gcs{L}, \mu, \phi)$ is a geometrized character on $G$ we may define
+a geometrized character $\cs{L}' = (\gcs{L}, \mu, \phi_{k'})$ on 
+$G_{k'}\ceq G\times_{\Spec{k}} \Spec{k'}$ by setting
 \[
 \phi_{k'} = \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi).
 \]
-The commutativity of the diagram (CS.2) for $\phi_{k'}$ follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
-\Clifton{I'll fix this section and link.}
-Note that we may also think about the construction of $\phi_{k'}$ as taking the action of $\Weil{k}$ defined in Remark
-\ref{rem:CS-action} and restricting it to $\Weil{k'}$.
+The commutativity of the diagram (CS.2) for $\phi_{k'}$ 
+follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
+Note that we may also think about the construction of $\phi_{k'}$ from $\phi$
+as taking the action $\varphi$ of $\Weil{k}$ on $\gcs{L}$ 
+defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{k'}$.
 
 \begin{proposition}\label{prop:basechange}
-The following diagram commutes, where the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
+ The rule $(\gcs{L}, \mu, \varphi) \mapsto (\gcs{L}, \mu, \varphi\vert_{\Weil{\Fq}})$ 
+ defines a monoidal functor $\GC(G) \to \GC(G_{k'})$. 
+ Moreover, the following diagram commutes, 
+ where the top map is induced by $\GC(G) \to \GC(G_{k'})$ 
+ and the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
 \[
-\begin{tikzcd}
-\CSiso{G} \rar{\nu} \dar{\trFrob{G}} & \CSiso{G_{k'}} \dar{\trFrob{G_{k'}}} \\
+\begin{tikzcd}[column sep=45]
+\GCiso{G} \rar{\text{ext'n of scalars}} \dar{\trFrob{G}} & \GCiso{G_{k'}} \dar{\trFrob{G\times_{\Spec{k}} \Spec{k'}}} \\
 \Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
 \end{tikzcd}
 \]
 \end{proposition}
 
 \begin{proof}
-\Clifton{This proof is missing! Can David insert it?}
+\Clifton{This proof is missing. Can David insert it?}
 \end{proof}
 
-\section{Bounded character sheaves}\label{sec:bounded}
+\section{Bounded geometrized characters}\label{sec:bounded}
 
-Let $\CSb(G)$ be the category of pairs $(\cs{L}_0,\mu_0)$ 
+Let $\GCb(G)$ be the category of pairs $(\cs{L}_0,\mu_0)$ 
 where $\cs{L}_0$ is a constructible $\ell$-adic sheaf on $G$, 
 which is a rank-$1$ local system on each connected component of $G$, 
 equipped with an isomorphism $\mu_0 : m^* \cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ 
 satisfying the analogue of Condition~\ref{CS.1} on $G$; 
-morphisms in $\CSf(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
-This is the category of \cdef{bounded character sheaves} on $G$. 
+morphisms in $\GCf(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
+This is the category of \cdef{bounded geometrized characters} on $G$. 
 \Clifton{Should this be $\sheafHom(\cs{L}_0,\EE)$?}
 This is a rigid monoidal category in the obvious way, 
 with duals given by $\cs{L}_0^\vee \ceq \sheafHom(\cs{L}_0,(\EE)_{G})$.
 
 \begin{proposition}
-$\CSb(G)$ is (equivalent to) a full subcategory of $\CS(G)$.
+$\GCb(G)$ is (equivalent to) a full subcategory of $\GC(G)$.
 \end{proposition}
 
 \begin{proof}
  Let $b_G : {\bar G} \to G$ be the pull-back of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
- Let $(\cs{L}_0,\mu_0)$ be a bounded character sheaf on $G$. 
+ Let $(\cs{L}_0,\mu_0)$ be a bounded geometrized character on $G$. 
  Then $\cs{L}_0$ is, in particular, an $\ell$-adic constructible sheaf on $G$. 
  Then $b_G^* \cs{L}_0$ comes equipped with an isomorphism 
  $\phi : \Frob{G}^* b_G^*\cs{L}_0 \to b_G^* \cs{L}_0$; 
@@ -563,16 +569,17 @@ $\CSb(G)$ is (equivalent to) a full subcategory of $\CS(G)$.
  Set $\mu = b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
  with $b_G^*\cs{L}_0$ playing the role of $\gcs{L}$.
  Moreover, $\phi$ is compatible with $\mu$ in the sense of Condition~\ref{CS.3}.
- It follows that functor $(\cs{L}_0,\mu_0) \mapsto (b_G^*\cs{L}_0,b_{G\times G}^* \mu_0, \phi)$, denoted by  $B_G^*: \CSb(G) \hookrightarrow \CS(G)$ below, is full and faithful.
+ It follows that functor $(\cs{L}_0,\mu_0) \mapsto (b_G^*\cs{L}_0,b_{G\times G}^* \mu_0, \phi)$, denoted by  $B_G^*: \GCb(G) \hookrightarrow \GC(G)$ below, is full and faithful.
 \end{proof}
 
+We will see that the full subcategory $\GC_0(G)$ of bounded geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)$ to the subgroup $\GCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in \Hom_\text{grp}(G(\Fq),\EEx)$ such that the image of $\chi$ is bounded in $\EEx$. 
 
-\section{Finite character sheaves}\label{sec:finite}
+\section{Finite geometrized characters}\label{sec:finite}
 
- %In this section we describe a full subcategory of $\CSb(G)$
- %which will illuminate some features of $\CSb(G)$ and also play a role in some arguments below.
+ %In this section we describe a full subcategory of $\GCb(G)$
+ %which will illuminate some features of $\GCb(G)$ and also play a role in some arguments below.
  
-To define the category of finite character sheaves we must work a bit harder.
+To define the category of finite geometrized characters we must work a bit harder.
 Consider the following category $C(G)$:
 an object in $C(G)$ is a pair $(f,\psi)$ where: 
 $f : H\to G$ an etale cover and a morphism of commutative group $\Fq$-schemes (an isogeny) 
@@ -600,19 +607,19 @@ We put a tensor category structure on $C(G)$ as follows.
 We say that $(\alpha,T)$ in $C(G)$ is a weak isomorphism if $T$ is an isomorphism of vector spaces. 
 Let $C(G)[W^{-1}]$ be the localization of $C(G)$ at weak isomorphisms.
 Now, let $C_1(G)$ be the subcategory of $C(G)$ such that $\psi$ is a one-dimensional representation
-and let $\CSf(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. 
-This is the rigid symmetric monoidal category of \cdef{finite character sheaves} on $G$.
+and let $\GCf(G)$ be the localisation of $C_1(G)$ at weak isomorphisms. 
+This is the rigid symmetric monoidal category of \cdef{finite geometrized characters} on $G$.
 
 \begin{proposition}\label{prop:bounded}
- $\CSf(G)$ is (equivalent to) a full subcategory of $\CSb(G)$.
+ $\GCf(G)$ is (equivalent to) a full subcategory of $\GCb(G)$.
 \end{proposition}
 
 \begin{proof}
- To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \CSf(G) \to \CSb(G)$.
+ To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \GCf(G) \to \GCb(G)$.
  %
- We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \CSb(G)$ 
+ We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \GCb(G)$ 
  such that $L(\alpha,T)$ is an isomorphism precisely when $(h,T)$ is a weak isomorphism. 
- Factoring along $C_1(G) \to \CSb(G)$ will produce the full and faithful monoidal functor we seek.
+ Factoring along $C_1(G) \to \GCb(G)$ will produce the full and faithful monoidal functor we seek.
 
  Now we introduce a faithful functor $L : C(G) \to \Loc(G)$ to the category of local systems on $G$.
  For any object $(f,\psi)$ in $C(G)$, let $L(f,\psi)$ be the $\psi$-isotypic component of $f_* V_H$, 
@@ -674,8 +681,8 @@ This is the rigid symmetric monoidal category of \cdef{finite character sheaves}
  to define a faithful functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$. 
  Since $W$ is saturated, the functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$ is full. 
  
- One more ingredient is needed before we can exhibit the full functor $L_G: \CSf(G) \to \CSb(G)$ promised above: 
- we must put rigid monoidal category structures on $\CSf(G)$ and $\CSb(G)$.
+ One more ingredient is needed before we can exhibit the full functor $L_G: \GCf(G) \to \GCb(G)$ promised above: 
+ we must put rigid monoidal category structures on $\GCf(G)$ and $\GCb(G)$.
  
   It is also a matter of routine to verify that every morphism of group schemes $G'\to G$ 
   induces a monoidal functor $C(G) \to C(G')$ by base-change along $G'\to G$ ({\it cf.}, Proposition~\ref{prop:pullback}); 
@@ -696,12 +703,14 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
  If $(f,\psi)$ in an object in $C_1(G)$ then, as we have already seen, 
  $m^*L(f,\psi) \iso L(f,\psi) \boxtimes L(f,\psi)$ in $C_1(G\times G)$, canonically;
  let $\mu(f,\psi)$ be that isomorphism of $\ell$-adic sheaves on $G$,
- It follows immediately that the functor $L_G  \ceq  L_{W}\vert_{\CSf(G)} : \CS_b(G) \to \CSb(G)$, 
+ It follows immediately that the functor $L_G  \ceq  L_{W}\vert_{\GCf(G)} : \GC_b(G) \to \GCb(G)$, 
  given on objects by $(f,\psi) \mapsto (L(f,\psi), \mu(f,\psi))$,
  is a full and faithfull monoidal functor, completing the proof.
 \end{proof}
 
 %\Clifton{I'll address this point in the next section: "Because $\Gal(\bFq/\Fq)$ acts trivially on $\Aut({\bar f})$, the local system ${\bar L}_G(f,\psi)\ceq b_G^* L(f,\psi)$ comes equipped with a canonical isomorphism $F : \Frob{G}^* {\bar L}_G(f,\psi) \to {\bar L}_G(f,\psi)$ of constructible sheaves on ${\bar G}$."}
+
+We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)$ to the subgroup $\GCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in \Hom_\text{grp}(G(\Fq),\EEx)$ such that the image of $\chi$ is finite in $\EEx$. 
  
 \section{Connected commutative algebraic groups}
 
@@ -712,11 +721,11 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
 
 \begin{proposition}\label{prop:connected}
   If $G$ is a connected commutative algebraic group over $\Fq$ then 
-  the full subcategories $\CSf(G) \hookrightarrow \CSb(G) \hookrightarrow \CS(G)$ 
+  the full subcategories $\GCf(G) \hookrightarrow \GCb(G) \hookrightarrow \GC(G)$ 
   appearing in Section~\ref{sec:bounded} are equivalences 
-  and (with reference to Section~\ref{sec:Frob})
+  and
   \[
-  \trFrob{G} : \CSiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
+  \trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
   \]
   is an isomorphism of groups.
 \end{proposition}
@@ -724,9 +733,9 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
 \begin{proof}
  %Let $G$ be a geometrically connected algebraic group over $\Fq$.
   Observe that the forgetful functor $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$
-  sends character sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{Deligne:Weil2}*{1.1.10}.
+  sends geometrized characters on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{Deligne:Weil2}*{1.1.10}.
   While is it not true that all Weil sheaves on $G$ descend to local systems on $G$, 
-  we will see that those that appear in the image of this forgetful functor from character sheaves do. 
+  we will see that those that appear in the image of this forgetful functor from geometrized characters do. 
 
   Let $g$ be any $\Fq$-rational point on $G$ 
   and let $\bg$ be the geometric point on $G$ lying above $g$ 
@@ -734,7 +743,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   Since $G$ is connected, the geometric point $\bg$ determines
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
   $\ell$-adic representations of $\W(G,\bg)$ \cite{Deligne:Weil2}*{1.1.12}. 
-  Now let $(\gcs{L},\mu,\phi)$ be a character sheaf on $G$ 
+  Now let $(\gcs{L},\mu,\phi)$ be a geometrized character on $G$ 
   and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gcs{L},\phi)$. 
   The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
   $\Weil{\Fq}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{\Fq}$. 
@@ -786,26 +795,26 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   Let $\mu_0 : m^*\cs{L}_0 \to \cs{L}_0\boxtimes\cs{L}_0$ be the isomorphism matching 
   $\mu : {\bar m}^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$, 
   the latter appearing in the definition of $\cs{L}$. 
-  Then, as in Section~\ref{sec:bounded}, $(\cs{L}_0,\mu_0)$ is an object in $\CSb(G)$ 
-  and $\cs{L} = (\gcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\cs{L}_0,b_{G\times G}^*\mu_0)$ in $\CS(G)$.
-  Thus, the full and faithful functor $B_G^* : \CSb(G) \to \CS(G)$ from Section~\ref{sec:bounded}
+  Then, as in Section~\ref{sec:bounded}, $(\cs{L}_0,\mu_0)$ is an object in $\GCb(G)$ 
+  and $\cs{L} = (\gcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\cs{L}_0,b_{G\times G}^*\mu_0)$ in $\GC(G)$.
+  Thus, the full and faithful functor $B_G^* : \GCb(G) \to \GC(G)$ from Section~\ref{sec:bounded}
   is also essentially surjective, hence an equivalence.
   %(when $G$ is a connected, commutative algebraic group over $\Fq$).
   
-  In Section~\ref{sec:finite} we saw that $\CSf(G)$ is a full subcategory of $\CSb(G)$;
-  more precisely, we exhibited a full and faithful functor $L_G : \CSf(G) \to \CSb(G)$.
+  In Section~\ref{sec:finite} we saw that $\GCf(G)$ is a full subcategory of $\GCb(G)$;
+  more precisely, we exhibited a full and faithful functor $L_G : \GCf(G) \to \GCb(G)$.
   We now show that this functor is essentially surjective 
   when $G$ is a connected, commutative algebraic group over $\Fq$.
   
-  Let $(\cs{L}_0,\mu_0)$ be a bounded character sheaf on $G$. 
-  Then $\cs{L}\ceq B_G^*(\cs{L}_0,\mu_0)$ is a character sheaf on $G$.
+  Let $(\cs{L}_0,\mu_0)$ be a bounded geometrized character on $G$. 
+  Then $\cs{L}\ceq B_G^*(\cs{L}_0,\mu_0)$ is a geometrized character on $G$.
   Recall the definition of the character $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ from Section~\ref{sec:Frob}. 
   Let $f : G\to G$ be the Lang isogeny.
   Recall that $\ker f = G(\Fq) = G^\Frob{\Fq}$; 
   in particular, the action of $\Gal(\bFq/\Fq)$ on $\ker f$ is trivial.
   Let $V = \EE$ and let $\psi : \ker f \to \Aut(V)$ be the representation given by 
   $\psi(g)(v) = \trFrob{\cs{L}}(g) v$ for $v\in V$. 
-  Then $(f,\psi)$ is a finite character sheaf. 
+  Then $(f,\psi)$ is a finite geometrized character. 
   
   To show that $L_G(f,\psi) \iso (\cs{L}_0,\mu_0)$ we simply apply the functions--sheaves dictionary
   as follows ({\it cf} \cite{Laumon}*{1.1.3} or, ultimately, \cite{SGA4.5}*{Sommes trigonométriques}).
@@ -814,21 +823,21 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   On the other hand, $\trFrob{\cs{L}} \circ N_{k'/k} = \trFrob{(G_{k'}\hookrightarrow G)^*\cs{L}}$,  by Proposition~\ref{prop:basechange}.
   %Using notation from \cite{Laumon}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \cs{L}_0}$.
   Using \cite{Laumon}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \cs{L}_0$ in $\Loc(G)$.
-  It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\cs{L}_0,\mu_0)$ in $\CSb(G)$.
-  This completes the proof that $L_G : \CSf(G) \to \CS(G)$ is essentially surjective.
+  It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\cs{L}_0,\mu_0)$ in $\GCb(G)$.
+  This completes the proof that $L_G : \GCf(G) \to \GC(G)$ is essentially surjective.
   Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful, 
   it follows that $L_G$ is an equivalence.
   
   To finish the proof of Proposition~\ref{prop:connected}, it suffices to observe that the group homomorphism
   \[
-  \trFrob{G} : \CSiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
+  \trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
   \]
   is surjective because, as we have seen, 
-  each character $\chi \in \Hom_\text{grp}(G(\Fq),\EEx)$ determines a finite character sheaf $(\Lang,\chi)$
-  such that the trace of Frobenius of the character sheaf $B_G^* (L_G(\Lang,\chi))$ is $\chi$.
+  each character $\chi \in \Hom_\text{grp}(G(\Fq),\EEx)$ determines a finite geometrized character $(\Lang,\chi)$
+  such that the trace of Frobenius of the geometrized character $B_G^* (L_G(\Lang,\chi))$ is $\chi$.
 \end{proof}
 
-\section{Character sheaves on commutative etale group schemes}
+\section{Geometrized characters on commutative etale group schemes}
 
 %\input{etale-1}
 %In this section we establish a fundamental property of character
@@ -840,7 +849,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   $G(\bFq)$ is finitely generated then there is a canonical
   isomorphism
   \[
-  \CSiso{G} \longrightarrow \Hh^1(\Weil{\Fq}, \Hom_\text{grp}(G(\bFq),\EEx)),
+  \GCiso{G} \longrightarrow \Hh^1(\Weil{\Fq}, \Hom_\text{grp}(G(\bFq),\EEx)),
   \qquad \text{given by}\qquad
   [\cs{L}] \mapsto [\tau_\cs{L}],
   \]
@@ -856,7 +865,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   equivalence between etale group schemes over $\Fq$ and the category
   of groups equipped with a continuous action of $\Gal(\bFq/\Fq)$ (for
   the discrete topology on the group), given by $G \mapsto G(\bFq)$.
-  Under this equivalence any character sheaf $\cs{L}=(\gcs{L},\mu,\phi)$
+  Under this equivalence any geometrized character $\cs{L}=(\gcs{L},\mu,\phi)$
   on $G$ corresponds to:
   \begin{enumerate}
   \labitem{(cs.0)}{cs.0} an indexed set of one-dimensional
@@ -889,7 +898,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
     commutes, for all $x,y\in G(\bFq)$.
   \end{enumerate}
   Under this equivalence, a map $\varphi : \cs{L} \to \cs{L'}$ of
-  character sheaves on $G$ corresponds to:
+  geometrized characters on $G$ corresponds to:
   \begin{enumerate}
   \labitem{(cs.3)}{cs.3} an indexed set $\varphi_x \ceq x^*\varphi: \gcs{L}_x \to \gcs{L'}_x$
     of linear transformations (of one-dimensional $\EE$-vector spaces),
@@ -906,13 +915,13 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   \end{enumerate}
   It is clear that the category defined by conditions \ref{cs.0},
   \ref{cs.1}, \ref{cs.2} and \ref{cs.3}, denoted by
-  \cdef{$\CS(G(\bFq))$}, is equivalent to $\CS(G)$. We will prove the
+  \cdef{$\GC(G(\bFq))$}, is equivalent to $\GC(G)$. We will prove the
   proposition by exhibiting an isomorphism between
-  $\CSiso{G(\bFq)}$ and $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
+  $\GCiso{G(\bFq)}$ and $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
 
-  To produce the isomorphism between $\CSiso{G(\bFq)}$ and
+  To produce the isomorphism between $\GCiso{G(\bFq)}$ and
   $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ we must pick a global section of the line
-  bundle $(\gcs{L},\mu)$, for each character sheaf $\cs{L}$ on $G$; 
+  bundle $(\gcs{L},\mu)$, for each geometrized character $\cs{L}$ on $G$; 
   such a section exists by Lemma~\ref{lemma:section}.
   We will show that the group isomorphism does not depend on these
   choices.
@@ -930,7 +939,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   $\tau_\cs{L}(\Frob{\Fq})(x+y) = \tau_\cs{L}(\Frob{\Fq})(x) \ \tau_\cs{L}(\Frob{\Fq})(y)$,
   for all $x,y \in G(\bFq)$.
   % \Clifton{The alternative to this approach is to change the
-  %   definition of character sheaves to incorporate the notion of
+  %   definition of geometrized characters to incorporate the notion of
   %   Galois sheaves. That might not be so bad, but would add another
   %   layer of complication, which we wouldn't use profitably, expect
   %   here.}
@@ -940,7 +949,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   where $\Frob{\Fq}$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
   to pointwise multiplication of functions. This gives
   \[
-  \obj \CS(G(\bFq)) \longrightarrow Z^1(\Weil{\Fq},G(\bFq)^*),
+  \obj \GC(G(\bFq)) \longrightarrow Z^1(\Weil{\Fq},G(\bFq)^*),
   \qquad \text{defined by} \qquad \cs{L} \mapsto \tau_\cs{L}.
   \]
 
@@ -958,13 +967,13 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   defined by $\tau_0(\Frob{\Fq}) = \,^\Frob{\Fq} a \cdot a^{-1}$. Then $\tau_2 = \tau_0 \tau_1$,
   so $\tau_2$ and $\tau_1$ are cohomologous. In this way we see that
   \begin{equation}\label{cohomologous}
-    \obj \CS(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
+    \obj \GC(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
     \qquad \text{defined by} \qquad \cs{L} \mapsto [\tau_\cs{L}],
   \end{equation}
   is independent of the choice of global sections made above.
 
-  We now show that the function $\obj \CS(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*)$
-  factors through $\obj \CS(G(\bFq)) \to \CSiso{G(\bFq)}$.
+  We now show that the function $\obj \GC(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*)$
+  factors through $\obj \GC(G(\bFq)) \to \GCiso{G(\bFq)}$.
   To see this, let $\varphi : \cs{L} \to \cs{L'}$ be an isomorphism and
   let $\tau$ and $\tau'$ be any cocycles representing the classes in the
   image of $\cs{L}$ and $\cs{L'}$ under \eqref{cohomologous}; by construction,
@@ -977,7 +986,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
   condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}\phi \cdot \phi^{-1})$,
   so $\tau$ and $\tau'$ are cohomologous. This concludes the definition of
   \begin{equation}\label{pich1}
-    \CSiso{G(\bFq} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
+    \GCiso{G(\bFq} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
     \qquad \text{defined by} \qquad [\cs{L}] \mapsto [\tau_\cs{L}].
   \end{equation}
   Now it follows from \eqref{t} that the image of the isomorphism
@@ -992,7 +1001,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
 \end{proof}
 
 \begin{lemma}\label{lemma:section}
- If $\cs{L}$ is a character sheaf then there is a non-trivial section of $\gcs{L}$ 
+ If $\cs{L}$ is a geometrized character then there is a non-trivial section of $\gcs{L}$ 
  compatible with $\mu$ in the sense that 
  \begin{equation}\label{section}
   \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
@@ -1028,8 +1037,8 @@ First, however, we show that such global sections exist.  Since
 % \rightarrow \Hom(G(\Fq), \EEx)$ by $\rho(\phi)(g) =
 % \phi(\Frob)(g)$.
 
-Although this section does not mention character sheaves, 
-we will need Proposition~\ref{prop:X} to prove our main result on character sheaves, 
+Although this section does not mention geometrized characters, 
+we will need Proposition~\ref{prop:X} to prove our main result on geometrized characters, 
 Theorem~\ref{thm:snake}.
 
 \begin{proposition}\label{prop:X}
@@ -1178,33 +1187,33 @@ Theorem~\ref{thm:snake}.
 % !TEX encoding = UTF-8 Unicode
 %\subsection*{Restriction to the identity component is surjective}
 
-\David{This section needs to be modified once the bounded character sheaves section is done}
+\David{This section needs to be modified once the bounded geometrized characters section is done}
 Let $G^0$ be the connected component of $G$ containing the identity.
 By Proposition~\ref{prop:pullback}, pull-back along
 $G^0\hookrightarrow G$ determines a monoidal functor
-$\cs{L}\mapsto \cs{L}\vert_{G^0}$ from $\CS(G)$ to $\CS(G^0)$.  In
+$\cs{L}\mapsto \cs{L}\vert_{G^0}$ from $\GC(G)$ to $\GC(G^0)$.  In
 this section we show that this functor is essentially surjective. To
 do this we employ a perspective on characters sheaves which is
-different from that in Section~\ref{section:category} but which works
+different from that in Section~\ref{sec:category} but which works
 very well for geometrically connected abelian algebraic groups; this
 perspective fails to extend properly to the more general context of
-Section~\ref{section:category}.
+Section~\ref{sec:category}.
 
 \begin{proposition}\label{prop:restriction}
-  The restriction functor $\CS(G)\to \CS(G^0)$ is essentially surjective.
+  The restriction functor $\GC(G)\to \GC(G^0)$ is essentially surjective.
 \end{proposition}
 
 \begin{proof}
   Because $G$ is smooth over $\Fq$, the identity component $G^0$ is a
   geometrically connected algebraic group over $\Fq$, clopen in $G$
   \cite{vdG&M}*{3.17}. By Proposition~\ref{prop:connected}, every
-  character sheaf $\cs{E} = (\gcs{E},\mu^0,\phi^0)$ on $G^0$ descends to
+  geometrized character $\cs{E} = (\gcs{E},\mu^0,\phi^0)$ on $G^0$ descends to
   a line bundle on $G^0$.
 
-  Let us review how line bundles on $G^0$ determine character sheaves
+  Let us review how line bundles on $G^0$ determine geometrized characters
   on $G^0$.  Up to isomorphism, line bundles on $G^0$ may be
   apprehended in terms of pairs $(\pi,\psi)$,
-  \David{Aren't there line bundles which are not character sheaves,
+  \David{Aren't there line bundles which are not geometrized characters,
     for which $B$ is not an algebraic group?}
   where $\pi : B\to G^0$ is a finite etale morphism of algebraic
   groups and a character $\psi : A\to \EEx$, where
@@ -1242,7 +1251,7 @@ Section~\ref{section:category}.
   $\phi^0 : \Frob{G^0}^* \gcs{E} \to \gcs{E}$ and
   $\mu^0 : \bm_0^* \gcs{E} \to \bExE$
   satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,\phi^0)$
-  is a character sheaf of $G^0$.
+  is a geometrized character of $G^0$.
 
   The next step is to show that $\pi: B \to G^0$ extends to a finite
   etale morphism of group schemes $f: H\to G$, smooth and locally of
@@ -1309,9 +1318,9 @@ Section~\ref{section:category}.
   morphisms are $\Gamma$-equivariant.
 
   Now we show that $f : H\to G$, as above, together with a character
-  $\psi : \ker \bf \to \EEx$, defines a character sheaf on
-  $G$. We will also show that the restriction of this character sheaf
-  on $G$ to $G^0$ is precisely the character sheaf on $G^0$ defined by
+  $\psi : \ker \bf \to \EEx$, defines a geometrized character on
+  $G$. We will also show that the restriction of this geometrized character
+  on $G$ to $G^0$ is precisely the geometrized character on $G^0$ defined by
   the pair $(f^0,\psi)$ as above.
 
   Set $X \ceq \pi_0(G)\times_{\Spec{\Fq}} \Spec{\bFq}$. We will
@@ -1466,18 +1475,18 @@ Section~\ref{section:category}.
   \Clifton{Add some detail here.}
   This isomorphism is compatible with $\mu$ in the sense of condition~\ref{CS.2}.
 \end{proof}
-\Clifton{I can flesh out this remark once I've promoted the definition of $\CSb(G)$ (category of bounded character sheaves on $G$).}
+\Clifton{I can flesh out this remark once I've promoted the definition of $\GCb(G)$ (category of bounded geometrized characters on $G$).}
 \begin{remark}
   We have seen that if $f : H\to G$ is a finite etale cover of $G$ by
   a smooth group scheme and if all geometric automorphisms of $f$ are
   fixed by Frobenius, then every character of $\ker f$ determines a
-  character sheaf on $G$. However, it is not true that every character
+  geometrized character on $G$. However, it is not true that every character
   sheaf on $G$ arises in this manner.
 \end{remark}
 
 %\input{centralextensions}
 
-\section{Main result regarding character sheaves}
+\section{Main result regarding geometrized characters}
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
@@ -1486,9 +1495,9 @@ Section~\ref{section:category}.
   component group) is finitely generated, then the trace of Frobenius
   homomorphism
   \[
-  \trFrob{G} : \CSiso{G} \to \Hom(G(\Fq),\EEx),
+  \trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx),
   \]
-  from the Picard group of the category of character sheaves on $G$ to
+  from the Picard group of the category of geometrized characters on $G$ to
   the group of characters of $G(\Fq)$, is an isomorphism.
 \end{theorem}
 
@@ -1505,8 +1514,8 @@ Section~\ref{section:category}.
   \[
   \begin{tikzcd}[row sep=30]
     {}& \ker t_{\pi_0(G)} \dar & \arrow[dashed]{d} \ker \trFrob{G} & \ker t_{G^0} \dar & \\
-    0 \rar & \CSiso{\pi_0(G)} \rar \dar{t_{\pi_0(G)}}
-    & \CSiso{G} \rar \dar{\trFrob{G}} & \CSiso{G^0} \rar \dar{t_{G^0}} & 0\\
+    0 \rar & \GCiso{\pi_0(G)} \rar \dar{t_{\pi_0(G)}}
+    & \GCiso{G} \rar \dar{\trFrob{G}} & \GCiso{G^0} \rar \dar{t_{G^0}} & 0\\
     0 \rar & \Hom(\pi_0(G)(\Fq),\EEx) \rar \dar
     & \arrow[dashed]{d} \Hom(G(\Fq),\EEx) \rar & \Hom(G^0(\Fq),\EEx) \rar \dar & 0\\
     & \coker t_{\pi_0(G)} & \coker \trFrob{G} &  \coker t_{G^0} &
@@ -1530,26 +1539,26 @@ Section~\ref{section:category}.
   character groups is left exact.
 
   The sequence of Picard groups is right-exact: it is exact at
-  $\CSiso{G^0}$ by Proposition~\ref{prop:restriction}; and
-  it is exact at $\CSiso{G}$ because the left-square
+  $\GCiso{G^0}$ by Proposition~\ref{prop:restriction}; and
+  it is exact at $\GCiso{G}$ because the left-square
   commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
   is exact at $\Hom(G(\Fq),\EEx)$ and $\coker t_{\pi_0(G)} =0$
   (by Propositions~\ref{prop:etale} and \ref{prop:X}) and
   \[
-  \image(\CSiso{\pi_0(G)} \to \CSiso{G}) \subseteq \ker(\CSiso{G} \to \CSiso{G^0}),
+  \image(\GCiso{\pi_0(G)} \to \GCiso{G}) \subseteq \ker(\GCiso{G} \to \GCiso{G^0}),
   \]
   by the last part of Proposition~\ref{prop:pullback}. Specifically,
-  suppose $\cs{L}$ is a character sheaf on $G$ that is trivial on
+  suppose $\cs{L}$ is a geometrized character on $G$ that is trivial on
   $G^0$. Then $\trFrob{\cs{L}}\vert_{G^0(\Fq)} = \trFrob{\cs{L}^0} =0$,
   by Proposition~\ref{prop:pullback} again. Since the sequence of
   character groups is exact at $\Hom(G(\Fq),\EEx)$, there is
   some $\chi \in \Hom(\pi_0(G)(\Fq),\EEx)$ such that the
   pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is
   $\trFrob{\cs{L}}$. By Propositions~\ref{prop:etale} and \ref{prop:X},
-  there is a a character sheaf $\cs{L}_\chi$ on $\pi_0(G)$, unique up
+  there is a a geometrized character $\cs{L}_\chi$ on $\pi_0(G)$, unique up
   to isomorphism, such that $\trFrob{\cs{L}_\chi} = \chi$. By
   Proposition~\ref{prop:pullback} again, $\cs{L}$ is isomorphic to the
-  image of $\cs{L}_\chi$ under the monoidal functor $\CS(\pi_0(G)) \to \CS(G)$.
+  image of $\cs{L}_\chi$ under the monoidal functor $\GC(\pi_0(G)) \to \GC(G)$.
 
   It now follows immediately from the snake lemma that $\trFrob{G}$ is an
   isomorphism of groups.
@@ -1607,11 +1616,11 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 \begin{theorem}\label{thm:application}
   Let $T$ be an algebraic torus over a non-Archimedean local field $K$.
   Let $\GN{T}_d$ and $\GN{T}$ be as above.  For each $d \in \ZZ_{>0}$, the
-  Picard group of the category of character sheaves on $\GN{T}_d$ is
+  Picard group of the category of geometrized characters on $\GN{T}_d$ is
   canonically isomorphic to the group of characters of $T(K)$ of depth
   less than $d$:
   \[
-  \CSiso{\GN{T}_d} \iso \Hom_{< d}(T(K),\EEx).
+  \GCiso{\GN{T}_d} \iso \Hom_{< d}(T(K),\EEx).
   \]
 \end{theorem}
 
@@ -1619,7 +1628,7 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
   By \ref{GNd} and \ref{fg}, we may apply Theorem~\ref{thm:snake} to
   $\GN{T}_d$ which provides a canonical isomorphism
   \[
-  \CSiso{\GN{T}_d} \iso \Hom(\GN{T}_d(\Fq),\EEx).
+  \GCiso{\GN{T}_d} \iso \Hom(\GN{T}_d(\Fq),\EEx).
   \]
   By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^d)$ canonically.
   To finish the proof we recall that the filtration of $T(K)$ used to
@@ -1647,7 +1656,7 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}; we will 
 \Clifton{Prove that $\GN{T}$ is a scheme? Strictly speaking, we don't
   care about \ref{scheme}.}
   
-\Clifton{Must still define $\CS(\GN{T})$, since it is not an instance
+\Clifton{Must still define $\GC(\GN{T})$, since it is not an instance
  of our definitions, above.}
   
 \begin{proposition}
@@ -1661,7 +1670,7 @@ This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}; we will 
 
 \begin{corollary}
   \[
-  \CSiso{\GN{T}} \iso \Hom_\text{ad}(T(K),\EEx)
+  \GCiso{\GN{T}} \iso \Hom_\text{ad}(T(K),\EEx)
   \]
 \end{corollary}
 
@@ -1706,7 +1715,7 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
 \begin{corollary}
  Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical equivalence of categories
  \[
-  \CS(\GN{T}_{N-3h}) \to \CS(\GN{T}'_{N-3h})
+  \GC(\GN{T}_{N-3h}) \to \GC(\GN{T}'_{N-3h})
  \]
  determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
  \[
