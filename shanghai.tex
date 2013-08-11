@@ -894,7 +894,41 @@ A morphism $\varphi : \cs{L} \to \cs{L'}$ is given by
   both commute.
 \end{enumerate}
 
-The functor $\CS(G) \to \CS(G(\bFq))$ defined by $(\gcs{L}, \mu, \phi) \mapsto (\gcs{L}_x = x^*\gcs{L}, \mu_{x,y} = (x \times y)^* \mu, x^*\phi)$ is easily seen to be an equivalence.  We will use this equivalence implicitly in proving the following proposition.
+The functor $\CS(G) \to \CS(G(\bFq))$ defined by
+$(\gcs{L}, \mu, \phi) \mapsto (\gcs{L}_x = x^*\gcs{L}, \mu_{x,y} = (x \times y)^* \mu, x^*\phi)$
+is easily seen to be an equivalence.  We may now define a \cdef{global section}
+of a character sheaf $\cs{L}$ on an \'etale group scheme $G$ as a choice $s(x) \in \gcs{L}_x$ for every
+$x \in G(\bFq)$, satisfying
+ \begin{equation}\label{section}
+  \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
+ \end{equation}
+ 
+\begin{lemma}\label{lemma:section}
+ If $\cs{L}$ is a character sheaf on a commutative, \'etale group scheme $G$
+ with $G(\bFq)$ finitely generated then nontrivial global sections exist.
+\end{lemma}
+
+\begin{proof}
+  Since $G(\bFq)$ is a finitely-generated abelian group, it admits a decomposition
+  \[
+  G(\bFq) \iso \ZZ^r \oplus \bigoplus_{j=1}^t \ZZ / m_j \ZZ;
+  \]
+  let $x_1, \ldots, x_r, y_1, \ldots, y_t$ be a corresponding set of generators of $G(\bFq)$.
+  We will define a section $s$ by choosing values on these generators and extending to all
+  of $G(\bFq)$ through \eqref{section}.
+  
+  There is a unique isomorphism $\gcs{L}_0 \cong \EE$ under which $\mu_{0,0}$ corresponds
+  to the multiplication map $\EE \otimes \EE \to \EE$.
+  The condition $\mu_{0,0}(s(0)) = s(0) \otimes s(0)$ together with the non-triviality of $s$
+  then forces $s(0) = 1$.
+  
+  The $\mu_{x,y}$ yield an isomorphism $\alpha_j : \gcs{L}_{y_j}^{\otimes m_j} \to \gcs{L}_0$.
+  An initial nonzero choice of $s(y_j)$ need only be scaled by $\alpha_j(s(y_j))^{-1/m_j}$ in order to map to
+  $1$ under this isomorphism.  Since compatibility under the $\alpha_j$ are the only constraints on the
+  $s(x_j)$ and $s(y_j)$, global sections exist.
+\end{proof}
+
+We will use this equivalence implicitly in proving the following proposition.
 
 \begin{proposition}\label{prop:etale}
   If $G$ is a commutative \'etale group scheme over $\Fq$ and
@@ -905,7 +939,7 @@ The functor $\CS(G) \to \CS(G(\bFq))$ defined by $(\gcs{L}, \mu, \phi) \mapsto (
   \qquad \text{given by}\qquad
   [\cs{L}] \mapsto [\tau_\cs{L}],
   \]
-  where $\tau_\cs{L}: \Weil{\Fq}\to \Hom_\text{grp}(G(\bFq),\EEx)$ is a cocycle such that
+  where $\tau_\cs{L}: \Weil{\Fq}\to G(\bFq)^*$ is a cocycle such that
   \[
   \forall g\in G(\Fq), \qquad \tau_\cs{L}(\Frob{\Fq})(g) = \trFrob{\cs{L}}(g).
   \]
@@ -913,8 +947,7 @@ The functor $\CS(G) \to \CS(G(\bFq))$ defined by $(\gcs{L}, \mu, \phi) \mapsto (
 
 \begin{proof}
   To produce the isomorphism between $\CSiso{G(\bFq)}$ and
-  $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ we must pick a global section of the line
-  bundle $(\gcs{L},\mu)$, for each character sheaf $\cs{L}$ on $G$; 
+  $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ we must pick a global section of $\cs{L}$, for each character sheaf $\cs{L}$ on $G$; 
   such a section exists by Lemma~\ref{lemma:section}.
   We will show that the group isomorphism does not depend on these
   choices.
@@ -949,7 +982,7 @@ The functor $\CS(G) \to \CS(G(\bFq))$ defined by $(\gcs{L}, \mu, \phi) \mapsto (
   Although we used a global section $s_\cs{L}$ in the definition of
   $\tau_\cs{L}$, the class of $\tau_\cs{L}$ does not depend on this
   choice. To see why, let $s_1$ and $s_2$ be two global sections of
-  the line bundle $(\gcs{L},\mu)$, in the sense above and let $\tau_1$
+ $\cs{L}$ and let $\tau_1$
   and $\tau_2$ be the cocycles defined by $s_1$ and $s_2$, respectively,
   as above. Since, for each $x\in G(\bFq)$, $\gcs{L}_x$ is a
   one-dimensional $\EE$-vector space, there is a unique scalar
@@ -993,36 +1026,7 @@ The functor $\CS(G) \to \CS(G(\bFq))$ defined by $(\gcs{L}, \mu, \phi) \mapsto (
   \Clifton{Straightforward, yes, but it still needs to be written down here.}
 \end{proof}
 
-\begin{lemma}\label{lemma:section}
- If $\cs{L}$ is a character sheaf then there is a non-trivial section of $\gcs{L}$ 
- compatible with $\mu$ in the sense that 
- \begin{equation}\label{section}
-  \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
- \end{equation}
-\end{lemma}
 
-\begin{proof}
-First, however, we show that such global sections exist.  Since
-  $G(\bFq)$ is finitely-generated abelian, it admits a decomposition
-  $G(\bFq) \iso G(\bFq)_\text{free} \oplus G(\bFq)_\text{tors}$ such
-  that $G(\bFq)_\text{tors}$ is finite.  Let $x_1, \ldots , x_r$ be a
-  basis for the free part $G(\bFq)_\text{free}$ of $G(\bFq)$ and let
-  $y_1, \ldots , y_t$ be a generators for the torsion part of
-  $G(\bFq)$ corresponding to the decomposition
-  $G(\bFq)_\text{tors} \iso \oplus_{j=1}^t \ZZ/m_j\ZZ$, with
-  $m_j \vert m_{j+1}$. For each such $x_i$ pick $s(x_i)\in \gcs{L}_{x_i}$;
-  for each such $y_j$ pick $s(y_j) \in \gcs{L}_{y_j}$; also set
-  $s({\bar e}) \ceq 0 \in \gcs{L}_{\bar e}$. ....
-  \todo{under construction}
-  In this way we define a section
-  $s \ceq s_\cs{L} : G(\bFq) \to \coprod_{z\in G(\bFq)} \gcs{L}_z$ of
-  projection $\coprod_{z\in G(\bFq)} \gcs{L}_z \to G(\bFq)$ such that
-  $\mu_{x,y}(s(x+y)) = s(x)\otimes s(y)$ for all $x,y \in G(\bFq)$.
-  Under the equivalence at the beginning of this section, $s = s_\cs{L}$
-  corresponds to a global section of the line bundle $(\gcs{L},\mu)$.
-  
-\Clifton{I'm going to remove all mention of line bundles from this paper.}
-\end{proof}
 
 \section{On the cohomology of the dual of an etale group scheme}
 %\input{etale-2}
