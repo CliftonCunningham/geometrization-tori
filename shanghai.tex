@@ -270,7 +270,7 @@ $\Frob{\Spec{\bFq}} = \Spec{\Frob{\Fq}}$ and $\Frob{\Fq}$  is the geometric Frob
 
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
-\section{The category of geometrized characters}\label{section:category}
+\section{The category of geometrized characters}\label{sec:category}
 
 The category of geometrized characters of $G$, denoted by \cdef{$\GC(G)$},
 is defined as follows.  A \cdef{geometrized character} on $G$ is a triple
@@ -324,29 +324,19 @@ Morphisms in $\GC(G)$ are defined in the natural way:
 
 %\begin{remark} \label{rem:CS-action}
 The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from geometrized characters of $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{Deligne:Weil2}*{Def.~1.1.10 (i)}.
-%
-As remarked after \cite{Deligne:Weil2}*{Def.~1.1.10}, a Weil sheaf $(\gcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. Since we will need this point of view later, we review that interpretation here. Setting 
+
+As mentioned after \cite{Deligne:Weil2}*{Def.~1.1.10}, a Weil sheaf $(\gcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. Since we will need this point of view later, we review that interpretation here. Setting 
 \[
 \varphi(\Frob{\Fq}^n) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi)
 \]
 defines, for every $w\in \Weil{\Fq}$, an isomorphism
-\[
-\varphi(w) : w_G^* \gcs{L}\to \gcs{L},
-\]
-such that
-\[
-\forall u,v\in \Weil{\Fq},\qquad \varphi(uv) = \varphi(v) \circ v_G^* \varphi(u).
-\]
+$\varphi(w) : w_G^* \gcs{L}\to \gcs{L}$, such that
+$\varphi(uv) = \varphi(v) \circ v_G^* \varphi(u)$ for all $u,v\in \Weil{\Fq}$.
 Note that $\phi = \varphi(\Frob{\Fq})$. 
 If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then
-\[
-\varphi_1(w) : (w_G)_* \gcs{L}\to \gcs{L},
-\]
-is an isomorphism and
-\[
- \forall u,v\in \Weil{\Fq},\qquad \varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v),
-\]
-which means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\varphi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\GC(G)$. 
+$\varphi_1(w) : (w_G)_* \gcs{L}\to \gcs{L}$ is an isomorphism and
+$\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for all $u,v\in \Weil{\Fq}$.
+This means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\varphi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\GC(G)$. 
 %\end{remark}
 
 \section{The Picard group of geometrized characters}
@@ -387,7 +377,7 @@ It is clear that $\trFrob{\cs{L}\otimes \cs{L'}} = \trFrob{\cs{L}} \cdot \trFrob
 (pointwise multiplication of functions) and that $\trFrob{\cs{L}} = \trFrob{\cs{L'}}$
 if $\cs{L} \iso \cs{L'}$ in $\GC(G)$. In this way we obtain a group homomorphism
 \[
-\cdef{\trFrob{G}} : \GCiso{G} \longrightarrow \Hom_\text{grp}(G(\Fq),\EEx),
+\cdef{\trFrob{G}} : \GCiso{G} \longrightarrow G(\Fq)^*,%\Hom_\text{grp}(G(\Fq),\EEx),
 \qquad \text{defined by}\qquad \cs{L} \mapsto \trFrob{\cs{L}},
 \]
 from the Picard group of geometrized characters of $G$ to the character group of $G(\Fq)$.
@@ -409,7 +399,8 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
   \[
   \begin{tikzcd}[row sep=20, column sep=30]
    \GCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \GCiso{H} \dar{t_H} \\
-  \Hom_\text{grp}(G(\Fq),\EEx) \rar & \Hom_\text{grp}(H(\Fq),\EEx)
+   G(\Fq)^* \rar & H(\Fq)^*
+  %\Hom_\text{grp}(G(\Fq),\EEx) \rar & \Hom_\text{grp}(H(\Fq),\EEx)
   \end{tikzcd}
   \]
   is a commutative diagram of groups, where the lower homomorphism is
@@ -503,7 +494,7 @@ which induces, upon passage to Picard groups, a sequence of group homomorphisms
 It is easy to see that $\GCiso{0}$ is trivial. In this paper we will find $\GCiso{G^0}$ and $\GCiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; 
 the snake lemma will then allow us to show
 \[
-\GCiso{G} \iso \Hom_\text{grp}(G(\Fq),\EE^\times),
+\GCiso{G} \iso G(\Fq)^*,%\Hom_\text{grp}(G(\Fq),\EE^\times),
 \]
 canonically.
 
@@ -532,9 +523,10 @@ defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{
  where the top map is induced by $\GC(G) \to \GC(G_{k'})$ 
  and the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
 \[
-\begin{tikzcd}[column sep=45]
-\GCiso{G} \rar{\text{ext'n of scalars}} \dar{\trFrob{G}} & \GCiso{G_{k'}} \dar{\trFrob{G\times_{\Spec{k}} \Spec{k'}}} \\
-\Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
+\begin{tikzcd}[column sep=60]
+\GCiso{G} \rar{\text{ext'n of scalars}} \dar{\trFrob{G}} & \GCiso{G_{k'}} \dar{\trFrob{G_{k'}}} \\
+G(k)^*  \rar{\Nm} & G(k')^*
+%\Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
 \end{tikzcd}
 \]
 \end{proposition}
@@ -586,33 +578,80 @@ We will see that the full subcategory $\GC_0(G)$ of bounded geometrized characte
 To define the category of finite geometrized characters we must work a bit harder.
 Consider the following category \cdef{$C(G)$}:
 an object in $C(G)$ is a pair $(f,\psi)$ where: 
-$f : H\to G$ an etale cover and a morphism of commutative group $\Fq$-schemes (an isogeny) 
+$f : H\to G$ an isogeny (a finite, surjective etale morphism and a morphism of commutative group $\Fq$-schemes)
 for which the action of $\Gal(\bFq/\Fq)$ on the etale group scheme $\ker f$ is trivial, 
 and $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$;
 a map $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$ 
 where $\alpha$ is a morphism of schemes such that $f' = f\circ \alpha$
 and $T : V\to V'$ is a linear transformation equivariant 
 for the action of $\ker f'$ on $V'$ by $\psi'$ 
-and the action of $\ker f'$ on $V$ by $\psi \circ h$.
-
+and the action of $\ker '$ on $V$ by $\psi \circ \alpha$.
+\[
+\begin{tikzcd}
+V \arrow{d}{T} & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} & \arrow[equal]{d} G\\
+V' & \Aut(V) & \arrow[swap]{l}{\psi} \arrow[swap]{u}{\alpha\vert_{\ker f}} \ker f \arrow[hook]{r} & \arrow[swap]{u}{\alpha} H' \arrow{r}{f'} & G\\
+\end{tikzcd}
+\]
+We say that $(\alpha,T)$ in $C(G)$ is a \cdef{weak isomorphism} if $\alpha$ is a covering and $T$ is an isomorphism of vector spaces.
+\Clifton{I suspect $\alpha$ is a covering, for free. Is that right? 
+If $f' = f \circ \alpha$ and $f$ and $f'$ are etale covers, 
+does it follow that $\alpha$ is also an etale cover? (Etale: Yes. Finite? Surjective?) 
+If so, then I can simplify the definition of weak isomorphism accordingly.}
+ 
 We put a tensor category structure on $C(G)$ as follows.
- Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
- The category of isogenies to $G$ admits products: 
- write $f\times_G f' : H\times_G H' \to G$ for the product of $f : H\to G$ and $f' : H'\to G$. 
- Since $\ker(f\times_G f') = (\ker f)\times (\ker f')$, 
- the tensor product of the representations $\psi : \ker f\to \Aut(V)$ and $\psi' : \ker f'\to \Aut(V')$ 
- is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$. 
- This allows us to set $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$. 
- The same fact makes sense of $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. 
- The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
- where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee = \Hom_\text{vec}(V,\EE)$. 
- The verification that these operations make $C(G)$ a tensor category is routine. 
+Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
+The category of isogenies to $G$ admits products: 
+write $f\times_G f' : H\times_G H' \to G$ for the product of $f : H\to G$ and $f' : H'\to G$. 
+Since $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$, canonically,
+the tensor product of the representations $\psi : \ker f\to \Aut(V)$ and $\psi' : \ker f'\to \Aut(V')$ 
+is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$. 
+This allows us to set $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$. 
+The same fact makes sense of $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. 
+The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
+where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee = \Hom_\text{vec}(V,\EE)$. 
+The verification that these operations make $C(G)$ a tensor category is routine. 
 
-We say that $(\alpha,T)$ in $C(G)$ is a \cdef{weak isomorphism} if $T$ is an isomorphism of vector spaces. 
+%
 Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at weak isomorphisms.
 Now, let \cdef{$C_1(G)$} be the subcategory of $C(G)$ such that $\psi$ is a one-dimensional representation
 and let \cdef{$\GCf(G)$} be the localisation of $C_1(G)$ at weak isomorphisms. 
 This is the rigid symmetric monoidal category of \cdef{finite geometrized characters} of $G$.
+
+\begin{proposition}\label{prop:GCf-pull-back}
+If $g : G'\to G$ is a morphism of group schemes then $(f,\psi) \mapsto (f_g,\psi_g)$ defines a monomial functor $g^* : \GCf(G) \to \GCf(G')$ where $f_g : H\times_G G'\to G'$ and $\psi_g : \ker f_g \to \Aut(V)$ are defined by the diagram below.
+\[
+\begin{tikzcd}
+V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} &  G\\
+  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(g_f)\vert_{\ker g_f}} \ker f_g \arrow[hook]{r} & \arrow[swap]{u}{g_f} H\times_G G' \arrow{r}{f_g} & \arrow{u}{g} G'.
+\end{tikzcd}
+\]
+\end{proposition}
+
+\begin{proposition}
+Each $(f,\psi)\in \GCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\GCf(G\times G)$.
+ \end{proposition}
+
+\begin{proof}
+Before compare $m^*(f,\psi)$ and 
+\end{proof}
+
+
+
+
+Every morphism of group schemes $g: G'\to G$ 
+defines a function $g^*: \obj C(G) \to \obj C(G')$ 
+by $g^*(f,\psi) = (f_g,\psi_g)$ where
+$f_g : H\times_G G'\to G'$ and $\psi_g : \ker f_g \to \Aut(V)$ are defined by the diagram below.
+\[
+\begin{tikzcd}
+V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} &  G\\
+  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(g_f)\vert_{\ker g_f}} \ker f_g \arrow[hook]{r} & \arrow[swap]{u}{g_f} H\times_G G' \arrow{r}{f_g} & \arrow{u}{g} G'.
+\end{tikzcd}
+\]
+This definition is 
+
+
+
 
 \begin{proposition}\label{prop:bounded}
  $\GCf(G)$ is (equivalent to) a full subcategory of $\GCb(G)$.
@@ -654,6 +693,7 @@ This is the rigid symmetric monoidal category of \cdef{finite geometrized charac
   \]
  where $(\alpha',T') : (f,\psi) \to (f',T')$ is any map in $C(G)$ 
  and $(\alpha'_1,T'_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism.
+ \Clifton{Reveal the commented-out details . . . I think I need them!}
 % this morphism is commonly denoted by $(\alpha_1,T_1)^{-1}\circ (\alpha'_1,T'_1)$. 
  %The equivalence relation identifies $(\alpha_1,T_1)^{-1}\circ (\alpha'_1,T'_1)$ 
  % with $(\alpha_2,T_2)^{-1}\circ (\alpha'_2,T'_2)$ if there are maps 
@@ -672,13 +712,8 @@ This is the rigid symmetric monoidal category of \cdef{finite geometrized charac
  where $f:H\to G$ and $f':H'\to G$ as above. 
  Since $T$ is an isomorphism, we may replace $V'$ with $V$ and $T$ with $\id_V$, without loss of generality. 
  Then the equivariance condition on $T$ becomes $\psi' = \psi\circ h$ on the finite etale group scheme $\ker f'$. 
- Since $f' = f \circ \alpha$ and $f$ and $f'$ are etale covers, 
- it follows that $\alpha$ is also an etale cover. 
- \Clifton{Is that right? If $f' = f \circ \alpha$ and $f$ and $f'$ are etale covers, 
- does it follow that $\alpha$ is also an etale cover? (Etale: Yes. Finite? Surjective?) If not, then I must modify the definition of weak isomorphism accordingly.} 
- It follows that $\alpha : H'\to H$ admits a section $\alpha' : H \to H'$, 
+ Since $\alpha : H'\to H$ is an etale cover, it admits a section $\alpha' : H \to H'$, 
  which provides the inverse to $L(\alpha,T) : L(f,\psi) \to L(f',\psi')$, above. 
- \Clifton{Is it clear?}
  It is also clear that if $L(\alpha,T)$ is an isomorphism of local systems, 
  then $T$ must be an isomorphism of vector spaces, 
  whence $(\alpha,T)$ is a weak isomorphism: $W$ is saturated.
@@ -688,31 +723,10 @@ This is the rigid symmetric monoidal category of \cdef{finite geometrized charac
  to define a faithful functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$. 
  Since $W$ is saturated, the functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$ is full. 
   
-  Every morphism of group schemes $G'\to G$ 
-  induces a monoidal functor $C(G) \to C(G')$ by base-change along $G'\to G$ 
-  ({\it cf.}, Proposition~\ref{prop:pullback}) as follows. 
-  Let $m : G'\to G$ be a morphism of group schemes. 
-  Let $(f,\psi)$ be an object in $C(G)$. 
-  
-  indeed, the pull-back of $(f,\psi)$ along any morphism $m : G'\to G$ of group schemes 
-  can be read off the short exact sequence obtained by pulling back along $m$. 
-  
-  
-  
-  Taking the case when $m$ is the multiplication morphism $m : G\times G\to G$, 
-  and using the tensor category structure above, 
-  we see that the pull-back of $(f,\psi)$ along $m$ is canonically isomorphic, in $C_1(G\times G)$, to $(f,\psi)\boxtimes(f,\psi)$.
-  \Clifton{I need to work on this diagram and explain better what's going on here. Under construction.}
-  \[
-   \begin{tikzcd}
-V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow{r}  & H \arrow{r}{f} & G \\
-V & \Aut(V) \arrow[equal]{u} & \arrow[swap]{l}{\psi_{m_H}} \ker (f\times f) \arrow{r} \arrow{u}{m_H} & \arrow{d} H\times H \arrow{r}{f\times f} \arrow{u}{m_H} & G\times G \arrow{u}{m} \\
-V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times \ker f \arrow{r}  & H\times H \arrow{r}{f\times f}  & G\times G \arrow[equal]{u} \\
-   \end{tikzcd}
-  \]
-
  If $(f,\psi)$ in an object in $C_1(G)$ then, as we have already seen, 
- $m^*L(f,\psi) \iso L(f,\psi) \boxtimes L(f,\psi)$ in $C_1(G\times G)$, canonically;
+ $m^*L(f,\psi) \to L(f,\psi) \boxtimes L(f,\psi)$ by a weak isomorphism in $C_1(G\times G)$.
+ This morphism in $C_1(G\times G)$ is not unique, but its image in $\GCf(G\times G)$ is . . .!
+  
  let $\mu(f,\psi)$ be that isomorphism of $\ell$-adic sheaves on $G$,
  It follows immediately that the functor $L_G  \ceq  L_{W}\vert_{\GCf(G)} : \GCf(G) \to \GCb(G)$, 
  given on objects by $(f,\psi) \mapsto (L(f,\psi), \mu(f,\psi))$,
@@ -721,7 +735,7 @@ V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} \ker f \times 
 
 %\Clifton{I'll address this point in the next section: "Because $\Gal(\bFq/\Fq)$ acts trivially on $\Aut({\bar f})$, the local system ${\bar L}_G(f,\psi)\ceq b_G^* L(f,\psi)$ comes equipped with a canonical isomorphism $F : \Frob{G}^* {\bar L}_G(f,\psi) \to {\bar L}_G(f,\psi)$ of constructible sheaves on ${\bar G}$."}
 
-We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)$ to the subgroup $\GCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in \Hom_\text{grp}(G(\Fq),\EEx)$ such that the image of $\chi$ is finite in $\EEx$. 
+We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is finite in $\EEx$. 
  
 \section{Connected commutative algebraic groups}
 
@@ -736,7 +750,7 @@ We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geom
   appearing in Section~\ref{sec:bounded} are equivalences 
   and
   \[
-  \trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
+  \trFrob{G} : \GCiso{G} \to G(\Fq)^*
   \]
   is an isomorphism of groups.
 \end{proposition}
@@ -840,12 +854,10 @@ We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geom
   it follows that $L_G$ is an equivalence.
   
   To finish the proof of Proposition~\ref{prop:connected}, it suffices to observe that the group homomorphism
-  \[
-  \trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx)
-  \]
-  is surjective because, as we have seen, 
-  each character $\chi \in \Hom_\text{grp}(G(\Fq),\EEx)$ determines a finite geometrized character $(\Lang,\chi)$
-  such that the trace of Frobenius of the geometrized character $B_G^* (L_G(\Lang,\chi))$ is $\chi$.
+  $
+  \trFrob{G} : \GCiso{G} \to G(\Fq)^*
+  $
+  is surjective because each character $\chi \in G(\Fq)^*$ determines a finite geometrized character $(\Lang,\chi)$ such that the trace of Frobenius of the geometrized character $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
 \section{Geometrized characters of commutative \'etale group schemes}
@@ -894,17 +906,17 @@ An object in $\GC(G(\bFq))$ is given by the data of
   commutes, for all $x,y\in G(\bFq)$.
 \end{enumerate}
 
-A morphism $\varphi : \cs{L} \to \cs{L'}$ is given by 
+A morphism $\alpha : \cs{L} \to \cs{L'}$ is given by 
 \begin{enumerate}
- \labitem{(cs.3)}{cs.3} an indexed set $\varphi_x : \gcs{L}_x \to \gcs{L'}_x$
+ \labitem{(cs.3)}{cs.3} an indexed set $\alpha_x : \gcs{L}_x \to \gcs{L'}_x$
   of linear transformations (of one-dimensional $\EE$-vector spaces),
   as $x$ runs over $G(\bFq)$, such that
   \[
    \begin{tikzcd}[column sep=40]
-    \arrow[swap]{d}{\phi_x} \gcs{L}_{\Frob{\Fq}(x)} \rar{\varphi_{\Frob{\Fq}(x)}} & \gcs{L'}_{\Frob{\Fq}(x)} \dar{\phi_x'}
-    &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}& \arrow[swap]{d}{\mu} \gcs{L}_{x+y} \rar{\varphi_{x+y}} & \gcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
-    \gcs{L}_x \rar{\varphi_x} & \gcs{L'}_x
-    & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\varphi_x\otimes \varphi_y} & \gcs{L'}_x \otimes \gcs{L'}_y
+    \arrow[swap]{d}{\phi_x} \gcs{L}_{\Frob{\Fq}(x)} \rar{\alpha_{\Frob{\Fq}(x)}} & \gcs{L'}_{\Frob{\Fq}(x)} \dar{\phi_x'}
+    &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}& \arrow[swap]{d}{\mu} \gcs{L}_{x+y} \rar{\alpha_{x+y}} & \gcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
+    \gcs{L}_x \rar{\alpha_x} & \gcs{L'}_x
+    & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\alpha_x\otimes \alpha_y} & \gcs{L'}_x \otimes \gcs{L'}_y
    \end{tikzcd}
   \]
   both commute.
@@ -912,7 +924,9 @@ A morphism $\varphi : \cs{L} \to \cs{L'}$ is given by
 
 The functor $\GC(G) \to \GC(G(\bFq))$ defined by
 $(\gcs{L}, \mu, \phi) \mapsto (\gcs{L}_x = x^*\gcs{L}, \mu_{x,y} = (x \times y)^* \mu, \phi_x = x^*\phi)$
-is easily seen to be an equivalence.  We may now define a \cdef{global section}
+is easily seen to be an equivalence.  
+
+We may now define a \cdef{global section}
 of a geometrized character $\cs{L}$ on an \'etale group scheme $G$ as a choice $s(x) \in \gcs{L}_x$ for every
 $x \in G(\bFq)$, satisfying
  \begin{equation}\label{section}
@@ -1040,7 +1054,8 @@ Theorem~\ref{thm:snake}.
   action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on
   $X$.  Then
   \begin{align*}
-    \Hh^1(\Fq, \Hom(X, \EEx)) &\xrightarrow{\rho} \Hom(\Hh^0(\Fq, X), \EEx) \\
+%    \Hh^1(\Fq, \Hom(X, \EEx)) &\xrightarrow{\rho} \Hom(\Hh^0(\Fq, X), \EEx) \\
+    \Hh^1(\Fq, X^*) &\xrightarrow{\rho} \Hh^0(\Fq, X)^* \\
     \rho([z])(x) &= z(\Frob{\Fq})(x)
   \end{align*}
   is an isomorphism of groups.
