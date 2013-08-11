@@ -905,7 +905,7 @@ $x \in G(\bFq)$, satisfying
  
 \begin{lemma}\label{lemma:section}
  If $\cs{L}$ is a character sheaf on a commutative, \'etale group scheme $G$
- with $G(\bFq)$ finitely generated then nontrivial global sections exist.
+ with $G(\bFq)$ finitely generated then nontrivial global sections of $\cs{L}$ exist.
 \end{lemma}
 
 \begin{proof}
@@ -928,7 +928,7 @@ $x \in G(\bFq)$, satisfying
   $s(x_j)$ and $s(y_j)$, global sections exist.
 \end{proof}
 
-We will use this equivalence implicitly in proving the following proposition.
+These global sections will allow us to construct the isomorphism in the following proposition.
 
 \begin{proposition}\label{prop:etale}
   If $G$ is a commutative \'etale group scheme over $\Fq$ and
@@ -941,88 +941,66 @@ We will use this equivalence implicitly in proving the following proposition.
   \]
   where $\tau_\cs{L}: \Weil{\Fq}\to G(\bFq)^*$ is a cocycle such that
   \[
-  \forall g\in G(\Fq), \qquad \tau_\cs{L}(\Frob{\Fq})(g) = \trFrob{\cs{L}}(g).
+  \forall x\in G(\Fq), \qquad \tau_\cs{L}(\Frob{\Fq})(x) = \trFrob{\cs{L}}(x).
   \]
 \end{proposition}
 
 \begin{proof}
-  To produce the isomorphism between $\CSiso{G(\bFq)}$ and
-  $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ we must pick a global section of $\cs{L}$, for each character sheaf $\cs{L}$ on $G$; 
-  such a section exists by Lemma~\ref{lemma:section}.
-  We will show that the group isomorphism does not depend on these
-  choices.
-%
-  We use the section $s_\cs{L}$ to define a cocycle $z_\cs{L} \in Z^1(\Weil{\Fq},G(\bFq)^*)$
-  as follows. Recall that $\cs{L}$ also determines a family of linear transformations
-  $\phi_x : \gcs{L}_{\Frob{\Fq}(x)} \to \gcs{L}_x$ of one-dimensional $\EE$-vector
-  spaces, so $\phi_x(s(\Frob{\Fq}(x)))$ is a scalar multiply of $s(x)$, for
-  each $x\in G(\bFq)$; let $\tau_\cs{L}(\Frob{\Fq})(x)$ be that scalar, so
-  \begin{equation}\label{t}
-    \forall x\in G(\bFq),\qquad \phi_{x}(s(\Frob{\Fq}(x)) = \tau_\cs{L}(\Frob{\Fq})(x) s(x).
-  \end{equation}
-  Conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
-  the scalar $z_\cs{L}(\Frob{k})(x)$ is non-zero, while condition~\ref{cs.1} forces
-  $\tau_\cs{L}(\Frob{\Fq})(x+y) = \tau_\cs{L}(\Frob{\Fq})(x) \ \tau_\cs{L}(\Frob{\Fq})(y)$,
-  for all $x,y \in G(\bFq)$.
-  % \Clifton{The alternative to this approach is to change the
-  %   definition of character sheaves to incorporate the notion of
-  %   Galois sheaves. That might not be so bad, but would add another
-  %   layer of complication, which we wouldn't use profitably, expect
-  %   here.}
+  Suppose $\cs{L}$ is a character sheaf on $G$.  Using Lemma~\ref{lemma:section}, we may choose a global section $s_{\cs{L}}$
+  of $\cs{L}$.  We will construct a group isomorphism between $\CSiso{G(\bFq)}$ and
+  $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ using $s_{\cs{L}}$, then prove independence from the choice of section.
 
-  Now $\tau_\cs{L} : \Weil{\Fq} \to G(\bFq)^*$ is defined, recursively, by
-  $\tau_\cs{L}(\Frob{\Fq}^n) \ceq \tau_\cs{L}(\Frob{\Fq})\cdot \,^\Frob{\Fq} \tau_\cs{L}(\Frob{\Fq}^{n-1})$,
-  where $\Frob{\Fq}$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
-  to pointwise multiplication of functions. This gives
+  Starting from $\cs{L}$, we define a cocyle $\tau_{\cs{L}} \in Z^1(\Weil{\Fq},G(\bFq)^*)$ as follows.
+  For $x \in G(\bFq)$, $\cs{L}$ determines an isomorphism $\phi_x : \gcs{L}_{\Frob{\Fq}(x)} \to \gcs{L}_x$
+  of one-dimensional $\EE$-vector spaces; set
+  \begin{equation}\label{t}
+   \phi_{x}(s(\Frob{\Fq}(x))) = \tau_\cs{L}(\Frob{\Fq})(x) s(x).
+  \end{equation}
+  Note that if $x$ is fixed by $\Frob{k}$ then $\tau_\cs{L}(\Frob{\Fq})(x)$ is just $t_\cs{L}(x)$, so the restriction of
+  $\tau_\cs{L}(\Frob{k})$ to $G(k)$ is just $t_\cs{L}$.
+  In general, conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
+  the scalar $\tau_\cs{L}(\Frob{k})(x)$ is non-zero.  Moreover, condition~\ref{cs.1} forces
+  $\tau_\cs{L}(\Frob{\Fq})(x+y) = \tau_\cs{L}(\Frob{\Fq})(x) \ \tau_\cs{L}(\Frob{\Fq})(y)$
+  for all $x,y \in G(\bFq)$.  Now define $\tau_\cs{L} : \Weil{\Fq} \to G(\bFq)^*$ recursively by
   \[
-  \obj \CS(G(\bFq)) \longrightarrow Z^1(\Weil{\Fq},G(\bFq)^*),
-  \qquad \text{defined by} \qquad \cs{L} \mapsto \tau_\cs{L}.
+   \tau_\cs{L}(\Frob{\Fq}^n) \ceq \tau_\cs{L}(\Frob{\Fq})\cdot \,^\Frob{\Fq} \tau_\cs{L}(\Frob{\Fq}^{n-1}),
   \]
+  where $\Frob{\Fq}$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
+  to pointwise multiplication of functions.
 
   Although we used a global section $s_\cs{L}$ in the definition of
   $\tau_\cs{L}$, the class of $\tau_\cs{L}$ does not depend on this
   choice. To see why, let $s_1$ and $s_2$ be two global sections of
- $\cs{L}$ and let $\tau_1$
-  and $\tau_2$ be the cocycles defined by $s_1$ and $s_2$, respectively,
-  as above. Since, for each $x\in G(\bFq)$, $\gcs{L}_x$ is a
-  one-dimensional $\EE$-vector space, there is a unique scalar
-  $a(x) \in \EE$ such that $s_2(x) = a(x) s_1(x)$; moreover, $a(x)$ is
-  non-zero, since $s_2(x)$ is non-zero. Then \eqref{section} and
+  $\cs{L}$ and let $\tau_1$ and $\tau_2$ be the cocycles defined by $s_1$ and $s_2$.
+  For each $x \in G(\bFq)$ there is a unique scalar
+  $a(x) \in \EEx$ such that $s_2(x) = a(x) s_1(x)$. Then \eqref{section} and
   condition~\ref{cs.1} together imply $a(x+y) = a(x)a(y)$, so
-  $a\in G(\bFq)^*$. Now consider the coboundary $\tau_0 : \Weil{\Fq} \to G(\bFq)^*$
-  defined by $\tau_0(\Frob{\Fq}) = \,^\Frob{\Fq} a \cdot a^{-1}$. Then $\tau_2 = \tau_0 \tau_1$,
-  so $\tau_2$ and $\tau_1$ are cohomologous. In this way we see that
+  $a\in G(\bFq)^*$.  The coboundary $\tau_0 : \Weil{\Fq} \to G(\bFq)^*$
+  defined by $\tau_0(\Frob{\Fq}) = \,^\Frob{\Fq} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
+  so $\tau_2$ and $\tau_1$ are cohomologous. Thus
   \begin{equation}\label{cohomologous}
     \obj \CS(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
     \qquad \text{defined by} \qquad \cs{L} \mapsto [\tau_\cs{L}],
   \end{equation}
   is independent of the choice of global sections made above.
 
-  We now show that the function $\obj \CS(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*)$
-  factors through $\obj \CS(G(\bFq)) \to \CSiso{G(\bFq)}$.
-  To see this, let $\varphi : \cs{L} \to \cs{L'}$ be an isomorphism and
+  We now show that $[\tau_\cs{L}]$ depends only on the isomorphism class of $\cs{L}$.
+  Let $\varphi : \cs{L} \to \cs{L'}$ be an isomorphism and
   let $\tau$ and $\tau'$ be any cocycles representing the classes in the
   image of $\cs{L}$ and $\cs{L'}$ under \eqref{cohomologous}; by construction,
   $\tau$ and $\tau'$ are defined by sections $s$ and $s'$. Now, $\varphi_x(s(x))$ is a
-  non-zero scalar multiple of $s'(x)$; define $\phi: G(\bFq) \to \EEx$
-  by $\varphi_x(s(x)) = \phi(x) s'(x)$. 
-  \Clifton{Notation problem here: replace $\phi$ with something else.}
+  non-zero scalar multiple of $s'(x)$; define $\delta: G(\bFq) \to \EEx$
+  by $\varphi_x(s(x)) = \delta(x) s'(x)$.
   By the second part of condition~\ref{cs.3},
-  $\phi(x+y) = \phi(x)\phi(y)$, so $\phi \in G(\bFq)^*$. By the first part of
-  condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}\phi \cdot \phi^{-1})$,
+  $\delta(x+y) = \delta(x)\delta(y)$, so $\delta \in G(\bFq)^*$. By the first part of
+  condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}\delta \cdot \delta^{-1})$,
   so $\tau$ and $\tau'$ are cohomologous. This concludes the definition of
   \begin{equation}\label{pich1}
-    \CSiso{G(\bFq} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
-    \qquad \text{defined by} \qquad [\cs{L}] \mapsto [\tau_\cs{L}].
+    \CSiso{G(\bFq} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*).
   \end{equation}
-  Now it follows from \eqref{t} that the image of the isomorphism
-  class of $\cs{L}$ is indeed represented by a cocycle $\tau_\cs{L}$ such
-  that $\tau_\cs{L}(\Frob{\Fq}) = \trFrob{\cs{L}}$ on $G(\Fq)$, which is to
-  say, when evaluated at $\Frob{\Fq}$, the cocycle $\tau_\cs{L}$ is an
-  extension of the trace of Frobenius of $\cs{L}$.
 
   It only remains to show that \eqref{pich1} is a group
-  isomorphism. This is straightforward.
+  isomorphism.  Suppose that $\cs{L}$ and $\cs{L}'$ are two character sheaves.  
   \Clifton{Straightforward, yes, but it still needs to be written down here.}
 \end{proof}
 
