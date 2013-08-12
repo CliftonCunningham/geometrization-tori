@@ -117,7 +117,6 @@
 \newcommand{\GCiso}[1]{\GC(#1)_{/\textit{iso}}}
 \newcommand{\GCbiso}[1]{\GCb(#1)_{/\text{iso}}}
 \newcommand{\GCfiso}[1]{\GCf(#1)_{/\text{iso}}}
-\newcommand{\CE}{{\mathcal{C\hskip-1.8pt E}}}
 \newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
 \newcommand{\dualgroup}[1]{{\check{#1}}}
 \newcommand{\Lang}{{\operatorname{Lang}}}
@@ -1316,7 +1315,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   component group) is finitely generated, then the trace of Frobenius
   homomorphism
   \[
-  \trFrob{G} : \GCiso{G} \to \Hom_\text{grp}(G(\Fq),\EEx),
+  \trFrob{G} : \GCiso{G} \to G(\Fq)^*
   \]
   from the Picard group of the category of geometrized characters of $G$ to
   the group of characters of $G(\Fq)$, is an isomorphism.
@@ -1337,8 +1336,8 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
     {}& \ker t_{\pi_0(G)} \dar & \arrow[dashed]{d} \ker \trFrob{G} & \ker t_{G^0} \dar & \\
     0 \rar & \GCiso{\pi_0(G)} \rar \dar{t_{\pi_0(G)}}
     & \GCiso{G} \rar \dar{\trFrob{G}} & \GCiso{G^0} \rar \dar{t_{G^0}} & 0\\
-    0 \rar & \Hom(\pi_0(G)(\Fq),\EEx) \rar \dar
-    & \arrow[dashed]{d} \Hom(G(\Fq),\EEx) \rar & \Hom(G^0(\Fq),\EEx) \rar \dar & 0\\
+    0 \rar & \pi_0(G)(\Fq)^* \rar \dar
+    & \arrow[dashed]{d} G(\Fq)^* \rar & G^0(\Fq)^* \rar \dar & 0\\
     & \coker t_{\pi_0(G)} & \coker \trFrob{G} &  \coker t_{G^0} &
   \end{tikzcd}
   \]
@@ -1363,7 +1362,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   $\GCiso{G^0}$ by Proposition~\ref{prop:restriction}; and
   it is exact at $\GCiso{G}$ because the left-square
   commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
-  is exact at $\Hom(G(\Fq),\EEx)$ and $\coker t_{\pi_0(G)} =0$
+  is exact at $G(\Fq)^*$ and $\coker t_{\pi_0(G)} =0$
   (by Propositions~\ref{prop:etale} and \ref{prop:X}) and
   \[
   \image(\GCiso{\pi_0(G)} \to \GCiso{G}) \subseteq \ker(\GCiso{G} \to \GCiso{G^0}),
@@ -1372,8 +1371,8 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   suppose $\cs{L}$ is a geometrized character of $G$ that is trivial on
   $G^0$. Then $\trFrob{\cs{L}}\vert_{G^0(\Fq)} = \trFrob{\cs{L}^0} =0$,
   by Proposition~\ref{prop:pullback} again. Since the sequence of
-  character groups is exact at $\Hom(G(\Fq),\EEx)$, there is
-  some $\chi \in \Hom(\pi_0(G)(\Fq),\EEx)$ such that the
+  character groups is exact at $G(\Fq)^*$, there is
+  some $\chi \in \pi_0(G)(\Fq)^*$ such that the
   pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is
   $\trFrob{\cs{L}}$. By Propositions~\ref{prop:etale} and \ref{prop:X},
   there is a a geometrized character $\cs{L}_\chi$ on $\pi_0(G)$, unique up
