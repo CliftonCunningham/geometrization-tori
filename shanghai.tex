@@ -578,8 +578,7 @@ We will see that the full subcategory $\GC_0(G)$ of bounded geometrized characte
 To define the category of finite geometrized characters we must work a bit harder.
 Consider the following category \cdef{$C(G)$}:
 an object in $C(G)$ is a pair $(f,\psi)$ where: 
-$f : H\to G$ an isogeny (a finite, surjective etale morphism and a morphism of commutative group $\Fq$-schemes)
-for which the action of $\Gal(\bFq/\Fq)$ on the etale group scheme $\ker f$ is trivial, 
+$f : H\to G$ is a \cdef{discrete isogeny} (a finite, surjective etale morphism and a morphism of commutative group $\Fq$-schemes, for which the action of $\Gal(\bFq/\Fq)$ on the etale group scheme $f^{-1}{\bar e}$ is trivial), 
 and $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$;
 a map $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$ 
 where $\alpha$ is a morphism of schemes such that $f' = f\circ \alpha$
@@ -1205,75 +1204,45 @@ Theorem~\ref{thm:snake}.
 % !TEX encoding = UTF-8 Unicode
 %\subsection*{Restriction to the identity component is surjective}
 
-\David{This section needs to be modified once the bounded geometrized characters section is done}
 Let $G^0$ be the connected component of $G$ containing the identity.
 By Proposition~\ref{prop:pullback}, pull-back along
 $G^0\hookrightarrow G$ determines a monoidal functor
 $\cs{L}\mapsto \cs{L}\vert_{G^0}$ from $\GC(G)$ to $\GC(G^0)$.  In
-this section we show that this functor is essentially surjective. To
-do this we employ a perspective on characters sheaves which is
-different from that in Section~\ref{sec:category} but which works
-very well for geometrically connected abelian algebraic groups; this
-perspective fails to extend properly to the more general context of
-Section~\ref{sec:category}.
+this section we show that this functor is essentially surjective. 
 
 \begin{proposition}\label{prop:restriction}
   The restriction functor $\GC(G)\to \GC(G^0)$ is essentially surjective.
 \end{proposition}
 
 \begin{proof}
-  Because $G$ is smooth over $\Fq$, the identity component $G^0$ is a
-  geometrically connected algebraic group over $\Fq$, clopen in $G$
-  \cite{vdG&M}*{3.17}. By Proposition~\ref{prop:connected}, every
-  geometrized character $\cs{E} = (\gcs{E},\mu^0,\phi^0)$ on $G^0$ descends to
-  a line bundle on $G^0$.
+  Because $G$ is smooth over $\Fq$, the identity component, 
+  $G^0$, is a connected algebraic group over $\Fq$, 
+  clopen in $G$ \cite{vdG&M}*{3.17}. 
+  By Proposition~\ref{prop:connected}, every
+  geometrized character on $G^0$ is isomorphic to a 
+  finite geometrized character on $G^0$, 
+  so to prove the proposition it suffices to show that every 
+  finite geochar on $G^0$ extends to a geochar on $G$.
+  
+ Let $(\pi,\psi)$ be a finite geochar on $G^0$.
+ By Lemma~\ref{lemma:ext}, there is an extension of the 
+ descrete isogeny $\pi : B \to G^0$ 
+ (see Section~\ref{sec:finite} for the definition of a discrete isogeny) 
+ to a discrete isogeny $f : H \to G^0$ 
+ such that $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism.
+ Then $(f,\psi)$ is a finite geochar on $G$.
+ Then $(f,\psi)\vert_{G^0} \iso (\pi,\psi)$,
+ completing the proof that $\GC(G)\to \GC(G^0)$ is essentially surjective.
+\end{proof}
 
-  Let us review how line bundles on $G^0$ determine geometrized characters
-  on $G^0$.  Up to isomorphism, line bundles on $G^0$ may be
-  apprehended in terms of pairs $(\pi,\psi)$,
-  \David{Aren't there line bundles which are not geometrized characters,
-    for which $B$ is not an algebraic group?}
-  where $\pi : B\to G^0$ is a finite etale morphism of algebraic
-  groups and a character $\psi : A\to \EEx$, where
-  $\Gal(\bFq/\Fq)$ acts trivially on $A \ceq \ker {\bar \pi}$, as
-  summarized by the following diagram.
-  \begin{equation}\label{E}
-  \begin{tikzcd}
-  \EEx & 1\rar & A \arrow[bend right,swap]{ll}{\psi} \rar & B \rar{\pi} & G^0 \rar & 1
-  \end{tikzcd}
-  \end{equation}
-  (In fact, we may always take $B = G^0$ and $\pi = \Lang_{G^0}$, the
-  Lang isogeny for $G^0$.)  Indeed, $\cs{E}$ is precisely the
-  component of $\pi_! (\EE)_{B}$ on which $A$ acts through $\psi$.  To
-  see that $\cs{E}$ is a line bundle on $G^0$, start by pulling back
-  $\pi: B \to G^0$ along $m_0 : \GzxGz \to G^0$.
-  \begin{equation}
-  \begin{tikzcd}
-  \EEx & 1\rar & A \arrow[bend right,swap]{ll}{\psi} \rar & B \rar{\pi} & G^0 \rar & 1\\
-      & 1\rar & \AxA \arrow[dashed]{llu} \uar \rar
-      & \BxB \rar{\pi\tight{1}{\times}{1} \pi} \uar{m_{B}} & \GzxGz \uar{m_0} \rar & 1
-  \end{tikzcd}
-  \end{equation}
-  As pictured above, the kernel of this pull-back is $\AxA$;
-  indeed, $\AxA \to \BxB$ is the pull-back of $A\to B$ along
-  $m_{B}$. Use this Cartesian square to define a character (the dotted
-  arrow, above) of $\AxA$; that is, define $\AxA \to \EEx$
-  by the composition of $\AxA \to A$ and $\psi : A\to \EEx$.
-  Note that this character is $\psi \otimes \psi : \AxA \to \EEx$.
-  \Clifton{I haven't explained how maps between diagrams define sheaf
-    homomorphisms between local systems.}
-  Since the lower sequence is precisely the sequence defining
-  $\ExE$, this shows that, by construction, $\cs{E}$
-  comes equipped with a canonical isomorphism $m_0^*\cs{E} \iso \ExE$.
-  Now the base change $\gcs{E}$ comes equipped with isomorphisms
-  $\phi^0 : \Frob{G^0}^* \gcs{E} \to \gcs{E}$ and
-  $\mu^0 : \bm_0^* \gcs{E} \to \bExE$
-  satisfying conditions \ref{CS.1} and \ref{CS.2}. Then $(\gcs{E},\mu^0,\phi^0)$
-  is a geometrized character of $G^0$.
+\begin{lemma}\label{lemma:ext}
+Every discrete isogeny onto $G^0$ extends to a discrete isogeny onto $G$ such that the component group of the covering space is isomorphic to the component group of $G$.
+\end{lemma}
 
-  The next step is to show that $\pi: B \to G^0$ extends to a finite
-  etale morphism of group schemes $f: H\to G$, smooth and locally of
-  finite type over $\Fq$, in such a way that $H^0 = B$, $f^0 =\pi$ and
+\begin{proof}
+Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
+  We will find a discrete isogeny $f: H\to G$
+  such that that $H^0 = B$, $f^0 =\pi$ and
   $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component
   groups.
   \begin{equation}\label{extension-diagram}
@@ -1285,12 +1254,14 @@ Section~\ref{sec:category}.
   \end{equation}
   where all rows and columns are exact and all maps are defined over
   $\Fq$.  We will do so by passing back and forth between group
-  schemes over $\Fq$ and their $\bFq$-points.  Extensions of
+  schemes over $\Fq$ and their $\bFq$-points.  
+  
+  Extensions of
   $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to H^0(\bFq) \to G^0(\bFq)$,
   correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$.
   Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
   classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map
-  $G^0(\bFq) \to G(\bFq)$ induces a map
+  $G^0(\bFq) \to G(\bFq)$ induces the map
   $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$,
   fitting into the long exact sequence derived from applying
   $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
@@ -1334,175 +1305,7 @@ Section~\ref{sec:category}.
   descends to a diagram of $\Fq$-schemes since the $\bFq$-points of
   the objects come equipped with continuous $\Gamma$-actions, and the
   morphisms are $\Gamma$-equivariant.
-
-  Now we show that $f : H\to G$, as above, together with a character
-  $\psi : \ker \bf \to \EEx$, defines a geometrized character on
-  $G$. We will also show that the restriction of this geometrized character
-  on $G$ to $G^0$ is precisely the geometrized character of $G^0$ defined by
-  the pair $(f^0,\psi)$ as above.
-
-  Set $X \ceq \pi_0(G)\times_{\Spec{\Fq}} \Spec{\bFq}$. We will
-  identify $X$ with $\pi_0(H)\times_{\Spec{\Fq}} \Spec{\bFq}$ using
-  the base change of $\pi_0(f): \pi_0(H)\to \pi_0(G)$. For each $x\in X$,
-  write $\bf^x : \bH^x \to \bG^x$ for the
-  restriction of $\bf$ to $\bH^x$, as a cover of
-  $\bG^x$. For each $x,y\in X$, let
-  $\bm_{x,y} : \bH^x \times \bH^{y} \to \bH^{x+y}$
-  be the map obtained from $\bm$ by restriction. Define
-  $\bm_{x} : A\to \Aut(\bf^x)$ by
-  $\bm_{x}(a): g \mapsto \bm_{0,x}(a,g)$; then
-  $\bm_{x} : A\to \Aut(\bf^x)$ is an isomorphism.
-  \Clifton{I need to show that $\bm_{x} : A\to \Aut(\bf^x)$ is an isomorphism.}
-
-  For each $x\in X$ let $\gcs{L}^x$ be the rank-$1$ local system on
-  $\bG^x$ determined by the finite etale cover
-  $\bf^x : \bH^x \to \bG^x$ and the character
-  $\psi_x \ceq \psi \circ \bm_x^{-1}$.  Since
-  $\bG = \coprod_{x\in X} \bG^x$ (disjoint union), this
-  determines a constructible sheaf $\gcs{L}$ on $\bG$, locally
-  constant of rank-$1$ on each connected component of $\bG$.
-  Taking the case $x=0$ we observe that $\gcs{L}^0 =\gcs{E}$,
-  the latter defined above. To finish the proof of the proposition we
-  equip $\gcs{L}$ with isomorphisms
-  $\mu : \bm^* \gcs{L} \to \LxL$ and
-  $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ satisfying conditions \ref{CS.1}
-  and \ref{CS.2}.
-
-  Observe that $\bm: \bGxG \to \bG$ is
-  completely determined by the family of maps
-  $\bm_{x,y} : \bG^x \times \bG^{y} \to \bG^{x+y}$.
-  Accordingly, to define $\mu$ for $\gcs{L}$ it is sufficient to define isomorphisms
-  $\mu_{x,y} : \bm_{x,y}^*\gcs{L}^{x+y} \iso \gcs{L}^{x}\boxtimes \gcs{L}^{y}$
-  for all $x,y\in X$. To do that, note first that the local system
-  $\gcs{L}^{x}\boxtimes \gcs{L}^{y}$ is defined by the following diagram.
-  \[
-  \begin{tikzpicture}[auto,style={rectangle}]
-  \node (0) at (0,0) {$\EEx$};
-  \node (1) [anchor=east] at (6,0) {$\Aut(\bf^x) \times \Aut(\bf^y)$};
-  \node (2) [anchor=west] at (6.4,0) {$\bH^x \times \bH^y$};
-  \node (3) at (11,0) {$\bG^x \times \bG^y$};
-  \draw [->] (1) to node[swap, label] {$\psi_x \otimes \psi_y$} (0);
-  \draw [->] (6.3,-0.06) arc (330:40:0.12) -- (6.3,0.07);
-  \draw [->] (2) to node[label] {$\bf^x \tight{0}{\times}{0} \bf^y$} (3);
-  \end{tikzpicture}
-  \]
-  On the other hand, the diagram for the local system $\bm_{x,y}^* \gcs{L}^{x+y}$
-  is found by pulling-back the diagram for $\gcs{L}^{x+y}$ along
-  $\bm_{x,y} : \bH^x\times\bH^y \to \bH^{x+y}$;
-  the result is the middle horizontal diagram below, where we use the
-  fact that the covering group of the middle arrow is $\Aut(\bf^{x+y})$, canonically.
-  
-  \vspace{0.2in}
-  
-  \[
-  \begin{tikzpicture}[auto,style={shape={asymmetrical rectangle}},scale=1.2]
-  \node (12) [anchor=east] at (4,2.4) {$\Aut(\bf^{x+y})$};
-  \node (22) [anchor=west] at (4.4,2.4) {$\bH^{x+y}$};
-  \node (32) [anchor=east] at (11,2.4) {$\bG^{x+y}$};
-  \node (01) at (0,1.2) {$\EEx$};
-  \node (11) [anchor=east] at (4,1.2) {$\Aut(\bf^{x+y})$};
-  \node (21) [anchor=west] at (4.4,1.2) {$\bH^{x+y} \times_{\bG^{x+y}} (\bG^x\times\bG^y)$};
-  \node (31) [anchor=east] at (11,1.2) {$\bG^x\times \bG^y$};
-  \node (10) [anchor=east] at (4,0) {$\Aut(\bf^x)\times \Aut(\bf^y)$};
-  \node (20) [anchor=west] at (4.4,0) {$\bH^x\times \bH^y$};
-  \node (30) [anchor=east] at (11,0) {$\bG^x\times \bG^y$};
-  \draw [->] (4.3,2.34) arc (330:40:0.12) -- (4.3,2.47);
-  \draw [->, densely dotted] (4.3,1.14) arc (330:40:0.12) -- (4.3,1.27);
-  \draw [->] (4.3,-0.06) arc (330:40:0.12) -- (4.3,0.07);
-  \draw [->] (12) to node[swap,label] {$\psi_{x+y}$} (01);
-  \draw [->, dashed] (11) -- (01);
-  \draw [->] (10) to node[label] {$\psi_x \otimes \psi_y$} (01);
-  \draw [->, dashed] ($(11.south) + (0,-0.7)$) -- (11);
-  \draw [double equal sign distance] (11) -- (12);
-  \draw [->] (22) to node[label] {$\bf^{x+y}$} (32);
-  \draw [->] ($(22.south) + (0,-0.7)$) -- (22);
-  \draw [->] (21) -- (31);
-  \draw [->] ($(32.225) + (0,-0.7)$) to node[swap] {\footnotesize{$\bm_{x,y}$}} (32.225);
-  \draw [->] ($(22.south) + (0,-1.9)$) -- ($(22.south) + (0,-1.2)$);
-  \draw [->] (20) to node[label] {$\bf^x \times \bf^y$} (30);
-  \draw [double equal sign distance] ($(32.225) + (0,-1.9)$) -- ($(32.225) + (0,-1.2)$);
-  \end{tikzpicture}
-  \]
-  Now, the homomorphism from the covering group of
-  $\bf^x\times\bf^y$ to the covering group of
-  $\bf^{x+y}$ induced by the composition
-  $ \bH^x\times \bH^y \to \bH^{x+y} \times_{\bG^x\times\bG^y} \bG^x\times\bG^y \to \bH^{x+y}$
-  is precisely $(\bm_x(a),\bm_y(b)) \mapsto \bm_{x+y}(ab)$.
-  Since this map commutes with the characters $\psi_x\otimes\psi_y$
-  and $\psi_{x+y}$ (so, the far-left triangle commutes in the diagram above)
-  it follows that, for each $x,y\in X$ the diagram above defines a canonical isomorphism
-  $\mu_{x,y} : \bm_{x,y}^* \gcs{L}^{x+y} \to \gcs{L}^x \boxtimes\gcs{L}^y$.
-  This defines $\mu: \bm^* \gcs{L} \iso \LxL$.
-  It is straightforward (but laborious) to show that the pair
-  $(\gcs{L},\mu)$ satisfies condition \ref{CS.1}.
-
-  Now we turn to the definition of $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$.
-  As above, we define this isomorphism through a family of
-  isomorphisms on the connected components of $\bG$. The
-  restriction of $\Frob{G}$ to $\bG^x$ defines an isomorphism
-  $\Frob{G}^x : \bG^x \to \bG^{\Frob{\Fq}(x)}$.
-  %\[
-  %\xymatrix{
-  %\ar[d]_{\Frob_x} \bG^x \ar[r] & \ar[d]_{\Frob{G}} \bG\\
-  %\bG^{\Frob{\Fq}(x)} \ar[r] & \bG\\
-  %}
-  %\]
-  Pull back the finite etale covering in the diagram for
-  $\gcs{L}^{\Frob{\Fq}(x)}$ along $\Frob{G}^x$ and compare the result with the
-  finite etale covering in the diagram for $\gcs{L}^{x}$.
-
-  \[
-  \begin{tikzpicture}[auto,style={rectangle},scale=1.2]
-  \node (12) [anchor=east] at (4,2.4) {$\Aut(\bf^{\Frob{\Fq}(x)})$};
-  \node (22) [anchor=west] at (4.4,2.4) {$\bH^{\Frob{\Fq}(x)}$};
-  \node (32) [anchor=west] at (8,2.4) {$\bG^{\Frob{\Fq}(x)}$};
-  \node (01) at (0,1.2) {$\EEx$};
-  \node (11) [anchor=east] at (4,1.2) {$\Aut(\bf^{\Frob{\Fq}(x)})$};
-  \node (21) [anchor=west] at (4.4,1.2) {$\bH^{\Frob{\Fq}(x)} \times_{\bG^{\Frob{\Fq}(x)}} \bG^x$};
-  \node (31) [anchor=west] at (8,1.2) {$\bG^x$};
-  \node (10) [anchor=east] at (4,0) {$\Aut(\bf^x)$};
-  \node (20) [anchor=west] at (4.4,0) {$\bH^x$};
-  \node (30) [anchor=west] at (8,0) {$\bG^x$};
-  \draw [->] (4.3,2.34) arc (330:40:0.12) -- (4.3,2.47);
-  \draw [->, densely dotted] (4.3,1.14) arc (330:40:0.12) -- (4.3,1.27);
-  \draw [->] (4.3,-0.06) arc (330:40:0.12) -- (4.3,0.07);
-  \draw [->] (12) to node[swap,label] {$\psi_{\Frob{\Fq}(x)}$} (01);
-  \draw [->, dashed] (11) -- (01);
-  \draw [->] (10) to node[label] {$\psi_x$} (01);
-  \draw [->, dashed] ($(11.south) + (0,-0.7)$) -- (11);
-  \draw [double equal sign distance] (11) -- (12);
-  \draw [->] (22) to node[label] {$\bf^{\Frob{\Fq}(x)}$} (32);
-  \draw [->] ($(22.225) + (0,-0.7)$) -- (22.225);
-  \draw [->] (21) -- (31);
-  \draw [->] ($(32.222) + (0,-0.7)$) to node[swap] {\footnotesize{$\Frob{G}^x$}} (32.222);
-  \draw [->] ($(22.225) + (0,-1.9)$) -- ($(22.225) + (0,-1.2)$);
-  \draw [->] (20) -- (30);
-  \draw [double equal sign distance] ($(32.222) + (0,-1.9)$) -- ($(32.222) + (0,-1.2)$);
-  \end{tikzpicture}
-  \]
-  The covering group of $\bH^{\Frob{\Fq}(x)} \times_{\bG^{\Frob{\Fq}(x)}} \bG^x$
-  is isomorphic to $\Aut(\bf^{\Frob{\Fq}(x)})$, canonically, so
-  $(\Frob{G}^x)^* \gcs{L}^{\Frob{\Fq}(x)}$ is defined by the middle (horizontal)
-  diagram, above.  We define the sheaf homomorphism
-  $\phi_x : (\Frob{G}^x)^* \gcs{L}^{\Frob{\Fq}(x)} \to \gcs{L}^x$ by the canonical morphism
-  $\bH^x \to \bH^{\Frob{\Fq}(x)} \times_{\bG^{\Frob{\Fq}(x)}} \bG^x \to $;
-  to see that this defines a sheaf homomorphism it is sufficient to
-  check that the character $\psi_x$ commutes with the family of isomorphisms
-  $\phi_x : (\Frob{G}^* \gcs{L})\vert_{\bG^x} \iso (\Frob{G}^x)^* \gcs{L}^{\Frob{x}} \to \gcs{L}^x$
-  now defines the isomorphism $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$.
-  \Clifton{Add some detail here.}
-  This isomorphism is compatible with $\mu$ in the sense of condition~\ref{CS.2}.
 \end{proof}
-\Clifton{I can flesh out this remark once I've promoted the definition of $\GCb(G)$ (category of bounded geometrized characters of $G$).}
-\begin{remark}
-  We have seen that if $f : H\to G$ is a finite etale cover of $G$ by
-  a smooth group scheme and if all geometric automorphisms of $f$ are
-  fixed by Frobenius, then every character of $\ker f$ determines a
-  geometrized character of $G$. However, it is not true that every character
-  sheaf on $G$ arises in this manner.
-\end{remark}
-
-%\input{centralextensions}
 
 \section{Main result regarding geometrized characters}
 
