@@ -696,20 +696,16 @@ V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} &  G
 \end{lemma}
 
 \begin{proof}
-The main issue to address is well-definedness. Although the pull-back appearing in the diagram above it not unique, the recipe for $g^*$ is well-defined as a functor between localized categories.
-To see this, recall that a morphism in $\GCf(G)$ is an equivalence class of a diagram like \eqref{eq:morGCf}, commonly denoted by $(\alpha_1,T_1)^{-1}\circ (\alpha'_1,T'_1)$. 
-The equivalence relation identifies $(\alpha_1,T_1)^{-1}\circ (\alpha'_1,T'_1)$
- with $(\alpha_2,T_2)^{-1}\circ (\alpha'_2,T'_2)$ if there are maps 
- $(f_1,\psi_1)\to (f_0,\psi_0)$ and $(f_2,\psi_2)\to (f_0,\psi_0)$ making the following diagram commute
- \[
-  \begin{tikzcd}
-  \  & A & \\
-B   & C & D \\
-  & E &
-  \end{tikzcd}
- \]
- where $(f',\psi') \to (f_0,\psi_0)$ is a weak isomorphism.
-
+The key point is that pull-back along $g$ takes isogenies to isogenies, and maps over $G$ to maps over $G'$, as pictured below.
+\[
+\begin{tikzcd}[row sep=10,column sep=10]
+\ & V \arrow{dd}{T} && \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} && H \arrow{rr}{f} && \arrow[equal]{dd} G\\
+ && && \arrow{ul} \ker f\times_G G' \arrow{ur} \arrow[hook]{rr} && H\times_G G' \arrow{ur} \arrow{rr} && G' \arrow{ur}{g} & \\
+& V' && \Aut(V) && \arrow[swap]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr} && \arrow[swap]{uu} H' \arrow{rr}{f'} && G\\
+ && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow{ur}{g} & \\
+\end{tikzcd}
+\]
+In this form we could treat $g^*$ as a functor $G(G')\to C(G)$, where it not for the fact that pull-back is defined only up to isomorphism. In the localized categories, this ambiguity disappears. 
 \end{proof}
 
 
