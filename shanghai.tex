@@ -272,7 +272,7 @@ For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \E
 \section{The category of geometrized characters}\label{sec:category}
 
 The category of geometrized characters of $G$, denoted by \cdef{$\GC(G)$},
-is defined as follows.  A \cdef{geometrized character} on $G$ is a triple
+is defined as follows.  A \cdef{geometrized character on $G$} is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
 \labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic sheaf on  (the \'etale site of) $\bG$, locally constant of rank-$1$ on each connected component of $\bG$;
@@ -719,12 +719,7 @@ V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
   &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(m_f)\vert_{\ker m_f}} \ker f_m \arrow[hook]{r} & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G.
 \end{tikzcd}
 \]
-On the other hand, set $p_1^*(f,\psi) = (f_1,\psi_1)$, so $f_1 = f\times \id : H\times G\to G\times G$ and $A_1\ceq \ker f_1 = A \times G$ and $\psi_1 = \psi \circ p_1$; set $p_2^*(f,\psi) = (f_2,\psi_2)$, so $f_2 = \id \times f : G\times H \to G\times G$ and $A_2\ceq \ker f_2 = G \times A$ and $\psi_2 = \psi \circ p_2$. Then $(f,\psi) \boxtimes (f,\psi) = (f_1,\psi_1) \otimes (f_2,\psi_2) = (f_1\times_{G\times G} f_2, \psi_1\otimes \psi_2) = (f\times f, \psi\otimes \psi) $ is given by
-\[
-\begin{tikzcd}
-V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} A \times A \arrow[hook]{r}{} & H \times H \arrow{r}{f\times f} & G\times G\\
-\end{tikzcd}
-\]
+On the other hand, $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
 Since $f\circ m_H = m \circ (f\times f)$, by the universal property of pull-back, there is a unique $\theta : H\times H \to H_m$ making the following commute.
 \[
 \begin{tikzcd}
@@ -733,7 +728,7 @@ V \arrow{d}{U} & \Aut(V)  & \arrow{l}{\psi_g} \arrow{u} A_m \arrow[hook]{r} & \a
 V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes\psi} \arrow[bend left]{uu}{m_H} \arrow[swap]{u}{\theta\vert_{A\times A}} A \times A \arrow[hook]{r}{} & \arrow[bend left]{uu}{m_H} \arrow[swap]{u}{\theta} H \times H \arrow{r}{f\times f} & \arrow[equal]{u} G\times G\\
 \end{tikzcd}
 \]
-Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$. Define $U : V \to V\otimes V$ by $U(v_1) = v_1\otimes v_1$. Then the lower part of this diagram defines a weak isomorphism $(\theta,U): (f_m,\psi_m)\to (f\times f,\psi\otimes\psi)$. This defines an weak isomorphism $(\theta,U): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
+Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$. Define $U : V \to V\otimes V$ by $U(v_1) = v_1\otimes v_1$. Then the lower part of this diagram defines a weak isomorphism $(\theta,U): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
 
 While $\theta$ was canonical, $U$ was not, as it depended on the choice of a basis for $V$. However, after passing from $C_1(G)$ to $\GCf(G)$, the resulting isomorphism $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\GCf(G)$.
 \end{proof}
@@ -939,7 +934,10 @@ $x \in G(\bFq)$, satisfying
  \begin{equation}\label{section}
   \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
  \end{equation}
- 
+\Clifton{I've been putting lemmata after the propositions that use them, 
+to keep the flow of the sections clear. 
+Would you mind if I do the same in this section?}
+
 \begin{lemma}\label{lemma:section}
  If $\cs{L}$ is a geometrized character on a commutative, \'etale group scheme $G$
  with $G(\bFq)$ finitely generated then nontrivial global sections of $\cs{L}$ exist.
@@ -1041,8 +1039,6 @@ These global sections will allow us to construct the isomorphism in the followin
   If $s$ is a global section for $\cs{L}$ and $s'$ for $\cs{L}'$ then $s \otimes s'$ is a global section for
   $\cs{L} \otimes \cs{L}'$.  The three versions of \eqref{t} for $\cs{L}, \cs{L'}$ and $\cs{L} \otimes \cs{L}'$ imply that
   $\tau_{\cs{L} \otimes \cs{L}'}(\Frob{k}) = \tau_\cs{L}(\Frob{k}) \tau_{\cs{L}'}(\Frob{k})$.
-  
-  \Clifton{Straightforward, yes, but it still needs to be written down here.}
 \end{proof}
 
 
@@ -1384,58 +1380,43 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   isomorphism of groups.
 \end{proof}
 
-\section{Application to characters of bounded depth}
+\section{Application to characters of algebraic tori over local fields}
 
-%\input{GdeN}
-Let $p$ be a prime number. Let $K$ be a local field with residue field
-$\Fq$, where $p$ divides $q$. Let $\OK$ be the ring of integers of $K$
-and let $\pK$ be the maximal ideal in $\OK$.
-%
-In this section we introduce a group scheme $\GN{T}$ over $\Fq$
-obtained by applying the Greenberg functor to the N\'eron lft-model
-for $T$ and establish some basic facts about $\GN{T}$
+Let $K$ be a local field with residue field $\Fq$.
+%(Note that we place no restriction on the characteristic of $K$.)
+Let $T$ be an algebraic torus over $K$.
+
+%In this section we introduce a group scheme $\GN{T}$ over $\Fq$ obtained by applying the Greenberg functor to the N\'eron lft-model for $T$ and establish some basic facts about $\GN{T}$
 
 %\subsection{The N\'eron locally finite type model for $T$}
 
-The lft-N\'eron model for $T$, denoted here by $\TT$, is a separated,
-smooth, commutative group scheme locally of finite type over $\OK$
+The lft-N\'eron model for $T$, denoted here by $\TT$, 
+is a separated, smooth, commutative group scheme locally of finite type over $\OK$ 
+(the ring of integers of $K$)
 with generic fibre $T$, that enjoys the N\'eron mapping property: if
-$X$ is a smooth scheme over $\OK$ then every morphism $X_\eta \to T$
-over $K$ extends uniquely to a morphism $X \to \TT$. Equivalently, the
+$S$ is a smooth scheme over $\OK$ then every morphism $S_\eta \to T$
+over $K$ extends uniquely to a morphism $S \to \TT$. Equivalently, the
 N\'eron mapping property states that the function
-$\Hom_{\OK} (X,\TT) \to \Hom_K(X_\eta,T)$, given by restriction to
-generic fibres, is a bijection; in particular, this implies $\TT(\OK) = T(K)$.
+$\Hom_{\OK} (S,\TT) \to \Hom_K(S_\eta,T)$, given by restriction to
+generic fibres, is a bijection; 
+in particular, taking $S = \Spec{\OK}$, this implies $\TT(\OK) = T(K)$.
 
-For each $d\in \ZZ_{>0}$, let $\TT_{d}$ be the smooth group scheme over
-$\OK/\pK^d$ obtained from $\TT$ by base change along $\OK \to
-\OK/\pK^d$. Observe that $\OK/\pK^d$ is an Artin ring and
-$\TT_{d}$ is locally of finite type over $\OK/\pK^d$.
-
-Let $\GN{T}_{d} = \Gr(\TT_d)$ be the group scheme over $\Fq$ produced by applying
-the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
-\cite[Ch. 9, \S 6]{BLR} for background on the Greenberg functor.)
-%Then $\GN{T}_d(\Fq) = \TT(\OK/\pK^d)$.
-
-\begin{proposition}\label{prop:GN}
-  Fundamental properties of the group $\Fq$-scheme $\GN{T}_d$, for all $d\in \NN$:
-  \begin{enumerate}
-  \labitem{(GNd.0)}{GN0} $\GN{T}_d^0$, the identity component of
-    $\GN{T}_d$, is a commutative algebraic group over $\Fq$;
-  \labitem{(GNd.1)}{GNd} $\GN{T}_d$ is smooth and locally of finite type over $\Fq$;
-  \labitem{(GNd.2)}{pi0} $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$;
-  \labitem{(GNd.3)}{fg} the component group of $\GN{T}_d$ is geometrically finitely generated;
-  \labitem{(GNd.4)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^d)$, canonically;
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-\Clifton{Proofs still missing, but all straightforward. I'll cite as much as I can, here.}
-\end{proof}
+For each positive integer $d$, let $\TT_{d}$ be the group scheme obtained from $\TT$ by base change along $\OK \to \OK/\pK^d$, where $\pK$ is the maximal ideal in $\OK$. 
+Observe that $\OK/\pK^d$ is an Artin ring and $\TT_{d}$ is smooth and locally of finite type over $\OK/\pK^d$.
+%
+Let \cdef{$\GN{T}_{d} = \Gr(\TT_d)$} be the group scheme over $\Fq$ produced by applying
+the Greenberg functor to $\TT_{d}$; this is the \cdef{Greenberg transform of $\TT_d$}.
+See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} and the first few sections of \cite{Stasinski} for background on the Greenberg functor. The fundamental properties of $\GN{T}_d$ that we need are:
+ \begin{enumerate}
+   \labitem{(GN.0)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^d)$, canonically.
+  \labitem{(GN.1)}{GNd} $\GN{T}_d$ is a smooth, commutative group scheme, locally of finite type over $\Fq$, and the component group of $\GN{T}_d$ is geometrically finitely generated.
+  \end{enumerate}
+In fact, $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$, and the latter is finitely generated by \cite{Xarles}. 
 
 %\input{application}
 \begin{theorem}\label{thm:application}
   Let $T$ be an algebraic torus over a non-Archimedean local field $K$.
-  Let $\GN{T}_d$ and $\GN{T}$ be as above.  For each $d \in \ZZ_{>0}$, the
+  Let $\GN{T}_d$ be as above.  For each positive integer $d$, the
   Picard group of the category of geometrized characters of $\GN{T}_d$ is
   canonically isomorphic to the group of characters of $T(K)$ of depth
   less than $d$:
@@ -1445,52 +1426,41 @@ the Greenberg functor to $\TT_{d}$. (See \cite{Greenberg:2} and
 \end{theorem}
 
 \begin{proof}
-  By \ref{GNd} and \ref{fg}, we may apply Theorem~\ref{thm:snake} to
+  By \ref{GNd}, we may apply Theorem~\ref{thm:snake} to
   $\GN{T}_d$ which provides a canonical isomorphism
-  \[
-  \GCiso{\GN{T}_d} \iso \Hom(\GN{T}_d(\Fq),\EEx).
-  \]
+  $\GCiso{\GN{T}_d} \iso \GN{T}_d(\Fq)^*$.
   By \ref{dFq}, $\GN{T}_d(\Fq) \iso \TT(\OK/\pK^d)$ canonically.
   To finish the proof we recall that the filtration of $T(K)$ used to
   define depth has the property that $\TT(\OK/\pK^d) \cong T(K) / T(K)_d$
-  \cite[Prop 5.2]{Yu} for $d \in \ZZ_{>0}$.  Thus characters of $\GN{T}_d(\Fq)$ are
-  in bijection with characters of $T(K)$ vanishing on $T(K)_d$.
+  \cite[Prop 5.2]{Yu}, so characters of $\GN{T}_d(\Fq)$ 
+  are in bijection with characters of $T(K)$ vanishing on $T(K)_d$. 
+  %Note that $d$ is a positive integer.  
 \end{proof}
 
-\section{Application to admissible characters}
+%\section{Application to admissible characters}
 
 %\input{pro}
-To conclude the paper we offer an interpretation of
-Theorem~\ref{thm:application} that makes no mention of depth.
-
-\Clifton{Explain what happens as $d$ varies.}
-Suppose $d\leq d'$.
-
-We may now assemble the group $\Fq$-schemes $\TT_{d}$ into one
+We may also assemble the group $\Fq$-schemes $\TT_{d}$ into one
 glorious group pro-scheme over $\Fq$:
 \begin{equation}\label{projlim}
-  \GN{T} \ceq \varprojlim_{d\in \NN} \GN{T}_{d}.
+  \cdef{\GN{T}} \ceq \varprojlim_{d\in \ZZ_{>0}} \GN{T}_{d}.
 \end{equation}
-This is the \cdef{Greenberg transform of the lft-N\'eron model of $T$}; we will also write $\Gr$ for this functor on $\OK$-schemes.
-
-\Clifton{Prove that $\GN{T}$ is a scheme? Strictly speaking, we don't
-  care about \ref{scheme}.}
-  
-\Clifton{Must still define $\GC(\GN{T})$, since it is not an instance
- of our definitions, above.}
-  
-\begin{proposition}
-  Fundamental properties of $\GN{T}$:
-  \begin{enumerate}
-  \labitem{(GN.0)}{scheme} $\GN{T}$ is a commutative group scheme over $\Fq$;
-  \labitem{(GN.1)}{T(K)} $\GN{T}(\Fq) = T(K)$, canonically.
+This is the \cdef{Greenberg transform of the N\'eron model of $T$}.
+ Some fundamental properties of $\GN{T}$ are:
+ \begin{enumerate}
+   \labitem{(GN.2)}{T(K)} $\GN{T}(\Fq) = T(K)$, canonically;
+  \labitem{(GN.3)}{scheme} $\GN{T}$ is a commutative group scheme over $\Fq$.
   \end{enumerate}
-\end{proposition}
-
+This gives us a natural way to geometrize all admissible characters of $T(K)$
+without reference to depth.
+Let \cdef{$\GC(\GN{T})$} be the ind-category $\varinjlim_{d\in \ZZ_{>0}} \GC(\GN{T}_d)$;
+we refer to objects of $\GC(\GN{T})$ as \cdef{geometrized characters of $T$}.
 
 \begin{corollary}
+Let $T$ be an algebraic torus over a non-Archimedean local field $K$.
+The Picard group of the category $\GC(\GN{T})$ of geometrized characters of $T$ is canonically isomorphic to the group of admissible characters of $T(K)$:
   \[
-  \GCiso{\GN{T}} \iso \Hom_\text{ad}(T(K),\EEx)
+  \GCiso{\GN{T}} \iso \Hom_\text{ad}(T(K),\EEx).
   \]
 \end{corollary}
 
@@ -1732,6 +1702,20 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
    date={1973},
 %   pages={x+438},
 %   review={\MR{0354657 (50 \#7135)}},
+}
+
+\bib{Stasinski}{article}{
+   author={Stasinski, Alexander},
+   title={Reductive group schemes, the Greenberg functor, and associated
+   algebraic groups},
+   journal={J. Pure Appl. Algebra},
+   volume={216},
+   date={2012},
+   number={5},
+   pages={1092--1101},
+%   issn={0022-4049},
+%   review={\MR{2875329}},
+%   doi={10.1016/j.jpaa.2011.10.027},
 }
 
 \bib{Tate:thesis}{article}{
