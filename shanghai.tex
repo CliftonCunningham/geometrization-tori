@@ -501,8 +501,35 @@ canonically.
 
 When using geometrized characters to study characters, it is useful to understand
 how geometrized characters behave under change of fields.
-Suppose that $k'$ is a finite extension of $k$ of degree $n$, 
-$G$ is a commutative smooth group scheme locally of finite type over $k$.
+Let $k'$ be a finite extension of $k$. Then $k\to k'$ induces a group homomorphism $i_{k'/k} : G(k) \hookrightarrow G(k')$ which, in turn, gives
+\[
+i_{k'/k}^* : G(k')^* \to G(k)^* \qquad \text{defined by}\qquad \chi \mapsto \chi\circ i_{k'/k}.
+\]
+We can interpret this operation on characters in terms of geometrized characters, as follows.
+%
+
+\begin{proposition} \label{prop:csbe}
+Set $G_{k'} = G\times_\Spec{k} \Spec{k'}$ and let
+\[
+\GC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota^*} \GC(G)
+\]
+be the functor obtained by pull-back along the canonical closed immersion of $k$-schemes  $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}. 
+The following diagram commutes:
+\[
+\begin{tikzcd}
+\GCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar[swap]{t_{\Res_{k'/k}(G_{k'})}} & \GCiso{G} \dar{t_G} \\
+G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
+\end{tikzcd}
+\]
+\end{proposition}
+
+In the opposite direction, let $\Nm_{k'/k} : G(k') \to G(k)$ be the norm map and consider the group homomorhism:
+\Clifton{How is $\Nm$ defined?}
+\[
+\Nm_{k'/k}^* : G(k)^* \to G(k')^* \qquad \text{defined by}\qquad \chi \mapsto \chi\circ \Nm_{k'/k}.
+\]
+We can also interpret this operation on characters in terms of geometrized characters, as follows.
+
 If $\cs{L} = (\gcs{L}, \mu, \phi)$ is a geometrized character of $G$ we may define
 a geometrized character $\cs{L}' = (\gcs{L}, \mu, \phi_{k'})$ on 
 $G_{k'}\ceq G\times_{\Spec{k}} \Spec{k'}$ by setting
@@ -516,23 +543,48 @@ as taking the action $\varphi$ of $\Weil{k}$ on $\gcs{L}$
 defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{k'}$.
 
 \begin{proposition}\label{prop:basechange}
- The rule $(\gcs{L}, \mu, \varphi) \mapsto (\gcs{L}, \mu, \varphi\vert_{\Weil{\Fq}})$ 
+ The rule $\nu_{k'/k}: (\gcs{L}, \mu, \varphi) \mapsto (\gcs{L}, \mu, \varphi\vert_{\Weil{\Fq}})$ 
  defines a monoidal functor $\GC(G) \to \GC(G_{k'})$. 
  Moreover, the following diagram commutes, 
  where the top map is induced by $\GC(G) \to \GC(G_{k'})$ 
  and the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
 \[
 \begin{tikzcd}[column sep=60]
-\GCiso{G} \rar{\text{ext'n of scalars}} \dar{\trFrob{G}} & \GCiso{G_{k'}} \dar{\trFrob{G_{k'}}} \\
-G(k)^*  \rar{\Nm} & G(k')^*
-%\Hom(G(k), \EEx) \rar{\Nm} & \Hom(G(k'), \EEx).
+\GCiso{G} \rar{\nu_{k'/k}} \dar{\trFrob{G}} & \GCiso{G_{k'}} \dar{\trFrob{G_{k'}}} \\
+G(k)^*  \rar{\Nm_{k'/k}^*} & G(k')^*.
 \end{tikzcd}
 \]
 \end{proposition}
 
-\begin{proof}
-\Clifton{This proof is missing. Can David insert it?}
-\end{proof}
+
+Finally, we explain how to geometrize the canonical isomorphism between characters of $G'(k')$ and of $(\Res_{k'/k}G')(k)$.
+The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
+decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
+\[
+(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
+\]
+The component corresponding to the identity element yields a natural inclusion 
+\[
+G' \hookrightarrow (\Res_{k'/k}G')_{k'}
+\]
+of $k'$-schemes.  The definition of base change yields a map of $k$-schemes
+\[
+(\Res_{k'/k}G')_{k'} \to \Res_{k'/k}G'.
+\]
+Consecutive pullback along these maps yields a functor
+\[
+\GC(G') \to \GC(\Res_{k'/k}G').
+\]
+
+\begin{proposition}
+The following diagram commutes:
+\[
+\begin{tikzcd}
+\GCiso{G'} \dar{t_{G'}} \rar & \GCiso{\Res_{k'/k} G'} \dar{t_{\Res_{k'/k} G'}} \\
+ G'(k')^* \rar & (\Res_{k'/k}G')(k)^*
+\end{tikzcd}
+\]
+\end{proposition}
 
 \section{Bounded geometrized characters}\label{sec:bounded}
 
@@ -1382,55 +1434,6 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 
 \Clifton{Return to finite and bounded character sheaves, explaining why our definition is the right one. Also explain why we don't think of local systems as representations of a fundamental group.}
 
-\section{Restriction of scalars}
-
-In the opposite direction, there is a canonical closed immersion of $k$-schemes
-$G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}.  Pullback yields a functor
-\[
-\GC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota} \GC(G).
-\]
-\begin{proposition} \label{prop:csbe}
-The following diagram commutes, where the bottom map is induced by the inclusion $G(k) \hookrightarrow G(k')$:
-\[
-\begin{tikzcd}
-\GCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar{t_{\Res_{k'/k}(G_{k'})}} & \GCiso{G} \dar{t_G} \\
-\Hom(G(k'), \EEx) \arrow[two heads]{r} & \Hom(G(k), \EEx).
-\end{tikzcd}
-\]
-\end{proposition}
-
-Now suppose that $G'$ is an abelian group scheme over $k'$, satisfying the conditions of Theorem \ref{thm:snake}.
-There is a canonical isomorphism between $G'(k')$ and $(\Res_{k'/k}G')(k)$;
-we now describe the corresponding functor from
-$\GC(G')$ to $\GC(\Res_{k'/k}G')$.  The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
-decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
-\[
-(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
-\]
-The component corresponding to the identity element yields a natural inclusion 
-\[
-G' \hookrightarrow (\Res_{k'/k}G')_{k'}
-\]
-of $k'$-schemes.  The definition of base change yields a map of $k$-schemes
-\[
-(\Res_{k'/k}G')_{k'} \to \Res_{k'/k}G'.
-\]
-Consecutive pullback along these maps yields a functor
-\[
-\GC(G') \to \GC(\Res_{k'/k}G').
-\]
-
-\begin{proposition}
-  Then the following diagram commutes:
-\[
-\begin{tikzcd}
-\GCiso{G'} \dar{t_{G'}} \rar & \GCiso{\Res_{k'/k} G'} \dar{t_{\Res_{k'/k} G'}} \\
- \Hom(G'(k'), \EEx) \rar & \Hom((\Res_{k'/k}G')(k), \EEx)
-\end{tikzcd}
-\]
-\end{proposition}
-
-
 
 \section{Application to characters of algebraic tori over local fields}
 
@@ -1516,12 +1519,11 @@ The Picard group of the category $\GC(\GN{T})$ of geometrized characters of $T$ 
   \]
 \end{corollary}
 
-\section{Base change over the local field}
+\section{Canonicity}
 
 We have already seen that the trace of Frobenius defines a canonical isomorphism 
 $t_T : \GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
-In this section we expand on the canonicity of this group isomorphism 
-by showing that it is a natural transformation. We also show 
+In this section we expand on the canonicity of this group isomorphism. 
 
 \begin{proposition}
 The isomorphism $t_T : \GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
@@ -1536,6 +1538,8 @@ from the category of algebraic tori over $K$ to the category of abelian groups:
 \Clifton{I think I can prove this proposition without too much difficulty.}
 \begin{proof}
 \end{proof}
+
+\section{Geometrization of restriction of scalars of local fields}
 
 Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
 \[
