@@ -714,7 +714,30 @@ Each $(f,\psi)\in \GCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (
  \end{lemma}
 
 \begin{proof}
-Before compare $m^*(f,\psi)$ and 
+As in Lemma~\ref{lemma:finite-pull-back}, we have $m^*(f,\psi) = (f_m,\psi_m)$ where $f_m$ and $\psi_m$ are pictured below, where $H_m = H\times_G(G\times G)$.
+\[
+\begin{tikzcd}
+V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
+  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(m_f)\vert_{\ker m_f}} \ker f_m \arrow[hook]{r} & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G.
+\end{tikzcd}
+\]
+On the other hand, set $p_1^*(f,\psi) = (f_1,\psi_1)$, so $f_1 = f\times \id : H\times G\to G\times G$ and $A_1\ceq \ker f_1 = A \times G$ and $\psi_1 = \psi \circ p_1$; set $p_2^*(f,\psi) = (f_2,\psi_2)$, so $f_2 = \id \times f : G\times H \to G\times G$ and $A_2\ceq \ker f_2 = G \times A$ and $\psi_2 = \psi \circ p_2$. Then $(f,\psi) \boxtimes (f,\psi) = (f_1,\psi_1) \otimes (f_2,\psi_2) = (f_1\times_{G\times G} f_2, \psi_1\otimes \psi_2) = (f\times f, \psi\otimes \psi) $ is given by
+\[
+\begin{tikzcd}
+V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes \psi} A \times A \arrow[hook]{r}{} & H \times H \arrow{r}{f\times f} & G\times G\\
+\end{tikzcd}
+\]
+Since $f\circ m_H = m \circ (f\times f)$, by the universal property of pull-back, there is a unique $\theta : H\times H \to H_m$ making the following commute.
+\[
+\begin{tikzcd}
+\ &  & \arrow{ld}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
+V \arrow{d}{U} & \Aut(V)  & \arrow{l}{\psi_g} \arrow{u} A_m \arrow[hook]{r} & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G\\
+V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes\psi} \arrow[bend left]{uu}{m_H} \arrow[swap]{u}{\theta\vert_{A\times A}} A \times A \arrow[hook]{r}{} & \arrow[bend left]{uu}{m_H} \arrow[swap]{u}{\theta} H \times H \arrow{r}{f\times f} & \arrow[equal]{u} G\times G\\
+\end{tikzcd}
+\]
+Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$. Define $U : V \to V\otimes V$ by $U(v_1) = v_1\otimes v_1$. Then the lower part of this diagram defines a weak isomorphism $(\theta,U): (f_m,\psi_m)\to (f\times f,\psi\otimes\psi)$. This defines an weak isomorphism $(\theta,U): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
+
+While $\theta$ was canonical, $U$ was not, as it depended on the choice of a basis for $V$. However, after passing from $C_1(G)$ to $\GCf(G)$, the resulting isomorphism $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\GCf(G)$.
 \end{proof}
 
 
