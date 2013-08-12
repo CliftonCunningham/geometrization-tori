@@ -1380,6 +1380,58 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   isomorphism of groups.
 \end{proof}
 
+\Clifton{Return to finite and bounded character sheaves, explaining why our definition is the right one. Also explain why we don't think of local systems as representations of a fundamental group.}
+
+\section{Restriction of scalars}
+
+In the opposite direction, there is a canonical closed immersion of $k$-schemes
+$G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}.  Pullback yields a functor
+\[
+\GC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota} \GC(G).
+\]
+\begin{proposition} \label{prop:csbe}
+The following diagram commutes, where the bottom map is induced by the inclusion $G(k) \hookrightarrow G(k')$:
+\[
+\begin{tikzcd}
+\GCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar{t_{\Res_{k'/k}(G_{k'})}} & \GCiso{G} \dar{t_G} \\
+\Hom(G(k'), \EEx) \arrow[two heads]{r} & \Hom(G(k), \EEx).
+\end{tikzcd}
+\]
+\end{proposition}
+
+Now suppose that $G'$ is an abelian group scheme over $k'$, satisfying the conditions of Theorem \ref{thm:snake}.
+There is a canonical isomorphism between $G'(k')$ and $(\Res_{k'/k}G')(k)$;
+we now describe the corresponding functor from
+$\GC(G')$ to $\GC(\Res_{k'/k}G')$.  The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
+decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
+\[
+(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
+\]
+The component corresponding to the identity element yields a natural inclusion 
+\[
+G' \hookrightarrow (\Res_{k'/k}G')_{k'}
+\]
+of $k'$-schemes.  The definition of base change yields a map of $k$-schemes
+\[
+(\Res_{k'/k}G')_{k'} \to \Res_{k'/k}G'.
+\]
+Consecutive pullback along these maps yields a functor
+\[
+\GC(G') \to \GC(\Res_{k'/k}G').
+\]
+
+\begin{proposition}
+  Then the following diagram commutes:
+\[
+\begin{tikzcd}
+\GCiso{G'} \dar{t_{G'}} \rar & \GCiso{\Res_{k'/k} G'} \dar{t_{\Res_{k'/k} G'}} \\
+ \Hom(G'(k'), \EEx) \rar & \Hom((\Res_{k'/k}G')(k), \EEx)
+\end{tikzcd}
+\]
+\end{proposition}
+
+
+
 \section{Application to characters of algebraic tori over local fields}
 
 Let $K$ be a local field with residue field $\Fq$.
@@ -1464,9 +1516,54 @@ The Picard group of the category $\GC(\GN{T})$ of geometrized characters of $T$ 
   \]
 \end{corollary}
 
+\section{Base change over the local field}
+
+We have already seen that the trace of Frobenius defines a canonical isomorphism 
+$t_T : \GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
+In this section we expand on the canonicity of this group isomorphism 
+by showing that it is a natural transformation. We also show 
+
+\begin{proposition}
+The isomorphism $t_T : \GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
+is a natural transformation between the following two contravariant functors 
+from the category of algebraic tori over $K$ to the category of abelian groups: 
+\begin{enumerate}
+\item $T \mapsto \GCiso{\GN{T}}$
+\item $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
+\end{enumerate}
+\end{proposition}
+
+\Clifton{I think I can prove this proposition without too much difficulty.}
+\begin{proof}
+\end{proof}
+
+Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
+\[
+\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
+\]
+The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
+\[
+\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
+\]
+and thus a functor on character sheaves through pullback.
+
+\begin{proposition}
+The following diagram commutes:
+\[
+\begin{tikzcd}
+\GCiso{\Res_{k'/k} \Gr(\TL)} \arrow[two heads]{r} \dar & \GCiso{\GN{T}} \dar\\
+\Hom(T(L), \EEx) \arrow[two heads]{r} & \Hom(T(K), \EEx)
+\end{tikzcd}
+\]
+\end{proposition}
+
 \section{The transfer principle}
 
 \David{We should add a discussion of why we care about the transfer principle.}
+
+The techniques in this paper apply to all non-Archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare geometrized characters of $T$ 
+
+
 We recall the notion of $N$-congruent tori from \cite[\S 2]{CY}.  Suppose $T$ and $T'$
 are tori over non-Archimedian local fields $K$ and $K'$, splitting over $L$ and $L'$ respectively.
 
