@@ -12,7 +12,7 @@
 \email{roed.math@gmail.com}
 \usepackage[utf8]{inputenc}
 \renewcommand{\baselinestretch}{1.2}
-\usepackage[notcite,color]{showkeys}
+%\usepackage[notcite,color]{showkeys}
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{amsthm}
@@ -91,7 +91,7 @@
 \DeclareMathOperator{\Nm}{Nm}
 \DeclareMathOperator{\trace}{Tr}
 
-\newcommand{\cdef}[1]{{{\color{blue}#1}\index{#1}}} 
+\newcommand{\cdef}[1]{ {#1}\index{#1} } 
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
 \newcommand{\ceq}{{\, :=\, }}
@@ -248,11 +248,13 @@ $T$ provides an elegant, canonical model for the group of
 (quasi-)characters of $T(K)$, where $K$ is any non-Archimedean local
 field and $T$ is any algebraic torus over $K$.
 
-
+Acknowledgements: Masoud Kamgarpour, Pramod Achar, Hadi Salmasian.
 
 \tableofcontents
 
-\section{Notation}
+\Clifton{Declare definitions - about 10 of them.}
+
+\part{Smooth commutative group schemes lft over finite fields}
 
 Throughout this paper, $G$ is a commutative group scheme,
 smooth and locally of finite type over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
@@ -264,17 +266,16 @@ Let $\Frob{G}$ be the Frobenius automorphism of $\bG$.
 Recall that $\Frob{G} = \id_{G}\times \Frob{\Spec{\bFq}}$ where
 $\Frob{\Spec{\bFq}} = \Spec{\Frob{\Fq}}$ and $\Frob{\Fq}$  is the geometric Frobenius element in $\Gal(\bFq/\Fq)$.
 
-Also throughout the paper, $K$ is a non-Archimedean local field 
-with residue field $\Fq$ and $T$ is an algebraic torus over $K$.
-
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
-\section{The category of geometrized characters}\label{sec:category}
 
-A \cdef{geometrized character on $G$} is a triple
+\section{Geometrized characters}\label{sec:category}
+
+\begin{definition}\label{def:GC}
+A \emph{geometrized character on $G$} is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic sheaf on  (the \'etale site of) $\bG$, locally constant of rank-$1$ on each connected component of $\bG$;
+\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a rank-$1$ $\ell$-adic local system on $\bG$;
 \labitem{(CS.1)}{CS.1} $\mu: \bm^* \gcs{L} \to \LxL$
   is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
@@ -303,11 +304,14 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \end{tikzcd}
   \]
 \end{enumerate}
-Morphisms in the category of geometrized characters of $G$, denoted by \cdef{$\GC(G)$}, are defined in the natural way:
+In short, a geometrized character on $G$  is a rank-$1$ Weil local system $(\gcs{L},\phi)$ on $G$ equipped with an isomorphism $m^* (\gcs{L},\phi) \to (\gcs{L},\phi)\boxtimes (\gcs{L},\phi)$. 
+
+
+Morphisms in the category of geometrized characters of $G$, denoted by $\GC(G)$, are defined in the natural way:
 \begin{enumerate}
 \labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
   $\cs{L'} = (\gcs{L'},\mu',\phi')$ are geometrized characters of $G$ then
-  $\Hom_{\GC(G)}(\cs{L},\cs{L'})$ is the set of morphisms $\alpha : \gcs{L} \to \gcs{L'}$
+  $\Hom(\cs{L},\cs{L'})$ is the set of morphisms $\alpha : \gcs{L} \to \gcs{L'}$
   of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
   \[
   \begin{tikzcd}[column sep=40]
@@ -319,6 +323,7 @@ Morphisms in the category of geometrized characters of $G$, denoted by \cdef{$\G
   \end{tikzcd}
   \]
 \end{enumerate}
+\end{definition}
 
 %\begin{remark} \label{rem:CS-action}
 The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from geometrized characters of $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{Deligne:Weil2}*{Def.~1.1.10 (i)}.
@@ -339,15 +344,13 @@ This means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\
 
 \Clifton{Now that I'm working on the functoriality of trace of Frobenius, I  think the source of the functoriality is mainly this: $\GC$ is a stack. I'm thinking about this now.}
 
-
-\section{The Picard group of geometrized characters}
+\section{Trace of Frobenius}\label{sec:Frob}
 
 %\begin{proposition}\label{tensor}
-The category $\GC(G)$ of geometrized characters of $G$ is a rigid monoidal
-category [insert reference] under
+The category $\GC(G)$ of geometrized characters of $G$ is a rigid symmetric monoidal category \Clifton{I still haven't found a good reference for this!} under
 $\cs{L} \otimes \cs{L'} \ceq (\gcs{L}\otimes\gcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$
 with duals given by applying the functor 
-\Clifton{Should this be $\sheafHom(\ - \ ,\EE)$?} $\sheafHom(\ - \ ,(\EE)_{\bG})$ (sheaf hom) to
+$\sheafHom(\ - \ ,\EE)$ (sheaf hom) to
 conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}.
 %\end{proposition}
 (The category of characters sheaves on $G$ is not abelian, so $\GC(G)$
@@ -356,17 +359,19 @@ is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
 %
 This rigid monoidal category structure for $\GC(G)$ puts a group
 structure on the set $\GCiso{G}$ of isomorphism classes in
-$\GC(G)$; we refer to this as the \cdef{Picard group of character
-sheaves} on $G$.\footnote{See {\tt http://ncatlab.org/nlab/show/Picard+group}.}
-The main result in this paper is the determination of the Picard group of geometrized characters of $G$, when the geometric component group of $G$ is finitely generated.
+$\GC(G)$. Our main result regarding geometrized character sheaves on $G$ is the determination of $\GCiso{G}$ under the hypothesis that the component group scheme for $G$ is geometrically finitely generated; see Theorem~\ref{thm:snake}. To do this, we use the trace of Frobenius.
 
-
-\section{Trace of Frobenius}\label{sec:Frob}
-
-Let $\cs{L}$ be a geometrized character of $G$. Every $g\in G(\Fq)$
+\begin{definition}
+Let $(\gcs{L},\phi)$ be a Weil sheaf on $G$. on constructible $\ell$-adic sheaf on $\bG$. Every $g\in G(\Fq)$
 determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$ and
-therefore an automorphism $\phi_{\bg}$ of $\gcs{L}_{\bg}$. Note
-that $\Aut_{\EE}(\gcs{L}_{\bg}) \iso \EEx$, canonically. The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
+therefore an automorphism $\phi_{\bg}$ of $\gcs{L}_{\bg}$. The \emph{trace of Frobenius} of $(\gcs{L},\phi)$ at $g\in G(\Fq)$ is 
+\[
+\trFrob{(\gcs{L},\phi)}(g) \ceq \trace(\phi_{\bg}, \gcs{L}_{\bg}).
+\]
+If $\cs{L} = (\gcs{L},\mu,\phi)$ is a geochar, then we will abbreviate write $\trFrob{\cs{L}}$ for $\trFrob{(\gcs{L},\phi)}$
+\end{definition}
+
+The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
 guarantees that the function $\trFrob{\cs{L}} : G(\Fq)\to \EEx$,
 defined by $g \mapsto \phi_{\bg}$, is a group homomorphism;
 we refer to $\trFrob{\cs{L}}$ as the \cdef{trace of Frobenius of $\cs{L}$}.
@@ -391,10 +396,14 @@ isomorphism from the Picard group of geometrized characters $G$ to the
 group of characters of $G(\Fq)$ (here, as throughout the paper, $G$ is
 a commutative group scheme, smooth and locally of finite type over $\Fq$).
 
-\Clifton{Address functoriality here?}
+\Clifton{Address functoriality here? Yes, but put proof at the end of the next section.}
 
 
-\section{Pull-back of geometrized characters}\label{subsection:pullback}
+In this paper we $\GCiso{G} \iso G(\Fq)^*$ when the geometric component group of $G$ is finitely generated; see Theorem~\ref{thm:snake}. We also shows that this isomorphism is canonical; see 
+
+
+
+\section{Pull-back and products}\label{subsection:pullback}
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
@@ -529,12 +538,12 @@ f^*\mu : f^* m^* \gcs{L} \to f^*(\gcs{L}\boxtimes \gcs{L}) = f^*p_1^*\gcs{L}\oti
 Observe that $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$ where $p_1 , p_2 : G\times G \to G$ are the usual things and $r_1 : G_1\times G_2 \to G_1$ and $r_2 : G_1\times G_2 \to G_2$ are the obvious things and $q_1 : G_1\to G_1\times G_2$ and  $q_2 : G_2\to G_1\times G_2$ are the usual things. Then $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L}$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L}$. Now $\cs{L}_1 \ceq r_1^* \cs{L}$ is a geochar on $G_1$ and $\cs{L}_2 \ceq r_2^* \cs{L}$ is a geochar on $G_2$, by Proposition~\ref{prop:pullback}. Then
 $ f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = r_1^*\gcs{L}_1\otimes r_2^* \gcs{L}_2 = \gcs{L}_1\boxtimes \gcs{L}_2$. In this way, $\mu$ determines an isomorphism
 \[
-\gamma \ceq f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
+f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
 \]
 So $\boxtimes$ is essentially surjective.
 \end{proof}
 
-\section{Base change over the residue field}\label{sec:basechange}
+\section{Base change}\label{sec:basechange}
 
 When using geometrized characters to study characters, it is useful to understand
 how geometrized characters behave under change of fields.
@@ -550,7 +559,7 @@ Set $G_{k'} = G\times_\Spec{k} \Spec{k'}$ and let
 \[
 \GC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota^*} \GC(G)
 \]
-be the functor obtained by pull-back along the canonical closed immersion of $k$-schemes  $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite[\S 7.6]{BLR}. 
+be the functor obtained by pull-back along the canonical closed immersion of $k$-schemes  $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite{BLR}*{\S 7.6}. 
 The following diagram commutes:
 \[
 \begin{tikzcd}
@@ -656,7 +665,7 @@ $\GCb(G)$ is (equivalent to) a full subcategory of $\GC(G)$.
  It follows that functor $(\cs{L}_0,\mu_0) \mapsto (b_G^*\cs{L}_0,b_{G\times G}^* \mu_0, \phi)$, denoted by  $B_G^*: \GCb(G) \hookrightarrow \GC(G)$ below, is full and faithful.
 \end{proof}
 
-We will see that the full subcategory $\GC_0(G)$ of bounded geometrized characters is a proper subcategory of $\GC(G)$, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is bounded in $\EEx$, so if $G(\Fq)$ is not finite, then $\GC_0(G) \hookrightarrow\GC(G)$ is not essentially surjective.
+The full subcategory $\GCb(G)$ of bounded geometrized characters is an essentially proper subcategory of $\GC(G)$, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is bounded in $\EEx$; see Section~\ref{sec:snake}.
 
 \section{Finite geometrized characters}\label{sec:finite}
 
@@ -826,7 +835,7 @@ While $\theta$ was canonical, $U$ was not, as it depended on the choice of a bas
 
 %\Clifton{I'll address this point in the next section: "Because $\Gal(\bFq/\Fq)$ acts trivially on $\Aut({\bar f})$, the local system ${\bar L}_G(f,\psi)\ceq b_G^* L(f,\psi)$ comes equipped with a canonical isomorphism $F : \Frob{G}^* {\bar L}_G(f,\psi) \to {\bar L}_G(f,\psi)$ of constructible sheaves on ${\bar G}$."}
 
-We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is finite in $\EEx$. 
+The full subcategory $\GCf(G) \subset \GCb(G)$ of finite geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is finite in $\EEx$; see Section~\ref{sec:snake}.
  
 \section{Connected commutative algebraic groups}
 
@@ -951,7 +960,7 @@ We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geom
   is surjective because each character $\chi \in G(\Fq)^*$ determines a finite geometrized character $(\Lang,\chi)$ such that the trace of Frobenius of the geometrized character $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
-\section{Geometrized characters of commutative \'etale group schemes}
+\section{Commutative \'etale group schemes}
 
 %\input{etale-1}
 %In this section we establish a fundamental property of character
@@ -1128,7 +1137,8 @@ These global sections will allow us to construct the isomorphism in the followin
   isomorphism.  Suppose that $\cs{L}$ and $\cs{L}'$ are two geometrized characters.
   If $s$ is a global section for $\cs{L}$ and $s'$ for $\cs{L}'$ then $s \otimes s'$ is a global section for
   $\cs{L} \otimes \cs{L}'$.  The three versions of \eqref{t} for $\cs{L}, \cs{L'}$ and $\cs{L} \otimes \cs{L}'$ imply that
-  $\tau_{\cs{L} \otimes \cs{L}'}(\Frob{k}) = \tau_\cs{L}(\Frob{k}) \tau_{\cs{L}'}(\Frob{k})$.
+  $\tau_{\cs{L} \otimes \cs{L}'}(\Frob{k}) = \tau_\cs{L}(\Frob{k}) \tau_{\cs{L}'}(\Frob{k})$, so \eqref{pich1} is a group homomorphism.
+\Clifton{I'm working on this.}
 \end{proof}
 
 
@@ -1186,7 +1196,7 @@ Theorem~\ref{thm:snake}.
   of $\ZZ[\zeta_d]$ for $d$ dividing $m$.  Each $\ZZ[\zeta_d]$ is the
   maximal order in a number field and thus $\ZZ[\Gamma_m]$ is a
   product of Dedekind domains.  Therefore $X$ decomposes into a direct
-  sum of cyclic $\ZZ[\Gamma_m]$-modules \cite[?]{Brandal}, each of the
+  sum of cyclic $\ZZ[\Gamma_m]$-modules \cite{Brandal}*{?}, each of the
   form $\ZZ[\Gamma_m] / I$ for some ideal $I \subset \ZZ[\Gamma_m]$.
   The ideal $I$ corresponds to a direct product of ideals $I_d$ in the
   $\ZZ[\zeta_d]$, and within each $\ZZ[\zeta_d]$ the Chinese remainder
@@ -1393,6 +1403,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 \end{proof}
 
 \section{Main result regarding geometrized characters}
+\label{sec:snake}
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
@@ -1471,10 +1482,16 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   isomorphism of groups.
 \end{proof}
 
-\Clifton{Return to finite and bounded character sheaves, explaining why our definition is the right one. Also explain why we don't think of local systems as representations of a fundamental group.}
+With Theorem~\ref{thm:snake} on hand, we can see why neither bounded geochars nor finite geochars are up to the task of geometrizing characters of $G(\Fq)$ in the generality we need.  To see this, consider the case when $G$ is the discrete etale group scheme $\ZZ$. Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ and let $\cs{L}$ be a geometrized character in the isomorphism class corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. Then $\trFrob{\cs{L}}(1) = \ell$. Suppose $\cs{L}$ was a bounded character sheaf. Then the restriction of $\cs{L}$ to the connected component $1\in G$ would be a rank-1 local system on $1$, thus an $\ell$-adic chacter $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with $\rho_1(\Frob{\Fq}) = \ell$. But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, while $\rho_1(\pi_1(1,{\bar 1}))$ is not compact (it contains $\ell^\ZZ$). Since the Weil sheaf $\gcs{L}$ does not descend to a local system on $G$, the geometric character $\cs{L}$ is not a bounded geometric character. We can play the same game with the character $\chi : G(\Fq) \to \EEx$ defined by $\chi(1) = 1+\ell$. In this case, the corresponding geometric character $\cs{L}$ is bounded but not finite, since $1+\ell$ is not a root of unity. This simple example illustrates why the categories $\GCb(G)$ and $\GCf(G)$ are inadequate to geometrize characters of $G(\Fq)$.
 
 
-\section{Application to characters of algebraic tori over local fields}
+\part{Application to characters of algebraic tori over local fields}
+
+Also throughout the paper, $K$ is a non-Archimedean local field 
+with residue field $\Fq$ and $T$ is an algebraic torus over $K$.
+
+\section{Greenberg of Neron}
+\label{sec:GN}
 
 Let $K$ be a local field with residue field $\Fq$.
 %(Note that we place no restriction on the characteristic of $K$.)
@@ -1560,6 +1577,8 @@ The Picard group of the category $\GC(\GN{T})$ of geometrized characters of $T$ 
 
 \section{Functoriality}
 
+\Clifton{Motivate with comments about LLC for tori. Draw triangle. Reduction to GL(1) via induced tori. Comment about Japanese work. Comment about pro-quasi-algebraic. Combine with next section.}
+
 We have already seen that the trace of Frobenius defines a canonical homomorphism $\GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
 In this section we show that this homomorphism is functorial, in the following sense.
 \Clifton{Fold this section into the main result on characters of local tori?}
@@ -1603,6 +1622,8 @@ The following diagram commutes:
 \section{The transfer principle}
 
 \David{We should add a discussion of why we care about the transfer principle.}
+
+\Clifton{Work on motivation.}
 
 The techniques in this paper apply to all non-Archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare geometrized characters of $T$ 
 
@@ -1814,18 +1835,6 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
    date={1977},
 %   pages={iv+312pp},
 %   review={\MR{0463174 (57 \#3132)}},
-}
-
-\bib{Deligne:Weil2}{article}{
-   author={Deligne, Pierre},
-   title={La conjecture de Weil. II},
-%   language={French},
-   journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
-   number={52},
-   date={1980},
-   pages={137--252},
-%   issn={0073-8301},
-%   review={\MR{601520 (83c:14017)}},
 }
 
 \bib{SGA7.2}{book}{
