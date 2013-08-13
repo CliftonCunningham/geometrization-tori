@@ -308,6 +308,8 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \]
 \end{enumerate}
 In short, a geometrized character on $G$  is a rank-$1$ Weil local system $(\gcs{L},\phi)$ on $G$ equipped with an isomorphism $m^* (\gcs{L},\phi) \to (\gcs{L},\phi)\boxtimes (\gcs{L},\phi)$. 
+
+
 Morphisms in the category of geometrized characters of $G$, denoted by $\GC(G)$, are defined in the natural way:
 \begin{enumerate}
 \labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
@@ -360,12 +362,19 @@ is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
 %
 This rigid monoidal category structure for $\GC(G)$ puts a group
 structure on the set $\GCiso{G}$ of isomorphism classes in
-$\GC(G)$.
+$\GC(G)$. Our main result regarding geometrized character sheaves on $G$ is the determination of $\GCiso{G}$ under the hypothesis that the component group scheme for $G$ is geometrically finitely generated; see Theorem~\ref{thm:snake}. To do this, we use the trace of Frobenius.
 
-Let $\cs{L}$ be a geometrized character of $G$. Every $g\in G(\Fq)$
+\begin{definition}
+Let $(\gcs{L},\phi)$ be a Weil sheaf on $G$. on constructible $\ell$-adic sheaf on $\bG$. Every $g\in G(\Fq)$
 determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$ and
-therefore an automorphism $\phi_{\bg}$ of $\gcs{L}_{\bg}$. Note
-that $\Aut_{\EE}(\gcs{L}_{\bg}) \iso \EEx$, canonically. The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
+therefore an automorphism $\phi_{\bg}$ of $\gcs{L}_{\bg}$. The \emph{trace of Frobenius} of $(\gcs{L},\phi)$ at $g\in G(\Fq)$ is 
+\[
+\trFrob{(\gcs{L},\phi)}(g) \ceq \trace(\phi_{\bg}, \gcs{L}_{\bg}).
+\]
+If $\cs{L} = (\gcs{L},\mu,\phi)$ is a geochar, then we will abbreviate write $\trFrob{\cs{L}}$ for $\trFrob{(\gcs{L},\phi)}$
+\end{definition}
+
+The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
 guarantees that the function $\trFrob{\cs{L}} : G(\Fq)\to \EEx$,
 defined by $g \mapsto \phi_{\bg}$, is a group homomorphism;
 we refer to $\trFrob{\cs{L}}$ as the \cdef{trace of Frobenius of $\cs{L}$}.
