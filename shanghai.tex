@@ -191,18 +191,15 @@
 %\noindent
 What is a geometrized character?
 Let $G$ be a smooth commutative group scheme locally of finite
-type over $\Fq$; $G$ need not be reductive, connected, nor of
+type over $\Fq$; $G$ need not be reductive, connected, or of
 finite type over $\Fq$. Fix a prime $\ell$ that does not divide
-$q$. A geometrized character of $G$ is a triple $\cs{L}\ceq
-(\gcs{L},\mu,\phi)$ where $\gcs{L}$ is a constructible $\ell$-adic sheaf
-$\gcs{L}$ on the \'etale site of $\bG \ceq G \times_{\Spec\Fq}
-\Spec{\bFq}$, locally constant of rank-$1$ on every connected
-component of $\bG$, equipped with an isomorphism $\mu: m^*
-\gcs{L} \to \LxL$, where $m : \GxG \to G$ is
-the group operation for $G$, and an isomorphism $F : \Frob{G}^*
-\gcs{L} \to \gcs{L}$, where $\Frob{G}$ is the Frobenius automorphism
-on $\bG$, satisfying natural compatibility conditions with $\mu$;
-these compatibility conditions are explained below.
+$q$, write $m : \GxG \to G$ for the multiplication morphism,
+$\bG$ for the base change of $G$ to $\bFq$ and
+$\Frob{G} : \bG \to \bG$ for the Frobenius automorphism.
+A geometrized character of $G$ is a triple $\cs{L}\ceq
+(\gcs{L},\mu,\phi)$ where $\gcs{L}$ is a rank-$1$ local system on $\bG$ and $\mu: m^*
+\gcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gcs{L} \to \gcs{L}$ are isomorphisms;
+$\mu$ and $\phi$ are required to satisfy natural conditions explained below.
 
 Geometrized characters of $G$ form a category, denoted by $\GC(G)$. In
 fact, $\GC(G)$ is a rigid symmetric monoidal category, so isomorphism
@@ -224,7 +221,7 @@ maximal ideal in $\OK$.  Let $T$ be an algebraic torus defined over
 $K$. Let $\TT$ be a N\'eron model for $T$; recall that this is a
 smooth group scheme locally of finite type over $\OK$. For each
 positive integer $d$, let $\GN{T}_d$ be the Greenberg transform of
-$\TT \otimes \OK/\pK^d$; the commutative group scheme $\GN{T}_d$
+$\TT \times_{\Spec{\OK}} \Spec{\OK/\pK^d}$; the commutative group scheme $\GN{T}_d$
 plays the r\^{o}le of $G$, above.
  
 The main result of this paper is a canonical isomorphism
@@ -235,7 +232,7 @@ The main result of this paper is a canonical isomorphism
 \] 
 between the Picard group of the category of geometrized characters on
 $\GN{T}_d$ and the group of characters $T(K) \to \EEx$ of
-depth at most $d$.  Since these isomorphisms are compatible with
+depth less than $d$.  Since these isomorphisms are compatible with
 respect to $d$, we also .....  \David{I'll do this when we're closer to being finished.}  
 %In particular, by
 %specializing to the case $T= \Gm{K}$ and by
