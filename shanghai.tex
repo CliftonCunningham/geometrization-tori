@@ -340,6 +340,9 @@ $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for all $u,v\in \Weil{
 This means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\varphi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\GC(G)$. 
 %\end{remark}
 
+\Clifton{Now that I'm working on the functoriality of trace of Frobenius, I  think the source of the functoriality is mainly this: $\GC$ is a stack. I'm thinking about this now.}
+
+
 \section{The Picard group of geometrized characters}
 
 %\begin{proposition}\label{tensor}
@@ -390,6 +393,9 @@ of $G$ is finitely-generated then the trace of Frobenius defines an
 isomorphism from the Picard group of geometrized characters $G$ to the
 group of characters of $G(\Fq)$ (here, as throughout the paper, $G$ is
 a commutative group scheme, smooth and locally of finite type over $\Fq$).
+
+\Clifton{Address functoriality here?}
+
 
 \section{Pull-back of geometrized characters}\label{subsection:pullback}
 
@@ -499,9 +505,10 @@ the snake lemma will then allow us to show
 \]
 canonically.
 
-\section{Products} 
+%\section{Products} 
+We end this section with a simple result on products of geochars, which we will be needed to show that the isomorphism above is functorial.
 
-\begin{proposition}\label{prop:product}
+\begin{lemma}\label{lemma:product}
 The rule $\boxtimes : (\cs{L}_1,\cs{L}_2)\to \cs{L}_1\boxtimes\cs{L}_2$ defines an equivalence of categories 
 \[
 \GC(G_1)\times(G_2) \to \GC(G_1\times G_2)
@@ -514,9 +521,20 @@ and
 \end{tikzcd}
 \]
 commutes.
-\end{proposition}
+\end{lemma}
 
 \begin{proof}
+The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_1$. Let $\cs{L}$ be a geochar on $G$. Define $f : G\to G\times G$ by $f(g_1,g_2) = (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
+Then the isomorphism $\mu : m^* \gcs{L} \to \gcs{L}\boxtimes \gcs{L}$ gives an isomorphism
+\[
+f^*\mu : f^* m^* \gcs{L} \to f^*(\gcs{L}\boxtimes \gcs{L}) = f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L}.
+\]
+Observe that $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$ where $p_1 , p_2 : G\times G \to G$ are the usual things and $r_1 : G_1\times G_2 \to G_1$ and $r_2 : G_1\times G_2 \to G_2$ are the obvious things and $q_1 : G_1\to G_1\times G_2$ and  $q_2 : G_2\to G_1\times G_2$ are the usual things. Then $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L}$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L}$. Now $\cs{L}_1 \ceq r_1^* \cs{L}$ is a geochar on $G_1$ and $\cs{L}_2 \ceq r_2^* \cs{L}$ is a geochar on $G_2$, by Proposition~\ref{prop:pullback}. Then
+$ f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = r_1^*\gcs{L}_1\otimes r_2^* \gcs{L}_2 = \gcs{L}_1\boxtimes \gcs{L}_2$. In this way, $\mu$ determines an isomorphism
+\[
+\gamma \ceq f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
+\]
+So $\boxtimes$ is essentially surjective.
 \end{proof}
 
 \section{Base change over the residue field}\label{sec:basechange}
@@ -1390,6 +1408,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   \]
   from the Picard group of the category of geometrized characters of $G$ to
   the group of characters of $G(\Fq)$, is an isomorphism.
+  \Clifton{Address functoriality, here?}
 \end{theorem}
 
 \begin{proof}
@@ -1546,6 +1565,7 @@ The Picard group of the category $\GC(\GN{T})$ of geometrized characters of $T$ 
 
 We have already seen that the trace of Frobenius defines a canonical homomorphism $\GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
 In this section we show that this homomorphism is functorial, in the following sense.
+\Clifton{Fold this section into the main result on characters of local tori?}
 
 \begin{proposition}
 Trace of Frobenius $\GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
@@ -1558,7 +1578,7 @@ is a natural transformation between the following two additive functors from the
 
 
 \begin{proof}
-When combined with the definition of $\GC(\GN{T})$ and Property~\ref{T(K)}, the first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
+When combined with the definition of $\GC(\GN{T})$ and Property~\ref{T(K)}, the first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Lemma~\ref{lemma:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
 \end{proof}
 
 \section{Geometrization of restriction of scalars of local fields}
