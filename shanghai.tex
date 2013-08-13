@@ -251,7 +251,7 @@ $T$ provides an elegant, canonical model for the group of
 (quasi-)characters of $T(K)$, where $K$ is any non-Archimedean local
 field and $T$ is any algebraic torus over $K$.
 
-
+Acknowledgements: Masoud Kamgarpour, Pramod Achar, Hadi Salmasian.
 
 \tableofcontents
 
@@ -272,7 +272,7 @@ with residue field $\Fq$ and $T$ is an algebraic torus over $K$.
 
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
-\section{The category of geometrized characters}\label{sec:category}
+\section{Geometrized characters}\label{sec:category}
 
 A \cdef{geometrized character on $G$} is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
@@ -397,7 +397,7 @@ a commutative group scheme, smooth and locally of finite type over $\Fq$).
 \Clifton{Address functoriality here?}
 
 
-\section{Pull-back of geometrized characters}\label{subsection:pullback}
+\section{Pull-back and products}\label{subsection:pullback}
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
@@ -532,12 +532,12 @@ f^*\mu : f^* m^* \gcs{L} \to f^*(\gcs{L}\boxtimes \gcs{L}) = f^*p_1^*\gcs{L}\oti
 Observe that $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$ where $p_1 , p_2 : G\times G \to G$ are the usual things and $r_1 : G_1\times G_2 \to G_1$ and $r_2 : G_1\times G_2 \to G_2$ are the obvious things and $q_1 : G_1\to G_1\times G_2$ and  $q_2 : G_2\to G_1\times G_2$ are the usual things. Then $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L}$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L}$. Now $\cs{L}_1 \ceq r_1^* \cs{L}$ is a geochar on $G_1$ and $\cs{L}_2 \ceq r_2^* \cs{L}$ is a geochar on $G_2$, by Proposition~\ref{prop:pullback}. Then
 $ f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = r_1^*\gcs{L}_1\otimes r_2^* \gcs{L}_2 = \gcs{L}_1\boxtimes \gcs{L}_2$. In this way, $\mu$ determines an isomorphism
 \[
-\gamma \ceq f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
+f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
 \]
 So $\boxtimes$ is essentially surjective.
 \end{proof}
 
-\section{Base change over the residue field}\label{sec:basechange}
+\section{Base change}\label{sec:basechange}
 
 When using geometrized characters to study characters, it is useful to understand
 how geometrized characters behave under change of fields.
@@ -659,7 +659,7 @@ $\GCb(G)$ is (equivalent to) a full subcategory of $\GC(G)$.
  It follows that functor $(\cs{L}_0,\mu_0) \mapsto (b_G^*\cs{L}_0,b_{G\times G}^* \mu_0, \phi)$, denoted by  $B_G^*: \GCb(G) \hookrightarrow \GC(G)$ below, is full and faithful.
 \end{proof}
 
-We will see that the full subcategory $\GC_0(G)$ of bounded geometrized characters is a proper subcategory of $\GC(G)$, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is bounded in $\EEx$, so if $G(\Fq)$ is not finite, then $\GC_0(G) \hookrightarrow\GC(G)$ is not essentially surjective.
+The full subcategory $\GCb(G)$ of bounded geometrized characters is an essentially proper subcategory of $\GC(G)$, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is bounded in $\EEx$; see Section~\ref{sec:snake}.
 
 \section{Finite geometrized characters}\label{sec:finite}
 
@@ -829,7 +829,7 @@ While $\theta$ was canonical, $U$ was not, as it depended on the choice of a bas
 
 %\Clifton{I'll address this point in the next section: "Because $\Gal(\bFq/\Fq)$ acts trivially on $\Aut({\bar f})$, the local system ${\bar L}_G(f,\psi)\ceq b_G^* L(f,\psi)$ comes equipped with a canonical isomorphism $F : \Frob{G}^* {\bar L}_G(f,\psi) \to {\bar L}_G(f,\psi)$ of constructible sheaves on ${\bar G}$."}
 
-We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is finite in $\EEx$. 
+The full subcategory $\GCf(G) \subset \GCb(G)$ of finite geometrized characters is a proper subcategory, in general. Indeed, it follows from our main result regarding geometrized characters, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \GCiso{G} \to G(\Fq)^*$ to the subgroup $\GCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is finite in $\EEx$; see Section~\ref{sec:snake}.
  
 \section{Connected commutative algebraic groups}
 
@@ -954,7 +954,7 @@ We will see that the full subcategory $\GC_f(G) \subset \GC_0(G)$ of finite geom
   is surjective because each character $\chi \in G(\Fq)^*$ determines a finite geometrized character $(\Lang,\chi)$ such that the trace of Frobenius of the geometrized character $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
-\section{Geometrized characters of commutative \'etale group schemes}
+\section{Commutative \'etale group schemes}
 
 %\input{etale-1}
 %In this section we establish a fundamental property of character
@@ -1396,6 +1396,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 \end{proof}
 
 \section{Main result regarding geometrized characters}
+\label{sec:snake}
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
@@ -1474,7 +1475,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   isomorphism of groups.
 \end{proof}
 
-\Clifton{Return to finite and bounded character sheaves, explaining why our definition is the right one. Also explain why we don't think of local systems as representations of a fundamental group.}
+With Theorem~\ref{thm:snake} on hand, we can see why neither bounded geochars nor finite geochars are up to the task of geometrizing characters of $G(\Fq)$ in the generality we need.  To see this, consider the case when $G$ is the discrete etale group scheme $\ZZ$. Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ and let $\cs{L}$ be a geometrized character in the isomorphism class corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. Then $\trFrob{\cs{L}}(1) = \ell$. Suppose $\cs{L}$ was a bounded character sheaf. Then the restriction of $\cs{L}$ to the connected component $1\in G$ would be a rank-1 local system on $1$, thus an $\ell$-adic chacter $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with $\rho_1(\Frob{\Fq}) = \ell$. But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, while $\rho_1(\pi_1(1,{\bar 1}))$ is not compact (it contains $\ell^\ZZ$). Since the Weil sheaf $\gcs{L}$ does not descend to a local system on $G$, the geometric character $\cs{L}$ is not a bounded geometric character. We can play the same game with the character $\chi : G(\Fq) \to \EEx$ defined by $\chi(1) = 1+\ell$. In this case, the corresponding geometric character $\cs{L}$ is bounded, but not finite. This simple example illustrates why the categories $\GCb(G)$ and $\GCf(G)$ are inadequate to geometrize characters of $G(\Fq)$.
 
 
 \section{Application to characters of algebraic tori over local fields}
