@@ -267,12 +267,14 @@ Let $\Frob{G}$ be the Frobenius automorphism of $\bG$.
 Recall that $\Frob{G} = \id_{G}\times \Frob{\Spec{\bFq}}$ where
 $\Frob{\Spec{\bFq}} = \Spec{\Frob{\Fq}}$ and $\Frob{\Fq}$  is the geometric Frobenius element in $\Gal(\bFq/\Fq)$.
 
+Also throughout the paper, $K$ is a non-Archimedean local field 
+with residue field $\Fq$ and $T$ is an algebraic torus over $K$.
+
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
 \section{The category of geometrized characters}\label{sec:category}
 
-The category of geometrized characters of $G$, denoted by \cdef{$\GC(G)$},
-is defined as follows.  A \cdef{geometrized character on $G$} is a triple
+A \cdef{geometrized character on $G$} is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
 \labitem{(CS.0)}{CS.0} $\gcs{L}$ is a constructible $\ell$-adic sheaf on  (the \'etale site of) $\bG$, locally constant of rank-$1$ on each connected component of $\bG$;
@@ -304,7 +306,7 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \end{tikzcd}
   \]
 \end{enumerate}
-Morphisms in $\GC(G)$ are defined in the natural way:
+Morphisms in the category of geometrized characters of $G$, denoted by \cdef{$\GC(G)$}, are defined in the natural way:
 \begin{enumerate}
 \labitem{(CS.3)}{CS.3} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
   $\cs{L'} = (\gcs{L'},\mu',\phi')$ are geometrized characters of $G$ then
@@ -497,24 +499,25 @@ the snake lemma will then allow us to show
 \]
 canonically.
 
-\section{Boxproduct} 
-
-Let $ \GC(G_1) \boxtimes \GC(G_2)$
+\section{Products} 
 
 \begin{proposition}\label{prop:product}
-The rule ... defines an equivalence of categories 
+The rule $\boxtimes : (\cs{L}_1,\cs{L}_2)\to \cs{L}_1\boxtimes\cs{L}_2$ defines an equivalence of categories 
 \[
-\GC(G_1\times G_2) \to \GC(G_1) \boxtimes \GC(G_2)
+\GC(G_1)\times(G_2) \to \GC(G_1\times G_2)
 \]
 and 
 \[
-\begin{tikzcd}
-\GCiso{G_1\times G_2} \arrow{r} & \GCiso{G_1} \times \GCiso{G_2}\\
-(G_1\times G_2)(k)^* \arrow{r}  & G_1(k)^* \times G_2(K)^*
+\begin{tikzcd}[column sep=60]
+\arrow{d}{t_{G_1} \times t_{G_2}} \GCiso{G_1}\times \GCiso{G_2} \arrow{r}{\boxtimes} & \arrow{d}{t_{G_1\times G_2}} \GCiso{G_1\times G_2}\\
+(G_1)(\Fq)^*\times (G_2)(\Fq)^* \arrow{r}{(\chi_1,\chi_2)\mapsto \chi_1\otimes \chi_2}  & (G_1\times G_2)(\Fq)^*
 \end{tikzcd}
 \]
 commutes.
 \end{proposition}
+
+\begin{proof}
+\end{proof}
 
 \section{Base change over the residue field}\label{sec:basechange}
 
@@ -945,9 +948,11 @@ is always \'etale.  The functor $G \mapsto G(\bFq)$ defines an equivalence of ca
 between the category of \'etale group schemes over $\Fq$ and the category of groups equipped
 with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group.
 
-For such a $\Gal(\bFq/\Fq)$-group $G(\bFq)$, we define a category of geometrized characters $\GC(G(\bFq))$.
-An object in $\GC(G(\bFq))$ is given by the data of
 
+For such a $\Gal(\bFq/\Fq)$-group $G(\bFq)$, 
+\Clifton{Re-phrase.}
+we define a category of geometrized characters $\GC(G(\bFq))$.
+An object in $\GC(G(\bFq))$ is given by the data of
 \begin{enumerate}
  \labitem{(cs.0)}{cs.0} an indexed set of one-dimensional
   $\EE$-vector spaces $\gcs{L}_x$, as $x$ runs over
@@ -978,8 +983,7 @@ An object in $\GC(G(\bFq))$ is given by the data of
   \]
   commutes, for all $x,y\in G(\bFq)$.
 \end{enumerate}
-
-A morphism $\alpha : \cs{L} \to \cs{L'}$ is given by 
+A morphism $\alpha : \cs{L} \to \cs{L'}$ in $\GC(G(\bFq))$ is given by 
 \begin{enumerate}
  \labitem{(cs.3)}{cs.3} an indexed set $\alpha_x : \gcs{L}_x \to \gcs{L'}_x$
   of linear transformations (of one-dimensional $\EE$-vector spaces),
