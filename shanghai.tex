@@ -12,7 +12,7 @@
 \email{roed.math@gmail.com}
 \usepackage[utf8]{inputenc}
 \renewcommand{\baselinestretch}{1.2}
-%\usepackage[notcite,color]{showkeys}
+\usepackage[notcite,color]{showkeys}
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{amsthm}
@@ -359,7 +359,8 @@ is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
 %
 This rigid monoidal category structure for $\QC(G)$ puts a group
 structure on the set $\QCiso{G}$ of isomorphism classes in
-$\QC(G)$. Our main result regarding quasicharacter sheaf sheaves on $G$ is the determination of $\QCiso{G}$ under the hypothesis that the component group scheme for $G$ is geometrically finitely generated; see Theorem~\ref{thm:snake}. To do this, we use the trace of Frobenius.
+$\QC(G)$. Our main result regarding quasicharacter sheaves on $G$ (Theorem~\ref{thm:snake})
+determines $\QCiso{G}$ under the hypothesis that the component group scheme for $G$ is geometrically finitely generated; see Theorem~\ref{thm:snake}. To do this, we use the trace of Frobenius.
 
 \begin{definition}
 Let $(\gcs{L},\phi)$ be a Weil sheaf on $G$. on constructible $\ell$-adic sheaf on $\bG$. Every $g\in G(\Fq)$
@@ -368,40 +369,32 @@ therefore an automorphism $\phi_{\bg}$ of $\gcs{L}_{\bg}$. The \emph{trace of Fr
 \[
 \trFrob{(\gcs{L},\phi)}(g) \ceq \trace(\phi_{\bg}, \gcs{L}_{\bg}).
 \]
-If $\cs{L} = (\gcs{L},\mu,\phi)$ is a geochar, then we will abbreviate write $\trFrob{\cs{L}}$ for $\trFrob{(\gcs{L},\phi)}$
+If $\cs{L} = (\gcs{L},\mu,\phi)$ is a quasicharacter sheaf, 
+then we will abbreviate $\trFrob{(\gcs{L},\phi)}$ to $\trFrob{\cs{L}}$.
 \end{definition}
 
-The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$
-guarantees that the function $\trFrob{\cs{L}} : G(\Fq)\to \EEx$,
-defined by $g \mapsto \phi_{\bg}$, is a group homomorphism;
-we refer to $\trFrob{\cs{L}}$ as the \cdef{trace of Frobenius of $\cs{L}$}.
-Although though no trace is involved in the definition, the notion extends 
-to any constructible $\ell$-adic Weil sheaf $(\gcs{L},\phi)$ on $G$, in which context,
-$\trFrob{(\gcs{L},\phi)} : G(\Fq)\to \EE$ is defined by $\trFrob{(\gcs{L},\phi)}(g) \ceq \trace \phi_{\bg}$.
-
-It is clear that $\trFrob{\cs{L}\otimes \cs{L'}} = \trFrob{\cs{L}} \cdot \trFrob{\cs{L'}}$
+The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$ guarantees 
+that the function $\trFrob{\cs{L}} : G(\Fq)\to \EEx$ is a group homomorphism.
+It is also clear that $\trFrob{\cs{L}\otimes \cs{L'}} = \trFrob{\cs{L}} \cdot \trFrob{\cs{L'}}$
 (pointwise multiplication of functions) and that $\trFrob{\cs{L}} = \trFrob{\cs{L'}}$
 if $\cs{L} \iso \cs{L'}$ in $\QC(G)$. In this way we obtain a group homomorphism
 \[
-\cdef{\trFrob{G}} : \QCiso{G} \longrightarrow G(\Fq)^*,%\Hom_\text{grp}(G(\Fq),\EEx),
-\qquad \text{defined by}\qquad \cs{L} \mapsto \trFrob{\cs{L}},
+\cdef{\trFrob{G}} : \QCiso{G} \longrightarrow G(\Fq)^*,
+\qquad \text{defined by}\qquad \cs{L} \mapsto \trFrob{\cs{L}}.
 \]
-from the Picard group of quasicharacter sheaves on $G$ to the character group of $G(\Fq)$.
+This isomorphism is functorial, in the following sense.
 
-Our main result on the geometrization of admissible characters of
-$p$-adic tori [insert internal reference here] follows from a general
-fact established later in this paper: if the geometric component group
-of $G$ is finitely-generated then the trace of Frobenius defines an
-isomorphism from the Picard group of quasicharacter sheaves $G$ to the
-group of characters of $G(\Fq)$ (here, as throughout the paper, $G$ is
-a commutative group scheme, smooth and locally of finite type over $\Fq$).
+\begin{proposition}\label{prop:functorialG}
+Trace of Frobenius $\QCiso{G} \to G(\Fq)$ is a natural transformation 
+between the following two additive functors from the category of smooth commutative
+group schemes locally of finite type over 
 
-\Clifton{Address functoriality here? Yes, but put proof at the end of the next section.}
-
-
-In this paper we $\QCiso{G} \iso G(\Fq)^*$ when the geometric component group of $G$ is finitely generated; see Theorem~\ref{thm:snake}. We also shows that this isomorphism is canonical; see 
-
-
+ to the category of abelian groups: 
+\begin{enumerate}
+\item[$F_1$:] $T \mapsto \QCiso{\GN{T}}$;
+\item[$F_2$:] $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
+\end{enumerate}
+\end{proposition}
 
 \section{Pull-back and products}\label{subsection:pullback}
 
