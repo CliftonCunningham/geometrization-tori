@@ -497,6 +497,25 @@ the snake lemma will then allow us to show
 \]
 canonically.
 
+\section{Boxproduct} 
+
+Let $ \GC(G_1) \boxtimes \GC(G_2)$
+
+\begin{proposition}\label{prop:product}
+The rule ... defines an equivalence of categories 
+\[
+\GC(G_1\times G_2) \to \GC(G_1) \boxtimes \GC(G_2)
+\]
+and 
+\[
+\begin{tikzcd}
+\GCiso{G_1\times G_2} \arrow{r} & \GCiso{G_1} \times \GCiso{G_2}\\
+(G_1\times G_2)(k)^* \arrow{r}  & G_1(k)^* \times G_2(K)^*
+\end{tikzcd}
+\]
+commutes.
+\end{proposition}
+
 \section{Base change over the residue field}\label{sec:basechange}
 
 When using geometrized characters to study characters, it is useful to understand
@@ -1515,28 +1534,27 @@ we refer to objects of $\GC(\GN{T})$ as \cdef{geometrized characters of $T$}.
 Let $T$ be an algebraic torus over a non-Archimedean local field $K$.
 The Picard group of the category $\GC(\GN{T})$ of geometrized characters of $T$ is canonically isomorphic to the group of admissible characters of $T(K)$:
   \[
-  \GCiso{\GN{T}} \iso \Hom_\text{ad}(T(K),\EEx).
+ \GCiso{\GN{T}} \iso \Hom_\text{ad}(T(K),\EEx).
   \]
 \end{corollary}
 
-\section{Canonicity}
+\section{Functoriality}
 
-We have already seen that the trace of Frobenius defines a canonical isomorphism 
-$t_T : \GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
-In this section we expand on the canonicity of this group isomorphism. 
+We have already seen that the trace of Frobenius defines a canonical homomorphism $\GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
+In this section we show that this homomorphism is functorial, in the following sense.
 
 \begin{proposition}
-The isomorphism $t_T : \GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
-is a natural transformation between the following two contravariant functors 
-from the category of algebraic tori over $K$ to the category of abelian groups: 
+Trace of Frobenius $\GCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$ 
+is a natural transformation between the following two additive functors from the additive category of algebraic tori over $K$ to the category of abelian groups: 
 \begin{enumerate}
-\item $T \mapsto \GCiso{\GN{T}}$
-\item $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
+\item[$F_1$:] $T \mapsto \GCiso{\GN{T}}$;
+\item[$F_2$:] $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
 \end{enumerate}
 \end{proposition}
 
-\Clifton{I think I can prove this proposition without too much difficulty.}
+
 \begin{proof}
+When combined with the definition of $\GC(\GN{T})$ and Property~\ref{T(K)}, the first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
 \end{proof}
 
 \section{Geometrization of restriction of scalars of local fields}
