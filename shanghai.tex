@@ -191,7 +191,7 @@
 %\noindent
 What is a quasicharacter sheaf?
 Let $G$ be a smooth commutative group scheme locally of finite
-type over $\Fq$; $G$ need not be reductive, connected, or of
+type over a finite field $\Fq$; $G$ need not be reductive, connected, or of
 finite type over $\Fq$. Fix a prime $\ell$ that does not divide
 $q$, write $m : \GxG \to G$ for the multiplication morphism,
 $\bG$ for the base change of $G$ to $\bFq$ and
@@ -209,8 +209,25 @@ algebraic groups \cite{SGA4.5}, we explore the trace of Frobenius morphism
 \[
 \QCiso{G} \to \Hom(G(\Fq), \EEx)
 \]
-and show that it is an isomorphism.
+and show that it is an isomorphism in Theorem \ref{thm:snake}, assuming only
+that the component group of $G$ is finitely generated.
 
+We apply Theorem \ref{thm:snake} to the geometrization of quasicharacters
+of non-Archimedian tori in part 2.  Let $K$ be a non-Archimedian local field
+with finite residue field $\Fq$; we place no restriction on the characteristic of $K$.
+Write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$.
+Let $T$ be a maximal torus defined over $K$.  The N\'eron model $\TT$ of $T$
+is a smooth group scheme over $\OK$ with generic fiber $T$ and a canonical isomorphism
+$\TT(\OK) \cong T(K)$.  For each positive integer $d$, let $\GN{T}_d$ be the
+Greenberg transform of $\TT \times_{\Spec{\OK}} \Spec{\OK/\pK^d}$; the commutative
+group scheme $\GN{T}_d$ plays the r\^{o}le of $G$, above.  Theorem \ref{thm:application}
+now provides a geometrization of quasicharacters of $T$ in the form of a canonical isomorphism
+\[
+\QCiso{\GN{T}_d} 
+\iso
+\Hom_{< d}(T(K),\EEx)
+\] 
+between quasicharacters on $\GN{T}_d$ and characters of $T(K)$ with depth less than $d$.
 
 Quasicharacter sheaves of $G$ form a category, denoted by $\QC(G)$. In
 fact, $\QC(G)$ is a rigid symmetric monoidal category, so isomorphism
