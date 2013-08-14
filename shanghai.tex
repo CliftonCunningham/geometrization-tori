@@ -1567,7 +1567,7 @@ to the additive functor
 T \mapsto \Hom_{<d}(T(K),\EEx).
 \]
 \item
-For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $K$, the following diagram commutes:
+For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $K$, the following diagram commutes, where  . . . 
 \[
 \begin{tikzcd}
 \QCiso{\Gr(\underline{\Res_{L/K}(T_L)}_d)} \arrow[two heads]{r} \dar & \QCiso{\Gr({T}_d)} \dar\\
@@ -1576,6 +1576,19 @@ For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $
 \]
 \end{enumerate}
 \end{theorem}
+
+
+Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
+\[
+\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
+\]
+The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
+\[
+\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
+\]
+and thus a functor on character sheaves through pullback.
+
+
 
 \begin{proof}
   By \ref{GNd}, we may apply Theorem~\ref{thm:snake} to
@@ -1606,7 +1619,8 @@ we refer to objects of $\QC(\GN{T})$ as \emph{quasicharacter sheaves for $T$}.
 \end{definition}
 
 \begin{remark}
-The Greenberg transform of the N\'eron model of $T$ is a commutative group scheme over $\Fq$.
+The Greenberg transform of the N\'eron model of $T$ is a commutative group scheme over $\Fq$. 
+We will not use that fact in this paper. 
 \end{remark}
 
 \begin{corollary}\label{cor:application}
@@ -1614,7 +1628,7 @@ The Greenberg transform of the N\'eron model of $T$ is a commutative group schem
 \item 
 For every algebraic torus $T$ over $K$, the trace of Frobenius 
   \[
-\trFrob{T}:  \QCiso{\GN{T}} \to \Hom_{\text{ad}}(T(K),\EEx)
+\trFrob{T}:  \QCiso{\GN{T}} \to \Hom_{\text{qc}}(T(K),\EEx)
   \]
 is an isomomorphism. 
 \item The isomorphism $\trFrob{T}$ is functorial in the following sense: $T \mapsto \trFrob{T}$ is a natural transformation
@@ -1622,45 +1636,29 @@ from the additive functor
 \[T \mapsto \QCiso{\GN{T}}\]
 to the additive functor
 \[
-T \mapsto \Hom_{\text{ad}}(T(K),\EEx).
+T \mapsto \Hom_{\text{qc}}(T(K),\EEx).
 \]
 \item
 For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $K$, the following diagram commutes:
 \[
 \begin{tikzcd}
-\QCiso{\underline{\Res_{L/K}(T_L)}} \arrow[two heads]{r} \dar & \QCiso{\GN{T}} \dar\\
-\Hom_{\text{ad}}(T(L), \EEx) \arrow[two heads]{r} & \Hom_{\text{ad}}(T(K), \EEx)
+\QCiso{\Gr(\underline{\Res_{L/K}(T_L)})} \arrow[two heads]{r} \dar & \QCiso{\Gr({T})} \dar\\
+\Hom_{\text{qc}}(T(L), \EEx) \arrow[two heads]{r} & \Hom_{\text{qc}}(T(K), \EEx)
 \end{tikzcd}
 \]
 \end{enumerate}
 \end{corollary}
 
 
-Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
-\[
-\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
-\]
-The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
-\[
-\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
-\]
-and thus a functor on character sheaves through pullback.
-
-
 \section{The transfer principle}
 
 \David{We should add a discussion of why we care about the transfer principle.}
 
-\Clifton{Work on motivation.}
+The techniques in this paper apply to all non-Archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a natural comparison between characters of $T(K)$ and of $T'(K')$. This comparison of has been made precise in \cite{CY}, building on ideas of \cite{Deligne:limites}. 
 
-The techniques in this paper apply to all non-Archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare quasicharacter sheaves on $T$ 
-
-
-We recall the notion of $N$-congruent tori from \cite[\S 2]{CY}.  Suppose $T$ and $T'$
+We recall the notion of $N$-congruent tori from  \cite{CY}*{\S 2}.  Suppose $T$ and $T'$
 are tori over non-Archimedian local fields $K$ and $K'$, splitting over $L$ and $L'$ respectively.
-
-\begin{definition}
- We say that $T$ and $T'$ are \emph{$N$-congruent} if there are isomorphisms
+Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
  \begin{align*}
   \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
   \beta : \Gal(L/K) &\to \Gal(L'/K') \\
@@ -1673,23 +1671,9 @@ are tori over non-Archimedian local fields $K$ and $K'$, splitting over $L$ and 
   for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
   \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
  \end{enumerate}
-\end{definition}
-
-One of the main results of \cite{CY} gives an isomorphism of group schemes between
-$\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.
-They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
-Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite[\S 8.1]{CY}.
-They then prove the following theorem:
-
-\begin{theorem}[{\cite[Thm. 8.5]{CY}}]
- Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical isomorphism
- \[
-  \TT_{N-3h} \to \TT'_{N-3h}
+\[
+  \Hom_{<N}(T(K), \EEx) \to \Hom_{<N}(T'(K'),\EEx)
  \]
- determined by $\alpha, \beta$ and $\phi$.
-\end{theorem}
-
-As an immediate consequence of this theorem and Theorem \ref{thm:application} we have the following corollary:
 
 \begin{corollary}
  Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical equivalence of categories
@@ -1701,6 +1685,22 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
   \Hom(T(K) / T(K)_{N-3h}, \EEx) \to \Hom(T'(K') / T'(K')_{N-3h}, \EEx)
  \]
 \end{corollary}
+
+\begin{proof}
+One of the main results of \cite{CY} gives an isomorphism of group schemes between
+$\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.
+They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
+Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{CY}*{\S 8.1}
+They then prove the following theorem \cite{CY}*{Thm. 8.5}
+ Suppose that $T$ and $T'$ are $N$-congruent for $N > 3h$.  Then there is a canonical isomorphism
+ \[
+  \TT_{N-3h} \to \TT'_{N-3h}
+ \]
+ determined by $\alpha, \beta$ and $\phi$.
+
+
+As an immediate consequence of this theorem and Theorem \ref{thm:application} we have the following corollary:
+\end{proof}
 
 %\printindex
 
@@ -1797,6 +1797,24 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
    pages={137--252},
 %   issn={0073-8301},
 %   review={\MR{601520 (83c:14017)}},
+}
+
+\bib{Deligne:limites}{article}{
+   author={Deligne, P.},
+   title={Les corps locaux de caract\'eristique $p$, limites de corps locaux
+   de caract\'eristique $0$},
+%   language={French},
+   conference={
+      title={Representations of reductive groups over a local field},
+   },
+   book={
+      series={Travaux en Cours},
+      publisher={Hermann},
+      place={Paris},
+   },
+   date={1984},
+   pages={119--157},
+%   review={\MR{771673 (86g:11068)}},
 }
 
 \bib{Greenberg:2}{article}{
