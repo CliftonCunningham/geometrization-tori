@@ -12,7 +12,7 @@
 \email{roed.math@gmail.com}
 \usepackage[utf8]{inputenc}
 \renewcommand{\baselinestretch}{1.2}
-\usepackage[notcite,color]{showkeys}
+\usepackage[notcite]{showkeys}
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{amsthm}
@@ -196,7 +196,7 @@ finite type over $\Fq$. Fix a prime $\ell$ that does not divide
 $q$, write $m : \GxG \to G$ for the multiplication morphism,
 $\bG$ for the base change of $G$ to $\bFq$ and
 $\Frob{G} : \bG \to \bG$ for the Frobenius automorphism.
-A quasicharacter sheaf of $G$ is a triple $\cs{L}\ceq
+A quasicharacter sheaf on $G$ is a triple $\cs{L}\ceq
 (\gcs{L},\mu,\phi)$ where $\gcs{L}$ is a rank-$1$ local system on $\bG$ and $\mu: m^*
 \gcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gcs{L} \to \gcs{L}$ are isomorphisms;
 $\mu$ and $\phi$ are required to satisfy natural conditions explained below.
@@ -376,7 +376,7 @@ then we will abbreviate $\trFrob{(\gcs{L},\phi)}$ to $\trFrob{\cs{L}}$.
 The isomorphism $\mu : \bm^* \gcs{L} \to \LxL$ guarantees 
 that the function $\trFrob{\cs{L}} : G(\Fq)\to \EEx$ is a group homomorphism.
 It is also clear that $\trFrob{\cs{L}\otimes \cs{L'}} = \trFrob{\cs{L}} \cdot \trFrob{\cs{L'}}$
-(pointwise multiplication of functions) and that $\trFrob{\cs{L}} = \trFrob{\cs{L'}}$
+(pointwise multiplication of functions) and $\trFrob{\cs{L}} = \trFrob{\cs{L'}}$
 if $\cs{L} \iso \cs{L'}$ in $\QC(G)$. In this way we obtain a group homomorphism
 \[
 \cdef{\trFrob{G}} : \QCiso{G} \longrightarrow G(\Fq)^*,
@@ -387,14 +387,14 @@ This isomorphism is functorial, in the following sense.
 \begin{proposition}\label{prop:functorialG}
 Trace of Frobenius $\QCiso{G} \to G(\Fq)$ is a natural transformation 
 between the following two additive functors from the category of smooth commutative
-group schemes locally of finite type over 
-
- to the category of abelian groups: 
+group schemes locally of finite type over $\Fq$ to the category of abelian groups:
 \begin{enumerate}
-\item[$F_1$:] $T \mapsto \QCiso{\GN{T}}$;
-\item[$F_2$:] $T \mapsto \Hom_\text{ad}(T(K),\EEx)$.
+\item[$F_1$:] $G \mapsto \QCiso{G}$;
+\item[$F_2$:] $G \mapsto G(\Fq)$.
 \end{enumerate}
 \end{proposition}
+
+The proof of Proposition~\ref{prop:functorialG} requires the results from the next section.
 
 \section{Pull-back and products}\label{subsection:pullback}
 
@@ -414,7 +414,7 @@ group schemes locally of finite type over
 \end{proposition}
 
 \begin{proof}
-  Let $\cs{L}$ be a quasicharacter sheaf of $G$. We start by showing that
+  Let $\cs{L}$ be a quasicharacter sheaf on $G$. We start by showing that
   $\bf^*\gcs{L}$ is locally constant on connected components of
   $\bH$. Let $c_j :\bH^j \hookrightarrow \bH$ be any
   connected component and let $i$ be the image of $j$ under the group
@@ -484,14 +484,14 @@ group scheme for $G$:
 0 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
 \end{tikzcd}
 \end{equation}
-Since $\pi_0(G)$ is an Abelian group scheme, smooth (in fact, etale) and locally of finite type over $\Fq$, 
+Since $\pi_0(G)$ is an commutative group scheme, smooth (in fact, etale) and locally of finite type over $\Fq$, 
 it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1} defines a sequence of functors
 \[
 \begin{tikzcd}
 \QC(0) \rar & \QC(\pi_0(G)) \rar & \QC(G) \rar & \QC(G^0) \rar & \QC(0)
 \end{tikzcd}
 \]
-which induces, upon passage to Picard groups, a sequence of group homomorphisms 
+which induces, upon passage to isomorphism classes of objects, a sequence of group homomorphisms 
 \begin{equation}\label{eq:pi-1}
 \begin{tikzcd}
 \QCiso{0} \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & \QCiso{0}.
@@ -503,11 +503,10 @@ the snake lemma will then allow us to show
 \QCiso{G} \iso G(\Fq)^*,%\Hom_\text{grp}(G(\Fq),\EE^\times),
 \]
 canonically.
-
 %\section{Products} 
-We end this section with a simple result on products of geochars, which we will be needed to show that the isomorphism above is functorial.
+We end this section with a simple result on products of quasicharacter sheaves, which is needed to show that the isomorphism above is functorial.
 
-\begin{lemma}\label{lemma:product}
+\begin{proposition}\label{prop:product}
 The rule $\boxtimes : (\cs{L}_1,\cs{L}_2)\to \cs{L}_1\boxtimes\cs{L}_2$ defines an equivalence of categories 
 \[
 \QC(G_1)\times(G_2) \to \QC(G_1\times G_2)
@@ -520,7 +519,7 @@ and
 \end{tikzcd}
 \]
 commutes.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_1$. Let $\cs{L}$ be a geochar on $G$. Define $f : G\to G\times G$ by $f(g_1,g_2) = (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
@@ -534,6 +533,10 @@ $ f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = r_1^*\gcs{L}_1\otimes r_2^* \gcs{L}_
 f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
 \]
 So $\boxtimes$ is essentially surjective.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:functorialG}]
+The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
 \end{proof}
 
 \section{Base change}\label{sec:basechange}
@@ -569,7 +572,7 @@ In the opposite direction, let $\Nm_{k'/k} : G(k') \to G(k)$ be the norm map and
 \]
 We can also interpret this operation on characters in terms of quasicharacter sheaves, as follows.
 
-If $\cs{L} = (\gcs{L}, \mu, \phi)$ is a quasicharacter sheaf of $G$ we may define
+If $\cs{L} = (\gcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$ we may define
 a quasicharacter sheaf $\cs{L}' = (\gcs{L}, \mu, \phi_{k'})$ on 
 $G_{k'}\ceq G\times_{\Spec{k}} \Spec{k'}$ by setting
 \[
@@ -627,16 +630,17 @@ The following diagram commutes:
 
 \section{Bounded quasicharacter sheaves}\label{sec:bounded}
 
-Let \cdef{$\QCb(G)$} be the category of pairs $(\cs{L}_0,\mu_0)$ 
-where $\cs{L}_0$ is a constructible $\ell$-adic sheaf on $G$, 
-which is a rank-$1$ local system on each connected component of $G$, 
+\begin{definition}
+Let $\QCb(G)$ be the category of pairs $(\cs{L}_0,\mu_0)$ 
+where $\cs{L}_0$ a rank-$1$ $\ell$-adic local system on $G$, 
 equipped with an isomorphism $\mu_0 : m^* \cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ 
 satisfying the analogue of Condition~\ref{CS.1} on $G$; 
-morphisms in $\QCf(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
-This is the category of \cdef{bounded quasicharacter sheaves} on $G$. 
-\Clifton{Should this be $\sheafHom(\cs{L}_0,\EE)$?}
-This is a rigid monoidal category in the obvious way, 
-with duals given by $\cs{L}_0^\vee \ceq \sheafHom(\cs{L}_0,(\EE)_{G})$.
+morphisms in $\QCb(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
+This is the category of \emph{bounded quasicharacter sheaves} on $G$. 
+\end{definition}
+
+The category of bounded quasicharacter sheaves is a rigid monoidal category in the obvious way. 
+%with duals given by $\cs{L}_0^\vee \ceq \sheafHom(\cs{L}_0,\EE)$.
 
 \begin{proposition}
 $\QCb(G)$ is (equivalent to) a full subcategory of $\QC(G)$.
@@ -644,7 +648,7 @@ $\QCb(G)$ is (equivalent to) a full subcategory of $\QC(G)$.
 
 \begin{proof}
  Let $b_G : {\bar G} \to G$ be the pull-back of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
- Let $(\cs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf of $G$. 
+ Let $(\cs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$. 
  Then $\cs{L}_0$ is, in particular, an $\ell$-adic constructible sheaf on $G$. 
  Then $b_G^* \cs{L}_0$ comes equipped with an isomorphism 
  $\phi : \Frob{G}^* b_G^*\cs{L}_0 \to b_G^* \cs{L}_0$; 
@@ -666,9 +670,10 @@ The full subcategory $\QCb(G)$ of bounded quasicharacter sheaves is an essential
  %which will illuminate some features of $\QCb(G)$ and also play a role in some arguments below.
  
 To define the category of finite quasicharacter sheaves we must work a bit harder.
-Consider the following category \cdef{$C(G)$}:
-an object in $C(G)$ is a pair $(f,\psi)$ where: 
-$f : H\to G$ is a \cdef{discrete isogeny} (a finite, surjective etale morphism and a morphism of commutative group $\Fq$-schemes, for which the action of $\Gal(\bFq/\Fq)$ on the etale group scheme $f^{-1}{\bar e}$ is trivial), 
+Consider the following category $C(G)$.
+Let us say that $f : H\to G$ is a \emph{discrete isogeny} if it is a a finite, surjective etale morphism and a morphism of commutative group $\Fq$-schemes, for which the action of $\Gal(\bFq/\Fq)$ on the etale group scheme $f^{-1}{\bar e}$ is trivial.
+An object in $C(G)$ is a pair $(f,\psi)$ where: 
+$f : H\to G$ is a discrete isogeny 
 and $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$;
 a map $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$ 
 where $\alpha$ is a morphism of schemes such that $f' = f\circ \alpha$
@@ -681,11 +686,8 @@ V \arrow{d}{T} & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arr
 V' & \Aut(V) & \arrow[swap]{l}{\psi} \arrow[swap]{u}{\alpha\vert_{\ker f}} \ker f \arrow[hook]{r} & \arrow[swap]{u}{\alpha} H' \arrow{r}{f'} & G\\
 \end{tikzcd}
 \]
-\Clifton{I suspect $\alpha$ is a covering, for free. Is that right? 
-If $f' = f \circ \alpha$ and $f$ and $f'$ are etale covers, 
-does it follow that $\alpha$ is also an etale cover? (Etale: Yes. Finite? Surjective?) 
-If so, then I can simplify the definition of weak isomorphism accordingly.}
-We say that $(\alpha,T)$ in $C(G)$ is a \cdef{weak isomorphism} if $\alpha$ is a covering and $T$ is an isomorphism of vector spaces.
+We say that $(\alpha,T)$ in $C(G)$ is a \emph{weak isomorphism} if $\alpha$ is surjective
+and $T$ is an isomorphism of vector spaces.
 Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at weak isomorphisms.
 
 We put a tensor category structure on $C(G)$ 
@@ -702,8 +704,11 @@ The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$
 where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee = \Hom_\text{vec}(V,\EE)$. 
 The verification that these operations make $C(G)$ a tensor category is straightforward.
 Likewise, $C(G)[W^{-1}]$ is a tensor category.
+Let $C_1(G)$ be the rigid monoidal full subcategory of $C(G)$ consisting of objects $(f,\psi)$ such that $\psi$ is a one-dimensional representation.
 
-Let \cdef{$C_1(G)$} be the rigid monoidal full subcategory of $C(G)$ consisting of objects $(f,\psi)$ such that $\psi$ is a one-dimensional representation and let \cdef{$\QCf(G)$} be the localisation of $C_1(G)$ at weak isomorphisms; this is the rigid symmetric monoidal category of \cdef{finite quasicharacter sheaves} of $G$.
+\begin{definition}
+The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\QCf(G)$, is the rigid symmetric monoidal category obtained by localizing $C_1(G)$ at weak isomorphisms.
+\end{definition}
 
 \begin{proposition}\label{prop:bounded}
  $\QCf(G)$ is (equivalent to) a full subcategory of $\QCb(G)$.
@@ -861,7 +866,7 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   Since $G$ is connected, the geometric point $\bg$ determines
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
   $\ell$-adic representations of $\W(G,\bg)$ \cite{Deligne:Weil2}*{1.1.12}. 
-  Now let $(\gcs{L},\mu,\phi)$ be a quasicharacter sheaf of $G$ 
+  Now let $(\gcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$ 
   and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gcs{L},\phi)$. 
   The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
   $\Weil{\Fq}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{\Fq}$. 
@@ -924,8 +929,8 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   We now show that this functor is essentially surjective 
   when $G$ is a connected, commutative algebraic group over $\Fq$.
   
-  Let $(\cs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf of $G$. 
-  Then $\cs{L}\ceq B_G^*(\cs{L}_0,\mu_0)$ is a quasicharacter sheaf of $G$.
+  Let $(\cs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$. 
+  Then $\cs{L}\ceq B_G^*(\cs{L}_0,\mu_0)$ is a quasicharacter sheaf on $G$.
   Recall the definition of the character $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ from Section~\ref{sec:Frob}. 
   Let $f : G\to G$ be the Lang isogeny.
   Recall that $\ker f = G(\Fq) = G^\Frob{\Fq}$; 
@@ -1403,12 +1408,10 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   If $G$ is a smooth abelian group scheme, locally of finite type over
   $\Fq$, and the abelian group $\pi_0(G)(\bFq)$ (the geometric
   component group) is finitely generated, then the trace of Frobenius
-  homomorphism
   \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
-  from the Picard group of the category of quasicharacter sheaves on $G$ to
-  the group of characters of $G(\Fq)$, is an isomorphism.
+  is an isomorphism of groups.
   \Clifton{Address functoriality, here?}
 \end{theorem}
 
@@ -1459,7 +1462,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   \image(\QCiso{\pi_0(G)} \to \QCiso{G}) \subseteq \ker(\QCiso{G} \to \QCiso{G^0}),
   \]
   by the last part of Proposition~\ref{prop:pullback}. Specifically,
-  suppose $\cs{L}$ is a quasicharacter sheaf of $G$ that is trivial on
+  suppose $\cs{L}$ is a quasicharacter sheaf on $G$ that is trivial on
   $G^0$. Then $\trFrob{\cs{L}}\vert_{G^0(\Fq)} = \trFrob{\cs{L}^0} =0$,
   by Proposition~\ref{prop:pullback} again. Since the sequence of
   character groups is exact at $G(\Fq)^*$, there is
@@ -1475,13 +1478,13 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   isomorphism of groups.
 \end{proof}
 
-With Theorem~\ref{thm:snake} on hand, we can see why neither bounded geochars nor finite geochars are up to the task of geometrizing characters of $G(\Fq)$ in the generality we need.  To see this, consider the case when $G$ is the discrete etale group scheme $\ZZ$. Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ and let $\cs{L}$ be a quasicharacter sheaf in the isomorphism class corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. Then $\trFrob{\cs{L}}(1) = \ell$. Suppose $\cs{L}$ was a bounded character sheaf. Then the restriction of $\cs{L}$ to the connected component $1\in G$ would be a rank-1 local system on $1$, thus an $\ell$-adic chacter $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with $\rho_1(\Frob{\Fq}) = \ell$. But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, while $\rho_1(\pi_1(1,{\bar 1}))$ is not compact (it contains $\ell^\ZZ$). Since the Weil sheaf $\gcs{L}$ does not descend to a local system on $G$, the geometric character $\cs{L}$ is not a bounded geometric character. We can play the same game with the character $\chi : G(\Fq) \to \EEx$ defined by $\chi(1) = 1+\ell$. In this case, the corresponding geometric character $\cs{L}$ is bounded but not finite, since $1+\ell$ is not a root of unity. This simple example illustrates why the categories $\QCb(G)$ and $\QCf(G)$ are inadequate to geometrize characters of $G(\Fq)$.
+With Theorem~\ref{thm:snake} on hand, we can see why neither bounded quasicharacter sheaves nor finite quasicharacter sheaves are up to the task of geometrizing characters of $G(\Fq)$ in the generality we need.  To see this, consider the case when $G$ is the discrete etale group scheme $\ZZ$. Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ and let $\cs{L}$ be a quasicharacter sheaf in the isomorphism class corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. Then $\trFrob{\cs{L}}(1) = \ell$. Suppose $\cs{L}$ was a bounded character sheaf. Then the restriction of $\cs{L}$ to the connected component $1\in G$ would be a rank-1 local system on $1$, thus an $\ell$-adic chacter $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with $\rho_1(\Frob{\Fq}) = \ell$. But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, while $\rho_1(\pi_1(1,{\bar 1}))$ is not compact (it contains $\ell^\ZZ$). Since the Weil sheaf $\gcs{L}$ does not descend to a local system on $G$, the geometric character $\cs{L}$ is not a bounded geometric character. We can play the same game with the character $\chi : G(\Fq) \to \EEx$ defined by $\chi(1) = 1+\ell$. In this case, the corresponding geometric character $\cs{L}$ is bounded but not finite, since $1+\ell$ is not a root of unity. This simple example illustrates why the categories $\QCb(G)$ and $\QCf(G)$ are inadequate to geometrize characters of $G(\Fq)$.
 
 
 \part{Application to characters of algebraic tori over local fields}
 
-Also throughout the paper, $K$ is a non-Archimedean local field 
-with residue field $\Fq$ and $T$ is an algebraic torus over $K$.
+Let $K$ be a non-Archimedean local field with residue field $\Fq$ 
+and let $T$ be an algebraic torus over $K$.
 
 \section{Greenberg of Neron}
 \label{sec:GN}
@@ -1587,7 +1590,7 @@ is a natural transformation between the following two additive functors from the
 
 
 \begin{proof}
-When combined with the definition of $\QC(\GN{T})$ and Property~\ref{T(K)}, the first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Lemma~\ref{lemma:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
+When combined with the definition of $\QC(\GN{T})$ and Property~\ref{T(K)}, the first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Lemma~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
 \end{proof}
 
 \section{Geometrization of restriction of scalars of local fields}
