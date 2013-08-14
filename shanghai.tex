@@ -12,7 +12,7 @@
 \email{roed.math@gmail.com}
 \usepackage[utf8]{inputenc}
 \renewcommand{\baselinestretch}{1.2}
-\usepackage[notcite]{showkeys}
+%\usepackage[notcite]{showkeys}
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{amsthm}
@@ -76,7 +76,7 @@
 
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\W}{W}
-\newcommand{\Frob}[1]{{\operatorname{F}_{#1}}}
+\newcommand{\Frob}[1]{\operatorname{F}_{#1}}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\ord}{ord}
@@ -197,37 +197,38 @@ $q$, write $m : \GxG \to G$ for the multiplication morphism,
 $\bG$ for the base change of $G$ to $\bFq$ and
 $\Frob{G} : \bG \to \bG$ for the Frobenius automorphism.
 A quasicharacter sheaf on $G$ is a triple $\cs{L}\ceq
-(\gcs{L},\mu,\phi)$ where $\gcs{L}$ is a rank-$1$ local system on $\bG$ and $\mu: m^*
+(\gcs{L},\mu,\phi)$ where $\gcs{L}$ is a rank-$1$ $\ell$-adic local system on $\bG$ and $\mu: m^*
 \gcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gcs{L} \to \gcs{L}$ are isomorphisms;
 $\mu$ and $\phi$ are required to satisfy natural conditions explained below.
 
 In Part 1 of this paper we study the category $\QC(G)$ of quasicharacter sheaves.
-Since it is a rigid symmetric monoidal category,
-and the set of isomorphism classes $\QCiso{G}$ forms a group.
+Since it is a rigid symmetric monoidal category
+the set of isomorphism classes $\QCiso{G}$ forms a group.
 Motivated by the sheaf-function dictionary for commutative, connected
 algebraic groups \cite{SGA4.5}, we explore the trace of Frobenius morphism
 \[
 \QCiso{G} \to \Hom(G(\Fq), \EEx)
 \]
 and show that it is an isomorphism in Theorem \ref{thm:snake}, assuming only
-that the component group of $G$ is finitely generated.
+that the geometric component group of $G$ is finitely generated.
 
 We apply Theorem \ref{thm:snake} to the geometrization of quasicharacters
-of non-Archimedian tori in part 2.  Let $K$ be a non-Archimedian local field
+of non-Archimedian tori in Part 2.  Let $K$ be a non-Archimedian local field
 with finite residue field $\Fq$; we place no restriction on the characteristic of $K$.
 Write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$.
-Let $T$ be a maximal torus defined over $K$.  The N\'eron model $\TT$ of $T$
+Let $T$ be a torus defined over $K$.  The N\'eron model $\TT$ of $T$
 is a smooth group scheme over $\OK$ with generic fiber $T$ and a canonical isomorphism
 $\TT(\OK) \cong T(K)$.  For each positive integer $d$, let $\GN{T}_d$ be the
 Greenberg transform of $\TT \times_{\Spec{\OK}} \Spec{\OK/\pK^d}$; the commutative
-group scheme $\GN{T}_d$ plays the r\^{o}le of $G$, above.  Theorem \ref{thm:application}
+group scheme $\GN{T}_d$ plays the r\^{o}le of $G$.  Theorem \ref{thm:application}
 now provides a geometrization of quasicharacters of $T$ in the form of a canonical isomorphism
 \[
 \QCiso{\GN{T}_d} 
 \iso
 \Hom_{< d}(T(K),\EEx)
 \] 
-between quasicharacters on $\GN{T}_d$ and characters of $T(K)$ with depth less than $d$.
+between quasicharacter sheaves on $\GN{T}_d$ and characters of $T(K)$ with depth less than $d$.
+We also describe a group scheme $\GN{T}$ simultaneously geometrizing all quasicharacters of $T(K)$.
 
 We have not yet fully explored the applications of such a geometrization, but want to highlight
 some of the potential benefits of Theorem \ref{thm:application}.  Characters on $T$ have limited
@@ -264,14 +265,44 @@ as character sheaves.  Our quasicharacter sheaves evolved from this notion, and 
 is a direct generalization of the sheaf-function dictionary to the case of commutative
 group schemes which are not necessarily connected or finite type.  The other main use
 of the term ``character sheaf'' traces back to Lusztig \cite{}.  Most of his energy is devoted to
-handling non-commutative groups and though he does define character sheaves for some
-non-connected groups, he restricts his attention to reductive groups with cyclic component group.
+handling non-commutative groups; though he does define character sheaves for some
+non-connected groups he restricts his attention to reductive groups with cyclic component group.
 For extensions of $\ZZ/n\ZZ$ by a torus, it is not difficult to relate his Frobenius-stable character
 sheaves to our quasicharacter sheaves.
 
 We close the introduction with a more detailed description of the structure of this paper.
 In Section \ref{sec:category} we define quasicharacter sheaves and give an interpretation of
-them as a Weil sheaf with a Galois action.  
+them as Weil sheaves with a Galois action.
+Section \ref{sec:Frob} introduces the trace of Frobenius homomorphism,
+one direction of the sheaf-function dictionary.
+We define pullbacks and products of quasicharacter sheaves in Section \ref{sec:pullback}, and use
+them to prove a functoriality result on the trace of Frobenius.
+In Section \ref{sec:basechange} we study how quasicharacter sheaves behave under base change
+and Weil restriction.
+Sections \ref{sec:bounded} and \ref{sec:finite} describe bounded and finite quasicharacter sheaves,
+two subcategories of $\QC(G)$.  These alternate descriptions of quasicharacter sheaves play a key
+role in the proof of Proposition \ref{prop:restriction}.
+In section \ref{sec:connected} we show that bounded and finite quasicharacter sheaves are the same
+as standard quasicharacter sheaves when $G$ is connected, and that trace of Frobenius is an isomorphism.
+We shift to \'etale group schemes $G$ in Section \ref{sec:etale} and give a more concrete interpretation
+of quasicharacter sheaves in this case.  Using a notion of global sections for quasicharacter sheaves,
+we give an isomorphism between $\QCiso{G}$ and $\Hh^1(\Weil{\Fq}, \Hom(G(\bFq), \EEx))$.
+Section \ref{sec:etalecohom} proves a result in Galois cohomology that shows that trace of Frobenius is
+an isomorphism for \'etale group schemes.
+In Section \ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
+induces an essentially surjective functor of quasicharacter sheaves.
+Section \ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem, that trace of Frobenius
+is an isomorphism for $G$ as long as the geometric component group is finitely generated.
+
+In Section \ref{sec:GAN} we introduce N\'eron models of tori and the Greenberg transform, which produce
+group schemes over $\Fq$ from algebraic tori $T$ over $K$.
+Section \ref{sec:bdchar} then uses Theorem \ref{thm:snake} to give a geometrization of characters of $T$
+of bounded depth.
+We give a reinterpretation of this result in Section \ref{sec:quasichar}, using a limit process to simultaneously
+geometrize all quasicharacters of $T$.  Sections \ref{sec:bdchar} and \ref{sec:quasichar} also include
+functoriality results that we hope to use in a future discussion of class field theory.
+Finally, we close the paper in Section \ref{sec:transfer} by discussing a transfer principle, which allows
+a geometric transfer of characters between characteristic $p$ tori to characteristic $0$ tori.
 
 \subsection*{Acknowledgements}
 
@@ -285,9 +316,7 @@ and the hospitality of BIRS during our weeklong stay in May 2012.
 
 \tableofcontents
 
-\Clifton{Declare definitions - about 10 of them.}
-
-\part{Smooth commutative group schemes lft over finite fields}
+\part{Smooth commutative group schemes lft over finite fields} \label{part1}
 
 Throughout this paper, $G$ is a commutative group scheme,
 smooth and locally of finite type over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
@@ -375,8 +404,6 @@ $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for all $u,v\in \Weil{
 This means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\varphi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\QC(G)$. 
 %\end{remark}
 
-\Clifton{Now that I'm working on the functoriality of trace of Frobenius, I  think the source of the functoriality is mainly this: $\QC$ is a stack. I'm thinking about this now.}
-
 \section{Trace of Frobenius}\label{sec:Frob}
 
 %\begin{proposition}\label{tensor}
@@ -429,7 +456,7 @@ group schemes locally of finite type over $\Fq$ to the category of abelian group
 
 The proof of Proposition~\ref{prop:functorialG} requires the results from the next section.
 
-\section{Pull-back and products}\label{subsection:pullback}
+\section{Pull-back and products}\label{sec:pullback}
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
@@ -598,8 +625,7 @@ G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \]
 \end{proposition}
 
-In the opposite direction, let $\Nm_{k'/k} : G(k') \to G(k)$ be the norm map and consider the group homomorhism:
-\Clifton{How is $\Nm$ defined?}
+In the opposite direction, let $\Nm_{k'/k} : G(k') \to G(k)$ be the norm map and consider the group homomorphism:
 \[
 \Nm_{k'/k}^* : G(k)^* \to G(k')^* \qquad \text{defined by}\qquad \chi \mapsto \chi\circ \Nm_{k'/k}.
 \]
@@ -868,7 +894,7 @@ While $\theta$ was canonical, $T$ was not, as it depended on the choice of a bas
 
 The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves is a proper subcategory, in general. Indeed, it follows from our main result regarding quasicharacter sheaves, Theorem~\ref{thm:snake}, that the restriction of $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ to the subgroup $\QCfiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is finite in $\EEx$; see Section~\ref{sec:snake}.
  
-\section{Connected commutative algebraic groups}
+\section{Connected commutative algebraic groups} \label{sec:connected}
 
 %\input{connected-1}
 % !TEX encoding = UTF-8 Unicode
@@ -966,7 +992,7 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   Then $\cs{L}\ceq B_G^*(\cs{L}_0,\mu_0)$ is a quasicharacter sheaf on $G$.
   Recall the definition of the character $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ from Section~\ref{sec:Frob}. 
   Let $f : G\to G$ be the Lang isogeny.
-  Recall that $\ker f = G(\Fq) = G^\Frob{\Fq}$; 
+  Recall that $\ker f = G(\Fq) = G^{\Frob{\Fq}}$; 
   in particular, the action of $\Gal(\bFq/\Fq)$ on $\ker f$ is trivial.
   Let $V = \EE$ and let $\psi : \ker f \to \Aut(V)$ be the representation given by 
   $\psi(g)(v) = \trFrob{\cs{L}}(g) v$ for $v\in V$. 
@@ -991,7 +1017,7 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter sheaf $(\Lang,\chi)$ such that the trace of Frobenius of the quasicharacter sheaf $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
-\section{Commutative \'etale group schemes}
+\section{Commutative \'etale group schemes} \label{sec:etale}
 
 %\input{etale-1}
 %In this section we establish a fundamental property of character
@@ -1113,7 +1139,7 @@ These sections will allow us to construct the isomorphism in the following propo
   $\tau_\cs{L}(\Frob{\Fq})(x+y) = \tau_\cs{L}(\Frob{\Fq})(x) \ \tau_\cs{L}(\Frob{\Fq})(y)$
   for all $x,y \in G(\bFq)$.  Now define $\tau_\cs{L} : \Weil{\Fq} \to G(\bFq)^*$ recursively by
   \[
-   \tau_\cs{L}(\Frob{\Fq}^n) \ceq \tau_\cs{L}(\Frob{\Fq})\cdot \,^\Frob{\Fq} \tau_\cs{L}(\Frob{\Fq}^{n-1}),
+   \tau_\cs{L}(\Frob{\Fq}^n) \ceq \tau_\cs{L}(\Frob{\Fq})\cdot \,^{\Frob{\Fq}} \tau_\cs{L}(\Frob{\Fq}^{n-1}),
   \]
   where $\Frob{\Fq}$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
   to pointwise multiplication of functions.
@@ -1126,7 +1152,7 @@ These sections will allow us to construct the isomorphism in the following propo
   $a(x) \in \EEx$ such that $s_2(x) = a(x) s_1(x)$. Then \eqref{section} and
   condition~\ref{cs.1} together imply $a(x+y) = a(x)a(y)$, so
   $a\in G(\bFq)^*$.  The coboundary $\tau_0 : \Weil{\Fq} \to G(\bFq)^*$
-  defined by $\tau_0(\Frob{\Fq}) = \,^\Frob{\Fq} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
+  defined by $\tau_0(\Frob{\Fq}) = \,^{\Frob{\Fq}} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
   so $\tau_2$ and $\tau_1$ are cohomologous. Thus
   \begin{equation}\label{cohomologous}
     \obj \QC(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
@@ -1158,7 +1184,7 @@ These sections will allow us to construct the isomorphism in the following propo
 \end{proof}
 
 
-\section{On the cohomology of the dual of an etale group scheme}
+\section{On the cohomology of the dual of an etale group scheme} \label{sec:etalecohom}
 %\input{etale-2}
 %Define $\rho \colon \Hh^1(\Weil{\Fq}, \Hom(G(\bFq), \EEx))
 % \rightarrow \Hom(G(\Fq), \EEx)$ by $\rho(\phi)(g) =
@@ -1181,13 +1207,13 @@ Theorem~\ref{thm:snake}.
 \end{proposition}
 \begin{proof}
   We first prove that $\rho$ is surjective.  Suppose that
-  $f \in \Hom(X^\Frob{\Fq}, \EEx).$ Since $\EEx$ is divisible
+  $f \in \Hom(X^{\Frob{\Fq}}, \EEx).$ Since $\EEx$ is divisible
   as an abelian group it is injective as a $\ZZ$-module and thus
-  $\Ext^1_{\ZZ}(X/X^\Frob{\Fq}, \EEx) = 0$.  Applying the functor
+  $\Ext^1_{\ZZ}(X/X^{\Frob{\Fq}}, \EEx) = 0$.  Applying the functor
   $\Hom(\mbox{---}, \EEx)$ to
   \[
   \begin{tikzcd}
-  0 \rar & X^\Frob{\Fq} \rar & X \rar & X/X^\Frob{\Fq} \rar & 0
+  0 \rar & X^{\Frob{\Fq}} \rar & X \rar & X/X^{\Frob{\Fq}} \rar & 0
   \end{tikzcd}
   \]
   and considering the associated long exact sequence gives the
@@ -1309,7 +1335,7 @@ Theorem~\ref{thm:snake}.
   all $x$ by linearity.  The existence of $\psi$ shows that $\rho$ is injective.
 \end{proof}
 
-\section{Restriction to the identity component}
+\section{Restriction to the identity component} \label{sec:restriction}
 
 %\input{restriction}
 % !TEX encoding = UTF-8 Unicode
@@ -1522,7 +1548,6 @@ We write $\Hom_{< d}(T(K),\EEx)$ for the group of characters of $T(K)$ depth les
 
 We have already seen that the trace of Frobenius defines a canonical homomorphism $\QCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
 In this section we show that this homomorphism is functorial, in the following sense.
-\Clifton{Fold this section into the main result on characters of local tori?}
 
 A lft-N\'eron model for $T$, denoted here by $\TT$, 
 is a separated, smooth, commutative group scheme locally of finite type over $\OK$ with generic fibre $T$, that enjoys the N\'eron mapping property: if
@@ -1548,7 +1573,7 @@ See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} and the first few sections of
 In fact, $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$, and the latter is finitely generated by \cite{Xarles}. 
 
 
-\section{Application to quasicharacters of bounded depth}
+\section{Application to quasicharacters of bounded depth} \label{sec:bdchar}
 
 \begin{theorem}\label{thm:application}
 Let $d$ be a positive integer.
@@ -1607,7 +1632,7 @@ and thus a functor on character sheaves through pullback.
   Finally, we turn to restriction of scalars.
 \end{proof}
 
-\section{The geometrization of quasicharacters}
+\section{The geometrization of quasicharacters} \label{sec:quasichar} 
 
 \begin{definition}
 The \emph{Greenberg transform of the N\'eron model of $T$} is the group pro-scheme over $\Fq$ given by
@@ -1650,7 +1675,7 @@ For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $
 \end{corollary}
 
 
-\section{The transfer principle}
+\section{The transfer principle} \label{sec:transfer}
 
 \David{We should add a discussion of why we care about the transfer principle.}
 
