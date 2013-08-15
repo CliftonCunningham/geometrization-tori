@@ -19,7 +19,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 %\usepackage[shortalphabetic]{amsrefs}
-\usepackage[alphabetic]{amsrefs}
+%\usepackage[alphabetic]{amsrefs}
 \renewcommand\MR{\relax}
 %\usepackage{xypic}
 \usepackage{textcomp}
@@ -153,6 +153,8 @@
 \newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
 
+
+
 \begin{document}
 
 
@@ -186,7 +188,7 @@
 %    absolute value $1$. Secondly, we shall find no model for the group
 %    of quasi-characters, or even for the group of characters, though
 %    such a model would be of the utmost importance.}
-%  \cite{Tate:thesis}*{\S 2.3}
+%  \cite{tate:67a}*{\S 2.3}
 %\end{quotation}
 %\noindent
 What is a quasicharacter sheaf?
@@ -207,7 +209,7 @@ In Part 1 of this paper we study the category $\QC(G)$ of quasicharacter sheaves
 Since it is a rigid symmetric monoidal category
 the set of isomorphism classes $\QCiso{G}$ forms a group.
 Motivated by the sheaf-function dictionary for commutative, connected
-algebraic groups \cite{SGA4.5}, we explore the trace of Frobenius morphism
+algebraic groups \cite{deligne:SGA4.5}, we explore the trace of Frobenius morphism
 \[
 \QCiso{G} \to \Hom(G(\Fq), \EEx)
 \]
@@ -262,7 +264,7 @@ would yield a different description of the Artin reciprocity map.
 
 We want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
 Analogous sheaves on connected, commutative algebraic groups were first studied
-by Deligne \cite{SGA4.5}, and more recently Drinfeld has referred to such objects
+by Deligne \cite{deligne:SGA4.5}, and more recently Drinfeld has referred to such objects
 as character sheaves.  Our quasicharacter sheaves evolved from this notion, and Theorem \ref{thm:snake}
 is a direct generalization of the sheaf-function dictionary to the case of commutative
 group schemes which are not necessarily connected or finite type.  The other main use
@@ -388,9 +390,9 @@ Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$,
 \end{enumerate}
 
 %\begin{remark} \label{rem:CS-action}
-The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from quasicharacter sheaves on $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{Deligne:Weil2}*{Def.~1.1.10 (i)}.
+The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from quasicharacter sheaves on $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{deligne:80a}*{Def.~1.1.10 (i)}.
 
-As mentioned after \cite{Deligne:Weil2}*{Def.~1.1.10}, a Weil sheaf $(\gcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. Since we will need this point of view later, we review that interpretation here. Setting 
+As mentioned after \cite{deligne:80a}*{Def.~1.1.10}, a Weil sheaf $(\gcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. Since we will need this point of view later, we review that interpretation here. Setting 
 \[
 \varphi(\Frob{\Fq}^n) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi)
 \]
@@ -401,7 +403,7 @@ Note that $\phi = \varphi(\Frob{\Fq})$.
 If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then
 $\varphi_1(w) : (w_G)_* \gcs{L}\to \gcs{L}$ is an isomorphism and
 $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for all $u,v\in \Weil{\Fq}$.
-This means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\varphi_1)$ fails to fulfill the requirements of \cite{SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\QC(G)$. 
+This means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\gcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{deligne:SGA4.5}*{Expos\'e XIII,~1.1}. The pair $(\gcs{L},\varphi_1)$ fails to fulfill the requirements of \cite{deligne:SGA4.5}*{Expos\'e XIII,~1.1} only because $\Weil{\Fq}$ is profinite. This fact goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\QC(G)$. 
 %\end{remark}
 
 \section{Trace of Frobenius}\label{sec:Frob}
@@ -414,7 +416,7 @@ $\sheafHom(\ - \ ,\EE)$ (sheaf hom) to
 conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}.
 %\end{proposition}
 (The category of characters sheaves on $G$ is not abelian, so $\QC(G)$
-is not a tensor category in the sense of \cite{Deligne:tensorielles}.)
+is not a tensor category in the sense of \cite{deligne:02a}.)
 %\begin{proof}\end{proof}
 %
 This rigid monoidal category structure for $\QC(G)$ puts a group
@@ -479,7 +481,7 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
   $\bH$. Let $c_j :\bH^j \hookrightarrow \bH$ be any
   connected component and let $i$ be the image of $j$ under the group
   homomorphism $\pi_0(\bG) \to \pi_0(\bH)$ obtained by
-  applying the functor $\pi_0$ to $\bf$; see \cite{vdG&M}*{III, 3.28}, for example.
+  applying the functor $\pi_0$ to $\bf$; see \cite{vdGeer-Moonen:AbelianVarieties}*{III, 3.28}, for example.
   \Clifton{I haven't found a better reference for this yet!}
   Write $c_i : \bG^i \hookrightarrow \bG$ for
   the inclusion of $\bG^i$ and $\bf^j : \bH^j \to \bG^i$
@@ -527,7 +529,7 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
 %
   The fact that the functor $f^* : \QC(G) \to \QC(H)$ commutes with
   the trace of Frobenius, in the sense above, follows immediately from
-  the definitions; see \cite{Laumon}*{1.1.1.2}, where the ambient
+  the definitions; see \cite{laumon:87a}*{1.1.1.2}, where the ambient
   hypothesis that $X$ is of finite type over $\Fq$ can be replaced by
   the hypothesis that $X$ is locally of finite type over $\Fq$.
   
@@ -615,7 +617,7 @@ Set $G_{k'} = G\times_\Spec{k} \Spec{k'}$ and let
 \[
 \QC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota^*} \QC(G)
 \]
-be the functor obtained by pull-back along the canonical closed immersion of $k$-schemes  $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite{BLR}*{\S 7.6}. 
+be the functor obtained by pull-back along the canonical closed immersion of $k$-schemes  $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6}. 
 The following diagram commutes:
 \[
 \begin{tikzcd}
@@ -713,7 +715,7 @@ $\QCb(G)$ is (equivalent to) a full subcategory of $\QC(G)$.
  $\phi : \Frob{G}^* b_G^*\cs{L}_0 \to b_G^* \cs{L}_0$; 
  moreover, the functor $\cs{L}_0 \mapsto (b_G^* \cs{L}_0,\phi)$  
  from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
- is full and faithful; see \cite{SGA7.2}*{Expos\'e XIII} or even \cite{BBD}*{Prop. 5.2.1}. 
+ is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or even \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}. 
  This functor preserves local constancy, so takes local systems to local systems. 
  Set $\mu = b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
  with $b_G^*\cs{L}_0$ playing the role of $\gcs{L}$.
@@ -915,7 +917,7 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
 \begin{proof}
  %Let $G$ be a geometrically connected algebraic group over $\Fq$.
   Observe that the forgetful functor $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$
-  sends quasicharacter sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{Deligne:Weil2}*{1.1.10}.
+  sends quasicharacter sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{deligne:80a}*{1.1.10}.
   While is it not true that all Weil sheaves on $G$ descend to local systems on $G$, 
   we will see that those that appear in the image of this forgetful functor from quasicharacter sheaves do. 
 
@@ -924,7 +926,7 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   (we fixed $\Fq \hookrightarrow \bFq$ long ago). 
   Since $G$ is connected, the geometric point $\bg$ determines
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
-  $\ell$-adic representations of $\W(G,\bg)$ \cite{Deligne:Weil2}*{1.1.12}. 
+  $\ell$-adic representations of $\W(G,\bg)$ \cite{deligne:80a}*{1.1.12}. 
   Now let $(\gcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$ 
   and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gcs{L},\phi)$. 
   The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
@@ -966,7 +968,7 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   $\cs{L}_0$ be a local system on $G$ in the isomorphism class
   determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
   Then $b_G^*\cs{L}_0 \iso \gcs{L}$.
-  Since $b_G^*$ is full and faithful (again, see \cite{SGA7.2}*{Expos\'e XIII} or even \cite{BBD}*{Prop. 5.2.1}),
+  Since $b_G^*$ is full and faithful (again, see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or even \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}),
   $
   b_{G\times G}^* : \Hom(m^*\cs{L}_0,\cs{L}_0\boxtimes\cs{L}_0) \to \Hom({\bar m}^*\gcs{L},\gcs{L}\boxtimes\gcs{L})
   $ 
@@ -999,12 +1001,12 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   Then $(f,\psi)$ is a finite quasicharacter sheaf. 
   
   To show that $L_G(f,\psi) \iso (\cs{L}_0,\mu_0)$ we simply apply the functions--sheaves dictionary
-  as follows ({\it cf} \cite{Laumon}*{1.1.3} or, ultimately, \cite{SGA4.5}*{Sommes trigonométriques}).
+  as follows ({\it cf} \cite{laumon:87a}*{1.1.3} or, ultimately, \cite{deligne:SGA4.5}*{Sommes trigonométriques}).
   First, recall that $L_G(f,\psi) = (L(f,\psi), \mu(f,\psi))$. 
-  By  \cite{Laumon}*{1.1.3.3}, $\trFrob{(G_{k'}\hookrightarrow G)^*L(f,\psi)} = \trFrob{\cs{L}} \circ N_{k'/k}$, for each finite extension $k'/k$.
+  By  \cite{laumon:87a}*{1.1.3.3}, $\trFrob{(G_{k'}\hookrightarrow G)^*L(f,\psi)} = \trFrob{\cs{L}} \circ N_{k'/k}$, for each finite extension $k'/k$.
   On the other hand, $\trFrob{\cs{L}} \circ N_{k'/k} = \trFrob{(G_{k'}\hookrightarrow G)^*\cs{L}}$,  by Proposition~\ref{prop:basechange}.
-  %Using notation from \cite{Laumon}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \cs{L}_0}$.
-  Using \cite{Laumon}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \cs{L}_0$ in $\Loc(G)$.
+  %Using notation from \cite{laumon:87a}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \cs{L}_0}$.
+  Using \cite{laumon:87a}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \cs{L}_0$ in $\Loc(G)$.
   It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\cs{L}_0,\mu_0)$ in $\QCb(G)$.
   This completes the proof that $L_G : \QCf(G) \to \QC(G)$ is essentially surjective.
   Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful, 
@@ -1022,12 +1024,12 @@ when $G$ is a connected algebraic group over $\Fq$,
 it is appropriate to replace quasicharacter sheaves on $G$ 
 with the conceptually simpler category $\QCf(G)$ of finite quasicharacter sheaves on $G$. 
 In this context, finite quasicharacter sheaves may also be apprehended as \emph{certain} $\ell$-adic characters of fundamental group $\pi_1(G,{\bar e})$. 
-As explained in \cite{Kamgarpour}*{\S~2}, 
+As explained in \cite{kamgarpour:09a}*{\S~2}, 
 the relevant characters of $\pi_1(G,{\bar e})$ are precisely those 
 that factor through a particular quotient of $\pi_1(G,{\bar e})$ 
 denoted there by $\Pi_\text{disc}(G)$.
 %\[\pi_1(G,{\bar e}) \to \Pi_\text{et}(G) \to \Pi_\text{et}(G)_{\Gal(\bFq/\Fq)} = \Pi_\text{disc}(G)\]
-From this it is apparent that the category of discrete isogenies to $G$ is a Galois category, in the sense of \cite{SGA1}*{Expos\'e V, \S 4}. Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$, as shown in \cite{Kamgarpour}*{App'x B}, this provides an alternate proof of $\QCiso{G} \to G(\Fq)^*$.
+From this it is apparent that the category of discrete isogenies to $G$ is a Galois category, in the sense of \cite{grothendieck:SGA1}*{Expos\'e V, \S 4}. Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$, as shown in \cite{kamgarpour:09a}*{App'x B}, this provides an alternate proof of $\QCiso{G} \to G(\Fq)^*$.
 
 In principle, something similar is possible in the more general 
 context of this paper, where $G$ is a smooth group scheme 
@@ -1050,7 +1052,7 @@ Weil groups, and difficult to identify the relevant quotient of this group. View
 % sheaves on commutative etale group schemes over $\Fq$ that are
 % geometrically finitely generated.
 
-\'Etale group schemes form a counterpoint to connected groups, since the component group of a group scheme locally of finite type over $\Fq$ is an \'etale group scheme (locally of finite type) over $\Fq$ \cite{vdG&M}*{III, \S 4}.  The functor $G \mapsto G(\bFq)$ defines an equivalence of categories
+\'Etale group schemes form a counterpoint to connected groups, since the component group of a group scheme locally of finite type over $\Fq$ is an \'etale group scheme (locally of finite type) over $\Fq$ \cite{vdGeer-Moonen:AbelianVarieties}*{III, \S 4}.  The functor $G \mapsto G(\bFq)$ defines an equivalence of categories
 between the category of \'etale group schemes over $\Fq$ and the category of groups equipped
 with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group.
 Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
@@ -1260,7 +1262,7 @@ Theorem~\ref{thm:snake}.
   of $\ZZ[\zeta_d]$ for $d$ dividing $m$.  Each $\ZZ[\zeta_d]$ is the
   maximal order in a number field and thus $\ZZ[\Gamma_m]$ is a
   product of Dedekind domains.  Therefore $X$ decomposes into a direct
-  sum of cyclic $\ZZ[\Gamma_m]$-modules \cite{Brandal}*{?}, each of the
+  sum of cyclic $\ZZ[\Gamma_m]$-modules \cite{brandal:CommRingsFGModDecompose}, each of the \David{Add a section to this reference}
   form $\ZZ[\Gamma_m] / I$ for some ideal $I \subset \ZZ[\Gamma_m]$.
   The ideal $I$ corresponds to a direct product of ideals $I_d$ in the
   $\ZZ[\zeta_d]$, and within each $\ZZ[\zeta_d]$ the Chinese remainder
@@ -1376,7 +1378,7 @@ this section we show that this functor is essentially surjective.
 \begin{proof}
   Because $G$ is smooth over $\Fq$, the identity component, 
   $G^0$, is a connected algebraic group over $\Fq$, 
-  clopen in $G$ \cite{vdG&M}*{3.17}. 
+  clopen in $G$ \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
   By Proposition~\ref{prop:connected}, every
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
@@ -1431,7 +1433,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   by injective $\ZZ[\Gamma]$-modules.  Since the action of $\Gamma$ on
   $\pi_0(G)(\bFq)$ is continuous, it factor through a finite quotient
   $\Gamma_m = \Gamma / H_m$.  Any product of Dedekind domains has
-  cohomological dimension $1$ \cite[?]{?}, so $\pi_0(G)(\bFq)$ has a
+  cohomological dimension $1$ \David{Add a citation for this fact}, so $\pi_0(G)(\bFq)$ has a
   two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$
   be one of these modules: we need to show that $I$ is injective as a
   $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
@@ -1576,7 +1578,7 @@ We write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal i
 For any positive integer $d$, set $A_d\ceq \OK/\pK^d$.
 Let $T$ be an algebraic torus over $K$.
 We write $\Hom_{< d}(T(K),\EEx)$ for the group of characters of $T(K)$ depth less than $d$ 
-and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of arbitrary finite depth; one might call these quasicharacters of $T(K)$, expanding on \cite{Tate:thesis}*{2.3}.
+and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of arbitrary finite depth; one might call these quasicharacters of $T(K)$, expanding on \cite{tate:67a}*{2.3}.
 
 \section{Greenberg of Neron}
 \label{sec:GN}
@@ -1597,12 +1599,12 @@ Let $\GN{T}_{d} = \Gr(\TT_d)$ be the group scheme over $\Fq$ produced by applyin
 the Greenberg functor to $\TT_{d}$; this is the \emph{Greenberg transform of $\TT_d$}.
 \end{definition}
 
-See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} and the first few sections of \cite{Stasinski} for background on the Greenberg functor. The fundamental properties of $\GN{T}_d$ that we need are:
+See \cite{greenberg:63a} and \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} and the first few sections of \cite{stasinski:12a} for background on the Greenberg functor. The fundamental properties of $\GN{T}_d$ that we need are:
  \begin{enumerate}
    \labitem{(GN.0)}{dFq} $\GN{T}_d(\Fq) = \TT(A_d)$, canonically.
   \labitem{(GN.1)}{GNd} $\GN{T}_d$ is a smooth, commutative group scheme, locally of finite type over $\Fq$, and the component group of $\GN{T}_d$ is geometrically finitely generated.
   \end{enumerate}
-In fact, $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$, and the latter is finitely generated by \cite{Xarles}. 
+In fact, $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$, and the latter is finitely generated by \cite{xarles:93a}. 
 
 \section{Application to quasicharacters of bounded depth} \label{sec:bdchar}
 
@@ -1632,7 +1634,7 @@ T \mapsto \Hom_{<d}(T(K),\EEx).
   By \ref{dFq}, $\GN{T}_d(\Fq) = \TT(A_d)$.
   Then we recall that the filtration of $T(K)$ used to
   define depth has the property that $\TT(A_d) \cong T(K) / T(K)_d$
-  \cite[Prop 5.2]{Yu}, so characters of $\GN{T}_d(\Fq)$ 
+  \cite[Prop 5.2]{yu:03a}, so characters of $\GN{T}_d(\Fq)$ 
   are in bijection with characters of $T(K)$ vanishing on $T(K)_d$. 
   This shows that $\trFrob{T,d}$ is an isomorphism.
   
@@ -1684,10 +1686,10 @@ T \mapsto \Hom_{<\infty}(T(K),\EEx).
 
 \section{Transfer of quasicharacter sheaves} \label{sec:transfer}
 
-The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a natural comparison between characters of $T(K)$ and of $T'(K')$. This comparison of has been made precise in \cite{CY}, building on ideas of \cite{Deligne:limites}. 
+The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a natural comparison between characters of $T(K)$ and of $T'(K')$. This comparison of has been made precise in \cite{chai-yu:01a}, building on ideas of \cite{deligne:84a}. 
 
-We recall the notion of $N$-congruent tori from \cite{CY}*{\S 2}.  
-Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$, 
+We recall the notion of $N$-congruent tori from  \cite{chai-yu:01a}*{\S 2}.
+Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
 splitting over $L$ and $L'$ respectively.
 Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
  \begin{align*}
@@ -1709,11 +1711,11 @@ If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an
 Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every $N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
 In this section we ask if the isomorphism \eqref{transfer} comes from an equivalence of categories of quasicharacter sheaves on $\GN{T}_d$ and those on $\GN{T}'_d$.
 
-One of the main results of \cite{CY} gives an isomorphism of group schemes between
+One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between
 $\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.
 They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
-Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{CY}*{\S 8.1}; let $h'$ be this quantity for $T'$.
-Then it follows from \cite{CY}*{Thm. 8.5} that if $T$ and $T'$ are $N$-congruent and $h=h'$ and $N > 3h$, 
+Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}; let $h'$ be this quantity for $T'$.
+Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $T$ and $T'$ are $N$-congruent and $h=h'$ and $N > 3h$, 
 \Clifton{Is this correct?}
 then there is a canonical isomorphism of smooth group schemes
  \[
@@ -1743,7 +1745,7 @@ may play a key role in a geometric, categorial version
 of the local Langlands correspondence for algebraic tori 
 over non-archimedean local fields. 
 As with the local Langlands correspondence for algebraic tori over local fields, 
-it will be possible to reduce the essential points of the argument to the case $T= \Gm{K}$, provided that the category of quasicharacter sheaves behaves properly with regard to Weil restriction; see \cite{Yu:tori}*{Thm 7.5 (2)}. 
+it will be possible to reduce the essential points of the argument to the case $T= \Gm{K}$, provided that the category of quasicharacter sheaves behaves properly with regard to Weil restriction; see \cite{yu:09a}*{Thm 7.5 (2)}. 
 The next proposition shows that the category of quasicharacter sheaves for 
 algebraic tori does indeed behave properly with regard to Weil restriction.
 
@@ -1796,325 +1798,14 @@ can then be be viewed as pairing characters and parameters coming
  from the same quasicharacter sheaf. 
  Results in this paper provide tools for reduction the problem to the case $T=\Gm{K}$. 
  In that case, our suspicions are all but confirmed 
- by the class field theory of Serre-Hasewinkel, \Clifton{Need references for S-H CFT.} especially as revisited in \cite{Suzuki&Yoshida:refinement}. 
+ by the class field theory of Serre-Hasewinkel, \Clifton{Need references for S-H CFT.} especially as revisited in \cite{suzuki-yoshida:12a}. 
  What remains to be done is a careful comparison of 
  quasicharacter sheaves for $\Gm{K}$ and certain local systems on
-  the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{Suzuki&Yoshida:refinement}. 
+  the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{suzuki-yoshida:12a}. 
 
 %\printindex
 
-\begin{bibdiv}
-\begin{biblist}
-
-\bib{BBD}{article}{
-   author={Be{\u\i}linson, A. A.},
-   author={Bernstein, J.},
-   author={Deligne, P.},
-   title={Faisceaux pervers},
-%   language={French},
-   conference={
-      title={Analyse et topologie sur les espaces singuliers (I)},
-      address={Luminy},
-      date={1981},
-   },
-   book={
-      series={Ast\'erisque},
-      volume={100},
-      publisher={Soc. Math. France},
-      place={Paris},
-   },
-   date={1982},
-%   pages={5--171},
-%   review={\MR{751966 (86g:32015)}},
-}
-
-\bib{BLR}{book}{
-   author={Bosch, Siegfried},
-   author={L{\"u}tkebohmert, Werner},
-   author={Raynaud, Michel},
-   title={N\'eron models},
-   series={Ergebnisse der Mathematik und ihrer Grenzgebiete (3) [Results in
-   Mathematics and Related Areas (3)]},
-   volume={21},
-   publisher={Springer-Verlag},
-   place={Berlin},
-   date={1990},
-%   pages={x+325},
-%   isbn={3-540-50587-3},
-%   review={\MR{1045822 (91i:14034)}},
-}
-
-\bib{Brandal}{book}{
- author={Brandal, Willy},
- title={Commutative Rings whose Finitely Generated Modules Decompose},
- publisher={Springer-Verlag},
- date={1979},
- series={Lecture Notes in Mathematics},
- number={723}
-}
-
-\bib{Chai}{article}{
-   author={Chai, C.L.},
-   title={N\'eron models for semiabelian varieties: congruence and change of base field.},
-   journal={Asian J. Math.},
-   volume={4},
-   number={4},
-   date={2000},
-   pages={715--736}}
-   
-\bib{CY}{article}{
-   author={Chai, C.L.},
-   author={Yu, J.-K.},
-   title={Congruences of N\'eron models for tori and the Artin conductor},
-   journal={Ann. of Math.},
-   volume={154},
-   number={2},
-   date={2001},
-   pages={347-382}}
-
-\bib{Deligne:tensorielles}{article}{
-   author={Deligne, P.},
-   title={Cat\'egories tensorielles},
-%   language={French, with English summary},
-%   note={à Yu. I. Manin, en témoignage d'admiration},
-   journal={Mosc. Math. J.},
-   volume={2},
-   date={2002},
-   number={2},
-   pages={227--248},
-%   issn={1609-3321},
-%   review={\MR{1944506 (2003k:18010)}},
-}
-
-\bib{Deligne:Weil2}{article}{
-   author={Deligne, Pierre},
-   title={La conjecture de Weil. II},
-%   language={French},
-   journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
-   number={52},
-   date={1980},
-   pages={137--252},
-%   issn={0073-8301},
-%   review={\MR{601520 (83c:14017)}},
-}
-
-\bib{Deligne:limites}{article}{
-   author={Deligne, P.},
-   title={Les corps locaux de caract\'eristique $p$, limites de corps locaux
-   de caract\'eristique $0$},
-%   language={French},
-   conference={
-      title={Representations of reductive groups over a local field},
-   },
-   book={
-      series={Travaux en Cours},
-      publisher={Hermann},
-      place={Paris},
-   },
-   date={1984},
-   pages={119--157},
-%   review={\MR{771673 (86g:11068)}},
-}
-
-\bib{SGA4.5}{book}{
-   author={Deligne, P.},
-   title={Cohomologie \'etale},
-   series={Lecture Notes in Mathematics, Vol. 569},
-   note={S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1963-64 SGA
-   4$\frac{1}{2}$; 
-   Avec la collaboration de J. F. Boutot, A. Grothendieck, L. Illusie et J.
-   L. Verdier},
-   publisher={Springer-Verlag},
-   place={Berlin},
-%date={4h},
-   date={1977},
-%   pages={iv+312pp},
-%   review={\MR{0463174 (57 \#3132)}},
-}
-
-\bib{SGA7.2}{book}{
-   title={Groupes de monodromie en g\'eom\'etrie alg\'ebrique. II},
-%   language={French},
- author={Deligne, P.},
- author={Katz, N.},
-   series={Lecture Notes in Mathematics, Vol. 340},
-   note={S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1967--1969
-   (SGA 7 II);
-   Dirig\'e par P. Deligne et N. Katz},
-   publisher={Springer-Verlag},
-   place={Berlin},
-   date={1973},
-%   pages={x+438},
-%   review={\MR{0354657 (50 \#7135)}},
-}
-
-\bib{vdG&M}{book}{
-author={Geer, van der},
-author={Moonen},
-title={Abelian Varieties},
-note={http://staff.science.uva.nl/$\sim$bmoonen/boek/BookAV.html}
-}
-
-\bib{Greenberg:2}{article}{
-   author={Greenberg, Marvin J.},
-   title={Schemata over local rings. II},
-   journal={Ann. of Math. (2)},
-   volume={78},
-   date={1963},
-   pages={256--266},
-%   issn={0003-486X},
-%   review={\MR{0156855 (28 \#98)}},
-}
-
-\bib{SGA1}{collection}{
-   title={Rev\^etements \'etales et groupe fondamental (SGA 1)},
-%   language={French},
-   author={Grothendieck, A.},
-   series={Documents Math\'ematiques (Paris), 3},
-   note={S\'eminaire de g\'eom\'etrie alg\'ebrique du Bois Marie 1960--61.
-   Un s\'eminaire dirig\'e par A. Grothendieck
-Augment\'e de deux expos\'es de Mme M. Raynaud
-\'Edition recompos\'e et annot\'e du volume 224 des Lecture Notes in Mathematics publi\'e en 1971 par Springer-Verlag},
-   publisher={Soci\'et\'e Math\'ematique de France},
-   place={Paris},
-   date={2003},
-   pages={xviii+327},
-%  isbn={2-85629-141-4},
-%   review={\MR{2017446 (2004g:14017)}},
-}
-
-
-
-\bib{Kamgarpour}{article}{
-   author={Kamgarpour, M.},
-   title={Stacky abelianization of algebraic groups},
-   journal={Transform. Groups},
-   volume={14},
-   date={2009},
-   number={4},
-   pages={825--846},
-%   issn={1083-4362},
-%   review={\MR{2577200 (2011b:20136)}},
-%   doi={10.1007/s00031-009-9067-8},
-}
-
-\bib{Laumon}{article}{
-   author={Laumon, G.},
-   title={Transformation de Fourier, constantes d'\'equations fonctionnelles
-   et conjecture de Weil},
-%   language={French},
-   journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
-   number={65},
-   date={1987},
-   pages={131--210},
-%   issn={0073-8301},
-%   review={\MR{908218 (88g:14019)}},
-}
-
-\bib{Serre:isogenies}{article}{
-   author={Serre, Jean-Pierre},
-   title={Corps locaux et isog\'enies},
-%   language={French},
-   conference={
-      title={S\'eminaire Bourbaki, Vol.\ 5},
-   },
-   book={
-      publisher={Soc. Math. France},
-      place={Paris},
-   },
-   date={1995},
-   pages={Exp.\ No.\ 185, 239--247},
-%   review={\MR{1603470}},
-}
-
-
-\bib{Stasinski}{article}{
-   author={Stasinski, Alexander},
-   title={Reductive group schemes, the Greenberg functor, and associated
-   algebraic groups},
-   journal={J. Pure Appl. Algebra},
-   volume={216},
-   date={2012},
-   number={5},
-   pages={1092--1101},
-%   issn={0022-4049},
-%   review={\MR{2875329}},
-%   doi={10.1016/j.jpaa.2011.10.027},
-}
-
-\bib{Suzuki&Yoshida:refinement}{article}{
-   author={Suzuki, Takashi},
-   author={Yoshida, Manabu},
-   title={A refinement of the local class field theory of Serre and
-   Hazewinkel},
-   conference={
-      title={Algebraic number theory and related topics 2010},
-   },
-   book={
-      series={RIMS K\^oky\^uroku Bessatsu, B32},
-      publisher={Res. Inst. Math. Sci. (RIMS), Kyoto},
-   },
-   date={2012},
-   pages={163--191},
-%   review={\MR{2986923}},
-}
-
-\bib{Tate:thesis}{article}{
-   author={Tate, J. T.},
-   title={Fourier analysis in number fields, and Hecke's zeta-functions},
-   conference={
-      title={Algebraic Number Theory (Proc. Instructional Conf., Brighton,
-      1965)},
-   },
-   book={
-      publisher={Thompson, Washington, D.C.},
-   },
-   date={1967},
-   pages={305--347},
-%   review={\MR{0217026 (36 \#121)}},
-}
-
-
-
-\bib{Xarles}{article}{
-   author={Xarles, Xavier},
-   title={The scheme of connected components of the N\'eron model of an algebraic torus},
-   journal={J. Reine Angew. Math.},
-   volume={437},
-   date={1993},
-   pages={167--179},
-%   issn={0075-4102},
-%   review={\MR{1212256 (94d:14044)}},
-%   doi={10.1515/crll.1993.437.167},
-}
-
-
-\bib{Yu}{article}{
-   author={Yu, Jiu-Kang},
-   title={Smooth models associated to concave functions in Bruhat-Tits theory}
-}
-
-\bib{Yu:tori}{article}{
-   author={Yu, Jiu-Kang},
-   title={On the local Langlands correspondence for tori},
-   conference={
-      title={Ottawa lectures on admissible representations of reductive
-      $p$-adic groups},
-   },
-   book={
-      series={Fields Inst. Monogr.},
-      volume={26},
-      publisher={Amer. Math. Soc.},
-      place={Providence, RI},
-      editor={Cunningham, C.},
-      editor={Nevins, M.},
-   },
-   date={2009},
-   pages={177--183},
-   review={\MR{2508725 (2009m:11201)}},
-}
-
-\end{biblist}
-\end{bibdiv}
+\bibliographystyle{plain}
+\bibliography{Biblio}
 
 \end{document}
