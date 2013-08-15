@@ -192,12 +192,14 @@
 What is a quasicharacter sheaf?
 Let $G$ be a smooth commutative group scheme locally of finite
 type over a finite field $\Fq$; $G$ need not be reductive, connected, or of
-finite type over $\Fq$. Fix a prime $\ell$ that does not divide
-$q$, write $m : \GxG \to G$ for the multiplication morphism,
+finite type over $\Fq$. Fix a prime $\ell$ invertible in $\Fq$
+and write $m : \GxG \to G$ for the multiplication morphism,
 $\bG$ for the base change of $G$ to $\bFq$ and
 $\Frob{G} : \bG \to \bG$ for the Frobenius automorphism.
-A quasicharacter sheaf on $G$ is a triple $\cs{L}\ceq
-(\gcs{L},\mu,\phi)$ where $\gcs{L}$ is a rank-$1$ $\ell$-adic local system on $\bG$ and $\mu: m^*
+A quasicharacter sheaf on $G$ is a 
+\Clifton{ [Use this?:] . . . is an $\ell$-adic Weil local system of rank-$1$ on $G$, equipped with an isomorphism ... }
+triple $\cs{L}\ceq
+(\gcs{L},\mu,\phi)$ where $\gcs{L}$ is an $\ell$-adic local system on $\bG$ of rank-1 and $\mu: m^*
 \gcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gcs{L} \to \gcs{L}$ are isomorphisms;
 $\mu$ and $\phi$ are required to satisfy natural conditions explained below.
 
@@ -318,11 +320,10 @@ and the hospitality of BIRS during our weeklong stay in May 2012.
 
 \part{Smooth commutative group schemes lft over finite fields} \label{part1}
 
-Throughout this paper, $G$ is a commutative group scheme,
-smooth and locally of finite type over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
+Throughout this paper, $G$ is a smooth commutative group scheme locally of finite type over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
-commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$ over $\bFq$ obtained by base change from $k$. The multiplication morphism for $\bG$ will be denoted by $\bm$. 
+smooth commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$ over $\bFq$ obtained by base change from $k$. The multiplication morphism for $\bG$ will be denoted by $\bm$. 
 
 Let $\Frob{G}$ be the Frobenius automorphism of $\bG$.
 Recall that $\Frob{G} = \id_{G}\times \Frob{\Spec{\bFq}}$ where
@@ -337,7 +338,7 @@ For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \E
 A \emph{quasicharacter sheaf on $G$} is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(CS.0)}{CS.0} $\gcs{L}$ is a rank-$1$ $\ell$-adic local system on $\bG$;
+\labitem{(CS.0)}{CS.0} $\gcs{L}$ is an $\ell$-adic local system on $\bG$ (a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected component) of rank-1; 
 \labitem{(CS.1)}{CS.1} $\mu: \bm^* \gcs{L} \to \LxL$
   is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
@@ -366,7 +367,7 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \end{tikzcd}
   \]
 \end{enumerate}
-%In short, a quasicharacter sheaf on $G$  is a rank-$1$ Weil local system $(\gcs{L},\phi)$ on $G$ equipped with an isomorphism $m^* (\gcs{L},\phi) \to (\gcs{L},\phi)\boxtimes (\gcs{L},\phi)$. 
+%In short, a quasicharacter sheaf on $G$  is a rank-1 Weil local system $(\gcs{L},\phi)$ on $G$ equipped with an isomorphism $m^* (\gcs{L},\phi) \to (\gcs{L},\phi)\boxtimes (\gcs{L},\phi)$. 
 \end{definition}
 
 Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$, are defined in the natural way:
@@ -581,12 +582,12 @@ commutes.
 \end{proposition}
 
 \begin{proof}
-The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_1$. Let $\cs{L}$ be a geochar on $G$. Define $f : G\to G\times G$ by $f(g_1,g_2) = (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
+The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_1$. Let $\cs{L}$ be a quasicharacter sheaf on $G$. Define $f : G\to G\times G$ by $f(g_1,g_2) = (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
 Then the isomorphism $\mu : m^* \gcs{L} \to \gcs{L}\boxtimes \gcs{L}$ gives an isomorphism
 \[
 f^*\mu : f^* m^* \gcs{L} \to f^*(\gcs{L}\boxtimes \gcs{L}) = f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L}.
 \]
-Observe that $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$ where $p_1 , p_2 : G\times G \to G$ are the usual things and $r_1 : G_1\times G_2 \to G_1$ and $r_2 : G_1\times G_2 \to G_2$ are the obvious things and $q_1 : G_1\to G_1\times G_2$ and  $q_2 : G_2\to G_1\times G_2$ are the usual things. Then $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L}$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L}$. Now $\cs{L}_1 \ceq r_1^* \cs{L}$ is a geochar on $G_1$ and $\cs{L}_2 \ceq r_2^* \cs{L}$ is a geochar on $G_2$, by Proposition~\ref{prop:pullback}. Then
+Observe that $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$ where $p_1 , p_2 : G\times G \to G$ are the usual things and $r_1 : G_1\times G_2 \to G_1$ and $r_2 : G_1\times G_2 \to G_2$ are the obvious things and $q_1 : G_1\to G_1\times G_2$ and  $q_2 : G_2\to G_1\times G_2$ are the usual things. Then $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L}$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L}$. Now $\cs{L}_1 \ceq r_1^* \cs{L}$ is a quasicharacter sheaf on $G_1$ and $\cs{L}_2 \ceq r_2^* \cs{L}$ is a quasicharacter sheaf on $G_2$, by Proposition~\ref{prop:pullback}. Then
 $ f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = r_1^*\gcs{L}_1\otimes r_2^* \gcs{L}_2 = \gcs{L}_1\boxtimes \gcs{L}_2$. In this way, $\mu$ determines an isomorphism
 \[
 f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
@@ -690,7 +691,7 @@ The following diagram commutes:
 
 \begin{definition}
 Let $\QCb(G)$ be the category of pairs $(\cs{L}_0,\mu_0)$ 
-where $\cs{L}_0$ a rank-$1$ $\ell$-adic local system on $G$, 
+where $\cs{L}_0$ an $\ell$-adic local system on $G$ of rank-1, 
 equipped with an isomorphism $\mu_0 : m^* \cs{L}_0 \to \cs{L}_0 \boxtimes \cs{L}_0$ 
 satisfying the analogue of Condition~\ref{CS.1} on $G$; 
 morphisms in $\QCb(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
@@ -1097,10 +1098,6 @@ Under this equivalence, a morphism $\alpha : \cs{L} \to \cs{L'}$ of quasicharact
   both commute.
 \end{enumerate}
 
-Let us say that \cdef{global section}
-of a quasicharacter sheaf $\cs{L}$ on an \'etale group scheme $G$ as a choice 
-
-
 \begin{lemma}\label{lemma:section}
  If $\cs{L}$ is a quasicharacter sheaf on a commutative, \'etale group scheme $G$ over $\Fq$ and if $G(\bFq)$ is finitely generated, then there is a global section $s = \{ s(x) \in \gcs{L}_x \tq x \in G(\bFq) \}$ satisfying
  \begin{equation}\label{section}
@@ -1382,21 +1379,21 @@ this section we show that this functor is essentially surjective.
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
   so to prove the proposition it suffices to show that every 
-  finite geochar on $G^0$ extends to a geochar on $G$.
+  finite quasicharacter sheaf on $G^0$ extends to a quasicharacter sheaf on $G$.
   
- Let $(\pi,\psi)$ be a finite geochar on $G^0$.
+ Let $(\pi,\psi)$ be a finite quasicharacter sheaf on $G^0$.
  By Lemma~\ref{lemma:ext}, there is an extension of the 
- descrete isogeny $\pi : B \to G^0$ 
+ discrete isogeny $\pi : B \to G^0$ 
  (see Section~\ref{sec:finite} for the definition of a discrete isogeny) 
  to a discrete isogeny $f : H \to G^0$ 
  such that $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism.
- Then $(f,\psi)$ is a finite geochar on $G$.
+ Then $(f,\psi)$ is a finite quasicharacter sheaf on $G$.
  Then $(f,\psi)\vert_{G^0} \iso (\pi,\psi)$,
  completing the proof that $\QC(G)\to \QC(G^0)$ is essentially surjective.
 \end{proof}
 
 \begin{lemma}\label{lemma:ext}
-Every discrete isogeny onto $G^0$ extends to a discrete isogeny onto $G$ such that the component group of the covering space is isomorphic to the component group of $G$.
+Every discrete isogeny (see Section~\ref{sec:finite}) to $G^0$ extends to a discrete isogeny to $G$ such that the component group of the covering space is isomorphic to the component group of $G$.
 \end{lemma}
 
 \begin{proof}
@@ -1470,12 +1467,12 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 \section{Main result regarding quasicharacter sheaves}
 \label{sec:snake}
 
-We saw, in Proposition~\ref{prop:functorialG}, that the trace of Frobenius  $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism. Our main result regarding quasicharacter sheaves shows that trace of Frobenius is an isomorphism in the case that we care about.
+We saw, in Proposition~\ref{prop:functorialG}, that the trace of Frobenius  $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism. Our main result regarding quasicharacter sheaves, below, shows that trace of Frobenius is an isomorphism in the case that we care about.
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth abelian group scheme, locally of finite type over
-  $\Fq$, and the abelian group $\pi_0(G)(\bFq)$ (the geometric
+  $\Fq$, and if the abelian group $\pi_0(G)(\bFq)$ (the geometric
   component group) is finitely generated, then the trace of Frobenius
   \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
@@ -1557,14 +1554,14 @@ and let $\cs{L}$ be a quasicharacter sheaf in the isomorphism class
 corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. 
 Then $\trFrob{\cs{L}}(1) = \ell$. Suppose $\cs{L}$ was a bounded quasicharacter sheaf. 
 Then the restriction of $\cs{L}$ to the connected component $1\in G$ 
-would be a rank-1 $\ell$-adic local system on $1$, 
+would be a $\ell$-adic local system on $1$ of rank-1, 
 thus an $\ell$-adic character $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with $\rho_1(\Frob{\Fq}) = \ell$. But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, 
 while $\rho_1(\pi_1(1,{\bar 1}))$ is not compact in $\EEx$ (it contains $\ell^\ZZ$). 
 So the Weil sheaf $\gcs{L}$ does not descend to a local system on $G$.
 It follows that the quasicharacter sheaf $\cs{L}$ is not a bounded quasicharacter sheaf.
 %
 We can play the same game with the character $\chi : G(\Fq) \to \EEx$ 
-defined by $\chi(1) = 1+\ell$. In this case, the corresponding quasicharacter sheaf $\cs{L}$ is bounded but not finite, since $1+\ell$ is not a root of unity. 
+defined by $\chi(1) = 1+\ell$. In this case, the corresponding quasicharacter sheaf $\cs{L}$ is bounded, defined at $1$ by a pro-etale cover of $1$, but not finite, since $1+\ell$ is not a root of unity. 
 %
 These simple examples illustrate why the categories $\QCb(G)$ and $\QCf(G)$ are inadequate to geometrize characters of $G(\Fq)$.
 
@@ -1577,7 +1574,7 @@ We write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal i
 For any positive integer $d$, set $A_d\ceq \OK/\pK^d$.
 Let $T$ be an algebraic torus over $K$.
 We write $\Hom_{< d}(T(K),\EEx)$ for the group of characters of $T(K)$ depth less than $d$ 
-and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of arbitrary finite depth.
+and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of arbitrary finite depth; one might call these quasicharacters of $T(K)$, expanding on \cite{Tate:thesis}*{2.3}.
 
 \section{Greenberg of Neron}
 \label{sec:GN}
@@ -1642,7 +1639,7 @@ The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
 \end{proof}
 
 
-\section{The geometrization of quasicharacters} \label{sec:quasichar} 
+\section{The geometrization of characters of tori over local fields} \label{sec:quasichar} 
 
 \begin{definition}
 The \emph{Greenberg transform of the N\'eron model of $T$} is the group pro-scheme over $\Fq$ given by
@@ -1663,7 +1660,7 @@ We will not use that fact in this paper.
 \item 
 For every algebraic torus $T$ over $K$, the trace of Frobenius 
   \[
-\trFrob{T}:  \QCiso{\GN{T}} \to \Hom_{\text{qc}}(T(K),\EEx)
+\trFrob{T}:  \QCiso{\GN{T}} \to \Hom_{<\infty}(T(K),\EEx)
   \]
 is an isomomorphism. 
 \item The isomorphism $\trFrob{T}$ is functorial in the following sense: $T \mapsto \trFrob{T}$ is a natural transformation
@@ -1671,11 +1668,17 @@ from the additive functor
 \[T \mapsto \QCiso{\GN{T}}\]
 to the additive functor
 \[
-T \mapsto \Hom_{\text{qc}}(T(K),\EEx).
+T \mapsto \Hom_{<\infty}(T(K),\EEx).
 \]
 \end{enumerate}
 \end{corollary}
 
+\begin{proof}
+\Clifton{I'll say a few words here about the ind-category $\QC(\GN{T})$.}
+
+\end{proof}
+
+\Clifton{Make comments here about the depth-preserving isomorphism  . .  .}
 
 \section{Transfer of quasicharacter sheaves} \label{sec:transfer}
 
@@ -1690,32 +1693,34 @@ Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
   \beta : \Gal(L/K) &\to \Gal(L'/K') \\
   \phi : X^*(T) &\to X^*(T')
  \end{align*}
- satisfying the following conditions:
+ satisfying the conditions
  \begin{enumerate}
   \item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
-  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$: $\alpha(\gamma x) = \beta(\gamma) \alpha(x)$
-  for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
+  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$, and
+  %: $\alpha(\gamma x) = \beta(\gamma) \alpha(x)$ for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
   \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
  \end{enumerate}
-It follows from this definition that if $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
+If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
 \begin{equation}\label{transfer}
   \Hom_{<N}(T(K), \EEx) \iso \Hom_{<N}(T'(K'),\EEx).
 \end{equation}
-Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every $N' \leq N$.
-In this section we ask if the isomorphism \eqref{transfer} comes from an equivalence of categories of quasicharacter sheaves on $\GN{T}_d$ and those on $\GN{T'}_d$.
+Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every $N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
+In this section we ask if the isomorphism \eqref{transfer} comes from an equivalence of categories of quasicharacter sheaves on $\GN{T}_d$ and those on $\GN{T}'_d$.
 
 One of the main results of \cite{CY} gives an isomorphism of group schemes between
 $\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.
 They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
 Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{CY}*{\S 8.1}; let $h'$ be this quantity for $T'$.
-Then it follows from \cite{CY}*{Thm. 8.5} that if $T$ and $T'$ are $N$-congruent and $h=h'$ and $N > 3h$, then there is a canonical isomorphism
+Then it follows from \cite{CY}*{Thm. 8.5} that if $T$ and $T'$ are $N$-congruent and $h=h'$ and $N > 3h$, 
+\Clifton{Is this correct?}
+then there is a canonical isomorphism of smooth group schemes
  \[
   \TT_{N-3h} \to \TT'_{N-3h}
  \]
  determined by $\alpha, \beta$ and $\phi$.
-As an immediate consequence of this theorem and Theorem \ref{thm:application} we have the following
+Combining this with Theorem \ref{thm:application} gives the geometrization and categorification of the transfer of characters.
 
-\begin{proposition}
+\begin{corollary}\label{cor:transfer}
  With notation above, suppose that $T$ and $T'$ are $N$-congruent and $h=h'$ and $N > 3h$.  Set $d = N-3h$.
  Then there is a canonical equivalence of categories
  \[
@@ -1723,9 +1728,10 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
  \]
  determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
  \[
-  \Hom_{<d}(T'(K'), \EEx) \to \Hom_{<d}(T(K), \EEx).
+  \Hom_{<d}(T'(K'), \EEx) \to \Hom_{<d}(T(K), \EEx)
  \]
-\end{proposition}
+ through the trace of Frobenius.
+\end{corollary}
 
 \section{Toward geometric reciprocity}
 
@@ -1734,7 +1740,7 @@ by the idea that quasicharacter sheaves for $T$
 may play a key role in a geometric, categorial version 
 of the local Langlands correspondence for algebraic tori 
 over non-archimedean local fields. 
-As with the local Langlands correspondence for algebraic tori, 
+As with the local Langlands correspondence for algebraic tori over local fields, 
 it will be possible to reduce the essential points of the argument to the case $T= \Gm{K}$, provided that the category of quasicharacter sheaves behaves properly with regard to Weil restriction; see \cite{Yu:tori}*{Thm 7.5 (2)}. 
 The next proposition shows that the category of quasicharacter sheaves for 
 algebraic tori does indeed behave properly with regard to Weil restriction.
@@ -1786,9 +1792,9 @@ We suspect that it is possible to extract Langlands parameters
 from quasicharacter sheaves directly and that the reciprocity map 
 can then be be viewed as pairing characters and parameters coming
  from the same quasicharacter sheaf. 
- Results in this paper reduce the problem to the case $T=\Gm{K}$. 
+ Results in this paper provide tools for reduction the problem to the case $T=\Gm{K}$. 
  In that case, our suspicions are all but confirmed 
- by the class field theory of Serre-Hasewinkel as revisited in \cite{Suzuki&Yoshida:refinement}. 
+ by the class field theory of Serre-Hasewinkel, \Clifton{Need references for S-H CFT.} especially as revisited in \cite{Suzuki&Yoshida:refinement}. 
  What remains to be done is a careful comparison of 
  quasicharacter sheaves for $\Gm{K}$ and certain local systems on
   the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{Suzuki&Yoshida:refinement}. 
@@ -2063,7 +2069,7 @@ Augment\'e de deux expos\'es de Mme M. Raynaud
    },
    date={1967},
    pages={305--347},
-   review={\MR{0217026 (36 \#121)}},
+%   review={\MR{0217026 (36 \#121)}},
 }
 
 
