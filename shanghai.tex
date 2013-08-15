@@ -333,7 +333,7 @@ For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \E
 
 \section{Quasicharacter sheaves}\label{sec:category}
 
-\begin{definition}\label{def:GC}
+\begin{definition}\label{def:QC}
 A \emph{quasicharacter sheaf on $G$} is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
@@ -366,7 +366,7 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \end{tikzcd}
   \]
 \end{enumerate}
-In short, a quasicharacter sheaf on $G$  is a rank-$1$ Weil local system $(\gcs{L},\phi)$ on $G$ equipped with an isomorphism $m^* (\gcs{L},\phi) \to (\gcs{L},\phi)\boxtimes (\gcs{L},\phi)$. 
+%In short, a quasicharacter sheaf on $G$  is a rank-$1$ Weil local system $(\gcs{L},\phi)$ on $G$ equipped with an isomorphism $m^* (\gcs{L},\phi) \to (\gcs{L},\phi)\boxtimes (\gcs{L},\phi)$. 
 
 
 Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$, are defined in the natural way:
@@ -1017,6 +1017,12 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter sheaf $(\Lang,\chi)$ such that the trace of Frobenius of the quasicharacter sheaf $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
+As Proposition~\ref{prop:connected} shows, when $G$ is a connected algebraic group over $\Fq$, it is appropriate to replace quasicharacter sheaves on $G$ with the conceptually simpler category $\QCf(G)$ of finite quasicharacter sheaves on $G$. In this context, finite quasicharacter sheaves may also be apprehended as \emph{certain} $\ell$-adic characters of fundamental group $\pi_1(G,{\bar e})$. As explained in \cite{Kamgarpour}*{\S~2}, the relevant characters of $\pi_1(G,{\bar e})$ are precisely those that factor through the quotient of $\pi_1(G,{\bar e})$ denoted there by $\Pi_\text{disc}(G)$.
+%\[\pi_1(G,{\bar e}) \to \Pi_\text{et}(G) \to \Pi_\text{et}(G)_{\Gal(\bFq/\Fq)} = \Pi_\text{disc}(G)\]
+From this is is apparent that the category of discrete isogenies to $G$ forms a Galois category, in the sense of \cite{SGA1}*{Expos\'e V, \S 4}. Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$, as shown in \cite{Kamgarpour}*{App'x B}, this provides an alternate proof of $\QCiso{G} \to G(\Fq)^*$.
+
+In principle, something similar is possible in the more general context of this paper, where $G$ is a smooth group scheme lft over $\Fq$, to which we now return. Every quasicharacter sheaf $(\gcs{L},\mu,\phi)$ on $G$ determines a Weil sheaf $(\gcs{L},\phi)$ on $G$. So, if we choose a geometric point ${\bar g}_x$ in each component $\bG^x$ of $G$, then this choice can be used to convert the Weil sheaf $(\gcs{L},\phi)$ into an $\ell$-adic character of $\prod_{x\in \pi_0(\bG)}\W(\bG^x, {\bar g}_x)$. It proved cumbersome, however, to manage various choices of families of base points and track the action of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of Weil groups, and even more difficult to identity the relevant quotient of this group. In this light, Definition~\ref{def:QC} seemed simple.
+
 \section{Commutative \'etale group schemes} \label{sec:etale}
 
 %\input{etale-1}
@@ -1522,32 +1528,41 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   isomorphism of groups.
 \end{proof}
 
-With Theorem~\ref{thm:snake} on hand, we can see why neither bounded quasicharacter sheaves nor finite quasicharacter sheaves are up to the task of geometrizing characters of $G(\Fq)$ in the generality we need.  
+With Theorem~\ref{thm:snake} on hand, 
+we can see why neither bounded quasicharacter sheaves 
+nor finite quasicharacter sheaves are up to the task of 
+geometrizing characters of $G(\Fq)$ in the generality we need.  
 %
-Consider the case when $G$ is the discrete etale group scheme $\ZZ$. Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ and let $\cs{L}$ be a quasicharacter sheaf in the isomorphism class corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. Then $\trFrob{\cs{L}}(1) = \ell$. Suppose $\cs{L}$ was a bounded quasicharacter sheaf. Then the restriction of $\cs{L}$ to the connected component $1\in G$ would be a rank-1 local system on $1$, thus an $\ell$-adic character $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with $\rho_1(\Frob{\Fq}) = \ell$. But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, while $\rho_1(\pi_1(1,{\bar 1}))$ is not compact (it contains $\ell^\ZZ$). Since the Weil sheaf $\gcs{L}$ does not descend to a local system on $G$, the  quasicharacter sheaf$\cs{L}$ is not a bounded quasicharacter sheaf.
+Consider the case when $G$ is the discrete etale group scheme $\ZZ$. 
+Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ 
+and let $\cs{L}$ be a quasicharacter sheaf in the isomorphism class 
+corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. 
+Then $\trFrob{\cs{L}}(1) = \ell$. Suppose $\cs{L}$ was a bounded quasicharacter sheaf. 
+Then the restriction of $\cs{L}$ to the connected component $1\in G$ 
+would be a rank-1 $\ell$-adic local system on $1$, 
+thus an $\ell$-adic character $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with $\rho_1(\Frob{\Fq}) = \ell$. But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, 
+while $\rho_1(\pi_1(1,{\bar 1}))$ is not compact in $\EEx$ (it contains $\ell^\ZZ$). 
+So the Weil sheaf $\gcs{L}$ does not descend to a local system on $G$.
+It follows that the quasicharacter sheaf $\cs{L}$ is not a bounded quasicharacter sheaf.
 %
-We can play the same game with the character $\chi : G(\Fq) \to \EEx$ defined by $\chi(1) = 1+\ell$. In this case, the corresponding geometric character $\cs{L}$ is bounded but not finite, since $1+\ell$ is not a root of unity. 
-
+We can play the same game with the character $\chi : G(\Fq) \to \EEx$ 
+defined by $\chi(1) = 1+\ell$. In this case, the corresponding quasicharacter sheaf $\cs{L}$ is bounded but not finite, since $1+\ell$ is not a root of unity. 
+%
 These simple examples illustrate why the categories $\QCb(G)$ and $\QCf(G)$ are inadequate to geometrize characters of $G(\Fq)$.
 
 
 \part{Application to characters of algebraic tori over local fields}
 
 Let $K$ be a non-Archimedean local field with residue field $\Fq$.
-Note that we place no restriction on the characteristic of $K$. 
+We place no restriction on the characteristic of $K$. 
 We write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$. 
 For any positive integer $d$, set $A_d\ceq \OK/\pK^d$.
 Let $T$ be an algebraic torus over $K$.
-We write $\Hom_{< d}(T(K),\EEx)$ for the group of characters of $T(K)$ depth less than $d$ and $\Hom_\text{qc}(T(K),\EEx)$ for the group of quasicharacters of $T(K)$.
+We write $\Hom_{< d}(T(K),\EEx)$ for the group of characters of $T(K)$ depth less than $d$ 
+and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of finite-depth.
 
 \section{Greenberg of Neron}
-\label{sec:GAN}
-
-
-\Clifton{Motivate with comments about LLC for tori. Draw triangle. Reduction to GL(1) via induced tori. Comment about Japanese work. Comment about pro-quasi-algebraic. Combine with next section.}
-
-We have already seen that the trace of Frobenius defines a canonical homomorphism $\QCiso{\GN{T}} \to \Hom_\text{ad}(T(K),\EEx)$. 
-In this section we show that this homomorphism is functorial, in the following sense.
+\label{sec:GN}
 
 A lft-N\'eron model for $T$, denoted here by $\TT$, 
 is a separated, smooth, commutative group scheme locally of finite type over $\OK$ with generic fibre $T$, that enjoys the N\'eron mapping property: if
@@ -1562,7 +1577,7 @@ in particular, taking $S = \Spec{\OK}$, this implies $\TT(\OK) = T(K)$.
 For each positive integer $d$, set $\TT_{d} \ceq \TT \times_\Spec{\OK} \Spec{A_d}$. Observe that $A_d$ is an Artin ring and $\TT_{d}$ is smooth and locally of finite type over $A_d$.
 %
 Let \cdef{$\GN{T}_{d} = \Gr(\TT_d)$} be the group scheme over $\Fq$ produced by applying
-the Greenberg functor to $\TT_{d}$; this is the \cdef{Greenberg transform of $\TT_d$}.
+the Greenberg functor to $\TT_{d}$; this is the \emph{Greenberg transform of $\TT_d$}.
 \end{definition}
 
 See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} and the first few sections of \cite{Stasinski} for background on the Greenberg functor. The fundamental properties of $\GN{T}_d$ that we need are:
@@ -1572,8 +1587,9 @@ See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} and the first few sections of
   \end{enumerate}
 In fact, $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$, and the latter is finitely generated by \cite{Xarles}. 
 
-
 \section{Application to quasicharacters of bounded depth} \label{sec:bdchar}
+
+\Clifton{Motivate with comments about LLC for tori. Draw triangle. Reduction to GL(1) via induced tori. Comment about Japanese work. Comment about pro-quasi-algebraic. }
 
 \begin{theorem}\label{thm:application}
 Let $d$ be a positive integer.
@@ -1627,7 +1643,7 @@ and thus a functor on character sheaves through pullback.
   This shows that $\trFrob{T,d}$ is an isomorphism.
   
   Next we show that this isomorphism is functorial.
-  When combined with the definition of $\QC(\GN{T})$ and Property~\ref{T(K)}, the first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Lemma~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
+The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Lemma~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
   
   Finally, we turn to restriction of scalars.
 \end{proof}
@@ -1853,18 +1869,24 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
 %   review={\MR{0156855 (28 \#98)}},
 }
 
-\bib{SGA1a}{book}{
-   author={Grothendieck, Alexander},
-   title={Rev\^etements \'etales et groupe fondamental. Fasc. I: Expos\'es 1
-   \`a 5},
-   series={S\'eminaire de G\'eom\'etrie Alg\'ebrique},
-   volume={1960/61},
-   publisher={Institut des Hautes \'Etudes Scientifiques},
+\bib{SGA1}{collection}{
+   title={Rev\^etements \'etales et groupe fondamental (SGA 1)},
+%   language={French},
+   series={Documents Math\'ematiques (Paris), 3},
+   note={S\'eminaire de g\'eom\'etrie alg\'ebrique du Bois Marie 1960--61.
+   [Algebraic Geometry Seminar of Bois Marie 1960-61];
+   Directed by A. Grothendieck;
+   With two papers by M. Raynaud;
+   Updated and annotated reprint of the 1971 original [Lecture Notes in
+   Math., 224, Springer, Berlin;  MR0354651 (50 \#7129)]},
+   publisher={Soci\'et\'e Math\'ematique de France},
    place={Paris},
-   date={1963},
-%   pages={iv+143 pp. (not consecutively paged) (loose errata)},
-%   review={\MR{0217087 (36 \#179a)}},
+   date={2003},
+   pages={xviii+327},
+%  isbn={2-85629-141-4},
+%   review={\MR{2017446 (2004g:14017)}},
 }
+
 
 \bib{Kamgarpour}{article}{
    author={Kamgarpour, Masoud},
