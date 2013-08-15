@@ -1607,27 +1607,8 @@ to the additive functor
 \[
 T \mapsto \Hom_{<d}(T(K),\EEx).
 \]
-\item
-For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $K$, the following diagram commutes, where  . . . 
-\[
-\begin{tikzcd}
-\QCiso{\Gr(\underline{\Res_{L/K}(T_L)}_d)} \arrow[two heads]{r} \dar & \QCiso{\Gr({T}_d)} \dar\\
-\Hom_{<d}(T(L), \EEx) \arrow[two heads]{r} & \Hom_{<d}(T(K), \EEx)
-\end{tikzcd}
-\]
 \end{enumerate}
 \end{theorem}
-
-
-Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
-\[
-\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
-\]
-The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
-\[
-\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
-\]
-and thus a functor on character sheaves through pullback.
 
 
 
@@ -1644,9 +1625,25 @@ and thus a functor on character sheaves through pullback.
   
   Next we show that this isomorphism is functorial.
 The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Lemma~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
-  
-  Finally, we turn to restriction of scalars.
 \end{proof}
+
+For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $K$, the following diagram commutes, where  . . . 
+\[
+\begin{tikzcd}
+\QCiso{\Gr(\underline{\Res_{L/K}(T_L)}_d)} \arrow[two heads]{r} \dar & \QCiso{\Gr({T}_d)} \dar\\
+\Hom_{<d}(T(L), \EEx) \arrow[two heads]{r} & \Hom_{<d}(T(K), \EEx)
+\end{tikzcd}
+\]
+Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
+\[
+\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
+\]
+The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
+\[
+\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
+\]
+and thus a functor on character sheaves through pullback.
+
 
 \section{The geometrization of quasicharacters} \label{sec:quasichar} 
 
