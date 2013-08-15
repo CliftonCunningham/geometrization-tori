@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass[11pt]{amsart}
-\title[Geometrization of characters of tori]{Geometrization of characters of tori over non-Archimedean local fields}
+\title[Geometrization of characters of tori]{Geometrization of characters of tori over non-archimedean local fields}
 \usepackage[british]{babel}
 \usepackage{datetime}
 \date{\today}
@@ -21,7 +21,7 @@
 %\usepackage[shortalphabetic]{amsrefs}
 \usepackage[alphabetic]{amsrefs}
 \renewcommand\MR{\relax}
-\usepackage{xypic}
+%\usepackage{xypic}
 \usepackage{textcomp}
 \usepackage{mathrsfs}
 \usepackage{yfonts}
@@ -165,7 +165,7 @@
   of characters of $G(\Fq)$. We use this result to exhibit an
   isomorphism between quasicharacters of $T(K)$ and isomorphism
   classes of quasicharacter sheaves on the Greenberg transform of the Néron
-  model of $T$, where $K$ is any non-Archimdean local field and $T$ is
+  model of $T$, where $K$ is any non-archimdean local field and $T$ is
   any algebraic torus over $K$.
 \end{abstract}
 
@@ -213,7 +213,7 @@ and show that it is an isomorphism in Theorem \ref{thm:snake}, assuming only
 that the geometric component group of $G$ is finitely generated.
 
 We apply Theorem \ref{thm:snake} to the geometrization of quasicharacters
-of non-Archimedian tori in Part 2.  Let $K$ be a non-Archimedian local field
+of non-archimedian tori in Part 2.  Let $K$ be a non-archimedian local field
 with finite residue field $\Fq$; we place no restriction on the characteristic of $K$.
 Write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$.
 Let $T$ be a torus defined over $K$.  The N\'eron model $\TT$ of $T$
@@ -294,7 +294,7 @@ induces an essentially surjective functor of quasicharacter sheaves.
 Section \ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem, that trace of Frobenius
 is an isomorphism for $G$ as long as the geometric component group is finitely generated.
 
-In Section \ref{sec:GAN} we introduce N\'eron models of tori and the Greenberg transform, which produce
+In Section \ref{sec:GN} we introduce N\'eron models of tori and the Greenberg transform, which produce
 group schemes over $\Fq$ from algebraic tori $T$ over $K$.
 Section \ref{sec:bdchar} then uses Theorem \ref{thm:snake} to give a geometrization of characters of $T$
 of bounded depth.
@@ -367,7 +367,7 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \]
 \end{enumerate}
 %In short, a quasicharacter sheaf on $G$  is a rank-$1$ Weil local system $(\gcs{L},\phi)$ on $G$ equipped with an isomorphism $m^* (\gcs{L},\phi) \to (\gcs{L},\phi)\boxtimes (\gcs{L},\phi)$. 
-
+\end{definition}
 
 Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$, are defined in the natural way:
 \begin{enumerate}
@@ -385,7 +385,6 @@ Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$,
   \end{tikzcd}
   \]
 \end{enumerate}
-\end{definition}
 
 %\begin{remark} \label{rem:CS-action}
 The rule $(\gcs{L},\mu,\phi) \mapsto (\gcs{L},\phi)$ defines a forgetful functor from quasicharacter sheaves on $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{Deligne:Weil2}*{Def.~1.1.10 (i)}.
@@ -422,7 +421,7 @@ structure on the set $\QCiso{G}$ of isomorphism classes in
 $\QC(G)$. Our main result regarding quasicharacter sheaves on $G$ (Theorem~\ref{thm:snake})
 determines $\QCiso{G}$ under the hypothesis that the component group scheme for $G$ is geometrically finitely generated; see Theorem~\ref{thm:snake}. To do this, we use the trace of Frobenius.
 
-\begin{definition}
+\begin{definition}\label{def:trFrob}
 Let $(\gcs{L},\phi)$ be a Weil sheaf on $G$. on constructible $\ell$-adic sheaf on $\bG$. Every $g\in G(\Fq)$
 determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$ and
 therefore an automorphism $\phi_{\bg}$ of $\gcs{L}_{\bg}$. The \emph{trace of Frobenius} of $(\gcs{L},\phi)$ at $g\in G(\Fq)$ is 
@@ -464,7 +463,7 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
   defines a monoidal functor $f^* : \QC(G) \to \QC(H)$ such that
   \[
   \begin{tikzcd}[row sep=20, column sep=30]
-   \QCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \QCiso{H} \dar{t_H} \\
+   \QCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \QCiso{H} \dar{\trFrob{H}} \\
    G(\Fq)^* \rar & H(\Fq)^*
   %\Hom_\text{grp}(G(\Fq),\EEx) \rar & \Hom_\text{grp}(H(\Fq),\EEx)
   \end{tikzcd}
@@ -574,7 +573,7 @@ The rule $\boxtimes : (\cs{L}_1,\cs{L}_2)\to \cs{L}_1\boxtimes\cs{L}_2$ defines 
 and 
 \[
 \begin{tikzcd}[column sep=60]
-\arrow{d}{t_{G_1} \times t_{G_2}} \QCiso{G_1}\times \QCiso{G_2} \arrow{r}{\boxtimes} & \arrow{d}{t_{G_1\times G_2}} \QCiso{G_1\times G_2}\\
+\arrow{d}{\trFrob{G_1} \times \trFrob{G_2}} \QCiso{G_1}\times \QCiso{G_2} \arrow{r}{\boxtimes} & \arrow{d}{\trFrob{G_1\times G_2}} \QCiso{G_1\times G_2}\\
 (G_1)(\Fq)^*\times (G_2)(\Fq)^* \arrow{r}{(\chi_1,\chi_2)\mapsto \chi_1\otimes \chi_2}  & (G_1\times G_2)(\Fq)^*
 \end{tikzcd}
 \]
@@ -619,7 +618,7 @@ be the functor obtained by pull-back along the canonical closed immersion of $k$
 The following diagram commutes:
 \[
 \begin{tikzcd}
-\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar[swap]{t_{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{t_G} \\
+\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar[swap]{\trFrob{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{\trFrob{G}} \\
 G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \end{tikzcd}
 \]
@@ -681,7 +680,7 @@ Consecutive pullback along these maps yields a functor
 The following diagram commutes:
 \[
 \begin{tikzcd}
-\QCiso{G'} \dar{t_{G'}} \rar & \QCiso{\Res_{k'/k} G'} \dar{t_{\Res_{k'/k} G'}} \\
+\QCiso{G'} \dar{\trFrob{G'}} \rar & \QCiso{\Res_{k'/k} G'} \dar{\trFrob{\Res_{k'/k} G'}} \\
  G'(k')^* \rar & (\Res_{k'/k}G')(k)^*
 \end{tikzcd}
 \]
@@ -1017,11 +1016,29 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter sheaf $(\Lang,\chi)$ such that the trace of Frobenius of the quasicharacter sheaf $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
-As Proposition~\ref{prop:connected} shows, when $G$ is a connected algebraic group over $\Fq$, it is appropriate to replace quasicharacter sheaves on $G$ with the conceptually simpler category $\QCf(G)$ of finite quasicharacter sheaves on $G$. In this context, finite quasicharacter sheaves may also be apprehended as \emph{certain} $\ell$-adic characters of fundamental group $\pi_1(G,{\bar e})$. As explained in \cite{Kamgarpour}*{\S~2}, the relevant characters of $\pi_1(G,{\bar e})$ are precisely those that factor through the quotient of $\pi_1(G,{\bar e})$ denoted there by $\Pi_\text{disc}(G)$.
+As Proposition~\ref{prop:connected} shows, 
+when $G$ is a connected algebraic group over $\Fq$, 
+it is appropriate to replace quasicharacter sheaves on $G$ 
+with the conceptually simpler category $\QCf(G)$ of finite quasicharacter sheaves on $G$. 
+In this context, finite quasicharacter sheaves may also be apprehended as \emph{certain} $\ell$-adic characters of fundamental group $\pi_1(G,{\bar e})$. 
+As explained in \cite{Kamgarpour}*{\S~2}, 
+the relevant characters of $\pi_1(G,{\bar e})$ are precisely those 
+that factor through a particular quotient of $\pi_1(G,{\bar e})$ 
+denoted there by $\Pi_\text{disc}(G)$.
 %\[\pi_1(G,{\bar e}) \to \Pi_\text{et}(G) \to \Pi_\text{et}(G)_{\Gal(\bFq/\Fq)} = \Pi_\text{disc}(G)\]
-From this is is apparent that the category of discrete isogenies to $G$ forms a Galois category, in the sense of \cite{SGA1}*{Expos\'e V, \S 4}. Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$, as shown in \cite{Kamgarpour}*{App'x B}, this provides an alternate proof of $\QCiso{G} \to G(\Fq)^*$.
+From this it is apparent that the category of discrete isogenies to $G$ is a Galois category, in the sense of \cite{SGA1}*{Expos\'e V, \S 4}. Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$, as shown in \cite{Kamgarpour}*{App'x B}, this provides an alternate proof of $\QCiso{G} \to G(\Fq)^*$.
 
-In principle, something similar is possible in the more general context of this paper, where $G$ is a smooth group scheme lft over $\Fq$, to which we now return. Every quasicharacter sheaf $(\gcs{L},\mu,\phi)$ on $G$ determines a Weil sheaf $(\gcs{L},\phi)$ on $G$. So, if we choose a geometric point ${\bar g}_x$ in each component $\bG^x$ of $G$, then this choice can be used to convert the Weil sheaf $(\gcs{L},\phi)$ into an $\ell$-adic character of $\prod_{x\in \pi_0(\bG)}\W(\bG^x, {\bar g}_x)$. It proved cumbersome, however, to manage various choices of families of base points and track the action of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of Weil groups, and even more difficult to identity the relevant quotient of this group. In this light, Definition~\ref{def:QC} seemed simple.
+In principle, something similar is possible in the more general 
+context of this paper, where $G$ is a smooth group scheme 
+locally of finite type over $\Fq$, to which we now return. 
+Every quasicharacter sheaf $(\gcs{L},\mu,\phi)$ on $G$ 
+determines a Weil sheaf $(\gcs{L},\phi)$ on $G$. 
+So, if we choose a geometric point ${\bar g}_x$ in each component $\bG^x$ of $G$, then this choice can be used to convert 
+the Weil sheaf $(\gcs{L},\phi)$ into an $\ell$-adic character of $\prod_{x\in \pi_0(\bG)}\W(\bG^x, {\bar g}_x)$. 
+It proved cumbersome, however, to manage various 
+choices of families of base points and track the action 
+of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of 
+Weil groups, and difficult to identify the relevant quotient of this group. Viewed in this light, Definition~\ref{def:QC} seemed comparatively simple.
 
 \section{Commutative \'etale group schemes} \label{sec:etale}
 
@@ -1138,8 +1155,8 @@ These sections will allow us to construct the isomorphism in the following propo
   \begin{equation}\label{t}
    \phi_{x}(s(\Frob{\Fq}(x))) = \tau_\cs{L}(\Frob{\Fq})(x) s(x).
   \end{equation}
-  Note that if $x$ is fixed by $\Frob{k}$ then $\tau_\cs{L}(\Frob{\Fq})(x)$ is just $t_\cs{L}(x)$, so the restriction of
-  $\tau_\cs{L}(\Frob{k})$ to $G(k)$ is just $t_\cs{L}$.
+  Note that if $x$ is fixed by $\Frob{k}$ then $\tau_\cs{L}(\Frob{\Fq})(x)$ is just $\trFrob{\cs{L}}(x)$, so the restriction of
+  $\tau_\cs{L}(\Frob{k})$ to $G(k)$ is just $\trFrob{\cs{L}}$.
   In general, conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
   the scalar $\tau_\cs{L}(\Frob{k})(x)$ is non-zero.  Moreover, condition~\ref{cs.1} forces
   $\tau_\cs{L}(\Frob{\Fq})(x+y) = \tau_\cs{L}(\Frob{\Fq})(x) \ \tau_\cs{L}(\Frob{\Fq})(y)$
@@ -1453,6 +1470,8 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 \section{Main result regarding quasicharacter sheaves}
 \label{sec:snake}
 
+We saw, in Proposition~\ref{prop:functorialG}, that the trace of Frobenius  $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism. Our main result regarding quasicharacter sheaves shows that trace of Frobenius is an isomorphism in the case that we care about.
+
 %\input{snake}
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth abelian group scheme, locally of finite type over
@@ -1462,7 +1481,6 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
   is an isomorphism of groups.
-  \Clifton{Address functoriality, here?}
 \end{theorem}
 
 \begin{proof}
@@ -1477,19 +1495,19 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   Let
   \[
   \begin{tikzcd}[row sep=30]
-    {}& \ker t_{\pi_0(G)} \dar & \arrow[dashed]{d} \ker \trFrob{G} & \ker t_{G^0} \dar & \\
-    0 \rar & \QCiso{\pi_0(G)} \rar \dar{t_{\pi_0(G)}}
-    & \QCiso{G} \rar \dar{\trFrob{G}} & \QCiso{G^0} \rar \dar{t_{G^0}} & 0\\
+    {}& \ker \trFrob{\pi_0(G)} \dar & \arrow[dashed]{d} \ker \trFrob{G} & \ker \trFrob{G^0} \dar & \\
+    0 \rar & \QCiso{\pi_0(G)} \rar \dar{\trFrob{\pi_0(G)}}
+    & \QCiso{G} \rar \dar{\trFrob{G}} & \QCiso{G^0} \rar \dar{\trFrob{G^0}} & 0\\
     0 \rar & \pi_0(G)(\Fq)^* \rar \dar
     & \arrow[dashed]{d} G(\Fq)^* \rar & G^0(\Fq)^* \rar \dar & 0\\
-    & \coker t_{\pi_0(G)} & \coker \trFrob{G} &  \coker t_{G^0} &
+    & \coker \trFrob{\pi_0(G)} & \coker \trFrob{G} &  \coker \trFrob{G^0} &
   \end{tikzcd}
   \]
   be the commutative diagram of abelian groups obtained by applying
   Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  By
-  Proposition~\ref{prop:connected}, $\ker t_{G^0} =0$ and $\coker t_{G^0}=0$.
-  By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker t_{\pi_0(G)}=0$
-  and $\coker t_{\pi_0(G)}=0$.
+  Proposition~\ref{prop:connected}, $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$.
+  By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker \trFrob{\pi_0(G)}=0$
+  and $\coker \trFrob{\pi_0(G)}=0$.
 
   The sequence of character groups is left-exact: by
   Proposition~\ref{prop:pullback}, it is dual to the exact sequence of
@@ -1506,7 +1524,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   $\QCiso{G^0}$ by Proposition~\ref{prop:restriction}; and
   it is exact at $\QCiso{G}$ because the left-square
   commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
-  is exact at $G(\Fq)^*$ and $\coker t_{\pi_0(G)} =0$
+  is exact at $G(\Fq)^*$ and $\coker \trFrob{\pi_0(G)} =0$
   (by Propositions~\ref{prop:etale} and \ref{prop:X}) and
   \[
   \image(\QCiso{\pi_0(G)} \to \QCiso{G}) \subseteq \ker(\QCiso{G} \to \QCiso{G^0}),
@@ -1553,13 +1571,13 @@ These simple examples illustrate why the categories $\QCb(G)$ and $\QCf(G)$ are 
 
 \part{Application to characters of algebraic tori over local fields}
 
-Let $K$ be a non-Archimedean local field with residue field $\Fq$.
+Let $K$ be a non-archimedean local field with residue field $\Fq$.
 We place no restriction on the characteristic of $K$. 
 We write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$. 
 For any positive integer $d$, set $A_d\ceq \OK/\pK^d$.
 Let $T$ be an algebraic torus over $K$.
 We write $\Hom_{< d}(T(K),\EEx)$ for the group of characters of $T(K)$ depth less than $d$ 
-and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of finite-depth.
+and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of arbitrary finite depth.
 
 \section{Greenberg of Neron}
 \label{sec:GN}
@@ -1573,10 +1591,10 @@ $\Hom_{\OK} (S,\TT) \to \Hom_K(S_\eta,T)$, given by restriction to
 generic fibres, is a bijection; 
 in particular, taking $S = \Spec{\OK}$, this implies $\TT(\OK) = T(K)$.
 
-\begin{definition}
+\begin{definition}\label{def:GN}
 For each positive integer $d$, set $\TT_{d} \ceq \TT \times_\Spec{\OK} \Spec{A_d}$. Observe that $A_d$ is an Artin ring and $\TT_{d}$ is smooth and locally of finite type over $A_d$.
 %
-Let \cdef{$\GN{T}_{d} = \Gr(\TT_d)$} be the group scheme over $\Fq$ produced by applying
+Let $\GN{T}_{d} = \Gr(\TT_d)$ be the group scheme over $\Fq$ produced by applying
 the Greenberg functor to $\TT_{d}$; this is the \emph{Greenberg transform of $\TT_d$}.
 \end{definition}
 
@@ -1588,8 +1606,6 @@ See \cite{Greenberg:2} and \cite[Ch. 9, \S 6]{BLR} and the first few sections of
 In fact, $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$, and the latter is finitely generated by \cite{Xarles}. 
 
 \section{Application to quasicharacters of bounded depth} \label{sec:bdchar}
-
-\Clifton{Motivate with comments about LLC for tori. Draw triangle. Reduction to GL(1) via induced tori. Comment about Japanese work. Comment about pro-quasi-algebraic. }
 
 \begin{theorem}\label{thm:application}
 Let $d$ be a positive integer.
@@ -1610,8 +1626,6 @@ T \mapsto \Hom_{<d}(T(K),\EEx).
 \end{enumerate}
 \end{theorem}
 
-
-
 \begin{proof}
   By \ref{GNd}, we may apply Theorem~\ref{thm:snake} to
   $\GN{T}_d$ which provides a canonical isomorphism
@@ -1626,23 +1640,6 @@ T \mapsto \Hom_{<d}(T(K),\EEx).
   Next we show that this isomorphism is functorial.
 The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor, while the second part shows that Trace of Frobenius is a natural transformation $t: F_1 \to F_2$. When further combined with Lemma~\ref{prop:product}, we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural transformation between additive functors.
 \end{proof}
-
-For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $K$, the following diagram commutes, where  . . . 
-\[
-\begin{tikzcd}
-\QCiso{\Gr(\underline{\Res_{L/K}(T_L)}_d)} \arrow[two heads]{r} \dar & \QCiso{\Gr({T}_d)} \dar\\
-\Hom_{<d}(T(L), \EEx) \arrow[two heads]{r} & \Hom_{<d}(T(K), \EEx)
-\end{tikzcd}
-\]
-Let $L/K$ be a finite Galois extension and let $K'/K$ be the maximal unramified subextension, with residue field $k'$.  If $T$ is a torus over $K$, write $\TL$ for the N\'eron model of the base change $T_L$.  Then there is a canonical isomorphism
-\[
-\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
-\]
-The natural inclusion $T \hookrightarrow \Res_{L/K} T_L$ induces a map of $k$-schemes
-\[
-\GN{T} \hookrightarrow \Res_{k'/k} \Gr(\TL)
-\]
-and thus a functor on character sheaves through pullback.
 
 
 \section{The geometrization of quasicharacters} \label{sec:quasichar} 
@@ -1688,14 +1685,14 @@ For every finite Galois extension $L/K$ and for every algebraic torus $T$ over $
 \end{corollary}
 
 
-\section{The transfer principle} \label{sec:transfer}
+\section{Transfer of quasicharacter sheaves} \label{sec:transfer}
 
 \David{We should add a discussion of why we care about the transfer principle.}
 
-The techniques in this paper apply to all non-Archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a natural comparison between characters of $T(K)$ and of $T'(K')$. This comparison of has been made precise in \cite{CY}, building on ideas of \cite{Deligne:limites}. 
+The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$, and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$ or on the ramification of $T$. Because of this, it is natural to ask if we can compare quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a natural comparison between characters of $T(K)$ and of $T'(K')$. This comparison of has been made precise in \cite{CY}, building on ideas of \cite{Deligne:limites}. 
 
 We recall the notion of $N$-congruent tori from  \cite{CY}*{\S 2}.  Suppose $T$ and $T'$
-are tori over non-Archimedian local fields $K$ and $K'$, splitting over $L$ and $L'$ respectively.
+are tori over non-archimedian local fields $K$ and $K'$, splitting over $L$ and $L'$ respectively.
 Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
  \begin{align*}
   \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
@@ -1739,6 +1736,50 @@ They then prove the following theorem \cite{CY}*{Thm. 8.5}
 
 As an immediate consequence of this theorem and Theorem \ref{thm:application} we have the following corollary:
 \end{proof}
+
+\section{Toward geometric reciprocity}
+
+As indicated in the Introduction, we are tantalized by the idea that quasicharacter sheaves for $T$ may play a key role in a geometric, categorial version of the local Langlands correspondence for algebraic tori over non-archimedean local fields. We anticipate that, as with the local Langlands correspondence for algebraic tori, it will be possible to reduce the essential points of the argument to the case $T= \Gm{K}$, provided that the category of quasicharacter sheaves behaves properly with regard to Weil restriction; see \cite{Yu:tori}*{Thm 7.5 (2)}. The next proposition shows that the category of quasicharacter sheaves does indeed behave properly with regard to Weil restriction.
+
+\begin{proposition}
+Let $K'/K$ be a finite Galois extension; 
+let $k'/k$ be the corresponding finite Galois extension of residue fields.
+Let $T$ be an algebraic torus over $K$ and 
+set $T' = T \times_\Spec{K} \Spec{K'}$.  
+The natural inclusion $T \hookrightarrow \Res_{K'/K} T'$ 
+induces a map of $k$-schemes
+\[
+\GN{T} \hookrightarrow \Res_{k'/k} \GN{T}'
+\]
+and thus a functor on quasicharacter sheaves through pullback.
+\[
+\QC(\Res_{k'/k} \GN{T}') \to \QC(\GN{T}).
+\]
+Through trace of Frobenius, this functor induces the homomorphism
+\[
+\begin{tikzcd}[column sep=60]
+\Hom_{<\infty}(T(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{T(K)}} &\Hom_{<\infty}(T(K), \EEx).
+\end{tikzcd}
+\] 
+\end{proposition}
+
+\begin{proof}
+\Clifton{Under construction, pending the proofs of the results in the base change section}
+There is a canonical isomorphism
+\[
+\Res_{k'/k} \Gr(\TL) \cong \Gr(\underline{\Res_{L/K}(T_L)}).
+\]
+\end{proof}
+
+
+This paper has shown how quasicharacter sheaves on the Greenberg transform of the Neron model of $T$ determine admissible characters of $T(K)$, and vice versa, functorially. When coupled with the reciprocity map $\text{rec}_T $ for $T$, which enjoys the same functorial properties, it follows that quasicharacter sheaves for $T$ determine Langlands parameters for $T$, and vice versa, functorially.
+\[
+\begin{tikzcd}
+\ & \arrow[swap]{dl}{\trFrob{G}} \QCiso{\GN{T}} \arrow[dashed]{dr}  & \\
+\Hom_{<\infty}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(K,\hat{T}) \\
+\end{tikzcd}
+\]
+We suspect that it is possible to extract Langlands parameters from quasicharacter sheaves directly; results in this paper reduce the problem to the case $T=\Gm{K}$. In that case, our suspicions are all but confirmed by the class field theory of Serre-Hasewinkel \cite{Serre:isogenies} as revisited in \cite{Suzuki&Yoshida:refinement}. What remains is a careful comparison of quasicharacter sheaves for $\Gm{K}$ and certain local systems on the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{Suzuki&Yoshida:refinement}. 
 
 %\printindex
 
@@ -1788,7 +1829,7 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
  title={Commutative Rings whose Finitely Generated Modules Decompose},
  publisher={Springer-Verlag},
  date={1979},
- series={Lecture Notes in Mathematics}
+ series={Lecture Notes in Mathematics},
  number={723}
 }
 
@@ -1855,62 +1896,6 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
 %   review={\MR{771673 (86g:11068)}},
 }
 
-\bib{Greenberg:2}{article}{
-   author={Greenberg, Marvin J.},
-   title={Schemata over local rings. II},
-   journal={Ann. of Math. (2)},
-   volume={78},
-   date={1963},
-   pages={256--266},
-%   issn={0003-486X},
-%   review={\MR{0156855 (28 \#98)}},
-}
-
-\bib{SGA1}{collection}{
-   title={Rev\^etements \'etales et groupe fondamental (SGA 1)},
-%   language={French},
-   series={Documents Math\'ematiques (Paris), 3},
-   note={S\'eminaire de g\'eom\'etrie alg\'ebrique du Bois Marie 1960--61.
-   [Algebraic Geometry Seminar of Bois Marie 1960-61];
-   Directed by A. Grothendieck;
-   With two papers by M. Raynaud;
-   Updated and annotated reprint of the 1971 original [Lecture Notes in
-   Math., 224, Springer, Berlin;  MR0354651 (50 \#7129)]},
-   publisher={Soci\'et\'e Math\'ematique de France},
-   place={Paris},
-   date={2003},
-   pages={xviii+327},
-%  isbn={2-85629-141-4},
-%   review={\MR{2017446 (2004g:14017)}},
-}
-
-
-\bib{Kamgarpour}{article}{
-   author={Kamgarpour, Masoud},
-   title={Stacky abelianization of algebraic groups},
-   journal={Transform. Groups},
-   volume={14},
-   date={2009},
-   number={4},
-   pages={825--846},
-%   issn={1083-4362},
-%   review={\MR{2577200 (2011b:20136)}},
-%   doi={10.1007/s00031-009-9067-8},
-}
-
-\bib{Laumon}{article}{
-   author={Laumon, G.},
-   title={Transformation de Fourier, constantes d'\'equations fonctionnelles
-   et conjecture de Weil},
-%   language={French},
-   journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
-   number={65},
-   date={1987},
-   pages={131--210},
-%   issn={0073-8301},
-%   review={\MR{908218 (88g:14019)}},
-}
-
 \bib{SGA4.5}{book}{
    author={Deligne, P.},
    title={Cohomologie \'etale},
@@ -1943,6 +1928,84 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
 %   review={\MR{0354657 (50 \#7135)}},
 }
 
+\bib{vdG&M}{book}{
+author={Geer, van der},
+author={Moonen},
+title={Abelian Varieties},
+note={http://staff.science.uva.nl/$\sim$bmoonen/boek/BookAV.html}
+}
+
+\bib{Greenberg:2}{article}{
+   author={Greenberg, Marvin J.},
+   title={Schemata over local rings. II},
+   journal={Ann. of Math. (2)},
+   volume={78},
+   date={1963},
+   pages={256--266},
+%   issn={0003-486X},
+%   review={\MR{0156855 (28 \#98)}},
+}
+
+\bib{SGA1}{collection}{
+   title={Rev\^etements \'etales et groupe fondamental (SGA 1)},
+%   language={French},
+   author={Grothendieck, A.},
+   series={Documents Math\'ematiques (Paris), 3},
+   note={S\'eminaire de g\'eom\'etrie alg\'ebrique du Bois Marie 1960--61.
+   Un s\'eminaire dirig\'e par A. GrothendieckAugment\'e de deux expos\'es de Mme M. Raynaud\'Edition recompos\'e et annot\'e du volume 224 des Lecture Notes in Mathematics 224 publi\'e en 1971 par Springer-Verlag},
+   publisher={Soci\'et\'e Math\'ematique de France},
+   place={Paris},
+   date={2003},
+   pages={xviii+327},
+%  isbn={2-85629-141-4},
+%   review={\MR{2017446 (2004g:14017)}},
+}
+
+
+
+\bib{Kamgarpour}{article}{
+   author={Kamgarpour, M.},
+   title={Stacky abelianization of algebraic groups},
+   journal={Transform. Groups},
+   volume={14},
+   date={2009},
+   number={4},
+   pages={825--846},
+%   issn={1083-4362},
+%   review={\MR{2577200 (2011b:20136)}},
+%   doi={10.1007/s00031-009-9067-8},
+}
+
+\bib{Laumon}{article}{
+   author={Laumon, G.},
+   title={Transformation de Fourier, constantes d'\'equations fonctionnelles
+   et conjecture de Weil},
+%   language={French},
+   journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
+   number={65},
+   date={1987},
+   pages={131--210},
+%   issn={0073-8301},
+%   review={\MR{908218 (88g:14019)}},
+}
+
+\bib{Serre:isogenies}{article}{
+   author={Serre, Jean-Pierre},
+   title={Corps locaux et isog\'enies},
+%   language={French},
+   conference={
+      title={S\'eminaire Bourbaki, Vol.\ 5},
+   },
+   book={
+      publisher={Soc. Math. France},
+      place={Paris},
+   },
+   date={1995},
+   pages={Exp.\ No.\ 185, 239--247},
+%   review={\MR{1603470}},
+}
+
+
 \bib{Stasinski}{article}{
    author={Stasinski, Alexander},
    title={Reductive group schemes, the Greenberg functor, and associated
@@ -1955,6 +2018,23 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
 %   issn={0022-4049},
 %   review={\MR{2875329}},
 %   doi={10.1016/j.jpaa.2011.10.027},
+}
+
+\bib{Suzuki&Yoshida:refinement}{article}{
+   author={Suzuki, Takashi},
+   author={Yoshida, Manabu},
+   title={A refinement of the local class field theory of Serre and
+   Hazewinkel},
+   conference={
+      title={Algebraic number theory and related topics 2010},
+   },
+   book={
+      series={RIMS K\^oky\^uroku Bessatsu, B32},
+      publisher={Res. Inst. Math. Sci. (RIMS), Kyoto},
+   },
+   date={2012},
+   pages={163--191},
+%   review={\MR{2986923}},
 }
 
 \bib{Tate:thesis}{article}{
@@ -1972,12 +2052,6 @@ As an immediate consequence of this theorem and Theorem \ref{thm:application} we
    review={\MR{0217026 (36 \#121)}},
 }
 
-\bib{vdG&M}{book}{
-author={van der Geer},
-author={Moonen},
-title={Abelian Varieties},
-note={http://staff.science.uva.nl/$\sim$bmoonen/boek/BookAV.html}
-}
 
 
 \bib{Xarles}{article}{
@@ -1996,6 +2070,26 @@ note={http://staff.science.uva.nl/$\sim$bmoonen/boek/BookAV.html}
 \bib{Yu}{article}{
    author={Yu, Jiu-Kang},
    title={Smooth models associated to concave functions in Bruhat-Tits theory}
+}
+
+\bib{Yu:tori}{article}{
+   author={Yu, Jiu-Kang},
+   title={On the local Langlands correspondence for tori},
+   conference={
+      title={Ottawa lectures on admissible representations of reductive
+      $p$-adic groups},
+   },
+   book={
+      series={Fields Inst. Monogr.},
+      volume={26},
+      publisher={Amer. Math. Soc.},
+      place={Providence, RI},
+      editor={Cunningham, C.},
+      editor={Nevins, M.},
+   },
+   date={2009},
+   pages={177--183},
+   review={\MR{2508725 (2009m:11201)}},
 }
 
 \end{biblist}
