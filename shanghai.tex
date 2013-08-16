@@ -329,7 +329,6 @@ Let $\Frob{\Fq}$ denote the geometric Frobenius element in $\Gal(\bFq/\Fq)$ as w
 
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
-
 \section{Quasicharacter sheaves}\label{sec:category}
 
 \begin{definition}\label{def:QC}
@@ -396,27 +395,21 @@ we have $\phi = \varphi(\Frob{\Fq})$.
 If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then
 $\varphi_1(w) : (w_G)_* \gqcs{L}\to \gqcs{L}$ is an isomorphism and
 $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for $u,v\in \Weil{\Fq}$.
-Thus the pair $(\gqcs{L},\varphi_1)$ almost satisfies the criteria for an action of $\Weil{\Fq}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{deligne:SGA4.5}*{Expos\'e XIII,~1.1}, failing only because $\Weil{\Fq}$ is profinite \David{Do you mean to say that $\Weil{\Fq}$ is not profinite?}. This fact \David{Which fact?  That we can think about quasicharacter sheaves as an action on $\gqcs{L}$?  Or that they fail to fulfill the requirements?} goes to the heart of the notion of a Weil sheaf and is one of the essential aspects of our definition of $\QC(G)$. 
+Thus the pair $(\gqcs{L},\varphi_1)$ almost satisfies the criteria for an action of $\Weil{\Fq}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of \cite{deligne:SGA4.5}*{Expos\'e XIII,~1.1}, failing only because $\Weil{\Fq}$ is not profinite. Our use of $\Weil{\Fq}$ rather than $\Gal(\bFq/\Fq)$ allows quasicharacter sheaves to correspond to unbounded characters.
 %\end{remark}
 
 \section{Trace of Frobenius}\label{sec:Frob}
 
-%\begin{proposition}\label{tensor}
-The category $\QC(G)$ of quasicharacter sheaves on $G$ is rigid symmetric monoidal category \cite{etingof:09a} under the tensor product
-$\qcs{L} \otimes_{\EE}\qcs{L'} \ceq (\gqcs{L}\otimes\gqcs{L'}, \mu\otimes\mu', \phi\otimes_{\EE}\phi')$
-\David{Why only some $\otimes_{\EE}$?}
-with duals given by applying the functor 
-$\sheafHom(\ - \ ,\EE)$ (sheaf hom) to
-conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}.
-%\end{proposition}
-(The category of characters sheaves on $G$ is not abelian, so $\QC(G)$
-is not a tensor category in the sense of \cite{deligne:02a}.)
-%\begin{proof}\end{proof}
-%
+The category $\QC(G)$ of quasicharacter sheaves on $G$ is a rigid symmetric monoidal category
+\cite{etingof:09a} under the tensor product
+$\qcs{L} \otimes \qcs{L'} \ceq (\gqcs{L}\otimes\gqcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$,
+with duals given by applying the sheaf-hom functor 
+$\sheafHom(\ - \ ,\EE)$.
+The category of characters sheaves on $G$ is not abelian, so $\QC(G)$
+is not a tensor category in the sense of \cite{deligne:02a}.
 This rigid monoidal category structure for $\QC(G)$ puts a group
-structure on the set $\QCiso{G}$ of isomorphism classes in
-$\QC(G)$. Our main result regarding quasicharacter sheaves on $G$ (Theorem~\ref{thm:snake})
-determines $\QCiso{G}$ under the hypothesis that the component group scheme for $G$ is geometrically finitely generated; see Theorem~\ref{thm:snake}. To do this, we use the trace of Frobenius.
+structure on the set $\QCiso{G}$ of isomorphism classes in $\QC(G)$.
+We now begin developing the tools to relate $\QCiso{G}$ to $\Hom(G(\Fq), \EEx)$.
 
 \begin{definition}\label{def:trFrob}
 Let $(\gqcs{L},\phi)$ be a Weil sheaf on $G$. on constructible $\ell$-adic sheaf on $\bG$. Every $g\in G(\Fq)$
