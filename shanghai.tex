@@ -348,10 +348,9 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
   \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu}
     &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id} \\
     \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
-    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL\\
+    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL
   \end{tikzcd}
   \]
-  
 %
 \labitem{(CS.2)}{CS.2} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
   isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with $\mu$ in the sense that the following diagram commutes.
@@ -363,7 +362,7 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
     \arrow[equal]{u} \bm^*  \Frob{G}^* \gcs{L} \arrow[swap]{d}{\bm^* \phi}
     && \Frob{G}^*\gcs{L}\boxtimes \Frob{G}^*\gcs{L} \dar{F\boxtimes \phi} \arrow[equal]{u} \\
     \bm^*\gcs{L} \arrow{rr}{\mu}
-    && \LxL\\
+    && \LxL
   \end{tikzcd}
   \]
 \end{enumerate}
@@ -449,7 +448,7 @@ Trace of Frobenius $\QCiso{G} \to G(\Fq)$ is a natural transformation
 between the following two additive functors 
 \begin{enumerate}
 \item[$F_1$:] $G \mapsto \QCiso{G}$
-\item[$F_2$:] $G \mapsto G(\Fq)$
+\item[$F_2$:] $G \mapsto G(\Fq)^*$
 \end{enumerate}
 from the category of smooth commutative
 group schemes locally of finite type over $\Fq$ to the category of abelian groups.
@@ -481,7 +480,6 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
   connected component and let $i$ be the image of $j$ under the group
   homomorphism $\pi_0(\bG) \to \pi_0(\bH)$ obtained by
   applying the functor $\pi_0$ to $\bf$; see \cite{vdGeer-Moonen:AbelianVarieties}*{III, 3.28}, for example.
-  \Clifton{I haven't found a better reference for this yet!}
   Write $c_i : \bG^i \hookrightarrow \bG$ for
   the inclusion of $\bG^i$ and $\bf^j : \bH^j \to \bG^i$
   for the restriction of $f$ to $\bH^j$.  Since $\cs{L}$
@@ -587,7 +585,7 @@ The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_2$.
 Let $p_1$, $p_2$ be the projection morphisms pictured below:
 \[
 \begin{tikzcd}
-G & \arrow[swap]{l}{p_1} G\times G \arrow{r}{p_2} & G\\
+G & \arrow[swap]{l}{p_1} G\times G \arrow{r}{p_2} & G.
 \end{tikzcd}
 \]
 Then the isomorphism $\mu : m^* \gcs{L} \to \gcs{L}\boxtimes \gcs{L}$ gives an isomorphism
@@ -597,7 +595,7 @@ f^*\mu : f^* m^* \gcs{L} \to f^*(\gcs{L}\boxtimes \gcs{L}) = f^*p_1^*\gcs{L}\oti
 Let $r_1$ and $r_2$ be the projection morphisms pictured below, with sections $q_1$, $q_2$, also morphisms of group schemes:
 \[
 \begin{tikzcd}
-G_1  \arrow[swap, bend right]{r}{q_1} & \arrow[swap, bend right]{l}{r_1} G_1\times G_2 \arrow[bend left]{r}{r_2} &  \arrow[bend left]{l}{q_2} G_2.\\
+G_1  \arrow[swap, bend right]{r}{q_1} & \arrow[swap, bend right]{l}{r_1} G_1\times G_2 \arrow[bend left]{r}{r_2} &  \arrow[bend left]{l}{q_2} G_2.
 \end{tikzcd}
 \]
 Then $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$, 
@@ -763,7 +761,7 @@ and the action of $\ker '$ on $V$ by $\psi \circ \alpha$.
 \[
 \begin{tikzcd}
 V \arrow{d}{T} & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} & \arrow[equal]{d} G\\
-V' & \Aut(V) & \arrow[swap]{l}{\psi} \arrow[swap]{u}{\alpha\vert_{\ker f}} \ker f \arrow[hook]{r} & \arrow[swap]{u}{\alpha} H' \arrow{r}{f'} & G\\
+V' & \Aut(V) & \arrow[swap]{l}{\psi} \arrow[swap]{u}{\alpha\vert_{\ker f}} \ker f \arrow[hook]{r} & \arrow[swap]{u}{\alpha} H' \arrow{r}{f'} & G
 \end{tikzcd}
 \]
 We say that $(\alpha,T)$ in $C(G)$ is a \emph{weak isomorphism} if $\alpha$ is surjective
@@ -876,7 +874,7 @@ The key point is that pull-back along $g$ takes isogenies to isogenies, and maps
 \ & V \arrow{dd}{T} && \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} && H \arrow{rr}{f} && \arrow[equal]{dd} G\\
  && && \arrow{ul} \ker f\times_G G' \arrow{ur} \arrow[hook]{rr} && H\times_G G' \arrow{ur} \arrow{rr} && G' \arrow{ur}{g} & \\
 & V' && \Aut(V) && \arrow[swap,pos=0.7]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr} && \arrow[swap]{uu} H' \arrow[pos=0.8]{rr}{f'} && G\\
- && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & \\
+ && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & 
 \end{tikzcd}
 \]
 In this form we could treat $g^*$ as a functor $G(G')\to C(G)$, where it not for the fact that pull-back is defined only up to isomorphism. In the localized categories, this ambiguity disappears. 
@@ -901,7 +899,7 @@ Since $f\circ m_H = m \circ (f\times f)$, by the universal property of pull-back
 \begin{tikzcd}[row sep=20,column sep=10]
 \ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_g} A_m \arrow[hook]{rr} && \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
  && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
-& V\otimes_{\EE} V && \Aut(V) && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr} && \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G\\
+& V\otimes_{\EE} V && \Aut(V) && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr} && \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
 \end{tikzcd}
 \]
 Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$. Define $T : V \to V\otimes V$ by $T(v_1) = v_1\otimes v_1$. Then the lower part of this diagram defines a weak isomorphism $(\theta,T): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
@@ -1228,7 +1226,7 @@ so there is a sheaf-function dictionary for $G$.
   let $\tau$ and $\tau'$ be any cocycles representing the classes in the
   image of $\cs{L}$ and $\cs{L'}$ under \eqref{cohomologous}; by construction,
   $\tau$ and $\tau'$ are defined by the choice of sections $s$ and $s'$ 
-  according to Lemma~\ref{lemma:sec}.
+  according to Lemma~\ref{lemma:section}.
     Now, $\varphi_x(s(x))$ is a
   non-zero scalar multiple of $s'(x)$; define $a: G(\bFq) \to \EEx$
   by $\alpha_x(s(x)) = a(x) s'(x)$.
@@ -1290,11 +1288,11 @@ Theorem~\ref{thm:snake}.
   Let $X$ be a finitely generated abelian group equipped with an
   action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on
   $X$.  Then
-  \begin{align*}
-%    \Hh^1(\Fq, \Hom(X, \EEx)) &\xrightarrow{\rho} \Hom(\Hh^0(\Fq, X), \EEx) \\
-    \Hh^1(\Fq, X^*) &\xrightarrow{\rho} \Hh^0(\Fq, X)^* \\
-    \rho([z])(x) &= z(\Frob{\Fq})(x)
-  \end{align*}
+\[
+    \Hh^1(\Fq, X^*) \xrightarrow{\rho} \Hh^0(\Fq, X)^*,
+ \qquad \text{defined by}\qquad
+   \rho([z])(x) = z(\Frob{\Fq})(x),
+\]
   is an isomorphism of groups.
 \end{proposition}
 \begin{proof}
@@ -1711,6 +1709,8 @@ The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
 
 \section{The geometrization of characters of tori over local fields} \label{sec:quasichar} 
 
+\Clifton{I'm working here, now.}
+
 \begin{definition}
 The \emph{Greenberg transform of the N\'eron model of $T$} is the group pro-scheme over $\Fq$ given by
 \begin{equation}\label{projlim}
@@ -1726,27 +1726,20 @@ We will not use that fact in this paper.
 \end{remark}
 
 \begin{corollary}\label{cor:application}
-\begin{enumerate}
-\item 
 For every algebraic torus $T$ over $K$, the trace of Frobenius 
   \[
 \trFrob{T}:  \QCiso{\GN{T}} \to \Hom_{<\infty}(T(K),\EEx)
   \]
 is an isomomorphism. 
-\item The isomorphism $\trFrob{T}$ is functorial in the following sense: $T \mapsto \trFrob{T}$ is a natural transformation
-from the additive functor
-\[T \mapsto \QCiso{\GN{T}}\]
-to the additive functor
-\[
-T \mapsto \Hom_{<\infty}(T(K),\EEx).
-\]
+Moreover, the isomorphism $\trFrob{T}$ is functorial in the following sense: 
+$T \mapsto \trFrob{T}$ is a natural transformation 
+between the following two additive functors
+\begin{enumerate}
+\item[$F_1$:] $T \mapsto \QCiso{\GN{T}}$
+\item[$F_2$:] $T \mapsto \Hom_{<\infty}(T(K),\EEx)$
 \end{enumerate}
+from the additive category of algebraic tori over $K$ to the category of abelian groups.
 \end{corollary}
-
-\begin{proof}
-\Clifton{I'll say a few words here about the ind-category $\QC(\GN{T})$.}
-
-\end{proof}
 
 \Clifton{Make comments here about the depth-preserving isomorphism  . .  .}
 
