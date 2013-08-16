@@ -446,12 +446,13 @@ This isomorphism is functorial, in the following sense.
 
 \begin{proposition}\label{prop:functorialG}
 Trace of Frobenius $\QCiso{G} \to G(\Fq)$ is a natural transformation 
-between the following two additive functors from the category of smooth commutative
-group schemes locally of finite type over $\Fq$ to the category of abelian groups:
+between the following two additive functors 
 \begin{enumerate}
-\item[$F_1$:] $G \mapsto \QCiso{G}$;
-\item[$F_2$:] $G \mapsto G(\Fq)$.
+\item[$F_1$:] $G \mapsto \QCiso{G}$
+\item[$F_2$:] $G \mapsto G(\Fq)$
 \end{enumerate}
+from the category of smooth commutative
+group schemes locally of finite type over $\Fq$ to the category of abelian groups.
 \end{proposition}
 
 The proof of Proposition~\ref{prop:functorialG} requires the results from the next section.
@@ -1021,8 +1022,16 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   To show that $L_G(f,\psi) \iso (\cs{L}_0,\mu_0)$ we simply apply the functions--sheaves dictionary
   as follows ({\it cf} \cite{laumon:87a}*{1.1.3} or, ultimately, \cite{deligne:SGA4.5}*{Sommes trigonométriques}).
   First, recall that $L_G(f,\psi) = (L(f,\psi), \mu(f,\psi))$. 
-  By  \cite{laumon:87a}*{1.1.3.3}, $\trFrob{(G_{k'}\hookrightarrow G)^*L(f,\psi)} = \trFrob{\cs{L}} \circ N_{k'/k}$, for each finite extension $k'/k$.
-  On the other hand, $\trFrob{\cs{L}} \circ N_{k'/k} = \trFrob{(G_{k'}\hookrightarrow G)^*\cs{L}}$,  by Proposition~\ref{prop:basechange}.
+  By  \cite{laumon:87a}*{1.1.3.3}, 
+  \[
+  \trFrob{(G_{k'}\hookrightarrow G)^*L(f,\psi)} = \trFrob{\cs{L}} \circ N_{k'/k},
+  \]
+   for each finite extension $k'/k$.
+  On the other hand, 
+  \[
+  \trFrob{\cs{L}} \circ N_{k'/k} = \trFrob{(G_{k'}\hookrightarrow G)^*\cs{L}},
+  \]
+   by Proposition~\ref{prop:basechange}.
   %Using notation from \cite{laumon:87a}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \cs{L}_0}$.
   Using \cite{laumon:87a}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \cs{L}_0$ in $\Loc(G)$.
   It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\cs{L}_0,\mu_0)$ in $\QCb(G)$.
@@ -1086,7 +1095,7 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
    \begin{tikzcd}[row sep=40]
     \gcs{L}_{x+y+z} \arrow{rr}{\mu_{x+y,z}} \arrow[swap]{d}{\mu_{x,y+z}}
     && \gcs{L}_{x+y}\otimes_{\EE}\gcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
-    \gcs{L}_{x} \otimes_{\EE}\gcs{L}_{y+z} \arrow{rr}{\id \otimes_{\EE}\mu_{y,z}}
+    \gcs{L}_{x} \otimes_{\EE}\gcs{L}_{y+z} \arrow{rr}{\id \otimes\mu_{y,z}}
     && \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes_{\EE}\gcs{L}_{z}
    \end{tikzcd}
   \]
@@ -1114,7 +1123,7 @@ Under this equivalence, a morphism $\alpha : \cs{L} \to \cs{L'}$ of quasicharact
     \arrow[swap]{d}{\phi_x} \gcs{L}_{\Frob{\Fq}(x)} \rar{\alpha_{\Frob{\Fq}(x)}} & \gcs{L'}_{\Frob{\Fq}(x)} \dar{\phi_x'}
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}& \arrow[swap]{d}{\mu} \gcs{L}_{x+y} \rar{\alpha_{x+y}} & \gcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
     \gcs{L}_x \rar{\alpha_x} & \gcs{L'}_x
-    & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\alpha_x\otimes_{\EE}\alpha_y} & \gcs{L'}_x \otimes_{\EE}\gcs{L'}_y
+    & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gcs{L'}_x \otimes_{\EE}\gcs{L'}_y
    \end{tikzcd}
   \]
   both commute.
@@ -1138,7 +1147,7 @@ Under this equivalence, a morphism $\alpha : \cs{L} \to \cs{L'}$ of quasicharact
   
   There is a unique isomorphism $\gcs{L}_0 \cong \EE$ under which $\mu_{0,0}$ corresponds
   to the multiplication map $\EE \otimes_{\EE}\EE \to \EE$.
-  The condition $\mu_{0,0}(s(0)) = s(0) \otimes_{\EE}s(0)$ together with the non-triviality of $s$
+  The condition $\mu_{0,0}(s(0)) = s(0) \otimes s(0)$ together with the non-triviality of $s$
   then forces $s(0) = 1$.
   
   The $\mu_{x,y}$ yield an isomorphism $\alpha_j : \gcs{L}_{y_j}^{\otimes m_j} \to \gcs{L}_0$.
@@ -1642,10 +1651,12 @@ and $\Hom_{<\infty}(T(K),\EEx)$ for the group of characters of $T(K)$ of arbitra
 \section{Greenberg of Neron}
 \label{sec:GN}
 
-A N\'eron model for $T$, denoted here by $\TT$, 
-is a separated, smooth, commutative group scheme locally of finite type over $\OK$ with generic fibre $T$, that enjoys the N\'eron mapping property: \Clifton{Include reference to BLR.}
+A N\'eron model for $T$, denoted here by $\TT$ 
+and whose existence is given by \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch 10.1, Thm 6},
+is a separated, smooth, commutative group scheme locally of finite type over $\OK$ with generic fibre $T$, that enjoys the N\'eron mapping property:
 if $S$ is a smooth scheme over $\OK$ then every morphism $S_\eta \to T$
-over $K$ extends uniquely to a morphism $S \to \TT$. Equivalently, the
+over $K$ extends uniquely to a morphism $S \to \TT$. 
+Equivalently, the
 N\'eron mapping property states that the function
 $\Hom_{\OK} (S,\TT) \to \Hom_K(S_\eta,T)$, given by restriction to
 generic fibres, is a bijection; 
@@ -1669,21 +1680,17 @@ In fact, $\pi_0(\GN{T}_d) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$, and the 
 
 \begin{theorem}\label{thm:application}
 Let $d$ be a positive integer.
-\begin{enumerate}
-\item 
 For every algebraic torus $T$ over $K$, the trace of Frobenius 
   \[
 \trFrob{T,d}:  \QCiso{\GN{T}_d} \to \Hom_{< d}(T(K),\EEx)
   \]
 is an isomomorphism. 
-\item The isomorphism $\trFrob{T,d}$ is functorial in the following sense: $T \mapsto \trFrob{T,d}$ is a natural transformation
-from the additive functor
-\[T \mapsto \QCiso{\GN{T}_d}\]
-to the additive functor
-\[
-T \mapsto \Hom_{<d}(T(K),\EEx).
-\]
+Moreover, the isomorphism $\trFrob{T,d}$ is functorial in the following sense: $T \mapsto \trFrob{T,d}$ is a natural transformation between the following two additive functors
+\begin{enumerate}
+\item[$F_1$:] $T \mapsto \QCiso{\GN{T}_d}$
+\item[$F_2$:] $T \mapsto \Hom_{<d}(T(K),\EEx)$
 \end{enumerate}
+from the additive category of algebraic tori over $K$ to the category of abelian groups.
 \end{theorem}
 
 \begin{proof}
