@@ -408,7 +408,7 @@ This means the pair $(\gcs{L},\varphi_1)$ is almost an action $\Weil{\Fq}$ on $\
 
 %\begin{proposition}\label{tensor}
 The category $\QC(G)$ of quasicharacter sheaves on $G$ is rigid symmetric monoidal category \cite{etingof:09a} under the tensor product
-$\cs{L} \otimes \cs{L'} \ceq (\gcs{L}\otimes\gcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$
+$\cs{L} \otimes_{\EE}\cs{L'} \ceq (\gcs{L}\otimes\gcs{L'}, \mu\otimes\mu', \phi\otimes_{\EE}\phi')$
 with duals given by applying the functor 
 $\sheafHom(\ - \ ,\EE)$ (sheaf hom) to
 conditions \ref{CS.0}, \ref{CS.1} and \ref{CS.2}.
@@ -569,9 +569,9 @@ We end this section with a simple result on products of quasicharacter sheaves, 
 \begin{proposition}\label{prop:product}
 The rule $\boxtimes : (\cs{L}_1,\cs{L}_2)\to \cs{L}_1\boxtimes\cs{L}_2$ defines an equivalence of categories 
 \[
-\QC(G_1)\times(G_2) \to \QC(G_1\times G_2)
+\QC(G_1)\times (G_2) \to \QC(G_1\times G_2)
 \]
-and 
+(categorical product on the left, product of group schemes over $\Fq$ on the right) and 
 \[
 \begin{tikzcd}[column sep=60]
 \arrow{d}{\trFrob{G_1} \times \trFrob{G_2}} \QCiso{G_1}\times \QCiso{G_2} \arrow{r}{\boxtimes} & \arrow{d}{\trFrob{G_1\times G_2}} \QCiso{G_1\times G_2}\\
@@ -582,13 +582,33 @@ commutes.
 \end{proposition}
 
 \begin{proof}
-The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_1$. Let $\cs{L}$ be a quasicharacter sheaf on $G$. Define $f : G\to G\times G$ by $f(g_1,g_2) = (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
+The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_2$. Let $\cs{L}$ be a quasicharacter sheaf on $G$. Define $f : G\to G\times G$ by $f(g_1,g_2) = (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
+Let $p_1$, $p_2$ be the projection morphisms pictured below:
+\[
+\begin{tikzcd}
+G & \arrow[swap]{l}{p_1} G\times G \arrow{r}{p_2} & G\\
+\end{tikzcd}
+\]
 Then the isomorphism $\mu : m^* \gcs{L} \to \gcs{L}\boxtimes \gcs{L}$ gives an isomorphism
 \[
 f^*\mu : f^* m^* \gcs{L} \to f^*(\gcs{L}\boxtimes \gcs{L}) = f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L}.
 \]
-Observe that $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$ where $p_1 , p_2 : G\times G \to G$ are the usual things and $r_1 : G_1\times G_2 \to G_1$ and $r_2 : G_1\times G_2 \to G_2$ are the obvious things and $q_1 : G_1\to G_1\times G_2$ and  $q_2 : G_2\to G_1\times G_2$ are the usual things. Then $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L}$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L}$. Now $\cs{L}_1 \ceq r_1^* \cs{L}$ is a quasicharacter sheaf on $G_1$ and $\cs{L}_2 \ceq r_2^* \cs{L}$ is a quasicharacter sheaf on $G_2$, by Proposition~\ref{prop:pullback}. Then
-$ f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = r_1^*\gcs{L}_1\otimes r_2^* \gcs{L}_2 = \gcs{L}_1\boxtimes \gcs{L}_2$. In this way, $\mu$ determines an isomorphism
+Let $r_1$ and $r_2$ be the projection morphisms pictured below, with sections $q_1$, $q_2$, also morphisms of group schemes:
+\[
+\begin{tikzcd}
+G_1  \arrow[swap, bend right]{r}{q_1} & \arrow[swap, bend right]{l}{r_1} G_1\times G_2 \arrow[bend left]{r}{r_2} &  \arrow[bend left]{l}{q_2} G_2.\\
+\end{tikzcd}
+\]
+Then $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$, 
+so $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L}$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L}$. 
+Now $\cs{L}_1 \ceq r_1^* \cs{L}$ is a quasicharacter sheaf on $G_1$ 
+and $\cs{L}_2 \ceq r_2^* \cs{L}$ is a quasicharacter sheaf on $G_2$, 
+by Proposition~\ref{prop:pullback}. 
+Then 
+\[
+f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = r_1^*\gcs{L}_1\otimes r_2^* \gcs{L}_2 = \gcs{L}_1\boxtimes \gcs{L}_2.
+\]
+In this way, $\mu$ determines an isomorphism
 \[
 f^*\mu : \gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2.
 \]
@@ -1060,14 +1080,14 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
   $G(\bFq)$;
 
  \labitem{(cs.1)}{cs.1} an indexed set of isomorphisms
-  $\mu_{x,y} : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes \gcs{L}_{y}$,
+  $\mu_{x,y} : \gcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gcs{L}_{x} \otimes_{\EE}\gcs{L}_{y}$,
   for all $x,y \in G(\bFq)$, such that
   \[
    \begin{tikzcd}[row sep=40]
     \gcs{L}_{x+y+z} \arrow{rr}{\mu_{x+y,z}} \arrow[swap]{d}{\mu_{x,y+z}}
-    && \gcs{L}_{x+y}\otimes \gcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
-    \gcs{L}_{x} \otimes \gcs{L}_{y+z} \arrow{rr}{\id \otimes \mu_{y,z}}
-    && \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes \gcs{L}_{z}
+    && \gcs{L}_{x+y}\otimes_{\EE}\gcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
+    \gcs{L}_{x} \otimes_{\EE}\gcs{L}_{y+z} \arrow{rr}{\id \otimes_{\EE}\mu_{y,z}}
+    && \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes_{\EE}\gcs{L}_{z}
    \end{tikzcd}
   \]
   commutes, for all $x,y,z\in G(\bFq)$; and
@@ -1077,7 +1097,7 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
   \[
    \begin{tikzcd}[row sep=40]
     \gcs{L}_{\Frob{\Fq}(x)+\Frob{\Fq}(y)} \arrow[swap]{d}{\phi_{x+y}} \arrow{rr}{\mu_{\Frob{\Fq}(x),\Frob{\Fq}(y)}}
-    && \gcs{L}_{\Frob{\Fq}(x)}\otimes \gcs{L}_{\Frob{\Fq}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
+    && \gcs{L}_{\Frob{\Fq}(x)}\otimes_{\EE}\gcs{L}_{\Frob{\Fq}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
     \gcs{L}_{x+y} \arrow{rr}{\mu_{x,y}}
     && \gcs{L}_x \otimes\gcs{L}_y
    \end{tikzcd}
@@ -1094,7 +1114,7 @@ Under this equivalence, a morphism $\alpha : \cs{L} \to \cs{L'}$ of quasicharact
     \arrow[swap]{d}{\phi_x} \gcs{L}_{\Frob{\Fq}(x)} \rar{\alpha_{\Frob{\Fq}(x)}} & \gcs{L'}_{\Frob{\Fq}(x)} \dar{\phi_x'}
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}& \arrow[swap]{d}{\mu} \gcs{L}_{x+y} \rar{\alpha_{x+y}} & \gcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
     \gcs{L}_x \rar{\alpha_x} & \gcs{L'}_x
-    & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\alpha_x\otimes \alpha_y} & \gcs{L'}_x \otimes \gcs{L'}_y
+    & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\alpha_x\otimes_{\EE}\alpha_y} & \gcs{L'}_x \otimes_{\EE}\gcs{L'}_y
    \end{tikzcd}
   \]
   both commute.
@@ -1103,7 +1123,7 @@ Under this equivalence, a morphism $\alpha : \cs{L} \to \cs{L'}$ of quasicharact
 \begin{lemma}\label{lemma:section}
  If $\cs{L}$ is a quasicharacter sheaf on a commutative, \'etale group scheme $G$ over $\Fq$ and if $G(\bFq)$ is finitely generated, then there is a global section $s = \{ s(x) \in \gcs{L}_x \tq x \in G(\bFq) \}$ satisfying
  \begin{equation}\label{section}
-  \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes s(y).
+  \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes_{\EE}s(y).
  \end{equation}
 \end{lemma}
 
@@ -1113,12 +1133,12 @@ Under this equivalence, a morphism $\alpha : \cs{L} \to \cs{L'}$ of quasicharact
   G(\bFq) \iso \ZZ^r \oplus \bigoplus_{j=1}^t \ZZ / m_j \ZZ;
   \]
   let $x_1, \ldots, x_r, y_1, \ldots, y_t$ be a corresponding set of generators of $G(\bFq)$.
-  We will define a section $s$ by choosing values on these generators and extending to all
+  We will define a section $s$ satisfying \eqref{section} by choosing values on these generators and extending to all
   of $G(\bFq)$ through \eqref{section}.
   
   There is a unique isomorphism $\gcs{L}_0 \cong \EE$ under which $\mu_{0,0}$ corresponds
-  to the multiplication map $\EE \otimes \EE \to \EE$.
-  The condition $\mu_{0,0}(s(0)) = s(0) \otimes s(0)$ together with the non-triviality of $s$
+  to the multiplication map $\EE \otimes_{\EE}\EE \to \EE$.
+  The condition $\mu_{0,0}(s(0)) = s(0) \otimes_{\EE}s(0)$ together with the non-triviality of $s$
   then forces $s(0) = 1$.
   
   The $\mu_{x,y}$ yield an isomorphism $\alpha_j : \gcs{L}_{y_j}^{\otimes m_j} \to \gcs{L}_0$.
@@ -1127,7 +1147,17 @@ Under this equivalence, a morphism $\alpha : \cs{L} \to \cs{L'}$ of quasicharact
   $s(x_j)$ and $s(y_j)$, global sections exist.
 \end{proof}
 
-These sections will allow us to construct the isomorphism in the following proposition.
+The main result of Part~\ref{part1} of this paper, 
+the sheaf-function dictionary for $G$ Theorem~\ref{thm:snake}, has a hypothesis: 
+the smooth commutative group scheme locally of finite type must have the 
+property that the geometric component group of $G$ is finitely generated as a group. 
+The genesis of that hypothesis is Lemma~\ref{lemma:section},
+as we use this hypothesis to show the existence of global sections of $\gcs{L}$ satisfying \eqref{section} for $\mu$.
+Remarkably, Lemma~\ref{lemma:section} is the only crux for this hypothesis;
+that is, if $G$ is any smooth connected group scheme locally of finite type over $\Fq$
+and if each quasicharacter sheaf on the etale group scheme $\pi_0(G)$ admits a global section 
+satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds for $G$,
+so there is a sheaf-function dictionary for $G$.
 
 \begin{proposition}\label{prop:etale}
   If $G$ is a commutative \'etale group scheme over $\Fq$ and
@@ -1136,7 +1166,7 @@ These sections will allow us to construct the isomorphism in the following propo
   \[
   \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq}, G(\bFq)^*),
   \qquad \text{given by}\qquad
-  [\cs{L}] \mapsto [\tau_\cs{L}],
+  \cs{L}_{/\text{iso}} \mapsto [\tau_\cs{L}],
   \]
   where $\tau_\cs{L}: \Weil{\Fq}\to G(\bFq)^*$ is a cocycle such that
   \[
@@ -1145,8 +1175,10 @@ These sections will allow us to construct the isomorphism in the following propo
 \end{proposition}
 
 \begin{proof}
-  Suppose $\cs{L}$ is a quasicharacter sheaf on $G$.  Using Lemma~\ref{lemma:section}, we may choose a section $s = \{ s(x) \in \gcs{L}_x \tq x \in G(\bFq) \}$ satisfying \eqref{section}.  We will construct a group isomorphism between $\QCiso{G(\bFq)}$ and
-  $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ using $s$, then prove independence from the choice of section.
+  Suppose $\cs{L}$ is a quasicharacter sheaf on $G$.  
+  Using Lemma~\ref{lemma:section}, 
+  we may choose a section $s = \{ s(x) \in \gcs{L}_x \tq x \in G(\bFq) \}$ satisfying \eqref{section}.  We will construct a group isomorphism between $\QCiso{G}$ and
+  $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ using $s$, then prove independence from the choice of $s$.
 
   Starting from $\cs{L}$, we define a cocyle $\tau_{\cs{L}} \in Z^1(\Weil{\Fq},G(\bFq)^*)$ as follows.
   For $x \in G(\bFq)$, $\cs{L}$ determines an isomorphism $\phi_x : \gcs{L}_{\Frob{\Fq}(x)} \to \gcs{L}_x$
@@ -1177,34 +1209,63 @@ These sections will allow us to construct the isomorphism in the following propo
   defined by $\tau_0(\Frob{\Fq}) = \,^{\Frob{\Fq}} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
   so $\tau_2$ and $\tau_1$ are cohomologous. Thus
   \begin{equation}\label{cohomologous}
-    \obj \QC(G(\bFq)) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
+    \obj \QC(G) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
     \qquad \text{defined by} \qquad \cs{L} \mapsto [\tau_\cs{L}],
   \end{equation}
   is independent of the choice of global sections made above.
 
   We now show that $[\tau_\cs{L}]$ depends only on the isomorphism class of $\cs{L}$.
-  Let $\varphi : \cs{L} \to \cs{L'}$ be an isomorphism and
+  Let $\alpha : \cs{L} \to \cs{L'}$ be an isomorphism and
   let $\tau$ and $\tau'$ be any cocycles representing the classes in the
   image of $\cs{L}$ and $\cs{L'}$ under \eqref{cohomologous}; by construction,
-  $\tau$ and $\tau'$ are defined by sections $s$ and $s'$. Now, $\varphi_x(s(x))$ is a
-  non-zero scalar multiple of $s'(x)$; define $\delta: G(\bFq) \to \EEx$
-  by $\varphi_x(s(x)) = \delta(x) s'(x)$.
+  $\tau$ and $\tau'$ are defined by the choice of sections $s$ and $s'$ 
+  according to Lemma~\ref{lemma:sec}.
+    Now, $\varphi_x(s(x))$ is a
+  non-zero scalar multiple of $s'(x)$; define $a: G(\bFq) \to \EEx$
+  by $\alpha_x(s(x)) = a(x) s'(x)$.
   By the second part of condition~\ref{cs.3},
-  $\delta(x+y) = \delta(x)\delta(y)$, so $\delta \in G(\bFq)^*$. By the first part of
-  condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}\delta \cdot \delta^{-1})$,
-  so $\tau$ and $\tau'$ are cohomologous. This concludes the definition of
+  $a(x+y) = a(x)a(y)$, so $a \in G(\bFq)^*$. By the first part of
+  condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}a \cdot a^{-1})$,
+  so $\tau$ and $\tau'$ are cohomologous. This shows that
   \begin{equation}\label{pich1}
-    \QCiso{G(\bFq} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*).
+    \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*), \qquad \cs{L}_{/\text{iso}} \mapsto [\tau_\cs{L}]
   \end{equation}
-
-  It only remains to show that \eqref{pich1} is a group
-  isomorphism.  Suppose that $\cs{L}$ and $\cs{L}'$ are two quasicharacter sheaves.
-  If $s$ is a global section for $\cs{L}$ and $s'$ for $\cs{L}'$ then $s \otimes s'$ is a global section for
-  $\cs{L} \otimes \cs{L}'$.  The three versions of \eqref{t} for $\cs{L}, \cs{L'}$ and $\cs{L} \otimes \cs{L}'$ imply that
-  $\tau_{\cs{L} \otimes \cs{L}'}(\Frob{k}) = \tau_\cs{L}(\Frob{k}) \tau_{\cs{L}'}(\Frob{k})$, so \eqref{pich1} is a group homomorphism.
-\Clifton{I'm working on this.}
+  is well-defined.
+  
+ The paragraph above also shows that \eqref{pich1} is injective. 
+ Suppose $[\tau_\cs{L}] = [\tau_\cs{L'}]$.
+ Let $s$ (resp. $s'$) be a section appearing in the definition of $\tau_\cs{L}$ (resp. $\tau_\cs{L'}$);
+ recall that $s$ (resp. $s'$) is compatible with $\mu$ (resp $\mu'$) 
+ in the sense of Lemma~\ref{lemma:section}.
+ Since $[\tau_\cs{L}] = [\tau_\cs{L'}]$, 
+ it follows that $\tau_\cs{L}$ and $\tau_{\cs{L'}}$ are cohomologous, 
+  so there is some $a\in G(\Fq)^*$ such that 
+  $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}a \cdot a^{-1})$. 
+  Define $\alpha : \cs{L}\to \cs{L'}$ by $\alpha_x(s(x)) = a(x) s'(x)$, for each $x\in G(\bFq)$.
+  it is straightforward to check that $\alpha$ satisfies condition~\ref{cs.3}
+  and that $\alpha^{-1} : \cs{L'}\to \cs{L}$, defined by $\alpha^{-1}_x(s'(x)) = a(x)^{-1} s(x)$, 
+  is its inverse. Thus, $\cs{L} \iso \cs{L'}$ in $\QC(G)$. 
+  This shows that \eqref{pich1} is injective.
+  
+  Suppose that $\cs{L}$ and $\cs{L}'$ are two quasicharacter sheaves on $G$.
+  If $s$ is a global section for $\cs{L}$ and $s'$ for $\cs{L}'$ then $s \otimes_{\EE}s'$ is a global section for
+  $\cs{L} \otimes_{\EE}\cs{L}'$.  The three versions of \eqref{t} for $\cs{L}, \cs{L'}$ and $\cs{L} \otimes_{\EE}\cs{L}'$ imply that
+  $\tau_{\cs{L} \otimes_{\EE}\cs{L}'}(\Frob{k}) = \tau_\cs{L}(\Frob{k}) \tau_{\cs{L}'}(\Frob{k})$, so \eqref{pich1} is a group homomorphism.
+ 
+ Finally, to show that \eqref{pich1} is surjective, pick $[\tau]\in \Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
+ For each $x\in G(\bFq)$, set $\gcs{L}_x = \EE$.
+ Define $\mu_{x,y} : \gcs{L}_{x+y} \to \gcs{L}_x\otimes_{\EE} \gcs{L}_y$ by
+ $\mu_{x,y}(1) = 1\otimes_{\EE}1$, for $x,y\in G(\bFq)$; 
+ clearly, $\mu$ satisfies condition~\ref{cs.1}.
+ Define $\phi_x : \gcs{L}_{\Frob{\Fq}} \to \gcs{L}_x$ by $\phi_x(1) = \tau(\Frob{\Fq})(x)$,
+ for each $x\in G(\bFq)$. 
+ Then $\phi$ satisfies condition~\ref{cs.2} because $\tau \in Z^1(\Weil{\Fq},G(\bFq)^*)$.
+ In this way we have built a quasicharacter sheaf $\cs{L} = (\gcs{L},\mu,\phi)$ 
+ from $\tau \in \Hh^1(\Weil{\Fq}, G(\bFq)^*)$ such that the image of $\cs{L}_{/\text{iso}}$
+ under \eqref{pich1} is the class $[\tau]$ in $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
+ This shows that \eqref{pich1} is surjective, 
+ and completes the proof that it is an isomorphism of groups.
 \end{proof}
-
 
 \section{On the cohomology of the dual of an etale group scheme} \label{sec:etalecohom}
 %\input{etale-2}
