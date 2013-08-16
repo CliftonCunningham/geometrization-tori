@@ -776,7 +776,7 @@ The category of isogenies to $G$ admits products:
 write $f\times_G f' : H\times_G H' \to G$ for the product of $f : H\to G$ and $f' : H'\to G$. 
 Since $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$, canonically,
 the tensor product of the representations $\psi : \ker f\to \Aut(V)$ and $\psi' : \ker f'\to \Aut(V')$ 
-is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$. 
+is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes_{\EE} V')$. 
 This allows us to set $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$. 
 The same fact makes sense of $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. 
 The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
@@ -874,8 +874,8 @@ The key point is that pull-back along $g$ takes isogenies to isogenies, and maps
 \begin{tikzcd}[row sep=10,column sep=10]
 \ & V \arrow{dd}{T} && \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} && H \arrow{rr}{f} && \arrow[equal]{dd} G\\
  && && \arrow{ul} \ker f\times_G G' \arrow{ur} \arrow[hook]{rr} && H\times_G G' \arrow{ur} \arrow{rr} && G' \arrow{ur}{g} & \\
-& V' && \Aut(V) && \arrow[swap]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr} && \arrow[swap]{uu} H' \arrow{rr}{f'} && G\\
- && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow{ur}{g} & \\
+& V' && \Aut(V) && \arrow[swap,pos=0.7]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr} && \arrow[swap]{uu} H' \arrow[pos=0.8]{rr}{f'} && G\\
+ && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & \\
 \end{tikzcd}
 \]
 In this form we could treat $g^*$ as a functor $G(G')\to C(G)$, where it not for the fact that pull-back is defined only up to isomorphism. In the localized categories, this ambiguity disappears. 
@@ -889,7 +889,7 @@ Each $(f,\psi)\in \QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (
 \begin{proof}
 As in Lemma~\ref{lemma:finite-pull-back}, we have $m^*(f,\psi) = (f_m,\psi_m)$ where $f_m$ and $\psi_m$ are pictured below, where $H_m = H\times_G(G\times G)$.
 \[
-\begin{tikzcd}
+\begin{tikzcd}[column sep=40]
 V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
   &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(m_f)\vert_{\ker m_f}} \ker f_m \arrow[hook]{r} & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G.
 \end{tikzcd}
@@ -897,10 +897,10 @@ V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
 On the other hand, $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
 Since $f\circ m_H = m \circ (f\times f)$, by the universal property of pull-back, there is a unique $\theta : H\times H \to H_m$ making the following commute.
 \[
-\begin{tikzcd}
-\ &  & \arrow{ld}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
-V \arrow{d}{T} & \Aut(V)  & \arrow{l}{\psi_g} \arrow{u} A_m \arrow[hook]{r} & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G\\
-V\otimes V & \Aut(V\otimes V) & \arrow[swap]{l}{\psi\otimes\psi} \arrow[bend left]{uu}{m_H} \arrow[swap]{u}{\theta\vert_{A\times A}} A \times A \arrow[hook]{r}{} & \arrow[bend left]{uu}{m_H} \arrow[swap]{u}{\theta} H \times H \arrow{r}{f\times f} & \arrow[equal]{u} G\times G\\
+\begin{tikzcd}[row sep=20,column sep=10]
+\ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_g} A_m \arrow[hook]{rr} && \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
+ && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
+& V\otimes_{\EE} V && \Aut(V) && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr} && \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G\\
 \end{tikzcd}
 \]
 Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$. Define $T : V \to V\otimes V$ by $T(v_1) = v_1\otimes v_1$. Then the lower part of this diagram defines a weak isomorphism $(\theta,T): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
@@ -1034,7 +1034,7 @@ The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves 
   $
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
   $
-  is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter sheaf $(\Lang,\chi)$ such that the trace of Frobenius of the quasicharacter sheaf $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
+  is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter sheaf $(\Lang,\chi^{-1})$ such that the trace of Frobenius of the quasicharacter sheaf $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
 As Proposition~\ref{prop:connected} shows, 
