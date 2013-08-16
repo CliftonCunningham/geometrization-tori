@@ -309,7 +309,7 @@ a geometric transfer of characters between characteristic $p$ tori to characteri
 \subsection*{Acknowledgements}
 
 We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
-for allowing us to hijack our Research in Teams meeting at BIRS into a discussion of
+for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves.  Their knowledge and help have been invaluable.
 
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
@@ -1638,6 +1638,7 @@ These simple examples illustrate why the categories $\QCb(G)$ and $\QCf(G)$ are 
 
 \part{Application to characters of algebraic tori over local fields}
 
+Recall that $\Fq$ is a finite field.
 Let $K$ be a non-archimedean local field with residue field $\Fq$.
 We place no restriction on the characteristic of $K$. 
 We write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$. 
@@ -1707,23 +1708,54 @@ The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
 \end{proof}
 
 
-\section{The geometrization of characters of tori over local fields} \label{sec:quasichar} 
+\section{A sheaf-function dictionary for tori over local fields} \label{sec:quasichar} 
 
 \Clifton{I'm working here, now.}
+If $d\leq d'$, then $\pK^{d'} \hookrightarrow \pK^d$ so there is a canonical surjective ring homomorphism $A_{d'} \to A_{d}$. Set $S = \Spec{\OK}$ and $S_d = \Spec{A_d}$. 
+\[
+\begin{tikzcd}
+S_1 \arrow[hook]{r} 
+& S_2 \arrow[hook]{r} \cdots 
+& S_d \arrow[hook]{r}  
+& S_{d'} \arrow[hook]{r} \cdots 
+& S
+\end{tikzcd}
+\]
+
+
+ then $\GN{T}_d$ is a closed subgroup of $\GN{T}_{d'}$,
+so these smooth commutative group schemes form a directed system.
+\[
+\begin{tikzcd}
+\GN{T}_1 
+& \arrow[two heads]{l} \GN{T}_2 
+& \arrow[two heads]{l} \cdots 
+& \arrow[two heads]{l} \GN{T}_d 
+& \arrow[two heads]{l} \GN{T}_{d'} 
+& \arrow[two heads]{l} \cdots
+\end{tikzcd}
+\]
 
 \begin{definition}
 The \emph{Greenberg transform of the N\'eron model of $T$} is the group pro-scheme over $\Fq$ given by
 \begin{equation}\label{projlim}
   \cdef{\GN{T}} \ceq \varprojlim_{d\in \ZZ_{>0}} \GN{T}_{d}.
 \end{equation}
-Let$\QC(\GN{T})$ be the ind-category $\varinjlim_{d\in \ZZ_{>0}} \QC(\GN{T}_d)$;
-we refer to objects of $\QC(\GN{T})$ as \emph{quasicharacter sheaves for $T$}.
 \end{definition}
 
 \begin{remark}
 The Greenberg transform of the N\'eron model of $T$ is a commutative group scheme over $\Fq$. 
 We will not use that fact in this paper. 
 \end{remark}
+
+
+
+\begin{definition}
+Let$\QC(\GN{T})$ be the ind-category $\varinjlim_{d\in \ZZ_{>0}} \QC(\GN{T}_d)$;
+we refer to objects of $\QC(\GN{T})$ as \emph{quasicharacter sheaves for $T$}.
+\end{definition}
+
+
 
 \begin{corollary}\label{cor:application}
 For every algebraic torus $T$ over $K$, the trace of Frobenius 
