@@ -153,7 +153,7 @@
 \newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
 
-
+\hyphenation{quasi-character}
 
 \begin{document}
 
@@ -1423,7 +1423,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   $G^0(\bFq) \to G(\bFq)$ induces the map
   $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$,
   fitting into the long exact sequence derived from applying
-  $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
+  the functor $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
   $$\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).$$
   We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.
 
@@ -1632,7 +1632,7 @@ T \mapsto \Hom_{<d}(T(K),\EEx).
   By \ref{dFq}, $\GN{T}_d(\Fq) = \TT(A_d)$.
   Then we recall that the filtration of $T(K)$ used to
   define depth has the property that $\TT(A_d) \cong T(K) / T(K)_d$
-  \cite[Prop 5.2]{yu:03a}, so characters of $\GN{T}_d(\Fq)$ 
+  \cite{yu:03a}*{Prop 5.2}, so characters of $\GN{T}_d(\Fq)$ 
   are in bijection with characters of $T(K)$ vanishing on $T(K)_d$. 
   This shows that $\trFrob{T,d}$ is an isomorphism.
   
@@ -1796,7 +1796,7 @@ can then be be viewed as pairing characters and parameters coming
  from the same quasicharacter sheaf. 
  Results in this paper provide tools for reduction the problem to the case $T=\Gm{K}$. 
  In that case, our suspicions are all but confirmed 
- by the class field theory of Serre-Hasewinkel, \Clifton{Need references for S-H CFT.} especially as revisited in \cite{suzuki-yoshida:12a}. 
+ by the class field theory of Serre-Hazewinkel \citelist{\cite{serre:60a},\cite{serre:61a},\cite{demazure-gabriel:GroupesAlgebriques}*{Appendice}}, especially as revisited in \cite{suzuki-yoshida:12a}. 
  What remains to be done is a careful comparison of 
  quasicharacter sheaves for $\Gm{K}$ and certain local systems on
   the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{suzuki-yoshida:12a}. 
