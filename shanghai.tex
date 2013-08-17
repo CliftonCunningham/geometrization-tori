@@ -469,6 +469,8 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
 
 \section{Pull-back and products}\label{sec:pullback}
 
+\David{insert some commentary on this proposition: it will be very useful to us}
+
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
   $(\gqcs{L},\mu,\phi) \mapsto (\bf^*\gqcs{L},(\bfxf)^*\mu,\bf^*F)$
@@ -504,43 +506,37 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
   = (c_i\circ a_i\circ g_j)^*\gqcs{L} = g_j^* a_i^* (\gqcs{L}\vert_{\bG^i}).
   \]
 
-  Since $a_i^* (\gqcs{L}\vert_{\bG^i})$ is a constant sheaf and since the pull-back
-  of a constant sheaf (along $g_j$, in this case) is a constant sheaf,
-  it follows that $b_j^* \left( (\bf^*\gqcs{L})\vert_{\bH^j}\right)$
-  is a constant sheaf. Thus, $\bf^*\gqcs{L}$ is locally constant on
+  Since $a_i^* (\gqcs{L}\vert_{\bG^i})$ is a constant sheaf, its pullback
+  $b_j^* \left( (\bf^*\gqcs{L})\vert_{\bH^j}\right)$ along $g_j$ is also constant.
+  Thus $\bf^*\gqcs{L}$ is locally constant on
   $\bH^j$. Since $(\bf^*\gqcs{L})_{\bg} = \gqcs{L}_{f(\bg)}$ for every
   geometric point ${\bg}$ on $\bG$, and since $\gqcs{L}$ has
   rank $1$ on connected components of $\bG$, it follows that
   $f^*\gqcs{L}$ also has rank $1$ on connected components of $\bG$.
   This completes the proof that $\bf^*\gqcs{L}$ satisfies condition \ref{CS.0}.
 
-  To see that $(\bfxf)^* \gqcs{L}$ satisfies
-  condition \ref{CS.1} simply apply the functor $(\bfxf)^*$
+  To see that $(\bfxf)^* \mu$ satisfies
+  condition \ref{CS.1}, apply the functor $(\bfxf)^*$
   to \ref{CS.1} for $\qcs{L}$ and use the canonical isomorphism
-  $(\bfxf)^*(\LxL) \iso \bf^*\gqcs{L} \tight{-3}{\boxtimes}{-3} \bf^*\gqcs{L}$
-  (a few times). Likewise, to see that $\bf^*\gqcs{L}$ satisfies condition
-  \ref{CS.2}, apply the same functor to \ref{CS.2} for $\gqcs{L}$.
-  Then use the fact that $f$ is defined over $\Fq$, so
-  $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG}^* (\bfxf)^*$,
-  and the fact that $f$ is a morphism of group schemes, so
-  $(\bfxf)^* \bm^*\iso \bm^* \bf^*$
-  (isomorphisms of functors on constructible sheaves).
-
-  To see that $(\gqcs{L},\mu,\phi) \mapsto (\bf^*\gqcs{L},(\bfxf)^*\mu,\bf^*F)$
-  defines a functor $f^* : \QC(G) \to \QC(H)$ one applies the functors $\bf^*$ and
-  $\bf^*\tight{1}{\times}{1}\bf^*$ to \ref{CS.3} and argue as
-  above. It follows from the fact that sheaf hom commutes with these
-  functors that $f^* : \QC(G) \to \QC(H)$ is a monoidal functor.
+  $(\bfxf)^*(\LxL) \iso \bf^*\gqcs{L} \tight{-3}{\boxtimes}{-3} \bf^*\gqcs{L}$.
+  To show that $f^*\qcs{L}$ satisfies condition
+  \ref{CS.2}, apply the same functor to \ref{CS.2} for $\qcs{L}$.
+  The fact that $f$ is a morphism of group schemes defined over $\Fq$ then
+  yields isomorphisms $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG}^* (\bfxf)^*$
+  and $(\bfxf)^* \bm^*\iso \bm^* \bf^*$ between functors of constructible sheaves.
+  
+  Applying $\bf^*$ and $\bf^* \tight{1}{\times}{1}\bf^*$ to \ref{CS.3} allows the application
+  of $f^*$ to morphisms of quasicharacter sheaves; arguing as above shows that $f^*$ is
+  a functor from $\QC(G)$ to $\QC(H)$.  Since tensor products commute with pullback
+  $f^* : \QC(G) \to \QC(H)$ is a monoidal functor.
 %
-  The fact that the functor $f^* : \QC(G) \to \QC(H)$ commutes with
-  the trace of Frobenius, in the sense above, follows immediately from
-  the definitions; see \cite{laumon:87a}*{1.1.1.2}, where the ambient
+  The diagram relating $f^* : \QC(G) \to \QC(H)$, $f^* : G(k)^* \to H(k)^*$ and trace of Frobenius
+  commutes by \cite{laumon:87a}*{1.1.1.2}, where the ambient
   hypothesis that $X$ is of finite type over $\Fq$ can be replaced by
   the hypothesis that $X$ is locally of finite type over $\Fq$.
   
   Finally, the fact that $(f\circ g)^* = g^* \circ f^*$ follows from the analogous
-  statements about the pullbacks functor on $\ell$-adic constructible sheaves.
- % \David{Is this explanation of $(f\circ g)^* = g^* \circ f^*$ sufficient?}
+  statements about the pullback functor on $\ell$-adic constructible sheaves.
 \end{proof}
 
 Consider the short exact sequence in the category of smooth group
