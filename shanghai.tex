@@ -211,7 +211,7 @@ algebraic groups \cite{deligne:SGA4.5}, we explore the trace of Frobenius morphi
 \[
 \QCiso{G} \to \Hom(G(\Fq), \EEx)
 \]
-and show that it is an isomorphism in Theorem \ref{thm:snake}, assuming only
+and show that it is an isomorphism in Theorem~\ref{thm:snake}, assuming only
 that the geometric component group of $G$ is finitely generated.
 
 In Part 2 we use Theorem~\ref{thm:snake} to make a sheaf--function dictionary
@@ -222,7 +222,7 @@ Let $T$ be a torus defined over $K$.  The N\'eron model $\TT$ of $T$
 is a smooth group scheme over $\OK$ with generic fiber $T$ and a canonical isomorphism
 $\TT(\OK) \cong T(K)$.  For each positive integer $d$, let $\GN{T}_d$ be the
 Greenberg transform of $\TT \times_{\Spec{\OK}} \Spec{\OK/\pK^d}$; the commutative
-group scheme $\GN{T}_d$ plays the r\^{o}le of $G$.  Theorem \ref{thm:application}
+group scheme $\GN{T}_d$ plays the r\^{o}le of $G$.  Theorem~\ref{thm:application}
 allows us to translate characters $T(K)$ of depth less than $d$ into quasicharacter sheaves on $\GN{T}_d$:
 \[
 \QCiso{\GN{T}_d} 
@@ -233,7 +233,7 @@ We refer to finite-depth characters of $T(K)$ as quasicharacters and
 describe a group scheme $\GN{T}$ simultaneously geometrizing all such quasicharacters.
 
 We have not yet fully explored the applications of such a geometrization, but want to highlight
-some of the potential benefits of Theorem \ref{thm:application}.  Characters on $T$ have limited
+some of the potential benefits of Theorem~\ref{thm:application}.  Characters on $T$ have limited
 functoriality: they can be pulled back along maps to $T$, but it is less clear what to do with them
 in the presence of maps from $T$ to other reductive groups.  Sheaves, on the other hand, come
 equipped with a host of functors, including pushforward.  
@@ -265,7 +265,7 @@ would yield a different description of the Artin reciprocity map.
 We want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
 Analogous sheaves on connected, commutative algebraic groups were first studied
 by Deligne \cite{deligne:SGA4.5}, and more recently Drinfeld has referred to such objects
-as character sheaves.  Our quasicharacter sheaves evolved from this notion, and Theorem \ref{thm:snake}
+as character sheaves.  Our quasicharacter sheaves evolved from this notion, and Theorem~\ref{thm:snake}
 is a direct generalization of the sheaf-function dictionary to the case of commutative
 group schemes which are not necessarily connected or finite type.  The other main use
 of the term ``character sheaf'' traces back to Lusztig \cite{lusztig:85a}.  Most of his energy is devoted to
@@ -275,37 +275,37 @@ For extensions of $\ZZ/n\ZZ$ by a torus, it is not difficult to relate his Frobe
 sheaves to our quasicharacter sheaves.
 
 We close the introduction with a more detailed description of the structure of this paper.
-In Section \ref{sec:category} we define quasicharacter sheaves and give an interpretation of
+In Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
 them as Weil sheaves with a Galois action.
-Section \ref{sec:Frob} introduces the trace of Frobenius homomorphism,
+Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism,
 one direction of the sheaf-function dictionary.
-We define pullbacks and products of quasicharacter sheaves in Section \ref{sec:pullback}, and use
+We define pullbacks and products of quasicharacter sheaves in Section~\ref{sec:pullback}, and use
 them to prove a functoriality result on the trace of Frobenius.
-In Section \ref{sec:basechange} we study how quasicharacter sheaves behave under base change
+In Section~\ref{sec:basechange} we study how quasicharacter sheaves behave under base change
 and Weil restriction.
-Sections \ref{sec:bounded} and \ref{sec:finite} describe bounded and finite quasicharacter sheaves,
+Sections~\ref{sec:bounded} and \ref{sec:finite} describe bounded and finite quasicharacter sheaves,
 two subcategories of $\QC(G)$.  These alternate descriptions of quasicharacter sheaves play a key
-role in the proof of Proposition \ref{prop:restriction}.
+role in the proof of Proposition~\ref{prop:restriction}.
 In section \ref{sec:connected} we show that bounded and finite quasicharacter sheaves are the same
 as standard quasicharacter sheaves when $G$ is connected, and that trace of Frobenius is an isomorphism.
-We shift to \'etale group schemes $G$ in Section \ref{sec:etale} and give a more concrete interpretation
+We shift to \'etale group schemes $G$ in Section~\ref{sec:etale} and give a more concrete interpretation
 of quasicharacter sheaves in this case.  Using a notion of global sections for quasicharacter sheaves,
 we give an isomorphism between $\QCiso{G}$ and $\Hh^1(\Weil{\Fq}, \Hom(G(\bFq), \EEx))$.
-Section \ref{sec:etalecohom} proves a result in Galois cohomology that shows that trace of Frobenius is
+Section~\ref{sec:etalecohom} proves a result in Galois cohomology that shows that trace of Frobenius is
 an isomorphism for \'etale group schemes.
-In Section \ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
+In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
 induces an essentially surjective functor of quasicharacter sheaves.
-Section \ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem, that trace of Frobenius
+Section~\ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem, that trace of Frobenius
 is an isomorphism for $G$ as long as the geometric component group is finitely generated.
 
-In Section \ref{sec:GN} we introduce N\'eron models of tori and the Greenberg transform, which produce
+In Section~\ref{sec:GN} we introduce N\'eron models of tori and the Greenberg transform, which produce
 group schemes over $\Fq$ from algebraic tori $T$ over $K$.
-Section \ref{sec:bdchar} then uses Theorem \ref{thm:snake} to give a geometrization of characters of $T$
+Section~\ref{sec:bdchar} then uses Theorem~\ref{thm:snake} to give a geometrization of characters of $T$
 of bounded depth.
-We give a reinterpretation of this result in Section \ref{sec:quasichar}, using a limit process to simultaneously
-geometrize all quasicharacters of $T$.  Sections \ref{sec:bdchar} and \ref{sec:quasichar} also include
+We give a reinterpretation of this result in Section~\ref{sec:quasichar}, using a limit process to simultaneously
+geometrize all quasicharacters of $T$.  Sections~\ref{sec:bdchar} and \ref{sec:quasichar} also include
 functoriality results that we hope to use in a future discussion of class field theory.
-Finally, we close the paper in Section \ref{sec:transfer} by discussing a transfer principle, which allows
+Finally, we close the paper in Section~\ref{sec:transfer} by discussing a transfer principle, which allows
 a geometric transfer of characters between characteristic $p$ tori to characteristic $0$ tori.
 
 \subsection*{Acknowledgements}
@@ -1914,7 +1914,7 @@ then there is a canonical isomorphism of smooth group schemes
   \TT_{N-3h} \to \TT'_{N-3h}
  \]
  determined by $\alpha, \beta$ and $\phi$.
-Combining this with Theorem \ref{thm:application} gives the geometrization and categorification of the transfer of characters.
+Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
 
 \begin{corollary}\label{cor:transfer}
  With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $d = N-3h$.
@@ -1976,7 +1976,8 @@ There is a canonical isomorphism
 
 This paper has shown how quasicharacter sheaves 
 on the Greenberg transform of the N\/eron model of $T$ 
-determine admissible characters of $T(K)$, and vice versa, functorially. When coupled with the reciprocity map $\text{rec}_T $ for $T$, 
+determine admissible characters of $T(K)$, and vice versa, functorially.
+When coupled with the reciprocity map $\text{rec}_T $ for $T$, 
 which enjoys the same functorial properties, 
 it follows that quasicharacter sheaves for $T$ 
 determine Langlands parameters for $T$, and vice versa, functorially.
