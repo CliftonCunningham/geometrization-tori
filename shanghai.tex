@@ -358,7 +358,7 @@ $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ where:
   \Frob{\GxxG}^* \bm^* \gqcs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
     && \Frob{\GxxG}^*(\LxL)\\
     \arrow[equal]{u} \bm^*  \Frob{G}^* \gqcs{L} \arrow[swap]{d}{\bm^* \phi}
-    && \Frob{G}^*\gqcs{L}\boxtimes \Frob{G}^*\gqcs{L} \dar{F\boxtimes \phi} \arrow[equal]{u} \\
+    && \Frob{G}^*\gqcs{L}\boxtimes \Frob{G}^*\gqcs{L} \dar{\phi\boxtimes \phi} \arrow[equal]{u} \\
     \bm^*\gqcs{L} \arrow{rr}{\mu}
     && \LxL
   \end{tikzcd}
@@ -629,11 +629,18 @@ be the functor obtained by pull-back along the canonical closed immersion of $k$
 The following diagram commutes:
 \[
 \begin{tikzcd}
-\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota} \dar[swap]{\trFrob{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{\trFrob{G}} \\
+\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota^*} \dar[swap]{\trFrob{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{\trFrob{G}} \\
 G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \end{tikzcd}
 \]
 \end{proposition}
+\begin{proof}
+Suppose $\qcs{L} = (\gqcs{L}, \mu, \phi) \in \QC(\Res_{k'/k}(G_{k'}))$ and $x \in G(\Fq)$.
+The value $t_G(\iota^*(\qcs{L}))(x)$ is given by the trace of $\iota^*\phi$ on $(\iota^*\gqcs{L})_x$.
+Similarly, $\iota_{k'/k}^*(t_{\Res_{k'/k}(G_{k'})}(\qcs{L}))(x)$ is given by the trace of $\phi$ on
+$\gqcs{L}_{\iota(x)}$.  These are the same since $\iota$ is an inclusion and $\phi$
+preserves the stalk at $\iota(x)$. \David{Is this the right justification?}
+\end{proof}
 
 In the opposite direction, let $\Nm_{k'/k} : G(k') \to G(k)$ be the norm map and consider the group homomorphism:
 \[
@@ -654,7 +661,7 @@ as taking the action $\varphi$ of $\Weil{k}$ on $\gqcs{L}$
 defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{k'}$.
 
 \begin{proposition}\label{prop:basechange}
- The rule $\nu_{k'/k}: (\gqcs{L}, \mu, \varphi) \mapsto (\gqcs{L}, \mu, \varphi\vert_{\Weil{\Fq}})$ 
+ The rule $\nu_{k'/k}: (\gqcs{L}, \mu, \phi) \mapsto (\gqcs{L}, \mu, \phi_{k'})$ 
  defines a monoidal functor $\QC(G) \to \QC(G_{k'})$. 
  Moreover, the following diagram commutes, 
  where the top map is induced by $\QC(G) \to \QC(G_{k'})$ 
@@ -666,7 +673,9 @@ G(k)^*  \rar{\Nm_{k'/k}^*} & G(k')^*.
 \end{tikzcd}
 \]
 \end{proposition}
-
+\begin{proof}
+Let $\qcs{L} = (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$.  The value $t_{G_{k'}}(\nu_{k'/k}(\qcs{L})(x)$ is given by the trace of $\phi_{k'}$ on $\gqcs{L}_x$, while the value $\Nm_{k'/k}^*(t_G(\qcs{L}))(x)$ is given by the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.  After choosing bases of $\gqcs{L}_x, \ldots, \gqcs{L}_{\Frob{G}^n(x)}$, an iteration of \ref{CS.2} applied to the stalk of $\gqcs{L}^{\boxtimes n}$ at $(x, \Frob{G}(x), \ldots, \Frob{G}^{n-1}(x))$ expresses the trace of $\phi$ at $\Nm_{k'/k}(x)$ as a product of 
+\end{proof}
 
 Finally, we explain how to geometrize the canonical isomorphism between characters of $G'(k')$ and of $(\Res_{k'/k}G')(k)$.
 The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
