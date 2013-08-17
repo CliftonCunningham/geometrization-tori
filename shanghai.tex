@@ -162,8 +162,8 @@
 
 
 \begin{abstract}
-  We introduce and study the category of quasicharacter sheaves on smooth commutative
-  group schemes $G$ locally of finite type over finite fields
+  We introduce and study the category of quasicharacter sheaves on smooth,
+  commutative group schemes $G$ locally of finite type over finite fields
   $\Fq$. Assuming that the geometric component group of $G$
   is finitely-generated, we show that the group of isomorphism classes
   of quasicharacter sheaves on $G$ is canonically isomorphic to the group
@@ -195,7 +195,7 @@
 %\end{quotation}
 %\noindent
 What is a quasicharacter sheaf?
-Let $G$ be a smooth commutative group scheme locally of finite
+Let $G$ be a smooth, commutative group scheme locally of finite
 type over a finite field $\Fq$; $G$ need not be reductive, connected, or of
 finite type over $\Fq$. Fix a prime $\ell$ invertible in $\Fq$
 and write $m : \GxG \to G$ for the multiplication morphism,
@@ -324,10 +324,11 @@ as well the hospitality of the Banff International Research Station during our w
 \tableofcontents
 \David{Search for = which should be \ceq}
 \David{Search for terms defined after they are used}
+\David{Commas between adjectives, consistent ordering}
 
 \part{Smooth commutative group schemes over finite fields} \label{part1}
 
-Throughout this paper, $G$ is a smooth commutative group scheme locally of finite type
+Throughout this paper, $G$ is a smooth, commutative group scheme locally of finite type
 over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
@@ -542,25 +543,25 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
 Consider the short exact sequence in the category of smooth group
 schemes, locally of finite type over $\Fq$, defining the component
 group scheme for $G$:
-\begin{equation}\label{eq:pi-2}
+\begin{equation}\label{eq:pi0}
 \begin{tikzcd}
 0 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
 \end{tikzcd}
 \end{equation}
-Since $\pi_0(G)$ is an commutative group scheme, smooth (in fact, \'etale) and locally of finite type over $\Fq$, 
-it follows from Proposition~\ref{prop:pullback} that \eqref{eq:pi-1} defines a sequence of functors
+Since $\pi_0(G)$ is an commutative group scheme, smooth and locally of finite type over $\Fq$, 
+Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines a sequence of functors
 \[
 \begin{tikzcd}
 \QC(0) \rar & \QC(\pi_0(G)) \rar & \QC(G) \rar & \QC(G^0) \rar & \QC(0)
 \end{tikzcd}
 \]
 which induces, upon passage to isomorphism classes of objects, a sequence of group homomorphisms 
-\begin{equation}\label{eq:pi-1}
+\[
 \begin{tikzcd}
 \QCiso{0} \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & \QCiso{0}.
 \end{tikzcd}
-\end{equation}
-It is easy to see that $\QCiso{0}$ is trivial. In this paper we will find $\QCiso{G^0}$
+\]
+It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected} and  we will find $\QCiso{G^0}$
 and $\QCiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; 
 the snake lemma will then allow us to show
 \[
@@ -1505,6 +1506,15 @@ Theorem~\ref{thm:snake}.
   all $x$ by linearity.  The existence of $\psi$ shows that $\rho$ is injective.
 \end{proof}
 
+\begin{corollary}
+ If $G$ is a commutative, \'etale algebraic group over $\Fq$ and $G(\bFq)$ is finitely
+ generated then
+  \[
+  \trFrob{G} : \QCiso{G} \to G(\Fq)^*
+  \]
+  is an isomorphism of groups.
+\end{corollary}
+
 \section{Restriction to the identity component} \label{sec:restriction}
 
 %\input{restriction}
@@ -1522,8 +1532,7 @@ this section we show that this functor is essentially surjective.
 \end{proposition}
 
 \begin{proof}
-  Because $G$ is smooth over $\Fq$, the identity component, 
-  $G^0$, is a connected algebraic group over $\Fq$, 
+  The identity component $G^0$ of $G$ is a connected algebraic group over $\Fq$, 
   clopen in $G$ \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
   By Proposition~\ref{prop:connected}, every
   quasicharacter sheaf on $G^0$ is isomorphic to a 
@@ -1638,14 +1647,14 @@ trace of Frobenius is an isomorphism in the case that we care about.
 \end{theorem}
 
 \begin{proof}
-  Consider the short exact sequence in the category of smooth group
+  Recall the short exact sequence \eqref{eq:pi0} in the category of smooth group
   schemes, locally of finite type over $\Fq$, defining the component
   group scheme for $G$:
-  \begin{equation}\label{eq:pi0}
+  \[
   \begin{tikzcd}
     1 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
   \end{tikzcd}
-  \end{equation}
+  \]
   Let
   \[
   \begin{tikzcd}[row sep=30]
@@ -1658,15 +1667,16 @@ trace of Frobenius is an isomorphism in the case that we care about.
   \end{tikzcd}
   \]
   be the commutative diagram of abelian groups obtained by applying
-  Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  By
-  Proposition~\ref{prop:connected}, $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$.
+  Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  Since $G^0$ is a connected algebraic group
+  \cite{vdGeer-Moonen:AbelianVarieties}*{3.17},
+  Proposition~\ref{prop:connected} implies that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$.
   By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker \trFrob{\pi_0(G)}=0$
   and $\coker \trFrob{\pi_0(G)}=0$.
 
   The sequence of character groups is left-exact: by
   Proposition~\ref{prop:pullback}, it is dual to the exact sequence of
   abelian groups
-  \begin{equation}\label{eq:pi1}
+  \begin{equation}\label{eq:pi0k}
   \begin{tikzcd}
     1 \rar & G^0(\Fq) \rar & G(\Fq) \rar & \pi_0(G)(\Fq) \rar & 0;
   \end{tikzcd}
