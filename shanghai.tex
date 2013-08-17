@@ -635,22 +635,19 @@ G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \]
 \end{proposition}
 \begin{proof}
-Suppose $\qcs{L} = (\gqcs{L}, \mu, \phi) \in \QC(\Res_{k'/k}(G_{k'}))$ and $x \in G(\Fq)$.
-The value $t_G(\iota^*(\qcs{L}))(x)$ is given by the trace of $\iota^*\phi$ on $(\iota^*\gqcs{L})_x$.
-Similarly, $\iota_{k'/k}^*(t_{\Res_{k'/k}(G_{k'})}(\qcs{L}))(x)$ is given by the trace of $\phi$ on
-$\gqcs{L}_{\iota(x)}$.  These are the same since $\iota$ is an inclusion and $\phi$
-preserves the stalk at $\iota(x)$. \David{Is this the right justification?}
+This result follows immediately from Proposition~\ref{prop:pullback} together with the identifications
+$\Res_{k'/k}(G_{k'})(k) \cong G_{k'}(k') \cong G(k')$ from the definitions of Weil restriction and base change.
 \end{proof}
 
-In the opposite direction, let $\Nm_{k'/k} : G(k') \to G(k)$ be the norm map and consider the group homomorphism:
+In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consider the group homomorphism:
 \[
-\Nm_{k'/k}^* : G(k)^* \to G(k')^* \qquad \text{defined by}\qquad \chi \mapsto \chi\circ \Nm_{k'/k}.
+\Nm^* : G(k)^* \to G(k')^* \qquad \text{defined by}\qquad \chi \mapsto \chi\circ \Nm.
 \]
 We can also interpret this operation on characters in terms of quasicharacter sheaves, as follows.
 
 If $\qcs{L} = (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$ we may define
-a quasicharacter sheaf $\qcs{L}' = (\gqcs{L}, \mu, \phi_{k'})$ on 
-$G_{k'}\ceq G\times_{\Spec{k}} \Spec{k'}$ by setting
+a quasicharacter sheaf $\qcs{L}' = (\gqcs{L}, \mu, \phi_{k'})$ on the base change
+$G_{k'}$ of $G$ to $k'$ by setting
 \[
 \phi_{k'} = \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi).
 \]
@@ -669,42 +666,61 @@ defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{
 \[
 \begin{tikzcd}[column sep=60]
 \QCiso{G} \rar{\nu_{k'/k}} \dar{\trFrob{G}} & \QCiso{G_{k'}} \dar{\trFrob{G_{k'}}} \\
-G(k)^*  \rar{\Nm_{k'/k}^*} & G(k')^*.
+G(k)^*  \rar{\Nm^*} & G(k')^*.
 \end{tikzcd}
 \]
 \end{proposition}
 \begin{proof}
-Let $\qcs{L} = (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$.  The value $t_{G_{k'}}(\nu_{k'/k}(\qcs{L})(x)$ is given by the trace of $\phi_{k'}$ on $\gqcs{L}_x$, while the value $\Nm_{k'/k}^*(t_G(\qcs{L}))(x)$ is given by the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.  After choosing bases of $\gqcs{L}_x, \ldots, \gqcs{L}_{\Frob{G}^n(x)}$, an iteration of \ref{CS.2} applied to the stalk of $\gqcs{L}^{\boxtimes n}$ at $(x, \Frob{G}(x), \ldots, \Frob{G}^{n-1}(x))$ expresses the trace of $\phi$ at $\Nm_{k'/k}(x)$ as a product of 
+Let $\qcs{L} = (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$ and write $\Frob{}$ for $\Frob{G}$.
+The value $t_{G_{k'}}(\nu_{k'/k}(\qcs{L})(x)$ is given by the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
+while the value $\Nm^*(t_G(\qcs{L}))(x)$ is given by the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
+Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
+\[
+\begin{tikzcd}
+\gqcs{L}_{\Nm(x)} \rar \dar{\phi_{\Nm(x)}} & \gqcs{L}_{\Frob{}(x)} \otimes \gqcs{L}_{\Frob{}^2(x)} \otimes \cdots \otimes \gqcs{L}_x
+\dar{\phi_x \otimes (\Frob{}^*\phi)_x \otimes \cdots \otimes ((\Frob{}^{n-1})^*\phi)_x} \\
+\gqcs{L}_{\Nm(x)} \rar & \gqcs{L}_x \otimes \gqcs{L}_{\Frob{}(x)} \otimes \cdots \otimes \gqcs{L}_{\Frob{}^{n-1}(x)}.
+\end{tikzcd}
+\]
+Choose a basis vector $v$ for $\gqcs{L}_{\Nm(x)}$, mapping to $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$
+along the bottom map, where $v_i \in \gqcs{L}_{\Frob{}^i(x)}$.  By \ref{CS.1}, $v$ maps to
+$v_1 \otimes v_2 \otimes \cdots \otimes v_0$ along the top of the diagram.
+Let $\alpha_i \in \EEx$ represent $((\Frob{}^i)^*\phi)_x$ with respect to these bases and let $\alpha$ be
+the trace of $\phi_{\Nm(x)}$.  We may now equate the trace $\alpha$ of $\phi$ on $\gqcs{L}_{\Nm(x)}$
+with the product $\alpha_0 \cdots \alpha_{n-1}$, which is the trace of $\phi_{k'}$ on $\gqcs{L}_x$.
 \end{proof}
 
-Finally, we explain how to geometrize the canonical isomorphism between characters of $G'(k')$ and of $(\Res_{k'/k}G')(k)$.
+Finally, let $G'$ be a smooth commutative group scheme locally of finite type over $k'$;
+we explain how to geometrize the canonical isomorphism between characters of $G'(k')$ and of $(\Res_{k'/k}G')(k)$.
 The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
 decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
 \[
 (\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
 \]
-The component corresponding to the identity element yields a natural inclusion 
+Since products and coproducts agree for group schemes we have a natural inclusion of $k'$-schemes 
 \[
 G' \hookrightarrow (\Res_{k'/k}G')_{k'}
 \]
-of $k'$-schemes.  The definition of base change yields a map of $k$-schemes
+mapping $G'$ into the summand corresponding to $1 \in \Gal(k'/k)$.  Composing pullback
+along this map with $\nu_{k'/k}$ from Proposition~\ref{prop:basechange} yields a functor
 \[
-(\Res_{k'/k}G')_{k'} \to \Res_{k'/k}G'.
-\]
-Consecutive pullback along these maps yields a functor
-\[
-\QC(G') \to \QC(\Res_{k'/k}G').
+\QC(\Res_{k'/k}G') \to \QC(G').
 \]
 
 \begin{proposition}
-The following diagram commutes:
+The following diagram of isomorphisms commutes, where the bottom map is the identity:
 \[
 \begin{tikzcd}
-\QCiso{G'} \dar{\trFrob{G'}} \rar & \QCiso{\Res_{k'/k} G'} \dar{\trFrob{\Res_{k'/k} G'}} \\
- G'(k')^* \rar & (\Res_{k'/k}G')(k)^*
+\QCiso{\Res_{k'/k} G'} \dar{\trFrob{\Res_{k'/k} G'}} \rar & \QCiso{G'} \dar{\trFrob{G'}}\\
+G'(k')^* \rar & G'(k')^*
 \end{tikzcd}
 \]
 \end{proposition}
+\begin{proof}
+By Proposition~\ref{prop:pullback} the pullback part of the definition corresponds to the map $(\Res_{k'/k}G')(k') \to G'(k')^*$
+induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on $(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'$
+is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
+\end{proof}
 
 \section{Bounded quasicharacter sheaves}\label{sec:bounded}
 
