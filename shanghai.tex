@@ -1508,13 +1508,16 @@ Theorem~\ref{thm:snake}.
 \end{proof}
 
 \begin{corollary}
- If $G$ is a commutative, \'etale algebraic group over $\Fq$ and $G(\bFq)$ is finitely
+ If $G$ is a commutative, \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely
  generated then
   \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
   is an isomorphism of groups.
 \end{corollary}
+\begin{proof}
+This follows from Proposition~\ref{prop:etale} by setting $X=G(\bFq)$ in Proposition~\ref{prop:X}.
+\end{proof}
 
 \section{Restriction to the identity component} \label{sec:restriction}
 
@@ -1668,8 +1671,11 @@ trace of Frobenius is an isomorphism in the case that we care about.
   \end{tikzcd}
   \]
   be the commutative diagram of abelian groups obtained by applying
-  Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  Since $G^0$ is a connected algebraic group
-  \cite{vdGeer-Moonen:AbelianVarieties}*{3.17},
+  Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.  Since $k$ is perfect
+  \cite{stacks-project}*{\href{http://stacks.math.columbia.edu/tag/035X}{Tag 035X}} implies that
+  \David{Need another reference that an algebraic group over an algebraically closed field is reduced}
+  $G$ is reduced.  Since $G^0$ is a finite type
+  \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}, it is thus a connected algebraic group and 
   Proposition~\ref{prop:connected} implies that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$.
   By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker \trFrob{\pi_0(G)}=0$
   and $\coker \trFrob{\pi_0(G)}=0$.
