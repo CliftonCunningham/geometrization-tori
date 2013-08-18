@@ -827,13 +827,44 @@ The category of isogenies to $G$ admits products:
 write $f\times_G f' : H\times_G H' \to G$ for the product of $f : H\to G$ and $f' : H'\to G$. 
 Since $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$, canonically,
 the tensor product of the representations $\psi : \ker f\to \Aut(V)$ and $\psi' : \ker f'\to \Aut(V')$ 
-is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes_{\EE} V')$. 
+is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$. 
 This allows us to set $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$. 
 The same fact makes sense of $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. 
 The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
 where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee = \Hom_\text{vec}(V,\EE)$. 
 The verification that these operations make $C(G)$ a tensor category is straightforward.
 Likewise, $C(G)[W^{-1}]$ is a tensor category.
+
+
+\begin{lemma}\label{lemma:finite-pull-back}
+If $g : G'\to G$ is a morphism of group schemes then $(f,\psi) \mapsto (f_g,\psi_g)$
+defines a monomial functor $g^* : C(G)[W^{-1}] \to C(G')[W'^{-1}]$ where $f_g : H\times_G G'\to G'$
+is a pull-back of $f$ along $g$ and $\psi_g : \ker f_g \to \Aut(V)$ is defined by the diagram below.
+\[
+\begin{tikzcd}
+V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} &  G\\
+  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(g_f)\vert_{\ker g_f}} \ker f_g \arrow[hook]{r}
+  & \arrow[swap]{u}{g_f} H\times_G G' \arrow{r}{f_g} & \arrow{u}{g} G'.
+\end{tikzcd}
+\]
+\end{lemma}
+
+\begin{proof}
+The key point is that pull-back along $g$ takes isogenies to isogenies,
+and maps over $G$ to maps over $G'$, as pictured below.
+\[
+\begin{tikzcd}[row sep=10,column sep=10]
+\ & V \arrow{dd}{T} && \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} && H \arrow{rr}{f} && \arrow[equal]{dd} G\\
+ && && \arrow{ul} \ker f\times_G G' \arrow{ur} \arrow[hook]{rr} && H\times_G G' \arrow{ur} \arrow{rr} && G' \arrow{ur}{g} & \\
+& V' && \Aut(V) && \arrow[swap,pos=0.7]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr} && \arrow[swap]{uu} H' \arrow[pos=0.8]{rr}{f'} && G\\
+ && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & 
+\end{tikzcd}
+\]
+In this form we could treat $g^*$ as a functor $G(G')\to C(G)$,
+where it not for the fact that pull-back is defined only up to isomorphism.
+In the localized categories, this ambiguity disappears. 
+\end{proof}
+
 Let $C_1(G)$ be the rigid monoidal full subcategory of $C(G)$ consisting of objects
 $(f,\psi)$ such that $\psi$ is a one-dimensional representation.
 
@@ -841,6 +872,44 @@ $(f,\psi)$ such that $\psi$ is a one-dimensional representation.
 The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\QCf(G)$,
 is the rigid symmetric monoidal category obtained by localizing $C_1(G)$ at weak isomorphisms.
 \end{definition}
+
+
+\begin{lemma}\label{lemma:finite-iso}
+Each $(f,\psi)\in \QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$.
+ \end{lemma}
+
+\begin{proof}
+As in Lemma~\ref{lemma:finite-pull-back}, we have $m^*(f,\psi) = (f_m,\psi_m)$
+where $f_m$ and $\psi_m$ are pictured below, where $H_m = H\times_G(G\times G)$.
+\[
+\begin{tikzcd}[column sep=40]
+V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
+  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(m_f)\vert_{\ker m_f}} \ker f_m \arrow[hook]{r}
+  & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G.
+\end{tikzcd}
+\]
+On the other hand, $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
+Since $f\circ m_H = m \circ (f\times f)$, by the universal property of pull-back,
+there is a unique $\theta : H\times H \to H_m$ making the following commute.
+\[
+\begin{tikzcd}[row sep=20,column sep=10]
+\ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_g} A_m \arrow[hook]{rr}
+&& \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
+ && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
+& V\otimes V && \Aut(V)
+&& \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
+&& \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
+\end{tikzcd}
+\]
+Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$.
+Define $T : V \to V\otimes V$ by $T(v_1) = v_1\otimes v_1$. Then the lower part of this
+diagram defines a weak isomorphism $(\theta,T): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
+
+While $\theta$ was canonical, $T$ was not, as it depended on the choice of a basis for $V$.
+However, after passing from $C_1(G)$ to $\QCf(G)$, the resulting isomorphism
+$\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\QCf(G)$.
+\end{proof}
+
 
 \begin{proposition}\label{prop:bounded}
  $\QCf(G)$ is (equivalent to) a full subcategory of $\QCb(G)$.
@@ -913,72 +982,6 @@ is the rigid symmetric monoidal category obtained by localizing $C_1(G)$ at weak
  is a full and faithfull monoidal functor, completing the proof.
 \end{proof}
 
-
-\begin{lemma}\label{lemma:finite-pull-back}
-If $g : G'\to G$ is a morphism of group schemes then $(f,\psi) \mapsto (f_g,\psi_g)$
-defines a monomial functor $g^* : C(G)[W^{-1}] \to C(G')[W'^{-1}]$ where $f_g : H\times_G G'\to G'$
-is a pull-back of $f$ along $g$ and $\psi_g : \ker f_g \to \Aut(V)$ is defined by the diagram below.
-\[
-\begin{tikzcd}
-V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} &  G\\
-  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(g_f)\vert_{\ker g_f}} \ker f_g \arrow[hook]{r}
-  & \arrow[swap]{u}{g_f} H\times_G G' \arrow{r}{f_g} & \arrow{u}{g} G'.
-\end{tikzcd}
-\]
-\end{lemma}
-
-\begin{proof}
-The key point is that pull-back along $g$ takes isogenies to isogenies,
-and maps over $G$ to maps over $G'$, as pictured below.
-\[
-\begin{tikzcd}[row sep=10,column sep=10]
-\ & V \arrow{dd}{T} && \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} && H \arrow{rr}{f} && \arrow[equal]{dd} G\\
- && && \arrow{ul} \ker f\times_G G' \arrow{ur} \arrow[hook]{rr} && H\times_G G' \arrow{ur} \arrow{rr} && G' \arrow{ur}{g} & \\
-& V' && \Aut(V) && \arrow[swap,pos=0.7]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr} && \arrow[swap]{uu} H' \arrow[pos=0.8]{rr}{f'} && G\\
- && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & 
-\end{tikzcd}
-\]
-In this form we could treat $g^*$ as a functor $G(G')\to C(G)$,
-where it not for the fact that pull-back is defined only up to isomorphism.
-In the localized categories, this ambiguity disappears. 
-\end{proof}
-
-
-\begin{lemma}\label{lemma:finite-iso}
-Each $(f,\psi)\in \QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$.
- \end{lemma}
-
-\begin{proof}
-As in Lemma~\ref{lemma:finite-pull-back}, we have $m^*(f,\psi) = (f_m,\psi_m)$
-where $f_m$ and $\psi_m$ are pictured below, where $H_m = H\times_G(G\times G)$.
-\[
-\begin{tikzcd}[column sep=40]
-V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
-  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(m_f)\vert_{\ker m_f}} \ker f_m \arrow[hook]{r}
-  & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G.
-\end{tikzcd}
-\]
-On the other hand, $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
-Since $f\circ m_H = m \circ (f\times f)$, by the universal property of pull-back,
-there is a unique $\theta : H\times H \to H_m$ making the following commute.
-\[
-\begin{tikzcd}[row sep=20,column sep=10]
-\ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_g} A_m \arrow[hook]{rr}
-&& \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
- && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
-& V\otimes_{\EE} V && \Aut(V)
-&& \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
-&& \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
-\end{tikzcd}
-\]
-Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$.
-Define $T : V \to V\otimes V$ by $T(v_1) = v_1\otimes v_1$. Then the lower part of this
-diagram defines a weak isomorphism $(\theta,T): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
-
-While $\theta$ was canonical, $T$ was not, as it depended on the choice of a basis for $V$.
-However, after passing from $C_1(G)$ to $\QCf(G)$, the resulting isomorphism
-$\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\QCf(G)$.
-\end{proof}
 
 The full subcategory $\QCf(G) \subset \QCb(G)$ of finite quasicharacter sheaves
 is a proper subcategory, in general. Indeed, it follows from our main result regarding
@@ -1166,14 +1169,14 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
   $G(\bFq)$;
 
  \labitem{(cs.1)}{cs.1} an indexed set of isomorphisms
-  $\mu_{x,y} : \gqcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gqcs{L}_{x} \otimes_{\EE}\gqcs{L}_{y}$,
+  $\mu_{x,y} : \gqcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gqcs{L}_{x} \otimes\gqcs{L}_{y}$,
   for all $x,y \in G(\bFq)$, such that
   \[
    \begin{tikzcd}[row sep=40]
     \gqcs{L}_{x+y+z} \arrow{rr}{\mu_{x+y,z}} \arrow[swap]{d}{\mu_{x,y+z}}
-    && \gqcs{L}_{x+y}\otimes_{\EE}\gqcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
-    \gqcs{L}_{x} \otimes_{\EE}\gqcs{L}_{y+z} \arrow{rr}{\id \otimes\mu_{y,z}}
-    && \gqcs{L}_{x} \otimes\gqcs{L}_{y} \otimes_{\EE}\gqcs{L}_{z}
+    && \gqcs{L}_{x+y}\otimes\gqcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
+    \gqcs{L}_{x} \otimes\gqcs{L}_{y+z} \arrow{rr}{\id \otimes\mu_{y,z}}
+    && \gqcs{L}_{x} \otimes\gqcs{L}_{y} \otimes\gqcs{L}_{z}
    \end{tikzcd}
   \]
   commutes, for all $x,y,z\in G(\bFq)$; and
@@ -1183,7 +1186,7 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
   \[
    \begin{tikzcd}[row sep=40]
     \gqcs{L}_{\Frob{\Fq}(x)+\Frob{\Fq}(y)} \arrow[swap]{d}{\phi_{x+y}} \arrow{rr}{\mu_{\Frob{\Fq}(x),\Frob{\Fq}(y)}}
-    && \gqcs{L}_{\Frob{\Fq}(x)}\otimes_{\EE}\gqcs{L}_{\Frob{\Fq}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
+    && \gqcs{L}_{\Frob{\Fq}(x)}\otimes\gqcs{L}_{\Frob{\Fq}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
     \gqcs{L}_{x+y} \arrow{rr}{\mu_{x,y}}
     && \gqcs{L}_x \otimes\gqcs{L}_y
    \end{tikzcd}
@@ -1201,7 +1204,7 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
     & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\alpha_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
     \gqcs{L}_x \rar{\alpha_x} & \gqcs{L'}_x
-    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes_{\EE}\gqcs{L'}_y
+    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
   \]
   both commute.
@@ -1212,7 +1215,6 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
  over $\Fq$ and if $G(\bFq)$ is finitely generated, then there is a global section
  $s = \{ s(x) \in \gqcs{L}_x \tq x \in G(\bFq) \}$ satisfying
  \begin{equation}\label{section}
-  \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes_{\EE}s(y).
  \end{equation}
 \end{lemma}
 
@@ -1226,7 +1228,7 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   of $G(\bFq)$ through \eqref{section}.
   
   There is a unique isomorphism $\gqcs{L}_0 \cong \EE$ under which $\mu_{0,0}$ corresponds
-  to the multiplication map $\EE \otimes_{\EE}\EE \to \EE$.
+  to the multiplication map $\EE \otimes\EE \to \EE$.
   The condition $\mu_{0,0}(s(0)) = s(0) \otimes s(0)$ together with the non-triviality of $s$
   then forces $s(0) = 1$.
   
@@ -1316,38 +1318,41 @@ so there is a sheaf--function dictionary for $G$.
   By the second part of condition~\ref{cs.3},
   $a(x+y) = a(x)a(y)$, so $a \in G(\bFq)^*$. By the first part of
   condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}a \cdot a^{-1})$,
+  \Clifton{Fix this.}
   so $\tau$ and $\tau'$ are cohomologous. This shows that
   \begin{equation}\label{pich1}
     \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*), \qquad \qcs{L}_{/\text{iso}} \mapsto [\tau_\qcs{L}]
   \end{equation}
   is well-defined.
   
- The paragraph above also shows that \eqref{pich1} is injective. 
- Suppose $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$.
+    Suppose that $\qcs{L}$ and $\qcs{L}'$ are two quasicharacter sheaves on $G$.
+  If $s$ is a global section for $\qcs{L}$ and $s'$ for $\qcs{L}'$ then $s \otimes s'$
+  is a global section for $\qcs{L} \otimes\qcs{L}'$.  The three versions of \eqref{t}
+  for $\qcs{L}, \qcs{L'}$ and $\qcs{L} \otimes\qcs{L}'$ imply that
+  $\tau_{\qcs{L} \otimes\qcs{L}'}(\Frob{k}) = \tau_\qcs{L}(\Frob{k}) \tau_{\qcs{L}'}(\Frob{k})$,
+  so \eqref{pich1} is a group homomorphism.
+ 
+ 
+ To see that \eqref{pich1} is injective,
+ suppose $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$.
  Let $s$ (resp. $s'$) be a section appearing in the definition of $\tau_\qcs{L}$ (resp. $\tau_\qcs{L'}$);
  recall that $s$ (resp. $s'$) is compatible with $\mu$ (resp $\mu'$) 
  in the sense of Lemma~\ref{lemma:section}.
  Since $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$, 
  it follows that $\tau_\qcs{L}$ and $\tau_{\qcs{L'}}$ are cohomologous, 
   so there is some $a\in G(\Fq)^*$ such that 
-  $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}a \cdot a^{-1})$. 
+  $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}}a \cdot a^{-1})$. 
   Define $\alpha : \qcs{L}\to \qcs{L'}$ by $\alpha_x(s(x)) = a(x) s'(x)$, for each $x\in G(\bFq)$.
-  it is straightforward to check that $\alpha$ satisfies condition~\ref{cs.3}
+  It is straightforward to check that $\alpha$ satisfies condition~\ref{cs.3}
   and that $\alpha^{-1} : \qcs{L'}\to \qcs{L}$, defined by $\alpha^{-1}_x(s'(x)) = a(x)^{-1} s(x)$, 
   is its inverse. Thus, $\qcs{L} \iso \qcs{L'}$ in $\QC(G)$. 
   This shows that \eqref{pich1} is injective.
   
-  Suppose that $\qcs{L}$ and $\qcs{L}'$ are two quasicharacter sheaves on $G$.
-  If $s$ is a global section for $\qcs{L}$ and $s'$ for $\qcs{L}'$ then $s \otimes_{\EE}s'$
-  is a global section for $\qcs{L} \otimes_{\EE}\qcs{L}'$.  The three versions of \eqref{t}
-  for $\qcs{L}, \qcs{L'}$ and $\qcs{L} \otimes_{\EE}\qcs{L}'$ imply that
-  $\tau_{\qcs{L} \otimes_{\EE}\qcs{L}'}(\Frob{k}) = \tau_\qcs{L}(\Frob{k}) \tau_{\qcs{L}'}(\Frob{k})$,
-  so \eqref{pich1} is a group homomorphism.
- 
+
  Finally, to show that \eqref{pich1} is surjective, pick $[\tau]\in \Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
  For each $x\in G(\bFq)$, set $\gqcs{L}_x = \EE$.
- Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes_{\EE} \gqcs{L}_y$ by
- $\mu_{x,y}(1) = 1\otimes_{\EE}1$, for $x,y\in G(\bFq)$; 
+ Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by
+ $\mu_{x,y}(1) = 1\otimes1$, for $x,y\in G(\bFq)$; 
  clearly, $\mu$ satisfies condition~\ref{cs.1}.
  Define $\phi_x : \gqcs{L}_{\Frob{\Fq}} \to \gqcs{L}_x$ by $\phi_x(1) = \tau(\Frob{\Fq})(x)$,
  for each $x\in G(\bFq)$. 
@@ -1361,6 +1366,7 @@ so there is a sheaf--function dictionary for $G$.
 
 \section{On the cohomology of the dual of an \'etale group scheme} \label{sec:etalecohom}
 
+\Clifton{Now this section does mention quasicharacter sheaves.}
 Although this section does not mention quasicharacter sheaves, 
 we will need Proposition~\ref{prop:X} to prove our main result on quasicharacter sheaves, 
 Theorem~\ref{thm:snake}.
@@ -1641,9 +1647,9 @@ trace of Frobenius is an isomorphism in the case that we care about.
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
-  If $G$ is a smooth abelian group scheme, locally of finite type over
-  $\Fq$, and if the abelian group $\pi_0(G)(\bFq)$ (the geometric
-  component group) is finitely generated, then the trace of Frobenius
+  If $G$ is a smooth commutative group scheme locally of finite type over
+  $\Fq$ and if the abelian group $\pi_0(G)(\bFq)$ (the geometric
+  component group) is finitely generated then the trace of Frobenius
   \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
@@ -1780,7 +1786,8 @@ Besides Greenberg's original papers,
 see \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
 and the first few sections of \cite{stasinski:12a} 
 for background on the Greenberg functor. 
-Let
+
+For any positive integer $d$, let
 \[
 %\begin{tikzcd}
 \Gr_d : \left( \text{Schemes} \atop \text{lft over $\OK$}\right) \to \left( \text{Schemes} \atop \text{lft over $\Fq$}\right)
@@ -1789,8 +1796,8 @@ Let
 be the functor produced by precomposing pull-back along $\OK \to \OK/\pK^d$ with the Greenberg functor.
 The surjective ring homomorphism $\OK/\pK^{d+1} \to \OK/\pK^d$ determines a natural transformation $P_{d} : \Gr_{d+1} \to \Gr_d$. 
 %\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276}.
-
-For any positive integer $d$ set $\GN{T}_d = \Gr_d(\TT)$ and $f_d = P_d(\TT)$.
+Set $\GN{T}_d = \Gr_d(\TT)$ and $f_d = P_d(\TT)$.
+%
 The fundamental properties of $f_d : \GN{T}_{d+1} \to \GN{T}_d$ that we need are:
  \begin{enumerate}
    \labitem{(GN.0)}{dFq} $\GN{T}_d(\Fq) = \TT(\OK/\pK^d)$, canonically.
@@ -1848,25 +1855,21 @@ By Proposition~\ref{prop:pullback}, the surjective morphism $f_d : \GN{T}_{d+1}\
 \[
 f_d^* : \QC(\GN{T}_d) \to \QC(\GN{T}_{d+1}).
 \]
+
 \begin{proposition}
 The functor $f_d^* : \QC(\GN{T}_d) \to \QC(\GN{T}_{d+1})$ is full and faithful.
 \end{proposition}
 
 \begin{proof}
-\Clifton{Under construction}
-Base change along $\OK/\pK^{d+1} \to \OK/\pK^d$ determines a closed immersion $\TT_{d+1} \hookrightarrow \TT_d$, though not a morphism of group schemes. Applying the Greenberg functor produces a closed immersion $i_d : \GN{T}_{d} \hookrightarrow \GN{T}_{d+1}$. Although $i_d$ is not a morphism of group schemes, it is a section of $f_d : \GN{T}_{d+1}\to \GN{T}_d$.
+It suffices to find a morphism of schemes $i_d : \GN{T}_{d}\hookrightarrow \GN{T}_{d+1}$ such that $f_d\circ i_d = \id_{\GN{T}_d}$. Base change along $\OK/\pK^{d+1} \to \OK/\pK^d$ determines a closed immersion $\TT_{d+1} \hookrightarrow \TT_d$, though not a morphism of group schemes. Applying the Greenberg functor produces a closed immersion of schemes $i_d : \GN{T}_{d} \hookrightarrow \GN{T}_{d+1}$. Although $i_d$ is not a morphism of group schemes, it is a section of $f_d : \GN{T}_{d+1}\to \GN{T}_d$.
 \end{proof}
 
-
-Let $\QC(\GN{T})$ be the category of ind-objects from the full subcategories $\QC(\GN{T}_d)$. 
-Objects in $\QC(\GN{T})$ are equivalence classes of objects from $\QC(\GN{T}_d)$ under the equivalence relation that identifies 
-$\qcs{L}_1\in \QC(\GN{T}_{d_1})$ with $\qcs{L}_2\in \QC(\GN{T}_{d_2})$ 
-if $f_1^*\qcs{L}_1 = f_2^*\qcs{L}_2$  in $\QC(\GN{T}_{\max\{d_1,d_2\}})$,
-where $f_1 : \GN{T}_{\max\{d_1,d_2\}} \to \GN{T}_{d_1}$ 
-(resp. $f_2 : \GN{T}_{\max\{d_1,d_2\}} \to \GN{T}_{d_2}$) 
-is obtained by composing the maps $f_{d_1}, \cdots , f_{\max\{d_1,d_2\}}$ 
-(resp. $f_{d_2}, \cdots , f_{\max\{d_1,d_2\}}$).
-A map $\alpha : \qcs{F} \to \qcs{F}'$
+Let $\QC(\GN{T})$ be the category of ind-objects built from the categories $\QC(\GN{T}_d)$. 
+An object $\qcs{F}\in \QC(\GN{T})$ is an equivalence class in the disjoint union of objects $\qcs{L}\in \GN{T}_d$, 
+as $d$ ranges over the positive integers, 
+under the relation that identifies $\qcs{L}\in \QC(\GN{T}_{d})$ with $f_d^*\qcs{L}\in \QC(\GN{T}_{d+1})$.
+For each $\qcs{F}\in \QC(\GN{T})$ there is a unique least positive integer $d$ and a unique isomorphism class $\qcs{L}_{/\iso}\in \QCiso{\GN{T}_d}$ such that $\qcs{F} = [\qcs{L}]$; we refer to $d$ as the \emph{level} of $\qcs{F}$.
+A map $\alpha : [\qcs{L}] \to [\qcs{L}']$ in $\QC(\GN{T})$ is
 
 
 
