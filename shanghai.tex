@@ -827,7 +827,7 @@ The category of isogenies to $G$ admits products:
 write $f\times_G f' : H\times_G H' \to G$ for the product of $f : H\to G$ and $f' : H'\to G$. 
 Since $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$, canonically,
 the tensor product of the representations $\psi : \ker f\to \Aut(V)$ and $\psi' : \ker f'\to \Aut(V')$ 
-is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes_{\EE} V')$. 
+is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$. 
 This allows us to set $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$. 
 The same fact makes sense of $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. 
 The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
@@ -896,7 +896,7 @@ there is a unique $\theta : H\times H \to H_m$ making the following commute.
 \ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_g} A_m \arrow[hook]{rr}
 && \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
  && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
-& V\otimes_{\EE} V && \Aut(V)
+& V\otimes V && \Aut(V)
 && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
 && \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
 \end{tikzcd}
@@ -1169,14 +1169,14 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
   $G(\bFq)$;
 
  \labitem{(cs.1)}{cs.1} an indexed set of isomorphisms
-  $\mu_{x,y} : \gqcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gqcs{L}_{x} \otimes_{\EE}\gqcs{L}_{y}$,
+  $\mu_{x,y} : \gqcs{L}_{x+y} \mathop{\longrightarrow}\limits^{\iso} \gqcs{L}_{x} \otimes\gqcs{L}_{y}$,
   for all $x,y \in G(\bFq)$, such that
   \[
    \begin{tikzcd}[row sep=40]
     \gqcs{L}_{x+y+z} \arrow{rr}{\mu_{x+y,z}} \arrow[swap]{d}{\mu_{x,y+z}}
-    && \gqcs{L}_{x+y}\otimes_{\EE}\gqcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
-    \gqcs{L}_{x} \otimes_{\EE}\gqcs{L}_{y+z} \arrow{rr}{\id \otimes\mu_{y,z}}
-    && \gqcs{L}_{x} \otimes\gqcs{L}_{y} \otimes_{\EE}\gqcs{L}_{z}
+    && \gqcs{L}_{x+y}\otimes\gqcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
+    \gqcs{L}_{x} \otimes\gqcs{L}_{y+z} \arrow{rr}{\id \otimes\mu_{y,z}}
+    && \gqcs{L}_{x} \otimes\gqcs{L}_{y} \otimes\gqcs{L}_{z}
    \end{tikzcd}
   \]
   commutes, for all $x,y,z\in G(\bFq)$; and
@@ -1186,7 +1186,7 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
   \[
    \begin{tikzcd}[row sep=40]
     \gqcs{L}_{\Frob{\Fq}(x)+\Frob{\Fq}(y)} \arrow[swap]{d}{\phi_{x+y}} \arrow{rr}{\mu_{\Frob{\Fq}(x),\Frob{\Fq}(y)}}
-    && \gqcs{L}_{\Frob{\Fq}(x)}\otimes_{\EE}\gqcs{L}_{\Frob{\Fq}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
+    && \gqcs{L}_{\Frob{\Fq}(x)}\otimes\gqcs{L}_{\Frob{\Fq}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
     \gqcs{L}_{x+y} \arrow{rr}{\mu_{x,y}}
     && \gqcs{L}_x \otimes\gqcs{L}_y
    \end{tikzcd}
@@ -1204,7 +1204,7 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
     & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\alpha_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
     \gqcs{L}_x \rar{\alpha_x} & \gqcs{L'}_x
-    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes_{\EE}\gqcs{L'}_y
+    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
   \]
   both commute.
@@ -1215,7 +1215,6 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
  over $\Fq$ and if $G(\bFq)$ is finitely generated, then there is a global section
  $s = \{ s(x) \in \gqcs{L}_x \tq x \in G(\bFq) \}$ satisfying
  \begin{equation}\label{section}
-  \forall x,y \in G(\bFq), \qquad \mu_{x,y}(s(x+y)) = s(x)\otimes_{\EE}s(y).
  \end{equation}
 \end{lemma}
 
@@ -1229,7 +1228,7 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   of $G(\bFq)$ through \eqref{section}.
   
   There is a unique isomorphism $\gqcs{L}_0 \cong \EE$ under which $\mu_{0,0}$ corresponds
-  to the multiplication map $\EE \otimes_{\EE}\EE \to \EE$.
+  to the multiplication map $\EE \otimes\EE \to \EE$.
   The condition $\mu_{0,0}(s(0)) = s(0) \otimes s(0)$ together with the non-triviality of $s$
   then forces $s(0) = 1$.
   
@@ -1319,38 +1318,41 @@ so there is a sheaf--function dictionary for $G$.
   By the second part of condition~\ref{cs.3},
   $a(x+y) = a(x)a(y)$, so $a \in G(\bFq)^*$. By the first part of
   condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}a \cdot a^{-1})$,
+  \Clifton{Fix this.}
   so $\tau$ and $\tau'$ are cohomologous. This shows that
   \begin{equation}\label{pich1}
     \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*), \qquad \qcs{L}_{/\text{iso}} \mapsto [\tau_\qcs{L}]
   \end{equation}
   is well-defined.
   
- The paragraph above also shows that \eqref{pich1} is injective. 
- Suppose $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$.
+    Suppose that $\qcs{L}$ and $\qcs{L}'$ are two quasicharacter sheaves on $G$.
+  If $s$ is a global section for $\qcs{L}$ and $s'$ for $\qcs{L}'$ then $s \otimes s'$
+  is a global section for $\qcs{L} \otimes\qcs{L}'$.  The three versions of \eqref{t}
+  for $\qcs{L}, \qcs{L'}$ and $\qcs{L} \otimes\qcs{L}'$ imply that
+  $\tau_{\qcs{L} \otimes\qcs{L}'}(\Frob{k}) = \tau_\qcs{L}(\Frob{k}) \tau_{\qcs{L}'}(\Frob{k})$,
+  so \eqref{pich1} is a group homomorphism.
+ 
+ 
+ To see that \eqref{pich1} is injective,
+ suppose $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$.
  Let $s$ (resp. $s'$) be a section appearing in the definition of $\tau_\qcs{L}$ (resp. $\tau_\qcs{L'}$);
  recall that $s$ (resp. $s'$) is compatible with $\mu$ (resp $\mu'$) 
  in the sense of Lemma~\ref{lemma:section}.
  Since $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$, 
  it follows that $\tau_\qcs{L}$ and $\tau_{\qcs{L'}}$ are cohomologous, 
   so there is some $a\in G(\Fq)^*$ such that 
-  $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}a \cdot a^{-1})$. 
+  $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}}a \cdot a^{-1})$. 
   Define $\alpha : \qcs{L}\to \qcs{L'}$ by $\alpha_x(s(x)) = a(x) s'(x)$, for each $x\in G(\bFq)$.
-  it is straightforward to check that $\alpha$ satisfies condition~\ref{cs.3}
+  It is straightforward to check that $\alpha$ satisfies condition~\ref{cs.3}
   and that $\alpha^{-1} : \qcs{L'}\to \qcs{L}$, defined by $\alpha^{-1}_x(s'(x)) = a(x)^{-1} s(x)$, 
   is its inverse. Thus, $\qcs{L} \iso \qcs{L'}$ in $\QC(G)$. 
   This shows that \eqref{pich1} is injective.
   
-  Suppose that $\qcs{L}$ and $\qcs{L}'$ are two quasicharacter sheaves on $G$.
-  If $s$ is a global section for $\qcs{L}$ and $s'$ for $\qcs{L}'$ then $s \otimes_{\EE}s'$
-  is a global section for $\qcs{L} \otimes_{\EE}\qcs{L}'$.  The three versions of \eqref{t}
-  for $\qcs{L}, \qcs{L'}$ and $\qcs{L} \otimes_{\EE}\qcs{L}'$ imply that
-  $\tau_{\qcs{L} \otimes_{\EE}\qcs{L}'}(\Frob{k}) = \tau_\qcs{L}(\Frob{k}) \tau_{\qcs{L}'}(\Frob{k})$,
-  so \eqref{pich1} is a group homomorphism.
- 
+
  Finally, to show that \eqref{pich1} is surjective, pick $[\tau]\in \Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
  For each $x\in G(\bFq)$, set $\gqcs{L}_x = \EE$.
- Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes_{\EE} \gqcs{L}_y$ by
- $\mu_{x,y}(1) = 1\otimes_{\EE}1$, for $x,y\in G(\bFq)$; 
+ Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by
+ $\mu_{x,y}(1) = 1\otimes1$, for $x,y\in G(\bFq)$; 
  clearly, $\mu$ satisfies condition~\ref{cs.1}.
  Define $\phi_x : \gqcs{L}_{\Frob{\Fq}} \to \gqcs{L}_x$ by $\phi_x(1) = \tau(\Frob{\Fq})(x)$,
  for each $x\in G(\bFq)$. 
@@ -1853,12 +1855,15 @@ The functor $f_d^* : \QC(\GN{T}_d) \to \QC(\GN{T}_{d+1})$ is full and faithful.
 \end{proposition}
 
 \begin{proof}
-It suffices to find a morphism of schemes $i_d : \GN{T}_{d}\hookrightarrow \GN{T}_{d+1}$ such that $f_d\circ i_d = \id_{\GN{T}_d}$. Base change along $\OK/\pK^{d+1} \to \OK/\pK^d$ determines a closed immersion $\TT_{d+1} \hookrightarrow \TT_d$, though not a morphism of group schemes. Applying the Greenberg functor produces a closed immersion $i_d : \GN{T}_{d} \hookrightarrow \GN{T}_{d+1}$. Although $i_d$ is not a morphism of group schemes, it is a section of $f_d : \GN{T}_{d+1}\to \GN{T}_d$.
+It suffices to find a morphism of schemes $i_d : \GN{T}_{d}\hookrightarrow \GN{T}_{d+1}$ such that $f_d\circ i_d = \id_{\GN{T}_d}$. Base change along $\OK/\pK^{d+1} \to \OK/\pK^d$ determines a closed immersion $\TT_{d+1} \hookrightarrow \TT_d$, though not a morphism of group schemes. Applying the Greenberg functor produces a closed immersion of schemes $i_d : \GN{T}_{d} \hookrightarrow \GN{T}_{d+1}$. Although $i_d$ is not a morphism of group schemes, it is a section of $f_d : \GN{T}_{d+1}\to \GN{T}_d$.
 \end{proof}
 
-Let $\QC(\GN{T})$ be the category of ind-objects built from the categories $\QC(\GN{T}_d)$; we refer to this as the \emph{category of quasicharacters for $T$}. This means a quasicharacter sheaf for $T$ is an equivalence class of quasicharacters on $\GN{T}_d$, for various $d$, under the relation that identifies $\qcs{L}\in \QC(\GN{T}_{d})$ with $f_d^*\qcs{L}\in \QC(\GN{T}_{d})$.
-For each $\qcs{F}\in \QC(\GN{T})$ there is a unique least positive integer $d$ and a unique $\qcs{L}\in \GN{T}_d$ such that $\qcs{F} = [\qcs{L}]$; we refer to $d$ as the \emph{level} of $\qcs{F}$.
-A map $\alpha : \qcs{F} \to \qcs{F}'$ in $\QC(\GN{T})$
+Let $\QC(\GN{T})$ be the category of ind-objects built from the categories $\QC(\GN{T}_d)$. 
+An object $\qcs{F}\in \QC(\GN{T})$ is an equivalence class in the disjoint union of objects $\qcs{L}\in \GN{T}_d$, 
+as $d$ ranges over the positive integers, 
+under the relation that identifies $\qcs{L}\in \QC(\GN{T}_{d})$ with $f_d^*\qcs{L}\in \QC(\GN{T}_{d+1})$.
+For each $\qcs{F}\in \QC(\GN{T})$ there is a unique least positive integer $d$ and a unique isomorphism class $\qcs{L}_{/\iso}\in \QCiso{\GN{T}_d}$ such that $\qcs{F} = [\qcs{L}]$; we refer to $d$ as the \emph{level} of $\qcs{F}$.
+A map $\alpha : [\qcs{L}] \to [\qcs{L}']$ in $\QC(\GN{T})$ is
 
 
 
