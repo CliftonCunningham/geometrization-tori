@@ -226,15 +226,15 @@ Let $T$ be a torus defined over $K$.  The N\'eron model $\TT$ of $T$
 is a smooth group scheme over $\OK$ with generic fiber $T$ and a canonical isomorphism
 $\TT(\OK) \cong T(K)$.  For each positive integer $n$, let $\GN{T}_n$ be the
 Greenberg transform of $\TT \times_{\Spec{\OK}} \Spec{\OK/\pK^n}$; the commutative
-group scheme $\GN{T}_d$ plays the r\^{o}le of $G$.  Theorem~\ref{thm:application}
-allows us to translate characters $T(K)$ of depth less than $d$ into quasicharacter sheaves on $\GN{T}_d$:
+group scheme $\GN{T}_n$ plays the r\^{o}le of $G$.  Theorem~\ref{thm:application}
+allows us to translate characters $T(K)$ of depth less than $n$ into quasicharacter sheaves on $\GN{T}_n$:
 \[
 \QCiso{\GN{T}_n} 
 \iso
 \Hom_{< n}(T(K),\EEx).
 \]  
 We refer to finite-depth characters of $T(K)$ as quasicharacters and
-describe a group scheme $\GN{T}$ simultaneously geometrizing all such quasicharacters.
+describe a pro-group scheme $\GN{T}$ simultaneously geometrizing all such quasicharacters.
 
 We have not yet fully explored the applications of such a geometrization, but want to highlight
 some of the potential benefits of Theorem~\ref{thm:application}.  Characters on $T$ have limited
@@ -242,7 +242,7 @@ functoriality: they can be pulled back along maps to $T$, but it is less clear w
 in the presence of maps from $T$ to other reductive groups.  Sheaves, on the other hand, come
 equipped with a host of functors, including pushforward.  
 
-DeBacker and Reeder have recently applied Deligne-Lusztig representations to the
+DeBacker and Reeder have recently applied Deligne-Lusztig representations to part of the
 local Langlands correspondence \cite{reeder-debacker:09a}.  
 After developing Deligne-Luzstig representations, 
 the next step Lusztig took in studying representations
@@ -268,14 +268,15 @@ would yield a different description of the Artin reciprocity map.
 
 We want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
 Analogous sheaves on connected, commutative algebraic groups were first studied
-by Deligne \cite{deligne:SGA4.5}, \David{more specific citation} and more recently Drinfeld has referred to such objects
-as character sheaves.  Our quasicharacter sheaves evolved from this notion, and Theorem~\ref{thm:snake}
+by Deligne \cite{deligne:SGA4.5}*{sommes trig.} and many people have since referred to such objects
+as character sheaves; see for example, \cite{kamgarpour:09a}. 
+%\cite{boyarshenko-drinfeld:motivated}*{\S 1.8}.  
+Our quasicharacter sheaves evolved from this notion, and Theorem~\ref{thm:snake}
 is a direct generalization of the sheaf--function dictionary to the case of commutative
 group schemes which are not necessarily connected or finite type.  The main use
-of the term ``character sheaf'' is due to Lusztig \cite{lusztig:85a}*{Def.~2.10}.  Most of his energy is devoted to
-handling non-commutative groups; though he does define character sheaves for some
-non-connected groups he restricts his attention to reductive groups with cyclic component group. If commutative, such groups are extensions of $\ZZ/n\ZZ$ by a torus,
-in which case is not difficult to relate his Frobenius-stable character sheaves to our quasicharacter sheaves.
+of the term character sheaf is due to Lusztig: it is applied to certain perverse sheaves on connected reductive algebraic groups over algebraically closed fields in \cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on reductive groups over algebraically closed fields with cyclic component groups in the series of papers beginning with \cite{lusztig:disconnected1}.  
+When commutative, such groups are extensions of $\ZZ/n\ZZ$ by a torus,
+in which case is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
 
 We close the introduction with a more detailed description of the structure of this paper.
 In Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
@@ -301,7 +302,7 @@ induces an essentially surjective functor of quasicharacter sheaves.
 Section~\ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem: trace of Frobenius
 is an isomorphism for $G$ as long as the geometric component group is finitely generated.
 
-In Section~\ref{sec:GN} we introduce N\'eron models of tori and the Greenberg transform, which produce
+In Section~\ref{sec:GN} we introduce the Greenberg transform of N\'eron models of tori, which produce
 group schemes over $\Fq$ from algebraic tori $T$ over $K$.
 Section~\ref{sec:bdchar} then uses Theorem~\ref{thm:snake} to give a geometrization of characters of $T$
 of bounded depth.
@@ -1977,10 +1978,10 @@ If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an
 Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every
 $N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
 In this section we ask if the isomorphism \eqref{transfer} comes from an equivalence of
-categories of quasicharacter sheaves on $\GN{T}_d$ and those on $\GN{T}'_d$.
+categories of quasicharacter sheaves on $\GN{T}_n$ and those on $\GN{T}'_n$.
 
 One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between
-$\TT_d$ and $\TT'_d$ assuming that $T$ and $T'$ are sufficiently congruent.
+$\TT_n$ and $\TT'_n$ assuming that $T$ and $T'$ are sufficiently congruent.
 They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
 Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
 Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent 
