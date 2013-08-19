@@ -271,12 +271,11 @@ Analogous sheaves on connected, commutative algebraic groups were first studied
 by Deligne \cite{deligne:SGA4.5}, \David{more specific citation} and more recently Drinfeld has referred to such objects
 as character sheaves.  Our quasicharacter sheaves evolved from this notion, and Theorem~\ref{thm:snake}
 is a direct generalization of the sheaf--function dictionary to the case of commutative
-group schemes which are not necessarily connected or finite type.  The other main use
-of the term ``character sheaf'' traces back to Lusztig \cite{lusztig:85a}*{Def.~2.10}.  Most of his energy is devoted to
+group schemes which are not necessarily connected or finite type.  The main use
+of the term ``character sheaf'' is due to Lusztig \cite{lusztig:85a}*{Def.~2.10}.  Most of his energy is devoted to
 handling non-commutative groups; though he does define character sheaves for some
-non-connected groups he restricts his attention to reductive groups with cyclic component group.
-For extensions of $\ZZ/n\ZZ$ by a torus, it is not difficult to relate his Frobenius-stable character
-sheaves to our quasicharacter sheaves.
+non-connected groups he restricts his attention to reductive groups with cyclic component group, which are extensions of $\ZZ/n\ZZ$ by a torus. 
+In this case is not difficult to relate his Frobenius-stable character sheaves to our quasicharacter sheaves.
 
 We close the introduction with a more detailed description of the structure of this paper.
 In Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
@@ -299,7 +298,7 @@ Section~\ref{sec:etalecohom} proves a result in Galois cohomology that shows tha
 an isomorphism for \'etale group schemes.
 In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
 induces an essentially surjective functor of quasicharacter sheaves.
-Section~\ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem, that trace of Frobenius
+Section~\ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem: trace of Frobenius
 is an isomorphism for $G$ as long as the geometric component group is finitely generated.
 
 In Section~\ref{sec:GN} we introduce N\'eron models of tori and the Greenberg transform, which produce
@@ -309,9 +308,9 @@ of bounded depth.
 We give a reinterpretation of this result in Section~\ref{sec:quasichar}, using a limit process to simultaneously
 geometrize all quasicharacters of $T$.  Sections~\ref{sec:bdchar} and \ref{sec:quasichar} also include
 functoriality results that we hope to use in a future discussion of class field theory.
-\Clifton{There is another section at the end of the paper, now.}
-Finally, we close the paper in Section~\ref{sec:transfer} by discussing a transfer principle, which allows
+In Section~\ref{sec:transfer} we discuss a transfer principle which allows
 a geometric transfer of characters between characteristic $p$ tori to characteristic $0$ tori.
+We close the paper with Section~\ref{sec:reciprocity}, in which we suggest that quasicharacter sheaves may play a key role in a geometric and categorical form of the local Langlands correspondence for algebraic tori over non-archimedean local fields.
 
 \subsection*{Acknowledgements}
 
@@ -1320,7 +1319,7 @@ so there is a sheaf--function dictionary for $G$.
   By the second part of condition~\ref{cs.3},
   $a(x+y) = a(x)a(y)$, so $a \in G(\bFq)^*$. By the first part of
   condition~\ref{cs.3}, $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}^{-1}}a \cdot a^{-1})$,
-  \Clifton{Fix this.}
+  %\Clifton{Fix this.}
   so $\tau$ and $\tau'$ are cohomologous. This shows that
   \begin{equation}\label{pich1}
     \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*), \qquad \qcs{L}_{/\text{iso}} \mapsto [\tau_\qcs{L}]
@@ -1756,8 +1755,6 @@ Recall that $\Fq$ is a finite field.
 Let $K$ be a non-archimedean local field with residue field $\Fq$.
 We place no restriction on the characteristic of $K$. 
 We write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$. 
-\Clifton{I think we should seriously consider replacing $d$ with $n$ in Part~2. Actually, I've just done that.}
-%For any positive integer $d$, set $A_d\ceq \OK/\pK^d$.
 Let $T$ be an algebraic torus over $K$.
 We write $\Hom_{< n}(T(K),\EEx)$ for the group of characters of $T(K)$ depth less than $n$ 
 and $\Hom_{\text{qc}}(T(K),\EEx)$ for the group of characters of $T(K)$ of arbitrary finite depth;
@@ -1797,8 +1794,8 @@ For any positive integer $n$, let
 %\end{tikzcd}
 \]
 be the functor produced by precomposing pull-back along $\OK \to \OK/\pK^n$ with the Greenberg functor.
-The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a natural transformation $P_{n} : \Gr_{d+1} \to \Gr_d$ 
-\Clifton{Do you think I should say more about $P_{n}$?}
+The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ 
+%\Clifton{Do you think I should say more about $P_{n}$?}
 \cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276}.
 For a given Néron model $\TT$ of $T$, set
 \[
@@ -1807,16 +1804,19 @@ For a given Néron model $\TT$ of $T$, set
 f_n \ceq P_n(\TT).
 \]
 %
+\Clifton{I guess this next bit needs to be re-structured.}
 Some fundamental properties of $f_n : \GN{T}_{n+1} \to \GN{T}_n$ are:
  \begin{enumerate}
    \labitem{(GN.0)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
   \labitem{(GN.1)}{smooth} $\GN{T}_n$ is a smooth commutative group scheme
   locally of finite type over $\Fq$ and the component group of $\GN{T}_n$ is
-  geometrically finitely generated. 
-  (In fact, $\pi_0(\GN{T}_n) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$,
-  and the latter is finitely generated by \cite{xarles:93a}*{2.18}.)
+  geometrically finitely generated: $\underline{T}$ is a smooth group scheme over $\OK$, by construction; since smoothness is preserved under base change, $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$ is a smooth group scheme over an Artinian ring with perfect residue field; the Greenberg functor preserves smoothness, so $\GN{T}_n$ is a smooth group scheme over $\Fq$; the identity component of any smooth group scheme is geometrically connected, hence connected, and the Greenberg functor takes the geometric identity component of $\TT_n$ to the geometric identity component of $\GN{T}_n$;
+  in fact, $\pi_0(\GN{T}_n) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$;
+  this group is finitely generated by \cite{xarles:93a}*{2.18}.
   \labitem{(GN.2)}{truncation}
-  The morphism $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is a surjective morphism of group schemes.
+  The morphism $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is a surjective morphism of group schemes. To see this, it suffices to find a morphism of schemes $i_n : \GN{T}_{n}\hookrightarrow \GN{T}_{n+1}$ such that $f_n\circ i_n = \id_{\GN{T}_n}$. Base change along $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a closed immersion of schemes $\TT_{n+1} \hookrightarrow \TT_n$ (not a morphism of group schemes). Applying the Greenberg functor produces a closed immersion of schemes $i_n : \GN{T}_{n} \hookrightarrow \GN{T}_{n+1}$. 
+\Clifton{I still need to confirm this claim.}
+Although $i_n$ is not a morphism of group schemes, it is a section of $f_n : \GN{T}_{n+1}\to \GN{T}_n$.
   \end{enumerate}
 %
 We remark that $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is not induced from a morphism of Néron models.
@@ -1876,16 +1876,18 @@ natural transformation between additive functors.
 
 
 For any $n< m$ (positive integers) define $f_{n\leq m} : \GN{T}_{m} \to \GN{T}_{n}$ by $f_{n\leq m}\ceq f_n \circ f_{n+1} \circ \cdots \circ f_{m-1}$; also set $f_{n\leq n} \ceq \id_{\GN{T}_n}$.
+\Clifton{Now I wonder if $f_{n\leq m}$ is a discrete isogeny!!! 
+What's the covering group of $f_{n\leq m}$? 
+Must be the finite group $\GN{T}_{m}(\Fq)/\GN{T}_n(\Fq)$, which could be $\TT^0(\pK^n/\pK^{m})$. 
+We might be able to build some very special finite quasicharacter sheaves on $\GN{T}_n$ this way.}
 Let $f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})$ be the functor promised by Proposition~\ref{prop:pullback}.
 %
 %\begin{proposition}\label{prop:nm}
-The functor $f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})$ is full and faithful.
+The functor $f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})$ is full and faithful, by \ref{truncation}.
 %\end{proposition}
 %
 %\begin{proof}
-%It suffices to find a morphism of schemes $i_n : \GN{T}_{n}\hookrightarrow \GN{T}_{n+1}$ such that $f_n\circ i_n = \id_{\GN{T}_n}$. Base change along $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a closed immersion of schemes $\TT_{n+1} \hookrightarrow \TT_n$ (not a morphism of group schemes). Applying the Greenberg functor produces a closed immersion of schemes $i_n : \GN{T}_{n} \hookrightarrow \GN{T}_{n+1}$. 
-%\Clifton{I still need to confirm this claim.}
-%Although $i_n$ is not a morphism of group schemes, it is a section of $f_n : \GN{T}_{n+1}\to \GN{T}_n$.
+%
 %\end{proof}
 
 We now define a category which allows us to extend the notion of quasicharacter sheaf to the pro-group scheme $\GN{T}$. 
@@ -1903,15 +1905,16 @@ $\Hom([\qcs{L}_n],[\qcs{L}_m])$ is the set of equivalence classes in $\cup_{n,m\
 \]
 for some unique $\alpha_k \in \QC(\GN{T}_k)$.
 Identities and composition are defined in the natural way.
-We refer to objects in $\QC(\GN{T})$ as \emph{quasicharacter sheaves on $\GN{T}$} or \emph{quasicharacter sheaves for $T$}.
-\end{definition}
-
 Category $\QC(\GN{T})$ carries a tensor structure under
 \[
 [\qcs{L}_n]\otimes [\qcs{L}_m] \ceq [f_{n\leq k}^*\qcs{L}_n \otimes f_{m\leq k}^*\qcs{L}_m],
 \qquad k = \max\{ n,m\}.
 \]
 Duals in $\QC(\GN{T})$ are defined by $[\qcs{L}_n]^\vee \ceq [\qcs{L}_n^\vee]$.
+We refer to objects in the rigid symmetric monoidal category $\QC(\GN{T})$ as \emph{quasicharacter sheaves on $\GN{T}$} or \emph{quasicharacter sheaves for $T$}.
+\end{definition}
+
+
 
 \begin{corollary}\label{cor:application}
 For every algebraic torus $T$ over $K$, the trace of Frobenius 
@@ -2015,6 +2018,7 @@ Combining this with Theorem~\ref{thm:application} gives the geometrization and c
 \end{corollary}
 
 \section{Toward geometric reciprocity}
+\label{sec:reciprocity}
 
 As indicated in the Introduction, we are tantalized 
 by the idea that quasicharacter sheaves for $T$ 
@@ -2058,7 +2062,7 @@ there is a canonical isomorphism
 \]
 And Weil restriction behaves properly with respect to the Greenberg transform:
 there is a canonical isomorphism 
-\Clifton{Really?}
+\Clifton{References needed!}
 \[
 \Gr_{n} \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})
 \iso
