@@ -804,7 +804,7 @@ To define the category of finite quasicharacter sheaves we must work a bit harde
 Consider the following category $C(G)$.
 Let us say that $f : H\to G$ is a \emph{discrete isogeny} if it is a a finite, surjective
 \'etale morphism and a morphism of commutative group $\Fq$-schemes, for which
-the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $f^{-1}{\bar e}$ is trivial.
+the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $f^{-1}({\bar e})$ is trivial.
 An object in $C(G)$ is a pair $(f,\psi)$ where: 
 $f : H\to G$ is a discrete isogeny 
 and $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$;
@@ -1540,33 +1540,13 @@ $G^0\hookrightarrow G$ determines a monoidal functor
 $\qcs{L}\mapsto \qcs{L}\vert_{G^0}$ from $\QC(G)$ to $\QC(G^0)$.  In
 this section we show that this functor is essentially surjective. 
 
-\begin{proposition}\label{prop:restriction}
-  The restriction functor $\QC(G)\to \QC(G^0)$ is essentially surjective.
-\end{proposition}
-
-\begin{proof}
-  The identity component $G^0$ of $G$ is a connected algebraic group over $\Fq$, 
-  \Clifton{This needs to be treated more carefully!}
-  clopen in $G$ \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
-    By Proposition~\ref{prop:connected}, every
-  quasicharacter sheaf on $G^0$ is isomorphic to a 
-  finite quasicharacter sheaf on $G^0$, 
-  so to prove the proposition it suffices to show that every 
-  finite quasicharacter sheaf on $G^0$ extends to a quasicharacter sheaf on $G$.
-  
- Let $(\pi,\psi)$ be a finite quasicharacter sheaf on $G^0$.
- By Lemma~\ref{lemma:ext}, there is an extension of the 
- discrete isogeny $\pi : B \to G^0$ 
- (see Section~\ref{sec:finite} for the definition of a discrete isogeny) 
- to a discrete isogeny $f : H \to G^0$ 
- such that $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism.
- Then $(f,\psi)$ is a finite quasicharacter sheaf on $G$.
- Then $(f,\psi)\vert_{G^0} \iso (\pi,\psi)$,
- completing the proof that $\QC(G)\to \QC(G^0)$ is essentially surjective.
-\end{proof}
+Recall from Section~\ref{sec:finite} that 
+a morphism $f : H\to G$ of group $\Fq$-schemes is a discrete isogeny 
+if it is a finite, surjective \'etale morphism and 
+the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $f^{-1}{\bar e}$ is trivial.
 
 \begin{lemma}\label{lemma:ext}
-Every discrete isogeny (see Section~\ref{sec:finite}) to $G^0$ extends to a discrete
+Every discrete isogeny  to $G^0$ extends to a discrete
 isogeny to $G$ such that the component group of the covering space is isomorphic
 to the component group of $G$.
 \end{lemma}
@@ -1639,6 +1619,35 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
   descends to a diagram of $\Fq$-schemes since the $\bFq$-points of
   the objects come equipped with continuous $\Gamma$-actions, and the
   morphisms are $\Gamma$-equivariant.
+\end{proof}
+
+\begin{proposition}\label{prop:restriction}
+  The restriction functor $\QC(G)\to \QC(G^0)$ is essentially surjective.
+\end{proposition}
+
+\begin{proof}
+  Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
+  identity component $G^0$ of $G$ is a connected smooth, 
+  geometrically reduced group scheme of finite type over $\Fq$, by
+   \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
+	Since $\Fq$ is a finite field, $G^0$ is actually reduced over $\Fq$;
+	see \cite{stacks-project}*{\href{http://stacks.math.columbia.edu/tag/035X}{Tag 035X}}.
+	It follows that $G^0$ is a connected algebraic group.
+    By Proposition~\ref{prop:connected}, every
+  quasicharacter sheaf on $G^0$ is isomorphic to a 
+  finite quasicharacter sheaf on $G^0$, 
+  so to prove the proposition it suffices to show that every 
+  finite quasicharacter sheaf on $G^0$ extends to a quasicharacter sheaf on $G$.
+  
+ Let $(\pi,\psi)$ be a finite quasicharacter sheaf on $G^0$.
+ By Lemma~\ref{lemma:ext}, there is an extension of the 
+ discrete isogeny $\pi : B \to G^0$ 
+ (see Section~\ref{sec:finite} for the definition of a discrete isogeny) 
+ to a discrete isogeny $f : H \to G^0$ 
+ such that $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism.
+ Then $(f,\psi)$ is a finite quasicharacter sheaf on $G$.
+ Then $(f,\psi)\vert_{G^0} \iso (\pi,\psi)$,
+ completing the proof that $\QC(G)\to \QC(G^0)$ is essentially surjective.
 \end{proof}
 
 \section{The sheaf--function dictionary for non-connected groups}
@@ -1950,7 +1959,7 @@ and to all algebraic tori $T$ over $K$, without placing any restrictions on the 
 or on the ramification of $T$. Because of this, it is natural to ask if we can compare
 quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a
 natural comparison between characters of $T(K)$ and of $T'(K')$.
-This comparison of has been made precise in \cite{chai-yu:01a}, \David{more specific citation?}
+This comparison of has been made precise in \cite{chai-yu:01a}, \David{more specific citation?}\Clifton{In this case, maybe not necessary.}
 building on ideas of \cite{deligne:84a}. 
 
 We recall the notion of $N$-congruent tori from  \cite{chai-yu:01a}*{\S 2}.
