@@ -277,7 +277,7 @@ is a direct generalization of the sheaf--function dictionary to the case of comm
 group schemes which are not necessarily connected or finite type.  The main use
 of the term character sheaf is due to Lusztig: it is applied to certain perverse sheaves on connected reductive algebraic groups over algebraically closed fields in \cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on reductive groups over algebraically closed fields with cyclic component groups in the series of papers beginning with \cite{lusztig:disconnected1}.  
 When commutative, such groups are extensions of $\ZZ/n\ZZ$ by a torus,
-in which case is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
+in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
 
 We close the introduction with a more detailed description of the structure of this paper.
 In Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
@@ -303,7 +303,7 @@ induces an essentially surjective functor of quasicharacter sheaves.
 Section~\ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem: trace of Frobenius
 is an isomorphism for $G$ as long as the geometric component group is finitely generated.
 
-In Section~\ref{sec:GN} we introduce the Greenberg transform of N\'eron models of tori, which produce
+In Section~\ref{sec:GN} we review the Greenberg transform of N\'eron models of tori, which produces
 group schemes over $\Fq$ from algebraic tori $T$ over $K$.
 Section~\ref{sec:bdchar} then uses Theorem~\ref{thm:snake} to give a geometrization of characters of $T$
 of bounded depth.
@@ -311,7 +311,7 @@ We give a reinterpretation of this result in Section~\ref{sec:quasichar}, using 
 geometrize all quasicharacters of $T$.  Sections~\ref{sec:bdchar} and \ref{sec:quasichar} also include
 functoriality results that we hope to use in a future discussion of class field theory.
 In Section~\ref{sec:transfer} we discuss a transfer principle which allows
-a geometric transfer of characters between characteristic $p$ tori to characteristic $0$ tori.
+a geometric transfer of characters between characteristic $p$ tori and characteristic $0$ tori.
 We close the paper with Section~\ref{sec:reciprocity}, in which we suggest that quasicharacter sheaves may play a key role in a geometric and categorical form of the local Langlands correspondence for algebraic tori over non-archimedean local fields.
 
 \subsection*{Acknowledgements}
@@ -1546,8 +1546,9 @@ this section we show that this functor is essentially surjective.
 
 \begin{proof}
   The identity component $G^0$ of $G$ is a connected algebraic group over $\Fq$, 
+  \Clifton{This needs to be treated more carefully!}
   clopen in $G$ \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
-  By Proposition~\ref{prop:connected}, every
+    By Proposition~\ref{prop:connected}, every
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
   so to prove the proposition it suffices to show that every 
@@ -1805,23 +1806,28 @@ For a given Néron model $\TT$ of $T$, set
 \qquad \text{and}\qquad
 f_n \ceq P_n(\TT).
 \]
-%
-\Clifton{I guess this next bit needs to be re-structured.}
 Some fundamental properties of $f_n : \GN{T}_{n+1} \to \GN{T}_n$ are:
  \begin{enumerate}
    \labitem{(GN.0)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
-  \labitem{(GN.1)}{smooth} $\GN{T}_n$ is a smooth commutative group scheme
-  locally of finite type over $\Fq$ and the component group of $\GN{T}_n$ is
-  geometrically finitely generated: $\underline{T}$ is a smooth group scheme over $\OK$, by construction; since smoothness is preserved under base change, $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$ is a smooth group scheme over an Artinian ring with perfect residue field; the Greenberg functor preserves smoothness, so $\GN{T}_n$ is a smooth group scheme over $\Fq$; the identity component of any smooth group scheme is geometrically connected, hence connected, and the Greenberg functor takes the geometric identity component of $\TT_n$ to the geometric identity component of $\GN{T}_n$;
-  in fact, $\pi_0(\GN{T}_n) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$;
+  \labitem{(GN.1)}{smooth} 
+  $\GN{T}_n$ is a smooth commutative group scheme locally of finite type over $\Fq$ 
+  and the component group of $\GN{T}_n$ is geometrically finitely generated. 
+  Note that $\underline{T}$ is a smooth group scheme over $\OK$, by construction. 
+  Since smoothness is preserved under base change, 
+  $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$ 
+  is a smooth group scheme over an Artinian ring with perfect residue field. 
+  The Greenberg functor preserves smoothness, 
+  so $\GN{T}_n$ is a smooth group scheme locally of finite type over $\Fq$. 
+  The Greenberg functor takes the geometric identity component of $\TT_n$ 
+  to the geometric identity component of $\GN{T}_n$;
+  in fact, $\pi_0(\GN{T}_n) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$ and
   this group is finitely generated by \cite{xarles:93a}*{2.18}.
   \labitem{(GN.2)}{truncation}
-  The morphism $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is a surjective morphism of group schemes. To see this, it suffices to find a morphism of schemes $i_n : \GN{T}_{n}\hookrightarrow \GN{T}_{n+1}$ such that $f_n\circ i_n = \id_{\GN{T}_n}$. Base change along $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a closed immersion of schemes $\TT_{n+1} \hookrightarrow \TT_n$ (not a morphism of group schemes). Applying the Greenberg functor produces a closed immersion of schemes $i_n : \GN{T}_{n} \hookrightarrow \GN{T}_{n+1}$. 
-\Clifton{I'm working on this.}
-Although $i_n$ is not a morphism of group schemes, it is a section of $f_n : \GN{T}_{n+1}\to \GN{T}_n$.
-  \end{enumerate}
-%
-We remark that $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is not induced from a morphism of Néron models.
+  The morphism $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is a morphism of group schemes over $\Fq$. 
+  This follows from the fact that $P_{n}$ is a natural transformation between additive functors.
+  We remark that $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is not induced from a morphism of Néron models.
+\end{enumerate}
+
 
 \begin{definition}
 The \emph{Greenberg transform of the N\'eron model of $T$} is the pro-group scheme over $\Fq$ given by $\cdef{\GN{T}} \ceq \varprojlim_{n\in \ZZ_{>0}} \GN{T}_{n}$ (with reference to the morphisms $f_n : \GN{T}_{n+1} \to \GN{T}_n$).
@@ -1878,17 +1884,8 @@ natural transformation between additive functors.
 
 
 For any $n< m$ (positive integers) define $f_{n\leq m} : \GN{T}_{m} \to \GN{T}_{n}$ by $f_{n\leq m}\ceq f_n \circ f_{n+1} \circ \cdots \circ f_{m-1}$; also set $f_{n\leq n} \ceq \id_{\GN{T}_n}$.
-%\Clifton{Now I wonder if $f_{n\leq m}$ is a discrete isogeny!!!  What's the covering group of $f_{n\leq m}$?  Must be the finite group $\GN{T}_{m}(\Fq)/\GN{T}_n(\Fq)$, which could be $\TT^0(\pK^n/\pK^{m})$. We might be able to build some very special finite quasicharacter sheaves on $\GN{T}_n$ this way.}
-Let $f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})$ be the functor promised by Proposition~\ref{prop:pullback}.
-%
-%\begin{proposition}\label{prop:nm}
-The functor $f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})$ is full and faithful, by \ref{truncation}.
-%\end{proposition}
-%
-%\begin{proof}
-%
-%\end{proof}
-
+Note that $f_{n\leq m}:  \GN{T}_{m} \to \GN{T}_{n}$ is a morphism of group schemes over $\Fq$.
+Let $f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})$ be the functor produced by applying Proposition~\ref{prop:pullback} to $f_{n\leq m}$.
 We now define a category which allows us to extend the notion of quasicharacter sheaf to the pro-group scheme $\GN{T}$. 
 
 \begin{definition}
