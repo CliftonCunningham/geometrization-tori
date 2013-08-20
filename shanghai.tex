@@ -469,11 +469,12 @@ from the category of smooth commutative
 group schemes locally of finite type over $\Fq$ to the category of abelian groups.
 \end{proposition}
 
-The proof of Proposition~\ref{prop:functorialG} requires the results from the next section.
+The proof of Proposition~\ref{prop:functorialG} will be given at the end of the next section.
 
 \section{Pull-back and products}\label{sec:pullback}
 
-\David{insert some commentary on this proposition: it will be very useful to us}
+%\David{insert some commentary on this proposition: it will be very useful to us}
+As a step toward the proof of Proposition~\ref{prop:functorialG} we show that every morphism  $H \to G$ of smooth group schemes locally of finite type over $\Fq$ induces a monoidal functor from quasicharacter sheaves on $G$ to quasicharacters on $H$. This simple but important result will also play a role in the proof of many other propositions in this paper.
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
@@ -483,7 +484,6 @@ The proof of Proposition~\ref{prop:functorialG} requires the results from the ne
   \begin{tikzcd}[row sep=20, column sep=30]
    \QCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \QCiso{H} \dar{\trFrob{H}} \\
    G(\Fq)^* \rar & H(\Fq)^*
-  %\Hom_\text{grp}(G(\Fq),\EEx) \rar & \Hom_\text{grp}(H(\Fq),\EEx)
   \end{tikzcd}
   \]
   is a commutative diagram of groups, where the lower homomorphism is
@@ -1794,7 +1794,7 @@ over an Artinian local ring with perfect residue field $k$
 to the category of schemes locally of finite type over $k$. 
 This functor respects open immersions, closed immersions, 
 etale morphisms, smooth morphisms and geometric components.
-Besides Greenberg's original papers, 
+Besides Greenberg's original papers, see [DG70, V, § 4, no. 1])
 see \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
 and the first few sections of \cite{stasinski:12a} 
 for background on the Greenberg functor. 
@@ -2059,16 +2059,25 @@ And Weil restriction behaves properly with respect to the Greenberg transform:
 there is a canonical isomorphism 
 \Clifton{References needed!}
 \[
-\Gr_{n} \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})
+\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)
 \iso
 \Res_{k'/k} \Gr_n(\underline{T'}),
 \]
 where $k'$ is the residue field for $K'$.
 And the Greenberg tranforms respects products:
 \[
-\Gr_n(\underline{T'}) = \Gr_n(\underline{T})\times_{k} {k'}.
+\Gr_n(\underline{T'}) = \Gr_n(\underline{T}\times_{k} {k'}) \iso \Gr_n(\underline{T})\times_{k} {k'} = \Gr_n(\underline{T})_{k'}.
 \]
+Thus, the 
 Now use Proposition~\ref{prop:csbe}.
+\[
+\begin{tikzcd}
+\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota^*} \dar[swap]{\trFrob{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{\trFrob{G}} \\
+G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
+\end{tikzcd}
+\]
+
+
 \end{proof}
 
 
