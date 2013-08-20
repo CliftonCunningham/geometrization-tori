@@ -1942,7 +1942,7 @@ Observe that $\QC(\GN{T})$ comes equipped with monoidal subcategories
 \[
 \begin{tikzcd}
 \ & & & \QC(\GN{T})\\
-\arrow{urrr}{F_n} \QC(\GN{T}_n) \arrow[swap]{rr}{f_{n\leq m}^*} && \QC(\GN{T}_m) \arrow[swap]{ur}{F_m} & \\
+\arrow{urrr}{F_n} \QC(\GN{T}_n) \arrow[swap]{rr}{f_{n\leq m}^*} && \QC(\GN{T}_m) \arrow[swap]{ur}{F_m} & 
 \end{tikzcd}
 \]
 defined by $F_n(\qcs{L}) = [\qcs{L}_n]$ and $F_n(\alpha_n) = [\alpha_n]$, for all positive integers $n\leq m$.
@@ -2020,60 +2020,7 @@ by the idea that quasicharacter sheaves for $T$
 may play a key role in a new geometric, categorial version 
 of the local Langlands correspondence for algebraic tori 
 over non-archimedean local fields. 
-As with the local Langlands correspondence for algebraic tori over local fields, 
-it should be possible to reduce the essential points of the argument to the case $T= \Gm{K}$,
-provided that the category of quasicharacter sheaves behaves properly with regard to
-Weil restriction; see \cite{yu:09a}*{Thm 7.5 (2)}. 
-The next proposition shows that the category of quasicharacter sheaves for 
-algebraic tori does indeed behave properly with regard to Weil restriction.
-
-\begin{proposition}
-Let $K'/K$ be a finite Galois extension; 
-let $k'/k$ be the corresponding finite Galois extension of residue fields.
-Let $T$ be an algebraic torus over $K$ and 
-set $T' = T \times_\Spec{K} \Spec{K'}$.  
-The natural inclusion $T \hookrightarrow \Res_{K'/K} T'$ 
-induces a map of $k$-schemes
-\[
-\GN{T} \hookrightarrow \Res_{k'/k} \GN{T}'
-\]
-and thus a functor on quasicharacter sheaves through pullback.
-\[
-\QC(\Res_{k'/k} \GN{T}') \to \QC(\GN{T}).
-\]
-Through trace of Frobenius, this functor induces the homomorphism
-\[
-\begin{tikzcd}[column sep=60]
-\Hom_{\text{qc}}(T(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{T(K)}} &\Hom_{\text{qc}}(T(K), \EEx).
-\end{tikzcd}
-\] 
-\end{proposition}
-
-\begin{proof}
-Weil restriction behaves properly with respect to formation of Néron models:
-adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} 
-gives a canonical isomorphism 
-\Clifton{I need to check this.}
-\begin{equation}
-\underline{\Res_{K'/K}(T')} \iso \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'}).
-\end{equation}
-And Weil restriction behaves properly with respect to the Greenberg transform:
-\Clifton{I'm not so sure about this . . . In fact, I don't believe it!}
-\begin{equation}
-\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)
-\iso
-\Res_{k'/k} \Gr_n(\underline{T'}),
-\end{equation}
-where $k'$ is the residue field for $K'$.
-And the Greenberg transform respects products:
-\[
-\Gr_n(\underline{T'}) = \Gr_n(\underline{T}\times_{k} {k'}) \iso \Gr_n(\underline{T})\times_{k} {k'} = \Gr_n(\underline{T})_{k'}.
-\]
-Thus, the 
-Now use Proposition~\ref{prop:csbe}.
-\end{proof}
-
-
+%
 This paper has shown how quasicharacter sheaves 
 on the Greenberg transform of the N\/eron model of $T$ 
 determine admissible characters of $T(K)$, and vice versa, functorially.
@@ -2084,7 +2031,7 @@ determine Langlands parameters for $T$, and vice versa, functorially.
 \[
 \begin{tikzcd}
 \ & \arrow[swap]{dl}{\trFrob{G}} \QCiso{\GN{T}} \arrow[dashed]{dr}  & \\
-\Hom_{\text{qc}}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(K,\hat{T}_\ell) \\
+\Hom_{\text{qc}}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(K,\hat{T}_\ell) 
 \end{tikzcd}
 \]
 We suspect that it is possible to extract Langlands parameters 
