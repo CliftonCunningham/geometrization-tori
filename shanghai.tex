@@ -1794,8 +1794,7 @@ over an Artinian local ring with perfect residue field $k$
 to the category of schemes locally of finite type over $k$. 
 This functor respects open immersions, closed immersions, 
 etale morphisms, smooth morphisms and geometric components.
-Besides Greenberg's original papers, see [DG70, V, § 4, no. 1])
-see \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
+Besides Greenberg's original papers, see \cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1}, \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
 and the first few sections of \cite{stasinski:12a} 
 for background on the Greenberg functor. 
 
@@ -1806,9 +1805,10 @@ For any positive integer $n$, let
 %\end{tikzcd}
 \]
 be the functor produced by precomposing pull-back along $\OK \to \OK/\pK^n$ with the Greenberg functor.
-The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ 
+The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$.
 %\Clifton{Do you think I should say more about $P_{n}$?}
-\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276}.
+%\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276}.
+\Clifton{I took the reference to BLR for $P_n$ out, because it didn't actually give any information. This must be in DG, but I don't have a copy.}
 For a given Néron model $\TT$ of $T$, set
 \[
 \GN{T}_n \ceq \Gr_n(\TT)
@@ -2051,33 +2051,26 @@ Through trace of Frobenius, this functor induces the homomorphism
 
 \begin{proof}
 Weil restriction behaves properly with respect to formation of Néron models:
-there is a canonical isomorphism
-\[
+adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} 
+gives a canonical isomorphism 
+\Clifton{I need to check this.}
+\begin{equation}
 \underline{\Res_{K'/K}(T')} \iso \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'}).
-\]
+\end{equation}
 And Weil restriction behaves properly with respect to the Greenberg transform:
-there is a canonical isomorphism 
-\Clifton{References needed!}
-\[
+\Clifton{I'm not so sure about this . . . In fact, I don't believe it!}
+\begin{equation}
 \Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)
 \iso
 \Res_{k'/k} \Gr_n(\underline{T'}),
-\]
+\end{equation}
 where $k'$ is the residue field for $K'$.
-And the Greenberg tranforms respects products:
+And the Greenberg transform respects products:
 \[
 \Gr_n(\underline{T'}) = \Gr_n(\underline{T}\times_{k} {k'}) \iso \Gr_n(\underline{T})\times_{k} {k'} = \Gr_n(\underline{T})_{k'}.
 \]
 Thus, the 
 Now use Proposition~\ref{prop:csbe}.
-\[
-\begin{tikzcd}
-\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota^*} \dar[swap]{\trFrob{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{\trFrob{G}} \\
-G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
-\end{tikzcd}
-\]
-
-
 \end{proof}
 
 
