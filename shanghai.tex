@@ -2050,22 +2050,28 @@ Through trace of Frobenius, this functor induces the homomorphism
 \end{proposition}
 
 \begin{proof}
-Weil restriction behaves properly with respect to formation of Néron models:
-adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} 
+Adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} for lft-Neron models
 gives a canonical isomorphism 
-\Clifton{I need to check this.}
-\begin{equation}
+\begin{equation}\label{weilneron}
 \underline{\Res_{K'/K}(T')} \iso \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'}).
 \end{equation}
-And Weil restriction behaves properly with respect to the Greenberg transform:
-\Clifton{I'm not so sure about this . . . In fact, I don't believe it!}
-\begin{equation}
+
+Weil restriction is also compatible with the Greenberg transform, in the following sense: if $e$ is the ramification degree of $K'/K$ then
+\begin{equation}\label{weilgreenberg}
 \Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)
 \iso
-\Res_{k'/k} \Gr_n(\underline{T'}),
+\Res_{k'/k} \Gr_{en}(\underline{T'}),
 \end{equation}
 where $k'$ is the residue field for $K'$.
-And the Greenberg transform respects products:
+To see this, we employ the functor of points perspective. Let $R$ be any $\Fq$-algebra. Then 
+\[
+\begin{aligned}
+\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)(R)
+&=
+\end{aligned}
+\]
+
+
 \[
 \Gr_n(\underline{T'}) = \Gr_n(\underline{T}\times_{k} {k'}) \iso \Gr_n(\underline{T})\times_{k} {k'} = \Gr_n(\underline{T})_{k'}.
 \]
