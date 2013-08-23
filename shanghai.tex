@@ -308,7 +308,7 @@ group schemes over $\Fq$ from algebraic tori $T$ over $K$.
 Section~\ref{sec:bdchar} then uses Theorem~\ref{thm:snake} to give a geometrization of characters of $T$
 of bounded depth.
 We give a reinterpretation of this result in Section~\ref{sec:quasichar}, using a limit process to simultaneously
-geometrize all quasicharacters of $T$.  Sections~\ref{sec:bdchar} and \ref{sec:quasichar} also include
+geometrize all quasicharacters of $T$.  Sections~\ref{sec:bdchar}, \ref{sec:quasichar} and \ref{sec:wrK} also include
 functoriality results that we hope to use in a future discussion of class field theory.
 In Section~\ref{sec:transfer} we discuss a transfer principle which allows
 a geometric transfer of characters between characteristic $p$ tori and characteristic $0$ tori.
@@ -1798,23 +1798,28 @@ Besides Greenberg's original papers, see \cite{demazure-gabriel:GroupesAlgebriqu
 and the first few sections of \cite{stasinski:12a} 
 for background on the Greenberg functor. 
 
-For any positive integer $n$, let
+\begin{definition}\label{def:Grn}
+For any local field $K$ with residue field $\Fq$ and for any positive integer $n$, let
 \[
 %\begin{tikzcd}
 \Gr_n : \left( \text{Schemes} \atop \text{lft over $\OK$}\right) \to \left( \text{Schemes} \atop \text{lft over $\Fq$}\right)
 %\end{tikzcd}
 \]
 be the functor produced by precomposing pull-back along $\OK \to \OK/\pK^n$ with the Greenberg functor.
+\end{definition}
+
 The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$.
 %\Clifton{Do you think I should say more about $P_{n}$?}
 %\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276}.
-\Clifton{I took the reference to BLR for $P_n$ out, because it didn't actually give any information. This must be in DG, but I don't have a copy.}
+\Clifton{I took the reference to BLR for $P_n$ out, because it didn't actually give any information. 
+This must be in DG, but I don't have a copy.}
 For a given Néron model $\TT$ of $T$, set
 \[
 \GN{T}_n \ceq \Gr_n(\TT)
 \qquad \text{and}\qquad
 f_n \ceq P_n(\TT).
 \]
+
 Some fundamental properties of $f_n : \GN{T}_{n+1} \to \GN{T}_n$ are:
  \begin{enumerate}
    \labitem{(GN.0)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
@@ -1841,6 +1846,8 @@ Some fundamental properties of $f_n : \GN{T}_{n+1} \to \GN{T}_n$ are:
 \begin{definition}
 The \emph{Greenberg transform of the N\'eron model of $T$} is the pro-group scheme over $\Fq$ given by $\cdef{\GN{T}} \ceq \varprojlim_{n\in \ZZ_{>0}} \GN{T}_{n}$ (with reference to the morphisms $f_n : \GN{T}_{n+1} \to \GN{T}_n$).
 \end{definition}
+
+If $K = \mathbb{Q}_q$ and $T = \Gm{\mathbb{Q}_q}$ then $\GN{T}^0 = \mathbb{W}^*_{\FF_q}$, the group $\FF_q$-scheme of units in the ring scheme $\mathbb{W}_{\FF_q}$. 
 
 \section{Application to quasicharacters of bounded depth} \label{sec:bdchar}
 
@@ -1942,7 +1949,7 @@ Observe that $\QC(\GN{T})$ comes equipped with monoidal subcategories
 \[
 \begin{tikzcd}
 \ & & & \QC(\GN{T})\\
-\arrow{urrr}{F_n} \QC(\GN{T}_n) \arrow[swap]{rr}{f_{n\leq m}^*} && \QC(\GN{T}_m) \arrow[swap]{ur}{F_m} & \\
+\arrow{urrr}{F_n} \QC(\GN{T}_n) \arrow[swap]{rr}{f_{n\leq m}^*} && \QC(\GN{T}_m) \arrow[swap]{ur}{F_m} & 
 \end{tikzcd}
 \]
 defined by $F_n(\qcs{L}) = [\qcs{L}_n]$ and $F_n(\alpha_n) = [\alpha_n]$, for all positive integers $n\leq m$.
@@ -1951,6 +1958,145 @@ $\theta: \varinjlim_{d\in \ZZ_{>0}} \QCiso{\GN{T}_d} \to \QCiso{\GN{T}}$; this i
 with inverse $[\qcs{L}]_{/\text{iso}} \mapsto [\qcs{L}_{/\text{iso}}]$.
 Now use Theorem~\ref{thm:application}.
 \end{proof}
+
+\section{Weil restriction for local fields}
+\label{sec:wrK}
+
+As indicated in the Introduction, we are tantalized 
+by the idea that quasicharacter sheaves for $T$ 
+may play a key role in a new geometric, categorial version 
+of the local Langlands correspondence for algebraic tori 
+over non-archimedean local fields. 
+As with the local Langlands correspondence for algebraic tori over local fields, 
+it should be possible to reduce the essential points of the argument to the case $T= \Gm{K}$,
+provided that the category of quasicharacter sheaves behaves properly with regard to
+Weil restriction; see \cite{yu:09a}*{Thm 7.5 (2)}. 
+The next proposition shows that the category of quasicharacter sheaves for 
+algebraic tori does indeed behave properly with regard to Weil restriction.
+
+\begin{lemma}\label{lemma:wrK}
+Weil restriction is compatible with the Greenberg transform in the following sense: 
+if $e$ is the ramification degree of $K'/K$ then, for every positive integer $n$,
+\begin{equation}%\label{weilgreenberg}
+\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)
+\iso
+\Res_{k'/k} \Gr_{en}(\underline{T'}),
+\end{equation}
+where $k'$ is the residue field for $K'$.
+\end{lemma}
+
+\begin{proof}
+First, note that since $\Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})$ 
+is a scheme over $\OK$, 
+the Greenberg transform $\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)$ 
+is obtained by base change along $\OK \to \OK/\pK^n$ 
+followed by the Greenberg functor over the Artinian ring $\OK/\pK^n$. 
+On the other hand, since $\underline{T'}$ is a scheme over $\mathcal{O}_{K'}$, 
+the Greenberg transform $\Gr_{en}(\underline{T'})$ is defined by base change along 
+$\mathcal{O}_{K'} \to \mathcal{O}_{K'}/\mathfrak{p}_{K'}^{en}$ 
+followed by the Greenberg functor over the Artinian ring $\mathcal{O}_{K'}/\mathfrak{p}_{K'}^{en}$; 
+see Definition~\ref{def:Grn}. 
+Note also that 
+\begin{equation}\label{nem}
+\mathcal{O}_{K'} \otimes_{\OK} \OK/\pK^n \iso \mathcal{O}_{K'}/\mathfrak{p}_{K'}^{en}.
+\end{equation}
+
+Now, to prove the lemma, we may employ the functor of points perspective 
+and exhibit an isomorphism of functors from 
+$\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)$ 
+to $\Res_{k'/k} \Gr_{en}(\underline{T'})$ as functors 
+from the category of $\Fq$-algebras to the category of groups.
+To that end, let $R$ be any $\Fq$-module. 
+Let $\mathbb{W}$ be the Witt functor from the category of $\Fq$-algebras to rings. 
+By the definition of the Greenberg transform, the Weil restriction functor and \eqref{nem},
+\[
+\begin{aligned}
+\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)(R)
+&= \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\left( \OK/\pK^n \otimes_{\mathbb{W}(k)} \mathbb{W}(R)\right)\\
+&= \underline{T'}\left(\mathcal{O}_{K'} \otimes_{\OK} \OK/\pK^n \otimes_{\mathbb{W}(k)} \mathbb{W}(R)\right)\\
+&= \underline{T'}\left(\mathcal{O}_{K'} /\mathfrak{p}_{K'}^{en} \otimes_{\mathbb{W}(k)} \mathbb{W}(R)\right);
+\end{aligned}
+\]
+on the other hand,
+\[
+\begin{aligned}
+\Res_{k'/k} \Gr_{en}(\underline{T'})(R)
+&= \Gr_{en}(\underline{T'}) (R\otimes_{k} k')\\
+&= (\underline{T'})\left( \mathcal{O}_{K'} /\mathfrak{p}_{K'}^{en} \otimes_{\mathbb{W}(k')} \mathbb{W}(R\otimes_{k} k')\right)\\
+&= (\underline{T'})\left( \mathcal{O}_{K'} /\mathfrak{p}_{K'}^{en} \otimes_{\mathbb{W}(k')} \mathbb{W}(R) \otimes_{\mathbb{W}(k)} \mathbb{W}(k')\right)\\
+&= (\underline{T'})\left( \mathcal{O}_{K'} /\mathfrak{p}_{K'}^{en} \otimes_{\mathbb{W}(k)} \mathbb{W}(R)\right).
+\end{aligned}
+\]
+So the ring isomorphism 
+\[
+\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)(R) \to \Res_{k'/k} \Gr_{en}(\underline{T'})(R)
+\]
+is apparent, as are the commuting ring homomorphisms
+\[
+\begin{tikzcd}
+\arrow{d} \Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)(R) \arrow{r}{\iso} & \arrow{d} \Res_{k'/k} \Gr_{en}(\underline{T'})(R)\\
+\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)(R') \arrow{r}{\iso} & \Res_{k'/k} \Gr_{en}(\underline{T'})(R'),
+\end{tikzcd}
+\]
+for every map $R\to R'$ of $\Fq$-algebras.
+\end{proof}
+
+
+\begin{proposition}\label{prop:wrK}
+Let $K'/K$ be a finite Galois extension; 
+let $k'/k$ be the corresponding finite Galois extension of residue fields.
+Let $T$ be an algebraic torus over $K$ and 
+set $T' = T \times_\Spec{K} \Spec{K'}$.
+The natural inclusion 
+\[
+T \hookrightarrow \Res_{K'/K} T' =: T''
+\]
+induces a map of $k$-schemes
+$\GN{T} \hookrightarrow \GN{T}''$
+and thus a functor on quasicharacter sheaves through pullback:
+\begin{equation}\label{eq:wrK}
+\QC(\GN{T}'') \to \QC(\GN{T}).
+\end{equation}
+Through trace of Frobenius, this functor induces the homomorphism
+\[
+\begin{tikzcd}[column sep=60]
+\Hom_{\text{qc}}(T(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{T(K)}} &\Hom_{\text{qc}}(T(K), \EEx).
+\end{tikzcd}
+\]  
+\end{proposition}
+
+\begin{proof}
+Adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} for lft-Neron models
+gives a canonical isomorphism 
+\begin{equation}\label{weilneron}
+\underline{\Res_{K'/K}(T')} \iso \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'}).
+\end{equation}
+By Lemma~\ref{lemma:wrK}, 
+\begin{equation}\label{weilgreenberg}
+\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)
+\iso
+\Res_{k'/k} \Gr_{en}(\underline{T'}).
+\end{equation}
+This gives
+\[
+\GN{T}''_n \iso \Res_{k'/k} \GN{T}'_{en}.
+\]
+\Clifton{Now I'm stuck here.}
+But
+\[
+\GN{T}'_{en} = \Gr_{en}(\underline{T'}) = \Gr_{en}(\underline{T}\times_{\OK} {\mathcal{O}_{K'}}) \iso . . . 
+\]
+Now use Proposition~\ref{prop:csbe}.
+\end{proof}
+
+If we specialize Proposition~\ref{prop:wrK} to the case when 
+$T = \Gm{K}$ then $T'' = \Res_{K'/K} \Gm{K'}$ and we see that the functor $\QC(\GN{T}'')\to \QC(\GN{T})$ is the geometrization and categorification of restriction of quasicharacters from $(K')^\times$ to $K^\times$:
+\[
+\begin{tikzcd}[column sep=60]
+\Hom_{\text{qc}}((K')^\times, \EEx) \arrow{r}{\chi \mapsto \chi\vert_{K^\times}} &\Hom_{\text{qc}}(K^\times, \EEx).
+\end{tikzcd}
+\] 
+
 
 \section{Transfer of quasicharacter sheaves} \label{sec:transfer}
 
@@ -1993,9 +2139,9 @@ They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
 Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
 Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent 
 then there is a canonical isomorphism of smooth group schemes
- \[
+ $
   \TT_{N-3h} \to \TT'_{N-3h}
- \]
+ $
  determined by $\alpha, \beta$ and $\phi$.
 Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
 
@@ -2012,96 +2158,32 @@ Combining this with Theorem~\ref{thm:application} gives the geometrization and c
  through the trace of Frobenius.
 \end{corollary}
 
-\section{Toward geometric reciprocity}
+
+\section{Toward geometric reciprocity for tori over local fields}
 \label{sec:reciprocity}
 
-As indicated in the Introduction, we are tantalized 
-by the idea that quasicharacter sheaves for $T$ 
-may play a key role in a new geometric, categorial version 
-of the local Langlands correspondence for algebraic tori 
-over non-archimedean local fields. 
-As with the local Langlands correspondence for algebraic tori over local fields, 
-it should be possible to reduce the essential points of the argument to the case $T= \Gm{K}$,
-provided that the category of quasicharacter sheaves behaves properly with regard to
-Weil restriction; see \cite{yu:09a}*{Thm 7.5 (2)}. 
-The next proposition shows that the category of quasicharacter sheaves for 
-algebraic tori does indeed behave properly with regard to Weil restriction.
-
-\begin{proposition}
-Let $K'/K$ be a finite Galois extension; 
-let $k'/k$ be the corresponding finite Galois extension of residue fields.
-Let $T$ be an algebraic torus over $K$ and 
-set $T' = T \times_\Spec{K} \Spec{K'}$.  
-The natural inclusion $T \hookrightarrow \Res_{K'/K} T'$ 
-induces a map of $k$-schemes
-\[
-\GN{T} \hookrightarrow \Res_{k'/k} \GN{T}'
-\]
-and thus a functor on quasicharacter sheaves through pullback.
-\[
-\QC(\Res_{k'/k} \GN{T}') \to \QC(\GN{T}).
-\]
-Through trace of Frobenius, this functor induces the homomorphism
-\[
-\begin{tikzcd}[column sep=60]
-\Hom_{\text{qc}}(T(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{T(K)}} &\Hom_{\text{qc}}(T(K), \EEx).
-\end{tikzcd}
-\] 
-\end{proposition}
-
-\begin{proof}
-Adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} for lft-Neron models
-gives a canonical isomorphism 
-\begin{equation}\label{weilneron}
-\underline{\Res_{K'/K}(T')} \iso \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'}).
-\end{equation}
-
-Weil restriction is also compatible with the Greenberg transform, in the following sense: if $e$ is the ramification degree of $K'/K$ then
-\begin{equation}\label{weilgreenberg}
-\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)
-\iso
-\Res_{k'/k} \Gr_{en}(\underline{T'}),
-\end{equation}
-where $k'$ is the residue field for $K'$.
-To see this, we employ the functor of points perspective. Let $R$ be any $\Fq$-algebra. Then 
-\[
-\begin{aligned}
-\Gr_{n}\left( \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})\right)(R)
-&=
-\end{aligned}
-\]
-
-
-\[
-\Gr_n(\underline{T'}) = \Gr_n(\underline{T}\times_{k} {k'}) \iso \Gr_n(\underline{T})\times_{k} {k'} = \Gr_n(\underline{T})_{k'}.
-\]
-Thus, the 
-Now use Proposition~\ref{prop:csbe}.
-\end{proof}
-
-
 This paper has shown how quasicharacter sheaves 
-on the Greenberg transform of the N\/eron model of $T$ 
+on the Greenberg transform of the Néron model of $T$ 
 determine admissible characters of $T(K)$, and vice versa, functorially.
 When coupled with the reciprocity map $\text{rec}_T $ for $T$, 
 which enjoys the same functorial properties, 
 it follows that quasicharacter sheaves for $T$ 
 determine Langlands parameters for $T$, and vice versa, functorially.
-\[
-\begin{tikzcd}
-\ & \arrow[swap]{dl}{\trFrob{G}} \QCiso{\GN{T}} \arrow[dashed]{dr}  & \\
-\Hom_{\text{qc}}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(K,\hat{T}_\ell) \\
-\end{tikzcd}
-\]
 We suspect that it is possible to extract Langlands parameters 
 from quasicharacter sheaves directly and that the reciprocity map 
 can then be be viewed as a matching between quasicharacters and Langlands parameters coming
  from the same quasicharacter sheaf. 
- Results in this paper provide some tools for reduction of the problem to the case $T=\Gm{K}$. 
+ \[
+\begin{tikzcd}
+\ & \arrow[swap]{dl}{\trFrob{G}} \QCiso{\GN{T}} \arrow[dashed]{dr} & \\
+\Hom_{\text{qc}}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(K,\hat{T}_\ell)
+\end{tikzcd}
+\]
+ Results in this paper provide tools for reduction of the problem to the case $T=\Gm{K}$. 
  In that case, our suspicions are all but confirmed 
  by the class field theory of Serre-Hazewinkel
- \citelist{\cite{serre:60a},\cite{serre:61a},\cite{demazure-gabriel:GroupesAlgebriques}*{Appendice}},
- especially as revisited in \cite{suzuki-yoshida:12a}*{\S~2}. 
+ \cite{serre:60a},\cite{serre:61a},\cite{demazure-gabriel:GroupesAlgebriques}*{Appendice},
+ especially as revisited in \cite{suzuki-yoshida:12a}*{\S 2}. 
  What remains to be done is a careful comparison of 
  quasicharacter sheaves for $\Gm{K}$ and certain local systems on
   the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{suzuki-yoshida:12a}. 
