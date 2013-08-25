@@ -244,7 +244,7 @@ in the presence of maps from $T$ to other reductive groups.  Sheaves, on the oth
 equipped with a host of functors, including pushforward.
 
 DeBacker and Reeder have recently applied Deligne-Lusztig representations to part of the
-local Langlands correspondence.% \cite{reeder-debacker:09a}.  
+local Langlands correspondence. % \cite{reeder-debacker:09a}.  
 After developing Deligne-Lusztig representations, 
 the next step Lusztig took in studying representations
 of finite groups of Lie type was to introduce character sheaves for reductive groups over $\Fq$.
@@ -1994,66 +1994,6 @@ dual to $f_{n} : \GN{T}_{n+1}(\Fq) \to \GN{T}_n(\Fq)$.
 \end{proof}
 
 
-\section{Transfer of quasicharacter sheaves} \label{sec:transfer}
-
-The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$,
-and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$
-or on the ramification of $T$. Because of this, it is natural to ask if we can compare
-quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a
-natural comparison between characters of $T(K)$ and of $T'(K')$.
-This comparison of has been made precise in \cite{chai-yu:01a}, \David{more specific citation?}\Clifton{In this case, maybe not necessary.}
-building on ideas of \cite{deligne:84a}. 
-
-We recall the notion of $N$-congruent tori from  \cite{chai-yu:01a}*{\S 2}.
-Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
-splitting over $L$ and $L'$ respectively.
-Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
- \begin{align*}
-  \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
-  \beta : \Gal(L/K) &\to \Gal(L'/K') \\
-  \phi : X^*(T) &\to X^*(T')
- \end{align*}
- satisfying the conditions
- \begin{enumerate}
-  \item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
-  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$, and
-  %: $\alpha(\gamma x) = \beta(\gamma) \alpha(x)$ for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
-  \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
- \end{enumerate}
-If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
-\begin{equation}\label{transfer}
-  \Hom_{<N}(T(K), \EEx) \iso \Hom_{<N}(T'(K'),\EEx).
-\end{equation}
-Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every
-$N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
-In this section we ask if the isomorphism \eqref{transfer} comes from an equivalence of
-categories of quasicharacter sheaves on $\GN{T}_n$ and those on $\GN{T}'_n$.
-
-One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between
-$\TT_n$ and $\TT'_n$ assuming that $T$ and $T'$ are sufficiently congruent.
-They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
-Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
-Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent 
-then there is a canonical isomorphism of smooth group schemes
- $
-  \TT_{N-3h} \to \TT'_{N-3h}
- $
- determined by $\alpha, \beta$ and $\phi$.
-Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
-
-\begin{corollary}\label{cor:transfer}
- With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $n = N-3h$.
- Then there is a canonical equivalence of categories
- \[
-  \QC(\GN{T}'_{n}) \to \QC(\GN{T}_{n})
- \]
- determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
- \[
-  \Hom_{<n}(T'(K'), \EEx) \to \Hom_{<n}(T(K), \EEx)
- \]
- through the trace of Frobenius.
-\end{corollary}
-
 \section{Restriction of scalars over local fields}
 \label{sec:wrK}
 
@@ -2185,6 +2125,67 @@ $T = \Gm{K}$ then $T'' = \Res_{K'/K} \Gm{K'}$ and we see that the functor $\QC(\
 \end{tikzcd}
 \] 
 
+
+
+\section{Transfer of quasicharacter sheaves} \label{sec:transfer}
+
+The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$,
+and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$
+or on the ramification of $T$. Because of this, it is natural to ask if we can compare
+quasicharacter sheaves on $T$ and on $T'$ under conditions when there is a
+natural comparison between characters of $T(K)$ and of $T'(K')$.
+This comparison of has been made precise in \cite{chai-yu:01a}, \David{more specific citation?}\Clifton{In this case, maybe not necessary.}
+building on ideas of \cite{deligne:84a}. 
+
+We recall the notion of $N$-congruent tori from  \cite{chai-yu:01a}*{\S 2}.
+Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
+splitting over $L$ and $L'$ respectively.
+Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
+ \begin{align*}
+  \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
+  \beta : \Gal(L/K) &\to \Gal(L'/K') \\
+  \phi : X^*(T) &\to X^*(T')
+ \end{align*}
+ satisfying the conditions
+ \begin{enumerate}
+  \item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
+  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$, and
+  %: $\alpha(\gamma x) = \beta(\gamma) \alpha(x)$ for $\gamma \in \Gal(L/K)$ and $x \in \OL/\pi_K^N \OL$,
+  \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
+ \end{enumerate}
+If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
+\begin{equation}\label{transfer}
+  \Hom_{<N}(T(K), \EEx) \iso \Hom_{<N}(T'(K'),\EEx).
+\end{equation}
+Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every
+$N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
+In this section we ask if the isomorphism \eqref{transfer} comes from an equivalence of
+categories of quasicharacter sheaves on $\GN{T}_n$ and those on $\GN{T}'_n$.
+
+One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between
+$\TT_n$ and $\TT'_n$ assuming that $T$ and $T'$ are sufficiently congruent.
+They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
+Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
+Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent 
+then there is a canonical isomorphism of smooth group schemes
+ $
+  \TT_{N-3h} \to \TT'_{N-3h}
+ $
+ determined by $\alpha, \beta$ and $\phi$.
+Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
+
+\begin{corollary}\label{cor:transfer}
+ With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $n = N-3h$.
+ Then there is a canonical equivalence of categories
+ \[
+  \QC(\GN{T}'_{n}) \to \QC(\GN{T}_{n})
+ \]
+ determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
+ \[
+  \Hom_{<n}(T'(K'), \EEx) \to \Hom_{<n}(T(K), \EEx)
+ \]
+ through the trace of Frobenius.
+\end{corollary}
 
 
 \section{Toward geometric reciprocity for tori over local fields}
