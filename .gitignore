@@ -15,3 +15,5 @@ _*.tex
 *.tex.sav
 *.bbl
 *.DS_Store
+*.fls
+*.fdb_*
