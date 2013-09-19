@@ -171,7 +171,7 @@
   of characters of $G(\Fq)$. We use this result to exhibit an
   isomorphism between quasicharacters of $T(K)$ and isomorphism
   classes of quasicharacter sheaves on the Greenberg transform of the Néron
-  model of $T$, where $K$ is any non-archimdean local field and $T$ is
+  model of $T$, where $K$ is any non-archimedean local field and $T$ is
   any algebraic torus over $K$.
 \end{abstract}
 
@@ -276,7 +276,11 @@ as character sheaves; see for example, \cite{kamgarpour:09a}.
 Our quasicharacter sheaves evolved from this notion, and Theorem~\ref{thm:snake}
 is a direct generalization of the sheaf--function dictionary to the case of commutative
 group schemes which are not necessarily connected or finite type.  The main use
-of the term character sheaf is of course due to Lusztig. It is applied to certain perverse sheaves on connected reductive algebraic groups over algebraically closed fields in \cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on reductive groups over algebraically closed fields with cyclic component groups in the series of papers beginning with \cite{lusztig:disconnected1}.  
+of the term character sheaf is of course due to Lusztig. It is applied to certain perverse
+sheaves on connected reductive algebraic groups over algebraically closed fields in
+\cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on reductive groups
+over algebraically closed fields with cyclic component groups in the series of papers
+beginning with \cite{lusztig:disconnected1}.  
 When commutative, such groups are extensions of $\ZZ/n\ZZ$ by a torus,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
 
@@ -314,7 +318,9 @@ functoriality results that we hope to use in a future discussion of
 local class field theory.
 In Section~\ref{sec:transfer} we discuss a transfer principle which allows
 a geometric transfer of characters between characteristic $p$ tori and characteristic $0$ tori.
-We close the paper with Section~\ref{sec:reciprocity}, in which we suggest that quasicharacter sheaves may play a key role in a geometric and categorical form of the local Langlands correspondence for algebraic tori over local fields.
+We close the paper with Section~\ref{sec:reciprocity}, in which we suggest that quasicharacter
+sheaves may play a key role in a geometric and categorical form of the local Langlands
+correspondence for algebraic tori over local fields.
 
 \subsection*{Acknowledgements}
 
@@ -334,7 +340,10 @@ as well the hospitality of the Banff International Research Station during our w
 \part{Smooth commutative group schemes over finite fields} \label{part1}
 
 Throughout this paper, $G$ is a smooth, commutative group scheme locally of finite type
-over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
+over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  For the sake of brevity, we
+define a \emph{$\QC$-scheme} to be such a $G$ with the additional property that the
+geometric component group of $G$ is finitely generated.  This last assumption is only
+needed in the proof of Lemma \ref{lemma:section}.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
 smooth commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$ over $\bFq$
@@ -436,7 +445,7 @@ The category of quasicharacter sheaves on $G$ is not abelian, so $\QC(G)$
 is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.
 This rigid monoidal category structure for $\QC(G)$ puts a group
 structure on the set $\QCiso{G}$ of isomorphism classes in $\QC(G)$.
-We now begin developing the tools to relate $\QCiso{G}$ to $\Hom(G(\Fq), \EEx)$.
+We now begin developing the tools to relate $\QCiso{G}$ to $G(\Fq)^*$.
 
 \begin{definition}\label{def:trFrob}
 Let $(\gqcs{L},\phi)$ be a Weil sheaf on $G$. Every $g\in G(\Fq)$
@@ -450,25 +459,25 @@ then we will abbreviate $\trFrob{(\gqcs{L},\phi)}$ to $\trFrob{\qcs{L}}$.
 \end{definition}
 
 The isomorphism $\mu : \bm^* \gqcs{L} \to \LxL$ together with property~\ref{CS.2} guarantee
-that the function $\trFrob{\qcs{L}} : G(\Fq)\to \EEx$ is a group homomorphism.
-It is also clear that $\trFrob{\qcs{L}\otimes \qcs{L'}} = \trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$
-(pointwise multiplication of functions) and $\trFrob{\qcs{L}} = \trFrob{\qcs{L'}}$
-if $\qcs{L} \iso \qcs{L'}$ in $\QC(G)$. In this way we obtain a group homomorphism
+that the function $\trFrob{\qcs{L}} : G(\Fq)\to \EEx$ is a group homomorphism.  If we write
+$\trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$ for pointwise multiplication, then 
+ $\trFrob{\qcs{L}\otimes \qcs{L'}} = \trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$.
+Since $\qcs{L} \iso \qcs{L'}$ implies $\trFrob{\qcs{L}} = \trFrob{\qcs{L'}}$,
+we obtain a group homomorphism
 \[
 \cdef{\trFrob{G}} : \QCiso{G} \longrightarrow G(\Fq)^*,
 \qquad \text{defined by}\qquad \qcs{L} \mapsto \trFrob{\qcs{L}}.
 \]
-This isomorphism is functorial in the following sense:
+This homomorphism is functorial in the following sense:
 
 \begin{proposition}\label{prop:functorialG}
-Trace of Frobenius $\QCiso{G} \to G(\Fq)$ is a natural transformation 
+Trace of Frobenius $\QCiso{G} \to G(\Fq)^*$ is a natural transformation 
 between the two additive functors 
 \begin{enumerate}
 \item[$F_1$:] $G \mapsto \QCiso{G}$
 \item[$F_2$:] $G \mapsto G(\Fq)^*$
 \end{enumerate}
-from the category of smooth commutative
-group schemes locally of finite type over $\Fq$ to the category of abelian groups.
+from the category of $\QC$-schemes to the category of abelian groups.
 \end{proposition}
 
 The proof of Proposition~\ref{prop:functorialG} will be given at the end of the next section.
@@ -476,10 +485,13 @@ The proof of Proposition~\ref{prop:functorialG} will be given at the end of the 
 \section{Pull-back and products}\label{sec:pullback}
 
 %\David{insert some commentary on this proposition: it will be very useful to us}
-As a step toward the proof of Proposition~\ref{prop:functorialG} we show that every morphism  $H \to G$ of smooth group schemes locally of finite type over $\Fq$ induces a monoidal functor from quasicharacter sheaves on $G$ to quasicharacters on $H$. This simple but important result will also play a role in the proof of many other propositions in this paper.
+As a step toward the proof of Proposition~\ref{prop:functorialG} we show that every
+morphism  $H \to G$ of $\QC$-schemes induces a monoidal functor from quasicharacter
+sheaves on $G$ to quasicharacters on $H$. This simple but important result will also
+play a role in the proof of many other propositions in this paper.
 
 \begin{proposition}\label{prop:pullback}
-  If $f : H\to G$ is a morphism of commutative group schemes locally of finite type over $\Fq$ then
+  If $f : H\to G$ is a morphism of $\QC$-schemes then
   $(\gqcs{L},\mu,\phi) \mapsto (\bf^*\gqcs{L},(\bfxf)^*\mu,\bf^*F)$
   defines a monoidal functor $f^* : \QC(G) \to \QC(H)$ such that
   \[
@@ -545,15 +557,14 @@ As a step toward the proof of Proposition~\ref{prop:functorialG} we show that ev
   statements about the pullback functor on $\ell$-adic constructible sheaves.
 \end{proof}
 
-Consider the short exact sequence in the category of smooth group
-schemes, locally of finite type over $\Fq$, defining the component
-group scheme for $G$:
+Consider the short exact sequence in the category of $\QC$-schemes
+defining the component group scheme for $G$:
 \begin{equation}\label{eq:pi0}
 \begin{tikzcd}
 0 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
 \end{tikzcd}
 \end{equation}
-Since $\pi_0(G)$ is an commutative group scheme, smooth and locally of finite type over $\Fq$, 
+Since $\pi_0(G)$ is also a $\QC$-scheme, 
 Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines a sequence of functors
 \[
 \begin{tikzcd}
@@ -723,7 +734,7 @@ the trace of $\phi_{\Nm(x)}$.  We may now equate the trace $\alpha$ of $\phi$ on
 with the product $\alpha_0 \cdots \alpha_{n-1}$, which is the trace of $\phi_{k'}$ on $\gqcs{L}_x$.
 \end{proof}
 
-Finally, let $G'$ be a smooth commutative group scheme locally of finite type over $k'$;
+Finally, let $G'$ be a $\QC$-scheme over $k'$;
 we explain how to geometrize the canonical isomorphism between characters of $G'(k')$ and of $(\Res_{k'/k}G')(k)$.
 The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
 decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
@@ -861,8 +872,10 @@ and maps over $G$ to maps over $G'$, as pictured below.
 \begin{tikzcd}[row sep=10,column sep=10]
 \ & V \arrow{dd}{T} && \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} && H \arrow{rr}{f} && \arrow[equal]{dd} G\\
  && && \arrow{ul} \ker f\times_G G' \arrow{ur} \arrow[hook]{rr} && H\times_G G' \arrow{ur} \arrow{rr} && G' \arrow{ur}{g} & \\
-& V' && \Aut(V) && \arrow[swap,pos=0.7]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr} && \arrow[swap]{uu} H' \arrow[pos=0.8]{rr}{f'} && G\\
- && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr} && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & 
+& V' && \Aut(V) && \arrow[swap,pos=0.7]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr}
+&& \arrow[swap]{uu} H' \arrow[pos=0.8]{rr}{f'} && G\\
+ && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr}
+ && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & 
 \end{tikzcd}
 \]
 In this form we could treat $g^*$ as a functor $G(G')\to C(G)$,
@@ -1136,11 +1149,11 @@ denoted there by $\Pi_\text{disc}(G)$.
 %\[\pi_1(G,{\bar e}) \to \Pi_\text{et}(G) \to \Pi_\text{et}(G)_{\Gal(\bFq/\Fq)} = \Pi_\text{disc}(G)\]
 From this it is apparent that the category of discrete isogenies to $G$ is a Galois category,
 in the sense of \cite{grothendieck:SGA1}*{Expos\'e V, \S 4}. Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$,
-as shown in \cite{kamgarpour:09a}*{App'x B}, this provides an alternate proof of $\QCiso{G} \iso G(\Fq)^*$ when $G$ is a connected algebraic group over $\Fq$.
+as shown in \cite{kamgarpour:09a}*{App'x B}, this provides an alternate proof of
+$\QCiso{G} \iso G(\Fq)^*$ when $G$ is a connected algebraic group over $\Fq$.
 
 In principle, something similar is possible in the more general 
-context of this paper, where $G$ is a smooth group scheme 
-locally of finite type over $\Fq$, to which we now return. 
+context of this paper, where $G$ is a $\QC$-scheme, to which we now return. 
 In this generality, neither of the full subcategories $\QCf(G) \subset \QCb(G) \subset \QC(G)$ are equivalences;
 see the end of Section~\ref{sec:snake}.
 Nevertheless, every quasicharacter sheaf $(\gqcs{L},\mu,\phi)$ on $G$ 
@@ -1161,8 +1174,8 @@ Viewed in this light, Definition~\ref{def:QC} is comparatively simple.
 % geometrically finitely generated.
 
 \'Etale group schemes form a counterpoint to connected groups,
-since the component group of a group scheme locally of finite type over $\Fq$
-is an \'etale group scheme (locally of finite type) over $\Fq$
+since the component group of a $\QC$-scheme
+is an \'etale group scheme, locally of finite type over $\Fq$
 \cite{vdGeer-Moonen:AbelianVarieties}*{III, \S 4}.
 The functor $G \mapsto G(\bFq)$ defines an equivalence of categories
 between the category of \'etale group schemes over $\Fq$ and the category of groups equipped
@@ -1243,21 +1256,15 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   $s(x_j)$ and $s(y_j)$, global sections exist.
 \end{proof}
 
-The main result of Part~\ref{part1} of this paper, 
-the sheaf--function dictionary for $G$ Theorem~\ref{thm:snake}, has a hypothesis: 
-the smooth commutative group scheme locally of finite type must have the 
-property that the geometric component group of $G$ is finitely generated as a group. 
-The genesis of that hypothesis is Lemma~\ref{lemma:section},
-as we use this hypothesis to show the existence of global sections of $\gqcs{L}$ satisfying \eqref{section} for $\mu$.
-Remarkably, Lemma~\ref{lemma:section} is the only crux for this hypothesis;
-that is, if $G$ is any smooth connected group scheme locally of finite type over $\Fq$
+We note that this lemma is the only ingredient of the proof of Theorem~\ref{thm:snake}
+that forces $\QC$-schemes to have finitely generated geometric component group.  In fact,
+if $G$ is any smooth connected group scheme locally of finite type over $\Fq$
 and if each quasicharacter sheaf on the \'etale group scheme $\pi_0(G)$ admits a global section 
-satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds for $G$,
-so there is a sheaf--function dictionary for $G$.
+satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds for $G$.
 
 \begin{proposition}\label{prop:etale}
-  If $G$ is a commutative \'etale group scheme over $\Fq$ and
-  $G(\bFq)$ is finitely generated then there is a canonical
+  If $G$ is a commutative \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely generated
+  then there is a canonical
   isomorphism
   \[
   \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq}, G(\bFq)^*),
@@ -1629,7 +1636,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 \begin{proof}
   Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
   identity component $G^0$ of $G$ is a connected smooth, 
-  geometrically reduced group scheme of finite type over $\Fq$, by
+  geometrically reduced group scheme of finite type over $\Fq$
    \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
 	Since $\Fq$ is a finite field, $G^0$ is actually reduced over $\Fq$;
 	see \cite{stacks-project}*{\href{http://stacks.math.columbia.edu/tag/035X}{Tag 035X}}.
@@ -1657,13 +1664,13 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 We saw, in Proposition~\ref{prop:functorialG}, that the trace of Frobenius
 $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
 Our main result regarding quasicharacter sheaves, below, shows that
-trace of Frobenius is an isomorphism in the case that we care about.
+trace of Frobenius is an isomorphism for $\QC$-schemes.
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth commutative group scheme locally of finite type over
-  $\Fq$ and if the abelian group $\pi_0(G)(\bFq)$ (the geometric
-  component group) is finitely generated then the trace of Frobenius
+  $\Fq$ and if the abelian group $\pi_0(G)(\bFq)$
+  is finitely generated then the trace of Frobenius
   \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
@@ -1671,9 +1678,8 @@ trace of Frobenius is an isomorphism in the case that we care about.
 \end{theorem}
 
 \begin{proof}
-  Recall the short exact sequence \eqref{eq:pi0} in the category of smooth group
-  schemes, locally of finite type over $\Fq$, defining the component
-  group scheme for $G$:
+  Recall the short exact sequence \eqref{eq:pi0} in the category of $\QC$-schemes
+  defining the component group scheme for $G$:
   \[
   \begin{tikzcd}
     1 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
@@ -1795,7 +1801,8 @@ over an Artinian local ring with perfect residue field $k$
 to the category of schemes locally of finite type over $k$. 
 This functor respects open immersions, closed immersions, 
 etale morphisms, smooth morphisms and geometric components.
-Besides Greenberg's original papers, see \cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1}, \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
+Besides Greenberg's original papers, see
+\citelist{\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1} \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6}}
 and the first few sections of \cite{stasinski:12a} 
 for background on the Greenberg functor. 
 
@@ -1809,7 +1816,8 @@ For any local field $K$ with residue field $\Fq$ and for any positive integer $n
 be the functor produced by precomposing pull-back along $\OK \to \OK/\pK^n$ with the Greenberg functor.
 \end{definition}
 
-The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ between additive functors.
+The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a
+natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ between additive functors.
 For a given Néron model $\TT$ of $T$, set
 \[
 \GN{T}_n \ceq \Gr_n(\TT)
@@ -1821,8 +1829,7 @@ Some fundamental properties of $f_n : \GN{T}_{n+1} \to \GN{T}_n$ are:
  \begin{enumerate}
    \labitem{(GN.0)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
   \labitem{(GN.1)}{smooth} 
-  $\GN{T}_n$ is a smooth commutative group scheme locally of finite type over $\Fq$ 
-  and the component group of $\GN{T}_n$ is geometrically finitely generated. 
+  $\GN{T}_n$ is a $\QC$-scheme. 
   Note that $\underline{T}$ is a smooth group scheme over $\OK$, by construction. 
   Since smoothness is preserved under base change, 
   $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$ 
@@ -2081,7 +2088,8 @@ let $k'/k$ be the corresponding finite Galois extension of residue fields.
 Let $T$ be an algebraic torus over $K$ and 
 set $T' = T \times_\Spec{K} \Spec{K'}$.
 The canonical closed immersion $T \hookrightarrow \Res_{K'/K} T'$
-induces a map of group pro-schemes $\GN{T} \to \Res_{k'/k} \GN{T}'$ which, through the pull-back functor and the trace of Frobenius, induces the homomorphism
+induces a map of group pro-schemes $\GN{T} \to \Res_{k'/k} \GN{T}'$ which,
+through the pull-back functor and the trace of Frobenius, induces the homomorphism
 \[
 \begin{tikzcd}[column sep=60]
 \Hom_{\text{qc}}(T(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{T(K)}} &\Hom_{\text{qc}}(T(K), \EEx).
@@ -2093,7 +2101,9 @@ induces a map of group pro-schemes $\GN{T} \to \Res_{k'/k} \GN{T}'$ which, throu
 Adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} to lft-Néron models
 we see that a Néron model for $\Res_{K'/K}(T')$ is $\Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})$;
 see also the proof of \cite{xarles:93a}*{Lemma 2.6}.
-By the Néron mapping property, the canonical closed immersion $T\hookrightarrow \Res_{K'/K}(T')$ extends, uniquely, to a morphism $\underline{T}\to \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})$ of smooth $\OK$-group schemes.
+By the Néron mapping property, the canonical closed immersion
+$T\hookrightarrow \Res_{K'/K}(T')$ extends, uniquely, to a morphism
+$\underline{T}\to \Res_{\mathcal{O}_{K'}/\OK}(\underline{T'})$ of smooth $\OK$-group schemes.
 Applying the Greenberg transform $\Gr_{n}$ to this morphism
 and using Lemma~\ref{lemma:wrK} defines the morphism of $\Fq$-group schemes
 \begin{equation}\label{men}
@@ -2104,7 +2114,9 @@ the family of morphisms \eqref{men} determines a morphism of pro-group schemes
 \[
 \GN{T} \to \Res_{k'/k} \GN{T}'.
 \]
-Since $\left(\Res_{k'/k} \GN{T}'_{en} \right)(\Fq) = \left(\GN{T}'_{en}\right)(k')$, the pull-back functor $\QC(\Res_{k'/k} \GN{T}'_{en})\to \QC(\GN{T}_n)$ obtained by applying Proposition~\ref{prop:pullback} to \eqref{men} gives
+Since $\left(\Res_{k'/k} \GN{T}'_{en} \right)(\Fq) = \left(\GN{T}'_{en}\right)(k')$,
+the pull-back functor $\QC(\Res_{k'/k} \GN{T}'_{en})\to \QC(\GN{T}_n)$
+obtained by applying Proposition~\ref{prop:pullback} to \eqref{men} gives
 \[
 \Hom_{< en}(T'(K'),\EEx) \to \Hom_{< n}(T(K),\EEx).
 \]
