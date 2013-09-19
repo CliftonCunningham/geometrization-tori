@@ -417,7 +417,7 @@ As mentioned after \cite{deligne:80a}*{Def.~1.1.10}, a Weil sheaf $(\gqcs{L},\ph
 may be interpreted as a constructible $\ell$-adic sheaf $\gqcs{L}$ on $\bG$ together with
 an action of the Weil group $\Weil{\Fq}$ on $\gqcs{L}$ compatible with the action of
 $\Gal(\bFq/\Fq)$ on $\bG$. We now review this point of view for later use in
-Section~\ref{sec:basechange}.  If $w = \Frob{\Fq}^n$ we write $w_G$ for $\Frob{G}^n$.
+Section~\ref{sec:basechange}.  If $w \ceq \Frob{\Fq}^n$ we write $w_G$ for $\Frob{G}^n$.
 For each such $w$ we define an isomorphism $\varphi(w) : w_G^* \gqcs{L}\to \gqcs{L}$ by
 \[
 \varphi(w) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi);
@@ -607,7 +607,7 @@ commutes.
 \begin{proof}
 The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_2$.
 Let $\qcs{L}$ be a quasicharacter sheaf on $G$. Define $f : G\to G\times G$
-by $f(g_1,g_2) = (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
+by $f(g_1,g_2) \ceq (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
 Let $p_1$, $p_2$ be the projection morphisms pictured below:
 \[
 \begin{tikzcd}
@@ -663,7 +663,7 @@ We can interpret this operation on characters in terms of quasicharacter sheaves
 %
 
 \begin{proposition} \label{prop:csbe}
-Set $G_{k'} = G\times_\Spec{k} \Spec{k'}$ and let
+Set $G_{k'} \ceq G\times_\Spec{k} \Spec{k'}$ and let
 \[
 \QC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota^*} \QC(G)
 \]
@@ -689,11 +689,11 @@ In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consid
 \]
 We can also interpret this operation on characters in terms of quasicharacter sheaves, as follows.
 
-If $\qcs{L} = (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$ we may define
-a quasicharacter sheaf $\qcs{L}' = (\gqcs{L}, \mu, \phi_{k'})$ on the base change
+If $\qcs{L} \ceq (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$ we may define
+a quasicharacter sheaf $\qcs{L}' \ceq (\gqcs{L}, \mu, \phi_{k'})$ on the base change
 $G_{k'}$ of $G$ to $k'$ by setting
 \[
-\phi_{k'} = \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi).
+\phi_{k'} \ceq \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi).
 \]
 The commutativity of the diagram (CS.2) for $\phi_{k'}$ 
 follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
@@ -715,7 +715,7 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \]
 \end{proposition}
 \begin{proof}
-Let $\qcs{L} = (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$ and write $\Frob{}$ for $\Frob{G}$.
+Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$ and write $\Frob{}$ for $\Frob{G}$.
 The value $t_{G_{k'}}(\nu_{k'/k}(\qcs{L})(x)$ is given by the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
 while the value $\Nm^*(t_G(\qcs{L}))(x)$ is given by the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
 Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
@@ -794,7 +794,7 @@ $\QCb(G)$ is (equivalent to) a full subcategory of $\QC(G)$.
  from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
  is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or even \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}. 
  This functor preserves local constancy, so takes local systems to local systems. 
- Set $\mu = b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
+ Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
  with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
  Moreover, $\phi$ is compatible with $\mu$ in the sense of Condition~\ref{CS.3}.
  It follows that functor $(\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,b_{G\times G}^* \mu_0, \phi)$,
@@ -847,7 +847,7 @@ is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes
 This allows us to set $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$. 
 The same fact makes sense of $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. 
 The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
-where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee = \Hom_\text{vec}(V,\EE)$. 
+where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee \ceq \Hom_\text{vec}(V,\EE)$. 
 The verification that these operations make $C(G)$ a tensor category is straightforward.
 Likewise, $C(G)[W^{-1}]$ is a tensor category.
 
@@ -898,7 +898,7 @@ Each $(f,\psi)\in \QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (
 
 \begin{proof}
 As in Lemma~\ref{lemma:finite-pull-back}, we have $m^*(f,\psi) = (f_m,\psi_m)$
-where $f_m$ and $\psi_m$ are pictured below, where $H_m = H\times_G(G\times G)$.
+where $f_m$ and $\psi_m$ are pictured below, where $H_m \ceq H\times_G(G\times G)$.
 \[
 \begin{tikzcd}[column sep=40]
 V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
@@ -920,7 +920,7 @@ there is a unique $\theta : H\times H \to H_m$ making the following commute.
 \end{tikzcd}
 \]
 Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$.
-Define $T : V \to V\otimes V$ by $T(v_1) = v_1\otimes v_1$. Then the lower part of this
+Define $T : V \to V\otimes V$ by $T(v_1) \ceq v_1\otimes v_1$. Then the lower part of this
 diagram defines a weak isomorphism $(\theta,T): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
 
 While $\theta$ was canonical, $T$ was not, as it depended on the choice of a basis for $V$.
@@ -1087,7 +1087,7 @@ see Section~\ref{sec:snake}.
   $\mu : {\bar m}^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$, 
   the latter appearing in the definition of $\qcs{L}$. 
   Then, as in Section~\ref{sec:bounded}, $(\qcs{L}_0,\mu_0)$ is an object in $\QCb(G)$ 
-  and $\qcs{L} = (\gqcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\qcs{L}_0,b_{G\times G}^*\mu_0)$ in $\QC(G)$.
+  and $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\qcs{L}_0,b_{G\times G}^*\mu_0)$ in $\QC(G)$.
   Thus, the full and faithful functor $B_G^* : \QCb(G) \to \QC(G)$ from Section~\ref{sec:bounded}
   is also essentially surjective, hence an equivalence.
   %(when $G$ is a connected, commutative algebraic group over $\Fq$).
@@ -1103,13 +1103,13 @@ see Section~\ref{sec:snake}.
   Let $f : G\to G$ be the Lang isogeny.
   Recall that $\ker f = G(\Fq) = G^{\Frob{\Fq}}$; 
   in particular, the action of $\Gal(\bFq/\Fq)$ on $\ker f$ is trivial.
-  Let $V = \EE$ and let $\psi : \ker f \to \Aut(V)$ be the representation given by 
-  $\psi(g)(v) = \trFrob{\qcs{L}}(g) v$ for $v\in V$. 
+  Let $V \ceq \EE$ and let $\psi : \ker f \to \Aut(V)$ be the representation given by 
+  $\psi(g)(v) \ceq \trFrob{\qcs{L}}(g) v$ for $v\in V$. 
   Then $(f,\psi)$ is a finite quasicharacter sheaf. 
   
   To show that $L_G(f,\psi) \iso (\qcs{L}_0,\mu_0)$ we simply apply the functions--sheaves dictionary
   as follows ({\it cf} \cite{laumon:87a}*{1.1.3} or, ultimately, \cite{deligne:SGA4.5}*{Sommes trigonométriques}).
-  First, recall that $L_G(f,\psi) = (L(f,\psi), \mu(f,\psi))$.
+  First, recall that $L_G(f,\psi) \ceq (L(f,\psi), \mu(f,\psi))$.
   Let $k'/k$ be any degree-$n$ extension and let $\Nm : k'\to k$ be the norm map. 
   By \cite{laumon:87a}*{1.1.3.3}, 
   \[
