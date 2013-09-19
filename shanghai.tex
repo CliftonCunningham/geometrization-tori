@@ -719,7 +719,8 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \end{proposition}
 \begin{proof}
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$ and write $\Frob{}$ for $\Frob{G}$.
-The value $t_{G_{k'}}(\nu_{k'/k}(\qcs{L})(x)$ is given by the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
+The value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ is given by the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
+\Clifton{Please note what I did here.}
 while the value $\Nm^*(t_G(\qcs{L}))(x)$ is given by the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
 Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
 \[
@@ -1295,8 +1296,8 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   \end{equation}
   Note that if $x$ is fixed by $\Frob{k}$ then $\tau_\qcs{L}(\Frob{\Fq})(x)$ is just $\trFrob{\qcs{L}}(x)$, so the restriction of
   $\tau_\qcs{L}(\Frob{k})$ to $G(k)$ is just $\trFrob{\qcs{L}}$.
-  In general, conditions \ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
-  the scalar $\tau_\qcs{L}(\Frob{k})(x)$ is non-zero.  Moreover, condition~\ref{cs.1} forces
+  In general, Conditions~\ref{cs.0} and \ref{cs.2}, together with \eqref{section}, guarantee that
+  the scalar $\tau_\qcs{L}(\Frob{k})(x)$ is non-zero.  Moreover, Condition~\ref{cs.1} forces
   $\tau_\qcs{L}(\Frob{\Fq})(x+y) = \tau_\qcs{L}(\Frob{\Fq})(x) \ \tau_\qcs{L}(\Frob{\Fq})(y)$
   for all $x,y \in G(\bFq)$.  Now define $\tau_\qcs{L} : \Weil{\Fq} \to G(\bFq)^*$ recursively by
   \[
@@ -1645,6 +1646,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 	Since $\Fq$ is a finite field, $G^0$ is actually reduced over $\Fq$;
 	see \cite{stacks-project}*{\href{http://stacks.math.columbia.edu/tag/035X}{Tag 035X}}.
 	It follows that $G^0$ is a connected algebraic group.
+	\Clifton{I'm not happy with our argument that $G^0$ is an algebraic group.}
     By Proposition~\ref{prop:connected}, every
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
@@ -1703,17 +1705,10 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   be the commutative diagram of abelian groups obtained by applying
   Proposition~\ref{prop:pullback} to \eqref{eq:pi0}. 
   
-   We claim that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
-   This follows from Proposition~\ref{prop:connected} 
-   once we confirm that $G^0$ is an algebraic group (it is clearly connected).
-   To see this, note that $G^0$ is a smooth group scheme of finite type over $\Fq$ by \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
-   Since $k$ is perfect, $G^0$ is also reduced, by
-  \cite{stacks-project}*{\href{http://stacks.math.columbia.edu/tag/035X}{Tag 035X}}.
-  \David{Need another reference that an algebraic group over an algebraically closed field is reduced}
-  \Clifton{I'm working on this too.}
-  Thus, $G^0$ is indeed an algebraic group.
-  
-  By Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker \trFrob{\pi_0(G)}=0$
+  In the proof of Proposition~\ref{prop:restriction} we saw that $G^0$ is an algebraic group over $\Fq$. % clearly connected. 
+  It now follows from Proposition~\ref{prop:connected} 
+  that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
+  On the other hand, it follows from Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker \trFrob{\pi_0(G)}=0$
   and $\coker \trFrob{\pi_0(G)}=0$.
 
   The sequence of character groups is left-exact: by
