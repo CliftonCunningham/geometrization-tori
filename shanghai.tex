@@ -1641,12 +1641,13 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A = \ker \pi$.
 \begin{proof}
   Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
   identity component $G^0$ of $G$ is a connected smooth, 
-  geometrically reduced group scheme of finite type over $\Fq$
+  group scheme of finite type over $\Fq$, reduced over some finite extension of $\Fq$, by
    \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
-	Since $\Fq$ is a finite field, $G^0$ is actually reduced over $\Fq$;
-	see \cite{stacks-project}*{\href{http://stacks.math.columbia.edu/tag/035X}{Tag 035X}}.
-	It follows that $G^0$ is a connected algebraic group.
-	\Clifton{I'm not happy with our argument that $G^0$ is an algebraic group.}
+	Since $\Fq$ is a finite field and hence perfect, $G^0$ is actually reduced over $\Fq$;
+	see \cite{EGAIV2}*{Prop 6.4.1}.
+	Since every group scheme over a field is separated 
+	(see, for example, \cite{vdGeer-Moonen:AbelianVarieties}*{3.12}),  
+	it follows that $G^0$ is a connected algebraic group.
     By Proposition~\ref{prop:connected}, every
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
