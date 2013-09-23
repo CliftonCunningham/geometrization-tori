@@ -372,8 +372,8 @@ For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \E
 A \emph{quasicharacter sheaf on $G$} is a triple
 $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(CS.0)}{CS.0} $\gqcs{L}$ is an $\ell$-adic local system on $\bG$
-(a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected component) of rank-1; 
+\labitem{(CS.0)}{CS.0} $\gqcs{L}$ is a rank one $\ell$-adic local system on $\bG$
+-- a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected component; 
 \labitem{(CS.1)}{CS.1} $\mu: \bm^* \gqcs{L} \to \LxL$
   is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
@@ -494,11 +494,10 @@ The proof of Proposition~\ref{prop:functorialG} will be given at the end of the 
 
 \section{Pull-back and products}\label{sec:pullback}
 
-%\David{insert some commentary on this proposition: it will be very useful to us}
 As a step toward the proof of Proposition~\ref{prop:functorialG} we show that every
 morphism  $H \to G$ of $\QC$-schemes induces a monoidal functor from quasicharacter
 sheaves on $G$ to quasicharacters on $H$. This simple but important result will also
-play a role in the proof of many other propositions in this paper.
+play a role in the proof of many other results in this paper.
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of $\QC$-schemes then
@@ -506,15 +505,14 @@ play a role in the proof of many other propositions in this paper.
   f^* : \QC(G) &\to \QC(H) \\
   (\gqcs{L},\mu,\phi) &\mapsto (\bf^*\gqcs{L},(\bfxf)^*\mu,\bf^*F)
   \end{align*}
-  defines a monoidal functor such that
+  defines a monoidal functor dual to $f \colon H(\Fq) \to G(\Fq)$:
   \[
   \begin{tikzcd}[row sep=20, column sep=30]
    \QCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \QCiso{H} \dar{\trFrob{H}} \\
    G(\Fq)^* \rar & H(\Fq)^*
   \end{tikzcd}
   \]
-  is a commutative diagram of groups, where the lower homomorphism is
-  dual to $f : H(\Fq)\to G(\Fq)$.  Moreover, $(f\circ g)^* = g^* \circ f^*$.
+  is a commutative diagram of groups.  Moreover, $(f\circ g)^* = g^* \circ f^*$.
 \end{proposition}
 
 \begin{proof}
@@ -522,7 +520,7 @@ play a role in the proof of many other propositions in this paper.
   $\bf^*\gqcs{L}$ is a local system of rank~$1$. Let $c_j :\bH^j \hookrightarrow \bH$ be any
   connected component and let $i$ be the image of $j$ under the group
   homomorphism $\pi_0(\bf) : \pi_0(\bH) \to \pi_0(\bG)$.
-  Write $c_i : \bG^i \hookrightarrow \bG$ for
+  Write $d_i : \bG^i \hookrightarrow \bG$ for
   the inclusion of $\bG^i$ and $\bf^j : \bH^j \to \bG^i$
   for the restriction of $f$ to $\bH^j$.  Since $\gqcs{L}$ is locally constant on the connected
   components of $\bG$, there is a finite \'etale covering
@@ -534,7 +532,7 @@ play a role in the proof of many other propositions in this paper.
   \[
   b_j^* \left( (\bf^* \gqcs{L})\vert_{\bH^j}\right)
   = (\bf\circ c_j \circ b_j)^*\gqcs{L}
-  = (c_i\circ a_i\circ g_j)^*\gqcs{L} = g_j^* a_i^* (\gqcs{L}\vert_{\bG^i}).
+  = (d_i\circ a_i\circ g_j)^*\gqcs{L} = g_j^* a_i^* (\gqcs{L}\vert_{\bG^i}).
   \]
 
   Since $a_i^* (\gqcs{L}\vert_{\bG^i})$ is a constant sheaf, its pullback
