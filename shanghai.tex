@@ -343,7 +343,6 @@ and of the National Science and Engineering Research Council,
 as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
 
 \tableofcontents
-\David{Search for = which should be \ceq}
 \David{Search for terms defined after they are used}
 \David{Commas between adjectives, consistent ordering}
 
@@ -503,8 +502,11 @@ play a role in the proof of many other propositions in this paper.
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of $\QC$-schemes then
-  $(\gqcs{L},\mu,\phi) \mapsto (\bf^*\gqcs{L},(\bfxf)^*\mu,\bf^*F)$
-  defines a monoidal functor $f^* : \QC(G) \to \QC(H)$ such that
+  \begin{align*}
+  f^* : \QC(G) &\to \QC(H) \\
+  (\gqcs{L},\mu,\phi) &\mapsto (\bf^*\gqcs{L},(\bfxf)^*\mu,\bf^*F)
+  \end{align*}
+  defines a monoidal functor such that
   \[
   \begin{tikzcd}[row sep=20, column sep=30]
    \QCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \QCiso{H} \dar{\trFrob{H}} \\
@@ -727,10 +729,10 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \end{proposition}
 \begin{proof}
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$ and write $\Frob{}$ for $\Frob{G}$.
-The value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ is given by the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
+We may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
 \Clifton{Please note what I did here.}
-while the value $\Nm^*(t_G(\qcs{L}))(x)$ is given by the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
-Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
+and the value of $\Nm^*(t_G(\qcs{L}))(x)$ as the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
+Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
 \[
 \begin{tikzcd}
 \gqcs{L}_{\Nm(x)} \rar \dar{\phi_{\Nm(x)}} & \gqcs{L}_{\Frob{}(x)} \otimes \gqcs{L}_{\Frob{}^2(x)} \otimes \cdots \otimes \gqcs{L}_x
@@ -748,8 +750,8 @@ with the product $\alpha_0 \cdots \alpha_{n-1}$, which is the trace of $\phi_{k'
 
 Finally, let $G'$ be a $\QC$-scheme over $k'$;
 we explain how to geometrize the canonical isomorphism between characters of $G'(k')$ and of $(\Res_{k'/k}G')(k)$.
-The base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
-decomposes into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
+We may decompose the base change $(\Res_{k'/k}G')_{k'}$ of $\Res_{k'/k}G'$ to $k'$
+into a product of copies of $G'$, indexed by elements of $\Gal(k'/k)$:
 \[
 (\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'.
 \]
@@ -1409,15 +1411,15 @@ on finitely generated etale group schemes, as we will see at the end of the sect
   We first prove that $\rho$ is surjective.  Suppose that
   $f \in \Hom(X^{\Frob{\Fq}}, \EEx).$ Since $\EEx$ is divisible
   as an abelian group it is injective as a $\ZZ$-module and thus
-  $\Ext^1_{\ZZ}(X/X^{\Frob{\Fq}}, \EEx) = 0$.  Applying the functor
+  $\Ext^1_{\ZZ}(X/X^{\Frob{\Fq}}, \EEx) = 0$.  The long exact 
+  sequence obtained by applying the functor
   $\Hom(\mbox{---}, \EEx)$ to
   \[
   \begin{tikzcd}
   0 \rar & X^{\Frob{\Fq}} \rar & X \rar & X/X^{\Frob{\Fq}} \rar & 0
   \end{tikzcd}
   \]
-  and considering the associated long exact sequence gives the
-  existence of an $\tilde{f} \in \Hom(X, \EEx)$ restricting to
+  gives the existence of an $\tilde{f} \in \Hom(X, \EEx)$ restricting to
   $f$.  Define a $1$-cocycle $z \in \Hh^1(\Fq, \Hom(X,\EEx))$ by
   mapping $\Frob{\Fq}$ to $\tilde{f}$.  Then $\rho([z]) = f$.
 
@@ -1609,7 +1611,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
 
   It suffices to show that $\pi_0(G)(\bFq)$ has a two-term resolution
   by injective $\ZZ[\Gamma]$-modules.  Since the action of $\Gamma$ on
-  $\pi_0(G)(\bFq)$ is continuous, it factor through a finite quotient
+  $\pi_0(G)(\bFq)$ is continuous, it factors through some finite quotient
   $\Gamma_m \ceq \Gamma / H_m$.  Any product of Dedekind domains has
   cohomological dimension $1$ \David{Add a citation for this fact}, so $\pi_0(G)(\bFq)$ has a
   two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$
