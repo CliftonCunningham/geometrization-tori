@@ -474,19 +474,19 @@ $\trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$ for pointwise multiplication, then
  $\trFrob{\qcs{L}\otimes \qcs{L'}} = \trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$.
 Since $\qcs{L} \iso \qcs{L'}$ implies $\trFrob{\qcs{L}} = \trFrob{\qcs{L'}}$,
 we obtain a group homomorphism
-\[
-\cdef{\trFrob{G}} : \QCiso{G} \longrightarrow G(\Fq)^*,
-\qquad \text{defined by}\qquad \qcs{L} \mapsto \trFrob{\qcs{L}}.
-\]
+\begin{align*}
+\cdef{\trFrob{G}} : \QCiso{G} &\longrightarrow G(\Fq)^*, \\
+\qcs{L} &\mapsto \trFrob{\qcs{L}}.
+\end{align*}
 This homomorphism is functorial in the following sense:
 
 \begin{proposition}\label{prop:functorialG}
-Trace of Frobenius $\QCiso{G} \to G(\Fq)^*$ is a natural transformation 
+Trace of Frobenius $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a natural transformation 
 between the two additive functors 
-\begin{enumerate}
-\item[$F_1$:] $G \mapsto \QCiso{G}$
-\item[$F_2$:] $G \mapsto G(\Fq)^*$
-\end{enumerate}
+\begin{align*}
+F_1 : G &\mapsto \QCiso{G} \\
+F_2 : G &\mapsto G(\Fq)^*
+\end{align*}
 from the category of $\QC$-schemes to the category of abelian groups.
 \end{proposition}
 
@@ -669,9 +669,10 @@ When using quasicharacter sheaves to study characters, it is useful to understan
 how quasicharacter sheaves behave under change of fields.
 Let $k'$ be a finite extension of $k$. Then $k\to k'$ induces a group homomorphism
 $i_{k'/k} : G(k) \hookrightarrow G(k')$ which, in turn, gives
-\[
-i_{k'/k}^* : G(k')^* \to G(k)^* \qquad \text{defined by}\qquad \chi \mapsto \chi\circ i_{k'/k}.
-\]
+\begin{align*}
+i_{k'/k}^* : G(k')^* &\to G(k)^* \\
+\chi &\mapsto \chi\circ i_{k'/k}.
+\end{align*}
 We can interpret this operation on characters in terms of quasicharacter sheaves, as follows.
 %
 
@@ -697,9 +698,10 @@ $\Res_{k'/k}(G_{k'})(k) \cong G_{k'}(k') \cong G(k')$ from the definitions of We
 \end{proof}
 
 In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consider the group homomorphism:
-\[
-\Nm^* : G(k)^* \to G(k')^* \qquad \text{defined by}\qquad \chi \mapsto \chi\circ \Nm.
-\]
+\begin{align*}
+\Nm^* : G(k)^* &\to G(k')^* \\
+\chi &\mapsto \chi\circ \Nm.
+\end{align*}
 We can also interpret this operation on characters in terms of quasicharacter sheaves, as follows.
 
 If $\qcs{L} \ceq (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$ we may define
@@ -1277,18 +1279,18 @@ and if each quasicharacter sheaf on the \'etale group scheme $\pi_0(G)$ admits a
 satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds for $G$.
 
 \begin{proposition}\label{prop:etale}
-  If $G$ is a commutative \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely generated
-  then there is a canonical
-  isomorphism
+  Let $G$ be a commutative \'etale group scheme over $\Fq$ with $G(\bFq)$ finitely generated.
+  We may associate a $1$-cocycle $\tau_\qcs{L}: \Weil{\Fq}\to G(\bFq)^*$ to each $\qcs{L} \in \QC(G)$
+  so that
   \[
-  \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq}, G(\bFq)^*),
-  \qquad \text{given by}\qquad
-  \qcs{L}_{/\text{iso}} \mapsto [\tau_\qcs{L}],
+  \tau_\qcs{L}(\Frob{\Fq})(x) = \trFrob{\qcs{L}}(x)
   \]
-  where $\tau_\qcs{L}: \Weil{\Fq}\to G(\bFq)^*$ is a cocycle such that
-  \[
-  \forall x\in G(\Fq), \qquad \tau_\qcs{L}(\Frob{\Fq})(x) = \trFrob{\qcs{L}}(x).
-  \]
+  for all $x \in G(\Fq)$ and the map
+  \begin{align*}
+  \QCiso{G} &\to \Hh^1(\Weil{\Fq}, G(\bFq)^*), \\
+  [\qcs{L}] &\mapsto [\tau_\qcs{L}],
+  \end{align*}
+  is an isomorphism.
 \end{proposition}
 
 \begin{proof}
@@ -1327,8 +1329,10 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   defined by $\tau_0(\Frob{\Fq}) \ceq \,^{\Frob{\Fq}} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
   so $\tau_2$ and $\tau_1$ are cohomologous. Thus
   \begin{equation}\label{cohomologous}
-    \obj \QC(G) \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*),
-    \qquad \text{defined by} \qquad \qcs{L} \mapsto [\tau_\qcs{L}],
+  \begin{split}
+    \obj \QC(G) &\to \Hh^1(\Weil{\Fq},G(\bFq)^*), \\
+    \qcs{L} &\mapsto [\tau_\qcs{L}],
+  \end{split}
   \end{equation}
   is independent of the choice of global sections made above.
 
@@ -1347,7 +1351,10 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   %\Clifton{Fix this.}
   so $\tau$ and $\tau'$ are cohomologous. This shows that
   \begin{equation}\label{pich1}
-    \QCiso{G} \longrightarrow \Hh^1(\Weil{\Fq},G(\bFq)^*), \qquad \qcs{L}_{/\text{iso}} \mapsto [\tau_\qcs{L}]
+  \begin{split}
+    \QCiso{G} &\to \Hh^1(\Weil{\Fq},G(\bFq)^*),\\
+    [\qcs{L}] &\mapsto [\tau_\qcs{L}]
+  \end{split}
   \end{equation}
   is well-defined.
   
@@ -1400,11 +1407,10 @@ on finitely generated etale group schemes, as we will see at the end of the sect
   Let $X$ be a finitely generated abelian group equipped with an
   action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on
   $X$.  Then
-\[
-    \Hh^1(\Fq, X^*) \xrightarrow{\rho} \Hh^0(\Fq, X)^*,
- \qquad \text{defined by}\qquad
-   \rho([z])(x) \ceq z(\Frob{\Fq})(x),
-\]
+  \begin{align*}
+    \Hh^1(\Fq, X^*) &\xrightarrow{\rho} \Hh^0(\Fq, X)^*, \\
+    \rho([z])(x) &\ceq z(\Frob{\Fq})(x),
+  \end{align*}
   is an isomorphism of groups.
 \end{proposition}
 \begin{proof}
@@ -1849,11 +1855,10 @@ be the functor produced by precomposing pull-back along $\OK \to \OK/\pK^n$ with
 The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a
 natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ between additive functors.
 For a given Néron model $\TT$ of $T$, set
-\[
-\GN{T}_n \ceq \Gr_n(\TT)
-\qquad \text{and}\qquad
-f_n \ceq P_n(\TT).
-\]
+\begin{align*}
+ \GN{T}_n &\ceq \Gr_n(\TT) \\
+ f_n &\ceq P_n(\TT).
+\end{align*}
 
 Some fundamental properties of $f_n : \GN{T}_{n+1} \to \GN{T}_n$ are:
  \begin{enumerate}
