@@ -943,12 +943,11 @@ Since $f\circ m_H = m \circ (f\times f)$, the universal property of pull-back gi
 a unique $\theta : H\times H \to H_m$ making the following commute.
 \[
 \begin{tikzcd}[row sep=20,column sep=10]
-\ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_m} A_m \arrow[hook]{rr}
-&& \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
- && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
-& V\otimes V && \Aut(V)
-&& \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
-&& \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
+\ & V \arrow{dd}{T} && \Aut(V) && A \arrow[hook]{rr} \arrow[swap]{ll}{\psi} &&  H \arrow{rr}{f} && G\\
+ && && \arrow{ul}{\psi_m} A_m  \arrow[hook]{rr} \arrow{ur} && H_m \arrow[pos=0.3]{ur}{m_f} \arrow[swap, pos=0.8]{rr}{f_m}
+ && G \times G \arrow[equal]{dr} \arrow[pos=0.42]{ur}{m} & \\
+& V\otimes V && \Aut(V) && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[dashed,swap,pos=0.3]{ul}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
+&& \arrow[dashed,swap]{ul}{\theta} \arrow[crossing over,swap,pos=0.7]{uu}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
 \end{tikzcd}
 \]
 Choose a basis $\{ v \}$ for $V$; then $\{ v\otimes v \}$ is a basis for $V\otimes V$.
