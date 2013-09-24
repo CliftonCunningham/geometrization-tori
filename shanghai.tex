@@ -214,7 +214,7 @@ A quasicharacter sheaf on $G$ is a triple $\qcs{L}\ceq
 $\mu$ and $\phi$ are required to satisfy natural conditions explained below.
 
 In Part 1 of this paper we study the category $\QC(G)$ of quasicharacter sheaves on $G$.
-Since $\QC(G)$ is a rigid symmetric monoidal category
+Since $\QC(G)$ is a rigid monoidal category
 the set of isomorphism classes $\QCiso{G}$ forms a group.
 Motivated by the sheaf--function dictionary for commutative, connected
 algebraic groups \cite{deligne:SGA4.5}*{sommes trig.}, 
@@ -446,7 +446,7 @@ correspond to unbounded characters.
 
 \section{Trace of Frobenius}\label{sec:Frob}
 
-The category $\QC(G)$ of quasicharacter sheaves on $G$ is a rigid symmetric monoidal category
+The category $\QC(G)$ of quasicharacter sheaves on $G$ is a rigid monoidal category
 \cite{etingof:09a}*{\S~1.10} under the tensor product
 $\qcs{L} \otimes \qcs{L'} \ceq (\gqcs{L}\otimes\gqcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$,
 with duals given by applying the sheaf hom functor 
@@ -914,7 +914,7 @@ $(f,\psi)$ such that $\psi$ is a one-dimensional representation.
 
 \begin{definition}
 The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\QCf(G)$,
-is the rigid symmetric monoidal category obtained by localizing $C_1(G)$ at weak isomorphisms.
+is the rigid monoidal category obtained by localizing $C_1(G)$ at weak isomorphisms.
 \end{definition}
 
 
@@ -923,21 +923,20 @@ Each $(f,\psi)\in \QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (
  \end{lemma}
 
 \begin{proof}
-As in Lemma~\ref{lemma:finite-pull-back}, we have $m^*(f,\psi) = (f_m,\psi_m)$
-where $f_m$ and $\psi_m$ are pictured below, where $H_m \ceq H\times_G(G\times G)$.
+Set $H_m \ceq H\times_G(G\times G)$, write $f_m : H_m \to G \times G$ for the pullback of $f$ to $H_m$, and let $A$ and $A_m$ be the kernels of $f$ and $f_m$ respectively.  Consider the diagram of Lemma~\ref{lemma:finite-pull-back}:
 \[
 \begin{tikzcd}[column sep=40]
 V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
-  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(m_f)\vert_{\ker m_f}} \ker f_m \arrow[hook]{r}
+  &  & \arrow[dashed]{ul}{\psi_m} \arrow[swap]{u}{(m_f)\vert_{A_m}} A_m \arrow[hook]{r}
   & \arrow[swap]{u}{m_f} H_m \arrow{r}{f_m} & \arrow{u}{m} G\times G.
 \end{tikzcd}
 \]
-On the other hand, $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
-Since $f\circ m_H = m \circ (f\times f)$, by the universal property of pull-back,
-there is a unique $\theta : H\times H \to H_m$ making the following commute.
+We have $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
+Since $f\circ m_H = m \circ (f\times f)$, the universal property of pull-back gives
+a unique $\theta : H\times H \to H_m$ making the following commute.
 \[
 \begin{tikzcd}[row sep=20,column sep=10]
-\ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_g} A_m \arrow[hook]{rr}
+\ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_m} A_m \arrow[hook]{rr}
 && \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
  && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
 & V\otimes V && \Aut(V)
@@ -945,8 +944,8 @@ there is a unique $\theta : H\times H \to H_m$ making the following commute.
 && \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
 \end{tikzcd}
 \]
-Choose a basis $\{ v_1 \}$ for $V$; then $\{ v_1\otimes v_1 \}$ is a basis for $V\otimes V$.
-Define $T : V \to V\otimes V$ by $T(v_1) \ceq v_1\otimes v_1$. Then the lower part of this
+Choose a basis $\{ v \}$ for $V$; then $\{ v\otimes v \}$ is a basis for $V\otimes V$.
+Define $T : V \to V\otimes V$ by $T(v) \ceq v\otimes v$. Then the lower part of this
 diagram defines a weak isomorphism $(\theta,T): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$  in $C_1(G)$. 
 
 While $\theta$ was canonical, $T$ was not, as it depended on the choice of a basis for $V$.
@@ -2000,7 +1999,7 @@ Category $\QC(\GN{T})$ carries a tensor structure under
 \qquad k \ceq \max\{ n,m\}.
 \]
 Duals in $\QC(\GN{T})$ are defined by $[\qcs{L}_n]^\vee \ceq [\qcs{L}_n^\vee]$.
-We refer to objects in the rigid symmetric monoidal category 
+We refer to objects in the rigid monoidal category 
 $\QC(\GN{T})$ as \emph{quasicharacter sheaves on $\GN{T}$} 
 or \emph{quasicharacter sheaves for $T$}.
 \end{definition}
