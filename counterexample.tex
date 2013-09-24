@@ -1,0 +1,53 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb}
+\usepackage[alphabetic]{amsrefs}
+\theoremstyle{plain}
+      \newtheorem{theorem}{Theorem}[section]
+      \newtheorem{proposition}[theorem]{Proposition}
+      \newtheorem{lemma}[theorem]{Lemma}
+\title{FGC Counterexample}
+
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\QQ}{{\mathbb{Q}}}
+
+\begin{document}
+\maketitle
+Let $R = \ZZ[x] / (x^2 - 1) \cong \{(a,b) \in \ZZ^2 | a \equiv b \pmod{2}\}$.
+
+\begin{proposition}
+The maximal ideals of $R$ are:
+\begin{itemize}
+\item $\langle (2,0), (0,2) \rangle$,
+\item $\langle (2,0), (1,p) \rangle$ for odd primes $p \in \ZZ$,
+\item $\langle (1,p), (0,2) \rangle$ for odd primes $p \in \ZZ$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+Suppose $I$ is a maximal ideal of $R$.  Since $(2,0) \cdot (0,2) = (0,0)$, either $(2,0) \in I$ or $(0,2) \in I$.  WLOG, $(2,0) \in I$.  Note that $R / (2,0) \cong \ZZ$ and thus there must be some element $(0,2a) \in I$ for minimal positive $a$.  The quotient $R / \langle (2,0), (0, 2a) \rangle \cong \ZZ / 2a\ZZ$, so if $a = 1$ then $I = \langle (2,0), (0,2) \rangle$ is maximal.  Otherwise, $I$ must contain an element of the form $(1,n)$ and we may take $n$ to be minimal and thus prime.
+\end{proof}
+
+\begin{proposition}
+The localizations of $R$ at maximal ideals are:
+\begin{itemize}
+\item $\ZZ_{(2)} \times \ZZ_{(2)}$,
+\item $\ZZ_{(p)}$ for odd primes $p$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+Suppose $P = \langle (2,0), (0,2) \rangle$.  Then 
+\[
+R_P = \left\{\left(\frac{a}{b},\frac{c}{d}\right) \in \QQ^2 | a \equiv c \pmod{2}, b \equiv d \equiv 1 \pmod{2}\right\} \cong \ZZ_{(2)} \times \ZZ_{(2)}
+\]
+since the equivalence relation $(\frac{a}{b},\frac{c}{d}) \sim (\frac{a'}{b'},\frac{c'}{d'})$ reduces to equality of fractions because there are no zero divisors in the complement of $P$.
+
+On the other hand, suppose $P = \langle (2,0), (1,p) \rangle$ (the other case is symmetric).  Then
+\[
+R_P = \left\{\left(\frac{a}{b}, \frac{c}{d}\right) \in \QQ^2 | a \equiv c \pmod{2}, b \equiv d \pmod{2}, d \not\equiv 0 \pmod{p}\right\} / \sim
+\]
+where $(\frac{a}{b}, \frac{c}{d}) \sim (\frac{a'}{b'}, \frac{c'}{d'})$ if  there is some $(r, s) \in R$ with $p \nmid s$ such that $(ab' - a'b)r = 0$ and $(cd' - c'd)s = 0$.  Since $s \ne 0$ we must have $\frac{c}{d} = \frac{c'}{d'}$, but we can take $r = 0$ so arbitrary values for $a, b, a', b'$ yield equivalent elements of $R_P$.  Thus $R_P \cong \ZZ_{(p)}$.
+\end{proof}
+
+Note that $\ZZ_{(2)} \times \ZZ_{(2)}$ is neither a discrete valuation ring nor a special PIR, and thus not FGC! \cite{Warfield:Decomposability}*{Theorem 4}.  We should therefore be able to find a $\ZZ[\ZZ/2\ZZ]$ module which is a direct summand of a product of cyclic modules.  This completely destroys the strategy for the proof of Proposition 9.1.
+
+\bibliography{Biblio}
+\end{document}
