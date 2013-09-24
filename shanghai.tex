@@ -623,19 +623,17 @@ commutes.
 \end{proposition}
 
 \begin{proof}
-The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_2$
+The only non-trivial part of the proof is to show that $\boxtimes : \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)$ is essentially surjective, so we will only address that point here.
+
+Set $G \ceq G_1\times G_2$
 and write $e_1$ and $e_2$ for the identity elements of $G_1$ and $G_2$.
-Let $\qcs{L}$ be a quasicharacter sheaf on $G$. Define $f : G\to G\times G$
-by $f(g_1,g_2) \ceq (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
+Define $f : G\to G\times G$ by $f(g_1,g_2) \ceq (g_1,e_2,e_1,g_2)$. 
+Observe that $m\circ f = \id_G$. 
 Let $p_1$, $p_2$ be the projection morphisms pictured below:
 \[
 \begin{tikzcd}
 G & \arrow[swap]{l}{p_1} G\times G \arrow{r}{p_2} & G.
 \end{tikzcd}
-\]
-Then the isomorphism $\mu : m^* \gqcs{L} \to \gqcs{L}\boxtimes \gqcs{L}$ gives an isomorphism
-\[
-f^*\mu : f^* m^* \gqcs{L} \to f^*(\gqcs{L}\boxtimes \gqcs{L}) = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L}.
 \]
 Let $r_1$ and $r_2$ be the projection morphisms pictured below, with sections $q_1$ and $q_2$, also morphisms of group schemes:
 \[
@@ -645,20 +643,27 @@ G_1  \arrow[swap, bend right]{r}{q_1} &
 \arrow[bend left]{l}{q_2} G_2.
 \end{tikzcd}
 \]
-Then $p_1\circ f = q_1 \circ r_1$ and $p_2 \circ f = q_2\circ r_2$, 
-so $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L}$ and $f^*p_2^*\gqcs{L} = r_2^* q_2^* \gqcs{L}$. 
-Now $\qcs{L}_1 \ceq q_1^* \qcs{L}$ is a quasicharacter sheaf on $G_1$ 
-and $\qcs{L}_2 \ceq q_2^* \qcs{L}$ is a quasicharacter sheaf on $G_2$, 
-by Proposition~\ref{prop:pullback}. 
-Then 
-\[
-f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L} = r_1^*\gqcs{L}_1\otimes r_2^* \gqcs{L}_2 = \gqcs{L}_1\boxtimes \gqcs{L}_2.
-\]
-In this way, $\mu$ determines an isomorphism
-\[
-f^*\mu : \gqcs{L} \to  \gqcs{L}_1\boxtimes \gqcs{L}_2.
-\]
-So $\boxtimes$ is essentially surjective. \David{Don't we also need to note that $f^*\mu$ is compatible with the rational structures?}
+Observe that $p_1\circ f = q_1 \circ r_1$ and $p_2 \circ f = q_2\circ r_2$.
+
+Now, let $\qcs{L} = (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$. 
+Set $\qcs{L}_1 \ceq q_1^* \qcs{L}$ and $\qcs{L}_2 \ceq q_2^* \qcs{L}$;
+by Proposition~\ref{prop:pullback}, $\qcs{L}_1$ a quasicharacter sheaf on $G_1$ 
+and $\qcs{L}_2$ is a quasicharacter sheaf on $G_2$.
+We will obtain an isomorphism $\qcs{L} \iso  \qcs{L}_1\boxtimes \qcs{L}_2$.
+%
+Applying the functor $f^*$ to the isomorphism $\mu$ yields the isomorphism
+\begin{equation}\label{eq:fm}
+f^*\mu : f^* m^* \gqcs{L} \to f^*(\gqcs{L}\boxtimes \gqcs{L}) .
+\end{equation}
+We have already observed that $m\circ f = \id_G$, so $f^* m^* \gqcs{L} = \gqcs{L}$ (canonical isomorphism).
+On the other hand, $f^*(\gqcs{L}\boxtimes \gqcs{L}) = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L}$, 
+by definition, and $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L}$ and $f^*p_2^*\gqcs{L} = r_2^* q_2^* \gqcs{L}$ follows from the properties of these maps, articulated above, 
+so $f^*(\gqcs{L}\boxtimes \gqcs{L}) = \gqcs{L}_1\boxtimes \gqcs{L}_2$.
+It follows that \eqref{eq:fm} gives an isomorphism $\gqcs{L} \to  \gqcs{L}_1\boxtimes \gqcs{L}_2$.
+It is a matter of routine to show that this morphism satisfies Conditions~\ref{CS.2} as they apply here,
+from which it follows that we have exhibited an isomorphism 
+$\qcs{L} \to \qcs{L}_1\boxtimes \qcs{L}_2$ of quasicharacters sheaves on $G\times G$.
+This completes the proof that $\boxtimes$ is essentially surjective.
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:functorialG}]
