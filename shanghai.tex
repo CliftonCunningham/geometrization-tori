@@ -836,77 +836,80 @@ that the image of $\chi$ is bounded in $\EEx$; see Section~\ref{sec:snake} for m
  %In this section we describe a full subcategory of $\QCb(G)$
  %which will illuminate some features of $\QCb(G)$ and also play a role in some arguments below.
  
-To define the category of finite quasicharacter sheaves we must work a bit harder.
-Consider the following category $C(G)$.
+In this section we define \emph{finite quasicharacter sheaves}, a further refinement
+of bounded quasicharacter sheaves that play a role in Section \ref{sec:restriction}.
 Let us say that $f : H\to G$ is a \emph{discrete isogeny} if it is a finite, surjective
 \'etale morphism and a morphism of commutative group $\Fq$-schemes for which
 the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $f^{-1}({\bar e})$ is trivial.
-An object in $C(G)$ is a pair $(f,\psi)$ where: 
-$f : H\to G$ is a discrete isogeny 
-and $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$;
-a map $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$ 
-where $\alpha$ is a morphism of schemes such that $f' = f\circ \alpha$
-and $T : V\to V'$ is a linear transformation equivariant 
-for the action of $\ker f'$ on $V'$ by $\psi'$ 
-and the action of $\ker '$ on $V$ by $\psi \circ \alpha$.
+We first begin by defining a category $C(G)$, whose objects consist of pairs $(f,\psi)$ where
+\begin{itemize}
+\item $f : H\to G$ is a discrete isogeny;
+\item $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$.
+\end{itemize}
+A morphism $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$ where
+\begin{itemize}
+\item $\alpha : H' \to H$ is a morphism of schemes such that $f' = f\circ \alpha$;
+\item $T : V\to V'$ is a linear transformation equivariant for the action of
+$\ker f'$ on $V'$ by $\psi'$ and the action of $\ker '$ on $V$ by $\psi \circ \alpha$.
 \[
 \begin{tikzcd}
 V \arrow{d}{T} & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} & \arrow[equal]{d} G\\
-V' & \Aut(V) & \arrow[swap]{l}{\psi} \arrow[swap]{u}{\alpha\vert_{\ker f}} \ker f \arrow[hook]{r} & \arrow[swap]{u}{\alpha} H' \arrow{r}{f'} & G
+V' & \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{\alpha\vert_{\ker f'}} \ker f' \arrow[hook]{r} & \arrow[swap]{u}{\alpha} H' \arrow{r}{f'} & G
 \end{tikzcd}
 \]
+\end{itemize}
 We say that $(\alpha,T)$ in $C(G)$ is a \emph{weak isomorphism} if $\alpha$ is surjective
 and $T$ is an isomorphism of vector spaces.
 Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at weak isomorphisms.
 
-We put a tensor category structure on $C(G)$ 
-and a rigid monoidal category structure on $C_1(G)$ as follows.
+We put a tensor category structure on $C(G)$ as follows.
 Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
-The category of isogenies to $G$ admits products: 
-write $f\times_G f' : H\times_G H' \to G$ for the product of $f : H\to G$ and $f' : H'\to G$. 
-Since $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$, canonically,
-the tensor product of the representations $\psi : \ker f\to \Aut(V)$ and $\psi' : \ker f'\to \Aut(V')$ 
-is the representation $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$. 
-This allows us to set $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$. 
-The same fact makes sense of $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. 
-The dual of $(f,\psi)$ is $(f,\psi)^\vee \ceq (f,\psi^\vee)$ 
-where $\psi^\vee : \ker f \to \Aut(V^\vee)$ and $V^\vee \ceq \Hom_\text{vec}(V,\EE)$. 
-The verification that these operations make $C(G)$ a tensor category is straightforward.
+Write $f\times_G f' : H\times_G H' \to G$ for the product of $f$ and $f'$
+in the category of isogenies to $G$. We define an external tensor product
+$\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$ and a external sum
+$\psi \oplus\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$
+using the canonical isomorphism $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$.
+We may thus define $(f,\psi)\otimes(f',\psi') \ceq (f\times_G f' ,\psi\otimes\psi')$ and
+$(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. To define duals in $C(G)$,
+let $V^\vee \ceq \Hom_\text{vec}(V,\EE)$ and $\psi^\vee : \ker f \to \Aut(V^\vee)$ be
+the dual representation.  We may then set $(f,\psi)^\vee \ceq (f,\psi^\vee)$.
+These operations give $C(G)$ the structure of a tensor category.
 Likewise, $C(G)[W^{-1}]$ is a tensor category.
-
+\David{Should expand on this a bit and note that $C(G)[W^{-1}]$ admits a calculus of fractions}
 
 \begin{lemma}\label{lemma:finite-pull-back}
-If $g : G'\to G$ is a morphism of group schemes then $(f,\psi) \mapsto (f_g,\psi_g)$
-defines a monomial functor $g^* : C(G)[W^{-1}] \to C(G')[W'^{-1}]$ where $f_g : H\times_G G'\to G'$
-is a pull-back of $f$ along $g$ and $\psi_g : \ker f_g \to \Aut(V)$ is defined by the diagram below.
+If $g : J \to G$ is a morphism of group schemes, let $f_g : H\times_G J\to J$
+be the pull-back of $f$ along $g$ and define $\psi_g : \ker f_g \to \Aut(V)$ as in the diagram below:
 \[
 \begin{tikzcd}
 V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} &  G\\
-  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(g_f)\vert_{\ker g_f}} \ker f_g \arrow[hook]{r}
-  & \arrow[swap]{u}{g_f} H\times_G G' \arrow{r}{f_g} & \arrow{u}{g} G'.
+  &  & \arrow[dashed]{ul}{\psi_g} \arrow[swap]{u}{(g_f)\vert_{\ker f_g}} \ker f_g \arrow[hook]{r}
+  & \arrow[swap]{u}{g_f} H\times_G J \arrow{r}{f_g} & \arrow{u}{g} J.
 \end{tikzcd}
 \]
+Then $(f,\psi) \mapsto (f_g,\psi_g)$
+defines a monomial functor $g^* : C(G)[W^{-1}] \to C(J)[W^{-1}]$.
 \end{lemma}
 
 \begin{proof}
 The key point is that pull-back along $g$ takes isogenies to isogenies,
-and maps over $G$ to maps over $G'$, as pictured below.
+and maps over $G$ to maps over $J$, as pictured below.
 \[
-\begin{tikzcd}[row sep=10,column sep=10]
-\ & V \arrow{dd}{T} && \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} && H \arrow{rr}{f} && \arrow[equal]{dd} G\\
- && && \arrow{ul} \ker f\times_G G' \arrow{ur} \arrow[hook]{rr} && H\times_G G' \arrow{ur} \arrow{rr} && G' \arrow{ur}{g} & \\
-& V' && \Aut(V) && \arrow[swap,pos=0.7]{ll}{\psi'} \arrow[swap]{uu}{} \ker f'  \arrow[hook]{rr}
-&& \arrow[swap]{uu} H' \arrow[pos=0.8]{rr}{f'} && G\\
- && && \arrow{ul} \ker f'\times_G G' \arrow{uu} \arrow{ur} \arrow[hook]{rr}
- && \arrow{uu} H'\times_G G' \arrow{ur} \arrow{rr} && \arrow[equals]{uu} G' \arrow[swap]{ur}{g} & 
+\begin{tikzcd}[row sep={{{{40,between origins}}}},column sep={{{{60,between origins}}}}]
+\ V \arrow{dd}{T} & \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} \arrow[leftarrow]{dd} && H \arrow{rr}{f} \arrow[leftarrow]{dd} && \arrow[equal]{dd} G\\
+ & & \arrow{ul} \ker f\times_G J \arrow{ur} \arrow[hook, crossing over]{rr} && H\times_G J \arrow{ur} \arrow[crossing over]{rr} && J \arrow[swap]{ur}{g} & \\
+V' & \Aut(V') && \arrow[swap,pos=0.25]{ll}{\psi'} \ker f'  \arrow[hook]{rr}
+&& H' \arrow[pos=0.25]{rr}{f'} && G\\
+ & & \arrow{ul} \ker f'\times_G J \arrow[crossing over]{uu} \arrow{ur} \arrow[hook]{rr}
+ && \arrow[crossing over]{uu} H'\times_G J \arrow{ur} \arrow{rr} && \arrow[equals, crossing over]{uu} J \arrow[swap]{ur}{g} & 
 \end{tikzcd}
 \]
-In this form we could treat $g^*$ as a functor $C(G')\to C(G)$,
-where it not for the fact that pull-back is defined only up to isomorphism.
+In this form we could treat $g^*$ as a functor $C(J)\to C(G)$,
+were it not for the fact that pull-back is defined only up to isomorphism.
 In the localized categories, this ambiguity disappears. 
 \end{proof}
 
-Let $C_1(G)$ be the rigid monoidal full subcategory of $C(G)$ consisting of objects
+Let $C_1(G)$ be the full, rigid monoidal subcategory of $C(G)$ consisting of objects
 $(f,\psi)$ such that $\psi$ is a one-dimensional representation.
 
 \begin{definition}
