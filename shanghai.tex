@@ -787,9 +787,13 @@ is given by permuting coordinates, composition with the norm map yields the iden
 
 \section{Bounded quasicharacter sheaves}\label{sec:bounded}
 
+In this section we consider a class of quasicharacter sheaves on $G$ obtained by
+replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter
+sheaf with an $\ell$-adic local system on $G$ itself.
+
 \begin{definition}
 Let $\QCb(G)$ be the category of pairs $(\qcs{L}_0,\mu_0)$ 
-where $\qcs{L}_0$ an $\ell$-adic local system on $G$ of rank-1, 
+where $\qcs{L}_0$ an $\ell$-adic local system on $G$ of rank one, 
 equipped with an isomorphism $\mu_0 : m^* \qcs{L}_0 \to \qcs{L}_0 \boxtimes \qcs{L}_0$ 
 satisfying the analogue of Condition~\ref{CS.1} on $G$; 
 morphisms in $\QCb(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
@@ -800,32 +804,32 @@ The category of bounded quasicharacter sheaves is a rigid monoidal category in t
 %with duals given by $\qcs{L}_0^\vee \ceq \sheafHom(\qcs{L}_0,\EE)$.
 
 \begin{proposition}
-$\QCb(G)$ is (equivalent to) a full subcategory of $\QC(G)$.
+There is a canonical functor $B_G^* : \QCb(G) \hookrightarrow \QC(G)$. Moreover, $B_G^*$
+is full and faithful, identifying $\QCb(G)$ with a full subcategory of $\QC(G)$.
 \end{proposition}
 
 \begin{proof}
  Let $b_G : {\bar G} \to G$ be the pull-back of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
  Let $(\qcs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$. 
- Then $\qcs{L}_0$ is, in particular, an $\ell$-adic constructible sheaf on $G$. 
- Then $b_G^* \qcs{L}_0$ comes equipped with an isomorphism 
- $\phi : \Frob{G}^* b_G^*\qcs{L}_0 \to b_G^* \qcs{L}_0$; 
- moreover, the functor $\qcs{L}_0 \mapsto (b_G^* \qcs{L}_0,\phi)$  
+ Then $\qcs{L}_0$ is an $\ell$-adic constructible sheaf on $G$ and
+ $b_G^* \qcs{L}_0$ comes equipped with an isomorphism 
+ $\phi : \Frob{G}^* b_G^*\qcs{L}_0 \to b_G^* \qcs{L}_0$.
+ Moreover, the functor $\qcs{L}_0 \mapsto (b_G^* \qcs{L}_0,\phi)$  
  from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
- is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or even \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}. 
+ is full and faithful \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}}. 
  This functor preserves local constancy, so takes local systems to local systems. 
  Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
  with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
  Moreover, $\phi$ is compatible with $\mu$ in the sense of Condition~\ref{CS.3}.
- It follows that functor $(\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,b_{G\times G}^* \mu_0, \phi)$,
- denoted by  $B_G^*: \QCb(G) \hookrightarrow \QC(G)$ below, is full and faithful.
+ It follows that $B_G^* : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
+ is full and faithful.
 \end{proof}
 
-The full subcategory $\QCb(G)$ of bounded quasicharacter sheaves is an essentially
-proper subcategory of $\QC(G)$, in general. Indeed, it follows from our main result
-regarding quasicharacter sheaves, Theorem~\ref{thm:snake}, that the restriction of
-$\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ to the subgroup $\QCbiso{G}$ is an isomorphism
-onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is bounded in $\EEx$;
-see Section~\ref{sec:snake}.
+In general, $\QCb(G)$ is an essentially
+proper subcategory of $\QC(G)$. Indeed, it follows from Theorem~\ref{thm:snake}
+that the restriction of $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ to the subgroup
+$\QCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such
+that the image of $\chi$ is bounded in $\EEx$; see Section~\ref{sec:snake} for more details.
 
 \section{Finite quasicharacter sheaves}\label{sec:finite}
 
