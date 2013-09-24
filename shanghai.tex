@@ -374,7 +374,7 @@ $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ where:
 \begin{enumerate}
 \labitem{(CS.0)}{CS.0} $\gqcs{L}$ is a rank one $\ell$-adic local system on $\bG$
 -- a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected component; 
-\labitem{(CS.1)}{CS.1} $\mu: \bm^* \gqcs{L} \to \LxL$
+\labitem{(CS.1)}{CS.1} $\mu: \bm^* \gqcs{L} \to \LxL$ \David{We should explain the $\boxtimes$ notation}
   is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
 %
@@ -518,16 +518,19 @@ play a role in the proof of many other results in this paper.
 \begin{proof}
   Let $\qcs{L}$ be a quasicharacter sheaf on $G$. We start by showing that
   $\bf^*\gqcs{L}$ is a local system of rank~$1$. Let $c_j :\bH^j \hookrightarrow \bH$ be any
-  connected component and let $i$ be the image of $j$ under the group
-  homomorphism $\pi_0(\bf) : \pi_0(\bH) \to \pi_0(\bG)$.
-  Write $d_i : \bG^i \hookrightarrow \bG$ for
-  the inclusion of $\bG^i$ and $\bf^j : \bH^j \to \bG^i$
+  connected component and let $d_i : \bG^i \hookrightarrow \bG$ be the image of $j$ under the group
+  homomorphism $\pi_0(\bf) : \pi_0(\bH) \to \pi_0(\bG)$.  Write $\bf^j : \bH^j \to \bG^i$
   for the restriction of $f$ to $\bH^j$.  Since $\gqcs{L}$ is locally constant on the connected
   components of $\bG$, there is a finite \'etale covering
   $a_i : X_i \to \bG^i$ such that $a_i^* (\gqcs{L}\vert_{\bG^i})$
-  is constant. Let $b_j : Y_j \to \bH^j$ be the
-  pull-back of $a_i$ along $\bf^j$ and let $g_j : Y_j \to X_i$ be
-  the map opposite $\bf^j$. Then $b_j$ is a finite \'etale covering
+  is constant.  Define $Y_j$ in the following diagram through pullback:
+  \[
+  \begin{tikzcd}[row sep=20, column sep=30]
+   Y_j \dar[dashed]{g_j} \rar[dashed]{b_j} & \bH^j \dar{\bf^j} \rar[hook]{c_j} & \bH \dar{\bf} \\
+   X_i \rar{a_i} & \bG^i \rar[hook]{d_i} & \bG
+  \end{tikzcd}
+  \]
+  Then $b_j$ is a finite \'etale covering
   of $\bH^j$ and
   \[
   b_j^* \left( (\bf^* \gqcs{L})\vert_{\bH^j}\right)
@@ -542,6 +545,7 @@ play a role in the proof of many other results in this paper.
   geometric point ${\bg}$ on $\bG$, and since $\gqcs{L}$ has
   rank $1$ on connected components of $\bG$, it follows that
   $f^*\gqcs{L}$ also has rank $1$ on connected components of $\bG$.
+  \David{can't we just say rank 1?  Why ``on connected components of $G$?"}
   This completes the proof that $\bf^*\gqcs{L}$ satisfies condition \ref{CS.0}.
 
   To see that $(\bfxf)^* \mu$ satisfies
@@ -554,9 +558,9 @@ play a role in the proof of many other results in this paper.
   yields isomorphisms $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG}^* (\bfxf)^*$
   and $(\bfxf)^* \bm^*\iso \bm^* \bf^*$ between functors of constructible sheaves.
   
-  Applying $\bf^*$ and $\bf^* \tight{1}{\times}{1}\bf^*$ to \ref{CS.3} allows the application
-  of $f^*$ to morphisms of quasicharacter sheaves; arguing as above shows that $f^*$ is
-  a functor from $\QC(G)$ to $\QC(H)$.  Since tensor products commute with pullback
+  Applying $\bf^*$ and $\bf^* \tight{1}{\times}{1}\bf^*$ to \ref{CS.3} defines the action
+  of $f^*$ on morphisms of quasicharacter sheaves; arguing as above shows that $f^*$ is
+  a functor from $\QC(G)$ to $\QC(H)$.  Since tensor products commute with pullback in schemes,
   $f^* : \QC(G) \to \QC(H)$ is a monoidal functor.
 %
   The diagram relating $f^* : \QC(G) \to \QC(H)$, $f^* : G(k)^* \to H(k)^*$ and trace of Frobenius
@@ -582,29 +586,30 @@ Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines a sequence o
 \QC(0) \rar & \QC(\pi_0(G)) \rar & \QC(G) \rar & \QC(G^0) \rar & \QC(0)
 \end{tikzcd}
 \]
-which induces, upon passage to isomorphism classes of objects, a sequence of group homomorphisms 
+which induces a sequence of group homomorphisms 
 \[
 \begin{tikzcd}
 \QCiso{0} \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & \QCiso{0}.
 \end{tikzcd}
 \]
-It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected} and  we will find $\QCiso{G^0}$
+after passing to isomorphism classes.  It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected}, \ref{sec:etale} and \ref{sec:etalecohom} we will find $\QCiso{G^0}$
 and $\QCiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; 
-the snake lemma will then allow us to show
+the snake lemma will then allow us to show that
 \[
-\QCiso{G} \iso G(\Fq)^*,%\Hom_\text{grp}(G(\Fq),\EE^\times),
+\QCiso{G} \iso G(\Fq)^*.
 \]
-canonically.
+
 %\section{Products} 
+
 We end this section with a simple result on products of quasicharacter sheaves,
 which is needed to show that the isomorphism above is functorial.
 
 \begin{proposition}\label{prop:product}
-The rule $\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an equivalence of categories 
+If $G_1$ and $G_2$ are $\QC$-schemes, the rule $\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an equivalence of categories 
 \[
-\QC(G_1)\times (G_2) \to \QC(G_1\times G_2)
+\QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)
 \]
-(categorical product on the left, product of group schemes over $\Fq$ on the right) and 
+and 
 \[
 \begin{tikzcd}[column sep=60]
 \arrow{d}{\trFrob{G_1} \times \trFrob{G_2}} \QCiso{G_1}\times \QCiso{G_2} \arrow{r}{\boxtimes}
@@ -616,7 +621,8 @@ commutes.
 \end{proposition}
 
 \begin{proof}
-The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_2$.
+The only non-trivial part is essential surjectivity. Set $G \ceq G_1\times G_2$
+and write $e_1$ and $e_2$ for the identity elements of $G_1$ and $G_2$.
 Let $\qcs{L}$ be a quasicharacter sheaf on $G$. Define $f : G\to G\times G$
 by $f(g_1,g_2) \ceq (g_1,e_2,e_1,g_2)$. Observe that $m\circ f = \id_G$. 
 Let $p_1$, $p_2$ be the projection morphisms pictured below:
@@ -629,7 +635,7 @@ Then the isomorphism $\mu : m^* \gqcs{L} \to \gqcs{L}\boxtimes \gqcs{L}$ gives a
 \[
 f^*\mu : f^* m^* \gqcs{L} \to f^*(\gqcs{L}\boxtimes \gqcs{L}) = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L}.
 \]
-Let $r_1$ and $r_2$ be the projection morphisms pictured below, with sections $q_1$, $q_2$, also morphisms of group schemes:
+Let $r_1$ and $r_2$ be the projection morphisms pictured below, with sections $q_1$ and $q_2$, also morphisms of group schemes:
 \[
 \begin{tikzcd}
 G_1  \arrow[swap, bend right]{r}{q_1} &
@@ -637,10 +643,10 @@ G_1  \arrow[swap, bend right]{r}{q_1} &
 \arrow[bend left]{l}{q_2} G_2.
 \end{tikzcd}
 \]
-Then $p_1\circ f = r_1 \circ q_1$ and $f_2 = r_2\circ f$, 
+Then $p_1\circ f = q_1 \circ r_1$ and $p_2 \circ f = q_2\circ r_2$, 
 so $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L}$ and $f^*p_2^*\gqcs{L} = r_2^* q_2^* \gqcs{L}$. 
-Now $\qcs{L}_1 \ceq r_1^* \qcs{L}$ is a quasicharacter sheaf on $G_1$ 
-and $\qcs{L}_2 \ceq r_2^* \qcs{L}$ is a quasicharacter sheaf on $G_2$, 
+Now $\qcs{L}_1 \ceq q_1^* \qcs{L}$ is a quasicharacter sheaf on $G_1$ 
+and $\qcs{L}_2 \ceq q_2^* \qcs{L}$ is a quasicharacter sheaf on $G_2$, 
 by Proposition~\ref{prop:pullback}. 
 Then 
 \[
@@ -650,7 +656,7 @@ In this way, $\mu$ determines an isomorphism
 \[
 f^*\mu : \gqcs{L} \to  \gqcs{L}_1\boxtimes \gqcs{L}_2.
 \]
-So $\boxtimes$ is essentially surjective.
+So $\boxtimes$ is essentially surjective. \David{Don't we also need to note that $f^*\mu$ is compatible with the rational structures?}
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:functorialG}]
@@ -665,13 +671,13 @@ transformation between additive functors.
 
 When using quasicharacter sheaves to study characters, it is useful to understand
 how quasicharacter sheaves behave under change of fields.
-Let $k'$ be a finite extension of $k$. Then $k\to k'$ induces a group homomorphism
-$i_{k'/k} : G(k) \hookrightarrow G(k')$ which, in turn, gives
+Let $k'$ be a finite extension of $k$. Then $k \hookrightarrow k'$ induces a group homomorphism
+$i_{k'/k} : G(k) \hookrightarrow G(k')$ and thus a homomorphism
 \begin{align*}
 i_{k'/k}^* : G(k')^* &\to G(k)^* \\
 \chi &\mapsto \chi\circ i_{k'/k}.
 \end{align*}
-We can interpret this operation on characters in terms of quasicharacter sheaves, as follows.
+We can interpret this operation on characters in terms of quasicharacter sheaves:
 %
 
 \begin{proposition} \label{prop:csbe}
@@ -700,7 +706,7 @@ In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consid
 \Nm^* : G(k)^* &\to G(k')^* \\
 \chi &\mapsto \chi\circ \Nm.
 \end{align*}
-We can also interpret this operation on characters in terms of quasicharacter sheaves, as follows.
+We can also interpret this operation on characters in terms of quasicharacter sheaves.
 
 If $\qcs{L} \ceq (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$ we may define
 a quasicharacter sheaf $\qcs{L}' \ceq (\gqcs{L}, \mu, \phi_{k'})$ on the base change
@@ -717,9 +723,7 @@ defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{
 \begin{proposition}\label{prop:basechange}
  The rule $\nu_{k'/k}: (\gqcs{L}, \mu, \phi) \mapsto (\gqcs{L}, \mu, \phi_{k'})$ 
  defines a monoidal functor $\QC(G) \to \QC(G_{k'})$. 
- Moreover, the following diagram commutes, 
- where the top map is induced by $\QC(G) \to \QC(G_{k'})$ 
- and the bottom map is induced by the norm $G(k') \rightarrow G(k)$:
+ Moreover, the following diagram commutes:
 \[
 \begin{tikzcd}[column sep=60]
 \QCiso{G} \rar{\nu_{k'/k}} \dar{\trFrob{G}} & \QCiso{G_{k'}} \dar{\trFrob{G_{k'}}} \\
@@ -728,8 +732,8 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \]
 \end{proposition}
 \begin{proof}
-Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and $x \in G(k')$ and write $\Frob{}$ for $\Frob{G}$.
-We may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
+Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and write $\Frob{}$ for $\Frob{G}$.  For any $x \in G(k')$,
+we may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
 \Clifton{Please note what I did here.}
 and the value of $\Nm^*(t_G(\qcs{L}))(x)$ as the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
 Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
@@ -740,8 +744,9 @@ Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \
 \gqcs{L}_{\Nm(x)} \rar & \gqcs{L}_x \otimes \gqcs{L}_{\Frob{}(x)} \otimes \cdots \otimes \gqcs{L}_{\Frob{}^{n-1}(x)}.
 \end{tikzcd}
 \]
-Choose a basis vector $v$ for $\gqcs{L}_{\Nm(x)}$, mapping to $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$
-along the bottom map, where $v_i \in \gqcs{L}_{\Frob{}^i(x)}$.  By \ref{CS.1}, $v$ maps to
+Choose a basis vector $v$ for $\gqcs{L}_{\Nm(x)}$ and write the image of $v$ under the
+bottom map as $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$
+for $v_i \in \gqcs{L}_{\Frob{}^i(x)}$.  By \ref{CS.1}, $v$ maps to
 $v_1 \otimes v_2 \otimes \cdots \otimes v_0$ along the top of the diagram.
 Let $\alpha_i \in \EEx$ represent $((\Frob{}^i)^*\phi)_x$ with respect to these bases and let $\alpha$ be
 the trace of $\phi_{\Nm(x)}$.  We may now equate the trace $\alpha$ of $\phi$ on $\gqcs{L}_{\Nm(x)}$
@@ -759,23 +764,23 @@ Since products and coproducts agree for group schemes we have a natural inclusio
 \[
 G' \hookrightarrow (\Res_{k'/k}G')_{k'}
 \]
-mapping $G'$ into the summand corresponding to $1 \in \Gal(k'/k)$.  Composing pullback
-along this map with $\nu_{k'/k}$ from Proposition~\ref{prop:basechange} yields a functor
+mapping $G'$ into the summand corresponding to $1 \in \Gal(k'/k)$.  Composing $\nu_{k'/k}$ 
+from Proposition~\ref{prop:basechange} with pullback along this map yields a functor
 \[
-\QC(\Res_{k'/k}G') \to \QC(G').
+\rho : \QC(\Res_{k'/k}G') \to \QC(G').
 \]
 
 \begin{proposition}
 The following diagram of isomorphisms commutes, where the bottom map is the identity:
 \[
 \begin{tikzcd}
-\QCiso{\Res_{k'/k} G'} \dar{\trFrob{\Res_{k'/k} G'}} \rar & \QCiso{G'} \dar{\trFrob{G'}}\\
+\QCiso{\Res_{k'/k} G'} \dar{\trFrob{\Res_{k'/k} G'}} \rar{\rho} & \QCiso{G'} \dar{\trFrob{G'}}\\
 G'(k')^* \rar & G'(k')^*
 \end{tikzcd}
 \]
 \end{proposition}
 \begin{proof}
-By Proposition~\ref{prop:pullback} the pullback part of the definition corresponds to the map $(\Res_{k'/k}G')(k') \to G'(k')^*$
+By Proposition~\ref{prop:pullback} the pullback part of the definition of $\rho$ corresponds to the map $(\Res_{k'/k}G')(k') \to G'(k')^*$
 induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on $(\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'$
 is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
 \end{proof}
