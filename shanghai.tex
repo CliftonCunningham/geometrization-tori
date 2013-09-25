@@ -233,7 +233,7 @@ Let $T$ be a torus defined over $K$.  The N\'eron model $\TT$ of $T$
 is a smooth group scheme over $\OK$ with generic fibre $T$ and a canonical isomorphism
 $\TT(\OK) \cong T(K)$.  For each positive integer $n$, let $\GN{T}_n$ be the
 Greenberg transform of $\TT \times_{\Spec{\OK}} \Spec{\OK/\pK^n}$; the commutative
-group scheme $\GN{T}_n$ plays the r\^{o}le of $G$.  Theorem~\ref{thm:application}
+group scheme $\GN{T}_n$ plays the r\^{o}le of $G$, above.  Theorem~\ref{thm:application}
 allows us to translate characters $T(K)$ of depth less than $n$ into quasicharacter sheaves on $\GN{T}_n$:
 \[
 \QCiso{\GN{T}_n} 
@@ -243,8 +243,13 @@ allows us to translate characters $T(K)$ of depth less than $n$ into quasicharac
 We also describe a pro-group scheme $\GN{T}$ simultaneously geometrizing all quasicharacters ({\it i.e.}, finite-depth characters) of $T(K)$.
 
 While we have not yet fully explored the applications of such a geometrization, we want to highlight
+<<<<<<< HEAD
 some of the potential benefits of Theorem~\ref{thm:application}. 
 %
+=======
+some of the potential benefits of Theorem~\ref{thm:application} here. 
+
+>>>>>>> ebab6b284f43a61b0e5c3229b1da8cd2fc3c32aa
 Characters on $T$ have limited
 functoriality: they can be pulled back along maps to $T$, but it is less clear what to do with them
 in the presence of maps from $T$ to other groups.  Sheaves, on the other hand, come
@@ -270,11 +275,15 @@ program to be applied to the classic context.
 
 Finally, we are tantalized by the possibility of providing an alternate perspective on local class field theory
 through quasicharacter sheaves.  The local Langlands correspondence for tori provides an isomorphism
-\[
-\Hh^1(\Weil{K}, \hat{T}_\ell) \cong \Hom(T(K), \EEx).
-\]
+$
+\Hh^1(\Weil{K}, \hat{T}_\ell) \cong \Hom(T(K), \EEx)
+$. 
 A geometric description of the resulting isomorphism $\Hh^1(\Weil{K}, \hat{T}_\ell) \cong \QCiso{\GN{T}}$
 would yield a different description of the Artin reciprocity map.
+<<<<<<< HEAD
+=======
+
+>>>>>>> ebab6b284f43a61b0e5c3229b1da8cd2fc3c32aa
 
 We want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
 Analogous sheaves on connected, commutative algebraic groups were first studied
@@ -941,12 +950,11 @@ Since $f\circ m_H = m \circ (f\times f)$, the universal property of pull-back gi
 a unique $\theta : H\times H \to H_m$ making the following commute.
 \[
 \begin{tikzcd}[row sep=20,column sep=10]
-\ & V \arrow{dd}{T} && \Aut(V) && \arrow{dl} \arrow[swap]{ll}{\psi_m} A_m \arrow[hook]{rr}
-&& \arrow[swap]{ld}{m_f} H_m \arrow{rr}{f_m} && \arrow[equal]{dd} \arrow{ld}{m} G\times G\\
- && && \arrow{ul}{\psi} A  \arrow[hook]{rr} && H  \arrow[swap, pos=0.8]{rr}{f} && G  & \\
-& V\otimes V && \Aut(V)
-&& \arrow[swap]{ll}{\psi \otimes \psi} \arrow[swap,pos=0.8]{uu}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
-&& \arrow[swap,pos=0.8]{uu}{\theta} \arrow{ul}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
+\ & V \arrow{dd}{T} && \Aut(V) && A \arrow[hook]{rr} \arrow[swap]{ll}{\psi} &&  H \arrow{rr}{f} && G\\
+ && && \arrow{ul}{\psi_m} A_m  \arrow[hook]{rr} \arrow{ur} && H_m \arrow[pos=0.3]{ur}{m_f} \arrow[swap, pos=0.8]{rr}{f_m}
+ && G \times G \arrow[equal]{dr} \arrow[pos=0.42]{ur}{m} & \\
+& V\otimes V && \Aut(V) && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[dashed,swap,pos=0.3]{ul}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
+&& \arrow[dashed,swap]{ul}{\theta} \arrow[crossing over,swap,pos=0.7]{uu}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
 \end{tikzcd}
 \]
 Choose a basis $\{ v \}$ for $V$; then $\{ v\otimes v \}$ is a basis for $V\otimes V$.
