@@ -282,7 +282,7 @@ by Deligne \cite{deligne:SGA4.5}*{sommes trig.} and many people have since refer
 as character sheaves; see for example, \cite{kamgarpour:09a}. 
 %\cite{boyarshenko-drinfeld:motivated}*{\S 1.8}.  
 Our quasicharacter sheaves evolved from this notion, and Theorem~\ref{thm:snake}
-is a direct generalization of the sheaf--function dictionary to the case of commutative
+is a direct generalization of the sheaf--function dictionary to the case of certain commutative
 group schemes which are not necessarily connected or finite type.  The main use
 of the term character sheaf is of course due to Lusztig. It is applied to certain perverse
 sheaves on connected reductive algebraic groups over algebraically closed fields in
@@ -294,7 +294,7 @@ in which case it is not difficult to relate Frobenius-stable character sheaves t
 
 We close the introduction with a more detailed description of the structure of this paper.
 In Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
-them as Weil sheaves with a Galois action.
+them as Weil sheaves with certain properties.
 Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism,
 one direction of the sheaf--function dictionary.
 We define pullbacks and products of quasicharacter sheaves in Section~\ref{sec:pullback}, and use
@@ -739,7 +739,6 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \begin{proof}
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and write $\Frob{}$ for $\Frob{G}$.  For any $x \in G(k')$,
 we may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
-\Clifton{Please note what I did here.}
 and the value of $\Nm^*(t_G(\qcs{L}))(x)$ as the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
 Applying \ref{CS.2} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
 \[
@@ -809,8 +808,9 @@ The category of bounded quasicharacter sheaves is a rigid monoidal category in t
 %with duals given by $\qcs{L}_0^\vee \ceq \sheafHom(\qcs{L}_0,\EE)$.
 
 \begin{proposition}
-There is a canonical functor $B_G^* : \QCb(G) \hookrightarrow \QC(G)$. Moreover, $B_G^*$
-is full and faithful, identifying $\QCb(G)$ with a full subcategory of $\QC(G)$.
+Extension of scalars defines a full and faithful functor 
+$B_G^* : \QCb(G) \hookrightarrow \QC(G)$,
+thus identifying $\QCb(G)$ with a full subcategory of $\QC(G)$.
 \end{proposition}
 
 \begin{proof}
@@ -826,15 +826,16 @@ is full and faithful, identifying $\QCb(G)$ with a full subcategory of $\QC(G)$.
  Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
  with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
  Moreover, $\phi$ is compatible with $\mu$ in the sense of Condition~\ref{CS.3}.
- It follows that $B_G^* : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
- is full and faithful.
+ This defines the functor $B_G^* : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
+ and also shows that it is full and faithful.
 \end{proof}
 
 In general, $\QCb(G)$ is an essentially
 proper subcategory of $\QC(G)$. Indeed, it follows from Theorem~\ref{thm:snake}
 that the restriction of $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ to the subgroup
 $\QCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such
-that the image of $\chi$ is bounded in $\EEx$; see Section~\ref{sec:snake} for more details.
+that the image of $\chi$ is bounded in $\EEx$; 
+see Section~\ref{sec:snake} for more details regarding this point.
 
 \section{Finite quasicharacter sheaves}\label{sec:finite}
 
@@ -846,14 +847,14 @@ of bounded quasicharacter sheaves that play a role in Section \ref{sec:restricti
 Let us say that $f : H\to G$ is a \emph{discrete isogeny} if it is a finite, surjective
 \'etale morphism and a morphism of commutative group $\Fq$-schemes for which
 the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $f^{-1}({\bar e})$ is trivial.
-We first begin by defining a category $C(G)$, whose objects consist of pairs $(f,\psi)$ where
+We first begin by defining a category $C(G)$ whose objects consist of pairs $(f,\psi)$ where
 \begin{itemize}
-\item $f : H\to G$ is a discrete isogeny;
+\item $f : H\to G$ is a discrete isogeny,
 \item $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$.
 \end{itemize}
 A morphism $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$ where
 \begin{itemize}
-\item $\alpha : H' \to H$ is a morphism of schemes such that $f' = f\circ \alpha$;
+\item $\alpha : H' \to H$ is a morphism of schemes such that $f' = f\circ \alpha$,
 \item $T : V\to V'$ is a linear transformation equivariant for the action of
 $\ker f'$ on $V'$ by $\psi'$ and the action of $\ker '$ on $V$ by $\psi \circ \alpha$.
 \[
@@ -866,6 +867,25 @@ V' & \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{\alpha\vert_{\ker f'}} \k
 We say that $(\alpha,T)$ in $C(G)$ is a \emph{weak isomorphism} if $\alpha$ is surjective
 and $T$ is an isomorphism of vector spaces.
 Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at weak isomorphisms.
+
+%Now consider the localization $C(G)[W^{-1}]$ of $C(G)$ at weak isomorphisms.
+ Morphisms in $C(G)[W^{-1}]$ are simple to describe because category $C(G)$ 
+ admits a calculus of left fractions
+ %\footnote{See {\tt http://ncatlab.org/nlab/show/calculus+of+fractions}.} 
+ for weak isomorphisms:
+% every isomorphism in $C(G)$ is a weak isomorphism; 
+% push-outs exist in $C(G)$ and the push-out of a weak isomorphism is a weak isomorphism; 
+% and weak isomorphisms enjoy the left-cancellation property. 
+% It follows that
+ a morphism in $C(G)[W^{-1}]$ is the equivalence class of 
+  \begin{equation}\label{eq:morGCf}
+   \begin{tikzcd}
+   (f,\psi) \arrow{r}{(\alpha_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(\beta_1,U_1)} (f',\psi')
+   \end{tikzcd}
+  \end{equation}
+ where $(\alpha',T') : (f,\psi) \to (f',T')$ is any map in $C(G)$ 
+ and $(\beta_1,U_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism.
+
 
 We put a tensor category structure on $C(G)$ as follows.
 Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
@@ -880,7 +900,6 @@ let $V^\vee \ceq \Hom_\text{vec}(V,\EE)$ and $\psi^\vee : \ker f \to \Aut(V^\vee
 the dual representation.  We may then set $(f,\psi)^\vee \ceq (f,\psi^\vee)$.
 These operations give $C(G)$ the structure of a tensor category.
 Likewise, $C(G)[W^{-1}]$ is a tensor category.
-\David{Should expand on this a bit and note that $C(G)[W^{-1}]$ admits a calculus of fractions}
 
 \begin{lemma}\label{lemma:finite-pull-back}
 If $g : J \to G$ is a morphism of group schemes, let $f_g : H\times_G J\to J$
@@ -983,24 +1002,7 @@ $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\QCf(
  by $s \mapsto s' \ceq T\circ s\circ \alpha$. 
  This defines a monoidal functor $L$ from $C(G)$ to $\Loc(G)$. 
  This functor commutes with pull-back along any morphism of group schemes.
-  
- Now consider the localization $C(G)[W^{-1}]$ of $C(G)$ at weak isomorphisms.
- Morphisms in $C(G)[W^{-1}]$ are simple to describe because category $C(G)$ 
- admits a calculus of left fractions
- %\footnote{See {\tt http://ncatlab.org/nlab/show/calculus+of+fractions}.} 
- for weak isomorphisms:
-% every isomorphism in $C(G)$ is a weak isomorphism; 
-% push-outs exist in $C(G)$ and the push-out of a weak isomorphism is a weak isomorphism; 
-% and weak isomorphisms enjoy the left-cancellation property. 
-% It follows that
- a morphism in $C(G)[W^{-1}]$ is the equivalence class of 
-  \begin{equation}\label{eq:morGCf}
-   \begin{tikzcd}
-   (f,\psi) \arrow{r}{(\alpha_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(\beta_1,U_1)} (f',\psi')
-   \end{tikzcd}
-  \end{equation}
- where $(\alpha',T') : (f,\psi) \to (f',T')$ is any map in $C(G)$ 
- and $(\beta_1,U_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism.
+
 
  Observe that $L$ takes weak isomorphisms in $C(G)$ to isomorphisms in $\Loc(G)$. 
  To see this, suppose $(\beta,U) : (f,\psi)\to (f',\psi')$ is a weak isomorphism. 
@@ -1630,19 +1632,22 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
   classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map
   $G^0(\bFq) \to G(\bFq)$ induces the map
-  $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$,
+  \[
+  \Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))
+  \]
   fitting into the long exact sequence derived from applying
   the functor $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
   \[
   \Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).
   \]
+  
   We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.
-
+%
   It suffices to show that $\pi_0(G)(\bFq)$ has a two-term resolution
   by injective $\ZZ[\Gamma]$-modules.  Since the action of $\Gamma$ on
   $\pi_0(G)(\bFq)$ is continuous, it factors through some finite quotient
   $\Gamma_m \ceq \Gamma / H_m$.  Any product of Dedekind domains has
-  cohomological dimension $1$ \David{Add a citation for this fact}, so $\pi_0(G)(\bFq)$ has a
+  cohomological dimension $1$, \David{Add a citation for this fact} so $\pi_0(G)(\bFq)$ has a
   two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$
   be one of these modules: we need to show that $I$ is injective as a
   $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
@@ -1663,7 +1668,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   \end{tikzcd}
   \]
   The dotted arrow exists since $I$ is injective as a
-  $\ZZ[\Gamma_m]$-module, and the outer diagram shows that $I$ is
+  $\ZZ[\Gamma_m]$-module and the outer diagram shows that $I$ is
   injective as a $\ZZ[\Gamma]$-module.
 
   We therefore have the existence of diagram \eqref{extension-diagram}
@@ -1807,7 +1812,6 @@ Then the restriction of $\qcs{L}$ to the connected component $1\in G$
 would be a $\ell$-adic local system on $1$ of rank~one, which would provide
 an $\ell$-adic character $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with
 $\rho_1(\Frob{\Fq}) = \ell$, necessarily continuous. 
-\Clifton{I made some small changes to wording, here.}
 But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, 
 while $\rho_1(\pi_1(1,{\bar 1})) \subseteq \EEx$ is not compact (it contains $\ell^\ZZ$),
 contradicting the continuity of $\rho_1$.
