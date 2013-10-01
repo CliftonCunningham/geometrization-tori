@@ -310,9 +310,7 @@ In section \ref{sec:connected} we show that bounded and finite quasicharacter sh
 as standard quasicharacter sheaves when $G$ is connected, and that trace of Frobenius is an isomorphism.
 We shift to \'etale group schemes $G$ in Section~\ref{sec:etale} and give a more concrete interpretation
 of quasicharacter sheaves in this case.  Using a notion of global sections for quasicharacter sheaves,
-we give an isomorphism between $\QCiso{G}$ and $\Hh^1(\Weil{\Fq}, \Hom(G(\bFq), \EEx))$.
-Section~\ref{sec:etalecohom} proves a result in Galois cohomology that shows that trace of Frobenius is
-an isomorphism for \'etale group schemes.
+we give isomorphisms between $\QCiso{G}$, $\Hh^1(\Weil{\Fq}, \Hom(G(\bFq), \EEx))$ and $\Hom(G(\Fq), \EEx)$.
 In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
 induces an essentially surjective functor of quasicharacter sheaves.
 Section~\ref{sec:snake} closes out Part \ref{part1} with the proof of the main theorem: trace of Frobenius
@@ -1412,178 +1410,39 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
  and completes the proof that it is an isomorphism of groups.
 \end{proof}
 
-\section{On the cohomology of the dual of an \'etale group scheme} \label{sec:etalecohom}
+In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
 
-Although the next proposition makes no mention quasicharacter sheaves, 
-it has immediate application to the problem of finding all quasicharacter sheaves
-on finitely generated etale group schemes, as we will see at the end of the section.
-
-\begin{proposition}\label{prop:X}
-  Let $X$ be a finitely generated abelian group equipped with an
-  action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on
-  $X$.  Then
-  \begin{align*}
-    \Hh^1(\Fq, X^*) &\xrightarrow{\rho} \Hh^0(\Fq, X)^*, \\
-    \rho([z])(x) &\ceq z(\Frob{\Fq})(x),
-  \end{align*}
-  is an isomorphism of groups.
-\end{proposition}
+\begin{lemma} \label{lem:dual-inv}
+Let $X$ be a finitely generated abelian group equipped with an action of $\Weil{\Fq}$, and write $\Frob{} = \Frob{\Fq}$.  Then
+\begin{align*}
+ (X^*)_{\Frob{}} &\to (X^{\Frob{}})^* \\
+ [f] &\mapsto f|_{X^{\Frob{}}}
+\end{align*}
+is an isomorphism.
+\end{lemma}
 \begin{proof}
-  We first prove that $\rho$ is surjective.  Suppose that
-  $f \in \Hom(X^{\Frob{\Fq}}, \EEx).$ Since $\EEx$ is divisible
-  as an abelian group it is injective as a $\ZZ$-module and thus
-  $\Ext^1_{\ZZ}(X/X^{\Frob{\Fq}}, \EEx) = 0$.  The long exact 
-  sequence obtained by applying the functor
-  $\Hom(\mbox{---}, \EEx)$ to
-  \[
-  \begin{tikzcd}
-  0 \rar & X^{\Frob{\Fq}} \rar & X \rar & X/X^{\Frob{\Fq}} \rar & 0
-  \end{tikzcd}
-  \]
-  gives the existence of an $\tilde{f} \in \Hom(X, \EEx)$ restricting to
-  $f$.  Define a $1$-cocycle $z \in \Hh^1(\Fq, \Hom(X,\EEx))$ by
-  mapping $\Frob{\Fq}$ to $\tilde{f}$.  Then $\rho([z]) = f$.
-
-  Now suppose that $[z] \in \Hh^1(\Fq,\Hom(X,\EEx))$ with
-  $\rho([z]) = 1$; write $\tilde{f}$ for $z(\Frob{\Fq})$.  The injectivity
-  of $\rho$ is equivalent to the existence of a homomorphism $\psi
-  \colon X \rightarrow \EEx$ with
-  \[
-  \tilde{f}(x) = \frac{\psi(\Frob{\Fq}(x))}{\psi(x)}
-  \]
-  for $x \in X$.  In fact, we may replace the construction of $\psi$
-    \Clifton{I'm not sure I understand what you mean here.}
-  for all $\ZZ[\Gal(\bFq/\Fq)]$-modules $X$ with the construction of
-  analogous $\psi$s for a different class of modules.
-
-  The $\ZZ[\Gal(\bFq/\Fq)]$-module $X$ decomposes into 
-  a finite direct sum of cyclic $\ZZ[\Gal(\bFq/\Fq)]$-modules. 
-  To see this, observe first that since the action of $\Gal(\bFq/\Fq)$ is continuous, 
-  there is a positive integer $m$ so that $\Frob{\Fq}^m$ acts trivially on $X$; 
-  write $\Fqm$ for the degree $m$ extension of $\Fq$ in $\bFq$ 
-  and $\Gamma_m$ for $\Gal(\Fqm/\Fq)$.  Since
-  $T^m-1$ factors as a squarefree product of cyclotomic polynomials,
-  the Chinese remainder theorem expresses $\ZZ[\Gamma_m]$ as a product
-  of $\ZZ[\zeta_d]$ for $d$ dividing $m$.  Each $\ZZ[\zeta_d]$ is the
-  maximal order in a number field and thus $\ZZ[\Gamma_m]$ is a
-  product of Dedekind domains. Combining \cite{Warfield:Decomposability}*{Theorem 3}
-  and \cite{brandal:CommRingsFGModDecompose}*{Lemma 4.1}, it now follows that 
-  $X$ decomposes into a direct sum of cyclic $\ZZ[\Gamma_m]$-modules, 
-  each of the form $\ZZ[\Gamma_m] / I$ for some ideal $I \subset \ZZ[\Gamma_m]$.
-  The ideal $I$ corresponds to a direct product of ideals $I_d$ in the
-  $\ZZ[\zeta_d]$, and within each $\ZZ[\zeta_d]$ the Chinese remainder
-  theorem allows a further decomposition of $\ZZ[\zeta_d] / I_d$ as a
-  direct sum of $\ZZ[\zeta_d]$-modules of the form $\ZZ[\zeta_d]/P^s$.
-  So if we can construct, for every cyclotomic ring $\ZZ[\zeta_d]$,
-  prime ideal $P \subset \ZZ[\zeta_d]$ and positive integer $s$, a
-  $\psi \colon \ZZ[\zeta_d]/P^s \rightarrow \EEx$ with
-  \begin{equation} \label{eq:psi-condition}
-    \tilde{f}(x) = \frac{\psi(\zeta_d \cdot x)}{\psi(x)},
-  \end{equation}
-  then the existence of the original $\psi$ follows because $X$ is a
-  direct sum of such $\ZZ[\zeta_d]/P^s$.
-
-  We now fix a $d$, $P$ and $s$, write $\zeta$ for $\zeta_d$ and
-  choose a polynomial
-  \[
-  h(T) \ceq a_rT^r + a_{r-1}T^{r-1} + \cdots + a_0
-  \]
-  so that $P^s = (p^s, h(\zeta_d))$.
-  % Setting $\psi = 1$ will satisfy Equation \ref{eq:psi-condition}
-  % when $d = 1$.
-  An an abelian group, the quotient $\ZZ[\zeta] / P^s$ is generated by
-  $\zeta^i$ for $0 \le i < \phi(d)$; we define
-  \begin{equation} \label{eq:psi-def}
-    \psi(\zeta^i) \ceq \alpha \prod_{j=0}^{i-1} \tilde{f}(\zeta^j)
-  \end{equation}
-  for an $\alpha \in \EEx$ to be chosen later.  Since there are
-  relations among the $\zeta^i$ we first need to check that $\psi$ is
-  well-defined.
-
-  The relations among the generators $\zeta^i$ are additively
-  generated by $\zeta^ch(\zeta)$ as $c$ ranges from $0$ to
-  $\phi(d)-r-1$.  If we set
-  \[
-  A_c \ceq \sum_{i=0}^r a_i \sum_{j=0}^{i+c-1} \zeta^j
-  \]
-  then
-  \[
-  \psi(\zeta^ch(\zeta)) = \alpha^{h(1)} \tilde{f}(A_c).
-  \]
-  Now consider $(\zeta - 1)A_c$: the sums telescope and we get that
-  $(\zeta-1)A_c = \zeta^ch(\zeta) - h(1).$ There are now two
-  possibilities:
-  \begin{enumerate}
-  \item $d$ is a power of $p$; write $s = \phi(d)m + n$.  We may take
-    $h(T)$ to be $p^m(T-1)^n$, in which case $\zeta^ch(\zeta) - h(1) \in P^s$,
-    so $A_c$ is fixed under multiplication by $\zeta$ in
-    $\ZZ[\zeta]/P^s$ and thus $\tilde{f}(A_c) = 1$.  In this case
-    $\alpha^{h(1)} = 1$ regardless of $\alpha$.
-  \item $d$ is not a power of $p$.  If two distinct primes divide $d$
-    then $\zeta - 1$ is a unit; otherwise $\zeta - 1$ is a unit modulo
-    $P^s$.  Let $\omega \in \ZZ[\zeta]$ satisfy
-    $\omega(\zeta - 1) \equiv 1 \pmod{P^s}$ and set
-    %\begin{equation} \label{alpha-def}
-     $ \alpha \ceq \tilde{f}(\omega)$.
-    %\end{equation}
-    Then $A_c + h(1)\omega$ is fixed under multiplication by $\zeta$
-    and thus $\tilde{f}(A_c) = \tilde{f}(-h(1)\omega)$.
-  \end{enumerate}
-  In either case, $\psi(\zeta^ch(\zeta)) = 1$ for all $c$.  The only
-  other relations imposed on the $\zeta^i$ are that they are all
-  killed under multiplication by $p^s$.  Since $\tilde{f}$ is also a
-  homomorphism $\ZZ[\zeta]/P^s \rightarrow \EEx$ the values of
-  $\tilde{f}$ and thus of $\psi$ will be $p^s$-roots of unity.
-  Therefore $\psi$ is well defined.
-
-  We now check Equation~\eqref{eq:psi-condition} for
-  $x \ceq \zeta^{\phi(d)-1}$.  Write
-  \[\Phi_d(T) \ceq T^{\phi(d)} - b_{\phi(d)-1}T^{\phi(d)-1} - \cdots - b_0\]
-  and set
-  \[
-  B \ceq b_i \sum_{j=0}^{i-1} \zeta^j -  \sum_{i=0}^{\phi(d)-1} \zeta^i.
-  \]
-  We have
-
-  \begin{align*}
-    \frac{\psi(\zeta^{\phi(d)})}{\psi(\zeta^{\phi(d)-1})\tilde{f}(\zeta^{\phi(d)-1})}
-    &= \frac{\psi(b_{\phi(d)-1}\zeta^{\phi(d)-1} + \cdots + b_0)}{\psi(\zeta^{\phi(d)-1})\tilde{f}(\zeta^{\phi(d)-1})} 
-    = \alpha^{-\Phi_d(1)} \tilde{f}(B).
-  \end{align*}
-  As before we see that $(\zeta - 1)B = \Phi_d(1) - \Phi_d(\zeta) = \Phi_d(1)$.
-  We consider the same cases as before:
-
-  \begin{enumerate}
-  \item $d$ is a power of $p$, in which case $\Phi_d(1) = p$.  Thus
-    $(\zeta-1)B = p = u(\zeta-1)^{\phi(d)}$ for a unit $u \in \ZZ[\zeta]$
-    and $B - u(\zeta-1)^{\phi(d)-1}$ is fixed by $\zeta$,
-    so that $\tilde{f}(B) = \tilde{f}(u(\zeta - 1)^{\phi(d)-1})$.  The
-    multiplicative order of $\tilde{f}(u(\zeta-1)^{\phi(d)-1})$ is at most
-    $\lceil \frac{s - 1 - (\phi(d)-1)}{\phi(d)}\rceil = \lceil \frac{s}{\phi(d)} \rceil - 1$
-    while the additive order of $1 \in \ZZ[\zeta]/P^s$ is $\lceil \frac{s}{\phi(d)} \rceil$.
-    Thus we may choose $\alpha = \psi(1)$ with $\alpha^p = \tilde{f}(B)$.
-  \item $d$ is not a power of $p$ and $\omega$ is the inverse of
-    $\zeta-1$ modulo $P^s$.  Then $\tilde{f}(B) = \tilde{f}(\omega\Phi_d(1))$.
-  \end{enumerate}
-  In either case, $\alpha^{-\Phi_d(1)}\tilde{f}(B) = 1$ and thus
-  $\psi$ satisfies Equation~\eqref{eq:psi-condition} for
-  $x \ceq \zeta^{\phi(d)-1}$.  The definition of $\psi$ in \ref{eq:psi-def}
-  immediately implies that $\psi$ satisfies equation
-  \ref{eq:psi-condition} for lesser powers of $\zeta$, and thus for
-  all $x$ by linearity.  The existence of $\psi$ shows that $\rho$ is injective.
+We can describe $X^{\Frob{}}$ as the kernel of the map $X \xrightarrow{\Frob{}-1} X$;
+let $Y = (\Frob{}-1)X$ be the augmentation ideal.  Dualizing the sequence
+\[
+ 0 \to X^{\Frob{}} \to X \to Y \to 0
+\]
+yields
+\[
+ 0 \to Y^* \to X^* \to (X^{\Frob{}})^* \to \Ext^1_\ZZ(Y, \EEx).
+\]
+Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
 \end{proof}
 
-\begin{corollary}
+\begin{proposition} \label{prop:etale-iso}
  If $G$ is a commutative, \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely
  generated then
-  \[
+ \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
-  \]
-  is an isomorphism of groups.
-\end{corollary}
+ \]
+ is an isomorphism of groups.
+\end{proposition}
 \begin{proof}
-This follows from Proposition~\ref{prop:etale} by setting $X=G(\bFq)$ in Proposition~\ref{prop:X}.
-Recall that $G \mapsto G(\bFq)$ defines an equivalence of categories from commutative \'etale group schemes over $\Fq$ to commutative groups equipped with \emph{continuous} actions by $\Gal(\bFq/\Fq)$; see, for example, \cite{vdGeer-Moonen:AbelianVarieties}*{Prop 3.26}.
+There is a natural isomorphism $\Hh^1(\Weil{\Fq}, G(\bFq)^*) \to (G(\bFq)^*)_{\Frob{}}$ defined by $[z] \mapsto z(\Frob{})$.  The proposition now follows directly from Proposition~\ref{prop:etale} and Lemma~\ref{lem:dual-inv}.
 \end{proof}
 
 \section{Restriction to the identity component} \label{sec:restriction}
@@ -1754,7 +1613,7 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   In the proof of Proposition~\ref{prop:restriction} we saw that $G^0$ is an algebraic group over $\Fq$. % clearly connected. 
   It now follows from Proposition~\ref{prop:connected} 
   that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
-  On the other hand, it follows from Propositions~\ref{prop:etale} and \ref{prop:X}, $\ker \trFrob{\pi_0(G)}=0$
+  On the other hand, it follows from Propositions~\ref{prop:etale-iso} that $\ker \trFrob{\pi_0(G)}=0$
   and $\coker \trFrob{\pi_0(G)}=0$.
 
   The sequence of character groups is left-exact: by
@@ -1773,7 +1632,7 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   it is exact at $\QCiso{G}$ because the left-square
   commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
   is exact at $G(\Fq)^*$ and $\coker \trFrob{\pi_0(G)} =0$
-  (by Propositions~\ref{prop:etale} and \ref{prop:X}) and
+  (by Proposition~\ref{prop:etale-iso}) and
   \[
   \image(\QCiso{\pi_0(G)} \to \QCiso{G}) \subseteq \ker(\QCiso{G} \to \QCiso{G^0}),
   \]
@@ -1784,7 +1643,7 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   character groups is exact at $G(\Fq)^*$, there is
   some $\chi \in \pi_0(G)(\Fq)^*$ such that the
   pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is
-  $\trFrob{\qcs{L}}$. By Propositions~\ref{prop:etale} and \ref{prop:X},
+  $\trFrob{\qcs{L}}$. By Proposition~\ref{prop:etale-iso},
   there is a a quasicharacter sheaf $\qcs{L}_\chi$ on $\pi_0(G)$, unique up
   to isomorphism, such that $\trFrob{\qcs{L}_\chi} = \chi$. By
   Proposition~\ref{prop:pullback} again, $\qcs{L}$ is isomorphic to the
