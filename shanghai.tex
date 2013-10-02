@@ -590,7 +590,7 @@ which induces a sequence of group homomorphisms
 \QCiso{0} \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & \QCiso{0}.
 \end{tikzcd}
 \]
-after passing to isomorphism classes.  It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected}, \ref{sec:etale} and \ref{sec:etalecohom} we will find $\QCiso{G^0}$
+after passing to isomorphism classes.  It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected} and \ref{sec:etale} we will find $\QCiso{G^0}$
 and $\QCiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; 
 the snake lemma will then allow us to show that
 \[
@@ -652,9 +652,9 @@ Applying the functor $f^*$ to the isomorphism $\mu$ yields
 f^*\mu : f^* m^* \gqcs{L} \to f^*(\gqcs{L}\boxtimes \gqcs{L}) .
 \end{equation}
 We have already observed that $m\circ f = \id_G$, so $f^* m^* \gqcs{L} = \gqcs{L}$.
-On the other hand, $f^*(\gqcs{L}\boxtimes \gqcs{L}) = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L}$, 
-by definition, and $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L}$ and $f^*p_2^*\gqcs{L} = r_2^* q_2^* \gqcs{L}$ follows from the properties of these maps, articulated above, 
-so $f^*(\gqcs{L}\boxtimes \gqcs{L}) = \gqcs{L}_1\boxtimes \gqcs{L}_2$.
+On the other hand, $f^*(\gqcs{L}\boxtimes \gqcs{L}) = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L}$
+by definition.  Since $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L}$ and $f^*p_2^*\gqcs{L} = r_2^* q_2^* \gqcs{L}$
+we get that $f^*(\gqcs{L}\boxtimes \gqcs{L}) = \gqcs{L}_1\boxtimes \gqcs{L}_2$.
 It follows that \eqref{eq:fm} gives an isomorphism $\gqcs{L} \to  \gqcs{L}_1\boxtimes \gqcs{L}_2$.
 It is a matter of routine to show that this morphism satisfies Conditions~\ref{CS.2} as they apply here,
 from which it follows that we have exhibited an isomorphism 
@@ -711,7 +711,7 @@ In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consid
 \end{align*}
 We can also interpret this operation on characters in terms of quasicharacter sheaves.
 
-If $\qcs{L} \ceq (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$ we may define
+If $\qcs{L} \ceq (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$, we may define
 a quasicharacter sheaf $\qcs{L}' \ceq (\gqcs{L}, \mu, \phi_{k'})$ on the base change
 $G_{k'}$ of $G$ to $k'$ by setting
 \[
@@ -798,7 +798,7 @@ Let $\QCb(G)$ be the category of pairs $(\qcs{L}_0,\mu_0)$
 where $\qcs{L}_0$ an $\ell$-adic local system on $G$ of rank~one, 
 equipped with an isomorphism $\mu_0 : m^* \qcs{L}_0 \to \qcs{L}_0 \boxtimes \qcs{L}_0$ 
 satisfying the analogue of Condition~\ref{CS.1} on $G$; 
-morphisms in $\QCb(G)$ are defined as in (the second part of) Condition~\ref{CS.2}. 
+morphisms in $\QCb(G)$ are defined as in the second part of Condition~\ref{CS.2}. 
 This is the category of \emph{bounded quasicharacter sheaves} on $G$. 
 \end{definition}
 
@@ -824,7 +824,7 @@ thus identifying $\QCb(G)$ with a full subcategory of $\QC(G)$.
  Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies Condition~\ref{CS.2} 
  with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
  Moreover, $\phi$ is compatible with $\mu$ in the sense of Condition~\ref{CS.3}.
- This defines the functor $B_G^* : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
+ This construction defines the functor $B_G^* : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
  and also shows that it is full and faithful.
 \end{proof}
 
@@ -833,7 +833,7 @@ proper subcategory of $\QC(G)$. Indeed, it follows from Theorem~\ref{thm:snake}
 that the restriction of $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ to the subgroup
 $\QCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such
 that the image of $\chi$ is bounded in $\EEx$; 
-see Section~\ref{sec:snake} for more details regarding this point.
+see Section~\ref{sec:snake} for more details.
 
 \section{Finite quasicharacter sheaves}\label{sec:finite}
 
