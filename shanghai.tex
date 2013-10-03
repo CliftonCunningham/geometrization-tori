@@ -1543,7 +1543,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
 \end{proposition}
 
 \begin{proof}
-  Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
+\Clifton{Turn this paragraph into a lemma. We use it below.}  Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
   identity component $G^0$ of $G$ is a connected smooth, 
   group scheme of finite type over $\Fq$, reduced over some finite extension of $\Fq$, by
    \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
@@ -1552,6 +1552,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
 	Since every group scheme over a field is separated 
 	(see, for example, \cite{vdGeer-Moonen:AbelianVarieties}*{3.12}),  
 	it follows that $G^0$ is a connected algebraic group.
+ 
     By Proposition~\ref{prop:connected}, every
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
@@ -1610,6 +1611,7 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   be the commutative diagram of abelian groups obtained by applying
   Proposition~\ref{prop:pullback} to \eqref{eq:pi0}. 
   
+  \Clifton{Refer to the new lemma, here.}
   In the proof of Proposition~\ref{prop:restriction} we saw that $G^0$ is an algebraic group over $\Fq$. % clearly connected. 
   It now follows from Proposition~\ref{prop:connected} 
   that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
@@ -1627,12 +1629,12 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   since $\Hom(\ - \ ,\EEx)$ is left-exact, the sequence of
   character groups is left exact.
 
-  The sequence of groups of isomorphism classes of quasicharacter sheaves is right-exact: it is exact at
+  The sequence of groups of isomorphism classes of quasicharacter sheaves is right-exact:   it is exact at
   $\QCiso{G^0}$ by Proposition~\ref{prop:restriction}; and
   it is exact at $\QCiso{G}$ because the left-square
   commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
   is exact at $G(\Fq)^*$ and $\coker \trFrob{\pi_0(G)} =0$
-  (by Proposition~\ref{prop:etale-iso}) and
+  (by Proposition~\ref{prop:etale-iso}) and   \Clifton{Awkward sentence.}
   \[
   \image(\QCiso{\pi_0(G)} \to \QCiso{G}) \subseteq \ker(\QCiso{G} \to \QCiso{G^0}),
   \]
@@ -1644,7 +1646,7 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   some $\chi \in \pi_0(G)(\Fq)^*$ such that the
   pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is
   $\trFrob{\qcs{L}}$. By Proposition~\ref{prop:etale-iso},
-  there is a a quasicharacter sheaf $\qcs{L}_\chi$ on $\pi_0(G)$, unique up
+  there is a quasicharacter sheaf $\qcs{L}_\chi$ on $\pi_0(G)$, unique up
   to isomorphism, such that $\trFrob{\qcs{L}_\chi} = \chi$. By
   Proposition~\ref{prop:pullback} again, $\qcs{L}$ is isomorphic to the
   image of $\qcs{L}_\chi$ under the monoidal functor $\QC(\pi_0(G)) \to \QC(G)$.
