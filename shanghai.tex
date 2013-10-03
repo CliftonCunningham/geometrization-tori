@@ -809,8 +809,7 @@ The category of bounded quasicharacter sheaves is a rigid monoidal category in t
 
 \begin{proposition}
 Extension of scalars defines a full and faithful functor 
-$B_G^* : \QCb(G) \hookrightarrow \QC(G)$,
-thus identifying $\QCb(G)$ with a full subcategory of $\QC(G)$.
+$B_G^* : \QCb(G) \hookrightarrow \QC(G)$.
 \end{proposition}
 
 \begin{proof}
@@ -831,11 +830,11 @@ thus identifying $\QCb(G)$ with a full subcategory of $\QC(G)$.
 \end{proof}
 
 In general, $\QCb(G)$ is an essentially
-proper subcategory of $\QC(G)$. Indeed, it will follow from Theorem~\ref{thm:snake}
-that the restriction of $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ to the subgroup
-$\QCbiso{G}$ is an isomorphism onto the subgroup of $\chi \in G(\Fq)^*$ such
-that the image of $\chi$ is bounded in $\EEx$; 
-see Section~\ref{sec:snake} for more details.
+proper subcategory of $\QC(G)$. We will identify $\QCb(G)$ with its image under $B_G^*$
+and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded}
+if it is isomorphic to some $B_G^*(\qcs{L}_0, \mu_0)$.
+We will see in Corollary~\ref{cor:bounded-and-finite} that the bounded quasicharacter sheaves
+are precisely those whose trace of Frobenius have bounded image.
 
 \section{Finite quasicharacter sheaves}\label{sec:finite}
 
@@ -1032,12 +1031,9 @@ $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\QCf(
  is a full and faithfull monoidal functor, completing the proof.
 \end{proof}
 
-
-For general $G$, there are bounded quasicharacter sheaves which are not finite.  Indeed,
-it will follow from Theorem~\ref{thm:snake} that the restriction of
-$\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ to the subgroup $\QCfiso{G}$ is an isomorphism
-onto the subgroup of $\chi \in G(\Fq)^*$ such that the image of $\chi$ is finite in $\EEx$;
-see Section~\ref{sec:snake}.
+For general $G$, there are bounded quasicharacter sheaves which are not finite.  Identifying
+$\QCf(G)$ with its image under $B_G^* \circ L_G$, we will see in Corollary~\ref{cor:bounded-and-finite} that
+a quasicharacter sheaf is finite if and only if its trace of Frobenius has finite image.
  
 \section{Connected commutative algebraic groups} \label{sec:connected}
 
@@ -1481,22 +1477,21 @@ Let $\pi: B \to G^0$ be a discrete isogeny and set $A \ceq \ker \pi$.
   $\Fq$.  We will do so by passing back and forth between group
   schemes over $\Fq$ and their $\bFq$-points.  
   
-  Write $W$ for the Weil group $\Weil{\Fq}$.  Extensions of
-  $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to B(\bFq) \to G^0(\bFq)$,
-  correspond to classes in $\Ext^1_{\ZZ[W]}(G^0(\bFq), A(\bFq))$.
+  Extensions of $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to B(\bFq) \to G^0(\bFq)$,
+  correspond to classes in $\Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq))$.
   Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
-  classes in $\Ext^1_{\ZZ[W]}(G(\bFq), A(\bFq))$.  The map
+  classes in $\Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq))$.  The map
   $G^0(\bFq) \to G(\bFq)$ induces the map
   \[
-  \Ext^1_{\ZZ[W]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[W]}(G^0(\bFq), A(\bFq))
+  \Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq))
   \]
   fitting into the long exact sequence derived from applying
   the functor $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
   \[
-  \Ext^1_{\ZZ[W]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[W]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[W]}(\pi_0(G)(\bFq), A(\bFq)).
+  \Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Weil{}]}(\pi_0(G)(\bFq), A(\bFq)).
   \]
-  Since $W$ has cohomological dimension $1$ \cite{brown:CohomologyGrps}*{Ex. 4.3},
-  $\Ext^2_{\ZZ[W]}(\pi_0(G)(\bFq), A(\bFq))$ vanishes \cite{cartan-eilenberg:HomologicalAlgebra}*{Thm. 2.6}.
+  Since $\Weil{} \cong \ZZ$ has cohomological dimension $1$ \cite{brown:CohomologyGrps}*{Ex. 4.3},
+  $\Ext^2_{\ZZ[\Weil{}]}(\pi_0(G)(\bFq), A(\bFq))$ vanishes \cite{cartan-eilenberg:HomologicalAlgebra}*{Thm. 2.6}.
 
   We therefore have the existence of diagram \eqref{extension-diagram}
   at the level of $\bFq$-points.  This expresses $H(\bFq)$ as a
@@ -1505,7 +1500,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny and set $A \ceq \ker \pi$.
   restriction of $f$ to each component of $H$ is a morphism of
   schemes, and thus $f$ is as well.  Finally, the whole diagram
   descends to a diagram of $\Fq$-schemes since the $\bFq$-points of
-  the objects come equipped with continuous $W$-actions, and the
+  the objects come equipped with continuous $\Weil{}$-actions, and the
   morphisms are $\Gamma$-equivariant.
 \end{proof}
 
@@ -1550,14 +1545,13 @@ If $G$ is a $\QC$-scheme then $G^0$ is a connected algebraic group.
 
 We saw, in Proposition~\ref{prop:functorialG}, that the trace of Frobenius
 $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
-Our main result regarding quasicharacter sheaves, below, shows that
-trace of Frobenius is an isomorphism for $\QC$-schemes.
+In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
-  If $G$ is a smooth commutative group scheme locally of finite type over
-  $\Fq$ and if the abelian group $\pi_0(G)(\bFq)$
-  is finitely generated then the trace of Frobenius
+  If $G$ is a smooth, commutative group scheme, locally of finite type over
+  $\Fq$, and if the abelian group $\pi_0(G)(\bFq)$
+  is finitely generated, then the trace of Frobenius
   \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
@@ -1586,55 +1580,43 @@ trace of Frobenius is an isomorphism for $\QC$-schemes.
   be the commutative diagram of abelian groups obtained by applying
   Proposition~\ref{prop:pullback} to \eqref{eq:pi0}. 
   
-  \Clifton{Refer to the new lemma, here.}
-  In the proof of Proposition~\ref{prop:restriction} we saw that $G^0$ is an algebraic group over $\Fq$. % clearly connected. 
-  It now follows from Proposition~\ref{prop:connected} 
-  that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
-  On the other hand, it follows from Propositions~\ref{prop:etale-iso} that $\ker \trFrob{\pi_0(G)}=0$
-  and $\coker \trFrob{\pi_0(G)}=0$.
-
-  The sequence of character groups is left-exact: by
-  Proposition~\ref{prop:pullback}, it is dual to the exact sequence of
+  The bottom row is dual to the sequence of
   abelian groups
   \begin{equation}\label{eq:pi0k}
   \begin{tikzcd}
-    1 \rar & G^0(\Fq) \rar & G(\Fq) \rar & \pi_0(G)(\Fq) \rar & 0;
+    1 \rar & G^0(\Fq) \rar & G(\Fq) \rar & \pi_0(G)(\Fq) \rar & 0,
   \end{tikzcd}
   \end{equation}
-  since $\Hom(\ - \ ,\EEx)$ is left-exact, the sequence of
-  character groups is left exact.
-
-  The sequence of groups of isomorphism classes of quasicharacter sheaves is right-exact:   it is exact at
-  $\QCiso{G^0}$ by Proposition~\ref{prop:restriction}; and
-  it is exact at $\QCiso{G}$ because the left-square
-  commutes (by Proposition~\ref{prop:pullback}), the bottom sequence
-  is exact at $G(\Fq)^*$ and $\coker \trFrob{\pi_0(G)} =0$
-  (by Proposition~\ref{prop:etale-iso}) and   \Clifton{Awkward sentence.}
-  \[
-  \image(\QCiso{\pi_0(G)} \to \QCiso{G}) \subseteq \ker(\QCiso{G} \to \QCiso{G^0}),
-  \]
-  by the last part of Proposition~\ref{prop:pullback}. Specifically,
-  suppose $\qcs{L}$ is a quasicharacter sheaf on $G$ that is trivial on
-  $G^0$. Then $\trFrob{\qcs{L}}\vert_{G^0(\Fq)} = \trFrob{\qcs{L}^0} =0$,
-  by Proposition~\ref{prop:pullback} again. Since the sequence of
-  character groups is exact at $G(\Fq)^*$, there is
-  some $\chi \in \pi_0(G)(\Fq)^*$ such that the
-  pull-back of $\chi$ along $G(\Fq)\to \pi_0(G)(\Fq)$ is
-  $\trFrob{\qcs{L}}$. By Proposition~\ref{prop:etale-iso},
-  there is a quasicharacter sheaf $\qcs{L}_\chi$ on $\pi_0(G)$, unique up
-  to isomorphism, such that $\trFrob{\qcs{L}_\chi} = \chi$. By
-  Proposition~\ref{prop:pullback} again, $\qcs{L}$ is isomorphic to the
-  image of $\qcs{L}_\chi$ under the monoidal functor $\QC(\pi_0(G)) \to \QC(G)$.
-
-  It now follows immediately from the snake lemma that $\trFrob{G}$ is an
-  isomorphism of groups.
+  which is exact by Lang's theorem on connected algebraic groups over finite fields \cite{lang:56a}.
+  Since $\EEx$ is divisible, $\Hom(\ - \ ,\EEx)$ is exact and thus the dual sequence of
+  character groups is also exact.
+  
+  In order to apply the snake lemma, we need to show that the top row is exact at $\QCiso{G}$ and $\QCiso{G^0}$.
+  The surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction}.  Now suppose that
+  $\qcs{L}$ is a quasicharacter sheaf on $G$ whose restriction to $G^0$ is trivial.... \David{Missing argument, discussed this afternoon}
+  
+  Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
+  imply that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
+  Similarly, Proposition~\ref{prop:etale-iso} shows that $\ker \trFrob{\pi_0(G)}=0$
+  and $\coker \trFrob{\pi_0(G)}=0$.
+  We may thus apply the snake lemma and conclude that
+  $\ker \trFrob{G}$ and $\coker \trFrob{G}$ both vanish.
 \end{proof}
 
 With Theorem~\ref{thm:snake} in hand, 
 we can see why neither bounded quasicharacter sheaves 
 nor finite quasicharacter sheaves are up to the task of 
-geometrizing characters of $G(\Fq)$ in the generality we need.  
-%
+geometrizing all characters of $G(\Fq)$ for general $\QC$-schemes $G$.  
+
+\begin{corollary} \label{cor:bounded-and-finite}
+Suppose $G$ is a $\QC$-scheme and $\qcs{L}$ is a quasicharacter sheaf on $G$.  Then
+\begin{enumerate}
+\item $\qcs{L}$ is bounded if and only if $\trFrob{L}$ has bounded image,
+\item $\qcs{L}$ is finite if and only if $\trFrob{L}$ has finite image.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+\David{These examples need to be modified to provide a proof of the corollary}
 Consider the case when $G$ is the discrete \'etale group scheme $\ZZ$; 
 this is indeed a $\QC$-scheme.
 Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ 
@@ -1654,8 +1636,7 @@ It follows that the quasicharacter sheaf $\qcs{L}$ is not a bounded quasicharact
 We can play the same game with the character $\chi : G(\Fq) \to \EEx$ 
 defined by $\chi(1) = 1+\ell$. In this case, the corresponding quasicharacter sheaf $\qcs{L}$ is bounded,
 defined at $1$ by a pro-\'etale cover of $1$, but not finite, since $1+\ell$ is not a root of unity. 
-%
-These simple examples illustrate why the categories $\QCb(G)$ and $\QCf(G)$ are inadequate to geometrize characters of $G(\Fq)$.
+\end{proof}
 
 
 \part{Application to quasicharacters of algebraic tori over local fields}
