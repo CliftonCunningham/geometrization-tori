@@ -1240,8 +1240,7 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
 Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasicharacter sheaves on $G$ is given by 
 \begin{enumerate}
  \labitem{(cs.3)}{cs.3} an indexed set $\alpha_x : \gqcs{L}_x \to \gqcs{L'}_x$
-  of linear transformations (of one-dimensional $\EE$-vector spaces),
-  as $x$ runs over $G(\bFq)$, such that
+  of linear transformations such that
   \[
    \begin{tikzcd}[column sep=40]
     \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{\Fq}(x)} \rar{\alpha_{\Frob{\Fq}(x)}} & \gqcs{L'}_{\Frob{\Fq}(x)} \dar{\phi_x'}
@@ -1251,7 +1250,7 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
     & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
   \]
-  both commute.
+  both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
 \begin{lemma}\label{lemma:section}
