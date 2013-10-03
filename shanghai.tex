@@ -1253,12 +1253,16 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
+A \emph{global section} of $\qcs{L}$ is a function $s : G(\bFq) \to \coprod_{x \in G(\bFq)} \gqcs{L}_x$ so that $s(x) \in \gqcs{L}_x$ for all $x \in G(\bFq)$ and
+\begin{equation}\label{section}
+\mu_{x,y}(s(x+y)) = s(x) \otimes s(y).
+\end{equation}
+
+We say that a section is \emph{trivial} if $s(x) = 0$ for all $x \in G(\bFq)$ and \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$.
+
 \begin{lemma}\label{lemma:section}
  If $\qcs{L}$ is a quasicharacter sheaf on a commutative, \'etale group scheme $G$
- over $\Fq$ and if $G(\bFq)$ is finitely generated, then there is a global section
- $s \ceq \{ s(x) \in \gqcs{L}_x \tq x \in G(\bFq) \}$ satisfying
- \begin{equation}\label{section}
- \end{equation}
+ over $\Fq$ and if $G(\bFq)$ is finitely generated, then $\qcs{L}$ has a nontrivial global section.
 \end{lemma}
 
 \begin{proof}
@@ -1270,7 +1274,7 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   We will define a section $s$ satisfying \eqref{section} by choosing values on these generators and extending to all
   of $G(\bFq)$ through \eqref{section}.
   
-  There is a unique isomorphism $\gqcs{L}_0 \cong \EE$ under which $\mu_{0,0}$ corresponds
+  There is a unique isomorphism $\gqcs{L}_0 \cong \EE$ under which $\mu_{0,0}^{-1}$ corresponds
   to the multiplication map $\EE \otimes\EE \to \EE$.
   The condition $\mu_{0,0}(s(0)) = s(0) \otimes s(0)$ together with the non-triviality of $s$
   then forces $s(0) = 1$.
@@ -1303,9 +1307,8 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
 \end{proposition}
 
 \begin{proof}
-  Suppose $\qcs{L}$ is a quasicharacter sheaf on $G$.  
-  Using Lemma~\ref{lemma:section}, 
-  we may choose a section $s \ceq \{ s(x) \in \gqcs{L}_x \tq x \in G(\bFq) \}$ satisfying \eqref{section}.
+  Suppose $\qcs{L}$ is a quasicharacter sheaf on $G$ and choose a global section $s$
+  of $\qcs{L}$ using Lemma~\ref{lemma:section}.
   We will construct a group isomorphism between $\QCiso{G}$ and
   $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$ using $s$, then prove independence from the choice of $s$.
 
@@ -1329,10 +1332,9 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
 
   Although we used a global section $s$ in the definition of
   $\tau_\qcs{L}$, the class of $\tau_\qcs{L}$ does not depend on this
-  choice. To see why, let $s_1$ and $s_2$ be two global sections of
+  choice. To see why, let $s_1$ and $s_2$ be two nontrivial global sections of
   $\qcs{L}$ and let $\tau_1$ and $\tau_2$ be the cocycles defined by $s_1$ and $s_2$.
-  For each $x \in G(\bFq)$ there is a unique scalar
-  $a(x) \in \EEx$ such that $s_2(x) = a(x) s_1(x)$. Then \eqref{section} and
+  For each $x \in G(\bFq)$ set $a(x) = \frac{s_2(x)}{s_1(x)}$.  Then \eqref{section} and
   condition~\ref{cs.1} together imply $a(x+y) = a(x)a(y)$, so
   $a\in G(\bFq)^*$.  The coboundary $\tau_0 : \Weil{\Fq} \to G(\bFq)^*$
   defined by $\tau_0(\Frob{\Fq}) \ceq \,^{\Frob{\Fq}} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
@@ -1349,9 +1351,8 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   Let $\alpha : \qcs{L} \to \qcs{L'}$ be an isomorphism and
   let $\tau$ and $\tau'$ be any cocycles representing the classes in the
   image of $\qcs{L}$ and $\qcs{L'}$ under \eqref{cohomologous}; by construction,
-  $\tau$ and $\tau'$ are defined by the choice of sections $s$ and $s'$ 
-  according to Lemma~\ref{lemma:section}.
-    Now, $\varphi_x(s(x))$ is a
+  $\tau$ and $\tau'$ are defined by the choice of sections $s$ and $s'$.
+  Now, $\varphi_x(s(x))$ is a
   non-zero scalar multiple of $s'(x)$; define $a: G(\bFq) \to \EEx$
   by $\alpha_x(s(x)) = a(x) s'(x)$.
   By the second part of condition~\ref{cs.3},
@@ -1377,18 +1378,15 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
  
  To see that \eqref{pich1} is injective,
  suppose $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$.
- Let $s$ (resp. $s'$) be a section appearing in the definition of $\tau_\qcs{L}$ (resp. $\tau_\qcs{L'}$);
- recall that $s$ (resp. $s'$) is compatible with $\mu$ (resp $\mu'$) 
- in the sense of Lemma~\ref{lemma:section}.
+ Let $s$ and $s'$ be sections appearing in the definition of $\tau_\qcs{L}$ and $\tau_\qcs{L'}$.
  Since $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$, 
  it follows that $\tau_\qcs{L}$ and $\tau_{\qcs{L'}}$ are cohomologous, 
-  so there is some $a\in G(\Fq)^*$ such that 
-  $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}}a \cdot a^{-1})$. 
-  Define $\alpha : \qcs{L}\to \qcs{L'}$ by $\alpha_x(s(x)) \ceq a(x) s'(x)$, for each $x\in G(\bFq)$.
-  It is straightforward to check that $\alpha$ satisfies condition~\ref{cs.3}
-  and that $\alpha^{-1} : \qcs{L'}\to \qcs{L}$, defined by $\alpha^{-1}_x(s'(x)) \ceq a(x)^{-1} s(x)$, 
-  is its inverse. Thus, $\qcs{L} \iso \qcs{L'}$ in $\QC(G)$. 
-  This shows that \eqref{pich1} is injective.
+ so there is some $a\in G(\Fq)^*$ such that 
+ $\tau'(\Frob{\Fq}) = \tau(\Frob{\Fq}) \cdot (\,^{\Frob{\Fq}}a \cdot a^{-1})$. 
+ Define $\alpha : \qcs{L}\to \qcs{L'}$ by $\alpha_x(s(x)) \ceq a(x) s'(x)$ and $\alpha^{-1} : \qcs{L}'\to \qcs{L}$
+ by $\alpha^{-1}_x(s'(x)) \ceq a(x)^{-1} s(x)$, for $x\in G(\bFq)$.
+ It is straightforward to check that $\alpha$ satisfies condition~\ref{cs.3}
+ and that $\alpha^{-1}$ is its inverse. Thus $\qcs{L} \iso \qcs{L'}$ in $\QC(G)$ and \eqref{pich1} is injective.
   
 
  Finally, to show that \eqref{pich1} is surjective, pick $[\tau]\in \Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
@@ -1396,14 +1394,11 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
  Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by
  $\mu_{x,y}(1) \ceq 1\otimes1$, for $x,y\in G(\bFq)$; 
  clearly, $\mu$ satisfies condition~\ref{cs.1}.
- Define $\phi_x : \gqcs{L}_{\Frob{\Fq}} \to \gqcs{L}_x$ by $\phi_x(1) \ceq \tau(\Frob{\Fq})(x)$,
+ Define $\phi_x : \gqcs{L}_{\Frob{\Fq}(x)} \to \gqcs{L}_x$ by $\phi_x(1) \ceq \tau(\Frob{\Fq})(x)$,
  for each $x\in G(\bFq)$. 
  Then $\phi$ satisfies condition~\ref{cs.2} because $\tau \in Z^1(\Weil{\Fq},G(\bFq)^*)$.
- In this way we have built a quasicharacter sheaf $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ 
- from $\tau \in \Hh^1(\Weil{\Fq}, G(\bFq)^*)$ such that the image of $\qcs{L}_{/\text{iso}}$
- under \eqref{pich1} is the class $[\tau]$ in $\Hh^1(\Weil{\Fq}, G(\bFq)^*)$.
- This shows that \eqref{pich1} is surjective, 
- and completes the proof that it is an isomorphism of groups.
+ Setting $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$, we have that $[\tau]$ is the image of $\qcs{L}$
+ under \eqref{pich1}, and thus \eqref{pich1} defines an isomorphism of groups.
 \end{proof}
 
 In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
@@ -1456,7 +1451,7 @@ this section we show that this functor is essentially surjective.
 Recall from Section~\ref{sec:finite} that 
 a morphism $f : H\to G$ of group $\Fq$-schemes is a discrete isogeny 
 if it is a finite, surjective \'etale morphism and 
-the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $f^{-1}({\bar e})$ is trivial.
+the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f$ is trivial.
 
 \begin{lemma}\label{lemma:ext}
 Every discrete isogeny  to $G^0$ extends to a discrete
