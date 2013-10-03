@@ -1462,8 +1462,7 @@ the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f$ is trivial.
 
 \begin{lemma}\label{lemma:ext}
 Every discrete isogeny onto $G^0$ extends to a discrete
-isogeny onto $G$ such that the component group of the covering space is isomorphic
-to the component group of $G$.
+isogeny onto $G$ inducing an isomorphism on component groups.
 \end{lemma}
 
 \begin{proof}
@@ -1471,12 +1470,12 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   We will find a discrete isogeny $f: H\to G$
   such that that $H^0 = B$, $f^0 =\pi$ and
   $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component
-  groups.
+  groups.  Namely, we will fit $\pi$ into the following diagram,
   \begin{equation}\label{extension-diagram}
   \begin{tikzcd}
   A \arrow[equal]{r} \dar & A \dar \\
   B \rar \dar[swap]{\pi} & H \rar \dar[swap]{f} & \pi_0(H) \arrow{d}[below,rotate=90]{\sim}[swap]{\pi_0(f)} \\
-  G^0 \rar & G \rar & \pi_0(G)
+  G^0 \rar & G \rar & \pi_0(G),
   \end{tikzcd}
   \end{equation}
   where all rows and columns are exact and all maps are defined over
@@ -1484,7 +1483,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   schemes over $\Fq$ and their $\bFq$-points.  
   
   Set $\Gamma \ceq \Gal(\bFq/\Fq)$. Extensions of
-  $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to H^0(\bFq) \to G^0(\bFq)$,
+  $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to B(\bFq) \to G^0(\bFq)$,
   correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$.
   Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
   classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map
