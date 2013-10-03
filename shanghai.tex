@@ -250,7 +250,6 @@ functoriality: they can be pulled back along maps to $T$, but it is less clear w
 in the presence of maps from $T$ to other groups.  Sheaves, on the other hand, come
 equipped with a host of functors, including pushforward. 
 We hope to use this to our advantage as we work toward an adaptation of Lusztig's theory of characters sheaves to the study of characters of admissible representations of reductive $p$-adic groups that extends beyond the case of $p$-adic tori. 
-\Clifton{Combine these two paragraphs? It seems they make the same point. Waldspurger also uses D-L to study depth-zero distributions. Mention this, too? Mention neither?}
 
 DeBacker and Reeder have recently applied Deligne-Lusztig representations to part of the depth-zero part of the
 local Langlands correspondence \cite{reeder-debacker:09a}.
@@ -260,9 +259,8 @@ the next step Lusztig took in studying representations
 of finite groups of Lie type was to introduce character sheaves for reductive groups over $\Fq$.
 We hope that our quasicharacter sheaves 
 can provide a stepping stone to a similar theory for
-representations of $p$-adic groups.
-Note that our geometrization of quasicharacters is not limited
-to the depth-zero case.
+representations of $p$-adic groups, especially
+in the positive-depth case.
 
 The scope of the Langlands program has grown explosively in the past several decades, and
 different parts of it apply to different kinds of representations.  In particular, the classic local Langlands
@@ -595,11 +593,8 @@ which induces a sequence of group homomorphisms
 \end{tikzcd}
 \]
 after passing to isomorphism classes.  It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected} and \ref{sec:etale} we will find the groups $\QCiso{G^0}$
-and $\QCiso{\pi_0(G)}$ for all $\QC$-schemes. 
-The snake lemma will then allow us to show that
-\[
-\QCiso{G} \iso G(\Fq)^*.
-\]
+and $\QCiso{\pi_0(G)}$ for all $\QC$-schemes, 
+which will allow us to conclude $\QCiso{G} \iso G(\Fq)^*$.
 
 %\section{Products} 
 
@@ -872,15 +867,10 @@ and $T$ is an isomorphism of vector spaces.
 Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at weak isomorphisms.
 
 %Now consider the localization $C(G)[W^{-1}]$ of $C(G)$ at weak isomorphisms.
- Morphisms in $C(G)[W^{-1}]$ are simple to describe because category $C(G)$ 
- admits a calculus of left fractions \David{Should add a reference for calculus of fractions that isn't nlab}
- %\footnote{See {\tt http://ncatlab.org/nlab/show/calculus+of+fractions}.} 
- for weak isomorphisms:
-% every isomorphism in $C(G)$ is a weak isomorphism; 
-% push-outs exist in $C(G)$ and the push-out of a weak isomorphism is a weak isomorphism; 
-% and weak isomorphisms enjoy the left-cancellation property. 
-% It follows that
- a morphism in $C(G)[W^{-1}]$ is the equivalence class of 
+ Morphisms in $C(G)[W^{-1}]$ are simple to describe because 
+ $W$ is a left-multiplicative system in the sense of
+  \cite{kashiwara-schapira:CatgoriesSheaves}*{\S 7.1.7};
+namely, a morphism in $C(G)[W^{-1}]$ is the equivalence class of 
   \begin{equation}\label{eq:morGCf}
    \begin{tikzcd}
    (f,\psi) \arrow{r}{(\alpha_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(\beta_1,U_1)} (f',\psi')
