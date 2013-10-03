@@ -250,6 +250,7 @@ functoriality: they can be pulled back along maps to $T$, but it is less clear w
 in the presence of maps from $T$ to other groups.  Sheaves, on the other hand, come
 equipped with a host of functors, including pushforward. 
 We hope to use this to our advantage as we work toward an adaptation of Lusztig's theory of characters sheaves to the study of characters of admissible representations of reductive $p$-adic groups that extends beyond the case of $p$-adic tori. 
+\Clifton{Combine these two paragraphs? It seems they make the same point. Waldspurger also uses D-L to study depth-zero distributions. Mention this, too? Mention neither?}
 
 DeBacker and Reeder have recently applied Deligne-Lusztig representations to part of the
 local Langlands correspondence. % \cite{reeder-debacker:09a}.  
@@ -347,7 +348,7 @@ as well the hospitality of the Banff International Research Station during our w
 Throughout this paper, $G$ is a smooth, commutative group scheme locally of finite type
 over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  For the sake of brevity, we
 define a \emph{$\QC$-scheme} to be such a $G$ with the additional property that the
-geometric component group of $G$ is finitely generated.  This last assumption is only
+geometric component group of $G$ is finitely generated.  This last condition is only
 needed in the proof of Lemma \ref{lemma:section}.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
@@ -423,16 +424,16 @@ Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$,
 The rule $(\gqcs{L},\mu,\phi) \mapsto (\gqcs{L},\phi)$ defines a forgetful functor from quasicharacter
 sheaves on $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{deligne:80a}*{Def.~1.1.10 (i)}.
 
-As mentioned after \cite{deligne:80a}*{Def.~1.1.10}, a Weil sheaf $(\gqcs{L},\phi)$ on $G$
+A Weil sheaf $(\gqcs{L},\phi)$ on $G$
 may be interpreted as a constructible $\ell$-adic sheaf $\gqcs{L}$ on $\bG$ together with
 an action of the Weil group $\Weil{\Fq}$ on $\gqcs{L}$ compatible with the action of
-$\Gal(\bFq/\Fq)$ on $\bG$. We now review this point of view for later use in
-Section~\ref{sec:basechange}.  If $w \ceq \Frob{\Fq}^n$ we write $w_G$ for $\Frob{G}^n$.
+$\Gal(\bFq/\Fq)$ on $\bG$. We now briefly review this point of view for later use in
+Section~\ref{sec:basechange}; see also \cite{deligne:80a}*{Def.~1.1.10}.  If $w \ceq \Frob{\Fq}^n$ we write $w_G$ for $\Frob{G}^n$.
 For each such $w$ we define an isomorphism $\varphi(w) : w_G^* \gqcs{L}\to \gqcs{L}$ by
-\[
-\varphi(w) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi);
-\]
-these satisfy $\varphi(uv) = \varphi(v) \circ v_G^* \varphi(u)$ for $u,v\in \Weil{\Fq}$, and
+$
+\varphi(w) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi)
+$; 
+these isomorphisms satisfy $\varphi(uv) = \varphi(v) \circ v_G^* \varphi(u)$ for $u,v\in \Weil{\Fq}$, and
 we have $\phi = \varphi(\Frob{\Fq})$. 
 If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then
 $\varphi_1(w) : (w_G)_* \gqcs{L}\to \gqcs{L}$ is an isomorphism and
@@ -440,7 +441,8 @@ $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for $u,v\in \Weil{\Fq}
 Thus the pair $(\gqcs{L},\varphi_1)$ almost satisfies the criteria for an action of $\Weil{\Fq}$
 on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of
 \cite{deligne:SGA4.5}*{Expos\'e XIII,~1.1}, failing only because $\Weil{\Fq}$ is not profinite.
-Our use of $\Weil{\Fq}$ rather than $\Gal(\bFq/\Fq)$ allows quasicharacter sheaves to
+\Clifton{Improve this.}
+As we will see, our use of $\Weil{\Fq}$ rather than $\Gal(\bFq/\Fq)$ allows quasicharacter sheaves to
 correspond to unbounded characters.
 %\end{remark}
 
@@ -590,9 +592,9 @@ which induces a sequence of group homomorphisms
 \QCiso{0} \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & \QCiso{0}.
 \end{tikzcd}
 \]
-after passing to isomorphism classes.  It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected} and \ref{sec:etale} we will find $\QCiso{G^0}$
-and $\QCiso{\pi_0(G)}$ under the hypothesis that $\pi_0(G)$ is geometrically finitely generated; 
-the snake lemma will then allow us to show that
+after passing to isomorphism classes.  It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected} and \ref{sec:etale} we will find the groups $\QCiso{G^0}$
+and $\QCiso{\pi_0(G)}$ for all $\QC$-schemes. 
+The snake lemma will then allow us to show that
 \[
 \QCiso{G} \iso G(\Fq)^*.
 \]
@@ -603,11 +605,11 @@ We end this section with a simple result on products of quasicharacter sheaves,
 which is needed to show that the isomorphism above is functorial.
 
 \begin{proposition}\label{prop:product}
-If $G_1$ and $G_2$ are $\QC$-schemes, the rule $\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an equivalence of categories 
+If $G_1$ and $G_2$ are $\QC$-schemes then the rule $\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an equivalence of categories 
 \[
 \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)
 \]
-and 
+such that 
 \[
 \begin{tikzcd}[column sep=60]
 \arrow{d}{\trFrob{G_1} \times \trFrob{G_2}} \QCiso{G_1}\times \QCiso{G_2} \arrow{r}{\boxtimes}
@@ -667,7 +669,8 @@ The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
 while the second part shows that Trace of Frobenius is a natural transformation
 $t: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product},
 we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural
-transformation between additive functors.
+transformation between additive functors, 
+concluding the proof of Proposition~\ref{prop:functorialG}.
 \end{proof}
 
 \section{Base change}\label{sec:basechange}
@@ -882,7 +885,7 @@ Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at weak isomorphisms.
    \end{tikzcd}
   \end{equation}
  where $(\alpha',T') : (f,\psi) \to (f',T')$ is any map in $C(G)$ 
- and $(\beta_1,U_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism.
+ and $(\beta_1,U_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism in $C(G)$.
 
 
 We put a tensor category structure on $C(G)$ as follows.
@@ -900,7 +903,8 @@ These operations give $C(G)$ the structure of a tensor category.
 Likewise, $C(G)[W^{-1}]$ is a tensor category.
 
 \begin{lemma}\label{lemma:finite-pull-back}
-If $g : J \to G$ is a morphism of group schemes, let $f_g : H\times_G J\to J$
+Let $g : J \to G$ be a morphism of group schemes. 
+Let $f_g : H\times_G J\to J$
 be the pull-back of $f$ along $g$ and define $\psi_g : \ker f_g \to \Aut(V)$ as in the diagram below:
 \[
 \begin{tikzcd}
@@ -941,7 +945,7 @@ is the rigid monoidal category obtained by localizing $C_1(G)$ at weak isomorphi
 
 
 \begin{lemma}\label{lemma:finite-iso}
-Each $(f,\psi)\in \QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$. \David{I'm confused at first reading by the statement of this lemma}
+Each $(f,\psi)$ in $\QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$. \David{I'm confused at first reading by the statement of this lemma}
  \end{lemma}
 
 \begin{proof}
@@ -986,6 +990,7 @@ $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\QCf(
  such that $L(\alpha,T)$ is an isomorphism precisely when $(\alpha,T)$ is a weak isomorphism. 
  Factoring along $C_1(G) \to \QCb(G)$ will produce the full and faithful monoidal functor we seek.
 
+   \Clifton{Is this confusing? Is it clear to what $\Loc(G)$ refers?}
  Now we introduce a faithful functor $L : C(G) \to \Loc(G)$ to the category of local systems on $G$.
  For any object $(f,\psi)$ in $C(G)$, let $L(f,\psi)$ be the $\psi$-isotypic component of $f_* V_H$, 
  where $V_H$ refers to $V$ as a constant sheaf on $H$. 
@@ -1190,11 +1195,11 @@ the Weil sheaf $(\gqcs{L},\phi)$ into an $\ell$-adic character of $\prod_{x\in \
 However, it proved cumbersome to manage various 
 choices of families of base points and track the action 
 of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of 
-Weil groups and difficult to identify the relevant quotient of this group.
+Weil groups and also difficult to identify the relevant quotient of this group.
 Viewed in this light, Definition~\ref{def:QC} is comparatively simple.
 
 \section{Commutative \'etale group schemes} \label{sec:etale}
-
+\Clifton{Use: Etale $\QC$-schemes?}
 %\input{etale-1}
 %In this section we establish a fundamental property of character
 % sheaves on commutative \'etale group schemes over $\Fq$ that are
@@ -1262,6 +1267,7 @@ We say that a section is \emph{trivial} if $s(x) = 0$ for all $x \in G(\bFq)$ an
 
 \begin{lemma}\label{lemma:section}
  If $\qcs{L}$ is a quasicharacter sheaf on a commutative, \'etale group scheme $G$
+ \Clifton{Use: Etale $\QC$-schemes?}
  over $\Fq$ and if $G(\bFq)$ is finitely generated, then $\qcs{L}$ has a nontrivial global section.
 \end{lemma}
 
@@ -1293,6 +1299,7 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
 
 \begin{proposition}\label{prop:etale}
   Let $G$ be a commutative \'etale group scheme over $\Fq$ with $G(\bFq)$ finitely generated.
+  \Clifton{Use: Etale $\QC$-schemes?}
   We may associate a $1$-cocycle $\tau_\qcs{L}: \Weil{\Fq}\to G(\bFq)^*$ to each $\qcs{L} \in \QC(G)$
   so that
   \[
@@ -1454,8 +1461,8 @@ if it is a finite, surjective \'etale morphism and
 the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f$ is trivial.
 
 \begin{lemma}\label{lemma:ext}
-Every discrete isogeny  to $G^0$ extends to a discrete
-isogeny to $G$ such that the component group of the covering space is isomorphic
+Every discrete isogeny onto $G^0$ extends to a discrete
+isogeny onto $G$ such that the component group of the covering space is isomorphic
 to the component group of $G$.
 \end{lemma}
 
@@ -1811,6 +1818,7 @@ $\Fq$-group schemes $f_n : \GN{T}_{n+1} \to \GN{T}_n$.
 \end{definition}
 
 \begin{remark}
+\Clifton{I'm not sure if we should include this remark in the final version.}
 If $K \ceq \mathbb{Q}_q$ and 
 $T \ceq \Gm{\mathbb{Q}_q}$ then $\GN{T}^0 = \mathbb{W}^*_{\FF_q}$, 
 the group scheme (!) over $\Fq$ of units in the ring scheme $\mathbb{W}_{\FF_q}$
@@ -2124,7 +2132,7 @@ can then be be viewed as a matching between quasicharacters and Langlands parame
  \cite{serre:60a},\cite{serre:61a},\cite{demazure-gabriel:GroupesAlgebriques}*{Appendice},
  especially as revisited in \cite{suzuki-yoshida:12a}*{\S 2}. 
  What remains to be done is a careful comparison of 
- quasicharacter sheaves for $\Gm{K}$ and certain local systems on
+ quasicharacter sheaves for $\Gm{K}$ and the local systems on
   the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{suzuki-yoshida:12a}. 
 
 %\printindex
