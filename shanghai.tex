@@ -1466,7 +1466,7 @@ isogeny onto $G$ inducing an isomorphism on component groups.
 \end{lemma}
 
 \begin{proof}
-Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
+Let $\pi: B \to G^0$ be a discrete isogeny and set $A \ceq \ker \pi$.
   We will find a discrete isogeny $f: H\to G$
   such that that $H^0 = B$, $f^0 =\pi$ and
   $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism of component
@@ -1496,36 +1496,8 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   \[
   \Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).
   \]
-  
-  We now show that $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)) = 0$.
-%
-  It suffices to show that $\pi_0(G)(\bFq)$ has a two-term resolution
-  by injective $\ZZ[\Gamma]$-modules.  Since the action of $\Gamma$ on
-  $\pi_0(G)(\bFq)$ is continuous, it factors through some finite quotient
-  $\Gamma_m \ceq \Gamma / H_m$.  Any product of Dedekind domains has
-  cohomological dimension $1$, \David{Add a citation for this fact} so $\pi_0(G)(\bFq)$ has a
-  two term resolution by injective $\ZZ[\Gamma_m]$-modules.  Let $I$
-  be one of these modules: we need to show that $I$ is injective as a
-  $\ZZ[\Gamma]$-module.  Consider the universal diagram for injectivity:
-  
-  \[
-  \begin{tikzcd}
-  A \rar{a} \arrow[hook]{d} & I \\
-  B
-  \end{tikzcd}
-  \]
-  where $A$ and $B$ are arbitrary $\ZZ[\Gamma]$-modules.  Since $H_m$ acts trivially on $I$,
-  $I_{H_m}A \ceq \langle (\gamma-1)a : \gamma \in H_m, a \in A \rangle \subseteq \ker(a).$
-  Since $B / I_{H_m}B \cong B \otimes_A A / I_{H_m}A$, we get
-  \[
-  \begin{tikzcd}
-  A \arrow[two heads]{r} \arrow[hook]{d} & A/I_{H_m}A \rar \arrow[hook]{d} & I \\
-  B \arrow[two heads]{r} & B/I_{H_m}B \arrow[dashed]{ur} & {}
-  \end{tikzcd}
-  \]
-  The dotted arrow exists since $I$ is injective as a
-  $\ZZ[\Gamma_m]$-module and the outer diagram shows that $I$ is
-  injective as a $\ZZ[\Gamma]$-module.
+  Since finite fields have cohomological dimension $1$ \cite{serre:GaloisCohomology}*{\S II.3.3},
+  $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq))$ vanishes \cite{cartan-eilenberg:HomologicalAlgebra}*{Thm. 2.6}.
 
   We therefore have the existence of diagram \eqref{extension-diagram}
   at the level of $\bFq$-points.  This expresses $H(\bFq)$ as a
@@ -1538,22 +1510,29 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   morphisms are $\Gamma$-equivariant.
 \end{proof}
 
+In order to use the results of Section~\ref{sec:connected}, we need to know that
+identity component of $G$ is actually an algebraic group.
+
+\begin{lemma} \label{lem:G0alg-grp}
+If $G$ is a $\QC$-scheme then $G^0$ is a connected algebraic group.
+\end{lemma}
+\begin{proof}
+ Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
+ identity component $G^0$ of $G$ is a connected smooth, 
+ group scheme of finite type over $\Fq$, reduced over some finite extension of $\Fq$
+ \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
+ Since $\Fq$ is a finite field and hence perfect, $G^0$ is actually reduced over $\Fq$
+ \cite{EGAIV2}*{Prop 6.4.1}.  Since every group scheme over a field is separated 
+ \cite{vdGeer-Moonen:AbelianVarieties}*{3.12},
+ it follows that $G^0$ is a connected algebraic group.
+\end{proof}
+
 \begin{proposition}\label{prop:restriction}
   The restriction functor $\QC(G)\to \QC(G^0)$ is essentially surjective.
 \end{proposition}
 
 \begin{proof}
-\Clifton{Turn this paragraph into a lemma. We use it below.}  Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
-  identity component $G^0$ of $G$ is a connected smooth, 
-  group scheme of finite type over $\Fq$, reduced over some finite extension of $\Fq$, by
-   \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
-	Since $\Fq$ is a finite field and hence perfect, $G^0$ is actually reduced over $\Fq$;
-	see \cite{EGAIV2}*{Prop 6.4.1}.
-	Since every group scheme over a field is separated 
-	(see, for example, \cite{vdGeer-Moonen:AbelianVarieties}*{3.12}),  
-	it follows that $G^0$ is a connected algebraic group.
- 
-    By Proposition~\ref{prop:connected}, every
+  By Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}, every
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
   so to prove the proposition it suffices to show that every 
@@ -1561,13 +1540,10 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   
  Let $(\pi,\psi)$ be a finite quasicharacter sheaf on $G^0$.
  By Lemma~\ref{lemma:ext}, there is an extension of the 
- discrete isogeny $\pi : B \to G^0$ 
- (see Section~\ref{sec:finite} for the definition of a discrete isogeny) 
- to a discrete isogeny $f : H \to G^0$ 
+ discrete isogeny $\pi : B \to G^0$ to a discrete isogeny $f : H \to G^0$ 
  such that $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism.
- Then $(f,\psi)$ is a finite quasicharacter sheaf on $G$.
- Then $(f,\psi)\vert_{G^0} \iso (\pi,\psi)$,
- completing the proof that $\QC(G)\to \QC(G^0)$ is essentially surjective.
+ Then $(f,\psi)$ is a finite quasicharacter sheaf on $G$ and 
+ $(f,\psi)\vert_{G^0} \iso (\pi,\psi)$.
 \end{proof}
 
 \section{The sheaf--function dictionary for non-connected groups}
