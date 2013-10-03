@@ -1482,22 +1482,22 @@ Let $\pi: B \to G^0$ be a discrete isogeny and set $A \ceq \ker \pi$.
   $\Fq$.  We will do so by passing back and forth between group
   schemes over $\Fq$ and their $\bFq$-points.  
   
-  Set $\Gamma \ceq \Gal(\bFq/\Fq)$. Extensions of
+  Write $W$ for the Weil group $\Weil{\Fq}$.  Extensions of
   $G^0(\bFq)$ by $A(\bFq)$, such as $A(\bFq) \to B(\bFq) \to G^0(\bFq)$,
-  correspond to classes in $\Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))$.
+  correspond to classes in $\Ext^1_{\ZZ[W]}(G^0(\bFq), A(\bFq))$.
   Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
-  classes in $\Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq))$.  The map
+  classes in $\Ext^1_{\ZZ[W]}(G(\bFq), A(\bFq))$.  The map
   $G^0(\bFq) \to G(\bFq)$ induces the map
   \[
-  \Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq))
+  \Ext^1_{\ZZ[W]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[W]}(G^0(\bFq), A(\bFq))
   \]
   fitting into the long exact sequence derived from applying
   the functor $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
   \[
-  \Ext^1_{\ZZ[\Gamma]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Gamma]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq)).
+  \Ext^1_{\ZZ[W]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[W]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[W]}(\pi_0(G)(\bFq), A(\bFq)).
   \]
-  Since finite fields have cohomological dimension $1$ \cite{serre:GaloisCohomology}*{\S II.3.3},
-  $\Ext^2_{\ZZ[\Gamma]}(\pi_0(G)(\bFq), A(\bFq))$ vanishes \cite{cartan-eilenberg:HomologicalAlgebra}*{Thm. 2.6}.
+  Since $W$ has cohomological dimension $1$ \cite{brown:CohomologyGrps}*{Ex. 4.3},
+  $\Ext^2_{\ZZ[W]}(\pi_0(G)(\bFq), A(\bFq))$ vanishes \cite{cartan-eilenberg:HomologicalAlgebra}*{Thm. 2.6}.
 
   We therefore have the existence of diagram \eqref{extension-diagram}
   at the level of $\bFq$-points.  This expresses $H(\bFq)$ as a
@@ -1506,7 +1506,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny and set $A \ceq \ker \pi$.
   restriction of $f$ to each component of $H$ is a morphism of
   schemes, and thus $f$ is as well.  Finally, the whole diagram
   descends to a diagram of $\Fq$-schemes since the $\bFq$-points of
-  the objects come equipped with continuous $\Gamma$-actions, and the
+  the objects come equipped with continuous $W$-actions, and the
   morphisms are $\Gamma$-equivariant.
 \end{proof}
 
