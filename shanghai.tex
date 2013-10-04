@@ -693,7 +693,7 @@ Set $G_{k'} \ceq G\times_\Spec{k} \Spec{k'}$ and let
 \[
 \QC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota^*} \QC(G)
 \]
-be the functor obtained by pull-back along the canonical closed immersion of $k$-schemes
+be the functor obtained by pullback along the canonical closed immersion of $k$-schemes
 $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$
 \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6}. 
 The following diagram commutes:
@@ -816,7 +816,7 @@ $B_G^* : \QCb(G) \hookrightarrow \QC(G)$.
 \end{proposition}
 
 \begin{proof}
- Let $b_G : {\bar G} \to G$ be the pull-back of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
+ Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
  Let $(\qcs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$. 
  Then $\qcs{L}_0$ is an $\ell$-adic constructible sheaf on $G$ and
  $b_G^* \qcs{L}_0$ comes equipped with an isomorphism 
@@ -898,10 +898,10 @@ the dual representation.  We may then set $(f,\psi)^\vee \ceq (f,\psi^\vee)$.
 These operations give $C(G)$ the structure of a tensor category.
 Likewise, $C(G)[W^{-1}]$ is a tensor category.
 
-\begin{lemma}\label{lemma:finite-pull-back}
+\begin{lemma}\label{lemma:finite-pullback}
 Let $g : J \to G$ be a morphism of group schemes. 
 Let $f_g : H\times_G J\to J$
-be the pull-back of $f$ along $g$ and define $\psi_g : \ker f_g \to \Aut(V)$ as in the diagram below:
+be the pullback of $f$ along $g$ and define $\psi_g : \ker f_g \to \Aut(V)$ as in the diagram below:
 \[
 \begin{tikzcd}
 V & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} &  G\\
@@ -914,7 +914,7 @@ defines a monomial functor $g^* : C(G)[W^{-1}] \to C(J)[W^{-1}]$.
 \end{lemma}
 
 \begin{proof}
-The key point is that pull-back along $g$ takes isogenies to isogenies,
+The key point is that pullback along $g$ takes isogenies to isogenies,
 and maps over $G$ to maps over $J$, as pictured below.
 \[
 \begin{tikzcd}[row sep={{{{40,between origins}}}},column sep={{{{60,between origins}}}}]
@@ -927,7 +927,7 @@ V' & \Aut(V') && \arrow[swap,pos=0.25]{ll}{\psi'} \ker f'  \arrow[hook]{rr}
 \end{tikzcd}
 \]
 In this form we could treat $g^*$ as a functor $C(J)\to C(G)$,
-were it not for the fact that pull-back is defined only up to isomorphism.
+were it not for the fact that pullback is defined only up to isomorphism.
 In the localized categories, this ambiguity disappears. 
 \end{proof}
 
@@ -945,7 +945,7 @@ Each $(f,\psi)$ in $\QCf(G)$ determines a canonical isomorphism $m^*(f,\psi) \to
  \end{lemma}
 
 \begin{proof}
-Set $H_m \ceq H\times_G(G\times G)$, write $f_m : H_m \to G \times G$ for the pullback of $f$ to $H_m$, and let $A$ and $A_m$ be the kernels of $f$ and $f_m$ respectively.  Consider the diagram of Lemma~\ref{lemma:finite-pull-back}:
+Set $H_m \ceq H\times_G(G\times G)$, write $f_m : H_m \to G \times G$ for the pullback of $f$ to $H_m$, and let $A$ and $A_m$ be the kernels of $f$ and $f_m$ respectively.  Consider the diagram of Lemma~\ref{lemma:finite-pullback}:
 \[
 \begin{tikzcd}[column sep=40]
 V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
@@ -954,7 +954,7 @@ V & \Aut(V) & \arrow[swap]{l}{\psi} A \arrow[hook]{r} & H \arrow{r}{f} &  G\\
 \end{tikzcd}
 \]
 We have $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
-Since $f\circ m_H = m \circ (f\times f)$, the universal property of pull-back gives
+Since $f\circ m_H = m \circ (f\times f)$, the universal property of pullback gives
 a unique $\theta : H\times H \to H_m$ making the following commute.
 \[
 \begin{tikzcd}[row sep=20,column sep=10]
@@ -1000,7 +1000,7 @@ $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is canonical in $\QCf(
  %at geometric points $L(\alpha,T)_{\bar g} : L(f,\psi)_{\bar g} \to L(f',\psi')_{\bar g}$ 
  by $s \mapsto s' \ceq T\circ s\circ \alpha$. 
  This construction defines a monoidal functor $L$ from $C(G)$ to $\Loc(G)$ that
- commutes with pull-back along any morphism of group schemes.
+ commutes with pullback along any morphism of group schemes.
 
  We now show that $L$ takes weak isomorphisms in $C(G)$ to isomorphisms in $\Loc(G)$. 
  Suppose $(\beta,U) : (f,\psi)\to (f',\psi')$ is a weak isomorphism. 
@@ -1443,7 +1443,7 @@ There is a natural isomorphism $\Hh^1(\Weil{}, G(\bFq)^*) \to (G(\bFq)^*)_{\Frob
 %\subsection*{Restriction to the identity component is surjective}
 
 Let $G^0$ be the connected component of $G$ containing the identity.
-By Proposition~\ref{prop:pullback}, pull-back along
+By Proposition~\ref{prop:pullback}, pullback along
 $G^0\hookrightarrow G$ determines a monoidal functor
 $\qcs{L}\mapsto \qcs{L}\vert_{G^0}$ from $\QC(G)$ to $\QC(G^0)$.  In
 this section we show that this functor is essentially surjective. 
@@ -1686,7 +1686,7 @@ For any local field $K$ with residue field $\Fq$ and for any positive integer $n
 \Gr_n : \partop{\text{Schemes}}{\text{lft over $\OK$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
 %\end{tikzcd}
 \]
-be the functor produced by precomposing pull-back along $\OK \to \OK/\pK^n$ with the Greenberg functor.
+be the functor produced by precomposing pullback along $\OK \to \OK/\pK^n$ with the Greenberg functor.
 \end{definition}
 
 The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a
@@ -1948,7 +1948,7 @@ Let $T$ be an algebraic torus over $K$ and
 set $T' \ceq T \times_\Spec{K} \Spec{K'}$.
 The canonical closed immersion $T \hookrightarrow \Res_{K'/K} T'$
 induces a map of group pro-schemes $\GN{T} \to \Res_{k'/k} \GN{T}'$ which,
-through the pull-back functor and the trace of Frobenius, induces the homomorphism
+through the pullback functor and the trace of Frobenius, induces the homomorphism
 \[
 \begin{tikzcd}[column sep=60]
 \Hom_{\text{qc}}(T(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{T(K)}} &\Hom_{\text{qc}}(T(K), \EEx).
@@ -1973,7 +1973,7 @@ the family of morphisms \eqref{men} determines a morphism of pro-group schemes
 \GN{T} \to \Res_{k'/k} \GN{T}'.
 \]
 Since $\left(\Res_{k'/k} \GN{T}'_{en} \right)(\Fq) = \left(\GN{T}'_{en}\right)(k')$,
-the pull-back functor $\QC(\Res_{k'/k} \GN{T}'_{en})\to \QC(\GN{T}_n)$
+the pullback functor $\QC(\Res_{k'/k} \GN{T}'_{en})\to \QC(\GN{T}_n)$
 obtained by applying Proposition~\ref{prop:pullback} to \eqref{men} gives
 \[
 \Hom_{< en}(T'(K'),\EEx) \to \Hom_{< n}(T(K),\EEx).
