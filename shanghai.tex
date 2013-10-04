@@ -347,8 +347,6 @@ and of the National Science and Engineering Research Council,
 as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
 
 \tableofcontents
-\David{Search for terms defined after they are used}
-\David{Commas between adjectives, consistent ordering}
 
 \part{Smooth commutative group schemes over finite fields} \label{part1}
 
@@ -372,7 +370,7 @@ We fix a prime $\ell$, invertible in $\Fq$.
 We will work with constructible $\ell$-adic sheaves \cite{deligne:80a}*{\S 1.1} on $\QC$-schemes,
 employing the standard formalism;
 see, in particular, \cite{SGA5}*{Expos\'e VI,\S 2}, where pullback and tensor products are developed.
-We also make extensive use of the external tensor product of $\ell$-adic sheaves, defined as follows: if $\mathcal{F}$ and $\mathcal{G}$ are constructible $\ell$-adic sheaves on schemes $X$ and $Y$, respectively, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{F} \otimes p_Y^*\mathcal{G}$, where $p_X : X\times Y\to X$ and $p_Y : X\times Y \to Y$ are projections.
+We also make extensive use of the external tensor product of $\ell$-adic sheaves, defined as follows: if $\mathcal{F}$ and $\mathcal{G}$ are constructible $\ell$-adic sheaves on schemes $X$ and $Y$ and $p_X : X\times Y\to X$ and $p_Y : X\times Y \to Y$ are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{F} \otimes p_Y^*\mathcal{G}$.
 
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
@@ -1003,8 +1001,8 @@ $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is independent of the 
 
 
  Now we introduce a faithful functor $L$ from $C(G)$ to the category of local systems on $G$, which we will denote by $\Loc(G)$.
- For any object $(f,\psi)$ in $C(G)$, let $L(f,\psi)$ be the $\psi$-isotypic component of $f_* V_H$, 
- where $V_H$ refers to $V$ as a constant sheaf on $H$. 
+ If $V$ is a $\EE$-vector space then we write $V_H$ for the constant sheaf $V$ on $H$.
+ For any object $(f,\psi)$ in $C(G)$, let $L(f,\psi)$ be the $\psi$-isotypic component of $f_* V_H$.
  We may identify the stalk $(f_* V_H)_{\bar g}$ of $f_* V_H$ at a geometric point ${\bar g}$ on $G$ 
  with the $\EE$-vector space $\Hom_\text{set}(\abs{f^{-1}({\bar g})},V)$ 
  and the stalk $L(f,\psi)_{\bar g}$ of $L(f,\psi)$ at a geometric point ${\bar g}$ on $G$ 
@@ -1207,7 +1205,6 @@ Weil groups and also difficult to identify the relevant quotient of this group.
 Viewed in this light, Definition~\ref{def:QC} is comparatively simple.
 
 \section{Commutative \'etale group schemes} \label{sec:etale}
-\Clifton{Use: Etale $\QC$-schemes?}
 %\input{etale-1}
 %In this section we establish a fundamental property of character
 % sheaves on commutative \'etale group schemes over $\Fq$ that are
@@ -1273,9 +1270,7 @@ A \emph{global section} of $\qcs{L}$ is a function $s : G(\bFq) \to \coprod_{x \
 We say that a section is \emph{trivial} if $s(x) = 0$ for all $x \in G(\bFq)$ and \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$.
 
 \begin{lemma}\label{lemma:section}
- If $\qcs{L}$ is a quasicharacter sheaf on a commutative, \'etale group scheme $G$
- \Clifton{Use: Etale $\QC$-schemes?}
- over $\Fq$ and if $G(\bFq)$ is finitely generated, then $\qcs{L}$ has a nontrivial global section.
+ If $\qcs{L}$ is a quasicharacter sheaf on an \'etale $\QC$-scheme $G$ then $\qcs{L}$ has a nontrivial global section.
 \end{lemma}
 
 \begin{proof}
@@ -1305,8 +1300,7 @@ and if each quasicharacter sheaf on the \'etale group scheme $\pi_0(G)$ admits a
 satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds for $G$.
 
 \begin{proposition}\label{prop:etale}
-  Let $G$ be a commutative \'etale group scheme over $\Fq$ with $G(\bFq)$ finitely generated.
-  \Clifton{Use: Etale $\QC$-schemes?}
+  Let $G$ be an \'etale $\QC$-scheme.
   We may associate a $1$-cocycle $\tau_\qcs{L}: \Weil{}\to G(\bFq)^*$ to each $\qcs{L} \in \QC(G)$
   so that
   \[
@@ -1337,12 +1331,12 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   In general, \ref{cs.1} and \ref{cs.3}, together with \eqref{section}, guarantee that
   the scalar $\tau_\qcs{L}(\Frob{})(x)$ is non-zero.  Moreover, Condition~\ref{cs.1} forces
   $\tau_\qcs{L}(\Frob{})(x+y) = \tau_\qcs{L}(\Frob{})(x) \ \tau_\qcs{L}(\Frob{})(y)$
-  for all $x,y \in G(\bFq)$.  Now define $\tau_\qcs{L} : \Weil{} \to G(\bFq)^*$ recursively by
+  for all $x,y \in G(\bFq)$.  We write $\cdot$ for pointwise multiplication of functions, and
+  define $\tau_\qcs{L} : \Weil{} \to G(\bFq)^*$ recursively by
   \[
    \tau_\qcs{L}(\Frob{}^n) \ceq \tau_\qcs{L}(\Frob{})\cdot \,^{\Frob{}} \tau_\qcs{L}(\Frob{}^{n-1}),
   \]
-  where $\Frob{}$ acts on $G(\bFq)^*$ through pre-composition and $\cdot$ refers
-  to pointwise multiplication of functions.
+  where $\Frob{}$ acts on $G(\bFq)^*$ through pre-composition.
 
   Although we used a global section $s$ in the definition of
   $\tau_\qcs{L}$, the class of $\tau_\qcs{L}$ does not depend on this
