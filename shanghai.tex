@@ -63,6 +63,7 @@
 \newcommand{\QQ}{{\mathbb{Q}}}
 \newcommand{\RR}{{\mathbb{R}}}
 \newcommand{\EE}{\mathbb{\bar Q}_\ell}
+\newcommand{\Zl}{\mathbb{\bar Z}_\ell}
 \newcommand{\OK}{\mathcal{O}_K}
 \newcommand{\pK}{\mathfrak{p}_K}
 \newcommand{\OKp}{\mathcal{O}_{K'}}
@@ -79,6 +80,7 @@
 \newcommand{\WW}{\mathbb{W}}
 
 \newcommand{\EEx}{\EE^\times}
+\newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
 
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\W}{W}
@@ -1048,15 +1050,26 @@ a quasicharacter sheaf is finite if and only if its trace of Frobenius has finit
  
 \section{Connected commutative algebraic groups} \label{sec:connected}
 
+When $G$ is connected, we may apply the classic sheaf--function dictionary.  In order to do so,
+however, we must relate our notion of quasicharacter sheaf to the sheaf side of the standard dictionary.
+Choose any $\Fq$-rational point of $G$ and let $\bg$ be the geometric point on $G$ lying above $g$.
+Recall that the \emph{Weil group} of $G$, which we will denote by $\W(G,\bg)$, is a subgroup of the \'etale
+fundamental group defined by the following diagram:
+\[
+ \begin{tikzcd}
+ 1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \W(G,\bg) \rar \dar[hook] & \Weil{} \rar \dar[hook] & 1 \\
+ 1 \rar &  \pi_1(\bG, \bg) \rar & \pi_1(G,\bg) \rar & \Gal(\bFq/\Fq) \rar & 1.
+ \end{tikzcd}
+\]
+The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
+$\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$. 
+
+For connected groups, the subcategories introduced in the previous two sections agree with $\QC(G)$:
+
 \begin{proposition}\label{prop:connected}
   If $G$ is a connected commutative algebraic group over $\Fq$ then 
   the full subcategories $\QCf(G) \hookrightarrow \QCb(G) \hookrightarrow \QC(G)$ 
-  appearing in Sections~\ref{sec:bounded} and \ref{sec:finite} are equivalences 
-  and
-  \[
-  \trFrob{G} : \QCiso{G} \to G(\Fq)^*
-  \]
-  is an isomorphism of groups.
+  appearing in Sections~\ref{sec:bounded} and \ref{sec:finite} are equivalences.
 \end{proposition}
 
 \begin{proof}
@@ -1065,28 +1078,16 @@ a quasicharacter sheaf is finite if and only if its trace of Frobenius has finit
   While is it not true that all Weil sheaves on $G$ descend to local systems on $G$, 
   we will see that those that appear in the image of this forgetful functor from quasicharacter sheaves do. 
 
-  Let $g$ be any $\Fq$-rational point on $G$ 
-  and let $\bg$ be the geometric point on $G$ lying above $g$ 
   Since $G$ is connected, the geometric point $\bg$ determines
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
-  $\ell$-adic representations of $\W(G,\bg)$ \cite{deligne:80a}*{1.1.12}.  \David{We should include a definition for $\W(G,\bg)$, perhaps in an intro paragraph for the section}
+  $\ell$-adic representations of $\W(G,\bg)$ \cite{deligne:80a}*{1.1.12}.
   Now let $(\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$ 
-  and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$. 
-  The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
-  $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$. 
-  In this way the Weil local system $(\gqcs{L},\phi)$ determines an $\ell$-adic character $\rho_g : \Weil{} \to \EEx$.
-  %\[
-  %\begin{tikzcd}
-  %1 \rar & \pi_1(\bG, \bg) \rar &  \arrow{d}{\rho} \W(G,\bg) \rar
-  %& \ar[swap,bend right, dotted]{l}{g} \arrow[dotted]{dl}{\rho_g} \Weil{} \rar & 1\\
-  %&&\EEx&&
-  %\end{tikzcd}
-  %\]
-  This character is given by the trace of Frobenius of $\qcs{L}$ at $g$, as defined in Section~\ref{sec:Frob}:
+  and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
+  Composing with the splitting $\Weil{} \to \W(G,\bg)$ yields an $\ell$-adic character
+  $\rho_g : \Weil{} \to \EEx$, which is the same as the trace of Frobenius defined in Section~\ref{sec:Frob}:
   \[
   \rho_g(\Frob{}) =  \trFrob{\qcs{L}}(g).
   \]
-  \David{It's not clear to me whether we've just proven this claim or if we're citing it from somewhere}
   
   On the other hand, we have already seen that $\trFrob{\qcs{L}} : G(\Fq) \to \EEx$
   is a group homomorphism. Since $G$ is an algebraic group over $\Fq$, it is a
@@ -1096,24 +1097,18 @@ a quasicharacter sheaf is finite if and only if its trace of Frobenius has finit
   $\Frob{}$ and $\rho_g : \Weil{} \to \EEx$ is
   a character, it follows that the image of $\rho_g$ is a finite group.
   Thus, $\rho_g$ extends to an $\ell$-adic character of $\Gal(\bFq/\Fq)$, 
-  denoted by the same symbol, below.
-  \[
-  \begin{tikzcd}
-  1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \W(G,\bg) \rar \dar & \Weil{} \arrow[bend left]{rr}{\rho_g} \rar \dar & 1 & \EEx\\
-  1 \rar &  \pi_1(\bG, \bg) \rar & \pi_1(G,\bg) \rar & \Gal(\bFq/\Fq) \arrow[dotted]{rru} \rar & 1 &
-  \end{tikzcd}
-  \]
+  which we will also denote $\rho_g$.
 
   We may now lift the $\ell$-adic character $\rho_g : \Gal(\bFq/\Fq) \to \EEx$
   to an $\ell$-adic character $\pi_1(G,\bg) \to \EEx$ using the canonical topological group homomorphism
-  $\pi_1(G,\bg) \to \Gal(\bFq/\Fq)$ determined by the structure map for $G$. But $\bg$ also
+  $\pi_1(G,\bg) \to \Gal(\bFq/\Fq)$. But $\bg$ also
   determines an equivalence between the category of $\ell$-adic
   representations of $\pi_1(G,\bg)$ and $\ell$-adic local systems on $G$. Let
   $\qcs{L}_0$ be a local system on $G$ in the isomorphism class
   determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
   Then $b_G^*\qcs{L}_0 \iso \gqcs{L}$.
-  Since $b_G^*$ is full and faithful (again, see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII}
-  or even \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}),
+  Since $b_G^*$ is full and faithful
+  \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}},
   $
   b_{G\times G}^* : \Hom(m^*\qcs{L}_0,\qcs{L}_0\boxtimes\qcs{L}_0) \to \Hom({\bar m}^*\gqcs{L},\gqcs{L}\boxtimes\gqcs{L})
   $ 
@@ -1164,14 +1159,21 @@ a quasicharacter sheaf is finite if and only if its trace of Frobenius has finit
   This completes the proof that $L_G : \QCf(G) \to \QC(G)$ is essentially surjective.
   Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful, 
   it follows that $L_G$ is an equivalence.
-  
-  To finish the proof of Proposition~\ref{prop:connected}, it suffices to observe that the group homomorphism
-  $
+\end{proof}
+
+\begin{corollary}
+ If $G$ is a connected, commutative algebraic group over $\Fq$ then
+ \[
   \trFrob{G} : \QCiso{G} \to G(\Fq)^*
-  $
-  is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter
-  sheaf $(\Lang,\chi^{-1})$ such that the trace of Frobenius of the quasicharacter sheaf
-  $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
+ \]
+ is an isomorphism of groups.
+\end{corollary}
+\begin{proof}
+ It suffices to observe that the group homomorphism
+ $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$
+ is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter
+ sheaf $(\Lang,\chi^{-1})$ such that the trace of Frobenius of the quasicharacter sheaf
+ $B_G^* (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
 As Proposition~\ref{prop:connected} shows, 
