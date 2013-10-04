@@ -1803,36 +1803,41 @@ We now define a category which allows us to extend the notion
 of quasicharacter sheaf to the pro-group scheme $\GN{T}$. 
 
 \begin{definition}\label{def:catGN}
-An object in $\QC(\GN{T})$ is an equivalence class in 
-$\cup_{n\in\ZZ_{>0}} \obj \QC(\GN{T}_n)$.
-We say that $\qcs{L}_n\in \QC(\GN{T}_n)$ is equivalent to $\qcs{L}_{m}\in \QC(\GN{T}_m)$ 
-if there is some $k \ge m,n$ with $f_{n\leq k}^* \qcs{L}_{n} = f_{m\leq k}^* \qcs{L}_m$. \David{is it okay for this to be equality rather than isomorphism?} 
-Objects in $\QC(\GN{T})$ all take the form
+An object in $\QC(\GN{T})$ is a triple $(n, \{\qcs{L}_i\}_{i \ge n}, \{\alpha_{i \le j}\}_{j \ge i \ge n})$, where $n$
+is a positive integer, each $\qcs{L}_i$ is a quasicharacter sheaf on $\GN{T}_i$ and each
+$\alpha_{i \le j} : \qcs{L}_j \to f^*_{i \le j} \qcs{L}_i$ is an isomorphism.  We require $\alpha_{i \le i}$ to be
+the identity and that the $\alpha_{i \le j}$ are compatible with each other.  If $\qcs{L} \ceq (n, \{\qcs{L}_i\}, \{\alpha_{i \le j}\})$
+and $\qcs{L}' \ceq (m, \{\qcs{L}'_i\}, \{\alpha'_{i \le j}\})$ are objects then $\Hom(\qcs{L}, \qcs{L}')$ is the set
+of equivalence classes of pairs $(k, \{\beta_i\}_{i \ge k})$.  Here $k \ge m, n$ and the $\beta_i : \qcs{L}_i \to \qcs{L}'_i$ are
+morphisms of quasicharacter sheaves so that
 \[
-[\qcs{L}_n] \ceq \{ f_{n\leq k}^* \qcs{L}_n \tq n\leq k\},
+\begin{tikzcd}
+\qcs{L}_j \rar{\alpha_j} \dar{\beta_i} & f^*_{i \le j} \qcs{L}_i \dar{f_{i \le j}^*\beta_j} \\
+\qcs{L}'_j \rar{\alpha_j} & f^*_{i \le j} \qcs{L}'_i
+\end{tikzcd}
 \]
-for some unique $\qcs{L}_n \in \QC(\GN{T}_n)$.
-A morphism $[\qcs{L}_n] \to [\qcs{L}_m]$ in $\QC(\GN{T})$ is an equivalence class
-in $\cup_{n,m\leq k} \Hom(f_{n\leq k}^*\qcs{L}_n,f_{m\leq k}^*\qcs{L}_m)$.
-We say that $\alpha_k\in \mor \QC(\GN{T}_k)$ is equivalent to 
-$\beta_l \in \mor \QC(\GN{T}_l)$ if there is some $i \ge k, l$ with $f_{k\leq i}^*\alpha_k = f_{l\leq i}^* \beta_l$. 
-Morphisms in $\QC(\GN{T})$ all take the form
+commutes for all $j \ge i \ge k$.  We identify two such pairs $(k, \{\beta_i\})$ and $(l, \{\gamma_i\})$ if $\beta_i = \gamma_i$
+for sufficiently large $i$.  Identities and composites are defined in the natural way.
+
+If $n$ is a positive integer and $\qcs{L}_n \in \QC(\GN{T}_n)$ then we may define an object
 \[
-[\alpha_k] \ceq \{ f_{k\leq i}^* \alpha_k \tq k\leq i\},
+[\qcs{L}_n] \ceq (n, \{f_{n \le i} \qcs{L}_n\}_{i \ge n}, \{1_{\qcs{L}_j}\}_{j \ge i \ge n}).
 \]
-for some unique $\alpha_k \in \QC(\GN{T}_k)$.
-Identities and composition are defined in the natural way.
-We may define a tensor structure for $\QC(\GN{T})$ by setting
+Every object in $\QC(\GN{T})$ is isomorphic to such a $[\qcs{L}_n]$.  Similarly, any morphism is equal to one of the form
 \[
-[\qcs{L}_n]\otimes [\qcs{L}_m] \ceq [f_{n\leq k}^*\qcs{L}_n \otimes f_{m\leq k}^*\qcs{L}_m],
-\qquad k \ceq \max\{ n,m\}.
+[\beta_k] \ceq (k, \{f_{k \le i}^* \beta_k\}_{i \ge k}).
 \]
-Duals in $\QC(\GN{T})$ are defined by $[\qcs{L}_n]^\vee \ceq [\qcs{L}_n^\vee]$.
+
+We may define a tensor product on $\QC(\GN{T})$ by setting
+\[
+ \qcs{L} \otimes \qcs{L}' \ceq (k, \{\qcs{L}_i \otimes \qcs{L}'_i\}, \{\alpha_{i \le j} \otimes \alpha'_{i \le j}\}),
+\]
+where $k = \max(m, n)$.
+Similarly, the dual of an object $\qcs{L}$ is defined by $\qcs{L}^\vee \ceq (n, \{\qcs{L}_i^\vee\}, \{ \alpha_{i \le j}^\vee \})$.
 We refer to objects in the rigid monoidal category 
 $\QC(\GN{T})$ as \emph{quasicharacter sheaves on $\GN{T}$} 
 or \emph{quasicharacter sheaves for $T$}.
 \end{definition}
-
 
 \begin{corollary}\label{cor:application}
 For every algebraic torus $T$ over $K$, the trace of Frobenius 
@@ -1850,7 +1855,9 @@ from the additive category of algebraic tori over $K$ to the category of abelian
 \end{corollary}
 
 \begin{proof}
-We may define full and faithful functors $F_n : \QC(\GN{T}_n) \to \QC(\GN{T})$ for each $n$ by $F_n(\qcs{L}) \ceq [\qcs{L}_n]$ and $F_n(\alpha_n) \ceq [\alpha_n]$.  For positive integers $n \le m$ these functors fit together into a diagram
+We may define full and faithful functors $F_n : \QC(\GN{T}_n) \to \QC(\GN{T})$
+for each $n$ by $F_n(\qcs{L}) \ceq [\qcs{L}_n]$ and $F_n(\alpha_n) \ceq [\alpha_n]$. \David{Conflict of notation: we've defined $F_1$ and $F_2$ twice}
+For positive integers $n \le m$ these functors fit together into a diagram
 \[
 \begin{tikzcd}
 \ & & & \QC(\GN{T})\\
@@ -1881,7 +1888,7 @@ As with the local Langlands correspondence for algebraic tori over local fields,
 it should be possible to reduce the essential points of the argument to the case $T= \Gm{K}$,
 provided that the category of quasicharacter sheaves behaves properly with regard to
 Weil restriction, as in \cite{yu:09a}*{Thm 7.5 (2)}. 
-The next proposition \David{Do we mean Lem 14.1 or Prop 14.2?} shows that the category of quasicharacter sheaves for 
+The next lemma shows that the category of quasicharacter sheaves for 
 algebraic tori does indeed behave properly with regard to Weil restriction.
 
 \begin{lemma}\label{lemma:wrK}
