@@ -99,7 +99,7 @@
 \DeclareMathOperator{\Nm}{Nm}
 \DeclareMathOperator{\trace}{Tr}
 
-\newcommand{\cdef}[1]{ {#1}\index{#1} } 
+\newcommand{\cdef}[1]{{#1}\index{#1}} 
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
 \newcommand{\ceq}{{\, :=\, }}
@@ -814,9 +814,9 @@ This is the category of \emph{bounded quasicharacter sheaves} on $G$.
 The category of bounded quasicharacter sheaves is a rigid monoidal category in the obvious way. 
 %with duals given by $\qcs{L}_0^\vee \ceq \sheafHom(\qcs{L}_0,\EE)$.
 
-\begin{proposition}
+\begin{proposition}\label{prop:BG}
 Extension of scalars defines a full and faithful functor 
-$B_G^* : \QCb(G) \hookrightarrow \QC(G)$.
+$B_G : \QCb(G) \hookrightarrow \QC(G)$.
 \end{proposition}
 
 \begin{proof}
@@ -832,14 +832,14 @@ $B_G^* : \QCb(G) \hookrightarrow \QC(G)$.
  Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies \ref{CS.2} 
  with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
  Moreover, $\phi$ is compatible with $\mu$ in the sense of \ref{CS.3}.
- This construction defines the functor $B_G^* : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
+ This construction defines the functor $B_G : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
  and also shows that it is full and faithful.
 \end{proof}
 
 In general, $\QCb(G)$ is an essentially
-proper subcategory of $\QC(G)$. We will identify $\QCb(G)$ with its image under $B_G^*$
+proper subcategory of $\QC(G)$. We will identify $\QCb(G)$ with its image under $B_G$
 and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded}
-if it is isomorphic to some $B_G^*(\qcs{L}_0, \mu_0)$.
+if it is isomorphic to some $B_G(\qcs{L}_0, \mu_0)$.
 We will see in Corollary~\ref{cor:bounded-and-finite} that the bounded quasicharacter sheaves
 are precisely those whose trace of Frobenius have bounded image.
 
@@ -851,43 +851,28 @@ are precisely those whose trace of Frobenius have bounded image.
 In this section we define \emph{finite quasicharacter sheaves}, a further refinement
 of bounded quasicharacter sheaves that play a role in Section \ref{sec:restriction}.
 
-A morphism $f : H\to G$ of $\QC$-schemes is a \emph{discrete isogeny} if it is a finite, surjective
-\'etale morphism of commutative group $\Fq$-schemes for which
-the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f$ is trivial.
-% similar nomenclature is employed in \cite{kamgarpour:09a}*{\S 2.2}.
+The definition of finite quasicharacter sheaves will require several steps, 
+beginning with the localization of a category introduced here.
+\Clifton{Do you think it's clear that a morphism of $\QC$-schemes is, in particular, a morphism of group schemes?}
+Let us say that a morphism $f : H\to G$ of $\QC$-schemes is a \emph{discrete isogeny} if it is finite, surjective and etale and the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f \ceq f^{-1}({\bar e)}$ is trivial.
+% similar nomenclature is employed in \cite{kamgarpour:09a}*{\S 2.2}. 
 Consider the category $C(G)$ whose objects consist of pairs $(f,\psi)$, where
 \begin{itemize}
-\item $f : H\to G$ is a discrete isogeny,
+\item $f : H\to G$ is a discrete isogeny of $\QC$-schemes,
 \item $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$.
 \end{itemize}
-A morphism $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(\alpha,T)$, where
+A morphism $(f,\psi) \to (f',\psi')$ in $C(G)$ is a pair $(g,T)$, where
 \begin{itemize}
-\item $\alpha : H' \to H$ is a morphism of schemes such that $f' = f\circ \alpha$,
-\item $T : V\to V'$ is a linear transformation equivariant for the action of
+\item $g : H' \to H$ is a morphism of schemes such that $f' = f\circ g$,
+\item $T : V\to V'$ is a linear transformation, equivariant for the action of
 $\ker f'$ on $V'$ by $\psi'$ and the action of $\ker f'$ on $V$ by $\psi \circ \alpha$.
 \[
 \begin{tikzcd}
 V \arrow{d}{T} & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} & \arrow[equal]{d} G\\
-V' & \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{\alpha\vert_{\ker f'}} \ker f' \arrow[hook]{r} & \arrow[swap]{u}{\alpha} H' \arrow{r}{f'} & G
+V' & \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{g\vert_{\ker f'}} \ker f' \arrow[hook]{r} & \arrow[swap]{u}{g} H' \arrow{r}{f'} & G
 \end{tikzcd}
 \]
 \end{itemize}
-We say that $(\alpha,T)$ in $C(G)$ is a \emph{weak isomorphism} if $\alpha$ is surjective
-and $T$ is an isomorphism of vector spaces.
-
-Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at weak isomorphisms.
- Morphisms in $C(G)[W^{-1}]$ are simple to describe because 
- $W$ is a left multiplicative system in the sense of
-  \cite{kashiwara-schapira:CatgoriesSheaves}*{\S 7.1.7}:
-a morphism in $C(G)[W^{-1}]$ is the equivalence class of 
-  \begin{equation}\label{eq:morGCf}
-   \begin{tikzcd}
-   (f,\psi) \arrow{r}{(\alpha_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(\beta_1,U_1)} (f',\psi')
-   \end{tikzcd}
-  \end{equation}
- where $(\alpha',T') : (f,\psi) \to (f',T')$ is any map in $C(G)$ 
- and $(\beta_1,U_1) : (f_1,\psi_1) \to (f',\psi')$ is a weak isomorphism in $C(G)$. See \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16} for more detail, including the equivalence relation mentioned above.
-
 
 We put a tensor category structure on $C(G)$ as follows.
 Let $(f,\psi)$ and $(f',\psi')$ be objects in $C(G)$. 
@@ -901,10 +886,39 @@ $(f,\psi)\oplus(f',\psi')\ceq (f\times_G f' ,\psi\oplus\psi')$. To define duals 
 let $V^\vee \ceq \Hom_\text{vec}(V,\EE)$ and $\psi^\vee : \ker f \to \Aut(V^\vee)$ be
 the dual representation.  We may then set $(f,\psi)^\vee \ceq (f,\psi^\vee)$.
 These operations give $C(G)$ the structure of a tensor category.
-Likewise, $C(G)[W^{-1}]$ is a tensor category.
+
+Now we localize $C(G)$.
+Let us say that $(g,T)$ in $C(G)$ is a \emph{weak isomorphism} if $g$ is surjective
+and $T$ is an isomorphism of vector spaces.
+\Clifton{Should this be another lemma in this section?}
+The set $W$ of weak isomorphisms in $C(G)$
+is a saturated, left multiplicative system in $C(G)$ in the sense of
+  \cite{kashiwara-schapira:CatgoriesSheaves}*{Defs 7.1.5, 7.1.19}.
+Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at $W$.
+A morphism in $C(G)[W^{-1}]$ is an equivalence class of a diagram
+  \begin{equation}\label{eq:morGCf}
+   \begin{tikzcd}[column sep=50]
+   (f,\psi) \arrow{r}{(g_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(h_1,U_1)} (f',\psi')
+   \end{tikzcd}
+  \end{equation}
+ where $(g',T') : (f,\psi) \to (f',\psi')$ is any map in $C(G)$ 
+ and $(h_1,U_1) :  (f',\psi') \to (f_1,\psi_1)$ is a weak isomorphism in $C(G)$; see \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16} for more detail, including the equivalence relation mentioned above.
+%Likewise, $C(G)[W^{-1}]$ is a tensor category.
+
+\begin{definition}
+Let $C_1(G)$ be the full, rigid monoidal subcategory of $C(G)$ consisting of objects
+$(f,\psi)$ such that $\psi$ is a one-dimensional representation.
+%
+The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\QCf(G)$,
+is the rigid monoidal category obtained by localizing $C_1(G)$ at weak isomorphisms.
+\end{definition}
+
+Having defined finite quasicharacter sheaves, 
+we justify our terminology by showing $\QCf(G)$ is a full subcategory of $\QCb(G)$.
+To prepare for that result, we need two lemmas.
 
 \begin{lemma}\label{lemma:finite-pullback}
-Let $g : J \to G$ be a morphism of group schemes. 
+Let $g : J \to G$ be a morphism of $\QC$-schemes. 
 Let $f_g : H\times_G J\to J$
 be the pullback of $f$ along $g$ and define $\psi_g : \ker f_g \to \Aut(V)$ as in the diagram below:
 \[
@@ -919,7 +933,7 @@ defines a monomial functor $g^* : C(G)[W^{-1}] \to C(J)[W^{-1}]$.
 \end{lemma}
 
 \begin{proof}
-The key point is that pullback along $g$ takes isogenies to isogenies,
+The key point is that pullback along $g$ takes discrete isogenies to discrete isogenies,
 and maps over $G$ to maps over $J$, as pictured below.
 \[
 \begin{tikzcd}[row sep={{{{40,between origins}}}},column sep={{{{60,between origins}}}}]
@@ -936,17 +950,8 @@ were it not for the fact that pullback is defined only up to isomorphism.
 In the localized categories, this ambiguity disappears. 
 \end{proof}
 
-Let $C_1(G)$ be the full, rigid monoidal subcategory of $C(G)$ consisting of objects
-$(f,\psi)$ such that $\psi$ is a one-dimensional representation.
-
-\begin{definition}
-The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\QCf(G)$,
-is the rigid monoidal category obtained by localizing $C_1(G)$ at weak isomorphisms.
-\end{definition}
-
-
 \begin{lemma}\label{lemma:finite-iso}
-Each $(f,\psi)$ in $\QCf(G)$ determines a canonical isomorphism $\mu(f,\psi) : m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$. 
+Each finite quasicharacter sheaf $(f,\psi)$ in $\QCf(G)$ determines a canonical isomorphism $\mu(f,\psi) : m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$. 
  \end{lemma}
 
 \begin{proof}
@@ -994,43 +999,29 @@ $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is independent of the 
 
 \begin{proof}
  To prove the proposition we exhibit a full and faithful monoidal functor $L_G : \QCf(G) \to \QCb(G)$.
- %
- We will do this by constructing a faithful monoidal functor $L : C_1(G) \to \QCb(G)$ 
- such that $L(\alpha,T)$ is an isomorphism precisely when $(\alpha,T)$ is a weak isomorphism. 
- Factoring along $C_1(G) \to \QCb(G)$ will produce the full and faithful monoidal functor we seek.
 
-
- Now we introduce a faithful functor $L$ from $C(G)$ to the category of local systems on $G$, which we will denote by $\Loc(G)$.
- If $V$ is a $\EE$-vector space then we write $V_H$ for the constant sheaf $V$ on $H$.
- For any object $(f,\psi)$ in $C(G)$, let $L(f,\psi)$ be the $\psi$-isotypic component of $f_* V_H$.
+ If $V$ is a finite-dimensional $\EE$-vector space then we write $V_H$ for the constant sheaf $V$ on $H$.
+If $(f,\psi)$ is a finite quasicharacter on $G$ where $\psi$ is a representation of $\ker f$ on $V$, 
+let $L(f,\psi)$ be the local system on $G$ given by the $\psi$-isotypic component of the local system $f_* V_H$ on $G$.
  We may identify the stalk $(f_* V_H)_{\bar g}$ of $f_* V_H$ at a geometric point ${\bar g}$ on $G$ 
  with the $\EE$-vector space $\Hom_\text{set}(\abs{f^{-1}({\bar g})},V)$ 
  and the stalk $L(f,\psi)_{\bar g}$ of $L(f,\psi)$ at a geometric point ${\bar g}$ on $G$ 
  with the $\EE$-vector space consisting of those functions $s: \abs{f^{-1}({\bar g})} \to V$ such that 
  $s(a\cdot {\bar h}) = \psi(a)(s({\bar h}))$ for all $a\in \ker f$ and for all ${\bar h} \in f^{-1}({\bar g})$.
- Since $L(f,\psi)$ is trivialized by $f$, it is a local system on $G$.
- For any map $(\alpha,T)$ in $C(G)$, let $L(\alpha,T) : L(f,\psi) \to L(f',\psi')$ be the homomorphism of local systems defined 
- %at geometric points $L(\alpha,T)_{\bar g} : L(f,\psi)_{\bar g} \to L(f',\psi')_{\bar g}$ 
- by $s \mapsto s' \ceq T\circ s\circ \alpha$. 
- This construction defines a monoidal functor $L$ from $C(G)$ to $\Loc(G)$ that
- commutes with pullback along any morphism of group schemes.
 
- We now show that $L$ takes weak isomorphisms in $C(G)$ to isomorphisms in $\Loc(G)$. 
- Suppose $(\beta,U) : (f,\psi)\to (f',\psi')$ is a weak isomorphism. 
- Since $U$ is an isomorphism, we may replace $V'$ with $V$ and $U$ with $\id_V$, without loss of generality. 
- Then the equivariance condition on $U$ becomes $\psi' = \psi\circ \beta$ on the finite \'etale group scheme $\ker f'$. 
- Since $f$ and $f'$ are finite \'etale, the relation $f' = f\circ \beta$ implies that $\beta$ is \'etale.  Since $\beta$ is surjective,
- it is an \'etale cover and thus admits a section $\beta' : H \to H'$. \David{Why do \'etale covers have sections?}
- This provides the inverse to $L(\beta,U) : L(f,\psi) \to L(f',\psi')$. \David{What is the inverse of $L(\beta, U)$?}
- 
- Conversely, if $L(\alpha,T)$ is an isomorphism of local systems, 
- then $T$ must be an isomorphism of vector spaces and $\beta$ must be surjective, \David{I assume that this statement follows directly from the definition of isomorphisms of local systems?}
- whence $(\alpha,T)$ is a weak isomorphism: $W$ is saturated. \David{It's not clear to me how the claim that $W$ is saturated fits into the rest of this paragraph}
-  
- Since $L : C(G) \to \Loc(G)$ takes weak isomorphisms to isomorphisms,
- it factors through the localization functor $C(G) \to C(G)[W^{-1}]$ 
- to define a faithful functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$. 
- Since $W$ is saturated, the functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$ is full. 
+ For any map $(g,T)$ in $C(G)$, let $L(g,T) : L(f,\psi) \to L(f',\psi')$ be the homomorphism of local systems defined 
+ by $s \mapsto s' \ceq T\circ s\circ g$. 
+ This construction defines a full monoidal functor $L$ from $C(G)$ to the category $\Loc(G)$ of local systems on $G$ that
+ commutes with pullback along any morphism of $\QC$-schemes,
+ as defined using Lemma~\ref{lemma:finite-pullback}.
+ %
+ \Clifton{There's detail missing here; I might want to include some of it.}
+ %
+ Moreover, since $L(f,T)$ is an isomorphism of local systems
+ if and only if $(f,T)$ is a weak isomorphism, 
+ the full functor $L : C(G) \to \Loc(G)$ factors through the localization functor $C(G) \to C(G)[W^{-1}]$ 
+ to define a full and faithful functor $L_{W} : C(G)[W^{-1}] \to \Loc(G)$;
+ see \cite{kashiwara-schapira:CatgoriesSheaves}*{Exercise 7.5}.  
    
  By Lemma~\ref{lemma:finite-iso}, each $(f,\psi) \in \QCf(G)$ canonically determines 
  an isomorphism $\mu(f,\psi) : m^*(f,\psi) \to (f,\psi) \boxtimes (f,\psi)$ in $\QCf(G\times G)$.
@@ -1043,7 +1034,7 @@ $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is independent of the 
 \end{proof}
 
 For general $G$, there are bounded quasicharacter sheaves which are not finite.  Identifying
-$\QCf(G)$ with its image under $B_G^* \circ L_G$, we will see in Corollary~\ref{cor:bounded-and-finite} that
+$\QCf(G)$ with its image under $B_G \circ L_G$, as defined in Proposition~\ref{prop:BG} and in the proof of Proposition~\ref{prop:bounded}, we will see in Corollary~\ref{cor:bounded-and-finite} that
 a quasicharacter sheaf is finite if and only if its trace of Frobenius has finite image.
  
 \section{Connected commutative algebraic groups} \label{sec:connected}
