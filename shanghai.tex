@@ -1623,12 +1623,33 @@ geometrizing all characters of $G(\Fq)$ for general $\QC$-schemes $G$.
 \begin{corollary} \label{cor:bounded-and-finite}
 Suppose $G$ is a $\QC$-scheme and $\qcs{L}$ is a quasicharacter sheaf on $G$.  Then
 \begin{enumerate}
-\item $\qcs{L}$ is bounded if and only if $\trFrob{L}$ has bounded image,
-\item $\qcs{L}$ is finite if and only if $\trFrob{L}$ has finite image.
+\item $\qcs{L}$ is bounded if and only if $\trFrob{\qcs{L}}$ has bounded image,
+\item $\qcs{L}$ is finite if and only if $\trFrob{\qcs{L}}$ has finite image.
 \end{enumerate}
 \end{corollary}
 \begin{proof}
-\David{These examples need to be modified to provide a proof of the corollary}
+We first reduce to the case that $G$ is an \'etale $\QC$-scheme.  On the connected component
+$G^0$, all quasicharacter sheaves are bounded and finite by Proposition~\ref{prop:connected}.
+On the other hand, $G^0(\Fq)$ is finite by Lemma~\ref{lem:G0alg-grp} and thus $\trFrob{\qcs{L}}$ has
+both finite and bounded image.  \David{Explain how we can conclude for $G$ from $G^0$ and $\pi_0(G)$.}
+
+So suppose that $\qcs{L}$ is a bounded quasicharacter sheaf on an \'etale $\QC$-scheme $G$.
+If $\bg$ is a geometric point lying above $g \in G(\Fq)$ then the restriction of $\qcs{L}$ to $\bg$
+determines a character of $\pi_1(g, \bg) \cong \Gal(\bFq/\Fq)$.  Since $\Gal(\bFq/\Fq)$ is compact
+the image of $\Frob{}$ under this character lies within $\Zlx$; equivalently $\trFrob{\qcs{L}}(g) \in \Zlx$.
+Since $g$ was arbitrary, the image of $\trFrob{\qcs{L}}$ is bounded.
+
+Conversely, suppose that $\trFrob{\qcs{L}}$ is bounded.   We may choose a geometric point $\bg$ in each
+component $C$ of $G$ and construct a local system on the component by constructing a character of
+$\pi_1(C, \bg)$.  \David{How do we construct this character when $C$ has no rational points?}  These
+local systems piece together to form a sheaf $\qcs{L}_0$ on $G$ since the components form a disjoint
+open cover of $G$.  Since the base change of $\qcs{L}_0$ to $\bG$ is just $\qcs{L}$, we may pull
+back the isomorphism $\mu$ to obtain an isomorphism
+$\mu_0 : m^* \qcs{L}_0 \to \qcs{L}_0 \boxtimes \qcs{L}_0$.
+
+\David{Still need the analogous constructions for finite quasicharacter sheaves.}
+
+\David{I've left the example here for now so that we can raid material from it.}
 Consider the case when $G$ is the discrete \'etale group scheme $\ZZ$; 
 this is indeed a $\QC$-scheme.
 Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ 
