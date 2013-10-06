@@ -354,7 +354,8 @@ Throughout this paper, $G$ is a smooth, commutative group scheme locally of fini
 over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  For the sake of brevity, we
 define a \emph{$\QC$-scheme} to be such a $G$ with the additional property that the
 geometric component group of $G$ is finitely generated.  This last condition is only
-needed in the proof of Lemma \ref{lemma:section}.
+needed in the proof of Lemma \ref{lemma:section}.  A morphism of $\QC$-schemes is a morphism
+of group schemes over $\Fq$.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
 smooth commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$ over $\bFq$
@@ -853,8 +854,9 @@ of bounded quasicharacter sheaves that play a role in Section \ref{sec:restricti
 
 The definition of finite quasicharacter sheaves will require several steps, 
 beginning with the localization of a category introduced here.
-\Clifton{Do you think it's clear that a morphism of $\QC$-schemes is, in particular, a morphism of group schemes?}
-Let us say that a morphism $f : H\to G$ of $\QC$-schemes is a \emph{discrete isogeny} if it is finite, surjective and etale and the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f \ceq f^{-1}({\bar e)}$ is trivial.
+Let us say that a morphism $f : H\to G$ of $\QC$-schemes is a \emph{discrete isogeny}
+if it is finite, surjective and \'etale and the action of $\Gal(\bFq/\Fq)$ on the \'etale group
+scheme $\ker f \ceq f^{-1}({\bar e)}$ is trivial.
 % similar nomenclature is employed in \cite{kamgarpour:09a}*{\S 2.2}. 
 Consider the category $C(G)$ whose objects consist of pairs $(f,\psi)$, where
 \begin{itemize}
@@ -1839,15 +1841,15 @@ is an isomomorphism.
 Moreover, the isomorphism $\trFrob{T}$ is a natural transformation 
 between the additive functors
 \begin{enumerate}
-\item[$F_1$:] $T \mapsto \QCiso{\GN{T}}$
-\item[$F_2$:] $T \mapsto \Hom_{\text{qc}}(T(K),\EEx)$
+\item[$F_{\QC}$:] $T \mapsto \QCiso{\GN{T}}$
+\item[$F_{\text{qc}}$:] $T \mapsto \Hom_{\text{qc}}(T(K),\EEx)$
 \end{enumerate}
 from the additive category of algebraic tori over $K$ to the category of abelian groups.
 \end{corollary}
 
 \begin{proof}
 We may define full and faithful functors $F_n : \QC(\GN{T}_n) \to \QC(\GN{T})$
-for each $n$ by $F_n(\qcs{L}) \ceq [\qcs{L}_n]$ and $F_n(\alpha_n) \ceq [\alpha_n]$. \David{Conflict of notation: we've defined $F_1$ and $F_2$ twice}
+for each $n$ by $F_n(\qcs{L}) \ceq [\qcs{L}_n]$ and $F_n(\alpha_n) \ceq [\alpha_n]$.
 For positive integers $n \le m$ these functors fit together into a diagram
 \[
 \begin{tikzcd}
