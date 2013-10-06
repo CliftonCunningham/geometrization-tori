@@ -898,13 +898,15 @@ is a saturated, left multiplicative system in $C(G)$ in the sense of
   \cite{kashiwara-schapira:CatgoriesSheaves}*{Defs 7.1.5, 7.1.19}.
 Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at $W$.
 A morphism in $C(G)[W^{-1}]$ is an equivalence class of a diagram
-  \begin{equation}\label{eq:morGCf}
-   \begin{tikzcd}[column sep=50]
-   (f,\psi) \arrow{r}{(g_1,T_1)} & (f_1,\psi_1) & \arrow[swap]{l}{(h_1,U_1)} (f',\psi')
+%  \begin{equation}\label{eq:morGCf}
+\[   
+\begin{tikzcd}[column sep=30]
+   (f,\psi) \arrow{r}{(g,T)} & (f',\psi') & \arrow[swap]{l}{(h,U)} (f_1,\psi_1)
    \end{tikzcd}
-  \end{equation}
- where $(g',T') : (f,\psi) \to (f',\psi')$ is any map in $C(G)$ 
- and $(h_1,U_1) :  (f',\psi') \to (f_1,\psi_1)$ is a weak isomorphism in $C(G)$; see \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16} for more detail, including the equivalence relation mentioned above.
+\]
+%  \end{equation}
+ where $(g,T) : (f,\psi) \to (f',\psi')$ is any map in $C(G)$ 
+ and $(h,U) :  (f',\psi') \to (f_1,\psi_1)$ is a weak isomorphism in $C(G)$; see \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16} for more detail, including the equivalence relation mentioned above.
 %Likewise, $C(G)[W^{-1}]$ is a tensor category.
 
 \begin{definition}
@@ -1035,7 +1037,7 @@ let $L(f,\psi)$ be the local system on $G$ given by the $\psi$-isotypic componen
  is a full and faithfull monoidal functor, completing the proof.
 \end{proof}
 
-For general $G$, there are bounded quasicharacter sheaves which are not finite.  Identifying
+On general $\QC$-schemes $G$, there are bounded quasicharacter sheaves which are not finite.  Identifying
 $\QCf(G)$ with its image under $B_G \circ L_G$, as defined in Proposition~\ref{prop:BG} and in the proof of Proposition~\ref{prop:bounded}, we will see in Corollary~\ref{cor:bounded-and-finite} that
 a quasicharacter sheaf is finite if and only if its trace of Frobenius has finite image.
  
