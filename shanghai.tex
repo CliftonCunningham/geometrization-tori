@@ -1180,10 +1180,15 @@ the relevant characters of $\pi_1(G,{\bar e})$ are precisely those
 that factor through a particular quotient of $\pi_1(G,{\bar e})$ 
 denoted there by $\Pi_\text{disc}(G)$.
 %\[\pi_1(G,{\bar e}) \to \Pi_\text{et}(G) \to \Pi_\text{et}(G)_{\Gal(\bFq/\Fq)} = \Pi_\text{disc}(G)\]
-This discussion demonstrates that the category of discrete isogenies to $G$ is a Galois category
-\cite{grothendieck:SGA1}*{Expos\'e V, \S 4}. Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$
-\cite{kamgarpour:09a}*{App'x B}, this \David{What does ``this'' refer to} provides an alternate proof that
-$\QCiso{G} \iso G(\Fq)^*$ when $G$ is a connected algebraic group over $\Fq$.
+This demonstrates that the category of discrete isogenies to $G$ is a Galois category,
+in the sense of \cite{grothendieck:SGA1}*{Expos\'e V, \S 4}. 
+\Clifton{Is this better?}
+Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$ \cite{kamgarpour:09a}*{App'x B}, 
+the fundamental functor attached to this Galois category can be used to produce an equivalence
+between the category of finite quasicharacter sheaves on $G$ and
+the category of one-dimensional representations of $G(\Fq)^*$, thus
+providing an alternate proof that $\QCiso{G} \iso G(\Fq)^*$ 
+when $G$ is a connected algebraic group over $\Fq$.
 
 In principle, something similar is possible in the more general 
 context of this paper, where $G$ is a $\QC$-scheme, to which we now return. 
@@ -1407,6 +1412,7 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
 
 In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
 
+\Clifton{The finitely generated part of the hypothesis is unnecessary.}
 \begin{lemma} \label{lem:dual-inv}
 Let $X$ be a finitely generated abelian group equipped with an action of $\Weil{}$, and write $\Frob{} = \Frob{}$.  Then
 \begin{align*}
