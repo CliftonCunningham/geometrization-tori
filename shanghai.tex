@@ -1,5 +1,5 @@
 % !TEX encoding = UTF-8 Unicode
-\documentclass[10pt]{amsart}
+\documentclass[11pt]{amsart}
 \title[Sheaf--function dictionary for local tori]{A sheaf--function dictionary for algebraic tori over local fields}
 \usepackage[british]{babel}
 \usepackage{datetime}
@@ -11,10 +11,10 @@
 \address{Pacific Institute for the Mathematical Sciences at the University of Calgary}
 \email{roed.math@gmail.com}
 \usepackage[utf8]{inputenc}
-%\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\baselinestretch}{1.2}
 %\usepackage[notcite]{showkeys}
 \usepackage{hyperref}
-%\usepackage{geometry}
+\usepackage{geometry}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -381,9 +381,9 @@ For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \E
 A \emph{quasicharacter sheaf on $G$} is a triple
 $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(CS.1)}{CS.1} $\gqcs{L}$ is a rank~one $\ell$-adic local system on $\bG$, by which we mean
+\labitem{(QC.1)}{QC.1} $\gqcs{L}$ is a rank~one $\ell$-adic local system on $\bG$, by which we mean
 a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces; 
-\labitem{(CS.2)}{CS.2} $\mu: \bm^* \gqcs{L} \to \LxL$ is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
+\labitem{(QC.2)}{QC.2} $\mu: \bm^* \gqcs{L} \to \LxL$ is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
 %
   \[
@@ -395,7 +395,7 @@ a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected c
   \end{tikzcd}
   \]
 %
-\labitem{(CS.3)}{CS.3} $\phi : \Frob{G}^* \gqcs{L} \to \gqcs{L}$ is an
+\labitem{(QC.3)}{QC.3} $\phi : \Frob{G}^* \gqcs{L} \to \gqcs{L}$ is an
   isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with $\mu$ in the sense that the following diagram commutes.
 %
   \[
@@ -413,7 +413,7 @@ a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected c
 
 Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$, are defined in the natural way:
 \begin{enumerate}
-\labitem{(CS.4)}{CS.4} if $\qcs{L} = (\gqcs{L},\mu,\phi)$ and
+\labitem{(QC.4)}{QC.4} if $\qcs{L} = (\gqcs{L},\mu,\phi)$ and
   $\qcs{L'} = (\gqcs{L'},\mu',\phi')$ are quasicharacter sheaves on $G$ then
   a morphism $\qcs{L} \to \qcs{L}'$ is a map $\alpha : \gqcs{L} \to \gqcs{L'}$
   of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
@@ -477,7 +477,7 @@ then we will abbreviate $\trFrob{(\gqcs{L},\phi)}$ to $\trFrob{\qcs{L}}$.
 \end{definition}
 
 The isomorphism $\mu : \bm^* \gqcs{L} \to \LxL$ together with 
-\ref{CS.3} guarantee
+\ref{QC.3} guarantee
 that the function $\trFrob{\qcs{L}} : G(\Fq)\to \EEx$ is a group homomorphism.  If we write
 $\trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$ for pointwise multiplication, then 
  $\trFrob{\qcs{L}\otimes \qcs{L'}} = \trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$.
@@ -551,22 +551,22 @@ play a role in the proof of many other results in this paper.
   $b_j^* \left( (\bf^*\gqcs{L})\vert_{\bH^j}\right)$ along $g_j$ is also constant.
   Thus $\bf^*\gqcs{L}$ is locally constant on
   $\bH^j$. To complete the proof that $\bf^*\gqcs{L}$ satisfies 
-  \ref{cs.4}
+  \ref{qc.4}
   simply observe that $\bf^*\gqcs{L}$ has rank~one since 
   $(\bf^*\gqcs{L})_{\bg} = \gqcs{L}_{f(\bg)}$, for every geometric point ${\bg}$ on $\bG$.
   
 
-  To see that $(\bfxf)^* \mu$ satisfies \ref{CS.2}, 
+  To see that $(\bfxf)^* \mu$ satisfies \ref{QC.2}, 
   apply the functor $(\bfxf)^*$
-  to \ref{CS.2} for $\qcs{L}$ and use the canonical isomorphism
+  to \ref{QC.2} for $\qcs{L}$ and use the canonical isomorphism
   $(\bfxf)^*(\LxL) \iso \bf^*\gqcs{L} \tight{-3}{\boxtimes}{-3} \bf^*\gqcs{L}$.
   To show that $f^*\qcs{L}$ satisfies 
-  \ref{CS.3}, apply the same functor to \ref{CS.3} for $\qcs{L}$.
+  \ref{QC.3}, apply the same functor to \ref{QC.3} for $\qcs{L}$.
   The fact that $f$ is a morphism of group schemes defined over $\Fq$ then
   yields isomorphisms $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG}^* (\bfxf)^*$
   and $(\bfxf)^* \bm^*\iso \bm^* \bf^*$ between functors of constructible sheaves.
   
-  Applying $\bf^*$ and $\bf^* \tight{1}{\times}{1}\bf^*$ to \ref{CS.4} defines the action
+  Applying $\bf^*$ and $\bf^* \tight{1}{\times}{1}\bf^*$ to \ref{QC.4} defines the action
   of $f^*$ on morphisms of quasicharacter sheaves; arguing as above shows that $f^*$ is
   a functor from $\QC(G)$ to $\QC(H)$.  Since tensor products commute with pullback in schemes,
   $f^* : \QC(G) \to \QC(H)$ is a monoidal functor.
@@ -664,7 +664,7 @@ by definition.  Since $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L}$ and $f^*p_2^*\gq
 we get that $f^*(\gqcs{L}\boxtimes \gqcs{L}) = \gqcs{L}_1\boxtimes \gqcs{L}_2$.
 It follows that \eqref{eq:fm} gives an isomorphism $\gqcs{L} \to  \gqcs{L}_1\boxtimes \gqcs{L}_2$.
 It is a matter of routine to show that this morphism satisfies 
-\ref{CS.3} as it applies here,
+\ref{qc.3} as it applies here,
 from which it follows that we have exhibited an isomorphism 
 $\qcs{L} \to \qcs{L}_1\boxtimes \qcs{L}_2$ of quasicharacters sheaves on $G\times G$.
 This completes the proof that $\boxtimes$ is essentially surjective.
@@ -726,7 +726,7 @@ $G_{k'}$ of $G$ to $k'$ by setting
 \[
 \phi_{k'} \ceq \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi).
 \]
-The commutativity of the diagram (CS.3) for $\phi_{k'}$ 
+The commutativity of the diagram (QC.3) for $\phi_{k'}$ 
 follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
 Note that we may also think about the construction of $\phi_{k'}$ from $\phi$
 as taking the action $\varphi$ of $\Weil{k}$ on $\gqcs{L}$ 
@@ -747,7 +747,7 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and write $F$ for $\Frob{G}$.  For any $x \in G(k')$,
 we may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
 and the value of $\Nm^*(t_G(\qcs{L}))(x)$ as the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
-Applying \ref{CS.3} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
+Applying \ref{QC.3} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
 \[
 \begin{tikzcd}
 \gqcs{L}_{\Nm(x)} \rar \dar{\phi_{\Nm(x)}} & \gqcs{L}_{F(x)} \otimes \gqcs{L}_{F^2(x)} \otimes \cdots \otimes \gqcs{L}_x
@@ -757,7 +757,7 @@ Applying \ref{CS.3} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \
 \]
 Choose a basis vector $v$ for $\gqcs{L}_{\Nm(x)}$ and write the image of $v$ under the
 bottom map as $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$
-for $v_i \in \gqcs{L}_{\Frob{}^i(x)}$.  By \ref{CS.2}, $v$ maps to
+for $v_i \in \gqcs{L}_{\Frob{}^i(x)}$.  By \ref{QC.2}, $v$ maps to
 $v_1 \otimes v_2 \otimes \cdots \otimes v_0$ along the top of the diagram.
 Let $\alpha_i \in \EEx$ represent $((F^i)^*\phi)_x$ with respect to these bases and let $\alpha$ be
 the trace of $\phi_{\Nm(x)}$.  We may now equate the trace $\alpha$ of $\phi$ on $\gqcs{L}_{\Nm(x)}$
@@ -806,9 +806,9 @@ sheaf with an $\ell$-adic local system on $G$ itself.
 Let $\QCb(G)$ be the category of pairs $(\qcs{L}_0,\mu_0)$ 
 where $\qcs{L}_0$ an $\ell$-adic local system on $G$ of rank~one, 
 equipped with an isomorphism $\mu_0 : m^* \qcs{L}_0 \to \qcs{L}_0 \boxtimes \qcs{L}_0$ 
-satisfying the analogue of \ref{CS.1} on $G$; 
+satisfying the analogue of \ref{QC.1} on $G$; 
 morphisms in $\QCb(G)$ are defined as in the second part of 
-\ref{CS.3}. 
+\ref{QC.3}. 
 This is the category of \emph{bounded quasicharacter sheaves} on $G$. 
 \end{definition}
 
@@ -830,9 +830,9 @@ $B_G : \QCb(G) \hookrightarrow \QC(G)$.
  from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
  is full and faithful \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}}. 
  This functor preserves local constancy, so takes local systems to local systems. 
- Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies \ref{CS.2} 
+ Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies \ref{QC.2} 
  with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
- Moreover, $\phi$ is compatible with $\mu$ in the sense of \ref{CS.3}.
+ Moreover, $\phi$ is compatible with $\mu$ in the sense of \ref{QC.3}.
  This construction defines the functor $B_G : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
  and also shows that it is full and faithful.
 \end{proof}
@@ -1219,11 +1219,11 @@ between the category of \'etale group schemes over $\Fq$ and the category of gro
 with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group.
 Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
 \begin{enumerate}
- \labitem{(cs.1)}{cs.1} an indexed set of one-dimensional
+ \labitem{(qc.1)}{qc.1} an indexed set of one-dimensional
   $\EE$-vector spaces $\gqcs{L}_x$, as $x$ runs over
   $G(\bFq)$;
 
- \labitem{(cs.2)}{cs.2} an indexed set of isomorphisms
+ \labitem{(qc.2)}{qc.2} an indexed set of isomorphisms
   $\mu_{x,y} : \gqcs{L}_{x+y} \xrightarrow{\iso} \gqcs{L}_{x} \otimes\gqcs{L}_{y}$,
   for all $x,y \in G(\bFq)$, such that
   \[
@@ -1235,7 +1235,7 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
    \end{tikzcd}
   \]
   commutes, for all $x,y,z\in G(\bFq)$; and
- \labitem{(cs.3)}{cs.3} an indexed set of isomorphisms $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$
+ \labitem{(qc.3)}{qc.3} an indexed set of isomorphisms $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$
   such that
   \[
    \begin{tikzcd}[row sep=40]
@@ -1249,7 +1249,7 @@ Under this equivalence, a quasicharacter sheaf on $G$ is given by the data of:
 \end{enumerate}
 Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasicharacter sheaves on $G$ is given by 
 \begin{enumerate}
- \labitem{(cs.4)}{cs.4} an indexed set $\alpha_x : \gqcs{L}_x \to \gqcs{L'}_x$
+ \labitem{(qc.4)}{qc.4} an indexed set $\alpha_x : \gqcs{L}_x \to \gqcs{L'}_x$
   of linear transformations such that
   \[
    \begin{tikzcd}[column sep=40]
@@ -1329,8 +1329,8 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   \end{equation}
   Note that if $x$ is fixed by $\Frob{}$ then $\tau_\qcs{L}(\Frob{})(x)$ is just $\trFrob{\qcs{L}}(x)$, so the restriction of
   $\tau_\qcs{L}(\Frob{})$ to $G(k)$ is just $\trFrob{\qcs{L}}$.
-  In general, \ref{cs.1} and \ref{cs.3}, together with \eqref{section}, guarantee that
-  the scalar $\tau_\qcs{L}(\Frob{})(x)$ is non-zero.  Moreover, Condition~\ref{cs.1} forces
+  In general, \ref{qc.1} and \ref{qc.3}, together with \eqref{section}, guarantee that
+  the scalar $\tau_\qcs{L}(\Frob{})(x)$ is non-zero.  Moreover, Condition~\ref{qc.1} forces
   $\tau_\qcs{L}(\Frob{})(x+y) = \tau_\qcs{L}(\Frob{})(x) \ \tau_\qcs{L}(\Frob{})(y)$
   for all $x,y \in G(\bFq)$.  We write $\cdot$ for pointwise multiplication of functions, and
   define $\tau_\qcs{L} : \Weil{} \to G(\bFq)^*$ recursively by
@@ -1344,7 +1344,7 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   choice. To see why, let $s_1$ and $s_2$ be two nontrivial global sections of
   $\qcs{L}$ and let $\tau_1$ and $\tau_2$ be the cocycles defined by $s_1$ and $s_2$.
   For each $x \in G(\bFq)$ set $a(x) = \frac{s_2(x)}{s_1(x)}$.  Then \eqref{section} and
-  \ref{cs.2} together imply $a(x+y) = a(x)a(y)$, so
+  \ref{qc.2} together imply $a(x+y) = a(x)a(y)$, so
   $a\in G(\bFq)^*$.  The coboundary $\tau_0 : \Weil{} \to G(\bFq)^*$
   defined by $\tau_0(\Frob{}) \ceq \,^{\Frob{}} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
   so $\tau_2$ and $\tau_1$ are cohomologous. Thus
@@ -1364,9 +1364,9 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   Now, $\varphi_x(s(x))$ is a
   non-zero scalar multiple of $s'(x)$; define $a: G(\bFq) \to \EEx$
   by $\alpha_x(s(x)) = a(x) s'(x)$.
-  By the second part of \ref{cs.4},
+  By the second part of \ref{qc.4},
   $a(x+y) = a(x)a(y)$, so $a \in G(\bFq)^*$. By the first part of
-  \ref{cs.4}, 
+  \ref{qc.4}, 
   $\tau'(\Frob{}) = \tau(\Frob{}) \cdot (\,^{\Frob{}^{-1}}a \cdot a^{-1})$,
   %\Clifton{Fix this.}
   so $\tau$ and $\tau'$ are cohomologous. This shows that
@@ -1395,7 +1395,7 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
  $\tau'(\Frob{}) = \tau(\Frob{}) \cdot (\,^{\Frob{}}a \cdot a^{-1})$. 
  Define $\alpha : \qcs{L}\to \qcs{L'}$ by $\alpha_x(s(x)) \ceq a(x) s'(x)$ and $\alpha^{-1} : \qcs{L}'\to \qcs{L}$
  by $\alpha^{-1}_x(s'(x)) \ceq a(x)^{-1} s(x)$, for $x\in G(\bFq)$.
- It is straightforward to check that $\alpha$ satisfies \ref{cs.3}
+ It is straightforward to check that $\alpha$ satisfies \ref{qc.3}
  and that $\alpha^{-1}$ is its inverse. Thus $\qcs{L} \iso \qcs{L'}$ in $\QC(G)$ and \eqref{pich1} is injective.
   
 
@@ -1403,10 +1403,10 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
  For each $x\in G(\bFq)$, set $\gqcs{L}_x \ceq \EE$.
  Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by
  $\mu_{x,y}(1) \ceq 1\otimes1$, for $x,y\in G(\bFq)$; 
- clearly, $\mu$ satisfies condition~\ref{cs.2}.
+ clearly, $\mu$ satisfies condition~\ref{qc.2}.
  Define $\phi_x : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_x(1) \ceq \tau(\Frob{})(x)$,
  for each $x\in G(\bFq)$. 
- Then $\phi$ satisfies condition~\ref{cs.3} because $\tau \in Z^1(\Weil{},G(\bFq)^*)$.
+ Then $\phi$ satisfies condition~\ref{qc.3} because $\tau \in Z^1(\Weil{},G(\bFq)^*)$.
  Setting $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$, we have that $[\tau]$ is the image of $\qcs{L}$
  under \eqref{pich1}, and thus \eqref{pich1} defines an isomorphism of groups.
 \end{proof}
