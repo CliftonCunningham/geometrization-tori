@@ -1630,46 +1630,38 @@ Suppose $G$ is a $\QC$-scheme and $\qcs{L}$ is a quasicharacter sheaf on $G$.  T
 \begin{proof}
 We first reduce to the case that $G$ is an \'etale $\QC$-scheme.  On the connected component
 $G^0$, all quasicharacter sheaves are bounded and finite by Proposition~\ref{prop:connected}.
-On the other hand, $G^0(\Fq)$ is finite by Lemma~\ref{lem:G0alg-grp} and thus $\trFrob{\qcs{L}}$ has
-both finite and bounded image.  \David{Explain how we can conclude for $G$ from $G^0$ and $\pi_0(G)$.}
+On the other hand, $G^0(\Fq)$ is finite by Lemma~\ref{lem:G0alg-grp} and thus the trace of Frobenius
+has finite and therefore bounded image.  If $\chi \in G(\Fq)^*$ then there is some finite-image character $\chi_0$
+with the same restriction to $G^0(\Fq)$ since $G^0(\Fq)$ is lies inside the torsion part of
+the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ will be bounded (have finite image)
+if and only if $\chi \cdot \chi_0^{-1}$ is bounded (has finite image).  But $\chi \cdot \chi_0^{-1}$ descends
+to a character of $\pi_0(G)$.  A similar argument relates boundedness/finiteness of quasicharacter
+sheaves on $G$ to those on $\pi_0(G)$, using the fact that the preimage constructed in the proof of
+Proposition~\ref{prop:restriction} is a finite quasicharacter sheaf on $G$.  Using these equivalences, it is enough to prove the Corollary
+for \'etale $\QC$-schemes.
 
-So suppose that $\qcs{L}$ is a bounded quasicharacter sheaf on an \'etale $\QC$-scheme $G$.
-If $\bg$ is a geometric point lying above $g \in G(\Fq)$ then the restriction of $\qcs{L}$ to $\bg$
-determines a character of $\pi_1(g, \bg) \cong \Gal(\bFq/\Fq)$.  Since $\Gal(\bFq/\Fq)$ is compact
-the image of $\Frob{}$ under this character lies within $\Zlx$; equivalently $\trFrob{\qcs{L}}(g) \in \Zlx$.
-Since $g$ was arbitrary, the image of $\trFrob{\qcs{L}}$ is bounded.
+In the case that $G$ is \'etale, one can easily see whether a quasicharacter sheaf is bounded or finite.
+For $\qcs{L} \in \QC(G)$, recall that a global section is a particular choice of bases for the vector
+spaces $\qcs{L}_x$.  The isomorphisms $\phi_x : \qcs{L}_{\Frob{}(x)} \to \qcs{L}_x$ are then specified
+by a choice of scalars $b_x$.  By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.2.1},
+$\qcs{L}$ will be bounded if and only if $b_x \in \Zlx$ for all $x$.  Moreover, $\qcs{L}$ will be
+finite if and only if $b_x$ is a root of unity for all $x$.
+Let $z$ be a cocycle representing the image of $\qcs{L}$ under the isomorphism
+$\QCiso{G} \cong \Hh^1(\Weil{}, G(\bFq)^*)$.  Then $z(\Frob{})(x) = b_x$, and the
+map $\Hh^1(\Weil{}, \Hom(G(\bFq), \Zlx)) \to \Hom(G(\Fq), \Zlx)$ is an isomorphism
+since $\Zlx$ is divisible.  So bounded characters of $G(\Fq)$ correspond to quasicharacter sheaves
+$\qcs{L}$ that descend to Weil sheaves on $G$.  The conditions on the values $b_x$ then
+translate into analogous conditions on the image of trace of Frobenius.
+\end{proof}
 
-Conversely, suppose that $\trFrob{\qcs{L}}$ is bounded.   We may choose a geometric point $\bg$ in each
-component $C$ of $G$ and construct a local system on the component by constructing a character of
-$\pi_1(C, \bg)$.  \David{How do we construct this character when $C$ has no rational points?}  These
-local systems piece together to form a sheaf $\qcs{L}_0$ on $G$ since the components form a disjoint
-open cover of $G$.  Since the base change of $\qcs{L}_0$ to $\bG$ is just $\qcs{L}$, we may pull
-back the isomorphism $\mu$ to obtain an isomorphism
-$\mu_0 : m^* \qcs{L}_0 \to \qcs{L}_0 \boxtimes \qcs{L}_0$.
-
-\David{Still need the analogous constructions for finite quasicharacter sheaves.}
-
-\David{I've left the example here for now so that we can raid material from it.}
-Consider the case when $G$ is the discrete \'etale group scheme $\ZZ$; 
-this is indeed a $\QC$-scheme.
+For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
 Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ 
 and let $\qcs{L}$ be a quasicharacter sheaf in the isomorphism class 
-corresponding to the character $\chi : G(\Fq) \to \EEx$ under Theorem~\ref{thm:snake}. 
-Then $\trFrob{\qcs{L}}(1) = \ell$. Suppose $\qcs{L}$ was a bounded quasicharacter sheaf. 
-Then the restriction of $\qcs{L}$ to the connected component $1\in G$ 
-would be a $\ell$-adic local system on $1$ of rank~one, which would provide
-an $\ell$-adic character $\rho_1 : \pi_1(1,{\bar 1}) \to \EEx$ with
-$\rho_1(\Frob{}) = \ell$, necessarily continuous. 
-But $\pi_1(1,{\bar 1}) = \Gal(\bFq/\Fq) \iso {\hat \ZZ}$ is compact, 
-while $\rho_1(\pi_1(1,{\bar 1})) \subseteq \EEx$ is not compact (it contains $\ell^\ZZ$),
-contradicting the continuity of $\rho_1$.
-So the Weil sheaf $\gqcs{L}$ does not descend to a local system on $G$.
-It follows that the quasicharacter sheaf $\qcs{L}$ is not a bounded quasicharacter sheaf.
-%
-We can play the same game with the character $\chi : G(\Fq) \to \EEx$ 
-defined by $\chi(1) = 1+\ell$. In this case, the corresponding quasicharacter sheaf $\qcs{L}$ is bounded,
-defined at $1$ by a pro-\'etale cover of $1$, but not finite, since $1+\ell$ is not a root of unity. 
-\end{proof}
+corresponding to $\chi$ under Theorem~\ref{thm:snake}.
+Then $\qcs{L}$ is not a bounded quasicharacter sheaf since the image of $\chi$ is not
+bounded.  If $\chi(1) = 1+\ell$, then the image of $\chi$ is bounded but not finite.  For
+the corresponding quasicharacter sheaf $\qcs{L}$, the stalk at the component $1$ is defined
+by a pro-\'etale cover rather than an \'etale cover and thus $\qcs{L}$ is not finite.
 
 
 \part{Application to quasicharacters of algebraic tori over local fields}
