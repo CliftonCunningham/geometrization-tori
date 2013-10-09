@@ -1448,7 +1448,7 @@ and therefore, after passing to isomorphism classes, the sequence of abelian gro
 \end{tikzcd}
 \end{equation}
 (It is clear that $\QCiso{0}$ is trivial.)
-In this section we show that \eqref{eq:pi2} is exact at $\QCiso{G^0}$ and at $\QCiso{G}$. In Section~\ref{sec:snake} we will see that this sequence is also exact at $\QCiso{\pi_0(G)}$ and thus short exact.
+In this section we show that \eqref{eq:pi2} is exact at $\QCiso{G^0}$ and at $\QCiso{G}$. 
 Note that we found the groups $\QCiso{G^0}$
 and $\QCiso{\pi_0(G)}$
 in Sections~\ref{sec:connected} and \ref{sec:etale}.
@@ -1604,8 +1604,8 @@ In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   Since $\EEx$ is divisible, $\Hom(\ - \ ,\EEx)$ is exact and thus the dual sequence of
   character groups is also exact.
   
-  In order to apply the snake lemma, we need to show that the top row is exact at $\QCiso{G}$ and $\QCiso{G^0}$.
-  The surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction}.  The top row is also exact at $\QCiso{G}$ by Proposition~\ref{prop:middleexact}
+  In order to apply the snake lemma, we need to show that the top row is exact at $\QCiso{G}$ and $\QCiso{G^0}$:
+  the surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction} while exactness at $\QCiso{G}$ is given by Proposition~\ref{prop:middleexact}.
 %  
   Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
   imply that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
@@ -1615,12 +1615,14 @@ In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   $\ker \trFrob{G}$ and $\coker \trFrob{G}$ both vanish.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor:exact}
 Suppose that
 \[
 0 \to A \to B \to C \to 0
 \]
-is an exact sequence of $\QC$-schemes and that $\Hh^1(\Fq, A) = 0$.  Then pullback yields an exact sequence
+is an exact sequence of $\QC$-schemes and that $\Hh^1(\Fq, A) = 0$.  
+\Clifton{$\Hh^1(\Fq, A^*) = 0$?} 
+Then pullback yields an exact sequence
 \[
 0 \to \QCiso{C} \to \QCiso{B} \to \QCiso{A} \to 0
 \]
