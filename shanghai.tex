@@ -580,29 +580,7 @@ play a role in the proof of many other results in this paper.
   statements about the pullback functor on $\ell$-adic constructible sheaves.
 \end{proof}
 
-Consider the short exact sequence in the category of $\QC$-schemes
-defining the component group scheme for $G$:
-\begin{equation}\label{eq:pi0}
-\begin{tikzcd}
-0 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
-\end{tikzcd}
-\end{equation}
-Since $\pi_0(G)$ is also a $\QC$-scheme, 
-Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines a sequence of functors
-\[
-\begin{tikzcd}
-\QC(0) \rar & \QC(\pi_0(G)) \rar & \QC(G) \rar & \QC(G^0) \rar & \QC(0)
-\end{tikzcd}
-\]
-which induces a sequence of group homomorphisms 
-\[
-\begin{tikzcd}
-\QCiso{0} \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & \QCiso{0}.
-\end{tikzcd}
-\]
-after passing to isomorphism classes.  It is easy to see that $\QCiso{0}$ is trivial. In Sections~\ref{sec:connected} and \ref{sec:etale} we will find the groups $\QCiso{G^0}$
-and $\QCiso{\pi_0(G)}$ for all $\QC$-schemes, 
-which will allow us to conclude $\QCiso{G} \iso G(\Fq)^*$.
+
 
 %\section{Products} 
 
@@ -1449,15 +1427,31 @@ There is a natural isomorphism $\Hh^1(\Weil{}, G(\bFq)^*) \to (G(\bFq)^*)_{\Frob
 
 \section{Restriction to the identity component} \label{sec:restriction}
 
-%\input{restriction}
-% !TEX encoding = UTF-8 Unicode
-%\subsection*{Restriction to the identity component is surjective}
-
-Let $G^0$ be the connected component of $G$ containing the identity.
-By Proposition~\ref{prop:pullback}, pullback along
-$G^0\hookrightarrow G$ determines a monoidal functor
-$\qcs{L}\mapsto \qcs{L}\vert_{G^0}$ from $\QC(G)$ to $\QC(G^0)$.  In
-this section we show that this functor is essentially surjective. 
+Consider the short exact sequence in the category of $\QC$-schemes
+defining the component group scheme for $G$:
+\begin{equation}\label{eq:pi0}
+\begin{tikzcd}
+0 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
+\end{tikzcd}
+\end{equation}
+Since $\pi_0(G)$ is also a $\QC$-scheme, 
+Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines the sequence of functors
+\begin{equation}\label{eq:pi1}
+\begin{tikzcd}
+\QC(0) \rar & \QC(\pi_0(G)) \rar & \QC(G) \rar & \QC(G^0) \rar & \QC(0)
+\end{tikzcd}
+\end{equation}
+and therefore, after passing to isomorphism classes, the sequence of abelian groups 
+\begin{equation}\label{eq:pi2}
+\begin{tikzcd}
+0 \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & 0.
+\end{tikzcd}
+\end{equation}
+(It is clear that $\QCiso{0}$ is trivial.)
+In this section we show that \eqref{eq:pi2} is exact at $\QCiso{G^0}$ and at $\QCiso{G}$. In Section~\ref{sec:snake} we will see that this sequence is also exact at $\QCiso{\pi_0(G)}$ and thus short exact.
+Note that we found the groups $\QCiso{G^0}$
+and $\QCiso{\pi_0(G)}$
+in Sections~\ref{sec:connected} and \ref{sec:etale}.
 
 Recall from Section~\ref{sec:finite} that 
 a morphism $f : H\to G$ of group $\Fq$-schemes is a discrete isogeny 
@@ -1531,7 +1525,8 @@ If $G$ is a $\QC$-scheme then $G^0$ is a connected algebraic group.
 \end{proof}
 
 \begin{proposition}\label{prop:restriction}
-  The restriction functor $\QC(G)\to \QC(G^0)$ is essentially surjective.
+For every quasicharacter sheaf $\qcs{L}^0$ on $G^0$ there is some finite quasicharacter sheaf $\qcs{L}$ on $G$ such that $\qcs{L}\vert_{G^0} \iso \qcs{L}^0$;
+in particular, the restriction functor $\QC(G)\to \QC(G^0)$ is essentially surjective.
 \end{proposition}
 
 \begin{proof}
@@ -1539,7 +1534,7 @@ If $G$ is a $\QC$-scheme then $G^0$ is a connected algebraic group.
   quasicharacter sheaf on $G^0$ is isomorphic to a 
   finite quasicharacter sheaf on $G^0$, 
   so to prove the proposition it suffices to show that every 
-  finite quasicharacter sheaf on $G^0$ extends to a quasicharacter sheaf on $G$.
+  finite quasicharacter sheaf on $G^0$ extends to a finite quasicharacter sheaf on $G$.
   
  Let $(\pi,\psi)$ be a finite quasicharacter sheaf on $G^0$.
  By Lemma~\ref{lemma:ext}, there is an extension of the 
@@ -1548,6 +1543,15 @@ If $G$ is a $\QC$-scheme then $G^0$ is a connected algebraic group.
  Then $(f,\psi)$ is a finite quasicharacter sheaf on $G$ and 
  $(f,\psi)\vert_{G^0} \iso (\pi,\psi)$.
 \end{proof}
+
+\begin{proposition}\label{prop:middleexact}
+Sequence \eqref{eq:pi2} is exact at $\QCiso{G}$.
+\end{proposition}
+
+\begin{proof}
+Suppose $\qcs{L} \in \QC(G)$ and $\qcs{L}\vert_{G^0} \iso (\EE)_{G^0}$.
+\end{proof}
+
 
 \section{The sheaf--function dictionary for $\QC$-schemes}
 \label{sec:snake}
@@ -1601,9 +1605,8 @@ In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   character groups is also exact.
   
   In order to apply the snake lemma, we need to show that the top row is exact at $\QCiso{G}$ and $\QCiso{G^0}$.
-  The surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction}.  Now suppose that
-  $\qcs{L}$ is a quasicharacter sheaf on $G$ whose restriction to $G^0$ is trivial.... \David{Missing argument, discussed this afternoon}
-  
+  The surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction}.  The top row is also exact at $\QCiso{G}$ by Proposition~\ref{prop:middleexact}
+%  
   Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
   imply that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
   Similarly, Proposition~\ref{prop:etale-iso} shows that $\ker \trFrob{\pi_0(G)}=0$
