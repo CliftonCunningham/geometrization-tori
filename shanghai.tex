@@ -1153,14 +1153,13 @@ it is appropriate to replace quasicharacter sheaves on $G$
 with the conceptually simpler category $\QCf(G)$ of finite quasicharacter sheaves on $G$. 
 In this context, finite quasicharacter sheaves may also be apprehended as
 \emph{certain} $\ell$-adic characters of fundamental group $\pi_1(G,{\bar e})$. 
-As explained in \cite{kamgarpour:09a}*{\S~2}, 
+As explained in \cite{kamgarpour:09a}*{\S2}, 
 the relevant characters of $\pi_1(G,{\bar e})$ are precisely those 
 that factor through a particular quotient of $\pi_1(G,{\bar e})$ 
 denoted there by $\Pi_\text{disc}(G)$.
 %\[\pi_1(G,{\bar e}) \to \Pi_\text{et}(G) \to \Pi_\text{et}(G)_{\Gal(\bFq/\Fq)} = \Pi_\text{disc}(G)\]
-This demonstrates that the category of discrete isogenies to $G$ is a Galois category,
+Using this fact, one can show that the category of discrete isogenies to $G$ is a Galois category,
 in the sense of \cite{grothendieck:SGA1}*{Expos\'e V, \S 4}. 
-\Clifton{Is this better?}
 Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$ \cite{kamgarpour:09a}*{App'x B}, 
 the fundamental functor attached to this Galois category can be used to produce an equivalence
 between the category of finite quasicharacter sheaves on $G$ and
@@ -1246,9 +1245,7 @@ A \emph{global section} of $\qcs{L}$ is a function $s : G(\bFq) \to \coprod_{x \
 \mu_{x,y}(s(x+y)) = s(x) \otimes s(y).
 \end{equation}
 
-We say that a section is \emph{trivial} if $s(x) = 0$ for all $x \in G(\bFq)$ 
-\Clifton{Since `nontrivial section' is not the same as not a `trivial section', and since the term `trivial section' is never used below, perhaps there is no need to introduce it.}
-and \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$.
+We say that a section is \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$.  Note that the only other section is the constant zero section.
 
 \begin{lemma}\label{lemma:section}
  If $\qcs{L}$ is a quasicharacter sheaf on an \'etale $\QC$-scheme $G$ then $\qcs{L}$ has a nontrivial global section.
@@ -1393,9 +1390,8 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
 
 In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
 
-\Clifton{The finitely generated part of the hypothesis is unnecessary.}
 \begin{lemma} \label{lem:dual-inv}
-Let $X$ be a finitely generated abelian group equipped with an action of $\Weil{}$, and write $\Frob{} = \Frob{}$.  Then
+Let $X$ be an abelian group equipped with an action of $\Weil{}$, and write $\Frob{} = \Frob{}$.  Then
 \begin{align*}
  (X^*)_{\Frob{}} &\to (X^{\Frob{}})^* \\
  [f] &\mapsto f|_{X^{\Frob{}}}
@@ -1566,12 +1562,11 @@ Suppose $\qcs{L} \in \QC(G)$ and $\qcs{L}\vert_{G^0} \iso (\EE)_{G^0}$.
 
 We saw in Proposition~\ref{prop:functorialG} that the trace of Frobenius
 $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
-We will now show that trace of Frobenius is an isomorphism.
+In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth, commutative group scheme, locally of finite type over
-  \Clifton{For every $\QC$-scheme $G$, the trace of Frobenius is an isomorphism.}
   $\Fq$, and if the abelian group $\pi_0(G)(\bFq)$
   is finitely generated, then the trace of Frobenius
   \[
