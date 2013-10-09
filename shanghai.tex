@@ -1246,7 +1246,9 @@ A \emph{global section} of $\qcs{L}$ is a function $s : G(\bFq) \to \coprod_{x \
 \mu_{x,y}(s(x+y)) = s(x) \otimes s(y).
 \end{equation}
 
-We say that a section is \emph{trivial} if $s(x) = 0$ for all $x \in G(\bFq)$ and \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$.
+We say that a section is \emph{trivial} if $s(x) = 0$ for all $x \in G(\bFq)$ 
+\Clifton{Since `nontrivial section' is not the same as not a `trivial section', and since the term `trivial section' is never used below, perhaps there is no need to introduce it.}
+and \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$.
 
 \begin{lemma}\label{lemma:section}
  If $\qcs{L}$ is a quasicharacter sheaf on an \'etale $\QC$-scheme $G$ then $\qcs{L}$ has a nontrivial global section.
@@ -1447,11 +1449,11 @@ and therefore, after passing to isomorphism classes, the sequence of abelian gro
 0 \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & 0.
 \end{tikzcd}
 \end{equation}
-(It is clear that $\QCiso{0}$ is trivial.)
-In this section we show that \eqref{eq:pi2} is exact at $\QCiso{G^0}$ and at $\QCiso{G}$. 
-Note that we found the groups $\QCiso{G^0}$
+%(It is clear that $\QCiso{0}$ is trivial.)
+ Note that we found the groups $\QCiso{G^0}$
 and $\QCiso{\pi_0(G)}$
 in Sections~\ref{sec:connected} and \ref{sec:etale}.
+In this section we show that \eqref{eq:pi2} is right exact.
 
 Recall from Section~\ref{sec:finite} that 
 a morphism $f : H\to G$ of group $\Fq$-schemes is a discrete isogeny 
@@ -1503,7 +1505,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny and set $A \ceq \ker \pi$.
   restriction of $f$ to each component of $H$ is a morphism of
   schemes, and thus $f$ is as well.  Finally, the whole diagram
   descends to a diagram of $\Fq$-schemes since the $\bFq$-points of
-  the objects come equipped with continuous $\Weil{}$-actions, and the
+  the objects come equipped with \Clifton{?} continuous $\Weil{}$-actions, and the
   morphisms are $\Gamma$-equivariant.
 \end{proof}
 
@@ -1545,7 +1547,13 @@ in particular, the restriction functor $\QC(G)\to \QC(G^0)$ is essentially surje
 \end{proof}
 
 \begin{proposition}\label{prop:middleexact}
-Sequence \eqref{eq:pi2} is exact at $\QCiso{G}$.
+ The sequence 
+ \[
+  \begin{tikzcd}
+  0 \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & 0.
+  \end{tikzcd}
+ \]
+ is exact at $\QCiso{G}$.
 \end{proposition}
 
 \begin{proof}
@@ -1556,13 +1564,14 @@ Suppose $\qcs{L} \in \QC(G)$ and $\qcs{L}\vert_{G^0} \iso (\EE)_{G^0}$.
 \section{The sheaf--function dictionary for $\QC$-schemes}
 \label{sec:snake}
 
-We saw, in Proposition~\ref{prop:functorialG}, that the trace of Frobenius
+We saw in Proposition~\ref{prop:functorialG} that the trace of Frobenius
 $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
-In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
+We will now show that trace of Frobenius is an isomorphism.
 
 %\input{snake}
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth, commutative group scheme, locally of finite type over
+  \Clifton{For every $\QC$-scheme $G$, the trace of Frobenius is an isomorphism.}
   $\Fq$, and if the abelian group $\pi_0(G)(\bFq)$
   is finitely generated, then the trace of Frobenius
   \[
@@ -1615,19 +1624,22 @@ In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   $\ker \trFrob{G}$ and $\coker \trFrob{G}$ both vanish.
 \end{proof}
 
+
 \begin{corollary}\label{cor:exact}
 Suppose that
 \[
 0 \to A \to B \to C \to 0
 \]
-is an exact sequence of $\QC$-schemes and that $\Hh^1(\Fq, A) = 0$.  
-\Clifton{$\Hh^1(\Fq, A^*) = 0$?} 
+is an exact sequence of $\QC$-schemes and that $\Hh^1(\Fq, A) = 0$.
+\Clifton{Could you add a few words about the proof of this corollary?}   
 Then pullback yields an exact sequence
 \[
 0 \to \QCiso{C} \to \QCiso{B} \to \QCiso{A} \to 0
 \]
 of abelian groups.
 \end{corollary}
+
+
 
 With Theorem~\ref{thm:snake} in hand, 
 we can see why neither bounded quasicharacter sheaves 
