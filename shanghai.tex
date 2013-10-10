@@ -321,11 +321,15 @@ We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves.  Their knowledge and help have been invaluable.
 
+\end{acknowledgements}
+
+\begin{thanks}
+
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and of the National Science and Engineering Research Council,
 as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
 
-\end{acknowledgements}
+\end{thanks}
 
 \part{Smooth commutative group schemes over finite fields} \label{part1}
 
@@ -858,13 +862,13 @@ Let us say that $(g,T)$ in $C(G)$ is a \emph{weak isomorphism} if $g$ is surject
 and $T$ is an isomorphism of vector spaces.  Recall from
 \cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.5} that a \emph{left multiplicative system}
 is a family of morphisms $W$ that
-\begin{enumerate}
+\begin{itemize}
 \item contains all isomorphisms,
 \item is closed under composition,
 \item is closed under pullback by arbitrary morphisms in $C(G)$,
 \item and if the cokernel of a morphism $\phi \in \mor C(G)$ is in
 $W$ then so is the kernel of $\phi$.
-\end{enumerate}
+\end{itemize}
 
 We further say that $W$ is \emph{saturated} if the following property holds for
 morphisms $f, g$ and $h$ that can be composed appropriately:
@@ -1114,15 +1118,12 @@ For connected groups, the subcategories introduced in the previous two sections 
   To show that $L_G(f,\psi) \iso (\qcs{L}_0,\mu_0)$ we simply apply the sheaf--function dictionary
   as follows \citelist{\cite{laumon:87a}*{1.1.3} \cite{deligne:SGA4.5}*{sommes trig.}}.
   First, recall that $L_G(f,\psi) \ceq (L(f,\psi), \mu(f,\psi))$.
-  Let $k'/k$ be any degree-$n$ extension and let $\Nm : k'\to k$ be the norm map. 
+  Let $k'/k$ be any degree-$n$ extension; 
+  let $\Nm : G(k')\to G(k)$ be the norm map 
+  and let $b : G_{k'} \to G$ be the base change map.
   By \cite{laumon:87a}*{1.1.3.3}, 
-  \[
-  \trFrob{(G_{k'}\hookrightarrow G)^*L(f,\psi)} = \trFrob{\qcs{L}} \circ \Nm;
-  \]
-  on the other hand, 
-  \[
-  \trFrob{\qcs{L}} \circ \Nm = \trFrob{(G_{k'}\hookrightarrow G)^*\qcs{L}},
-  \]
+  $\trFrob{b^*L(f,\psi)} = \trFrob{\qcs{L}} \circ \Nm$;
+  on the other hand, $\trFrob{\qcs{L}} \circ \Nm = \trFrob{b^*\qcs{L}}$,
    by Proposition~\ref{prop:basechange}.
   Using \cite{laumon:87a}*{Th\'eor\`eme 1.1.2}, it follows that  $L(f,\psi) \iso \qcs{L}_0$ in $\Loc(G)$.
   It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\qcs{L}_0,\mu_0)$ in $\QCb(G)$.
@@ -1614,7 +1615,7 @@ thus defining an isomorphism $\qcs{L} \to \pi_0^* \qcs{E}$ in $\QC(G)$.
 
 To close this section, we note that the injectivity of $\pi_0^*$ will be proven in Corollary~\ref{cor:exact}.
 
-\section{The sheaf--function dictionary for non-connected group schemes}
+\section{The function--sheaf dictionary for non-connected group schemes}
 \label{sec:snake}
 
 We saw in Proposition~\ref{prop:functorialG} that the trace of Frobenius
@@ -1859,7 +1860,7 @@ natural transformation between additive functors.
 \end{proof}
 
 
-\section{A sheaf--function dictionary for tori over local fields} \label{sec:quasichar} 
+\section{A function--function dictionary for tori over local fields} \label{sec:quasichar} 
 
 In this section we package the isomorphisms of Theorem~\ref{thm:application} into
 a single dictionary.
