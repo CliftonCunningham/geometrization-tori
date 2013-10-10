@@ -834,6 +834,18 @@ are precisely those whose trace of Frobenius have bounded image.
 In this section we define \emph{finite quasicharacter sheaves}, a further refinement
 of bounded quasicharacter sheaves that play a role in Section \ref{sec:restriction}.
 
+
+To prove the next proposition, we will need a certain perspective on local systems.
+ If $\qcs{E}$ is any local system on a connected scheme $G$ and $\bg$ is a geometric point on $G$,
+ we may associate to $\qcs{E}$ a character of the \'etale fundamental group $\pi_1(G, \bg)$ \David{add citation}.\Clifton{I'll find one.}
+ Since $\pi_1(G, \bg)$ is defined as a projective limit of automorphism groups of finite \'etale covers, a general
+ local system will correspond to a projective limit of characters of such groups.  But some local systems can be
+ described in terms of a single cover $f: H \to G$ and a representation $\psi: \ker f \to \Aut(V)$;
+ two such descriptions yield isomorphic local systems if and only if they are related by a weak
+ isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
+ not generalize well to non-connected $G$, the description in terms of $C(G)$ does.  \David{Look okay?}
+
+
 The definition of finite quasicharacter sheaves will require several steps, 
 beginning with the localization of a category introduced here.
 Let us say that a morphism $f : H\to G$ of $\QC$-schemes is a \emph{discrete isogeny}
@@ -997,16 +1009,6 @@ While $\theta$ was canonical, $T$ was not, as it depended on the choice of a bas
 However, after passing from $C_1(G\times G)$ to $\QCf(G\times G)$, the resulting isomorphism in $\QCf(G\times G)$
 $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is independent of the choice of basis for $V$.
  \end{proof}
-
-To prove the next proposition, we will need a certain perspective on local systems.
- If $\qcs{E}$ is any local system on a connected scheme $G$ and $\bg$ is a geometric point on $G$,
- we may associate to $\qcs{E}$ a character of the \'etale fundamental group $\pi_1(G, \bg)$ \David{add citation}.\Clifton{I'll find one.}
- Since $\pi_1(G, \bg)$ is defined as a projective limit of automorphism groups of finite \'etale covers, a general
- local system will correspond to a projective limit of characters of such groups.  But some local systems can be
- described in terms of a single cover $f: H \to G$ and a representation $\psi: \ker f \to \Aut(V)$;
- two such descriptions yield isomorphic local systems if and only if they are related by a weak
- isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
- not generalize well to non-connected $G$, the description in terms of $C(G)$ does.  \David{Look okay?}
 
 \begin{proposition}\label{prop:bounded}
  $\QCf(G)$ is equivalent to a full subcategory of $\QCb(G)$.
@@ -1533,7 +1535,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny and set $A \ceq \ker \pi$.
   restriction of $f$ to each component of $H$ is a morphism of
   schemes, and thus $f$ is as well.  Finally, the whole diagram
   descends to a diagram of $\Fq$-schemes since the $\bFq$-points of
-  the objects come equipped with \Clifton{?} continuous $\Weil{}$-actions, and the
+  the objects come equipped with continuous $\Gamma$-actions, and the
   morphisms are $\Gamma$-equivariant.
 \end{proof}
 
@@ -1992,8 +1994,8 @@ universal property of direct limits gives a group isomorphism
 $\theta: \varinjlim_{n\in \ZZ_{>0}} \QCiso{\GN{T}_n} \to \QCiso{\GN{T}}$
 with inverse $[\qcs{L}]_{/\text{iso}} \mapsto [\qcs{L}_{/\text{iso}}]$.
 Now use Theorem~\ref{thm:application}, Proposition~\ref{prop:pullback} 
-and the fact that  $\Hom_{\text{qc}}(T(K),\EEx) = \varinjlim_{n\in \ZZ_{>0}} \GN{T}_n(k)^*$, where this last direct limit it taken
-with reference to the family of group homomorphisms 
+and the fact that  $\Hom_{\text{qc}}(T(K),\EEx) = \varinjlim_{n\in \ZZ_{>0}} \GN{T}_n(k)^*$, 
+where this direct limit is taken with respect to the family of group homomorphisms 
 dual to $f_{n} : \GN{T}_{n+1}(\Fq) \to \GN{T}_n(\Fq)$.
 \end{proof}
 
