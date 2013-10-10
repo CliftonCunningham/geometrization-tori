@@ -447,7 +447,7 @@ $\varphi_1(w) : (w_G)_* \gqcs{L}\to \gqcs{L}$ is an isomorphism and
 $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for $u,v\in \Weil{}$.
 Thus the pair $(\gqcs{L},\varphi_1)$ almost satisfies the criteria for an action of $\Weil{}$
 on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of
-\cite{deligne:SGA4.5}*{Expos\'e XIII,~1.1}, failing only because $\Weil{}$ is not profinite.
+\cite{deligne:SGA4.5}*{Expos\'e XIII, 1.1}, failing only because $\Weil{}$ is not profinite.
 \Clifton{Improve this.}
 As we will see, our use of $\Weil{}$ rather than $\Gal(\bFq/\Fq)$ allows quasicharacter sheaves to
 correspond to unbounded characters.
@@ -455,7 +455,7 @@ correspond to unbounded characters.
 \section{Trace of Frobenius}\label{sec:Frob}
 
 The category $\QC(G)$ of quasicharacter sheaves on $G$ is a rigid monoidal category
-\cite{etingof:09a}*{\S~1.10} under the tensor product
+\cite{etingof:09a}*{\S1.10} under the tensor product
 $\qcs{L} \otimes \qcs{L'} \ceq (\gqcs{L}\otimes\gqcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$,
 with duals given by applying the sheaf hom functor 
 $\sheafHom(\ - \ ,\EE)$.
@@ -1125,7 +1125,7 @@ For connected groups, the subcategories introduced in the previous two sections 
   \]
    by Proposition~\ref{prop:basechange}.
   %Using notation from \cite{laumon:87a}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \qcs{L}_0}$.
-  Using \cite{laumon:87a}*{Th\'eor\`eme~1.1.2}, it follows that  $L(f,\psi) \iso \qcs{L}_0$ in $\Loc(G)$.
+  Using \cite{laumon:87a}*{Th\'eor\`eme 1.1.2}, it follows that  $L(f,\psi) \iso \qcs{L}_0$ in $\Loc(G)$.
   It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\qcs{L}_0,\mu_0)$ in $\QCb(G)$.
   This completes the proof that $L_G : \QCf(G) \to \QC(G)$ is essentially surjective.
   Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful, 
@@ -1307,7 +1307,8 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
   Note that if $x$ is fixed by $\Frob{}$ then $\tau_\qcs{L}(\Frob{})(x)$ is just $\trFrob{\qcs{L}}(x)$, so the restriction of
   $\tau_\qcs{L}(\Frob{})$ to $G(k)$ is just $\trFrob{\qcs{L}}$.
   In general, \ref{qc.1} and \ref{qc.3}, together with \eqref{section}, guarantee that
-  the scalar $\tau_\qcs{L}(\Frob{})(x)$ is non-zero.  Moreover, Condition~\ref{qc.1} forces
+  the scalar $\tau_\qcs{L}(\Frob{})(x)$ is non-zero.  Moreover, 
+  \ref{qc.1} forces
   $\tau_\qcs{L}(\Frob{})(x+y) = \tau_\qcs{L}(\Frob{})(x) \ \tau_\qcs{L}(\Frob{})(y)$
   for all $x,y \in G(\bFq)$.  We write $\cdot$ for pointwise multiplication of functions, and
   define $\tau_\qcs{L} : \Weil{} \to G(\bFq)^*$ recursively by
@@ -1380,10 +1381,10 @@ satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds
  For each $x\in G(\bFq)$, set $\gqcs{L}_x \ceq \EE$.
  Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by
  $\mu_{x,y}(1) \ceq 1\otimes1$, for $x,y\in G(\bFq)$; 
- clearly, $\mu$ satisfies condition~\ref{qc.2}.
+ clearly, $\mu$ satisfies \ref{qc.2}.
  Define $\phi_x : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_x(1) \ceq \tau(\Frob{})(x)$,
  for each $x\in G(\bFq)$. 
- Then $\phi$ satisfies condition~\ref{qc.3} because $\tau \in Z^1(\Weil{},G(\bFq)^*)$.
+ Then $\phi$ satisfies \ref{qc.3} because $\tau \in Z^1(\Weil{},G(\bFq)^*)$.
  Setting $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$, we have that $[\tau]$ is the image of $\qcs{L}$
  under \eqref{pich1}, and thus \eqref{pich1} defines an isomorphism of groups.
 \end{proof}
