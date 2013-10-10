@@ -448,9 +448,8 @@ $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for $u,v\in \Weil{}$.
 Thus the pair $(\gqcs{L},\varphi_1)$ almost satisfies the criteria for an action of $\Weil{}$
 on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of
 \cite{deligne:SGA4.5}*{Expos\'e XIII, 1.1}, failing only because $\Weil{}$ is not profinite.
-\Clifton{Improve this.}
-As we will see, our use of $\Weil{}$ rather than $\Gal(\bFq/\Fq)$ allows quasicharacter sheaves to
-correspond to unbounded characters.
+As we will see in Corollary~\ref{cor:bounded-and-finite}, our use of $\Weil{}$ rather than $\Gal(\bFq/\Fq)$
+allows quasicharacter sheaves to correspond to unbounded characters.
 
 \section{Trace of Frobenius}\label{sec:Frob}
 
@@ -869,13 +868,33 @@ These operations give $C(G)$ the structure of a tensor category.
 
 Now we localize $C(G)$.
 Let us say that $(g,T)$ in $C(G)$ is a \emph{weak isomorphism} if $g$ is surjective
-and $T$ is an isomorphism of vector spaces.
-\Clifton{Should this be another lemma in this section?}
-The set $W$ of weak isomorphisms in $C(G)$
-is a saturated, left multiplicative system in $C(G)$ in the sense of
-  \cite{kashiwara-schapira:CatgoriesSheaves}*{Defs 7.1.5, 7.1.19}.
-Let \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at $W$.
-A morphism in $C(G)[W^{-1}]$ is an equivalence class of a diagram
+and $T$ is an isomorphism of vector spaces.  Recall from
+\cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.5} that a \emph{left multiplicative system}
+is a family of morphisms $W$ that
+\begin{enumerate}
+\item contains all isomorphisms,
+\item is closed under composition,
+\item is closed under pullback by arbitrary morphisms in $C(G)$,
+\item and if the cokernel \David{Is $C(G)$ abelian?} of a morphism $\phi \in \mor C(G)$ is in
+$W$ then so is the kernel of $\phi$.
+\end{enumerate}
+
+We further say that $W$ is \emph{saturated} if the following property holds for
+morphisms $f, g$ and $h$ that can be composed appropriately:
+whenever $g \circ f$ and $h \circ g$ are in $W$ then so is $h$
+\cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.19}.
+
+\begin{lemma}
+The family of weak isomorphisms in $C(G)$ is a saturated, left multiplicative system.
+\end{lemma}
+\begin{proof}
+Any isomorphism $(g, T)$ in $C(G)$ has both $g$ and $T$ isomorphisms, and thus is a weak isomorphism.
+Clearly, the composition of two weak isomorphisms is a weak isomorphism.  The remaining properties
+follow from the fact that in a weak isomorphism $(g, T)$, $g$ is an \'etale cover, together with standard
+facts on \'etale covers and pullbacks. \David{Is this sufficient?}
+\end{proof}
+Let $W$ be the family of weak isomorphisms and \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at $W$.
+A morphism in $C(G)[W^{-1}]$ is an equivalence class of diagrams
 %  \begin{equation}\label{eq:morGCf}
 \[   
 \begin{tikzcd}[column sep=30]
@@ -884,7 +903,7 @@ A morphism in $C(G)[W^{-1}]$ is an equivalence class of a diagram
 \]
 %  \end{equation}
  where $(g,T) : (f,\psi) \to (f',\psi')$ is any map in $C(G)$ 
- and $(h,U) :  (f',\psi') \to (f_1,\psi_1)$ is a weak isomorphism in $C(G)$; see \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16} for more detail, including the equivalence relation mentioned above.
+ and $(h,U) :  (f',\psi') \to (f_1,\psi_1)$ is a weak isomorphism in $C(G)$ \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16}.
 %Likewise, $C(G)[W^{-1}]$ is a tensor category.
 
 \begin{definition}
@@ -974,6 +993,15 @@ However, after passing from $C_1(G\times G)$ to $\QCf(G\times G)$, the resulting
 $\mu(f,\psi): m^*(f,\psi) \to (f,\psi)\boxtimes (f,\psi)$ is independent of the choice of basis for $V$.
  \end{proof}
 
+To prove the next proposition, we will need a certain perspective on local systems.
+ If $\qcs{E}$ is any local system on a connected scheme $G$ and $\bg$ is a geometric point on $G$,
+ we may associate to $\qcs{E}$ a character of the \'etale fundamental group $\pi_1(G, \bg)$ \David{add citation}.
+ Since $\pi_1(G, \bg)$ is defined as a projective limit of automorphism groups of finite \'etale covers, a general
+ local system will correspond to a projective limit of characters of such groups.  But some local systems can be
+ described in terms of a single cover $f: H \to G$ and a representation $\psi: \ker f \to \Aut(V)$;
+ two such descriptions yield isomorphic local systems if and only if they are related by a weak
+ isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
+ not generalize well to non-connected $G$, the description in terms of $C(G)$ does.  \David{Look okay?}
 
 \begin{proposition}\label{prop:bounded}
  $\QCf(G)$ is equivalent to a full subcategory of $\QCb(G)$.
