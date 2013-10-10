@@ -1,7 +1,8 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass{compositio}
-\title[Sheaf--function dictionary for local tori]{A sheaf--function dictionary for algebraic tori over local fields}
 
+%%%%%%%%%%%%%%%%%% HEADING %%%%%%%%%%%%%%%%%%
+\title[Function--sheaf dictionary for local tori]{A function--sheaf dictionary for algebraic tori over local fields}
 \date{\today}
 \author{Clifton Cunningham}
 \email{cunning@math.ucalgary.ca}
@@ -12,23 +13,23 @@
 \classification{14L15 (primary), 11G25, 14F05, 14D24, 11S31 (secondary)}
 \keywords{quasicharacters, quasicharacter sheaves, algebraic tori, Greenberg transforms, N\'eron models, local fields}
 
+%%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 % Encodings
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % AMS packages
 \usepackage{amsmath, amsthm, amssymb}
-\usepackage{hyperref}
 \usepackage[alphabetic]{amsrefs}
-\usepackage{mathrsfs}
-\usepackage{yfonts}
+% Fonts
+\usepackage{mathrsfs, yfonts}
+% TikZ
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc,matrix}
 \usepackage{tikz-cd}
-%\usepackage{manfnt}
-%\usepackage{makeidx}
-\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
+% Hyperrefs
+\usepackage{hyperref}
 
-%\include{definitions}
+%%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
 \theoremstyle{plain}
       \newtheorem{theorem}{Theorem}[section]
       \newtheorem{proposition}[theorem]{Proposition}
@@ -41,13 +42,10 @@
       \theoremstyle{remark}
       \newtheorem{remark}[theorem]{Remark}
 
-%% Global TikZ settings
-
+%%%%%%%%%%%%%%%% TIKZ SETTINGS %%%%%%%%%%%%%%%%
 \tikzset{every picture/.style={>=stealth},label/.style={font=\footnotesize}}
 
-\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
-\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
-
+%%%%%%%%%%%%%%% RINGS AND GROUPS %%%%%%%%%%%%%%%
 \newcommand{\FF}{{\mathbb{F}}}
 \newcommand{\ZZ}{{\mathbb{Z}}}
 \newcommand{\NN}{{\mathbb{N}}}
@@ -64,16 +62,26 @@
 \newcommand{\OO}[1]{\mathcal{O}_{#1}}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\Qp}{\mathbb{Q}_p}
-%\newcommand{\Fp}{\mathbb{F}_p}
 \newcommand{\bFq}{\bar{k}}
 \newcommand{\Fq}{k}
 \newcommand{\Fqm}{k_m}
-%\newcommand{\bFp}{{\mathbb{\bar F}_p}}
 \newcommand{\WW}{\mathbb{W}}
-
 \newcommand{\EEx}{\EE^\times}
 \newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
+\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
 
+
+%%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
+\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
+\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
+\newcommand{\GN}[1]{\mathswab{#1}}
+\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
+\newcommand{\TT}{\underline{T}}
+\newcommand{\TL}{\underline{T_L}}
+\newcommand{\TTp}{\underline{T}'}
+
+
+%%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\W}{W}
 \newcommand{\Frob}[1]{\operatorname{F}_{#1}}
@@ -90,59 +98,55 @@
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\Nm}{Nm}
 \DeclareMathOperator{\trace}{Tr}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\Lang}{Lang}
+\DeclareMathOperator{\image}{im}
+\DeclareMathOperator{\Loc}{Loc}
+\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
 
-\newcommand{\cdef}[1]{{#1}\index{#1}} 
+%%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
 \newcommand{\ceq}{{\, :=\, }}
 \newcommand{\tq}{{\ \vert\ }}
 \newcommand{\iso}{{\ \cong\ }}
-\newcommand{\obj}{{\text{obj}\, }}
-\newcommand{\mor}{{\text{mor}\, }}
-\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
-\newcommand{\GN}[1]{\mathswab{#1}}
-\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
-\newcommand{\TT}{\underline{T}}
-\newcommand{\TL}{\underline{T_L}}
-\newcommand{\TTp}{\underline{T}'}
+%% Limits
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
 \newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
 \newcommand{\colimit}[1]{\mathop{\textsc{colim}}\limits_{#1}}
+%% Fonts for quasicharacter sheaves
 \newcommand{\qcs}[1]{{\mathcal{#1}}}
 \newcommand{\gqcs}[1]{{\mathcal{\bar #1}}}
 \newcommand{\dualgcs}[1]{\gqcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\qcs{#1}^\dagger}
+%% Categories
 \newcommand{\QC}{{\mathcal{Q\hskip-0.8pt C}}}
 \newcommand{\QCb}{{\QC_0}}
 \newcommand{\QCf}{{\QC_f}}
 \newcommand{\QCiso}[1]{\QC(#1)_{/\textit{iso}}}
 \newcommand{\QCbiso}[1]{\QCb(#1)_{/\text{iso}}}
 \newcommand{\QCfiso}[1]{\QCf(#1)_{/\text{iso}}}
-\newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
-\newcommand{\dualgroup}[1]{{\check{#1}}}
-\newcommand{\Lang}{{\operatorname{Lang}}}
-\newcommand{\image}{{\operatorname{im}}}
-\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
-\newcommand{\Loc}{{\operatorname{Loc}}}
 \newcommand{\trFrob}[1]{t_{#1}}
-
-%amsmath replacements for \atop
+%% amsmath replacements for \atop
 \newcommand{\latop}[2]{\genfrac{}{}{0pt}{0}{#1}{#2}}
 \newcommand{\partop}[2]{\genfrac{(}{)}{0pt}{0}{#1}{#2}}
-
+%% Labeled items
 \makeatletter
-\newcommand{\labitem}[2]{%
+\newcommand{\labitem}[2]{
 \def\@itemlabel{\textbf{#1}}
 \item
 \def\@currentlabel{#1}\label{#2}}
 \makeatother
-
+%% Shorthand for bars
 \renewcommand{\bf}{\bar{f}}
 \newcommand{\bg}{\bar{g}}
 \newcommand{\bm}{\bar{m}}
 \newcommand{\bG}{\bar{G}}
 \newcommand{\bH}{\bar{H}}
+%% Spacing control
 \newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
 \newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
 \newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
@@ -154,12 +158,13 @@
 \newcommand{\AxA}{\text{$A \tight{1}{\times}{1} A$}}
 \newcommand{\BxB}{\text{$B \tight{1}{\times}{1} B$}}
 \newcommand{\GzxGz}{\text{$G^0 \tight{1}{\times}{1} G^0$}}
-
+%% Margin notes
 \newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
-
+%% Hyphenation override
 \hyphenation{quasi-character}
 
+%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%
 \begin{document}
 
 \begin{abstract}
@@ -319,11 +324,15 @@ We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves.  Their knowledge and help have been invaluable.
 
+\end{acknowledgements}
+
+\begin{thanks}
+
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and of the National Science and Engineering Research Council,
 as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
 
-\end{acknowledgements}
+\end{thanks}
 
 %\tableofcontents
 
@@ -350,7 +359,10 @@ We fix a prime $\ell$, invertible in $\Fq$.
 We will work with constructible $\ell$-adic sheaves \citelist{\cite{deligne:80a}*{\S 1.1} \cite{SGA5}*{Expos\'es V, VI}}
 on $\QC$-schemes, employing the standard formalism.
 %see, in particular, \cite{SGA5}*{Expos\'e VI,\S 2}, where pullback and tensor products are developed.
-We also make extensive use of the external tensor product of $\ell$-adic sheaves, defined as follows: if $\mathcal{F}$ and $\mathcal{G}$ are constructible $\ell$-adic sheaves on schemes $X$ and $Y$ and $p_X : X\times Y\to X$ and $p_Y : X\times Y \to Y$ are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{F} \otimes p_Y^*\mathcal{G}$.
+We also make extensive use of the external tensor product of $\ell$-adic sheaves,
+defined as follows: if $\mathcal{F}$ and $\mathcal{G}$ are constructible $\ell$-adic
+sheaves on schemes $X$ and $Y$ and $p_X : X\times Y\to X$ and $p_Y : X\times Y \to Y$
+are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{F} \otimes p_Y^*\mathcal{G}$.
 
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
@@ -361,8 +373,10 @@ A \emph{quasicharacter sheaf on $G$} is a triple
 $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ where:
 \begin{enumerate}
 \labitem{(QC.1)}{QC.1} $\gqcs{L}$ is a rank~one $\ell$-adic local system on $\bG$, by which we mean
-a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces; 
-\labitem{(QC.2)}{QC.2} $\mu: \bm^* \gqcs{L} \to \LxL$ is an isomorphism of sheaves on $\bGxG$ such that the following diagram commutes, 
+a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected
+component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces; 
+\labitem{(QC.2)}{QC.2} $\mu: \bm^* \gqcs{L} \to \LxL$ is an isomorphism of
+sheaves on $\bGxG$ such that the following diagram commutes, 
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
 %
   \[
@@ -375,7 +389,8 @@ a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected c
   \]
 %
 \labitem{(QC.3)}{QC.3} $\phi : \Frob{G}^* \gqcs{L} \to \gqcs{L}$ is an
-  isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with $\mu$ in the sense that the following diagram commutes.
+  isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with
+  $\mu$ in the sense that the following diagram commutes.
 %
   \[
   \begin{tikzcd}[row sep=20]
@@ -462,7 +477,7 @@ $\trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$ for pointwise multiplication, then
 Since $\qcs{L} \iso \qcs{L'}$ implies $\trFrob{\qcs{L}} = \trFrob{\qcs{L'}}$,
 we obtain a group homomorphism
 \begin{align*}
-\cdef{\trFrob{G}} : \QCiso{G} &\to G(\Fq)^*, \\
+\trFrob{G} : \QCiso{G} &\to G(\Fq)^*, \\
 \qcs{L} &\mapsto \trFrob{\qcs{L}}.
 \end{align*}
 This homomorphism is functorial in the following sense:
@@ -558,15 +573,12 @@ play a role in the proof of many other results in this paper.
   statements about the pullback functor on $\ell$-adic constructible sheaves.
 \end{proof}
 
-
-
-%\section{Products} 
-
 We end this section with a simple result on products of quasicharacter sheaves,
 which is needed to show that the isomorphism above is functorial.
 
 \begin{proposition}\label{prop:product}
-If $G_1$ and $G_2$ are $\QC$-schemes then the rule $\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an equivalence of categories 
+If $G_1$ and $G_2$ are $\QC$-schemes then the rule
+$\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an equivalence of categories 
 \[
 \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)
 \]
@@ -582,7 +594,8 @@ commutes.
 \end{proposition}
 
 \begin{proof}
-The only non-trivial part of the proof is to show that $\boxtimes : \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)$ is essentially surjective, so we will only address that point here.
+The only non-trivial part of the proof is to show that $\boxtimes : \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)$
+is essentially surjective, so we will only address that point here.
 
 Set $G \ceq G_1\times G_2$
 and write $e_1$ and $e_2$ for the identity elements of $G_1$ and $G_2$.
@@ -594,7 +607,8 @@ Let $p_1$, $p_2$ be the projection morphisms pictured below:
 G & \arrow[swap]{l}{p_1} G\times G \arrow{r}{p_2} & G.
 \end{tikzcd}
 \]
-Let $r_1$ and $r_2$ be the projection morphisms pictured below, with sections $q_1$ and $q_2$, also morphisms of group schemes:
+Let $r_1$ and $r_2$ be the projection morphisms pictured below,
+with sections $q_1$ and $q_2$, also morphisms of group schemes:
 \[
 \begin{tikzcd}
 G_1  \arrow[swap, bend right]{r}{q_1} &
@@ -864,13 +878,13 @@ Let us say that $(g,T)$ in $C(G)$ is a \emph{weak isomorphism} if $g$ is surject
 and $T$ is an isomorphism of vector spaces.  Recall from
 \cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.5} that a \emph{left multiplicative system}
 is a family of morphisms $W$ that
-\begin{enumerate}
+\begin{itemize}
 \item contains all isomorphisms,
 \item is closed under composition,
 \item is closed under pullback by arbitrary morphisms in $C(G)$,
 \item and if the cokernel of a morphism $\phi \in \mor C(G)$ is in
 $W$ then so is the kernel of $\phi$.
-\end{enumerate}
+\end{itemize}
 
 We further say that $W$ is \emph{saturated} if the following property holds for
 morphisms $f, g$ and $h$ that can be composed appropriately:
@@ -886,7 +900,7 @@ Clearly, the composition of two weak isomorphisms is a weak isomorphism.  The re
 follow from the fact that in a weak isomorphism $(g, T)$, $g$ is an \'etale cover, together with standard
 facts on \'etale covers and pullbacks.
 \end{proof}
-Let $W$ be the family of weak isomorphisms and \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at $W$.
+Let $W$ be the family of weak isomorphisms and $C(G)[W^{-1}]$ be the localization of $C(G)$ at $W$.
 A morphism in $C(G)[W^{-1}]$ is an equivalence class of diagrams
 %  \begin{equation}\label{eq:morGCf}
 \[   
@@ -945,7 +959,8 @@ In the localized categories, this ambiguity disappears.
 \end{proof}
 
 \begin{lemma}\label{lemma:finite-iso}
-Each finite quasicharacter sheaf $(f,\psi)$ in $\QCf(G)$ determines a canonical isomorphism $\mu(f,\psi) : m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$. 
+Each finite quasicharacter sheaf $(f,\psi)$ in $\QCf(G)$ determines a
+canonical isomorphism $\mu(f,\psi) : m^*(f,\psi) \to (f,\psi)\boxtimes(f,\psi)$ in $\QCf(G\times G)$. 
  \end{lemma}
 
 \begin{proof}
@@ -1024,7 +1039,9 @@ let $L(f,\psi)$ be the local system on $G$ given by the $\psi$-isotypic componen
 \end{proof}
 
 On general $\QC$-schemes $G$, there are bounded quasicharacter sheaves which are not finite.  Identifying
-$\QCf(G)$ with its image under $B_G \circ L_G$, as defined in Proposition~\ref{prop:BG} and in the proof of Proposition~\ref{prop:bounded}, we will see in Corollary~\ref{cor:bounded-and-finite} that
+$\QCf(G)$ with its image under $B_G \circ L_G$, as defined in
+Proposition~\ref{prop:BG} and in the proof of Proposition~\ref{prop:bounded},
+we will see in Corollary~\ref{cor:bounded-and-finite} that
 a quasicharacter sheaf is finite if and only if its trace of Frobenius has finite image.
  
 \section{Connected commutative algebraic groups} \label{sec:connected}
@@ -1122,15 +1139,12 @@ For connected groups, the subcategories introduced in the previous two sections 
   To show that $L_G(f,\psi) \iso (\qcs{L}_0,\mu_0)$ we simply apply the sheaf--function dictionary
   as follows \citelist{\cite{laumon:87a}*{1.1.3} \cite{deligne:SGA4.5}*{sommes trig.}}.
   First, recall that $L_G(f,\psi) \ceq (L(f,\psi), \mu(f,\psi))$.
-  Let $k'/k$ be any degree-$n$ extension and let $\Nm : k'\to k$ be the norm map. 
+  Let $k'/k$ be any degree-$n$ extension; 
+  let $\Nm : G(k')\to G(k)$ be the norm map 
+  and let $b : G_{k'} \to G$ be the base change map.
   By \cite{laumon:87a}*{1.1.3.3}, 
-  \[
-  \trFrob{(G_{k'}\hookrightarrow G)^*L(f,\psi)} = \trFrob{\qcs{L}} \circ \Nm;
-  \]
-  on the other hand, 
-  \[
-  \trFrob{\qcs{L}} \circ \Nm = \trFrob{(G_{k'}\hookrightarrow G)^*\qcs{L}},
-  \]
+  $\trFrob{b^*L(f,\psi)} = \trFrob{\qcs{L}} \circ \Nm$;
+  on the other hand, $\trFrob{\qcs{L}} \circ \Nm = \trFrob{b^*\qcs{L}}$,
    by Proposition~\ref{prop:basechange}.
   %Using notation from \cite{laumon:87a}*{1.1}, this means $t_{\bullet L(f,\psi)} = t_{\bullet \qcs{L}_0}$.
   Using \cite{laumon:87a}*{Th\'eor\`eme 1.1.2}, it follows that  $L(f,\psi) \iso \qcs{L}_0$ in $\Loc(G)$.
@@ -1248,12 +1262,14 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
-A \emph{global section} of $\qcs{L}$ is a function $s : G(\bFq) \to \coprod_{x \in G(\bFq)} \gqcs{L}_x$ so that $s(x) \in \gqcs{L}_x$ for all $x \in G(\bFq)$ and
+A \emph{global section} of $\qcs{L}$ is a function $s : G(\bFq) \to \coprod_{x \in G(\bFq)} \gqcs{L}_x$
+so that $s(x) \in \gqcs{L}_x$ for all $x \in G(\bFq)$ and
 \begin{equation}\label{section}
 \mu_{x,y}(s(x+y)) = s(x) \otimes s(y).
 \end{equation}
 
-We say that a section is \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$.  Note that the only other section is the constant zero section.
+We say that a section is \emph{nontrivial} if $s(x) \ne 0$ for all $x \in G(\bFq)$. 
+Note that the only other section is the constant zero section.
 
 \begin{lemma}\label{lemma:section}
  If $\qcs{L}$ is a quasicharacter sheaf on an \'etale $\QC$-scheme $G$ then $\qcs{L}$ has a nontrivial global section.
@@ -1430,7 +1446,9 @@ Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the coker
  is an isomorphism of groups.
 \end{proposition}
 \begin{proof}
-There is a natural isomorphism $\Hh^1(\Weil{}, G(\bFq)^*) \to (G(\bFq)^*)_{\Frob{}}$ defined by $[z] \mapsto z(\Frob{})$.  The proposition now follows directly from Proposition~\ref{prop:etale} and Lemma~\ref{lem:dual-inv}.
+There is a natural isomorphism $\Hh^1(\Weil{}, G(\bFq)^*) \to (G(\bFq)^*)_{\Frob{}}$
+defined by $[z] \mapsto z(\Frob{})$.  The proposition now follows directly
+from Proposition~\ref{prop:etale} and Lemma~\ref{lem:dual-inv}.
 \end{proof}
 
 \section{Exactness of the component group sequence} \label{sec:restriction}
@@ -1626,7 +1644,7 @@ thus defining an isomorphism $\qcs{L} \to \pi_0^* \qcs{E}$ in $\QC(G)$.
 
 To close this section, we note that the injectivity of $\pi_0^*$ will be proven in Corollary~\ref{cor:exact}.
 
-\section{The sheaf--function dictionary for non-connected group schemes}
+\section{The function--sheaf dictionary for non-connected group schemes}
 \label{sec:snake}
 
 We saw in Proposition~\ref{prop:functorialG} that the trace of Frobenius
@@ -1678,7 +1696,8 @@ In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   character groups is also exact.
   
   In order to apply the snake lemma, we need to show that the top row is exact at $\QCiso{G}$ and $\QCiso{G^0}$:
-  the surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction} while exactness at $\QCiso{G}$ is given by Proposition~\ref{prop:middleexact}.
+  the surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction}
+  while exactness at $\QCiso{G}$ is given by Proposition~\ref{prop:middleexact}.
 %  
   Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
   imply that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
@@ -1729,7 +1748,8 @@ the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ will be bounded
 if and only if $\chi \cdot \chi_0^{-1}$ is bounded (has finite image).  But $\chi \cdot \chi_0^{-1}$ descends
 to a character of $\pi_0(G)$.  A similar argument relates boundedness/finiteness of quasicharacter
 sheaves on $G$ to those on $\pi_0(G)$, using the fact that the preimage constructed in the proof of
-Proposition~\ref{prop:restriction} is a finite quasicharacter sheaf on $G$.  Using these equivalences, it is enough to prove the Corollary
+Proposition~\ref{prop:restriction} is a finite quasicharacter sheaf on $G$.
+Using these equivalences, it is enough to prove the Corollary
 for \'etale $\QC$-schemes.
 
 In the case that $G$ is \'etale, one can easily see whether a quasicharacter sheaf is bounded or finite.
@@ -1873,7 +1893,7 @@ natural transformation between additive functors.
 \end{proof}
 
 
-\section{A sheaf--function dictionary for tori over local fields} \label{sec:quasichar} 
+\section{A function--function dictionary for tori over local fields} \label{sec:quasichar} 
 
 In this section we package the isomorphisms of Theorem~\ref{thm:application} into
 a single dictionary.
@@ -1881,7 +1901,7 @@ a single dictionary.
 \begin{definition}\label{def:objGN}
 The \emph{Greenberg transform of the N\'eron model of $T$} 
 is the pro-group scheme over $\Fq$ given by 
-$\cdef{\GN{T}} \ceq \varprojlim_{n\in \ZZ_{>0}} \GN{T}_{n}$, 
+$\GN{T} \ceq \varprojlim_{n\in \ZZ_{>0}} \GN{T}_{n}$, 
 with reference to the family of  surjective morphisms of 
 $\Fq$-group schemes $f_n : \GN{T}_{n+1} \to \GN{T}_n$.
 \end{definition}
