@@ -1423,26 +1423,26 @@ Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the coker
 There is a natural isomorphism $\Hh^1(\Weil{}, G(\bFq)^*) \to (G(\bFq)^*)_{\Frob{}}$ defined by $[z] \mapsto z(\Frob{})$.  The proposition now follows directly from Proposition~\ref{prop:etale} and Lemma~\ref{lem:dual-inv}.
 \end{proof}
 
-\section{Restriction to the identity component} \label{sec:restriction}
+\section{Exactness of the component group sequence} \label{sec:restriction}
 
 Consider the short exact sequence in the category of $\QC$-schemes
 defining the component group scheme for $G$:
 \begin{equation}\label{eq:pi0}
 \begin{tikzcd}
-0 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
+0 \rar & G^0 \arrow{r}{\iota_0} & G \arrow{r}{\pi_0} & \pi_0(G) \rar & 0.
 \end{tikzcd}
 \end{equation}
 Since $\pi_0(G)$ is also a $\QC$-scheme, 
 Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines the sequence of functors
 \begin{equation}\label{eq:pi1}
 \begin{tikzcd}
-\QC(0) \rar & \QC(\pi_0(G)) \rar & \QC(G) \rar & \QC(G^0) \rar & \QC(0)
+\QC(0) \rar & \QC(\pi_0(G)) \arrow{r}{\pi_0^*} & \QC(G) \arrow{r}{\iota_0^*} & \QC(G^0) \rar & \QC(0)
 \end{tikzcd}
 \end{equation}
 and therefore, after passing to isomorphism classes, the sequence of abelian groups 
 \begin{equation}\label{eq:pi2}
 \begin{tikzcd}
-0 \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & 0.
+0 \rar & \QCiso{\pi_0(G)} \arrow{r}{\pi_0^*} & \QCiso{G} \arrow{r}{\iota_0^*} & \QCiso{G^0} \rar & 0.
 \end{tikzcd}
 \end{equation}
 %(It is clear that $\QCiso{0}$ is trivial.)
@@ -1524,7 +1524,7 @@ If $G$ is a $\QC$-scheme then $G^0$ is a connected algebraic group.
 
 \begin{proposition}\label{prop:restriction}
 For every quasicharacter sheaf $\qcs{L}^0$ on $G^0$ there is some finite quasicharacter sheaf $\qcs{L}$ on $G$ such that $\qcs{L}\vert_{G^0} \iso \qcs{L}^0$;
-in particular, the restriction functor $\QC(G)\to \QC(G^0)$ is essentially surjective.
+in particular, the restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjective.
 \end{proposition}
 
 \begin{proof}
@@ -1546,18 +1546,90 @@ in particular, the restriction functor $\QC(G)\to \QC(G^0)$ is essentially surje
  The sequence 
  \[
   \begin{tikzcd}
-  0 \rar & \QCiso{\pi_0(G)} \rar & \QCiso{G} \rar & \QCiso{G^0} \rar & 0.
+  0 \rar & \QCiso{\pi_0(G)} \arrow{r}{\pi_0^*} & \QCiso{G} \arrow{r}{\iota_0^*} & \QCiso{G^0} \rar & 0.
   \end{tikzcd}
  \]
  is exact at $\QCiso{G}$.
 \end{proposition}
 
 \begin{proof}
-Suppose $\qcs{L} \in \QC(G)$ and $\qcs{L}\vert_{G^0} \iso (\EE)_{G^0}$.
+Suppose $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$ 
+and $\qcs{L}\vert_{G^0} = (\EE)_{G^0}$.
+
+For each $x\in \pi_0(\bG)$, set $\bG^x \ceq \pi_0^{-1}(x)$.
+Let $g, g'$ be geometric points in the same 
+geometric connected component $\bG^x$. 
+Set $a = g^{-1}g'$ and note that $a$ is a geometric point in $\bG^0$. 
+Let $\mu_{g,a} : \gqcs{L}_{ga} \to \gqcs{L}_g \otimes \gqcs{L}_a$ 
+be the isomorphism of vector spaces obtained by restriction of 
+$\mu : m^*\gqcs{L} \to \gqcs{L} \boxtimes \gqcs{L}$ to the 
+geometric point $(g,a)$ on $\bG^x \times \bG^0$. 
+Since $\qcs{L}\vert_{G^0} = (\EE)_{G^0}$, 
+the stalk of $\gqcs{L}$ at $a$ is $\EE$. 
+In this way the pair of geometric points $g, g' \in \bG^x$ 
+determines an isomorphism $\varphi_{g,g'} \ceq \mu_{g,a}^{-1}$ 
+from $\gqcs{L}_{g}$ to $\gqcs{L}_{g'}$. 
+
+The isomorphisms $\varphi_{g,g'}: \gqcs{L}_{g} \to \gqcs{L}_{g'}$ are canonical 
+in the following sense: if $g,g'\in \bG^x$ and $h,h'\in \bG^y$ 
+then it follows from \ref{QC.2} and \ref{QC.3} 
+that
+ \begin{equation}\label{eq:qc}
+  \begin{tikzcd}[column sep=60]
+   \gqcs{L}_{gh} \arrow{r}{\varphi_{gh,g'h'}} \arrow[swap]{d}{\mu_{g,h}}
+  & \gqcs{L}_{g'h'} \arrow{d}{\mu_{g',h'}}
+  &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}} 
+  &  \gqcs{L}_{\Frob{}(g)} \arrow{r}{\varphi_{\Frob{}(g),\Frob{}(g')}} \arrow[swap]{d}{\phi_{g}} & \gqcs{L}_{\Frob{}(g')} \arrow{d}{\phi_{g'}} \\
+  \gqcs{L}_{g} \otimes \gqcs{L}_{h} \arrow{r}{\varphi_{g,g'}\otimes \varphi_{h,h'}}  
+  & \gqcs{L}_{g'} \otimes \gqcs{L}_{h'} 
+  & {}
+  & \gqcs{L}_{g} \arrow{r}{\varphi_{g,g'}} & \gqcs{L}_{g'}
+  \end{tikzcd}
+ \end{equation}
+both commute.
+
+Now, for each $x\in \pi_0(\bG)$, pick $g_x\in \bG^x$ 
+and set $\gqcs{E}_x \ceq \gqcs{L}_{g_x}$. 
+Let $\phi_x : \gqcs{E}_{\Frob{}(x)} \to \gqcs{E}_x$ 
+be the isomorphism of $\EE$-vector spaces obtained by composing 
+$\varphi_{g_{\Frob{}(x)},\Frob{}(g_x)} : \gqcs{L}_{g_{\Frob{}(x)}} \to \gqcs{L}_{\Frob{}(g_x)}$ 
+with $\phi_{g_x} : \gqcs{L}_{\Frob{}(g_x)} \to \gqcs{L}_{g_x}$. 
+For each pair $x,y\in \pi_0(\bG)$ 
+let $\mu_{x,y} : \gqcs{E}_{x+y}\to \gqcs{E}_x\otimes \gqcs{E}_y$ 
+be the isomorphism of $\EE$-vector spaces obtained by composing
+$\varphi_{g_{x+y},g_xg_y} : \gqcs{L}_{g_{x+y}} \to \gqcs{L}_{g_xg_y}$ 
+with $\mu_{g_x,g_y} : \gqcs{L}_{g_xg_y} \to \gqcs{L}_{g_x}\otimes \gqcs{L}_{g_y}$.
+Using \eqref{eq:qc}, it follows that \ref{qc.1}, \ref{qc.2} and \ref{qc.3} are satisfied for
+\begin{enumerate}
+\item
+the indexed set of one-dimensional $\EE$-vector spaces  $\gqcs{E}_x$, 
+as $x$ runs over $\pi_0(\bG)$,
+\item the indexed set of isomorphisms
+  $\mu_{x,y} : \gqcs{E}_{x+y} \xrightarrow{\iso} \gqcs{E}_{x} \otimes\gqcs{E}_{y}$,
+ as $x$ and $y$ run over $\pi_0(\bG)$,
+ \item the indexed set of isomorphisms $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$,
+as $x$ runs over $\pi_0(\bG)$.
+\end{enumerate}
+We have now defined a quasicharacter sheaf $\qcs{E}$ on $\pi_0(G)$ 
+from the quasicharacter sheaf $\qcs{L}$ on $G$ 
+with the property $\qcs{L}\vert_{G^0} = (\EE)_{G^0}$.
+
+Now, pullback the quasicharacter sheaf $\qcs{E}$ along $\pi_0 : G \to \pi_0(G)$.
+The resulting quasicharacter sheaf $\pi_0^* \qcs{E}$ is constant 
+on geometric connected components, with stalks given by 
+$(\pi_0^* \qcs{E})_g = \qcs{E}_{x}$ for all $g\in \bG^x$; 
+in particular, $\left(\pi_0^* \qcs{E}\right)\vert_{\bG^x} =  (\qcs{E}_{x})_{\bG^x}$.
+Likewise, the quasicharacter sheaf $\qcs{L}$ is constant 
+on geometric connected components. Our choices above define isomorphisms
+$\gqcs{L}\vert_{\bG^x} \to  (\gqcs{E}_{x})_{\bG^x}$, for each $x\in \pi_0(\bG)$.
+The resulting isomorphism $\gqcs{L} \to \pi_0^* \gqcs{E}$ satisfies \ref{QC.4}, 
+thus defining an isomorphism $\qcs{L} \to \pi_0^* \qcs{E}$.
+
+We have now show that if $\qcs{L}$ is a quasicharacter sheaf on $G$ and $\iota_0^*\qcs{L}= (\EE)_{G^0}$ then there is some quasicharacter sheaf $\qcs{E}$ on $\pi_0(G)$ such that $\qcs{L} \iso \pi_0^* \qcs{E}$. On the other hand, $\iota_0^*(\pi_0^* \qcs{E}) \iso (\EE)_{G^0}$, by Proposition~\ref{prop:pullback}. This shows that \eqref{eq:pi2} is exact at $\QC(G)$, concluding the proof of Proposition~\ref{prop:middleexact}.
 \end{proof}
 
 
-\section{The sheaf--function dictionary for $\QC$-schemes}
+\section{The sheaf--function dictionary for non-connected group schemes}
 \label{sec:snake}
 
 We saw in Proposition~\ref{prop:functorialG} that the trace of Frobenius
