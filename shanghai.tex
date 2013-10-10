@@ -1,7 +1,8 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass{compositio}
-\title[Sheaf--function dictionary for local tori]{A sheaf--function dictionary for algebraic tori over local fields}
 
+%%%%%%%%%%%%%%%%%% HEADING %%%%%%%%%%%%%%%%%%
+\title[Function--sheaf dictionary for local tori]{A function--sheaf dictionary for algebraic tori over local fields}
 \date{\today}
 \author{Clifton Cunningham}
 \email{cunning@math.ucalgary.ca}
@@ -12,23 +13,23 @@
 \classification{14L15 (primary), 11G25, 14F05, 14D24, 11S31 (secondary)}
 \keywords{quasicharacters, quasicharacter sheaves, algebraic tori, Greenberg transforms, N\'eron models, local fields}
 
+%%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 % Encodings
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % AMS packages
 \usepackage{amsmath, amsthm, amssymb}
-\usepackage{hyperref}
 \usepackage[alphabetic]{amsrefs}
-\usepackage{mathrsfs}
-\usepackage{yfonts}
+% Fonts
+\usepackage{mathrsfs, yfonts}
+% TikZ
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc,matrix}
 \usepackage{tikz-cd}
-%\usepackage{manfnt}
-%\usepackage{makeidx}
-\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
+% Hyperrefs
+\usepackage{hyperref}
 
-%\include{definitions}
+%%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
 \theoremstyle{plain}
       \newtheorem{theorem}{Theorem}[section]
       \newtheorem{proposition}[theorem]{Proposition}
@@ -41,13 +42,10 @@
       \theoremstyle{remark}
       \newtheorem{remark}[theorem]{Remark}
 
-%% Global TikZ settings
-
+%%%%%%%%%%%%%%%% TIKZ SETTINGS %%%%%%%%%%%%%%%%
 \tikzset{every picture/.style={>=stealth},label/.style={font=\footnotesize}}
 
-\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
-\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
-
+%%%%%%%%%%%%%%% RINGS AND GROUPS %%%%%%%%%%%%%%%
 \newcommand{\FF}{{\mathbb{F}}}
 \newcommand{\ZZ}{{\mathbb{Z}}}
 \newcommand{\NN}{{\mathbb{N}}}
@@ -64,16 +62,24 @@
 \newcommand{\OO}[1]{\mathcal{O}_{#1}}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\Qp}{\mathbb{Q}_p}
-%\newcommand{\Fp}{\mathbb{F}_p}
 \newcommand{\bFq}{\bar{k}}
 \newcommand{\Fq}{k}
 \newcommand{\Fqm}{k_m}
-%\newcommand{\bFp}{{\mathbb{\bar F}_p}}
 \newcommand{\WW}{\mathbb{W}}
-
 \newcommand{\EEx}{\EE^\times}
 \newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
+\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
 
+%%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
+\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
+\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
+\newcommand{\GN}[1]{\mathswab{#1}}
+\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
+\newcommand{\TT}{\underline{T}}
+\newcommand{\TL}{\underline{T_L}}
+\newcommand{\TTp}{\underline{T}'}
+
+%%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\W}{W}
 \newcommand{\Frob}[1]{\operatorname{F}_{#1}}
@@ -90,59 +96,55 @@
 \DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\Nm}{Nm}
 \DeclareMathOperator{\trace}{Tr}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\Lang}{Lang}
+\DeclareMathOperator{\image}{im}
+\DeclareMathOperator{\Loc}{Loc}
+\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
 
-\newcommand{\cdef}[1]{{#1}\index{#1}} 
+%%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
 \newcommand{\ceq}{{\, :=\, }}
 \newcommand{\tq}{{\ \vert\ }}
 \newcommand{\iso}{{\ \cong\ }}
-\newcommand{\obj}{{\text{obj}\, }}
-\newcommand{\mor}{{\text{mor}\, }}
-\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
-\newcommand{\GN}[1]{\mathswab{#1}}
-\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
-\newcommand{\TT}{\underline{T}}
-\newcommand{\TL}{\underline{T_L}}
-\newcommand{\TTp}{\underline{T}'}
+%% Limits
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
 \newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
 \newcommand{\colimit}[1]{\mathop{\textsc{colim}}\limits_{#1}}
+%% Fonts for quasicharacter sheaves
 \newcommand{\qcs}[1]{{\mathcal{#1}}}
 \newcommand{\gqcs}[1]{{\mathcal{\bar #1}}}
 \newcommand{\dualgcs}[1]{\gqcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\qcs{#1}^\dagger}
+%% Categories
 \newcommand{\QC}{{\mathcal{Q\hskip-0.8pt C}}}
 \newcommand{\QCb}{{\QC_0}}
 \newcommand{\QCf}{{\QC_f}}
 \newcommand{\QCiso}[1]{\QC(#1)_{/\textit{iso}}}
 \newcommand{\QCbiso}[1]{\QCb(#1)_{/\text{iso}}}
 \newcommand{\QCfiso}[1]{\QCf(#1)_{/\text{iso}}}
-\newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
-\newcommand{\dualgroup}[1]{{\check{#1}}}
-\newcommand{\Lang}{{\operatorname{Lang}}}
-\newcommand{\image}{{\operatorname{im}}}
-\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
-\newcommand{\Loc}{{\operatorname{Loc}}}
 \newcommand{\trFrob}[1]{t_{#1}}
-
-%amsmath replacements for \atop
+%% amsmath replacements for \atop
 \newcommand{\latop}[2]{\genfrac{}{}{0pt}{0}{#1}{#2}}
 \newcommand{\partop}[2]{\genfrac{(}{)}{0pt}{0}{#1}{#2}}
-
+%% Labeled items
 \makeatletter
-\newcommand{\labitem}[2]{%
+\newcommand{\labitem}[2]{
 \def\@itemlabel{\textbf{#1}}
 \item
 \def\@currentlabel{#1}\label{#2}}
 \makeatother
-
+%% Shorthand for bars
 \renewcommand{\bf}{\bar{f}}
 \newcommand{\bg}{\bar{g}}
 \newcommand{\bm}{\bar{m}}
 \newcommand{\bG}{\bar{G}}
 \newcommand{\bH}{\bar{H}}
+%% Spacing control
 \newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
 \newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
 \newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
@@ -154,12 +156,13 @@
 \newcommand{\AxA}{\text{$A \tight{1}{\times}{1} A$}}
 \newcommand{\BxB}{\text{$B \tight{1}{\times}{1} B$}}
 \newcommand{\GzxGz}{\text{$G^0 \tight{1}{\times}{1} G^0$}}
-
+%% Margin notes
 \newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
-
+%% Hyphenation override
 \hyphenation{quasi-character}
 
+%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%
 \begin{document}
 
 \begin{abstract}
@@ -462,7 +465,7 @@ $\trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$ for pointwise multiplication, then
 Since $\qcs{L} \iso \qcs{L'}$ implies $\trFrob{\qcs{L}} = \trFrob{\qcs{L'}}$,
 we obtain a group homomorphism
 \begin{align*}
-\cdef{\trFrob{G}} : \QCiso{G} &\to G(\Fq)^*, \\
+\trFrob{G} : \QCiso{G} &\to G(\Fq)^*, \\
 \qcs{L} &\mapsto \trFrob{\qcs{L}}.
 \end{align*}
 This homomorphism is functorial in the following sense:
@@ -886,7 +889,7 @@ Clearly, the composition of two weak isomorphisms is a weak isomorphism.  The re
 follow from the fact that in a weak isomorphism $(g, T)$, $g$ is an \'etale cover, together with standard
 facts on \'etale covers and pullbacks.
 \end{proof}
-Let $W$ be the family of weak isomorphisms and \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at $W$.
+Let $W$ be the family of weak isomorphisms and $C(G)[W^{-1}]$ be the localization of $C(G)$ at $W$.
 A morphism in $C(G)[W^{-1}]$ is an equivalence class of diagrams
 %  \begin{equation}\label{eq:morGCf}
 \[   
@@ -1881,7 +1884,7 @@ a single dictionary.
 \begin{definition}\label{def:objGN}
 The \emph{Greenberg transform of the N\'eron model of $T$} 
 is the pro-group scheme over $\Fq$ given by 
-$\cdef{\GN{T}} \ceq \varprojlim_{n\in \ZZ_{>0}} \GN{T}_{n}$, 
+$\GN{T} \ceq \varprojlim_{n\in \ZZ_{>0}} \GN{T}_{n}$, 
 with reference to the family of  surjective morphisms of 
 $\Fq$-group schemes $f_n : \GN{T}_{n+1} \to \GN{T}_n$.
 \end{definition}
