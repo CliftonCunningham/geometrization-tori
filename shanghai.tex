@@ -373,7 +373,7 @@ Let $\Frob{G} \ceq \id_{G} \times \Frob{}$ be the Frobenius automorphism of $\bG
 When no other fields play a role we will write $\Frob{}$ and $\Weil{}$ instead.
 
 We fix a prime $\ell$, invertible in $\Fq$.
-We will work with constructible $\ell$-adic sheaves \cite{deligne:80a}*{\S 1.1}, \cite{SGA5}*{Expos\'es V, VI} 
+We will work with constructible $\ell$-adic sheaves \citelist{\cite{deligne:80a}*{\S 1.1} \cite{SGA5}*{Expos\'es V, VI}}
 on $\QC$-schemes, employing the standard formalism.
 %see, in particular, \cite{SGA5}*{Expos\'e VI,\S 2}, where pullback and tensor products are developed.
 We also make extensive use of the external tensor product of $\ell$-adic sheaves, defined as follows: if $\mathcal{F}$ and $\mathcal{G}$ are constructible $\ell$-adic sheaves on schemes $X$ and $Y$ and $p_X : X\times Y\to X$ and $p_Y : X\times Y \to Y$ are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{F} \otimes p_Y^*\mathcal{G}$.
@@ -834,17 +834,19 @@ are precisely those whose trace of Frobenius have bounded image.
 In this section we define \emph{finite quasicharacter sheaves}, a further refinement
 of bounded quasicharacter sheaves that play a role in Section \ref{sec:restriction}.
 
-
-To prove the next proposition, we will need a certain perspective on local systems.
- If $\qcs{E}$ is any local system on a connected scheme $G$ and $\bg$ is a geometric point on $G$,
- we may associate to $\qcs{E}$ a character of the \'etale fundamental group $\pi_1(G, \bg)$ \David{add citation}.\Clifton{I'll find one.}
- Since $\pi_1(G, \bg)$ is defined as a projective limit of automorphism groups of finite \'etale covers, a general
- local system will correspond to a projective limit of characters of such groups.  But some local systems can be
- described in terms of a single cover $f: H \to G$ and a representation $\psi: \ker f \to \Aut(V)$;
+The notion of a finite quasicharacter sheaf is informed 
+by a certain perspective on local systems on connected groups.
+Recall that every geometric point $\bg$ on a connected scheme $G$ 
+determines an equivalence between the categories of $\ell$-adic local systems on $G$ 
+and $\ell$-adic representations of the \'etale fundamental group $\pi_1(G, \bg)$ 
+\citelist{\cite{SGA5}*{VI,Prop. 1.2.5} \cite{deligne:80a}*{1.1.1}}.
+ Since $\pi_1(G, \bg)$ is a projective limit of automorphism groups of finite \'etale covers, 
+ a general local system corresponds to a projective limit of characters of such groups.  
+ But some local systems can be described in terms of a single cover $f: H \to G$ 
+ and a representation $\psi: \ker f \to \Aut(V)$;
  two such descriptions yield isomorphic local systems if and only if they are related by a weak
  isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
- not generalize well to non-connected $G$, the description in terms of $C(G)$ does.  \David{Look okay?}
-
+ not generalize well to non-connected $G$, a perspective using finite \'etale covers does.
 
 The definition of finite quasicharacter sheaves will require several steps, 
 beginning with the localization of a category introduced here.
@@ -892,7 +894,7 @@ is a family of morphisms $W$ that
 \item contains all isomorphisms,
 \item is closed under composition,
 \item is closed under pullback by arbitrary morphisms in $C(G)$,
-\item and if the cokernel \David{Is $C(G)$ abelian?} \Clifton{Yes. In fact, that's stated, implicitly, in the paragraph above: a tensor category is an abelian category.} of a morphism $\phi \in \mor C(G)$ is in
+\item and if the cokernel of a morphism $\phi \in \mor C(G)$ is in
 $W$ then so is the kernel of $\phi$.
 \end{enumerate}
 
@@ -908,7 +910,7 @@ The family of weak isomorphisms in $C(G)$ is a saturated, left multiplicative sy
 Any isomorphism $(g, T)$ in $C(G)$ has both $g$ and $T$ isomorphisms, and thus is a weak isomorphism.
 Clearly, the composition of two weak isomorphisms is a weak isomorphism.  The remaining properties
 follow from the fact that in a weak isomorphism $(g, T)$, $g$ is an \'etale cover, together with standard
-facts on \'etale covers and pullbacks. \David{Is this sufficient?}\Clifton{Yes, I think so.}
+facts on \'etale covers and pullbacks.
 \end{proof}
 Let $W$ be the family of weak isomorphisms and \cdef{$C(G)[W^{-1}]$} be the localization of $C(G)$ at $W$.
 A morphism in $C(G)[W^{-1}]$ is an equivalence class of diagrams
