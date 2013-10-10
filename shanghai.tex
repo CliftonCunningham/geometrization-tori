@@ -1,8 +1,7 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass{compositio}
 \title[Sheaf--function dictionary for local tori]{A sheaf--function dictionary for algebraic tori over local fields}
-\usepackage[british]{babel}
-\usepackage{datetime}
+
 \date{\today}
 \author{Clifton Cunningham}
 \email{cunning@math.ucalgary.ca}
@@ -10,31 +9,24 @@
 \author{David Roe}
 \email{roed.math@gmail.com}
 \address{Pacific Institute for the Mathematical Sciences at the University of Calgary}
+\classification{14L15 (primary), 11G25, 14F05, 14D24, 11S31 (secondary)}
+\keywords{quasicharacters, quasicharacter sheaves, algebraic tori, Greenberg transforms, N\'eron models, local fields}
+
+% Encodings
 \usepackage[utf8]{inputenc}
-%\renewcommand{\baselinestretch}{1.2}
-%\usepackage[notcite]{showkeys}
+\usepackage[T1]{fontenc}
+% AMS packages
+\usepackage{amsmath, amsthm, amssymb}
 \usepackage{hyperref}
-%\usepackage{geometry}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amssymb}
-%\usepackage[shortalphabetic]{amsrefs}
 \usepackage[alphabetic]{amsrefs}
-\newcommand\SortNoop[1]{}
-\DeclareRobustCommand{\VAN}[3]{#2}
-%\usepackage{amsrefs}
-\renewcommand\MR{\relax}
-%\usepackage{xypic}
-\usepackage{textcomp}
 \usepackage{mathrsfs}
 \usepackage{yfonts}
-\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
-\usepackage[T1]{fontenc}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc,matrix}
 \usepackage{tikz-cd}
-\usepackage{manfnt}
+%\usepackage{manfnt}
 %\usepackage{makeidx}
+\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
 
 %\include{definitions}
 \theoremstyle{plain}
@@ -163,14 +155,12 @@
 \newcommand{\BxB}{\text{$B \tight{1}{\times}{1} B$}}
 \newcommand{\GzxGz}{\text{$G^0 \tight{1}{\times}{1} G^0$}}
 
-\newcommand\todo[1]{\ \vspace{5mm}\par \noindent\framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
 \newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
 
 \hyphenation{quasi-character}
 
 \begin{document}
-
 
 \begin{abstract}
   We introduce and study the category of quasicharacter sheaves on smooth,
@@ -189,24 +179,7 @@
 
 \section*{Introduction}
 
-%\input{introduction}
-%In his celebrated thesis, John Tate writes 
-%\begin{quotation}
-%    {\it Concerning the characters of $k^*$ [the
-%    multiplicative group of a $\mathfrak{p}$-adic field], the
-%    situation is different from that of $k^+$.  First of all, we are
-%    interested in continuous multiplicative maps $\alpha \mapsto
-%    c(\alpha)$ of $k^*$ into the complex numbers, not only in the
-%    bounded ones, and shall call such a map a quasi-character,
-%    reserving the word ``character'' for the conventional character of
-%    absolute value $1$. Secondly, we shall find no model for the group
-%    of quasi-characters, or even for the group of characters, though
-%    such a model would be of the utmost importance.}
-%  \cite{tate:67a}*{\S 2.3}
-%\end{quotation}
-%\noindent
 In this paper we find a dictionary between quasicharacters of algebraic tori over local fields and quasicharacter sheaves. 
-%
 What is a quasicharacter sheaf?
 Let $G$ be a smooth, commutative group scheme locally of finite
 type over a finite field $\Fq$; $G$ need not be reductive, connected, or of
@@ -251,7 +224,6 @@ simultaneously geometrizing all quasicharacters ({\it i.e.}, finite-depth charac
 
 While we have not yet fully explored the applications of such a geometrization, we want to highlight
 some of the potential benefits of Theorem~\ref{thm:application} here. 
-%
 Characters on $T$ have limited
 functoriality: they can be pulled back along maps to $T$, but it is less clear what to do with them
 in the presence of maps from $T$ to other groups.  Sheaves, on the other hand, come
@@ -341,7 +313,7 @@ We close the paper with Section~\ref{sec:reciprocity}, in which we suggest that 
 sheaves may play a key role in a geometric and categorical form of the local Langlands
 correspondence for algebraic tori over local fields.
 
-\subsection*{Acknowledgements}
+\begin{acknowledgements} %{Acknowledgements}
 
 We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
@@ -350,6 +322,8 @@ quasicharacter sheaves.  Their knowledge and help have been invaluable.
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and of the National Science and Engineering Research Council,
 as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
+
+\end{acknowledgements}
 
 %\tableofcontents
 
@@ -2225,7 +2199,8 @@ can then be viewed as a matching between quasicharacters and Langlands parameter
 
 %\printindex
 
-\DeclareRobustCommand{\VAN}[3]{#3}
+\bibliographystyle{amsalpha}
+%\DeclareRobustCommand{\VAN}[3]{#3}
 \bibliography{Biblio}
 
 \end{document}
