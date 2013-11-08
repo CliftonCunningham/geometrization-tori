@@ -1769,8 +1769,12 @@ over an Artinian local ring with perfect residue field $k$
 to the category of schemes locally of finite type over $k$. 
 This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
 See
-\citelist{\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1} \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} \cite{stasinski:12a}*{\S 2}}
-for more background on the Greenberg functor. 
+\citelist{
+\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1} \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
+\cite{nicaise-sebag:motivicSerre}*{\S 2.2}
+\cite{bertrapelle-gonzales}
+}
+for the definition and fundamental properties of the Greenberg functor. 
 
 \begin{definition}\label{def:Grn}
 For any local field $K$ with residue field $\Fq$ and for any positive integer $n$, let
@@ -1987,58 +1991,7 @@ for every positive integer $n$,
 \end{lemma}
 
 \begin{proof}
-First, note that since $\Res_{\OKp/\OK}(\TTp)$ 
-is a scheme over $\OK$, 
-the Greenberg transform $\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)$ 
-is obtained by base change along $\OK \to \OK/\pK^n$ 
-followed by the Greenberg functor over the Artinian ring $\OK/\pK^n$. 
-On the other hand, since $\TTp$ is a scheme over $\OKp$, 
-the Greenberg transform $\Gr_{en}(\TTp)$ is defined by base change along 
-$\OKp \to \OKp/\pKp^{en}$ 
-followed by the Greenberg functor over the Artinian ring $\OKp/\pKp^{en}$. 
-Note also that 
-\begin{equation}\label{nem}
-\OKp \otimes_{\OK} \OK/\pK^n \iso \OKp/\pKp^{en}.
-\end{equation}
-
-To prove the lemma, we may employ the functor of points perspective 
-and exhibit an isomorphism of functors from 
-$\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)$ 
-to $\Res_{k'/k} \Gr_{en}(\TTp)$ as functors 
-from the category of $\Fq$-algebras to the category of groups.
-To that end, let $R$ be any $\Fq$-algebra and 
-let $\WW$ be the Witt functor from the category of $\Fq$-algebras to rings. 
-By the definition of the Greenberg transform, the Weil restriction functor and \eqref{nem},
-\[
-\begin{aligned}
-\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)(R)
-&= \Res_{\OKp/\OK}(\TTp)\left( \OK/\pK^n \otimes_{\WW(k)} \WW(R)\right)\\
-&= \TTp\left(\OKp \otimes_{\OK} \OK/\pK^n \otimes_{\WW(k)} \WW(R)\right)\\
-&= \TTp\left(\OKp /\pKp^{en} \otimes_{\WW(k)} \WW(R)\right);
-\end{aligned}
-\]
-on the other hand,
-\[
-\begin{aligned}
-\Res_{k'/k} \Gr_{en}(\TTp)(R)
-&= \Gr_{en}(\TTp) (k'\otimes_{k} R)\\
-&= \TTp\left( \OKp /\pKp^{en} \otimes_{\WW(k')} \WW(k'\otimes_{k} R)\right)\\
-&= \TTp\left( \OKp /\pKp^{en} \otimes_{\WW(k')} \WW(k') \otimes_{\WW(k)} \WW(R)\right)\\
-&= \TTp\left( \OKp /\pKp^{en} \otimes_{\WW(k)} \WW(R)\right).
-\end{aligned}
-\]
-So the group isomorphism 
-\[
-\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)(R) \to \Res_{k'/k} \Gr_{en}(\TTp)(R)
-\]
-is apparent, as are the commuting group homomorphisms
-\[
-\begin{tikzcd}
-\arrow{d} \Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)(R) \arrow{r}{\iso} & \arrow{d} \Res_{k'/k} \Gr_{en}(\TTp)(R)\\
-\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)(R') \arrow{r}{\iso} & \Res_{k'/k} \Gr_{en}(\TTp)(R'),
-\end{tikzcd}
-\]
-for every map $R\to R'$ of $\Fq$-algebras.
+This follows from \cite{bertrapelle-gonzales:Greenberg}*{Prop. 6.3} after observing that 
 \end{proof}
 
 \begin{proposition}\label{prop:wrK}
