@@ -320,10 +320,11 @@ correspondence for algebraic tori over local fields.
 
 We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
-quasicharacter sheaves.  Their knowledge and help have been invaluable.
+quasicharacter sheaves; their knowledge and help have been invaluable. 
+We also thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for pointing us to a proof of Lemma~\ref{lemma:wrK}.
 
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
-and of the National Science and Engineering Research Council,
+and the National Science and Engineering Research Council,
 as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
 
 \end{acknowledgements}
@@ -1772,9 +1773,9 @@ See
 \citelist{
 \cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1} \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
 \cite{nicaise-sebag:motivicSerre}*{\S 2.2}
-\cite{bertrapelle-gonzales}
+\cite{bertrapelle-gonzales:Greenberg}*{\S 5}
 }
-for the definition and fundamental properties of the Greenberg functor. 
+for the definition and fundamental properties of the Greenberg functor as it is used here.
 
 \begin{definition}\label{def:Grn}
 For any local field $K$ with residue field $\Fq$ and for any positive integer $n$, let
@@ -1991,7 +1992,20 @@ for every positive integer $n$,
 \end{lemma}
 
 \begin{proof}
-This follows from \cite{bertrapelle-gonzales:Greenberg}*{Prop. 6.3} after observing that 
+First, note that since $\Res_{\OKp/\OK}(\TTp)$ 
+is a scheme over $\OK$, 
+the Greenberg transform $\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)$ 
+is obtained by base change along $\OK \to \OK/\pK^n$ 
+followed by the Greenberg functor over the Artinian ring $\OK/\pK^n$. 
+On the other hand, since $\TTp$ is a scheme over $\OKp$, 
+the Greenberg transform $\Gr_{en}(\TTp)$ is defined by base change along 
+$\OKp \to \OKp/\pKp^{en}$ 
+followed by the Greenberg functor over the Artinian ring $\OKp/\pKp^{en}$. 
+Note also that 
+\begin{equation}\label{nem}
+\OKp \otimes_{\OK} \OK/\pK^n \iso \OKp/\pKp^{en}.
+\end{equation}
+Now Lemma~\ref{lemma:wrK} follows from \cite{bertrapelle-gonzales:Greenberg}*{Prop. 6.3} after observing that  $\TTp \times_\Spec{\OKp} \Spec{\OKp/\pKp^{en}}$ is admissible relative to $\Spec{\OKp/\pKp^{en}} \to \Spec{\OK/\pK^n}$, cf. \cite{bertrapelle-gonzales:Greenberg}*{Rem 2.9 (a)}.
 \end{proof}
 
 \begin{proposition}\label{prop:wrK}
