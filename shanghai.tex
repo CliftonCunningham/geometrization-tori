@@ -1733,14 +1733,21 @@ $\qcs{L}$ that descend to Weil sheaves on $G$.  The conditions on the values $b_
 translate into analogous conditions on the image of trace of Frobenius.
 \end{proof}
 
+Using Corollary~\ref{cor:bounded-and-finite} we can easily see that, in general, neither of the full subcategories
+$\QCf(G) \subset \QCb(G) \subset \QC(G)$ are equivalences.
 For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
-Let $\chi : G(\Fq) \to \EEx$ be the character determined by $\chi(1) = \ell$ 
-and let $\qcs{L}$ be a quasicharacter sheaf in the isomorphism class 
-corresponding to $\chi$ under Theorem~\ref{thm:snake}.
-Then $\qcs{L}$ is not a bounded quasicharacter sheaf since the image of $\chi$ is not
-bounded.  If $\chi(1) = 1+\ell$, then the image of $\chi$ is bounded but not finite.  For
-the corresponding quasicharacter sheaf $\qcs{L}$, the stalk at the component $1$ is defined
-by a pro-\'etale cover rather than an \'etale cover and thus $\qcs{L}$ is not finite.
+If $\chi : \ZZ \to \EEx$ is the quasicharacter of $G(\Fq)$ determined by $\chi(1) = \ell$ 
+and if $\qcs{L}$ is a quasicharacter sheaf on $G$ in the isomorphism class 
+corresponding to $\chi$ under Theorem~\ref{thm:snake},
+then $\qcs{L}$ is not a bounded quasicharacter sheaf since the image of $\chi$ is not
+bounded.  
+On the other hand, if $\chi : \ZZ \to \EEx$ is the quasicharacter of $G(\Fq)$ determined by $\chi(1) = 1+\ell$ 
+and if $\qcs{L}$ is a quasicharacter sheaf on $G$ in the isomorphism class 
+corresponding to $\chi$ under Theorem~\ref{thm:snake},
+then $\qcs{L}$ is a bounded quasicharacter sheaf but not a finite quasicharacter sheaf
+since the image of $\chi$ is bounded but not finite.
+In this latter case the stalk of $\qcs{L}$ at the component $1$ is defined
+by a pro-\'etale cover rather than an \'etale cover.
 
 
 \part{Application to quasicharacters of algebraic tori over local fields}
