@@ -174,7 +174,7 @@ For any non-archimedean local field $K$
   to geometrize quasicharacters of $T(K)$
   as quasicharacter sheaves on the Greenberg transform of the Néron
   model of $T$.
- As an application, we categorify a transfer of certain characters between characteristic $p$ tori and characteristic $0$ tori.
+ As an application, we find a categorical transfer of certain characters between characteristic $p$ tori and characteristic $0$ tori.
   \end{abstract}
 
 \maketitle
@@ -255,10 +255,8 @@ correspondence for algebraic tori over local fields.
 
 %\begin{acknowledgements}
 \subsection*{Acknowledgements}
-We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
-for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
-quasicharacter sheaves; their knowledge and help have been invaluable. 
-We also thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for pointing us to a proof of Lemma~\ref{lemma:wrK}.
+%We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of quasicharacter sheaves; their knowledge and help have been invaluable. 
+We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for pointing us to a proof of Lemma~\ref{lemma:wrK}.
 
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and the National Science and Engineering Research Council,
@@ -393,9 +391,9 @@ from the additive category of algebraic tori over $K$ to the category of abelian
   To define $F_1$ on morphisms one uses the Néron mapping property.
   
   Finally, we show that $\trFrob{T,n}$ is functorial.
-The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
+The first part of \cite{cunningham-roe:dictionary}*{Prop. 4.1} shows that $F_1$ is a functor,
 while the second part shows that trace of Frobenius is a natural transformation
-$t_{ - ,n} : F_1 \to F_2$. When further combined with Proposition~\ref{prop:product},
+$t_{ - ,n} : F_1 \to F_2$. When further combined with \cite{cunningham-roe:dictionary}*{Prop. 4.2},
 we see that $F_1$ is an additive functor and $t_{ - ,n}: F_1 \to F_2$ is a
 natural transformation between additive functors.
 \end{proof}
@@ -424,7 +422,7 @@ Let
 \[
 f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})
 \]
-be the functor produced by applying Proposition~\ref{prop:pullback} to $f_{n\leq m}$.
+be the functor produced by applying \cite{cunningham-roe:dictionary}*{Prop. 4.1} to $f_{n\leq m}$.
 We now define a category which allows us to extend the notion 
 of quasicharacter sheaf to the pro-group scheme $\GN{T}$. 
 
@@ -497,7 +495,7 @@ Passing to isomorphism classes of objects and invoking the
 universal property of direct limits gives a group isomorphism
 $\theta: \varinjlim_{n\in \ZZ_{>0}} \QCiso{\GN{T}_n} \to \QCiso{\GN{T}}$
 with inverse $[\qcs{L}]_{/\text{iso}} \mapsto [\qcs{L}_{/\text{iso}}]$.
-Now use Theorem~\ref{thm:application}, Proposition~\ref{prop:pullback} 
+Now use Theorem~\ref{thm:application}, \cite{cunningham-roe:dictionary}*{Prop. 4.1} 
 and the fact that  $\Hom_{\text{qc}}(T(K),\EEx) = \varinjlim_{n\in \ZZ_{>0}} \GN{T}_n(k)^*$, 
 where this direct limit is taken with respect to the family of group homomorphisms 
 dual to $f_{n} : \GN{T}_{n+1}(\Fq) \to \GN{T}_n(\Fq)$.
@@ -580,7 +578,7 @@ the family of morphisms \eqref{men} determines a morphism of pro-group schemes
 \]
 Since $\left(\Res_{k'/k} \GN{T}'_{en} \right)(\Fq) = \left(\GN{T}'_{en}\right)(k')$,
 the pullback functor $\QC(\Res_{k'/k} \GN{T}'_{en})\to \QC(\GN{T}_n)$
-obtained by applying Proposition~\ref{prop:pullback} to \eqref{men} gives
+obtained by applying \cite{cunningham-roe:dictionary}*{Prop. 4.1} to \eqref{men} gives
 \[
 \Hom_{< en}(T'(K'),\EEx) \to \Hom_{< n}(T(K),\EEx).
 \]
@@ -588,7 +586,7 @@ Passing to inverse limits defines
 \[
 \Hom_{\text{qc}}(T(K'),\EEx) \to \Hom_{\text{qc}}(T(K),\EEx).
 \]
-Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction of characters.
+Argue as in \cite{cunningham-roe:dictionary}*{Prop. 5.1} to see that this is indeed restriction of characters.
 \end{proof}
 
 If we specialize Proposition~\ref{prop:wrK} to the case when 
@@ -685,7 +683,7 @@ can then be viewed as a matching between quasicharacters and Langlands parameter
  What remains to be done is a careful comparison of 
  quasicharacter sheaves for $\Gm{K}$ and the local systems on
   the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{suzuki-yoshida:12a}. 
-
+In this regard, a comparison between the results in this paper and those in \cite{cunningham-kamgarpour:geometrization} might also be illuminating.
 
 \bibliographystyle{amsalpha}
 \bibliography{Biblio}
