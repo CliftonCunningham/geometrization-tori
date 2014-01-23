@@ -174,7 +174,7 @@ For any non-archimedean local field $K$
   to geometrize quasicharacters of $T(K)$
   as quasicharacter sheaves on the Greenberg transform of the Néron
   model of $T$.
- As an application, we find a categorical transfer of certain characters between characteristic $p$ tori and characteristic $0$ tori.
+ As an application, we find a categorical transfer of certain characters between characteristic-$p$ tori and characteristic-$0$ tori.
   \end{abstract}
 
 \maketitle
@@ -233,7 +233,8 @@ Finally, we are tantalized by the possibility of providing an alternate perspect
 through quasicharacter sheaves.  The local Langlands correspondence for tori provides an isomorphism
 $
 \Hh^1(\Weil{K}, \hat{T}_\ell) \cong \Hom(T(K), \EEx)
-$. 
+$,
+where $\Weil{K}$ is the Weil group for $K$.
 A geometric description of the resulting isomorphism $\Hh^1(\Weil{K}, \hat{T}_\ell) \cong \QCiso{\GN{T}}$
 would yield a different description of the Artin reciprocity map.
 
@@ -252,18 +253,18 @@ We close the paper with Section~\ref{sec:reciprocity}, in which we suggest that 
 sheaves may play a key role in a geometric and categorical form of the local Langlands
 correspondence for algebraic tori over local fields.
 
-
 %\begin{acknowledgements}
 \subsection*{Acknowledgements}
 %We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of quasicharacter sheaves; their knowledge and help have been invaluable. 
 We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for pointing us to a proof of Lemma~\ref{lemma:wrK}.
 
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
-and the National Science and Engineering Research Council,
-as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
+and the National Science and Engineering Research Council.
+%as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
 
 %\end{acknowledgements}
 
+\tableofcontents
 
 \section{Quasicharacters of algebraic tori over local fields}
 
@@ -323,9 +324,9 @@ We list some fundamental properties of $f_n$ and $\GN{T}_n$ for further use:
   \labitem{(GN.1)}{smooth} 
   $\GN{T}_n$ is a $\QC$-scheme. 
   Note that $\underline{T}$ is a smooth group scheme over $\OK$, by construction. 
-  Since smoothness is preserved under base change, 
+  Since smoothness is preserved under base change, the group scheme
   $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$ 
-  is a smooth group scheme over an Artinian ring with perfect residue field. 
+  is smooth over an Artinian ring with perfect residue field. 
   The Greenberg functor preserves smoothness, 
   so $\GN{T}_n$ is a smooth group scheme locally of finite type over $\Fq$. 
   The Greenberg functor takes the geometric identity component of $\TT_n$ 
@@ -373,7 +374,7 @@ from the additive category of algebraic tori over $K$ to the category of abelian
 \end{theorem}
 
 \begin{proof}
-  By \ref{smooth}, we may use \eqref{snake} to produce a canonical isomorphism
+  By \ref{smooth}, we may use \eqref{snake} to give
   $\QCiso{\GN{T}_n} \iso \GN{T}_n(\Fq)^*$.
   By \ref{points}, $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$.
   Then we recall that the filtration of $T(K)$ used to

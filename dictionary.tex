@@ -168,19 +168,19 @@
 \begin{document}
 
 \begin{abstract}
-  We introduce and study the category of quasicharacter sheaves on smooth,
-  commutative group schemes $G$ locally of finite type over finite fields
-  $\Fq$. Assuming that the geometric component group of $G$
-  is finitely-generated, we show that the group of isomorphism classes
-  of quasicharacter sheaves on $G$ is canonically isomorphic to the group
-  of characters of $G(\Fq)$. 
+  We extend Deligne's function--sheaf dictionary from
+  connected commutative algebraic groups over finite fields to smooth
+  commutative group schemes locally of finite type over finite fields
+  with finitely-generated geometric component group.
+  To do so, we introduce the category of quasicharacter sheaves on such group schemes
+  $G$ over $\mathbb{F}_q$ and exhibit a canonical isomorphism between the character group of $G(\mathbb{F}_q)$ and the group of isomorphism classes of quasicharacter sheaves on $G$.
    \end{abstract}
 
 \maketitle
 
 \section*{Introduction}
 
-The sheaf--function dictionary for connected commutative algebraic groups over finite fields translates characters into local systems  \cite{deligne:SGA4.5}*{sommes trig.}. More precisely, let $G$ be a commutative group scheme over a finite field $\Fq$, let $\ell$ be any prime invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character. Using little more than the Lang map for $G$, $\chi$ determines an $\ell$-adic local system $\qcs{L}$ on $G$ from which the character $\chi$ can be recovered using the Frobenius automorphism of $\bG$, the base change of $G$ to $\bFq$. While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there exists an isomorphism 
+The sheaf--function dictionary for connected commutative algebraic groups over finite fields translates characters into local systems \cite{deligne:SGA4.5}*{sommes trig.}. Let $G$ be a commutative group scheme over a finite field $\Fq$, let $\ell$ be any prime invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character. Using little more than the Lang map for $G$, $\chi$ determines an $\ell$-adic local system $\qcs{L}$ on $G$ from which the character $\chi$ can be recovered using the Frobenius automorphism of $\bG$, the base change of $G$ to $\bFq$. While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there exists an isomorphism 
 \begin{equation}\label{introbox}
 m^* \qcs{L} \iso \qcs{L} \boxtimes \qcs{L}
 \end{equation}
@@ -206,7 +206,7 @@ In this way, quasicharacter sheaves geometrize characters of $G(\Fq)$.
 A simple example will illustrate some of the issues that arise when extending the sheaf--function dictionary to $\QC$-schemes. Consider the etale group scheme $G = \ZZ_{/\Fq}$. Characters of $G(\Fq) = \ZZ$ are neither finite nor bounded, in general. For example, the $\ell$-adic character $\ZZ \to \EEx$ defined by $1 \mapsto 1+ \ell$ is bounded but not finite, while the character $\ZZ \to \EEx$ defined by $1 \mapsto \ell$ is unbounded.  As we show in the paper, $\ell$-adic local systems on $G$ cannot be used to geometrize either of these characters; however, quasicharacter sheaves do the job, handily. We remark that such characters arise when considering unramified quasicharacters of the $p$-adic group $\Qp^\times$. This example informs our choice of the term ``quasicharacter sheaf''. Indeed, in \cite{cunningham-roe:p-adic_tori} we use this paper to geometrize and categorify all quasicharacters of all algebraic tori over all local fields. 
 
 We also want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
-Some people refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as as character sheaves; 
+Some people refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves; 
 see for example, \cite{kamgarpour:09a}. 
 As explained above, quasicharacter sheaves evolved from this notion,
 with an eye toward quasicharacters of $p$-adic groups.
@@ -234,7 +234,7 @@ In section \ref{sec:connected} we show that bounded and finite quasicharacter sh
 as standard quasicharacter sheaves when $G$ is connected, and that trace of Frobenius is an isomorphism.
 We shift to \'etale group schemes $G$ in Section~\ref{sec:etale} and give a more concrete interpretation
 of quasicharacter sheaves in this case.  Using a notion of global sections for quasicharacter sheaves,
-we give isomorphisms between $\QCiso{G}$, $\Hh^1(\Weil{}, \Hom(G(\bFq), \EEx))$ and $\Hom(G(\Fq), \EEx)$.
+we give isomorphisms between $\QCiso{G}$, $\Hh^1(\Weil{}, \Hom(G(\bFq), \EEx))$ and $\Hom(G(\Fq), \EEx)$, where $\Weil{}$ is the Weil group for $\Fq$.
 In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
 induces an essentially surjective functor of quasicharacter sheaves.
 Section~\ref{sec:snake} presents the main theorem of this paper: trace of Frobenius
@@ -255,7 +255,7 @@ as well the hospitality of the Banff International Research Station during our w
 
 \tableofcontents
 
-\section{Smooth commutative group schemes over finite fields}\label{sec:QCschemes}
+\section{Preliminary definitions}\label{sec:QCschemes}
 
 Throughout this paper, $G$ is a smooth, commutative group scheme locally of finite type
 over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  For the sake of brevity, we
@@ -272,7 +272,7 @@ Let $\Frob{}$ denote the geometric Frobenius element in $\Gal(\bFq/\Fq)$ as
 well as the corresponding automorphism of $\Spec{\bFq}$. The Weil group
 $\Weil{}\subset \Gal(\bFq/\Fq)$ is the subgroup generated by $\Frob{}$.
 Let $\Frob{G} \ceq \id_{G} \times \Frob{}$ be the Frobenius automorphism of $\bG$.
-When no other fields play a role we will write $\Frob{}$ and $\Weil{}$ instead.
+%When no other fields play a role we will write $\Frob{}$ and $\Weil{}$ instead.
 
 We fix a prime $\ell$, invertible in $\Fq$.
 We will work with constructible $\ell$-adic sheaves \citelist{\cite{deligne:80a}*{\S 1.1} \cite{SGA5}*{Expos\'es V, VI}}
@@ -468,8 +468,8 @@ play a role in the proof of many other results in this paper.
   $(\bfxf)^*(\LxL) \iso \bf^*\gqcs{L} \tight{-3}{\boxtimes}{-3} \bf^*\gqcs{L}$.
   To show that $f^*\qcs{L}$ satisfies 
   \ref{QC.3}, apply the same functor to \ref{QC.3} for $\qcs{L}$.
-  The fact that $f$ is a morphism of group schemes defined over $\Fq$ then
-  yields isomorphisms $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG}^* (\bfxf)^*$
+  Since $f$ is a morphism of group schemes defined over $\Fq$
+  it provides isomorphisms $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG}^* (\bfxf)^*$
   and $(\bfxf)^* \bm^*\iso \bm^* \bf^*$ between functors of constructible sheaves.
   
   Applying $\bf^*$ and $\bf^* \tight{1}{\times}{1}\bf^*$ to \ref{QC.4} defines the action
@@ -848,12 +848,16 @@ defines a monomial functor $g^* : C(G)[W^{-1}] \to C(J)[W^{-1}]$.
 The key point is that pullback along $g$ takes discrete isogenies to discrete isogenies,
 and maps over $G$ to maps over $J$, as pictured below.
 \[
-\begin{tikzcd}[row sep={{{{40,between origins}}}},column sep={{{{60,between origins}}}}]
-\ V \arrow{dd}{T} & \Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} \arrow[leftarrow]{dd} && H \arrow{rr}{f} \arrow[leftarrow]{dd} && \arrow[equal]{dd} G\\
- & & \arrow{ul} \ker f\times_G J \arrow{ur} \arrow[hook, crossing over]{rr} && H\times_G J \arrow{ur} \arrow[crossing over]{rr} && J \arrow[swap]{ur}{g} & \\
-V' & \Aut(V') && \arrow[swap,pos=0.25]{ll}{\psi'} \ker f'  \arrow[hook]{rr}
+\begin{tikzcd}[row sep={{{{40,between origins}}}},column sep={{{{50,between origins}}}}]
+%\ V \arrow{dd}{T} & 
+\Aut(V) && \arrow[swap]{ll}{\psi} \ker f \arrow[hook]{rr} \arrow[leftarrow]{dd} && H \arrow{rr}{f} \arrow[leftarrow]{dd} && \arrow[equal]{dd} G\\
+% & 
+& \arrow{ul} \ker f\times_G J \arrow{ur} \arrow[hook, crossing over]{rr} && H\times_G J \arrow{ur} \arrow[crossing over]{rr} && J \arrow[swap]{ur}{g} & \\
+%V' &
+ \Aut(V') && \arrow[swap,pos=0.25]{ll}{\psi'} \ker f'  \arrow[hook]{rr}
 && H' \arrow[pos=0.25]{rr}{f'} && G\\
- & & \arrow{ul} \ker f'\times_G J \arrow[crossing over]{uu} \arrow{ur} \arrow[hook]{rr}
+% &
+ & \arrow{ul} \ker f'\times_G J \arrow[crossing over]{uu} \arrow{ur} \arrow[hook]{rr}
  && \arrow[crossing over]{uu} H'\times_G J \arrow{ur} \arrow{rr} && \arrow[equals, crossing over]{uu} J \arrow[swap]{ur}{g} & 
 \end{tikzcd}
 \]
@@ -1039,8 +1043,8 @@ For connected groups, the subcategories introduced in the previous two sections 
   $\psi(g)(v) \ceq \trFrob{\qcs{L}}(g) v$ for $v\in V$. 
   Then $(f,\psi)$ is a finite quasicharacter sheaf. 
   
-  To show that $L_G(f,\psi) \iso (\qcs{L}_0,\mu_0)$ we simply apply the function--sheaf dictionary
-  as follows \citelist{\cite{laumon:87a}*{1.1.3} \cite{deligne:SGA4.5}*{sommes trig.}}.
+  To show that $L_G(f,\psi) \iso (\qcs{L}_0,\mu_0)$ we apply the function--sheaf dictionary
+  \citelist{\cite{laumon:87a}*{1.1.3} \cite{deligne:SGA4.5}*{sommes trig.}}  as follows.
   First, recall that $L_G(f,\psi) \ceq (L(f,\psi), \mu(f,\psi))$.
   Let $k'/k$ be any degree-$n$ extension; 
   let $\Nm : G(k')\to G(k)$ be the norm map 
@@ -1051,7 +1055,7 @@ For connected groups, the subcategories introduced in the previous two sections 
    by Proposition~\ref{prop:basechange}.
   Using \cite{laumon:87a}*{Th\'eor\`eme 1.1.2}, it follows that  $L(f,\psi) \iso \qcs{L}_0$ in $\Loc(G)$.
   It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\qcs{L}_0,\mu_0)$ in $\QCb(G)$.
-  This completes the proof that $L_G : \QCf(G) \to \QC(G)$ is essentially surjective.
+  This completes the proof that $L_G $ is essentially surjective.
   Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful, 
   it follows that $L_G$ is an equivalence.
 \end{proof}
@@ -1619,11 +1623,6 @@ applying $\Hom(-, \EEx)$ yields another exact sequence since $\EEx$ is divisible
 from Proposition~\ref{prop:pullback} and Theorem~\ref{thm:snake}.
 \end{proof}
 
-With Theorem~\ref{thm:snake} in hand, 
-we can see why neither bounded quasicharacter sheaves 
-nor finite quasicharacter sheaves are up to the task of 
-geometrizing all characters of $G(\Fq)$ for general $\QC$-schemes $G$.  
-
 \begin{corollary} \label{cor:bounded-and-finite}
 Suppose $G$ is a $\QC$-scheme and $\qcs{L}$ is a quasicharacter sheaf on $G$.  Then
 \begin{enumerate}
@@ -1659,7 +1658,9 @@ $\qcs{L}$ that descend to Weil sheaves on $G$.  The conditions on the values $b_
 translate into analogous conditions on the image of trace of Frobenius.
 \end{proof}
 
-Using Corollary~\ref{cor:bounded-and-finite} we can easily see that, in general, neither of the full subcategories
+With Corollary~\ref{cor:bounded-and-finite} in hand 
+we can see why neither finite quasicharacter sheaves nor bounded quasicharacter sheaves 
+are up to the task of geometrizing all characters of $G(\Fq)$ for general $\QC$-schemes $G$ since, in general, neither of the full subcategories
 $\QCf(G) \subset \QCb(G) \subset \QC(G)$ are equivalences.
 For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
 If $\chi : \ZZ \to \EEx$ is the quasicharacter of $G(\Fq)$ determined by $\chi(1) = \ell$ 
