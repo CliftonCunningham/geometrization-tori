@@ -1,0 +1,13 @@
+Here is my brief report
+"A function-sheaf dictionary for algebraic tori over local fields"
+Clifton Cunningham and David Roe.
+
+In their paper the authors are trying to develop a theory of what they
+call quasicharacter sheaves on commutative group schemes. The theory
+is nice, so it would be good to have it in a published form.
+
+On the other hand, the results seem to be rather straightforward, and
+no application of the theory is given.
+
+Therefore I don't think that the paper meets the standards of
+originality and quality of Compositio Mathematica.
