@@ -4,7 +4,8 @@
 \pdfoutput=1
 
 %%%%%%%%%%%%%%%%%% HEADING %%%%%%%%%%%%%%%%%%
-\title[The function--sheaf dictionary]{The function--sheaf dictionary for smooth commutative group schemes over finite fields with finitely generated geometric component group}
+\title[The function--sheaf dictionary]{The function--sheaf dictionary for smooth commutative group schemes over finite fields}
+% with finitely generated geometric component group}
 \date{\today}
 \author{Clifton Cunningham}
 \email{cunning@math.ucalgary.ca}
@@ -173,14 +174,14 @@
   commutative group schemes locally of finite type over finite fields
   with finitely-generated geometric component group.
   To do so, we introduce the category of quasicharacter sheaves on such group schemes
-  $G$ over $\mathbb{F}_q$ and exhibit a canonical isomorphism between the character group of $G(\mathbb{F}_q)$ and the group of isomorphism classes of quasicharacter sheaves on $G$.
+  $G$ over $\mathbb{F}_q$ and exhibit a functorial isomorphism between the character group of $G(\mathbb{F}_q)$ and the group of isomorphism classes of quasicharacter sheaves on $G$.
    \end{abstract}
 
 \maketitle
 
 \section*{Introduction}
 
-The sheaf--function dictionary for connected commutative algebraic groups over finite fields translates characters into local systems \cite{deligne:SGA4.5}*{sommes trig.}. Let $G$ be a commutative group scheme over a finite field $\Fq$, let $\ell$ be any prime invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character. Using little more than the Lang map for $G$, $\chi$ determines an $\ell$-adic local system $\qcs{L}$ on $G$ from which the character $\chi$ can be recovered using the Frobenius automorphism of $\bG$, the base change of $G$ to $\bFq$. While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there exists an isomorphism 
+The sheaf--function dictionary for connected commutative algebraic groups over finite fields \cite{deligne:SGA4.5}*{sommes trig.} translates characters into local systems. Let $G$ be a commutative group scheme over a finite field $\Fq$, let $\ell$ be any prime invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character. Using little more than the Lang map for $G$, $\chi$ determines an $\ell$-adic local system $\qcs{L}$ on $G$ from which the character $\chi$ can be recovered using the Frobenius automorphism of $\bG$, the base change of $G$ to $\bFq$. While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there exists an isomorphism 
 \begin{equation}\label{introbox}
 m^* \qcs{L} \iso \qcs{L} \boxtimes \qcs{L}
 \end{equation}
@@ -190,7 +191,7 @@ Although hidden in the discussion above, the connectness of $G$ played a crucial
 %
 In fact, we show much more by exhibiting a sheaf--function dictionary, in the sense above, for any smooth commutative group scheme $G$, locally of finite type over a finite field $\Fq$, 
 for which the geometric component group of $G$ is finitely generated; we call such group schemes $\QC$-schemes.
-To do this we must pass from $\ell$-adic local systems on a $\QC$-scheme $G$ to Weil local systems on $\bG$ 
+To do this we must pass from $\ell$-adic local systems on a $\QC$-scheme $G$ to Weil local systems on $G$ 
 and also keep track of the isomorphisms \eqref{introbox} (existence of such an isomorphism is not enough), leading to the notion of {\it quasicharacter sheaves on $G$}. 
 
 A quasicharacter sheaf on $G$ is a triple $\qcs{L}\ceq
@@ -203,7 +204,17 @@ is a rigid monoidal category and the trace of Frobenius morphism provides an iso
 \end{equation}
 In this way, quasicharacter sheaves geometrize characters of $G(\Fq)$.
 
-A simple example will illustrate some of the issues that arise when extending the sheaf--function dictionary to $\QC$-schemes. Consider the etale group scheme $G = \ZZ_{/\Fq}$. Characters of $G(\Fq) = \ZZ$ are neither finite nor bounded, in general. For example, the $\ell$-adic character $\ZZ \to \EEx$ defined by $1 \mapsto 1+ \ell$ is bounded but not finite, while the character $\ZZ \to \EEx$ defined by $1 \mapsto \ell$ is unbounded.  As we show in the paper, $\ell$-adic local systems on $G$ cannot be used to geometrize either of these characters; however, quasicharacter sheaves do the job, handily. We remark that such characters arise when considering unramified quasicharacters of the $p$-adic group $\Qp^\times$. This example informs our choice of the term ``quasicharacter sheaf''. Indeed, in \cite{cunningham-roe:p-adic_tori} we use this paper to geometrize and categorify all quasicharacters of all algebraic tori over all local fields. 
+A simple example will illustrate some of the issues that arise when extending the sheaf--function dictionary to $\QC$-schemes. 
+Consider the etale group scheme $G = \ZZ_{/\Fq}$. 
+Characters of $G(\Fq) = \ZZ$ are neither finite nor bounded, in general. 
+For example, while the $\ell$-adic character $\ZZ \to \EEx$ defined by 
+$1 \mapsto -1$ has finite order, the character defined by 
+$1 \mapsto 1+ \ell$ does not, although its image is bounded, while the character $\ZZ \to \EEx$ defined by 
+$1 \mapsto \ell$ has unbounded image.  
+As we show in the paper, $\ell$-adic local systems on $G$ can only be used to geometrize characters of finite order; quasicharacter sheaves, however, provide the geometrization of all characters of $G(\Fq)$.
+We remark that characters of finitely generated commutative groups, like $\ZZ$, 
+arise when considering unramified quasicharacters of $p$-adic groups, 
+such as $\Qp^\times$; in fact, aiming at such characters informs our choice of the term ``quasicharacter sheaf'' here.  Indeed, in \cite{cunningham-roe:p-adic_tori} we use this paper to geometrize and categorify all quasicharacters of all algebraic tori over all local fields. 
 
 We also want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
 Some people refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves; 
@@ -220,7 +231,7 @@ in which case it is not difficult to relate Frobenius-stable character sheaves t
 
 We close the introduction with a more detailed description of the structure of this paper.
 After setting some notation in Section~\ref{sec:QCschemes}, in Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
-them as Weil sheaves with certain properties.
+them as Weil sheaves equipped with an isomorphism of the form  \eqref{introbox}.
 Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism,
 one direction of the function--sheaf dictionary.
 We define pullbacks and products of quasicharacter sheaves in Section~\ref{sec:pullback}, and use
@@ -228,17 +239,16 @@ them to prove a functoriality result on the trace of Frobenius.
 In Section~\ref{sec:basechange} we study how quasicharacter sheaves behave under base change
 and Weil restriction.
 Sections~\ref{sec:bounded} and \ref{sec:finite} describe bounded quasicharacter sheaves and finite quasicharacter sheaves, respectively,
-forming two important subcategories of $\QC(G)$.  These subcategories play a key
-role in the proof of Proposition~\ref{prop:restriction}.
-In section \ref{sec:connected} we show that bounded and finite quasicharacter sheaves are the same
-as standard quasicharacter sheaves when $G$ is connected, and that trace of Frobenius is an isomorphism.
+forming two important subcategories of $\QC(G)$.  
+%These subcategories play a key role in the proof of Proposition~\ref{prop:restriction}.
+In Section \ref{sec:connected} we show that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves when $G$ is connected, and that trace of Frobenius is an isomorphism in this case.
 We shift to \'etale group schemes $G$ in Section~\ref{sec:etale} and give a more concrete interpretation
-of quasicharacter sheaves in this case.  Using a notion of global sections for quasicharacter sheaves,
-we give isomorphisms between $\QCiso{G}$, $\Hh^1(\Weil{}, \Hom(G(\bFq), \EEx))$ and $\Hom(G(\Fq), \EEx)$, where $\Weil{}$ is the Weil group for $\Fq$.
+of quasicharacter sheaves in this case.  Using a notion of global sections for quasicharacter sheaves, in this section 
+we also give isomorphisms between $\QCiso{G}$, $\Hh^1(\Weil{}, \Hom(G(\bFq), \EEx))$ and $\Hom(G(\Fq), \EEx)$, where $\Weil{}$ is the Weil group for $\Fq$.
 In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
 induces an essentially surjective functor of quasicharacter sheaves.
 Section~\ref{sec:snake} presents the main theorem of this paper: trace of Frobenius
-is an isomorphism for $G$ as long as the geometric component group is finitely generated.
+is a functorial isomorphism for $\QC$-schemes.
 
 %\begin{acknowledgements}
 \subsection*{Acknowledgements}
@@ -1668,7 +1678,7 @@ and if $\qcs{L}$ is a quasicharacter sheaf on $G$ in the isomorphism class
 corresponding to $\chi$ under Theorem~\ref{thm:snake},
 then $\qcs{L}$ is not a bounded quasicharacter sheaf since the image of $\chi$ is not
 bounded.  
-On the other hand, if $\chi : \ZZ \to \EEx$ is the quasicharacter of $G(\Fq)$ determined by $\chi(1) = 1+\ell$ 
+Likewise, if $\chi : \ZZ \to \EEx$ is the quasicharacter of $G(\Fq)$ determined by $\chi(1) = 1+\ell$ 
 and if $\qcs{L}$ is a quasicharacter sheaf on $G$ in the isomorphism class 
 corresponding to $\chi$ under Theorem~\ref{thm:snake},
 then $\qcs{L}$ is a bounded quasicharacter sheaf but not a finite quasicharacter sheaf
