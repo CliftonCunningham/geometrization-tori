@@ -1,0 +1,3 @@
+[submodule "david_bib"]
+	path = bibliography
+	url = git@github.com:roed314/bibliography.git
