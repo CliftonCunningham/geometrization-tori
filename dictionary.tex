@@ -128,10 +128,11 @@
 \newcommand{\QC}{{\mathcal{Q\hskip-0.8pt C}}}
 \newcommand{\QCb}{{\QC_0}}
 \newcommand{\QCf}{{\QC_f}}
-\newcommand{\QCiso}[1]{\pi_0 (\QC(#1))}
-\newcommand{\QCbiso}[1]{\pi_0(\QCb(#1))}
-\newcommand{\QCfiso}[1]{\pi_0(\QCf(#1))}
+\newcommand{\QCiso}[1]{\QC(#1)_{/\text{iso}}}
+\newcommand{\QCbiso}[1]{\QCb(#1)_{/\text{iso}}}
+\newcommand{\QCfiso}[1]{\QCf(#1)_{/\text{iso}}}
 \newcommand{\trFrob}[1]{t_{#1}}
+\newcommand{\TrFrob}[1]{T_{#1}}
 %% amsmath replacements for \atop
 \newcommand{\latop}[2]{\genfrac{}{}{0pt}{0}{#1}{#2}}
 \newcommand{\partop}[2]{\genfrac{(}{)}{0pt}{0}{#1}{#2}}
@@ -199,7 +200,7 @@ A quasicharacter sheaf on $G$ is a triple $\qcs{L}\ceq
 (\gqcs{L},\mu,\phi)$ where $\gqcs{L}$ is an $\ell$-adic local system on $\bG$ of rank~one and $\mu: m^*
 \gqcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gqcs{L} \to \gqcs{L}$ are isomorphisms satisfying natural compatibilty conditions. The main result of this paper is the following statement (see Theorem~\ref{thm:snake}, which says more): 
 the category $\QC(G)$ of quasicharacter sheaves on $G$
-is a rigid monoidal category and the trace of Frobenius morphism provides an isomorphism
+is a rigid monoidal category and Trace of Frobenius provides an isomorphism
 \begin{equation}
 \QCiso{G} \to \Hom(G(\Fq), \EEx).
 \end{equation}
@@ -213,11 +214,15 @@ $1 \mapsto -1$ has finite order, the character defined by
 $1 \mapsto 1+ \ell$ does not, although its image is bounded, while the character $\ZZ \to \EEx$ defined by 
 $1 \mapsto \ell$ has unbounded image.  
 As we show in the paper, $\ell$-adic local systems on $G$ can only be used to geometrize characters of finite order; quasicharacter sheaves, however, provide the geometrization of all characters of $G(\Fq)$.
-We remark that characters of finitely generated commutative groups, like $\ZZ$, 
-arise when considering unramified quasicharacters of $p$-adic groups, 
-such as $\Qp^\times$; in fact, aiming at such characters informs our choice of the term ``quasicharacter sheaf'' here.  Indeed, in \cite{cunningham-roe:13a} we use this paper to geometrize and categorify all quasicharacters of all algebraic tori over all local fields. 
 
-We also want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
+In \cite{cunningham-roe:13a} we consider quasicharacter sheaves on the
+Greenberg transform of the N\'eron model of an algebraic torus over an arbitrary local field.
+The ability to work with non-connected group schemes plays a crucial role in this application,
+since these $\QC$-schemes are not connected in general.
+This process of creating a category from the group of quasicharacters of such a torus
+informs our choice of the term \emph{quasicharacter sheaf} here.
+
+We also want to situate our teminology in a historical context.
 Some people refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves; 
 see for example, \cite{kamgarpour:09a}. 
 As explained above, quasicharacter sheaves evolved from this notion,
@@ -233,22 +238,22 @@ in which case it is not difficult to relate Frobenius-stable character sheaves t
 We close the introduction with a more detailed description of the structure of this paper.
 After setting some notation in Section~\ref{sec:QCschemes}, in Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
 them as Weil sheaves equipped with an isomorphism of the form  \eqref{introbox}.
-Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism,
+Section~\ref{sec:Frob} introduces Trace of Frobenius,
 one direction of the function--sheaf dictionary.
 We define pullbacks and products of quasicharacter sheaves in Section~\ref{sec:pullback}, and use
-them to prove a functoriality result on the trace of Frobenius.
+them to prove a functoriality result on Trace of Frobenius.
 In Section~\ref{sec:basechange} we study how quasicharacter sheaves behave under base change
 and Weil restriction.
 Sections~\ref{sec:bounded} and \ref{sec:finite} describe bounded quasicharacter sheaves and finite quasicharacter sheaves, respectively,
 forming two important subcategories of $\QC(G)$.  
 %These subcategories play a key role in the proof of Proposition~\ref{prop:restriction}.
-In Section \ref{sec:connected} we show that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves when $G$ is connected, and that trace of Frobenius is an isomorphism in this case.
+In Section \ref{sec:connected} we show that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves when $G$ is connected, and that Trace of Frobenius is an isomorphism in this case.
 We shift to \'etale group schemes $G$ in Section~\ref{sec:etale} and give a more concrete interpretation
 of quasicharacter sheaves in this case.  Using a notion of global sections for quasicharacter sheaves, in this section 
 we also give isomorphisms between $\QCiso{G}$, $\Hh^1(\Weil{}, \Hom(G(\bFq), \EEx))$ and $\Hom(G(\Fq), \EEx)$, where $\Weil{}$ is the Weil group for $\Fq$.
 In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
 induces an essentially surjective functor of quasicharacter sheaves.
-Section~\ref{sec:snake} presents the main theorem of this paper: trace of Frobenius
+Section~\ref{sec:snake} presents the main theorem of this paper: Trace of Frobenius
 is a functorial isomorphism for $\QC$-schemes.
 
 %\begin{acknowledgements}
@@ -383,14 +388,18 @@ This rigid monoidal category structure for $\QC(G)$ gives the set $\QCiso{G}$
 of isomorphism classes in $\QC(G)$ the structure of a group.
 We now begin developing the tools to relate $\QCiso{G}$ to $G(\Fq)^*$.
 
-\begin{definition}\label{def:trFrob}
 Let $(\gqcs{L},\phi)$ be a Weil sheaf on $G$. Every $g\in G(\Fq)$
 determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$ and
-therefore an automorphism $\phi_{\bg}$ of $\gqcs{L}_{\bg}$. The \emph{trace of Frobenius} of $(\gqcs{L},\phi)$ at $g\in G(\Fq)$ is 
-\[
-\trFrob{(\gqcs{L},\phi)}(g) \ceq \trace(\phi_{\bg}, \gqcs{L}_{\bg}).
-\]
-If $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf
+therefore an automorphism $\phi_{\bg}$ of $\gqcs{L}_{\bg}$. Set $\trFrob{(\gqcs{L},\phi)}(g) \ceq \trace(\phi_{\bg}, \gqcs{L}_{\bg})$,
+and note that if $(\gqcs{L},\phi) \iso (\gqcs{L'},\phi')$ then $\trFrob{(\gqcs{L},\phi)} = \trFrob{(\gqcs{L'},\phi')}$.
+
+\begin{definition}\label{def:trFrob}
+The function 
+\begin{align*}
+\TrFrob{G}: \QCiso{G} &\to G(\Fq)^* \\
+(\gqcs{L},\phi) &\mapsto t_{(\gqcs{L},\phi)}
+\end{align*}
+is called \emph{Trace of Frobenius}.  If $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf
 then we will abbreviate $\trFrob{(\gqcs{L},\phi)}$ to $\trFrob{\qcs{L}}$.
 \end{definition}
 
@@ -399,16 +408,10 @@ The isomorphism $\mu : \bm^* \gqcs{L} \to \LxL$ together with
 that the function $\trFrob{\qcs{L}} : G(\Fq)\to \EEx$ is a group homomorphism.  If we write
 $\trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$ for pointwise multiplication, then 
  $\trFrob{\qcs{L}\otimes \qcs{L'}} = \trFrob{\qcs{L}} \cdot \trFrob{\qcs{L'}}$.
-Since $\qcs{L} \iso \qcs{L'}$ implies $\trFrob{\qcs{L}} = \trFrob{\qcs{L'}}$,
-we obtain a group homomorphism
-\begin{align*}
-\trFrob{G} : \QCiso{G} &\to G(\Fq)^*, \\
-\qcs{L} &\mapsto \trFrob{\qcs{L}}.
-\end{align*}
-This homomorphism is functorial in the following sense:
+ Therefore $\TrFrob{G}$ is a homomorphism, which is functorial in the following sense:
 
 \begin{proposition}\label{prop:functorialG}
-Trace of Frobenius $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a natural transformation 
+Trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a natural transformation 
 between the two additive functors 
 \begin{align*}
 F_1 : G &\mapsto \QCiso{G} \\
@@ -435,7 +438,7 @@ play a role in the proof of many other results in this paper.
   defines a monoidal functor dual to $f \colon H(\Fq) \to G(\Fq)$:
   \[
   \begin{tikzcd}[row sep=20, column sep=30]
-   \QCiso{G} \rar{f^*} \arrow[swap]{d}{\trFrob{G}} & \QCiso{H} \dar{\trFrob{H}} \\
+   \QCiso{G} \rar{f^*} \arrow[swap]{d}{\TrFrob{G}} & \QCiso{H} \dar{\TrFrob{H}} \\
    G(\Fq)^* \rar & H(\Fq)^*
   \end{tikzcd}
   \]
@@ -487,7 +490,7 @@ play a role in the proof of many other results in this paper.
   of $f^*$ on morphisms of quasicharacter sheaves; arguing as above shows that $f^*$ is
   a functor from $\QC(G)$ to $\QC(H)$.  Since tensor products commute with pullback in schemes,
   $f^* : \QC(G) \to \QC(H)$ is a monoidal functor.
-  The diagram relating $f^* : \QC(G) \to \QC(H)$, $f^* : G(k)^* \to H(k)^*$ and trace of Frobenius
+  The diagram relating $f^* : \QC(G) \to \QC(H)$, $f^* : G(k)^* \to H(k)^*$ and Trace of Frobenius
   commutes by \cite{laumon:87a}*{1.1.1.2}, where the ambient
   hypothesis that $X$ is of finite type over $\Fq$ can be replaced by
   the hypothesis that $X$ is locally of finite type over $\Fq$.
@@ -508,8 +511,8 @@ $\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an eq
 such that 
 \[
 \begin{tikzcd}[column sep=60]
-\arrow{d}{\trFrob{G_1} \times \trFrob{G_2}} \QCiso{G_1}\times \QCiso{G_2} \arrow{r}{\boxtimes}
-& \arrow{d}{\trFrob{G_1\times G_2}} \QCiso{G_1\times G_2}\\
+\arrow{d}{\TrFrob{G_1} \times \TrFrob{G_2}} \QCiso{G_1}\times \QCiso{G_2} \arrow{r}{\boxtimes}
+& \arrow{d}{\TrFrob{G_1\times G_2}} \QCiso{G_1\times G_2}\\
 (G_1)(\Fq)^*\times (G_2)(\Fq)^* \arrow{r}{(\chi_1,\chi_2)\mapsto \chi_1\otimes \chi_2}  & (G_1\times G_2)(\Fq)^*
 \end{tikzcd}
 \]
@@ -565,8 +568,8 @@ This completes the proof that $\boxtimes$ is essentially surjective.
 \begin{proof}[Proof of Proposition~\ref{prop:functorialG}]
 The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
 while the second part shows that Trace of Frobenius is a natural transformation
-$t: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product},
-we see that $F_1$ is an additive functor and $t: F_1 \to F_2$ is a natural
+$T: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product},
+we see that $F_1$ is an additive functor and $T: F_1 \to F_2$ is a natural
 transformation between additive functors, 
 concluding the proof of Proposition~\ref{prop:functorialG}.
 \end{proof}
@@ -594,7 +597,7 @@ $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$
 The following diagram commutes:
 \[
 \begin{tikzcd}
-\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota^*} \dar[swap]{\trFrob{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{\trFrob{G}} \\
+\QCiso{\Res_{k'/k}(G_{k'})} \arrow[two heads]{r}{\iota^*} \dar[swap]{\TrFrob{\Res_{k'/k}(G_{k'})}} & \QCiso{G} \dar{\TrFrob{G}} \\
 G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \end{tikzcd}
 \]
@@ -632,7 +635,7 @@ defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{
  Moreover, the following diagram commutes:
 \[
 \begin{tikzcd}[column sep=60]
-\QCiso{G} \rar{\nu_{k'/k}} \dar{\trFrob{G}} & \QCiso{G_{k'}} \dar{\trFrob{G_{k'}}} \\
+\QCiso{G} \rar{\nu_{k'/k}} \dar{\TrFrob{G}} & \QCiso{G_{k'}} \dar{\TrFrob{G_{k'}}} \\
 G(k)^*  \rar{\Nm^*} & G(k')^*.
 \end{tikzcd}
 \]
@@ -640,7 +643,7 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \begin{proof}
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and write $F$ for $\Frob{G}$.  For any $x \in G(k')$,
 we may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
-and the value of $\Nm^*(t_G(\qcs{L}))(x)$ as the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
+and the value of $\Nm^*(\TrFrob{G}(\qcs{L}))(x)$ as the trace of $\phi$ on $\gqcs{L}_{\Nm(x)}$.
 Applying \ref{QC.3} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
 \[
 \begin{tikzcd}
@@ -679,7 +682,7 @@ from Proposition~\ref{prop:basechange} with pullback along this map yields a fun
 The following diagram of isomorphisms commutes, where the bottom map is the identity:
 \[
 \begin{tikzcd}
-\QCiso{\Res_{k'/k} G'} \dar{\trFrob{\Res_{k'/k} G'}} \rar{\rho} & \QCiso{G'} \dar{\trFrob{G'}}\\
+\QCiso{\Res_{k'/k} G'} \dar{\TrFrob{\Res_{k'/k} G'}} \rar{\rho} & \QCiso{G'} \dar{\TrFrob{G'}}\\
 G'(k')^* \rar & G'(k')^*
 \end{tikzcd}
 \]
@@ -741,7 +744,7 @@ proper subcategory of $\QC(G)$. We will identify $\QCb(G)$ with its image under 
 and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded}
 if it is isomorphic to some $B_G(\qcs{L}_0, \mu_0)$.
 We will see in Corollary~\ref{cor:bounded-and-finite} that the bounded quasicharacter sheaves
-are precisely those whose trace of Frobenius have bounded image.
+are precisely those whose Trace of Frobenius have bounded image.
 
 \section{Finite quasicharacter sheaves}\label{sec:finite}
  
@@ -971,7 +974,7 @@ On general $\QC$-schemes $G$, there are bounded quasicharacter sheaves which are
 $\QCf(G)$ with its image under $B_G \circ L_G$, as defined in
 Proposition~\ref{prop:BG} and in the proof of Proposition~\ref{prop:bounded},
 we will see in Corollary~\ref{cor:bounded-and-finite} that
-a quasicharacter sheaf is finite if and only if its trace of Frobenius has finite image.
+a quasicharacter sheaf is finite if and only if its Trace of Frobenius has finite image.
  
 \section{Connected commutative algebraic groups} \label{sec:connected}
 
@@ -1009,7 +1012,7 @@ For connected groups, the subcategories introduced in the previous two sections 
   Now let $(\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$ 
   and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
   Composing with the splitting $\Weil{} \to \W(G,\bg)$ yields an $\ell$-adic character
-  $\rho_g : \Weil{} \to \EEx$, which is the same as the trace of Frobenius defined in Section~\ref{sec:Frob}:
+  $\rho_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{sec:Frob}:
   \[
   \rho_g(\Frob{}) =  \trFrob{\qcs{L}}(g).
   \]
@@ -1084,15 +1087,15 @@ For connected groups, the subcategories introduced in the previous two sections 
 \begin{corollary}
  If $G$ is a connected, commutative algebraic group over $\Fq$ then
  \[
-  \trFrob{G} : \QCiso{G} \to G(\Fq)^*
+  \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
  \]
  is an isomorphism of groups.
 \end{corollary}
 \begin{proof}
  It suffices to observe that the group homomorphism
- $\trFrob{G} : \QCiso{G} \to G(\Fq)^*$
+ $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$
  is surjective because each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter
- sheaf $(\Lang,\chi^{-1})$ such that the trace of Frobenius of the quasicharacter sheaf
+ sheaf $(\Lang,\chi^{-1})$ such that Trace of Frobenius of the quasicharacter sheaf
  $B_G (L_G(\Lang,\chi^{-1}))$ is $\chi$.
 \end{proof}
 
@@ -1362,7 +1365,7 @@ Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the coker
  If $G$ is a commutative, \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely
  generated then
  \[
-  \trFrob{G} : \QCiso{G} \to G(\Fq)^*
+  \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
  \]
  is an isomorphism of groups.
 \end{proposition}
@@ -1567,16 +1570,16 @@ To close this section, we note that the injectivity of $\pi_0^*$ will be proven 
 \section{The function--sheaf dictionary for disconnected group schemes}
 \label{sec:snake}
 
-We saw in Proposition~\ref{prop:functorialG} that the trace of Frobenius
-$\trFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
-In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
+We saw in Proposition~\ref{prop:functorialG} that Trace of Frobenius
+$\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
+In fact, Trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
 
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth, commutative group scheme, locally of finite type over
   $\Fq$, and if the abelian group $\pi_0(G)(\bFq)$
-  is finitely generated, then the trace of Frobenius
+  is finitely generated, then Trace of Frobenius
   \[
-  \trFrob{G} : \QCiso{G} \to G(\Fq)^*
+  \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
   is a functorial isomorphism of groups. 
 \end{theorem}
@@ -1592,12 +1595,12 @@ In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   Let
   \[
   \begin{tikzcd}[row sep=30]
-    {}& \ker \trFrob{\pi_0(G)} \dar & \arrow[dashed]{d} \ker \trFrob{G} & \ker \trFrob{G^0} \dar & \\
-    0 \rar & \QCiso{\pi_0(G)} \rar \dar{\trFrob{\pi_0(G)}}
-    & \QCiso{G} \rar \dar{\trFrob{G}} & \QCiso{G^0} \rar \dar{\trFrob{G^0}} & 0\\
+    {}& \ker \TrFrob{\pi_0(G)} \dar & \arrow[dashed]{d} \ker \TrFrob{G} & \ker \TrFrob{G^0} \dar & \\
+    0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
+    & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
     0 \rar & \pi_0(G)(\Fq)^* \rar \dar
     & \arrow[dashed]{d} G(\Fq)^* \rar & G^0(\Fq)^* \rar \dar & 0\\
-    & \coker \trFrob{\pi_0(G)} & \coker \trFrob{G} &  \coker \trFrob{G^0} &
+    & \coker \TrFrob{\pi_0(G)} & \coker \TrFrob{G} &  \coker \TrFrob{G^0} &
   \end{tikzcd}
   \]
   be the commutative diagram of abelian groups obtained by applying
@@ -1618,11 +1621,11 @@ In fact, trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   the surjectivity of $\QCiso{G} \to \QCiso{G^0}$ follows from Proposition~\ref{prop:restriction}
   while exactness at $\QCiso{G}$ is given by Proposition~\ref{prop:middleexact}.
   Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
-  imply that $\ker \trFrob{G^0} =0$ and $\coker \trFrob{G^0}=0$. 
-  Similarly, Proposition~\ref{prop:etale-iso} shows that $\ker \trFrob{\pi_0(G)}=0$
-  and $\coker \trFrob{\pi_0(G)}=0$.
+  imply that $\ker \TrFrob{G^0} =0$ and $\coker \TrFrob{G^0}=0$. 
+  Similarly, Proposition~\ref{prop:etale-iso} shows that $\ker \TrFrob{\pi_0(G)}=0$
+  and $\coker \TrFrob{\pi_0(G)}=0$.
   We may thus apply the snake lemma and conclude that
-  $\ker \trFrob{G}$ and $\coker \trFrob{G}$ both vanish.
+  $\ker \TrFrob{G}$ and $\coker \TrFrob{G}$ both vanish.
 \end{proof}
 
 
@@ -1654,7 +1657,7 @@ Suppose $G$ is a $\QC$-scheme and $\qcs{L}$ is a quasicharacter sheaf on $G$.  T
 \begin{proof}
 We first reduce to the case that $G$ is an \'etale $\QC$-scheme.  On the connected component
 $G^0$, all quasicharacter sheaves are bounded and finite by Proposition~\ref{prop:connected}.
-On the other hand, $G^0(\Fq)$ is finite by Lemma~\ref{lem:G0alg-grp} and thus the trace of Frobenius
+On the other hand, $G^0(\Fq)$ is finite by Lemma~\ref{lem:G0alg-grp} and thus Trace of Frobenius
 has finite and therefore bounded image.  If $\chi \in G(\Fq)^*$ then there is some finite-image character $\chi_0$
 with the same restriction to $G^0(\Fq)$ since $G^0(\Fq)$ is lies inside the torsion part of
 the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ will be bounded (have finite image)
@@ -1676,7 +1679,7 @@ $\QCiso{G} \cong \Hh^1(\Weil{}, G(\bFq)^*)$.  Then $z(\Frob{})(x) = b_x$, and th
 map $\Hh^1(\Weil{}, \Hom(G(\bFq), \Zlx)) \to \Hom(G(\Fq), \Zlx)$ is an isomorphism
 since $\Zlx$ is divisible.  So bounded characters of $G(\Fq)$ correspond to quasicharacter sheaves
 $\qcs{L}$ that descend to Weil sheaves on $G$.  The conditions on the values $b_x$ then
-translate into analogous conditions on the image of trace of Frobenius.
+translate into analogous conditions on the image of Trace of Frobenius.
 \end{proof}
 
 With Corollary~\ref{cor:bounded-and-finite} in hand 
