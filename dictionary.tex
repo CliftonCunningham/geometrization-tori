@@ -25,6 +25,7 @@
 \usepackage[alphabetic]{amsrefs}
 % Fonts
 \usepackage{mathrsfs, yfonts}
+\usepackage{geometry}
 % TikZ
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc,matrix}
@@ -214,7 +215,7 @@ $1 \mapsto \ell$ has unbounded image.
 As we show in the paper, $\ell$-adic local systems on $G$ can only be used to geometrize characters of finite order; quasicharacter sheaves, however, provide the geometrization of all characters of $G(\Fq)$.
 We remark that characters of finitely generated commutative groups, like $\ZZ$, 
 arise when considering unramified quasicharacters of $p$-adic groups, 
-such as $\Qp^\times$; in fact, aiming at such characters informs our choice of the term ``quasicharacter sheaf'' here.  Indeed, in \cite{cunningham-roe:p-adic_tori} we use this paper to geometrize and categorify all quasicharacters of all algebraic tori over all local fields. 
+such as $\Qp^\times$; in fact, aiming at such characters informs our choice of the term ``quasicharacter sheaf'' here.  Indeed, in \cite{cunningham-roe:13a} we use this paper to geometrize and categorify all quasicharacters of all algebraic tori over all local fields. 
 
 We also want to situate the choice of term ``quasicharacter sheaf'' in a historical context.
 Some people refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves; 
@@ -252,7 +253,7 @@ is a functorial isomorphism for $\QC$-schemes.
 
 %\begin{acknowledgements}
 \subsection*{Acknowledgements}
-We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
+We thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable. 
 %We also thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for pointing us to a proof of Lemma~\ref{lemma:wrK}.
@@ -600,7 +601,10 @@ G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \end{proposition}
 \begin{proof}
 This result follows immediately from Proposition~\ref{prop:pullback} together with the identifications
-$\Res_{k'/k}(G_{k'})(k) \cong G_{k'}(k') \cong G(k')$ from the definitions of Weil restriction and base change.
+\[
+\Res_{k'/k}(G_{k'})(k) \cong G_{k'}(k') \cong G(k')
+\]
+from the definitions of Weil restriction and base change.
 \end{proof}
 
 In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consider the group homomorphism:
@@ -681,7 +685,10 @@ G'(k')^* \rar & G'(k')^*
 \]
 \end{proposition}
 \begin{proof}
-By Proposition~\ref{prop:pullback} the pullback part of the definition of $\rho$ corresponds to the map $(\Res_{k'/k}G')(k') \to G'(k')^*$
+By Proposition~\ref{prop:pullback} the pullback part of the definition of $\rho$ corresponds to the map 
+\[
+(\Res_{k'/k}G')(k') \to G'(k')^*
+\]
 induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on 
 \[
 (\Res_{k'/k}G')_{k'} \cong \prod_{\Gal(k'/k)} G'
@@ -902,11 +909,11 @@ We have $(f,\psi) \boxtimes (f,\psi) = (f\times f, \psi\otimes \psi)$.
 Since $f\circ m_H = m \circ (f\times f)$, the universal property of pullback gives
 a unique $\theta : H\times H \to H_m$ making the following commute.
 \[
-\begin{tikzcd}[row sep=20,column sep=10]
+\begin{tikzcd}[row sep=20,column sep=8]
 \ & V \arrow{dd}{T} && \Aut(V) && A \arrow[hook]{rr} \arrow[swap]{ll}{\psi} &&  H \arrow{rr}{f} && G\\
  && && \arrow{ul}{\psi_m} A_m  \arrow[hook]{rr} \arrow{ur} && H_m \arrow[pos=0.3]{ur}{m_f} \arrow[swap, pos=0.8]{rr}{f_m}
  && G \times G \arrow[equal]{dr} \arrow[pos=0.42]{ur}{m} & \\
-& V\otimes V && \Aut(V) && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[dashed,swap,pos=0.3]{ul}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
+& V\otimes V && \Aut(V\otimes V) && \arrow[swap]{ll}{\psi \otimes \psi} \arrow[dashed,swap,pos=0.3]{ul}{\theta\vert_{A\times A}} A\times A \arrow[hook]{rr}
 && \arrow[dashed,swap]{ul}{\theta} \arrow[crossing over,swap,pos=0.7]{uu}{m_H} H\times H \arrow{rr}{f\times f} && G\times G
 \end{tikzcd}
 \]
@@ -947,7 +954,11 @@ let $L(f,\psi)$ be the local system on $G$ given by the $\psi$-isotypic componen
  see \cite{kashiwara-schapira:CatgoriesSheaves}*{Exercise 7.5}.  
    
  By Lemma~\ref{lemma:finite-iso}, each $(f,\psi) \in \QCf(G)$ canonically determines 
- an isomorphism $\mu(f,\psi) : m^*(f,\psi) \to (f,\psi) \boxtimes (f,\psi)$ in $\QCf(G\times G)$.
+ an isomorphism 
+ \[
+ \mu(f,\psi) : m^*(f,\psi) \to (f,\psi) \boxtimes (f,\psi)
+ \]
+ in $\QCf(G\times G)$.
  It follows immediately that the functor 
  \[
  L_G  \ceq  L_{W}\vert_{\QCf(G)} : \QCf(G) \to \QCb(G),
@@ -1688,6 +1699,6 @@ by a pro-\'etale cover rather than an \'etale cover.
 
 
 \bibliographystyle{amsalpha}
-\bibliography{Biblio}
+\bibliography{bibliography/Biblio}
 
 \end{document}
