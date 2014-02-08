@@ -149,6 +149,7 @@
 \hyphenation{quasi-character}
 
 \newcommand{\UK}{\mathbf{U}_K}
+\newcommand{\VL}{\mathbf{V}_L}
 \newcommand{\Kx}{\mathbf{K}^\times}
 \newcommand{\Y}{\mathbf{Y}}
 \newcommand{\I}{\mathcal{I}}
@@ -166,16 +167,16 @@ Suppose $K$ is a local field, either a finite extension of $\Qp$ or $k\lp t\rp$,
 \[
 \chi : \I \to \CC^\times
 \]
-that vanishes on $\I^n$.  Choose a totally ramified extension $L/K$ so that $\I / \I^n \cong \Gal(L/K)$.  Let $R = \OK / \pi^n \OK$.  Class field theory gives $\Gal(L/K) \cong R^\times = \OK^\times / (1 + \pi^n\OK)$, so $\chi$ induces a character on $\OK^\times$ vanishing on $1 + \pi^n\OK$.  This character determines a character of the covering group of the Lang map on $\GN{T}^\circ$, the Greenberg transform of $\Gm / R$, which is a commutative algebraic group over $k$.  Such a pair of a cover and a character of the covering group defines a local system.
+that vanishes on $\I^n$.  Choose a totally ramified extension $L/K$ so that $\I / \I^n \cong \Gal(L/K)$.  Let $R = \OK / \pi^n \OK$.  Class field theory gives $\Gal(L/K) \cong R^\times = \OK^\times / (1 + \pi^n\OK)$, so $\chi$ induces a character on $\OK^\times$ vanishing on $1 + \pi^n\OK$.  This character determines a character of the covering group of the Lang map on $\GN{T}^\circ$, the Greenberg transform of ${\Gm{}}_{/ R}$, which is a commutative algebraic group over $k$.  Such a pair of a cover and a character of the covering group defines a local system.
 
-On the other hand, using the class field theory of Serre and Hazewinkel, one can transform $\chi$ into a character of $\pi_1^k(\UK)$ that factors through a finite quotient, which is the automorphism group of a cover $\Y \to \UK$.
+On the other hand, using the class field theory of Serre and Hazewinkel, one can transform $\chi$ into a character of $\pi_1^k(\UK)$ that factors through a finite quotient, which is the automorphism group of a cover $\VL \to \UK$.
 
 \begin{enumerate}
 \item How is this cover of $\UK$ related to the Lang map of the Greenberg quotient above?  The cover of $\UK$ arises in the fpqc topology, while the Lang map is finite \'etale.  Can one write down an homomorphism of short exact sequences in $\operatorname{Ab}(\operatorname{Perf}/k)_{\operatorname{fpqc}}$
 
 \[
 \begin{tikzcd}[column sep=30pt]
-0 \rar & \Gal(L/K) \rar \dar & \Y \rar \dar & \UK \rar \dar & 0 \\
+0 \rar & \Gal(L/K) \rar \dar & \VL \rar \dar & \UK \rar \dar & 0 \\
 0 \rar & R^\times \rar & \GN{T}^\circ \rar & \GN{T}^\circ \rar & 0
 \end{tikzcd}
 \]
