@@ -1,5 +1,4 @@
 % !TEX encoding = UTF-8 Unicode
-%\documentclass{compositio}
 \documentclass{amsart}
 \pdfoutput=1
 
@@ -13,8 +12,8 @@
 \author{David Roe}
 \email{roed.math@gmail.com}
 \address{Pacific Institute for the Mathematical Sciences at the University of Calgary}
-%\classification{14L15 (primary), 11G25, 14F05, 14D24, 11S31 (secondary)}
-%\keywords{quasicharacters, quasicharacter sheaves, algebraic tori, Greenberg transforms, N\'eron models, local fields, group schemes}
+\subjclass[2010]{14F05 (primary), 14L15 (secondary)}
+\keywords{sheaf--function dictionary, geometrization, quasicharacter sheaves, commutative group schemes}
 
 %%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 % Encodings
@@ -183,15 +182,15 @@
 
 \section*{Introduction}
 
-The sheaf--function dictionary for connected commutative algebraic groups over finite fields \cite{deligne:SGA4.5}*{sommes trig.} translates characters into local systems. Let $G$ be a commutative group scheme over a finite field $\Fq$, let $\ell$ be any prime invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character. Using little more than the Lang map for $G$, $\chi$ determines an $\ell$-adic local system $\qcs{L}$ on $G$ from which the character $\chi$ can be recovered using the Frobenius automorphism of $\bG$, the base change of $G$ to $\bFq$. While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there exists an isomorphism 
+The function--sheaf dictionary for connected commutative algebraic groups over finite fields \cite{deligne:SGA4.5}*{sommes trig.} translates characters into local systems. Let $G$ be a commutative group scheme over a finite field $\Fq$, let $\ell$ be any prime invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character. Using little more than the Lang map for $G$, $\chi$ determines an $\ell$-adic local system $\qcs{L}$ on $G$ from which the character $\chi$ can be recovered using the Frobenius automorphism of $\bG$, the base change of $G$ to $\bFq$. While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there exists an isomorphism 
 \begin{equation}\label{introbox}
 m^* \qcs{L} \iso \qcs{L} \boxtimes \qcs{L}
 \end{equation}
- of $\ell$-adic local systems on $G$, where $m : G\times G \to G$ is the multiplication map for $G$. The sheaf--function dictionary for $G$ identifies a monoidal category of $\ell$-adic local systems on $G$ such that the group of isomorphism classes in this category is canonically identified with the $\ell$-adic character group of $G(\Fq)$, thus providing the geometrization and categorification of characters of $G(\Fq)$.
+ of $\ell$-adic local systems on $G$, where $m : G\times G \to G$ is the multiplication map for $G$. The function--sheaf dictionary for $G$ identifies a monoidal category of $\ell$-adic local systems on $G$ such that the group of isomorphism classes in this category is canonically identified with the $\ell$-adic character group of $G(\Fq)$, thus providing the geometrization and categorification of characters of $G(\Fq)$.
 
-Although hidden in the discussion above, the connectness of $G$ played a crucial role in the geometrization and categorification of characters of $G(\Fq)$.  So it is natural to ask if the sheaf--function dictionary can be generalized to not-necessarily connected commutative algebraic groups over finite fields. In this paper we answer that question. 
+Although hidden in the discussion above, the connectness of $G$ played a crucial role in the geometrization and categorification of characters of $G(\Fq)$.  So it is natural to ask if the function--sheaf dictionary can be generalized to not-necessarily connected commutative algebraic groups over finite fields. In this paper we answer that question. 
 %
-In fact, we show much more by exhibiting a sheaf--function dictionary, in the sense above, for any smooth commutative group scheme $G$, locally of finite type over a finite field $\Fq$, 
+In fact, we show much more by exhibiting a function--sheaf dictionary, in the sense above, for any smooth commutative group scheme $G$, locally of finite type over a finite field $\Fq$, 
 for which the geometric component group of $G$ is finitely generated; we call such group schemes $\QC$-schemes.
 To do this we must pass from $\ell$-adic local systems on a $\QC$-scheme $G$ to Weil local systems on $G$ 
 and also keep track of the isomorphisms \eqref{introbox} (existence of such an isomorphism is not enough), leading to the notion of {\it quasicharacter sheaves on $G$}. 
@@ -206,7 +205,7 @@ is a rigid monoidal category and Trace of Frobenius provides an isomorphism
 \end{equation}
 In this way, quasicharacter sheaves geometrize characters of $G(\Fq)$.
 
-A simple example will illustrate some of the issues that arise when extending the sheaf--function dictionary to $\QC$-schemes. 
+A simple example will illustrate some of the issues that arise when extending the function--sheaf dictionary to $\QC$-schemes. 
 Consider the etale group scheme $G = \ZZ_{/\Fq}$. 
 Characters of $G(\Fq) = \ZZ$ are neither finite nor bounded, in general. 
 For example, while the $\ell$-adic character $\ZZ \to \EEx$ defined by 
