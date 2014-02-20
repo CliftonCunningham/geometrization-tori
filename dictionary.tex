@@ -172,7 +172,7 @@
 \begin{abstract}
   We extend Deligne's function--sheaf dictionary from
   connected commutative algebraic groups over finite fields to smooth
-  commutative group schemes locally of finite type over finite fields
+  commutative group schemes over finite fields
   with finitely-generated geometric component group.
   To do so, we introduce the category of quasicharacter sheaves on such group schemes
   $G$ over $\mathbb{F}_q$ and exhibit a functorial isomorphism between the character group of $G(\mathbb{F}_q)$ and the group of isomorphism classes of quasicharacter sheaves on $G$.
@@ -190,7 +190,8 @@ m^* \qcs{L} \iso \qcs{L} \boxtimes \qcs{L}
 
 Although hidden in the discussion above, the connectness of $G$ played a crucial role in the geometrization and categorification of characters of $G(\Fq)$.  So it is natural to ask if the function--sheaf dictionary can be generalized to not-necessarily connected commutative algebraic groups over finite fields. In this paper we answer that question. 
 %
-In fact, we show much more by exhibiting a function--sheaf dictionary, in the sense above, for any smooth commutative group scheme $G$, locally of finite type over a finite field $\Fq$, 
+In fact, we show much more by exhibiting a function--sheaf dictionary, in the sense above, for any smooth commutative group scheme $G$
+over a finite field $\Fq$, 
 for which the geometric component group of $G$ is finitely generated; we call such group schemes $\QC$-schemes.
 To do this we must pass from $\ell$-adic local systems on a $\QC$-scheme $G$ to Weil local systems on $G$ 
 and also keep track of the isomorphisms \eqref{introbox} (existence of such an isomorphism is not enough), leading to the notion of {\it quasicharacter sheaves on $G$}. 
@@ -272,7 +273,7 @@ as well the hospitality of the Banff International Research Station during our w
 
 \section{Preliminary definitions}\label{sec:QCschemes}
 
-Throughout this paper, $G$ is a smooth, commutative group scheme locally of finite type
+Throughout this paper, $G$ is a smooth, commutative group scheme 
 over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  For the sake of brevity, we
 define a \emph{$\QC$-scheme} to be such a $G$ with the additional property that the
 geometric component group of $G$ is finitely generated.  This last condition is only
@@ -1221,7 +1222,7 @@ Note that the only other section is the constant zero section.
 
 We note that this lemma is the only ingredient of the proof of Theorem~\ref{thm:snake}
 that forces $\QC$-schemes to have finitely generated geometric component group.  In fact,
-if $G$ is any smooth connected group scheme locally of finite type over $\Fq$
+if $G$ is any smooth connected group scheme over $\Fq$
 and if each quasicharacter sheaf on the \'etale group scheme $\pi_0(G)$ admits a global section 
 satisfying \eqref{section}, then the conclusion of Theorem~\ref{thm:snake} holds for $G$.
 
@@ -1462,7 +1463,7 @@ identity component of $G$ is actually an algebraic group.
 If $G$ is a $\QC$-scheme then $G^0$ is a connected algebraic group.
 \end{lemma}
 \begin{proof}
- Since $G$ is a smooth group scheme locally of finite type over $\Fq$, its
+ Since $G$ is a smooth group scheme over $\Fq$, its
  identity component $G^0$ of $G$ is a connected smooth, 
  group scheme of finite type over $\Fq$, reduced over some finite extension of $\Fq$
  \cite{vdGeer-Moonen:AbelianVarieties}*{3.17}. 
@@ -1574,7 +1575,7 @@ $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
 In fact, Trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
 
 \begin{theorem}\label{thm:snake}
-  If $G$ is a smooth, commutative group scheme, locally of finite type over
+  If $G$ is a smooth, commutative group scheme over
   $\Fq$, and if the abelian group $\pi_0(G)(\bFq)$
   is finitely generated, then Trace of Frobenius
   \[
