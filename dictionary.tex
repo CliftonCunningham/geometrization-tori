@@ -1284,15 +1284,14 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
-
-
-\begin{lemma}\label{prop:etale-2cocycle}
+\begin{lemma}\label{lem:etale-2cocycle}
     If $G$ is an \'etale commutative group scheme over $\Fq$
-    then the homomorphism
+    then the group homomorphism
     \[
     \QCiso{G} \to \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)),
     \]
-    defined in Section~\ref{sec:invisible}, is surjective.
+    defined in Section~\ref{sec:invisible}, 
+    is surjective with a canonical section.
 \end{lemma}
 
 \begin{proof}
@@ -1304,7 +1303,7 @@ for all $x,y\in G(\bFq)$.
 Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$ and define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x \otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = g(x,y) 1 \otimes 1$.
 Since $g\in Z^2(G(\bFq),\EEx)$, the indexed set of isomorphisms $\{ \mu_{x,y} \tq x,y \in G(\bFq) \}$ satisfies \ref{qc.2}.
 Define $\phi_x : \gqcs{L}_{\Frob{}(x)}\to \gqcs{L}_x$ by $\phi_x(1) = f(x)$.
-Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is now clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.
+Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.\todo{Canonical section?} 
 \end{proof}
 
 %In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
@@ -1332,7 +1331,7 @@ yields
 Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
 \end{proof}
 
-\begin{lemma}\label{prop:etale-trace}
+\begin{lemma}\label{lem:etale-trace}
 If $G$ is an \'etale commutative group scheme over $\Fq$
 then for every the $\chi \in G(\Fq)^*$ there is a visible quasicharacter sheaf $\qcs{L}$ on $G$ such that $\trFrob{\qcs{L}} = \chi$.
 In particular, Trace of Frobenius
@@ -1366,6 +1365,18 @@ It is now clear that we have defined a \emph{visible} quasicharacter sheaf $\qcs
 \end{proposition}
 
 \begin{proof}
+The Hochschild-Serre spectral sequence (for finitely generated abelian groups!) provides decomposition 
+\[
+\Hh^2(G(\bFq),\EEx)  \iso \Hh^1(\Weil{}, \Hh^1(G(\bFq)\rtimes \Weil{},\EEx)) \oplus \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))
+\]
+and Lemmas~\ref{lem:etale-2cocycle} and \ref{lem:etale-trace} provide the maps from $\QCiso{G}$ pictured below:
+\[
+\begin{tikzcd}
+\ &&  \QCiso{G} \arrow[swap]{dl}{\TrFrob{G}} \arrow{dr}{ S_{G} } && \\
+0 \arrow{r}{} &  \Hh^1(\Weil{}, \Hh^1(G(\bFq),\EEx)) \arrow{r}{} & \Hh^2(G(\bFq)\rtimes\Weil{},\EEx) \arrow{r}{} & \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)) \arrow{r}{} & 0.
+\end{tikzcd}
+\]
+
 \todo{Clifton, you are here.}
 \end{proof}
 
