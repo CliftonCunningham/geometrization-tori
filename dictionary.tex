@@ -1306,7 +1306,7 @@ Define $\phi_x : \gqcs{L}_{\Frob{}(x)}\to \gqcs{L}_x$ by $\phi_x(1) = f(x)$.
 Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is now clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.
 \end{proof}
 
-In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
+%In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
 
 \begin{lemma} \label{lem:dual-inv}
 Let $X$ be an abelian group equipped with an action of $\Weil{}$.
@@ -1338,7 +1338,7 @@ In particular, Trace of Frobenius
 \[
 \TrFrob{G} : \QCiso{G} \to G(\Fq)^*,
 \]
-is surjective.
+is surjective, even when restricted to visible quasicharacter sheaves.
 \end{lemma}
 
 \begin{proof}
@@ -1352,148 +1352,22 @@ condition \eqref{nohom} is satisfied with $g =1$, the trivial cocycle in $Z^2(G(
 It is now clear that we have defined a \emph{visible} quasicharacter sheaf $\qcs{L}$ with $\trFrob{\qcs{L}} = \chi$.
 \end{proof}
 
-
-
-\begin{proposition}\label{prop:etale-fg}
-  If $G$ is an \'etale commutative group scheme over $\Fq$ and
-  $G(\bFq)$ is finitely generated,
-  then
-  \[
-  \QCiso{G} \iso \Hh^2(G(\bFq)\rtimes \Weil{}, \EEx).
-  \]
-  Moreover, this isomorphism is functorial
-  in the sense of Proposition~\ref{prop:functorialG}.
-\end{proposition}
-
-
-
-  We may associate a $1$-cocycle $\tau_\qcs{L}: \Weil{}\to G(\bFq)^*$ to each $\qcs{L} \in \QC(G)$
-  so that
-  \[
-  \tau_\qcs{L}(\Frob{})(x) = \trFrob{\qcs{L}}(x)
-  \]
-  for all $x \in G(\Fq)$ and the map
-  \begin{align*}
-  \QCiso{G} &\to \Hh^1(\Weil{}, G(\bFq)^*),\\
-  [\qcs{L}] &\mapsto [\tau_\qcs{L}],
-  \end{align*}
-  is an isomorphism.
-
-
-\begin{proof}
-  Suppose $\qcs{L}$ is a quasicharacter sheaf on $G$ and choose a global section $s$
-  of $\qcs{L}$ using Lemma~\ref{lemma:section}.
-   We will construct a group isomorphism between $\QCiso{G}$ and
-  $\Hh^1(\Weil{}, G(\bFq)^*)$ using $s$, then prove independence from the choice of $s$.
-
-  Starting from $\qcs{L}$, we define a cocyle $\tau_{\qcs{L}} \in Z^1(\Weil{},G(\bFq)^*)$ as follows.
-  For $x \in G(\bFq)$, $\qcs{L}$ determines an isomorphism $\phi_x : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$
-  of one-dimensional $\EE$-vector spaces; define $\tau_\qcs{L}$ by
-  \begin{equation}\label{t}
-   \phi_{x}(s(\Frob{}(x))) = \tau_\qcs{L}(\Frob{})(x) s(x).
-  \end{equation}
-  Note that if $x$ is fixed by $\Frob{}$ then $\tau_\qcs{L}(\Frob{})(x)$ is just $\trFrob{\qcs{L}}(x)$, so the restriction of
-  $\tau_\qcs{L}(\Frob{})$ to $G(k)$ is just $\trFrob{\qcs{L}}$.
-  In general, \ref{qc.1} and \ref{qc.3}, together with \eqref{section}, guarantee that
-  the scalar $\tau_\qcs{L}(\Frob{})(x)$ is non-zero.  Moreover,
-  \ref{qc.2} forces
-  $\tau_\qcs{L}(\Frob{})(x+y) = \tau_\qcs{L}(\Frob{})(x) \ \tau_\qcs{L}(\Frob{})(y)$
-  for all $x,y \in G(\bFq)$.  We write $\cdot$ for pointwise multiplication of functions, and
-  define $\tau_\qcs{L} : \Weil{} \to G(\bFq)^*$ recursively by
-  \[
-   \tau_\qcs{L}(\Frob{}^n) \ceq \tau_\qcs{L}(\Frob{})\cdot \,^{\Frob{}} \tau_\qcs{L}(\Frob{}^{n-1}),
-  \]
-  where $\Frob{}$ acts on $G(\bFq)^*$ through pre-composition.
-
-  Although we used a global section $s$ in the definition of
-  $\tau_\qcs{L}$, the class of $\tau_\qcs{L}$ does not depend on this
-  choice. To see why, let $s_1$ and $s_2$ be two nontrivial global sections of
-  $\qcs{L}$ and let $\tau_1$ and $\tau_2$ be the cocycles defined by $s_1$ and $s_2$.
-  For each $x \in G(\bFq)$ define $a(x) \in \EEx$ by $s_2(x) = a(x) s_1(x)$.
-  Then \eqref{section} and
-  \ref{qc.2} together imply $a(x+y) = a(x)a(y)$, so
-  $a\in G(\bFq)^*$.  The coboundary $\tau_0 : \Weil{} \to G(\bFq)^*$
-  defined by $\tau_0(\Frob{}) \ceq \,^{\Frob{}} a \cdot a^{-1}$ satisfies $\tau_2 = \tau_0 \tau_1$,
-  so $\tau_2$ and $\tau_1$ are cohomologous. Thus
-  \begin{equation}\label{cohomologous}
-  \begin{split}
-    \obj \QC(G) &\to \Hh^1(\Weil{},G(\bFq)^*), \\
-    \qcs{L} &\mapsto [\tau_\qcs{L}],
-  \end{split}
-  \end{equation}
-  is independent of the choice of global sections made above.
-
-  We now show that $[\tau_\qcs{L}]$ depends only on the isomorphism class of $\qcs{L}$.
-  Let $\alpha : \qcs{L} \to \qcs{L'}$ be an isomorphism and
-  let $\tau$ and $\tau'$ be any cocycles representing the classes in the
-  image of $\qcs{L}$ and $\qcs{L'}$ under \eqref{cohomologous}; by construction,
-  $\tau$ and $\tau'$ are defined by the choice of sections $s$ and $s'$.
-  Now, $\varphi_x(s(x))$ is a
-  non-zero scalar multiple of $s'(x)$; define $a: G(\bFq) \to \EEx$
-  by $\alpha_x(s(x)) = a(x) s'(x)$.
-  By the second part of \ref{qc.4},
-  $a(x+y) = a(x)a(y)$, so $a \in G(\bFq)^*$. By the first part of
-  \ref{qc.4},
-  $\tau'(\Frob{}) = \tau(\Frob{}) \cdot (\,^{\Frob{}^{-1}}a \cdot a^{-1})$,
-  so $\tau$ and $\tau'$ are cohomologous. This shows that
-  \begin{equation}\label{pich1}
-  \begin{split}
-    \QCiso{G} &\to \Hh^1(\Weil{},G(\bFq)^*),\\
-    [\qcs{L}] &\mapsto [\tau_\qcs{L}]
-  \end{split}
-  \end{equation}
-  is well-defined.
-
-    Suppose that $\qcs{L}$ and $\qcs{L}'$ are two quasicharacter sheaves on $G$.
-  If $s$ is a global section for $\qcs{L}$ and $s'$ for $\qcs{L}'$ then $s \otimes s'$
-  is a global section for $\qcs{L} \otimes\qcs{L}'$.  The three versions of \eqref{t}
-  for $\qcs{L}, \qcs{L'}$ and $\qcs{L} \otimes\qcs{L}'$ imply that
-  $\tau_{\qcs{L} \otimes\qcs{L}'}(\Frob{}) = \tau_\qcs{L}(\Frob{}) \tau_{\qcs{L}'}(\Frob{})$,
-  so \eqref{pich1} is a group homomorphism.
-
-
- To see that \eqref{pich1} is injective,
- suppose $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$.
- Let $s$ and $s'$ be sections appearing in the definition of $\tau_\qcs{L}$ and $\tau_\qcs{L'}$.
- Since $[\tau_\qcs{L}] = [\tau_\qcs{L'}]$,
- it follows that $\tau_\qcs{L}$ and $\tau_{\qcs{L'}}$ are cohomologous,
- so there is some $a\in G(\Fq)^*$ such that
- $\tau'(\Frob{}) = \tau(\Frob{}) \cdot (\,^{\Frob{}}a \cdot a^{-1})$.
- Define $\alpha : \qcs{L}\to \qcs{L'}$ by $\alpha_x(s(x)) \ceq a(x) s'(x)$ and $\alpha^{-1} : \qcs{L}'\to \qcs{L}$
- by $\alpha^{-1}_x(s'(x)) \ceq a(x)^{-1} s(x)$, for $x\in G(\bFq)$.
- It is straightforward to check that $\alpha$ satisfies \ref{qc.3}
- and that $\alpha^{-1}$ is its inverse. Thus $\qcs{L} \iso \qcs{L'}$ in $\QC(G)$ and \eqref{pich1} is injective.
-
-
- Finally, to show that \eqref{pich1} is surjective, pick $[\tau]\in \Hh^1(\Weil{}, G(\bFq)^*)$.
- For each $x\in G(\bFq)$, set $\gqcs{L}_x \ceq \EE$.
- Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by
- $\mu_{x,y}(1) \ceq 1\otimes1$, for $x,y\in G(\bFq)$;
- clearly, $\mu$ satisfies \ref{qc.2}.
- Define $\phi_x : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_x(1) \ceq \tau(\Frob{})(x)$,
- for each $x\in G(\bFq)$.
- Then $\phi$ satisfies \ref{qc.3} because $\tau \in Z^1(\Weil{},G(\bFq)^*)$.
- Setting $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$, we have that $[\tau]$ is the image of $\qcs{L}$
- under \eqref{pich1}, and thus \eqref{pich1} defines an isomorphism of groups.
-\end{proof}
-
-
-
 \begin{proposition} \label{prop:etale-iso}
- If $G$ is a commutative, \'etale group scheme over $\Fq$ and $G(\bFq)$ is finitely
- generated then
- \[
-  \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
- \]
- is an isomorphism of groups.
+	If $G$ is an \'etale commutative group scheme over $\Fq$ 
+	and if $G(\bFq)$ is finitely generated,
+  	then
+  	\[
+  	\QCiso{G} \iso \Hh^2(G(\bFq)\rtimes \Weil{}, \EEx).
+  	\]
+  	Moreover, this isomorphism is functorial
+  	in the sense of Proposition~\ref{prop:functorialG}.
 \end{proposition}
+
 \begin{proof}
-There is a natural isomorphism $\Hh^1(\Weil{}, G(\bFq)^*) \to (G(\bFq)^*)_{\Frob{}}$
-defined by $[z] \mapsto z(\Frob{})$.  The proposition now follows directly
-from Proposition~\ref{prop:etale} and Lemma~\ref{lem:dual-inv}.
+
 \end{proof}
 
-\section{Exactness of the component group sequence} \label{sec:restriction}
+\section{Right-Exactness of the component group sequence} \label{sec:restriction}
 
 Consider the short exact sequence in the category of $\QC$-schemes
 defining the component group scheme for $G$:
@@ -1512,13 +1386,14 @@ Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines the sequence
 and therefore, after passing to isomorphism classes, the sequence of abelian groups
 \begin{equation}\label{eq:pi2}
 \begin{tikzcd}
-0 \rar & \QCiso{\pi_0(G)} \arrow{r}{\pi_0^*} & \QCiso{G} \arrow{r}{\iota_0^*} & \QCiso{G^0} \rar & 0.
+%0 \rar & 
+\QCiso{\pi_0(G)} \arrow{r}{\pi_0^*} & \QCiso{G} \arrow{r}{\iota_0^*} & \QCiso{G^0} \rar & 0.
 \end{tikzcd}
 \end{equation}
  Note that we found the groups $\QCiso{G^0}$
 and $\QCiso{\pi_0(G)}$
 in Sections~\ref{sec:connected} and \ref{sec:etale}.
-In this section we show that \eqref{eq:pi2} is right exact.
+In this section we show that \eqref{eq:pi2} is exact.
 
 Recall from Section~\ref{sec:finite} that
 a morphism $f : H\to G$ of group $\Fq$-schemes is a discrete isogeny
@@ -1616,13 +1491,16 @@ As a consequence, the restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is es
  The sequence
  \[
   \begin{tikzcd}
-  0 \rar & \QCiso{\pi_0(G)} \arrow{r}{\pi_0^*} & \QCiso{G} \arrow{r}{\iota_0^*} & \QCiso{G^0} \rar & 0.
+%  0 \rar & 
+ \QCiso{\pi_0(G)} \arrow{r}{\pi_0^*} & \QCiso{G} \arrow{r}{\iota_0^*} & \QCiso{G^0} \rar & 0.
   \end{tikzcd}
  \]
- is exact at $\QCiso{G}$.
+ is exact.
 \end{proposition}
 
 \begin{proof}
+We already know the sequence is exact at $\QCiso{G^0}$. 
+Here we show exactness at $\QCiso{G}$.
 First note that $\iota_0^* \circ \pi_0^*$ is trivial by Proposition~\ref{prop:pullback}.
 So it suffices to show that if $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$
 with $\qcs{L}\vert_{G^0} = (\EE)_{G^0}$ then $\qcs{L}$ is in the essential image of $\pi_0^*$.
