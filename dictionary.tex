@@ -19,7 +19,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % AMS packages
-\usepackage{amsmath, amsthm, amssymb, todonotes}
+\usepackage{amsmath, amsthm, amssymb, todonotes}%showkeys}
 \usepackage[alphabetic]{amsrefs}
 % Fonts
 \usepackage{mathrsfs, yfonts}
@@ -289,7 +289,7 @@ is a functorial isomorphism for $\QC$-schemes.
 We thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable.
-%We also thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for pointing us to a proof of Lemma~\ref{lemma:wrK}.
+We also thank Takashi Suzuki, who 
 
 We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and the National Science and Engineering Research Council,
@@ -611,7 +611,7 @@ We will see that the Trace of Frobenius may not provide complete
 information about isomorphism classes of quasicharacter sheaves on $G$ when $G$ is not connected.
 Our main tool for understanding this phenomenon is the function
 \begin{equation}\label{2cocycle}
-\QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))
+S_{G}: \QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))
 \end{equation}
 defined below.
 Let $\qcs{L} = (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$.
@@ -640,13 +640,11 @@ and define $f : G(\bFq) \to \EEx$ by
 \]
 Chasing through the diagram in Condition~\ref{QC.3} we see that
 \begin{equation}\label{nohom}
-f(x+y) = f(x) f(y) \frac{(\,^{\Frob{}}g)(x,y)}{g(x,y)}
+f(x+y) = f(x) f(y) \frac{g(\Frob{G}(x),\Frob{G}(y))}{g(x,y)}
 \end{equation}
 for all $x,y \in G(\bFq)$. Thus, the class $\,^{\Frob{}}g_\qcs{L}$ of $\,^{\Frob{}}g$ coincides
 with the class $g_\qcs{L}$ of $g$. This concludes the definition of
-\[
-\QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx)).
-\]
+$S_{G}: \QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))$.
 
 \begin{definition}\label{def:invisible}
 Let $\qcs{L}$ be a quasicharacter sheaf on $G$. We say $\qcs{L}$ is \emph{visible} $g_\qcs{L} \in H^0(\Weil{},H^2(G(\bFq),\EEx))$ is trivial; otherwise, we say $\qcs{L}$ is \emph{invisible}.
@@ -656,17 +654,19 @@ If $G$ is a connected and of finite type,
 then $H^2(G(\bFq),\EEx)$ is trivial \todo{Reference?} so all quasicharacter sheaves on connected commutative algebraic groups $G$ are visible; 
  by contrast, if $G$ is etale then $H^2(G(\bFq),\EEx)$ may be non-trivial and $G$ may admit invisible quasicharacters sheaves.
 We will return to the latter case in Section~\ref{sec:etale}.
-In the meantime, we end this section with a simple property of \eqref{2cocycle}.
+In the meantime, we end this section with a simple property of $S_{G}: \QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))$.
 
 \begin{lemma}
-The function defined in \eqref{2cocycle} is a homomorphism:
+The function \[S_{G}: \QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))\] is a group homomorphism.
+\end{lemma}
+
+\begin{proof}
+We must show:
 \[
 g_{\qcs{L}\otimes \qcs{L'}} = g_{\qcs{L}} \, g_\qcs{L'}
 \]
-for every $\qcs{L}, \qcs{L'} \in \QC(G)$.
-\end{lemma}
-
-\todo{Proof missing.}
+for every $\qcs{L}, \qcs{L'} \in \QC(G)$.\todo{Under construction.}
+\end{proof}
 
 \section{Base change}\label{sec:basechange}
 
@@ -1284,14 +1284,15 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
+\section{Group Cohomology}
+
 \begin{lemma}\label{lem:etale-2cocycle}
     If $G$ is an \'etale commutative group scheme over $\Fq$
     then the group homomorphism
     \[
-    \QCiso{G} \to \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)),
+    S_{G} : \QCiso{G} \to \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)),
     \]
-    defined in Section~\ref{sec:invisible}, 
-    is surjective with a canonical section.
+    defined in Section~\ref{sec:invisible}, is surjective.\todo{Kernel? Canonical section?}
 \end{lemma}
 
 \begin{proof}
@@ -1303,7 +1304,7 @@ for all $x,y\in G(\bFq)$.
 Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$ and define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x \otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = g(x,y) 1 \otimes 1$.
 Since $g\in Z^2(G(\bFq),\EEx)$, the indexed set of isomorphisms $\{ \mu_{x,y} \tq x,y \in G(\bFq) \}$ satisfies \ref{qc.2}.
 Define $\phi_x : \gqcs{L}_{\Frob{}(x)}\to \gqcs{L}_x$ by $\phi_x(1) = f(x)$.
-Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.\todo{Canonical section?} 
+Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.
 \end{proof}
 
 %In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
@@ -1338,7 +1339,7 @@ In particular, Trace of Frobenius
 \[
 \TrFrob{G} : \QCiso{G} \to G(\Fq)^*,
 \]
-is surjective, even when restricted to visible quasicharacter sheaves.
+is surjective, even when restricted to visible quasicharacter sheaves.\todo{Kernel? Canonical section?}
 \end{lemma}
 
 \begin{proof}
@@ -1349,7 +1350,7 @@ Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,
 Define $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = f(x)$.
 Since $f : G(\bFq) \to \EEx$ is a group homomorphism,
 condition \eqref{nohom} is satisfied with $g =1$, the trivial cocycle in $Z^2(G(\bFq),\EEx)$.
-It is now clear that we have defined a \emph{visible} quasicharacter sheaf $\qcs{L}$ with $\trFrob{\qcs{L}} = \chi$.\todo{Can I improve this proof to show that the kernel of Trace of Frobenius is exactly $\Hh^0(\Weil{},\Hh^2(G(\bFq),\EEx))$? Perhaps . . . }
+It is now clear that we have defined a \emph{visible} quasicharacter sheaf $\qcs{L}$ with $\trFrob{\qcs{L}} = \chi$.
 \end{proof}
 
 
@@ -1365,19 +1366,28 @@ It is now clear that we have defined a \emph{visible} quasicharacter sheaf $\qcs
 \end{proposition}
 
 \begin{proof}
-The Hochschild-Serre spectral sequence (for finitely generated abelian groups!) provides decomposition 
+By Lemma~\ref{lem:dual-inv}, $G(\Fq)^* \iso \Hh^1(\Weil{},\Hh^1(G(\bFq),\EEx))$. Composing this isomorphism with the Trace of Frobenius gives 
 \[
-\Hh^2(G(\bFq),\EEx)  \iso \Hh^1(\Weil{}, \Hh^1(G(\bFq)\rtimes \Weil{},\EEx)) \oplus \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))
+T_{G}: \QCiso{G}\to  \Hh^1(\Weil{},\Hh^1(G(\bFq),\EEx)),
 \]
-and Lemmas~\ref{lem:etale-2cocycle} and \ref{lem:etale-trace} provide the maps from $\QCiso{G}$ pictured below:
+which is surjective, Lemma~\ref{lem:etale-trace}. 
+Combining this with 
 \[
-\begin{tikzcd}
-\ &&  \QCiso{G} \arrow[swap]{dl}{\TrFrob{G}} \arrow{dr}{ S_{G} } && \\
-0 \arrow{r}{} &  \Hh^1(\Weil{}, \Hh^1(G(\bFq),\EEx)) \arrow{r}{} & \Hh^2(G(\bFq)\rtimes\Weil{},\EEx) \arrow{r}{} & \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)) \arrow{r}{} & 0.
-\end{tikzcd}
+S_{G} : \QCiso{G} \to \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))
 \]
-
-\todo{Clifton, you are here.}
+gives
+\[
+\QCiso{G} \mathop{\longrightarrow}\limits^{T_{G}\oplus S_{G}} \Hh^1(\Weil{},\Hh^1(G(\bFq),\EEx))\oplus \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)).
+\]
+The Hochschild-Serre spectral sequence (for finitely generated abelian groups!) provides  
+\[
+\Hh^2(G(\bFq)\rtimes \Weil{},\EEx)  \iso \Hh^1(\Weil{}, \Hh^1(G(\bFq),\EEx)) \oplus \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)).
+\]
+Composing these last two maps defines
+\begin{equation}
+\QCiso{G}\to \Hh^2(G(\bFq)\rtimes \Weil{},\EEx).
+\end{equation}
+To see that this homomorphism is an isomorphism,\todo{Clifton, you are here.}
 \end{proof}
 
 \section{Right-Exactness of the component group sequence} \label{sec:restriction}
