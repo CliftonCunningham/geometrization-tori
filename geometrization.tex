@@ -22,6 +22,7 @@
 % AMS packages
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage[alphabetic]{amsrefs}
+\usepackage{todonotes}
 % Fonts
 \usepackage{mathrsfs, yfonts}
 % TikZ
@@ -71,6 +72,7 @@
 \newcommand{\EEx}{\EE^\times}
 \newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
 \newcommand{\Weil}[1]{\mathcal{W}_{#1}}
+\newcommand{\comp}{\Pi} % Component group
 
 %%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
 \newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
@@ -126,10 +128,11 @@
 \newcommand{\QC}{{\mathcal{Q\hskip-0.8pt C}}}
 \newcommand{\QCb}{{\QC_0}}
 \newcommand{\QCf}{{\QC_f}}
-\newcommand{\QCiso}[1]{\pi_0 (\QC(#1))}
-\newcommand{\QCbiso}[1]{\pi_0(\QCb(#1))}
-\newcommand{\QCfiso}[1]{\pi_0(\QCf(#1))}
+\newcommand{\QCiso}[1]{\QC(#1)_{/\text{iso}}}
+\newcommand{\QCbiso}[1]{\QCb(#1)_{/\text{iso}}}
+\newcommand{\QCfiso}[1]{\QCf(#1)_{/\text{iso}}}
 \newcommand{\trFrob}[1]{t_{#1}}
+\newcommand{\TrFrob}[1]{T_{#1}}
 %% amsmath replacements for \atop
 \newcommand{\latop}[2]{\genfrac{}{}{0pt}{0}{#1}{#2}}
 \newcommand{\partop}[2]{\genfrac{(}{)}{0pt}{0}{#1}{#2}}
@@ -293,7 +296,8 @@ to the category of schemes locally of finite type over $k$.
 This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
 See
 \citelist{
-\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1} \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
+\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1}
+\cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6} 
 \cite{nicaise-sebag:motivicSerre}*{\S 2.2}
 \cite{bertrapelle-gonzales:Greenberg}*{\S 5}
 }
@@ -331,10 +335,40 @@ We list some fundamental properties of $f_n$ and $\GN{T}_n$ for further use:
   so $\GN{T}_n$ is a smooth group scheme locally of finite type over $\Fq$. 
   The Greenberg functor takes the geometric identity component of $\TT_n$ 
   to the geometric identity component of $\GN{T}_n$.
-  In fact, $\pi_0(\GN{T}_n) = \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$ and
-  this group is finitely generated \cite{xarles:93a}*{2.18}.
-  \labitem{(GN.2)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
+  In fact, $\pi_0(\GN{T}_n)$ is independent of $n$, equal to $\comp \ceq \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$.
+  Moreover, $\Pi$ is finitely generated \cite{xarles:93a}*{2.18}.
+  \labitem{(GN.2)}{identity} $\GN{T}_n^\circ$ is affine of finite type over $\Fq$.
+  \labitem{(GN.3)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
 \end{enumerate}
+
+\begin{proposition}
+The projective limit of the system
+\[
+\cdots \xrightarrow{f_n} \GN{T}_{n+1} \xrightarrow{f_{n-1}} \cdots \xrightarrow{f_1} \GN{T}_1 
+\]
+exists in the category of group schemes over $\Fq$.
+\end{proposition}
+\begin{proof}
+Since the component group $\comp$ is independent of $n$, the projective system induces a sequence of affine schemes
+\begin{equation} \label{eq:Ti}
+\cdots \xrightarrow{f^i_n} \GN{T}^i_{n+1} \xrightarrow{f^i_{n-1}} \cdots \xrightarrow{f^i_1} \GN{T}^i_1
+\end{equation}
+for each $i \in \comp$.
+Since the category of affine schemes over $k$ is equivalent to the category of $k$-algebras, which has direct limits \todo{citation},
+the limit of \eqref{eq:Ti} exists in the category of affine group schemes over $k$ for each $i \in \comp$.  Write $\GN{T}^i$ for the limit,
+and define
+\[
+\GN{T} \ceq \coprod_{i \in \comp} \GN{T}^i
+\]
+as a $k$-scheme.  We claim that $\GN{T}$ is a projective limit of the original system, in the category of $k$-schemes.  Suppose that $Z$ is a $k$-scheme
+with a system of morphisms $z_n : Z \to \GN{T}_n$.  Let $\alpha : \pi_0(Z) \to \comp$ be the induced map on component groups, which is
+independent of $n$.  \todo{the components of $Z$ are not necessarily affine; is the projective limit in the category of affine schemes still the limit in the category of schemes?}
+
+
+The multiplication maps $m_n : \GN{T}_n \times \GN{T}_n \to \GN{T}_n$ induce maps of affine schemes
+$m_n^{i,j} : \GN{T}_n^i \times \GN{T}_n^j \to \GN{T}_n^{i+j},$ inducing maps $m^{i,j} : \GN{T}^i \times \GN{T}_
+
+\end{proof}
 
 \section{The function--sheaf dictionary}\label{sec:qcs}
 
