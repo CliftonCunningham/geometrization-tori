@@ -21,7 +21,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % AMS packages
-\usepackage{amsmath, amsthm, amssymb, todonotes, showkeys}
+\usepackage{amsmath, amsthm, amssymb, todonotes}% showkeys}
 \usepackage[alphabetic]{amsrefs}
 % Fonts
 \usepackage{mathrsfs, yfonts}
@@ -200,11 +200,12 @@ Although this dictionary extends to the case when $G$ is not connected, and even
 In this generality, the correct class of sheaves on G are called \emph{quasicharacter sheaves}; when $G$ is connected and of finite type, quasicharacter sheaves on $G$ specialize to character sheaves on $G$.
 While every character of $G(\Fq)$ may be converted, canonically, into a quasicharacter sheaf on G from which the character of $G(\Fq)$ may be recovered using the trace of Frobenius on G, generally there exist non-trivial quasicharacter sheaves on G for which the trace of Frobenius is trivial; these are called \emph{invisible quasicharacter sheaves} on $G$.
 Invisible quasicharacter sheaves on G are precisely the quasicharacter sheaves on $G$ that are lost in translation under the function-sheaf dictionary.
-Assuming only that $G$ is a smooth commutative group scheme over $\Fq$ with finitely generated component group, this paper gives a simple cohomological description of invisible quasicharacter sheaves on $G$. The most interesting case is that of etale commutative group schemes over $\Fq$.
+Assuming only that $G$ is a smooth commutative group scheme over $\Fq$ with finitely generated component group, this paper gives a simple cohomological description of invisible quasicharacter sheaves on $G$. 
+%The most interesting case is that of etale commutative group schemes over $\Fq$.
 
 \subsection*{Main result}
 
-In order to give the main result of this paper with more precision, let us briefly review how the function--sheaf dictionary for connected commutative algebraic groups over finite fields \cite{deligne:SGA4.5}*{sommes trig.} translates characters into local systems.
+In order to describe the main result of this paper with more precision, let us briefly review how the function--sheaf dictionary for connected commutative algebraic groups over finite fields \cite{deligne:SGA4.5}*{sommes trig.} translates characters into local systems.
 Let $\Fq$ be a finite field and let $G$ be a connected commutative algebraic group over $\Fq$; fix an algebraic closure $\bFq$ of $\Fq$
 and let $\bG$ be the base change of $G$ to $\bFq$.
 Fix a prime $\ell$ invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character.
@@ -218,12 +219,12 @@ m^* \qcs{L} \iso \qcs{L} \boxtimes \qcs{L}
 Although hidden in the discussion above, the connectness of $G$ played a crucial role in the geometrization and categorification of characters of $G(\Fq)$.  So it is natural to ask how the function--sheaf dictionary generalizes to not-necessarily connected commutative algebraic groups over finite fields. In this paper we answer that question by exhibiting a function--sheaf dictionary, in the sense above, for any smooth commutative group scheme $G$ over a finite field $\Fq$.
 To do this we must pass from $\ell$-adic local systems on $G$ to Weil local systems on $G$
 and also keep track of the isomorphisms \eqref{introbox} (mere existence of such an isomorphism is not enough), leading to the notion of {\it quasicharacter sheaves on $G$}.
-But the result  . . . .
+%So, what is a quasicharacter sheaf?
 
-So, what is a quasicharacter sheaf?
 A quasicharacter sheaf on $G$ is a triple $\qcs{L}\ceq
 (\gqcs{L},\mu,\phi)$ where $\gqcs{L}$ is an $\ell$-adic local system on $\bG$ of rank~one and $\mu: m^*
 \gqcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gqcs{L} \to \gqcs{L}$ are isomorphisms satisfying natural compatibilty conditions; here $\Frob{G}$ is the Frobenius automorphism of ${\bar G}$.
+
 The main result of this paper is the following statement (see Theorem~\ref{thm:snake}):
 the category $\QC(G)$ of quasicharacter sheaves on $G$
 is a rigid monoidal category and Trace of Frobenius provides a functorial surjection
@@ -285,7 +286,7 @@ In particular, all quasicharacter sheaves on such groups are visible.
 
 \subsection*{Structure of the paper}
 
-We close the introduction with a more detailed description of the structure of this paper.
+%We close the introduction with a more detailed description of the structure of this paper.
 After setting some notation in Section~\ref{sec:QCschemes}, in Section~\ref{sec:category} we define quasicharacter sheaves and give an interpretation of
 them as Weil sheaves equipped with an isomorphism of the form  \eqref{introbox}.
 Section~\ref{sec:Frob} introduces Trace of Frobenius,
@@ -327,11 +328,8 @@ as well the hospitality of the Banff International Research Station during our w
 \subsection{Definitions}\label{sec:QCschemes}
 
 Throughout this paper, $G$ is a smooth, commutative group scheme
-over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  For the sake of brevity, we
-define a \emph{$\QC$-scheme} to be such a $G$ with the additional property that the
-geometric component group of $G$ is finitely generated.  This last condition is only
-needed in the proof of Lemma \ref{lemma:section}.  A morphism of $\QC$-schemes is a morphism
-of group schemes over $\Fq$.
+over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  
+%For the sake of brevity, we define a \emph{$\QC$-scheme} to be such a $G$ with the additional property that the geometric component group of $G$ is finitely generated.  This last condition is only needed in the proof of Lemma \ref{lemma:section}.  A morphism of $\QC$-schemes is a morphism of group schemes over $\Fq$.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
 smooth commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$ over $\bFq$
@@ -345,7 +343,7 @@ Let $\Frob{G} \ceq \id_{G} \times \Frob{}$ be the Frobenius automorphism of $\bG
 
 We fix a prime $\ell$, invertible in $\Fq$.
 We will work with constructible $\ell$-adic sheaves \citelist{\cite{deligne:80a}*{\S 1.1} \cite{SGA5}*{Expos\'es V, VI}}
-on $\QC$-schemes, employing the standard formalism.
+on schemes locally of finite type over $\Fq$, employing the standard formalism.
 We also make extensive use of the external tensor product of $\ell$-adic sheaves,
 defined as follows: if $\mathcal{F}$ and $\mathcal{G}$ are constructible $\ell$-adic
 sheaves on schemes $X$ and $Y$ and $p_X : X\times Y\to X$ and $p_Y : X\times Y \to Y$
@@ -499,12 +497,12 @@ g(x+y,z) g(x,y) = g(x,y+z) g(y,z),
 \]
 for all $x,y,z\in G(\bFq)$, so $g \in Z^2(G(\bFq),\EEx)$.
 It is easy to see that the class of $g$ is independent of the choice made above;
-let $g_\mathcal{L} \in H^2(G(\bFq),\EEx)$ the class of $g\in Z^2(G(\bFq),\EEx)$.
-It is also easy to see that $g_\mathcal{L} = g_\mathcal{L'}$ when $\qcs{L} \iso \qcs{L'}$. This defines
+let $\sigma_\mathcal{L}) \in H^2(G(\bFq),\EEx)$ the class of $g\in Z^2(G(\bFq),\EEx)$.
+It is also easy to see that $S_G(\mathcal{L}) = S_G(\mathcal{L'})$ when $\qcs{L} \iso \qcs{L'}$. This defines
 \[
-\QCiso{G} \to H^2(G(\bFq),\EEx).
+S_G: \QCiso{G} \to H^2(G(\bFq),\EEx).
 \]
-We claim that $g_\qcs{L}$ is also fixed by the action of $\Weil{}$ on $H^2(G(\bFq),\EEx)$
+We claim that $S_G(\qcs{L})$ is also fixed by the action of $\Weil{}$ on $H^2(G(\bFq),\EEx)$
 inherited from the action of $\Weil{}$ on $G(\bFq)$.
 To see this, we return to the choice $\{ v_x \in \gqcs{L}_x^\times \tq x\in G(\bFq) \}$
 and define $f : G(\bFq) \to \EEx$ by
