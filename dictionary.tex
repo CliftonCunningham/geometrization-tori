@@ -476,6 +476,7 @@ from the category of smooth commutative group schemes over $\Fq$ to the category
 The proof of Proposition~\ref{prop:functorialG} will be given at the end of Section~\ref{sec:pullback}.
 
 
+
 \subsection{Invisible quasicharacter sheaves}\label{sec:invisible}
 
 We will see that the Trace of Frobenius may not provide complete
@@ -497,12 +498,10 @@ g(x+y,z) g(x,y) = g(x,y+z) g(y,z),
 \]
 for all $x,y,z\in G(\bFq)$, so $g \in Z^2(G(\bFq),\EEx)$.
 It is easy to see that the class of $g$ is independent of the choice made above;
-let $\sigma_\mathcal{L}) \in H^2(G(\bFq),\EEx)$ the class of $g\in Z^2(G(\bFq),\EEx)$.
-It is also easy to see that $S_G(\mathcal{L}) = S_G(\mathcal{L'})$ when $\qcs{L} \iso \qcs{L'}$. This defines
-\[
-S_G: \QCiso{G} \to H^2(G(\bFq),\EEx).
-\]
-We claim that $S_G(\qcs{L})$ is also fixed by the action of $\Weil{}$ on $H^2(G(\bFq),\EEx)$
+let $s_\mathcal{L} \in H^2(G(\bFq),\EEx)$ the class of $g\in Z^2(G(\bFq),\EEx)$.
+It is also easy to see that $s_\mathcal{L} = s_\mathcal{L'}$ when $\qcs{L} \iso \qcs{L'}$, and that $s_{\qcs{L}\otimes \qcs{L'}} = s_{\qcs{L}} \, s_\qcs{L'}$
+for every $\qcs{L}, \qcs{L'} \in \QC(G)$.
+We claim that $s_\qcs{L}$ is fixed by the action of $\Weil{}$ on $H^2(G(\bFq),\EEx)$
 inherited from the action of $\Weil{}$ on $G(\bFq)$.
 To see this, we return to the choice $\{ v_x \in \gqcs{L}_x^\times \tq x\in G(\bFq) \}$
 and define $f : G(\bFq) \to \EEx$ by
@@ -515,29 +514,52 @@ g(\Frob{G}(x),\Frob{G}(y)) f(x) f(y)  = g(x,y) f(x+y)
 \end{equation}
 for all $x,y \in G(\bFq)$; thus, the class of $\,^{\Frob{}}g$ coincides with the class of $g$.
 This concludes the definition of
-$S_{G}: \QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))$.
-It is easy to see that the function $S_{G}: \QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))$ is a group homomorphism:
-\[
-g_{\qcs{L}\otimes \qcs{L'}} = g_{\qcs{L}} \, g_\qcs{L'}
-\]
-for every $\qcs{L}, \qcs{L'} \in \QC(G)$.\todo{I still need to write down the details, for ourselves.}
+\begin{align*}
+S_G: \QCiso{G} &\to \Hh^0(\Weil{},\Hh^2(G(\bFq),\EEx))\\
+\qcs{L} &\mapsto s_{\qcs{L}}.
+\end{align*}
 
 \begin{definition}\label{def:invisible}
-Let $\qcs{L}$ be a quasicharacter sheaf on $G$. We say $\qcs{L}$ is \emph{visible} $g_\qcs{L} \in H^0(\Weil{},H^2(G(\bFq),\EEx))$ is trivial; otherwise, we say $\qcs{L}$ is \emph{invisible}.
+Let $\qcs{L}$ be a quasicharacter sheaf on $G$. We say $\qcs{L}$ is \emph{visible} if $S_G(\qcs{L}) \in H^0(\Weil{},H^2(G(\bFq),\EEx))$ is trivial; otherwise, we say $\qcs{L}$ is \emph{invisible}.
 \end{definition}
 
-If $G$ is a connected and of finite type, then $\Hh^2(G(\bFq),\EEx)$ is trivial\todo{Reference?}
-so all quasicharacter sheaves on connected commutative algebraic groups $G$ are visible;
- by contrast, if $G$ is etale then $\Hh^1(\Weil{},\Hh^2(G(\bFq),\EEx))$ may be non-trivial so $G$ may admit invisible quasicharacters sheaves.
-We will return to that case in Section~\ref{sec:etale}.
+\subsection{Group cohomology}
 
 While neither $T_{G}$ nor $S_{G}$ are injective, their direct sum is.
 
-\begin{proposition}
-Let
+%In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
+
+\begin{lemma} \label{lem:dual-inv}
+Let $X$ be an abelian group equipped with an action of $\Weil{}$.
+ Then
+\begin{align*}
+ (X^*)_{\Frob{}} &\to (X^{\Frob{}})^* \\
+ [f] &\mapsto f|_{X^{\Frob{}}}
+\end{align*}
+is an isomorphism.
+\end{lemma}
+
+\begin{proof}
+We can describe $X^{\Frob{}}$ as the kernel of the map $X \xrightarrow{\Frob{}-1} X$;
+let $Y = (\Frob{}-1)X$ be the augmentation ideal.  Dualizing the sequence
 \[
-R_{G} : \QCiso{G} \to  \Hh^0(\Weil{},\Hh^2(G(\bFq),\EEx) \oplus \Hh^1(\Weil{}, \Hh^1(G(\bFq),\EEx))
+ 0 \to X^{\Frob{}} \to X \to Y \to 0
 \]
+yields
+\[
+ 0 \to Y^* \to X^* \to (X^{\Frob{}})^* \to \Ext^1_\ZZ(Y, \EEx).
+\]
+Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
+\end{proof}
+
+
+
+\begin{proposition}
+The group homomorphism
+\begin{align*}
+R_{G} : \QCiso{G} &\to  \Hh^0(\Weil{},\Hh^2(G(\bFq),\EEx) \oplus \Hh^1(\Weil{}, \Hh^1(G(\bFq),\EEx))\\
+\qcs{L} &\mapsto (s_{\qcs{L}}, 
+\end{align*}
 be the map formed from  . . .
 Then $R_{G}$ is injective.
 \end{proposition}
@@ -1337,30 +1359,7 @@ Define $\phi_x : \gqcs{L}_{\Frob{}(x)}\to \gqcs{L}_x$ by $\phi_x(1) = f(x)$.
 Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.
 \end{proof}
 
-%In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
 
-\begin{lemma} \label{lem:dual-inv}
-Let $X$ be an abelian group equipped with an action of $\Weil{}$.
- Then
-\begin{align*}
- (X^*)_{\Frob{}} &\to (X^{\Frob{}})^* \\
- [f] &\mapsto f|_{X^{\Frob{}}}
-\end{align*}
-is an isomorphism.
-\end{lemma}
-
-\begin{proof}
-We can describe $X^{\Frob{}}$ as the kernel of the map $X \xrightarrow{\Frob{}-1} X$;
-let $Y = (\Frob{}-1)X$ be the augmentation ideal.  Dualizing the sequence
-\[
- 0 \to X^{\Frob{}} \to X \to Y \to 0
-\]
-yields
-\[
- 0 \to Y^* \to X^* \to (X^{\Frob{}})^* \to \Ext^1_\ZZ(Y, \EEx).
-\]
-Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
-\end{proof}
 
 \begin{lemma}\label{lem:etale-trace}
 If $G$ is an \'etale commutative group scheme over $\Fq$
