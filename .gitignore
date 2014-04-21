@@ -17,3 +17,5 @@ _*.tex
 *.DS_Store
 *.fls
 *.fdb_*
+*.sage-backup
+*.sage-chat
