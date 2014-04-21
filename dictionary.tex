@@ -21,7 +21,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % AMS packages
-\usepackage{amsmath, amsthm, amssymb, todonotes}% showkeys}
+\usepackage{amsmath, amsthm, amssymb, todonotes, showkeys}
 \usepackage[alphabetic]{amsrefs}
 % Fonts
 \usepackage{mathrsfs, yfonts}
@@ -202,8 +202,9 @@ Although this dictionary extends to the case when $G$ is not connected, and even
 In this generality, the correct class of sheaves on G are called \emph{quasicharacter sheaves}; when $G$ is connected and of finite type, quasicharacter sheaves on $G$ specialize to character sheaves on $G$.
 While every character of $G(\Fq)$ may be converted, canonically, into a quasicharacter sheaf on G from which the character of $G(\Fq)$ may be recovered using the trace of Frobenius on G, generally there exist non-trivial quasicharacter sheaves on G for which the trace of Frobenius is trivial; these are called \emph{invisible quasicharacter sheaves} on $G$.
 Invisible quasicharacter sheaves on G are precisely the quasicharacter sheaves on $G$ that are lost in translation under the function-sheaf dictionary.
-Assuming only that $G$ is a smooth commutative group scheme over $\Fq$ with finitely generated component group, this paper gives a simple cohomological description of invisible quasicharacter sheaves on $G$. 
-%The most interesting case is that of etale commutative group schemes over $\Fq$.
+This paper gives a cohomological description of invisible quasicharacter sheaves on $G$
+and a trick to make invisible quasicharacter sheaves disappear,
+should the notion prove too troubling.
 
 \subsection*{Main result}
 
@@ -212,7 +213,7 @@ Let $\Fq$ be a finite field and let $G$ be a connected commutative algebraic gro
 and let $\bG$ be the base change of $G$ to $\bFq$.
 Fix a prime $\ell$ invertible in $\Fq$ and let $\chi : G(\Fq) \to \EEx$ be any character.
 Using little more than the Lang map for $G$, $\chi$ determines an $\ell$-adic local system $\qcs{L}$ on $G$ from which the character $\chi$ can be recovered using the Frobenius automorphism of $\bG$.
-While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there exists an isomorphism
+While this recovery process applies to all $\ell$-adic local systems $\qcs{L}$ on $G$, those that produce characters of $G(\Fq)$ are distinguished by a simple property: there \emph{exists} an isomorphism
 \begin{equation}\label{introbox}
 m^* \qcs{L} \iso \qcs{L} \boxtimes \qcs{L}
 \end{equation}
@@ -235,15 +236,15 @@ is a rigid monoidal category and Trace of Frobenius provides a functorial surjec
 \end{equation}
 with a canonical section.
 We refer to quasicharacter sheaves in the kernel of Trace of Frobenius as \emph{invisible} quasicharacter sheaves.
-If $G$ is a connected commutative algebraic group then 
+If $G$ is a connected commutative algebraic group then
 all quasicharacter sheaves on $G$ are visible.
-In this paper we find a simple cohomological description 
+In this paper we find a simple cohomological description
 of invisible quasicharacter sheaves on any smooth commutative
 group scheme $G$ over $\Fq$.
-In any case, the canonical section of the Trace of Frobenius allows 
-one to convert any quasicharacter of $G(\Fq)$ 
+In any case, the canonical section of the Trace of Frobenius allows
+one to convert any quasicharacter of $G(\Fq)$
 into a quasicharacter sheaf on $G$;
-consequently, quasicharacter sheaves geometrize and categorify 
+consequently, quasicharacter sheaves geometrize and categorify
 characters of $G(\Fq)$.
 
 
@@ -251,18 +252,19 @@ characters of $G(\Fq)$.
 \subsection*{Illustrative examples}
 
 Three examples will illustrate some of the issues that arise when extending the function--sheaf dictionary to etale, commutative group schemes over $\Fq$.
-First, consider the etale group scheme $\ZZ$ over $\Fq$.
-While the $\ell$-adic character $\ZZ \to \EEx$ defined by
-$1 \mapsto -1$, has finite order, the character defined by
-$1 \mapsto 1+\ell$ does not, although its image is bounded;
-on the other hand, the character $\ZZ \to \EEx$ defined by
-$1 \mapsto \ell$ has unbounded image.
 As we show in the paper, $\ell$-adic local systems on $G$ can only be used to geometrize characters of finite order; quasicharacter sheaves, however, provide the geometrization of all characters of $G(\Fq)$.
-Second, consider the etale group scheme $\ZZ \times \ZZ$.
-\todo{Build an example of an invisible quasicharacter sheaf here.}
-Finally, consider the etale group scheme $\ZZ \times \ZZ$ over $\Fq$ with Galois action determined by $\sigma(n,m) = (m,n)$ when the restriction of $\sigma$ to $\mathbb{F}_{q^2}$ is non-trivial.
-Although there are infinitly-many geometric points on this group, it has exactly one $\Fq$-rational point.
-In this case, the group carries only one isomorphism class of quasicharacter sheaves -- in particular, it has no invisible quasicharacter sheaves -- so the dictionary is perfect, albeit trivial, in this case.
+In particular, we will see how to uniquely geometrize the character $\ZZ \to \EEx$ defined by
+$1 \mapsto \ell$, which has unbounded image,
+using quasicharacter sheaves on the etale group scheme $\ZZ$ with trivial Galois action.
+All quasicharacter sheaves on this group are visible.
+Likewise, the dictionary is perfect for the
+etale group scheme $\ZZ$ with Galois action determined by $\Frob{}(n) = -n$.
+By contract, the etale group scheme $\ZZ \times \ZZ$ with trivial Galois action
+ does admit invisible quasicharacter sheaves;
+ in particular, there are non-trivial quasicharacter sheaves on this group
+with trivial trace of Frobenius.\footnote{Move this example: Define $g: \ZZ\times \ZZ \to \EEx$ by $g((n_1,m_1), (n_2, m_2)) = \ell^{m_1-m_2 + n_1-n_2}$.
+Then use the tehniques of Section~\ref{sec:etale} to build a non-trivial character sheaf from the pair $(f=1,g)$ with trivial trace of Frobenius.}
+
 
 \subsection*{Motivation and Application}
 
@@ -279,7 +281,7 @@ informs our choice of the term \emph{quasicharacter sheaf} here.
 \subsection*{Comparison with other character sheaves}
 
 We also want to situate our terminology in a historical context.
-Some people refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves;
+It is not uncommon to refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves;
 see for example, \cite{kamgarpour:09a}.
 As explained above, quasicharacter sheaves evolved from this notion,
 with an eye toward quasicharacters of $p$-adic groups.
@@ -289,8 +291,8 @@ It is applied to certain perverse sheaves on connected reductive algebraic group
 over algebraically closed fields with finite cyclic component groups in the series of papers
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of $\ZZ/n\ZZ$ by a torus,
-in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves. 
-In particular, all quasicharacter sheaves on such groups are visible.
+in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
+We note that there are no invisble quasicharacter sheaves on such groups.
 
 \subsection*{Structure of the paper}
 
@@ -320,7 +322,7 @@ is a functorial isomorphism for $\QC$-schemes.
 We thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable.
-We also thank Takashi Suzuki, who made many helpful observations and suggestions.
+We also thank Takashi Suzuki, who made some enormously helpful observations and suggestions.
 %
 Finally, we gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and the National Science and Engineering Research Council,
@@ -336,7 +338,7 @@ as well the hospitality of the Banff International Research Station during our w
 \subsection{Notations}\label{sec:QCschemes}
 
 Throughout this paper, $G$ is a smooth, commutative group scheme
-over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.  
+over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
 %For the sake of brevity, we define a \emph{$\QC$-scheme} to be such a $G$ with the additional property that the geometric component group of $G$ is finitely generated.  This last condition is only needed in the proof of Lemma \ref{lemma:section}.  A morphism of $\QC$-schemes is a morphism of group schemes over $\Fq$.
 
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
@@ -461,7 +463,8 @@ The function
 \TrFrob{G}: \QCiso{G} &\to G(\Fq)^* \\
 \qcs{L} &\mapsto t_{\qcs{L}}
 \end{align*}
-is called \emph{Trace of Frobenius}.
+is called \emph{Trace of Frobenius}.\todo{Does this really warrant a declared definition?
+Instead, we can refer to this very short section, when needed.}
 \end{definition}
 
 The isomorphism $\mu : \bm^* \gqcs{L} \to \LxL$ together with
@@ -489,7 +492,7 @@ The proof of Proposition~\ref{prop:functorialG} will be given at the end of Sect
 
 We will see that the Trace of Frobenius may not provide complete
 information about isomorphism classes of quasicharacter sheaves on $G$ when $G$ is not connected.
-Our main tool for understanding this phenomenon is the function
+Our main tool for understanding this phenomenon is the group homomorphism
 \begin{equation}\label{2cocycle}
 S_{G}: \QCiso{G} \to H^0(\Weil{},H^2(G(\bFq),\EEx))
 \end{equation}
@@ -516,6 +519,11 @@ and define $f : G(\bFq) \to \EEx$ by
 \[
 \phi_x(v_{\Frob{G}(x)}) = f(x) v_x.
 \]
+Observe:
+\begin{equation}\label{ftot}
+f\vert_{G(\Fq)} = t_\qcs{L},
+\end{equation}
+which is independent of the choice of $\{ v_x \in \gfqcs{L}_x \tq x\in G(\bFq)\}$.
 Chasing through the diagram in Condition~\ref{QC.3} we see that
 \begin{equation}\label{nohom}
 g(\Frob{G}(x),\Frob{G}(y)) f(x) f(y)  = g(x,y) f(x+y)
@@ -527,54 +535,13 @@ S_G: \QCiso{G} &\to \Hh^0(\Weil{},\Hh^2(G(\bFq),\EEx))\\
 \qcs{L} &\mapsto s_{\qcs{L}}.
 \end{align*}
 
-
 \begin{definition}\label{def:invisible}
-Let $\qcs{L}$ be a quasicharacter sheaf on $G$. We say $\qcs{L}$ is \emph{visible} if $S_G(\qcs{L}) \in H^0(\Weil{},H^2(G(\bFq),\EEx))$ is trivial; otherwise, we say $\qcs{L}$ is \emph{invisible}.
+Let $\qcs{L}$ be a quasicharacter sheaf on $G$. We say $\qcs{L}$ is \emph{visible} if $s_\qcs{L} \in H^0(\Weil{},H^2(G(\bFq),\EEx))$ is trivial; otherwise, we say $\qcs{L}$ is \emph{invisible}.
 \end{definition}
 
-
-\subsection{Group cohomology}
-%If $G$ is a connected and of finite type, then $\Hh^2(G(\bFq),\EEx)$ is trivial\todo{Reference?} so all quasicharacter sheaves on connected commutative algebraic groups $G$ are visible; by contrast, if $G$ is etale then $\Hh^1(\Weil{},\Hh^2(G(\bFq),\EEx))$ may be non-trivial so $G$ may admit invisible quasicharacters sheaves. We will return to that case in Section~\ref{sec:etale}.
+This terminology will be justified later when\todo{Point somewhere.} we show that a non-trivial quasicharacter sheaf $\qcs{L}$ on $G$ is invisible if and only if $\trFrob{\qcs{L}}$ is trivial.
 
 
-While neither $T_{G}$ nor $S_{G}$ are injective, their direct sum is.
-
-%In order to relate $\QCiso{G}$ to $G(k)^*$, we need a simple result relating duals, invariants and coinvariants.
-
-\begin{lemma} \label{lem:dual-inv}
-Let $X$ be an abelian group equipped with an action of $\Weil{}$.
- Then
-\begin{align*}
- (X^*)_{\Frob{}} &\to (X^{\Frob{}})^* \\
- [f] &\mapsto f|_{X^{\Frob{}}}
-\end{align*}
-is an isomorphism.
-\end{lemma}
-
-\begin{proof}
-We can describe $X^{\Frob{}}$ as the kernel of the map $X \xrightarrow{\Frob{}-1} X$;
-let $Y = (\Frob{}-1)X$ be the augmentation ideal.  Dualizing the sequence
-\[
- 0 \to X^{\Frob{}} \to X \to Y \to 0
-\]
-yields
-\[
- 0 \to Y^* \to X^* \to (X^{\Frob{}})^* \to \Ext^1_\ZZ(Y, \EEx).
-\]
-Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
-\end{proof}
-
-
-
-\begin{proposition}
-The group homomorphism
-\begin{align*}
-R_{G} : \QCiso{G} &\to  \Hh^0(\Weil{},\Hh^2(G(\bFq),\EEx) \oplus \Hh^1(\Weil{}, \Hh^1(G(\bFq),\EEx))\\
-\qcs{L} &\mapsto (s_{\qcs{L}}, 
-\end{align*}
-be the map formed from  . . .
-Then $R_{G}$ is injective.
-\end{proposition}
 
 \subsection{Pull-back and products}\label{sec:pullback}
 
@@ -1350,37 +1317,54 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasichara
 
 \subsection{Group Cohomology}
 
-\begin{lemma}\label{lem:etale-2cocycle}
-    If $G$ is an \'etale commutative group scheme over $\Fq$
-    then the group homomorphism
-    \[
-    S_{G} : \QCiso{G} \to \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)),
-    \]
-    defined in Section~\ref{sec:invisible}, is surjective.\todo{Kernel? Canonical section?}
+
+\begin{proposition} \label{prop:etale-iso}
+	If $G$ is an \'etale commutative group scheme over $\Fq$
+  	then
+  	\[
+  	\QCiso{G} \iso \Hh^2(G(\bFq)\rtimes \Weil{}, \EEx),
+  	\]
+  	functorially,
+  	in the sense of Proposition~\ref{prop:functorialG}.
+\end{proposition}
+
+The proof of Proposition~\ref{prop:etale-iso} will require a few lemmas,
+which we assemble now.\todo{This section is undergoing massive reconstruction. Don't read.}
+%
+%We begin with a simple result relating duals, invariants and coinvariants.
+
+\begin{lemma} \label{lem:dual-inv}
+Let $X$ be an abelian group equipped with an action of $\Weil{}$.
+ Then
+\begin{align*}
+ (X^*)_{\Frob{}} &\to (X^{\Frob{}})^* \\
+ [f] &\mapsto f|_{X^{\Frob{}}}
+\end{align*}
+is an isomorphism.
 \end{lemma}
 
 \begin{proof}
-Pick $[g]\in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$. Then $g\in Z^2(G(\bFq),\EEx)$ is fixed by Frobenius, so $\,^{\Frob{}}g = g h$ for some $h\in B^2(G(\bFq),\EEx)$. Accordingly, $h(x,y) = \frac{f(x+y)}{f(x) f(y)}$ for some $f : G(\bFq) \to \EEx$, so
-\begin{equation}\label{gf}
-g(\Frob{}(x),\Frob{}(y)) = g(x,y) \frac{f(x+y)}{f(x) f(y)}
-\end{equation}
-for all $x,y\in G(\bFq)$.
-Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$ and define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x \otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = g(x,y) 1 \otimes 1$.
-Since $g\in Z^2(G(\bFq),\EEx)$, the indexed set of isomorphisms $\{ \mu_{x,y} \tq x,y \in G(\bFq) \}$ satisfies \ref{qc.2}.
-Define $\phi_x : \gqcs{L}_{\Frob{}(x)}\to \gqcs{L}_x$ by $\phi_x(1) = f(x)$.
-Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.
+We can describe $X^{\Frob{}}$ as the kernel of the map $X \xrightarrow{\Frob{}-1} X$;
+let $Y = (\Frob{}-1)X$ be the augmentation ideal.  Dualizing the sequence
+\[
+ 0 \to X^{\Frob{}} \to X \to Y \to 0
+\]
+yields
+\[
+ 0 \to Y^* \to X^* \to (X^{\Frob{}})^* \to \Ext^1_\ZZ(Y, \EEx).
+\]
+Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
 \end{proof}
 
-
+%Now we see that the Trace of Frobenius is surjective.
 
 \begin{lemma}\label{lem:etale-trace}
 If $G$ is an \'etale commutative group scheme over $\Fq$
-then for every the $\chi \in G(\Fq)^*$ there is a visible quasicharacter sheaf $\qcs{L}$ on $G$ such that $\trFrob{\qcs{L}} = \chi$.
-In particular, Trace of Frobenius
+then Trace of Frobenius
 \[
-\TrFrob{G} : \QCiso{G} \to G(\Fq)^*,
+\TrFrob{G} : \QCiso{G} \to G(\Fq)^*
 \]
-is surjective, even when restricted to visible quasicharacter sheaves.\todo{Kernel? Canonical section?}
+is a surjective group homomorphism.
 \end{lemma}
 
 \begin{proof}
@@ -1394,19 +1378,46 @@ condition \eqref{nohom} is satisfied with $g =1$, the trivial cocycle in $Z^2(G(
 It is now clear that we have defined a \emph{visible} quasicharacter sheaf $\qcs{L}$ with $\trFrob{\qcs{L}} = \chi$.
 \end{proof}
 
+%Likewise, $S_G$ is surjective.
 
-\begin{proposition} \label{prop:etale-iso}
-	If $G$ is an \'etale commutative group scheme over $\Fq$
-	and if $G(\bFq)$ is finitely generated,
-  	then
-  	\[
-  	\QCiso{G} \iso \Hh^2(G(\bFq)\rtimes \Weil{}, \EEx).
-  	\]
-  	Moreover, this isomorphism is functorial
-  	in the sense of Proposition~\ref{prop:functorialG}.
-\end{proposition}
+\begin{lemma}\label{lem:etale-2cocycle}
+    If $G$ is an \'etale commutative group scheme over $\Fq$
+    then the group homomorphism
+    \[
+    S_{G} : \QCiso{G} \to \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)),
+    \]
+    defined in Section~\ref{sec:invisible}, is surjective.
+\end{lemma}
 
 \begin{proof}
+Pick $[g]\in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$. Then $g\in Z^2(G(\bFq),\EEx)$ is fixed by Frobenius, so $\,^{\Frob{}}g = g h$ for some $h\in B^2(G(\bFq),\EEx)$. Accordingly, $h(x,y) = \frac{f(x+y)}{f(x) f(y)}$ for some $f : G(\bFq) \to \EEx$, so
+\begin{equation}\label{gf}
+\frac{g(\Frob{}(x),\Frob{}(y))}{g(x,y)} = \frac{f(x+y)}{f(x) f(y)}
+\end{equation}
+for all $x,y\in G(\bFq)$.
+Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$ and define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x \otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = g(x,y) 1 \otimes 1$.
+Since $g\in Z^2(G(\bFq),\EEx)$, the indexed set of isomorphisms $\{ \mu_{x,y} \tq x,y \in G(\bFq) \}$ satisfies \ref{qc.2}.
+Define $\phi_x : \gqcs{L}_{\Frob{}(x)}\to \gqcs{L}_x$ by $\phi_x(1) = f(x)$.
+Then set of isomorphisms $\{ \phi_{x} \tq x \in G(\bFq) \}$ satisfies \ref{qc.3} by \eqref{gf}. In this way, the cocycle $g\in Z^0(\Weil{}, Z^2(G(\bFq),\EEx))$ defines a quasicharacter sheaf $\qcs{L}$. It is clear that $\qcs{L}$ maps to $[g] \in \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))$ under \eqref{2cocycle}.
+\end{proof}
+
+\begin{lemma}\label{lem:trivial}
+\[
+\ker T_{G} \cap \ker S_{G} = 0
+\]
+\end{lemma}
+
+\begin{proof}
+Suppose $\trFrob{\qcs{L}} =1$ and $s_\qcs{L} =1$
+Let $f$ and $g$ be as above.
+Since the class of $g$ is trivial, $g(x,y) = \frac{h(x+y)}{h(x) h(y)}$ for some $h : G(\bFq) \to \EEx$;
+since the class of $f$ is trivial, $f(x) = \frac{k(\Frob{G}(x))}{k(x)}$ for some $k : G(\bFq) \to \EEx$.
+\todo{Actually, the lemma is false.}
+\end{proof}
+
+Now we can prove Proposition~\ref{prop:etale-iso}.
+
+\begin{proof}[Proof of Proposition~\ref{prop:etale-iso}]
 By Lemma~\ref{lem:dual-inv}, $G(\Fq)^* \iso \Hh^1(\Weil{},\Hh^1(G(\bFq),\EEx))$. Composing this isomorphism with the Trace of Frobenius gives
 \[
 T_{G}: \QCiso{G}\to  \Hh^1(\Weil{},\Hh^1(G(\bFq),\EEx)),
@@ -1418,9 +1429,9 @@ S_{G} : \QCiso{G} \to \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx))
 \]
 gives
 \[
-\QCiso{G} \mathop{\longrightarrow}\limits^{T_{G}\oplus S_{G}} \Hh^1(\Weil{},\Hh^1(G(\bFq),\EEx))\oplus \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)).
+\QCiso{G} \mathop{\longrightarrow}\limits^{R_G} \Hh^1(\Weil{},\Hh^1(G(\bFq),\EEx))\oplus \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)).
 \]
-The Hochschild-Serre spectral sequence (for finitely generated abelian groups!) provides
+The Hochschild-Serre spectral sequence provides
 \[
 \Hh^2(G(\bFq)\rtimes \Weil{},\EEx)  \iso \Hh^1(\Weil{}, \Hh^1(G(\bFq),\EEx)) \oplus \Hh^0(\Weil{}, \Hh^2(G(\bFq),\EEx)).
 \]
@@ -1428,7 +1439,7 @@ Composing these last two maps defines
 \begin{equation}
 \QCiso{G}\to \Hh^2(G(\bFq)\rtimes \Weil{},\EEx).
 \end{equation}
-To see that this homomorphism is an isomorphism,\todo{Clifton, you are here.}
+To see that this homomorphism is an isomorphism, observe that $S_G$ and $T_G$ are surjective and $\ker S_G \cap \ker T_G = 0$.
 \end{proof}
 
 \section{The main result}
@@ -1459,7 +1470,7 @@ and therefore, after passing to isomorphism classes, the sequence of abelian gro
  Note that we found the groups $\QCiso{G^0}$
 and $\QCiso{\pi_0(G)}$
 in Sections~\ref{sec:connected} and \ref{sec:etale}.
-In this section we show that \eqref{eq:pi2} is exact.
+In this section we show that \eqref{eq:pi2} is exact.\todo{I wonder if $(F_1,F_2)$, see \ref{prop:functorialG}, form an adjoint pair.}
 
 Recall from Section~\ref{sec:finite} that
 a morphism $f : H\to G$ of group $\Fq$-schemes is a discrete isogeny
@@ -1642,7 +1653,7 @@ In fact, Trace of Frobenius is an isomorphism when $G$ is a $\QC$-scheme.
   \[
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
-  is a functorial surjection with kernel $\Hh^0(\Weil{}, \Hh^2(\pi_0({\bar G}), \EE))$ and a canonical section.
+  is a functorial surjection with kernel $\Hh^0(\Weil{}, \Hh^2(\pi_0({\bar G}), \EE))$ and a canonical section.\todo{I wonder if $(F_1,F_2)$, see \ref{prop:functorialG}, form an adjoint pair. That seems to be what this theorem is saying.}
 \end{theorem}
 
 \begin{proof}
@@ -1769,4 +1780,4 @@ Two approaches: subcategory and quotient category\todo{Under construction}
 \bibliography{Biblio}
 
 \end{document}
-%sagemathcloud={"zoom_width":120}
+%sagemathcloud={"zoom_width":125}
