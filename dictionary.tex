@@ -25,7 +25,10 @@
 \usepackage[alphabetic]{amsrefs}
 % Fonts
 \usepackage{mathrsfs, yfonts}
+%Geometry
 \usepackage{geometry}
+% Enumitem
+%\usepackage{enumitem}
 % TikZ
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc,matrix}
@@ -105,6 +108,7 @@
 \DeclareMathOperator{\Lang}{Lang}
 \DeclareMathOperator{\image}{im}
 \DeclareMathOperator{\Loc}{Loc}
+\DeclareMathOperator{\Tot}{Tot}
 \newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
 \newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
 
@@ -1255,6 +1259,35 @@ choices of families of base points and track the action
 of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of
 Weil groups and also difficult to identify the relevant quotient of this group.
 Viewed in this light, Definition~\ref{def:QC} is comparatively simple.
+
+\section{The Hochschild-Serre Spectral Sequence}
+
+Consider the double complex $E^{\bullet, \bullet}$ defined by
+\[
+E^{i,j} = C^i(\Weil{}, C^j(G(\bFq), \EEx)).
+\]
+The machinery of spectral sequences gives us a sequence of pages $E_r^{i,j}$, converging to a page $E_{\infty}^{i,j}$.  We summarize the key properties of this spectral sequence in the following proposition.
+
+\begin{proposition}
+\begin{enumerate}
+\item The second page is given by $E_2^{i,j} = \Hh^i(\Weil{}, \Hh^j(G(\bFq), \EEx))$,
+\item the cohomology $\Hh^\bullet(\Weil{} \ltimes G(\bFq), \EEx)$ is isomorphic to the cohomology of the total complex $\Tot(E^{\bullet, \bullet})$,
+\item there is a filtration $\Hh^n(\Weil{}, \ltimes G(\bFq), \EEx) = F_n \supset \cdots \supset F_0 \supset F_{-1} = 0$ where $F_i / F_{i-1} \cong E_{\infty}^{n-i, i}$.
+\end{enumerate}
+\end{proposition}
+
+Moreover, since $\Weil{} \cong \ZZ$ has cohomological dimension $1$, $E_2^{i,j} = 0$ for $i > 1$ and the sequence degenerates at the second page: $E_{\infty}^{i,j} = E_2^{i,j}$.  We obtain the following corollary:
+
+\begin{corollary}
+There is a short exact sequence
+\[
+1 \to \Hh^1(\Weil{}, \Hh^1(G(\bFq), \EEx)) \to \Hh^2(\Weil{} \ltimes G(\bFq), \EEx) \to \Hh^0(\Weil{}, \Hh^2(G(\bFq), \EEx)) \to 1.
+\]
+\end{corollary}
+
+% Replace H^i with \Hh^i
+The map $S_{G}: \QCiso{G} \to \Hh^0(\Weil{},H^2(G(\bFq),\EEx))$ defined in Section \ref{sec:invisible} factors through a map $R_G : \QCiso{G} \to \Hh^2(G(\bFq) \rtimes \Weil{}, \EEx)$.  
+
 
 \section{The case of \'etale commutative group schemes} \label{sec:etale}
 
