@@ -685,7 +685,8 @@ as taking the action $\varphi$ of $\Weil{k}$ on $\gqcs{L}$
 defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{k'}$.
 
 \begin{proposition}\label{prop:basechange}
- The rule $\nu_{k'/k}: (\gqcs{L}, \mu, \phi) \mapsto (\gqcs{L}, \mu, \phi_{k'})$
+With notation above,
+the rule $\nu_{k'/k}: (\gqcs{L}, \mu, \phi) \mapsto (\gqcs{L}, \mu, \phi_{k'})$
  defines a monoidal functor $\QC(G) \to \QC(G_{k'})$.
  Moreover, the following diagram commutes:
 \[
@@ -695,6 +696,9 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \end{tikzcd}
 \]
 \end{proposition}
+
+\todo{The bottom arrow is an isomorphism to $G(k')^*_{\Gal(k'/k)}$. We will see that the horizontal arrows are isomorphisms on loose quasicharacter sheaves. Can we make sense of $\QC(G_{k'})_{\Gal(k'/k)}$? If so, is the functor $\nu_{k'/k}$ into $\QC(G_{k'})_{\Gal(k'/k)}$ an equivalence of categories?}
+
 \begin{proof}
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and write $F$ for $\Frob{G}$.  For any $x \in G(k')$,
 we may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
@@ -734,6 +738,7 @@ from Proposition~\ref{prop:basechange} with pullback along this map yields a fun
 \]
 
 \begin{proposition}
+Let $k'/k$ be a finite extension and let $G'$ be a smooth commutative group scheme over $k'$.
 The following diagram of isomorphisms commutes, where the bottom map is the identity:
 \[
 \begin{tikzcd}
@@ -753,6 +758,9 @@ induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on
 \]
 is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
 \end{proof}
+
+\todo{Can we improve on this result by proving that $\rho$
+is an equivalence of categories?}
 
 \section{Two subcategories of quasicharacter sheaves}%\label{sec:bounded}
 

@@ -20,7 +20,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % AMS packages
-\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsmath, amsthm, amssymb, geometry}
 \usepackage[alphabetic]{amsrefs}
 \usepackage{todonotes}
 % Fonts
@@ -167,7 +167,7 @@
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
 %% Hyphenation override
 \hyphenation{quasi-character}
-
+\hyphenation{quasi-characters}
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%
 \begin{document}
 
@@ -189,31 +189,38 @@ For any non-archimedean local field $K$
 
 
 
-In this paper we explain how to geometrize quasicharacters of algebraic tori over local fields.
-%
-Let $K$ be a non-archimedian local field
-with finite residue field $\Fq$; we place no restriction on the characteristic of $K$.
-Write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$.
-Let $T$ be a torus defined over $K$.  The N\'eron model $\TT$ of $T$
-is a smooth group scheme over $\OK$ with generic fibre $T$ and a canonical isomorphism
-$\TT(\OK) \cong T(K)$.  For each positive integer $n$, let $\GN{T}_n$ be the
-Greenberg transform of $\TT \times_{\Spec{\OK}} \Spec{\OK/\pK^n}$. Then $\GN{T}_n$ is a smooth commutative group scheme over $\Fq$; as such, it carries the category $\QC(\GN{T}_n)$ of quasicharacter sheaves, introduced in \cite{cunningham-roe:dictionary}. The main result in this paper, Theorem~\ref{thm:application}, provides a functorial translation of characters $T(K)$ of depth less than $n$ into quasicharacter sheaves on $\GN{T}_n$:
-\[
-\QCiso{\GN{T}_n}
-\iso
-\Hom_{< n}(T(K),\EEx).
-\]
-We also describe a pro-group scheme $\GN{T}$
-simultaneously geometrizing all quasicharacters ({\it i.e.}, finite-depth characters) of $T(K)$.
+This paper provides a geometric proof of the local Langlands Correspondence for algebraic tori.
+The new ingredient in this proof is the geometrization of quasicharacters of algebraic tori over local fields,
+which relies on the function--sheaf dictionary for smooth group schemes over finite fields developed recently by the authors.
+We also use the class field theory of Serre and Hasewinkel.
 
+Here is the main idea of the paper.
+Let $K$ be a non-Archimedean local field with finite residue field $\Fq$; we place no restriction on the characteristic of $K$.
+Let $T$ be an algebraic torus over $K$; we place no restriction on the ramification of $T$.
+For every positive integer $n$, let $\GN{T}_n$ be the Greenberg transform of base change of the Neron model of $T$ to $\OK/\pK^n$,
+where $\OK$ denotes the ring of integers of $K$ and $\pK$ is the maximal ideal in $\OK$.
+Let $\QC(\GN{T}_n)$ be the rigid monoidal category of quasicharacter sheaves on $\GN{T}_n$,
+obtained by applying the theory developed in [CR1] to the smooth commutative group scheme $\GN{T}_n$ over $\Fq$.
+The category $\QC(\GN{T}_n)$ comes equipped with a canonical isomorphism
+\[
+\QCiso{\GN{T}_n} \to \Hom_{n}(T(K),\EEx)
+\]
+from the group of isomorphisms classes of quasicharacter sheaves on $\GN{T}_n$ to the group of quasicharacters of $T(K)$ of depth less than $n$ in Jiu-Kang Yu's filtration of $T(K)$.
+In this paper we define a canonical isomorphism
+\[
+\QCiso{\GN{T}_n} \to H^1_{n}(\Weil{K},\hat{T}_\ell)
+\]
+to the group of Langlands parameters of depth less than $n$ in the upper-index filtration of the Weil group $\Weil{K}$.
+We then verify that the local Langlands Correspondence matches $\chi \in \Hom_{n}(T(K),\EEx)$ with $\rho \in H^1_{n}(K,\hat{T}_\ell)$ if and only if $\chi$ and $\rho$ arise from the same quasicharacter sheaf on $\GN{T}_n$.
+After passing from $\GN{T}_n$ to the group scheme $\GN{T} = \invlim{n} \GN{T}_n$, this shows that the local Langlands Correspondence for $T$ can be found within the category $\QC(\GN{T})$ of quasicharacter sheaves on $\GN{T}$.
 \[
 \begin{tikzcd}
-\ & \arrow[swap]{dl}{\trFrob{G}} \QCiso{\GN{T}} \arrow[dashed]{dr} & \\
-\Hom_{\text{qc}}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(K,\hat{T}_\ell)
+\ & \arrow[swap]{dl}{} \QCiso{\GN{T}} \arrow{dr}{} & \\
+\Hom_\text{qc}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(\Weil{K},\hat{T}_\ell)
 \end{tikzcd}
 \]
 
-
+\subsection*{Old stuff}
 While we have not yet fully explored the applications of such a geometrization, we want to highlight
 some of the potential benefits of Theorem~\ref{thm:application} here.
 Characters on $T$ have limited
@@ -282,8 +289,9 @@ and the National Science and Engineering Research Council.
 
 \tableofcontents
 
+\section{The geometrization of quasicharacters of algebraic tori over local fields}
 
-\section{Quasicharacters of algebraic tori over local fields}
+\subsection{Notations}
 
 Let $\Fq$ be a finite field and let $K$ be a non-archimedean local field with residue field $\Fq$.
 We place no restriction on the characteristic of $K$.
@@ -302,7 +310,7 @@ and
 for the group of characters of $T(K)$ of arbitrary finite depth;
 we call these quasicharacters of $T(K)$, following \cite{tate:67a}*{2.3}.
 
-\section{Greenberg of N\'eron}
+\subsection{Greenberg of N\'eron}
 \label{sec:GN}
 
 A N\'eron model for $T$ is a smooth group scheme $\TT$ over $\OK$ with generic fiber $T$
@@ -391,12 +399,12 @@ The multiplication maps $m_n : \GN{T}_n \times \GN{T}_n \to \GN{T}_n$ induce map
 $m_n^{i,j} : \GN{T}_n^i \times \GN{T}_n^j \to \GN{T}_n^{i+j},$ inducing maps $m^{i,j} : \GN{T}^i \times \GN{T}$ [under construction]
 \end{proof}
 
-\section{The function--sheaf dictionary for quasicharacters of bounded depth}\label{sec:qcs}
+\subsection{The function--sheaf dictionary for quasicharacters of bounded depth}\label{sec:qcs}
 
-In \cite{cunningham-roe:dictionary} we extended the function--sheaf dictionary of Deligne  \cite{deligne:SGA4.5}*{sommes trig.} to smooth commutative group schemes locally of finite type over finite fields for which the geometric component group is finitely generated.
+In \cite{cunningham-roe:dictionary} we extended the function--sheaf dictionary of Deligne  \cite{deligne:SGA4.5}*{sommes trig.} to smooth commutative group schemes over finite fields.
 Since we will use this dictionary here, we briefly review the main notation and result from that paper.
 
-Let $G$ be a smooth commutative group schemes locally of finite type over $\Fq$ for which the geometric component group is finitely generated. A quasicharacter sheaf on $G$ is a triple $\qcs{L}\ceq
+Let $G$ be a smooth commutative group scheme over $\Fq$ for which the geometric component group is finitely generated. A quasicharacter sheaf on $G$ is a triple $\qcs{L}\ceq
 (\gqcs{L},\mu,\phi)$ where $\gqcs{L}$ is an $\ell$-adic local system on $\bG$ of rank~one and $\mu: m^*
 \gqcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gqcs{L} \to \gqcs{L}$ are isomorphisms satisfying natural compatibilty conditions; see \cite{cunningham-roe:dictionary}.
 %
@@ -456,7 +464,7 @@ natural transformation between additive functors.
 \end{proof}
 
 
-\section{A function--sheaf dictionary for quasicharacters} \label{sec:quasichar}
+\subsection{A function--sheaf dictionary for quasicharacters} \label{sec:quasichar}
 
 In this section we package the isomorphisms of Theorem~\ref{thm:application} into
 a single dictionary.
@@ -559,7 +567,69 @@ dual to $f_{n} : \GN{T}_{n+1}(\Fq) \to \GN{T}_n(\Fq)$.
 \end{proof}
 
 
-\section{Restriction of scalars over local fields}
+\subsection{Application: Transfer of quasicharacter sheaves} \label{sec:transfer}
+
+The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$
+and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$
+or on the ramification of $T$.
+We may therefore ask for a comparison of
+quasicharacter sheaves on $T$ and on $T'$ whenever there is a relationship
+between characters of $T(K)$ and of $T'(K')$.
+Such a relationship can exist between characters of $T(K)$ and $T'(K')$ even
+when the characteristics of $K$ and $K'$ differ
+\citelist{\cite{chai-yu:01a} \cite{deligne:84a}*{\S 1}}.
+
+We recall the notion of $N$-congruent tori from \cite{chai-yu:01a}*{\S 2}.
+Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
+splitting over $L$ and $L'$ respectively.
+Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
+ \begin{align*}
+  \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
+  \beta : \Gal(L/K) &\to \Gal(L'/K') \\
+  \phi : X^*(T) &\to X^*(T')
+ \end{align*}
+ satisfying the conditions
+ \begin{enumerate}
+  \item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
+  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$, and
+  \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
+ \end{enumerate}
+If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
+\begin{equation}\label{transfer}
+  \Hom_{<N}(T(K), \EEx) \iso \Hom_{<N}(T'(K'),\EEx).
+\end{equation}
+Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every
+$N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
+In this section we show that the isomorphism \eqref{transfer} comes from an equivalence of
+categories of quasicharacter sheaves on $\GN{T}_n$ and those on $\GN{T}'_n$.
+
+One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between
+$\TT_n$ and $\TT'_n$ assuming that $T$ and $T'$ are sufficiently congruent.
+They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
+Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
+Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent
+then there is a canonical isomorphism of smooth group schemes
+ $
+  \TT_{N-3h} \to \TT'_{N-3h}
+ $
+ determined by $\alpha, \beta$ and $\phi$.
+Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
+
+\begin{corollary}\label{cor:transfer}
+ With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $n \ceq N-3h$.
+ Then there is a canonical equivalence of categories
+ \[
+  \QC(\GN{T}'_{n}) \to \QC(\GN{T}_{n})
+ \]
+ determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
+ \[
+  \Hom_{<n}(T'(K'), \EEx) \to \Hom_{<n}(T(K), \EEx)
+ \]
+ through the trace of Frobenius.
+\end{corollary}
+
+
+\subsection{Restriction of scalars over local fields}
 \label{sec:wrK}
 
 As indicated in the Introduction, we are tantalized
@@ -650,69 +720,60 @@ If we specialize Proposition~\ref{prop:wrK} to the case when
 $T = \Gm{K}$ then we see how to geometrize and categorify the restriction of quasicharacters from $(K')^\times$ to $K^\times$.
 
 
-\section{Transfer of quasicharacter sheaves} \label{sec:transfer}
+\section{Parameters from quasicharacter sheaves}
 
-The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$
-and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$
-or on the ramification of $T$.
-We may therefore ask for a comparison of
-quasicharacter sheaves on $T$ and on $T'$ whenever there is a relationship
-between characters of $T(K)$ and of $T'(K')$.
-Such a relationship can exist between characters of $T(K)$ and $T'(K')$ even
-when the characteristics of $K$ and $K'$ differ
-\citelist{\cite{chai-yu:01a} \cite{deligne:84a}*{\S 1}}.
+The component group scheme $\pi_0(\GN{T}_n)$, which is independent of $n$, is defined by the short exact sequence
+\[
+\begin{tikzcd}
+0 \arrow{r} & \GN{T}_n^0 \arrow{r}{\iota_0} & \GN{T}_n \arrow{r}{\pi_0} & \pi_0(\GN{T}_n) \arrow{r} & 0.
+\end{tikzcd}
+\]
+As we saw in [CR], this exact sequence of smooth commutative group schemes defines an isomorphism of exact sequences of commutative groups
+\[
+\begin{tikzcd}
+0 \arrow{r} & \QCiso{\pi_0(\GN{T}_n)} \arrow{r}{\pi_0^*} \arrow{d} & \QCiso{\GN{T}} \arrow{r}{\iota^*} \arrow{d} &  \QCiso{\GN{T}_n^0} \arrow{r} \arrow{d} & 0\\
+0 \arrow{r} & \Hom(\pi_0(\GN{T}_n)(\Fq),\EEx) \arrow{r} & \Hom(\GN{T}_n(\Fq),\EEx) \arrow{r} & \Hom(\GN{T}_n^0(\Fq),\EEx) \arrow{r} & 0
+\end{tikzcd}
+\]
+We have already seen $\Hom(\GN{T}_n(\Fq),\EEx) = \Hom_{<n}(T(K),\EEx)$;
+by similar arguments,
+\[
+\Hom(\GN{T}^0_n(\Fq),\EEx) = \Hom_{<n}(T(\OK),\EEx).
+\]
+Consequently,
+\[
+\Hom(\pi_0(\GN{T}_n)(\Fq),\EEx) = \Hom(T(K)/T(\OK),\EEx).
+\]
+Our goal in the next three sections is to define the three dashed arrows below in the diagram below, in which the bottom row is the inflation-restriction sequence with the initial and terminal groups elided.
+\[
+\begin{tikzcd}[column sep=-5, row sep = 20]
+&& & \arrow{dl} \QCiso{\pi_0(\GN{T}_n)} \arrow{rr} \arrow[dashed]{dd}[near start]{?} && \arrow{dl}  \QCiso{\GN{T}_n} \arrow[dashed]{dd}[near start]{?} \arrow{rr}  && \arrow{dl}  \QCiso{\GN{T}_n^\circ} \arrow[dashed]{dd}[near start]{?}  &  &  \\
+&& \Hom(T(K)/T(\OK),\EEx)  \arrow[crossing over]{rr} \arrow{rd}{} && \Hom_{<n}(T(K),\EEx) \arrow[crossing over]{rr} \arrow{rd}{\text{rec}_T} && \Hom_{<n}(T(\OK),\EEx)  \arrow{rd}{}  &&  & \\
+&&  & \Hh^1(\Weil{\Fq},\hat{T}_\ell^{I_K}) \arrow{rr} && \Hh^1_{<n}(\Weil{K},\hat{T}_\ell)\arrow{rr} && \Hh^1_{<n}(I_K,\hat{T}_\ell)^{\Weil{\Fq}} &  &
+\end{tikzcd}
+\]
 
-We recall the notion of $N$-congruent tori from \cite{chai-yu:01a}*{\S 2}.
-Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
-splitting over $L$ and $L'$ respectively.
-Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
- \begin{align*}
-  \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
-  \beta : \Gal(L/K) &\to \Gal(L'/K') \\
-  \phi : X^*(T) &\to X^*(T')
- \end{align*}
- satisfying the conditions
- \begin{enumerate}
-  \item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
-  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$, and
-  \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
- \end{enumerate}
-If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
-\begin{equation}\label{transfer}
-  \Hom_{<N}(T(K), \EEx) \iso \Hom_{<N}(T'(K'),\EEx).
-\end{equation}
-Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every
-$N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
-In this section we show that the isomorphism \eqref{transfer} comes from an equivalence of
-categories of quasicharacter sheaves on $\GN{T}_n$ and those on $\GN{T}'_n$.
+\subsection{Component group}
 
-One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between
-$\TT_n$ and $\TT'_n$ assuming that $T$ and $T'$ are sufficiently congruent.
-They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
-Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
-Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent
-then there is a canonical isomorphism of smooth group schemes
- $
-  \TT_{N-3h} \to \TT'_{N-3h}
- $
- determined by $\alpha, \beta$ and $\phi$.
-Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
-
-\begin{corollary}\label{cor:transfer}
- With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $n \ceq N-3h$.
- Then there is a canonical equivalence of categories
- \[
-  \QC(\GN{T}'_{n}) \to \QC(\GN{T}_{n})
- \]
- determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
- \[
-  \Hom_{<n}(T'(K'), \EEx) \to \Hom_{<n}(T(K), \EEx)
- \]
- through the trace of Frobenius.
-\end{corollary}
+There is another description of $\Hom(\pi_0(\GN{T}_n)(\Fq),\EEx)$ which leads easily to Langlands parameters for $T$:
+\begin{eqnarray*}
+\Hom(\pi_0(\GN{T}_n)(\Fq),\EEx)
+&\iso & \Hom(\left(X_*(T)_{I_K}\right)^{\Weil{\Fq}},\EEx)\\
+&\iso& \Hom(X_*(T)_{I_K},\EEx)_{\Weil{\Fq}}\\
+&=& \Hh^1(\Weil{\Fq}, \Hom(X_*(T)_{I_K},\EEx)) \\
+&\iso& \Hh^1(\Weil{\Fq}, \Hom(X_*(T),\EEx)^{I_K}) \\
+&=& \Hh^1(\Weil{\Fq}, (X^*(T)\otimes_{\ZZ} \EEx)^{I_K}) \\
+&=& \Hh^1(\Weil{\Fq}, \dual{T}_\ell^{I_K}).
+\end{eqnarray*}
 
 
-\section{Toward geometric reciprocity for tori over local fields}
+\subsection{Connected component}
+
+
+\subsection{General case}
+
+
+\section{Geometric reciprocity for tori over local fields}
 \label{sec:reciprocity}
 
 We have given a functorial relationship between quasicharacter sheaves
@@ -742,8 +803,13 @@ can then be viewed as a matching between quasicharacters and Langlands parameter
   the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{suzuki-yoshida:12a}.
 In this regard, a comparison between the results in this paper and those in \cite{cunningham-kamgarpour:geometrization} might also be illuminating.
 
+
+
+
+
+
 \bibliographystyle{amsalpha}
 \bibliography{Biblio}
 
 \end{document}
-%sagemathcloud={"zoom_width":90}
+%sagemathcloud={"zoom_width":100}
