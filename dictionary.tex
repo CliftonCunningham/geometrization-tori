@@ -697,8 +697,6 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \]
 \end{proposition}
 
-\todo{The bottom arrow is an isomorphism to $G(k')^*_{\Gal(k'/k)}$. We will see that the horizontal arrows are isomorphisms on quasicharacter sheaves. Can we make sense of $\QC(G_{k'})_{\Gal(k'/k)}$? If so, is the functor $\nu_{k'/k}$ into $\QC(G_{k'})_{\Gal(k'/k)}$ an equivalence of categories?}
-
 \begin{proof}
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and write $F$ for $\Frob{G}$.  For any $x \in G(k')$,
 we may compute the value of $t_{G_{k'}}(\nu_{k'/k}\qcs{L})(x)= t_{\nu_{k'/k}\qcs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gqcs{L}_x$,
@@ -1427,7 +1425,7 @@ If $G$ is \'etale then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
 Pick $\chi \in G(\Fq)^*$.
 By Lemma~\ref{lem:dual-inv}, there is some $b\in G(\bFq)^*$ such that $b\vert_{G(\Fq)^*} = \chi$.
 Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$.
-Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and 
+Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and
 $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = b(x)$.
 Since $b : G(\bFq) \to \EEx$ is a group homomorphism,
 condition \eqref{nohom} is satisfied with $a =1$ and $\qcs{L} = (\gqcs{L}, \mu, \phi)$
@@ -1766,9 +1764,9 @@ This completes the proof of Theorem~\ref{thm:snake}.
   If $G$ is a smooth, commutative group scheme over
   $\Fq$ then pullback yields an exact sequence
 \[
-0 \to \QCiso{\pi_0(G)} \to \QCiso{G} \to \QCiso{G^0} \to 0
+0 \to \lQCiso{\pi_0(G)} \to \lQCiso{G} \to \lQCiso{G^0} \to 0
 \]
-of abelian groups.\todo{Pure speculation.}
+of abelian groups.
 \end{corollary}
 
 \begin{proof}
