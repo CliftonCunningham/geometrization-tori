@@ -129,9 +129,11 @@
 \newcommand{\dualgcs}[1]{\gqcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\qcs{#1}^\dagger}
 %% Categories
-\newcommand{\QC}{{\mathcal{Q\hskip-0.8pt C}}}
-\newcommand{\QCb}{{\QC_0}}
-\newcommand{\QCf}{{\QC_f}}
+\newcommand{\lQC}{{\mathcal{Q\hskip-0.8pt C}}}
+\newcommand{\lQCiso}[1]{\lQC(#1)_{/\text{iso}}}
+\newcommand{\QC}{{\lQC_\mu}}
+\newcommand{\QCb}{{\lQC_0}}
+\newcommand{\QCf}{{\lQC_f}}
 \newcommand{\QCiso}[1]{\QC(#1)_{/\text{iso}}}
 \newcommand{\QCbiso}[1]{\QCb(#1)_{/\text{iso}}}
 \newcommand{\QCfiso}[1]{\QCf(#1)_{/\text{iso}}}
@@ -172,8 +174,6 @@
 \hyphenation{quasi-character}
 
 
-\newcommand{\lQC}{{\mathcal{Q\hskip-0.8pt C}^2}}
-\newcommand{\lQCiso}[1]{\lQC(#1)_{/\text{iso}}}
 \newcommand{\lTrFrob}[1]{\TrFrob{#1}^2}
 
 
@@ -215,7 +215,7 @@ m^* \qcs{L} \iso \qcs{L} \boxtimes \qcs{L}
 \end{equation}
  of $\ell$-adic local systems on $G$, where $m : G\times G \to G$ is the multiplication map for $G$. The function--sheaf dictionary for $G$ identifies a monoidal category of $\ell$-adic local systems on $G$ such that the group of isomorphism classes in this category is canonically identified with the $\ell$-adic character group of $G(\Fq)$, thus providing the geometrization and categorification of characters of $G(\Fq)$.
 %
-Although hidden in this discussion, the connectness of $G$ played a crucial role in the geometrization and categorification of characters of $G(\Fq)$.
+Although hidden in this discussion, the connectedness of $G$ played a crucial role in the geometrization and categorification of characters of $G(\Fq)$.
 In particular, when the isomorphism \eqref{introbox} exists for $\qcs{L}$, it is essentially unique.
 
 Now let $G$ be any smooth commutative group scheme over $\Fq$.
@@ -223,16 +223,16 @@ Two new features must be addressed in order to geometrize characters of $G(\Fq)$
 First, we must pass from $\ell$-adic local systems on $G$ to Weil local systems on $G$
 and, second, we must keep track of the isomorphisms \eqref{introbox}.
 Both issues are addressed in the main definition of this paper:
-A \emph{(tight) quasicharacter sheaf} on $G$ is a triple $\qcs{L}\ceq
+A \emph{rigid quasicharacter sheaf} on $G$ is a triple $\qcs{L}\ceq
 (\gqcs{L},\mu,\phi)$ where $\gqcs{L}$ is an $\ell$-adic local system on $\bG$ of rank~one and $\mu: m^*
-\gqcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gqcs{L} \to \gqcs{L}$ are isomorphisms satisfying natural compatibilty conditions; here $\Frob{G}$ is the Frobenius automorphism of ${\bar G}$.
-A \emph{(loose) quasicharacter sheaf} on $G$ is a Weil sheaf $(\gqcs{L},\phi)$ on $G$
-for which $(\gqcs{L},\mu,\phi)$ is a tight quasicharacter sheaf on $G$, for some $\mu$.
+\gqcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gqcs{L} \to \gqcs{L}$ are isomorphisms satisfying natural compatibility conditions; here $\Frob{G}$ is the Frobenius automorphism of ${\bar G}$.
+A \emph{quasicharacter sheaf} on $G$ is a Weil sheaf $(\gqcs{L},\phi)$ on $G$
+for which $(\gqcs{L},\mu,\phi)$ is a rigid quasicharacter sheaf on $G$, for some $\mu$.
 The difference between these two notions is detected by $\Hh^2(\pi_0({\bar G}),\EEx)$, where $\pi_0({\bar G})$ is the component group for ${\bar G}$.
-%namely, when $\Hh^2(\pi_0({\bar G}),\EEx)$ is non-trivial, if $(\gqcs{L},\phi)$ is a (loose) quasicharacter sheaf on $G$ then there are many $\mu$ for which $(\gqcs{L},\mu,\phi)$ is a (tight) quasicharacter sheaf on $G$;
+%namely, when $\Hh^2(\pi_0({\bar G}),\EEx)$ is non-trivial, if $(\gqcs{L},\phi)$ is a quasicharacter sheaf on $G$ then there are many $\mu$ for which $(\gqcs{L},\mu,\phi)$ is a rigid quasicharacter sheaf on $G$;
 %
  In the main result of this paper, Theorem~\ref{thm:snake},
-we form a rigid monoidal category $\lQC(G)$ of (loose) quasicharacter sheaves on $G$
+we form a rigid monoidal category $\lQC(G)$ of quasicharacter sheaves on $G$
 and show that the Trace of Frobenius provides a functorial group isomorphism
 \begin{equation}
 \lQCiso{G} \to \Hom(G(\Fq), \EEx).
@@ -297,11 +297,11 @@ of quasicharacter sheaves in this case.
 In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
 induces an essentially surjective functor of quasicharacter sheaves.
 Section~\ref{sec:snake} presents the main theorem of this paper: Trace of Frobenius
-is a functorial isomorphism from isomorphism classes of (loose) quasicharacter sheaves on $G$
+is a functorial isomorphism from isomorphism classes of quasicharacter sheaves on $G$
 to characters of $G(\Fq)$.
 
 %\begin{acknowledgements}
-\subsection*{Acknowledgements}
+\subsection*{Acknowledgments}
 We thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable.
@@ -309,7 +309,7 @@ We also thank Takashi Suzuki, who made some enormously helpful observations and 
 %
 Finally, we gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and the National Science and Engineering Research Council,
-as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
+as well the hospitality of the Banff International Research Station during our week-long stay in May 2012.
 
 %\end{acknowledgements}
 
@@ -344,10 +344,10 @@ are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{
 
 For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
 
-\subsection{(tight) quasicharacter sheaves}\label{sec:category}
+\subsection{Rigid quasicharacter sheaves}\label{sec:category}
 
 \begin{definition}\label{def:QC}
-A \emph{(tight) quasicharacter sheaf on $G$} is a triple
+A \emph{rigid quasicharacter sheaf on $G$} is a triple
 $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ where:
 \begin{enumerate}
 \labitem{(QC.1)}{QC.1} $\gqcs{L}$ is a rank~one $\ell$-adic local system on $\bG$, by which we mean
@@ -448,7 +448,7 @@ and note that if $(\gqcs{L},\phi) \iso (\gqcs{L'},\phi')$ then $\trFrob{(\gqcs{L
  If $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf
 then we will abbreviate $\trFrob{(\gqcs{L},\phi)}$ to $\trFrob{\qcs{L}}$.
 %\begin{definition}\label{def:trFrob}
-We will refere to the function
+We will refer to the function
 \begin{align*}
 \TrFrob{G}: \QCiso{G} &\to G(\Fq)^* \\
 \qcs{L} &\mapsto t_{\qcs{L}}: g\mapsto \trace(\phi_{\bg}, \gqcs{L}_{\bg})
@@ -697,7 +697,7 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \]
 \end{proposition}
 
-\todo{The bottom arrow is an isomorphism to $G(k')^*_{\Gal(k'/k)}$. We will see that the horizontal arrows are isomorphisms on loose quasicharacter sheaves. Can we make sense of $\QC(G_{k'})_{\Gal(k'/k)}$? If so, is the functor $\nu_{k'/k}$ into $\QC(G_{k'})_{\Gal(k'/k)}$ an equivalence of categories?}
+\todo{The bottom arrow is an isomorphism to $G(k')^*_{\Gal(k'/k)}$. We will see that the horizontal arrows are isomorphisms on quasicharacter sheaves. Can we make sense of $\QC(G_{k'})_{\Gal(k'/k)}$? If so, is the functor $\nu_{k'/k}$ into $\QC(G_{k'})_{\Gal(k'/k)}$ an equivalence of categories?}
 
 \begin{proof}
 Let $\qcs{L} \ceq (\gqcs{L}, \mu, \phi) \in \QC(G)$ and write $F$ for $\Frob{G}$.  For any $x \in G(k')$,
@@ -1032,7 +1032,7 @@ let $L(f,\psi)$ be the local system on $G$ given by the $\psi$-isotypic componen
  L_G  \ceq  L_{W}\vert_{\QCf(G)} : \QCf(G) \to \QCb(G),
  \]
  given on objects by $(f,\psi) \mapsto (L(f,\psi), L_{W}(\mu(f,\psi)))$,
- is a full and faithfull monoidal functor, completing the proof.
+ is a full and faithful monoidal functor, completing the proof.
 \end{proof}
 
 On general $\QC$-schemes $G$, there are bounded quasicharacter sheaves which are not finite.  Identifying
@@ -1210,7 +1210,7 @@ of etale commutative group schemes,
 using the equivalence $G \mapsto G(\bFq)$
 from the category of \'etale group schemes over $\Fq$ to the category of groups equipped
 with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group.
-Under this equivalence, a (tight) quasicharacter sheaf on an etale commutative group scheme $G$ over $\Fq$ is given by the data of:
+Under this equivalence, a rigid quasicharacter sheaf on an etale commutative group scheme $G$ over $\Fq$ is given by the data of:
 \begin{enumerate}
  \labitem{(qc.1)}{qc.1} an indexed set of one-dimensional
   $\EE$-vector spaces $\gqcs{L}_x$, as $x$ runs over
@@ -1242,34 +1242,54 @@ Under this equivalence, a (tight) quasicharacter sheaf on an etale commutative g
 \end{enumerate}
 Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasicharacter sheaves on $G$ is given by
 \begin{enumerate}
- \labitem{(qc.4)}{qc.4} an indexed set $\alpha_x : \gqcs{L}_x \to \gqcs{L'}_x$
+ \labitem{(qc.4)}{qc.4} an indexed set $\rho_x : \gqcs{L}_x \to \gqcs{L'}_x$
   of linear transformations such that
   \[
    \begin{tikzcd}[column sep=40]
-    \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{}(x)} \rar{\alpha_{\Frob{}(x)}} & \gqcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
+    \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{}(x)} \rar{\rho_{\Frob{}(x)}} & \gqcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
-    & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\alpha_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
-    \gqcs{L}_x \rar{\alpha_x} & \gqcs{L'}_x
-    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
+    & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\rho_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
+    \gqcs{L}_x \rar{\rho_x} & \gqcs{L'}_x
+    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\rho_x\otimes\rho_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
   \]
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
 We will see that the Trace of Frobenius may not provide complete
-information about isomorphism classes of tight quasicharacter sheaves on $G$ when $G$ is not a connected algebraic group.
+information about isomorphism classes of rigid quasicharacter sheaves on $G$ when $G$ is not a connected algebraic group.
 Our main tool for understanding this phenomenon
 is a group homomorphism from $\QCiso{G}$ to $\Hh^2(E^\bullet_G)$, defined in Section~\ref{sec:S}, for which the next two sections are preparation.
 
-\subsection{Cohomology}\label{sec:E}
+\subsection{A spectral sequence}\label{sec:E}
 
-[Can this section be written in such a way that the effect of removing the fact $\Hh^2(\Weil{}, - ) =0$ can be discerned?]
+The zeroth page of the Hochschild-Serre spectral sequence is a double complex $E^{\bullet, \bullet}$ defined by
+\[
+E^{i,j} = C^i(\Weil{}, C^j(G(\bFq), \EEx)),
+\]
+The derivative of group cohomology yields two derivatives:
+\begin{align*}
+d_0 = d_G &: E^{i,j} \to E^{i,j+1} \\
+d_{\Weil{}} &: E^{i,j} \to E^{i+1,j}.
+\end{align*}
+Combining these yields a derivative $d = d_G + (-1)^j d_{\Weil{}}$ on the total complex
+\[
+E^n_G = \bigoplus_{i+j=n} E^{i,j}.
+\]
+The machinery of spectral sequences gives us a sequence of pages $E_r^{i,j}$, converging to a page $E_{\infty}^{i,j}$. We summarize the key properties of this spectral sequence in the following proposition.
 
-Define $\Hh^2(E^\bullet_G)$. \todo{David, I need some help here.}
+\begin{proposition}
+\begin{enumerate}
+\item The second page is given by $E_2^{i,j} = \Hh^i(\Weil{}, \Hh^j(G(\bFq), \EEx))$,
+\item there is an isomorphism $\Hh^n(\Weil{} \ltimes G(\bFq), \EEx) \cong \Hh^n(E_G^\bullet)$,
+\item there is a filtration $\Hh^n(\Weil{} \ltimes G(\bFq), \EEx) = F_n \supset \cdots \supset F_0 \supset F_{-1} = 0$ where $F_i / F_{i-1} \cong E_{\infty}^{i, n-i}$.
+\end{enumerate}
+\end{proposition}
 
+Moreover, since $\Weil{} \cong \ZZ$ has cohomological dimension $1$, $E_2^{i,j} = 0$ for $i > 1$ and the sequence degenerates at the second page: $E_{\infty}^{i,j} = E_2^{i,j}$. We obtain the following corollary:
 
-\subsection{A short exact sequence}\label{sec:SES}
-
+\begin{corollary}
+There is a short exact sequence
  \[
   \begin{tikzcd}
     0 \arrow{r}
@@ -1279,45 +1299,54 @@ Define $\Hh^2(E^\bullet_G)$. \todo{David, I need some help here.}
     & 0
   \end{tikzcd}
  \]
-\todo{Again, I hope you can write this section, David.}
+\end{corollary}
 
-\subsection{Map to cohomology}\label{sec:S}
+This sequence will play a key role in understanding the kernel of $T_G$, as described in the next few sections.
+For this application, we need a good understanding of these maps to and from the total complex.
 
+\begin{proposition} \label{prop:ses_desc}
+\begin{enumerate}
+\item Every class $[\alpha\oplus\beta\oplus\gamma] \in \Hh^2({\bar G},\EEx)$ is cohomologous to one with $\gamma=0$.
+\item The map $\Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx))$ is given by $[\alpha\oplus\beta\oplus 0] \mapsto [\beta]$.
+\item Suppose $a \in Z^2({\bar G}, \EEx)$ represents a class in $\Hh^2({\bar G},\EEx)$ fixed by Frobenius.
+The map $\Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G)$ is given by $[a] \mapsto [a \oplus 0 \oplus 0]$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Since $\Hh^2(\Weil{}, C^0({\bar G}, \EEx)) = 0$, we may find a $\gamma_1 \in C^1(\Weil{}, C^0({\bar G}, \EEx))$ with $d_{\Weil{}}\gamma_1 = \gamma$.
+Subtracting $d \gamma_1$ from $\alpha\oplus\beta\oplus\gamma$, we may assume that $\gamma = 0$.
 
-In this section we define
+The latter two claims follow from tracing through the definition of latter pages in the spectral sequence; see Vakil \cite{} for example.
+\end{proof}
+
+\subsection{From quasicharacter sheaves to the total complex}\label{sec:S}
+
+In this section we define an isomorphism
 \[
 S_G : \QCiso{G} \to \Hh^2(E^\bullet_G).
 \]
 Let $\qcs{L} = (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$.
 For each geometric point $x\in {\bar G}$, choose a basis $\{ v_x \}$ for $\gqcs{L}_x$.
-Through this choice, $\qcs{L}$ determines a function $a : {\bar G}\times {\bar G} \to \EEx$ defined by
-\[
-\mu_{x,y}(v_{x+y}) = a(x,y) v_x \otimes v_y.
-\]
-Condition~\ref{QC.2} gives
+Through this choice, $\qcs{L}$ determines functions
+\begin{align*}
+a : {\bar G}\times {\bar G} &\to \EEx & b : {\bar G} &\to \EEx \\
+\mu_{x,y}(v_{x+y}) &= a(x,y) v_x \otimes v_y & \phi_x(v_{\Frob{G}(x)}) &= b(x) v_x.
+\end{align*}
+Condition~\ref{QC.2} implies that
 \begin{equation}\label{2-cocyle}
-\forall x,y,z\in {\bar G},\qquad a(x+y,z) a(x,y) = a(x,y+z) a(y,z),
+a(x+y,z) a(x,y) = a(x,y+z) a(y,z)
 \end{equation}
-so $a \in Z^2({\bar G},\EEx)$.
-Likewise, through the choice
-$\{ v_x\in \gqcs{L}_x^\times \tq x \in {\bar G}\}$, $\qcs{L}$
-determines a function $b : {\bar G} \to \EEx$
-defined by
-\[
-\phi_x(v_{\Frob{G}(x)}) = b(x) v_x.
-\]
-(Observe: $b\vert_{G(\Fq)} = t_\qcs{L}$,
-which is independent of the choice of $\{ v_x \in \gqcs{L}_x^\times \tq x\in {\bar G}\}$.)
-Condition~\ref{QC.3} gives
+for all $x,y,z\in {\bar G}$, so $a \in Z^2({\bar G},\EEx)$.  Similarly, condition~\ref{QC.3} gives
 \begin{equation}\label{nohom}
-\forall x,y \in {\bar G},\qquad \frac{a(\Frob{G}(x),\Frob{G}(y))}{a(x,y)} =  \frac{b(x+y)}{b(x) b(y)}.
+\frac{a(\Frob{G}(x),\Frob{G}(y))}{a(x,y)} =  \frac{b(x+y)}{b(x) b(y)}
 \end{equation}
-Let $\alpha \in C^0(\Weil{},C^2({\bar G},\EEx)$ be the cocycle corresponding to $a$ and let $\beta\in C^1(\Weil{},C^1({\bar G},\EEx)$ be the cocycle such that $\beta(\Frob{})$ is $b$ \emph{written additively}.
+for $x, y \in {\bar G}$.
+Let $\alpha \in C^0(\Weil{},C^2({\bar G},\EEx)$ be the $0$-cochain corresponding to $a$ and let $\beta\in C^1(\Weil{},C^1({\bar G},\EEx)$ be the cocycle such that $\beta(\Frob{})$ is $b$ \emph{written additively}.
 Then
 \[
-d_{\uparrow}\alpha =0, \qquad
-d_{\rightarrow} \alpha = d_{\uparrow} \beta,\qquad
-d_{\rightarrow} \beta =0;
+d_G\alpha =0, \qquad\qquad
+d_{\Weil{}} \alpha = d_{G} \beta,\qquad\qquad
+d_{\Weil{}} \beta =0;
 \]
 in other words,
 \[\alpha\oplus \beta \in Z^2(E^\bullet_G).\]
@@ -1338,14 +1367,35 @@ It is also easy to see that $[\alpha_1\oplus\beta_1] + [\alpha_2\oplus\beta_2] =
 
 \begin{remark}
 Although we will only use the group homomorphism $S_G : \QCiso{G}\to \Hh^2(E^\bullet_G)$ when $G$ is an etale commutative group scheme, the function is defined for all smooth commutative group schemes $G$.
-However, the main result of the next section, Proposition~\ref{prop:etale-iso}, is false in that context.
+However, the next result is false in that context.
 \end{remark}
+
+\begin{proposition}
+If $G$ is \'etale then $S_G$ is an isomorphism.
+\end{proposition}
+\begin{proof}
+We first show that $S_G$ is injective.  Suppose $\qcs{L} \in \QCiso{G}$ with $S_G(\qcs{L}) = [\alpha \oplus \beta] = 0$,
+so that $\alpha \oplus \beta = d\rho$ for some $\rho \in C^0(\Weil{},C^1({\bar G},\EEx) = C^1({\bar G},\EEx)$.
+For each $x\in {\bar G}$, define $\rho_x : \gqcs{L}_x \to \EEx$ by $v_x \mapsto \rho(x)$.
+Then the indexed set of isomorphisms $\{ \gamma_x : \gqcs{L}_x \to \EE \tq x\in {\bar G}\}$
+defines an isomorphism $\qcs{L} \to (\EE)_G$.
+Since $\qcs{L} = 0 \in \QCiso{G}$, $S_G$ is injective.
+
+To see that $S_G$ is surjective, begin with $\alpha\oplus\beta\oplus 0 \in Z^2(E^\bullet_G)$.
+Since $d_{\Weil{}} \beta = 0$, we may define $a = \alpha \in C^2({\bar G},\EEx)$ and
+$b = \beta(\Frob{}) \in C^1({\bar G},\EEx)$, which are related to $\alpha$ and $\beta$ as above.
+Set $\gqcs{L}_x = \EEx$, define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes\gqcs{L}_y$
+by $\mu_{x,y}(1) = a(x,y) 1\otimes 1$ and $\phi_x : \gqcs{L}_{\Frob{G}(x)} \to \gqcs{L}_x$ by $\phi_x(1)= b(x)$.
+Then \ref{qc.1} holds since $d_G \alpha =0$ and \ref{qc.2} holds since $d_{\Weil{}}\alpha =d_G \beta$.
+Tracing the construction backward, we have defined a quasicharacter sheaf $\qcs{L}$ on $G$ with
+$S_G(\qcs{L}) = [\alpha\oplus\beta\oplus\gamma]$, showing that $S_G$ is surjective.
+\end{proof}
 
 \subsection{$S$ and $T$}
 
-In this section we find the relation between the group homomorphisms $\TrFrob{G}$ and $S_G$.
+In this section we describe the relationship between the group homomorphisms $\TrFrob{G}$ and $S_G$.
 %
-We begin with a simple result relating duals, invariants and coinvariants.
+We begin with a simple, general result relating duals, invariants and coinvariants.
 
 \begin{lemma} \label{lem:dual-inv}
 Let $X$ be an abelian group equipped with an action of $\Weil{}$.
@@ -1370,69 +1420,54 @@ yields
 Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
 \end{proof}
 
+\begin{corollary}
+If $G$ is \'etale then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
+\end{corollary}
+\begin{proof}
+Pick $\chi \in G(\Fq)^*$.
+By Lemma~\ref{lem:dual-inv}, there is some $b\in G(\bFq)^*$ such that $b\vert_{G(\Fq)^*} = \chi$.
+Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$.
+Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and 
+$\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = b(x)$.
+Since $b : G(\bFq) \to \EEx$ is a group homomorphism,
+condition \eqref{nohom} is satisfied with $a =1$ and $\qcs{L} = (\gqcs{L}, \mu, \phi)$
+is a rigid quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
+\end{proof}
+
+
 
 \begin{proposition} \label{prop:etale-iso}
- If $G$ is an \'etale commutative group scheme over $\Fq$
-  then the map $\QCiso{G}\to \Hh^2(E^\bullet_G)$ from Section~\ref{sec:S} induces an isomorphism of short exact sequences:
+ If $G$ is \'etale then the map $S_G : \QCiso{G}\to \Hh^2(E^\bullet_G)$ induces an isomorphism of short exact sequences
 \[
 \begin{tikzcd}
  0 \arrow{r} & \ker \TrFrob{G} \arrow{d} \arrow{r} & \QCiso{G}\arrow{d}{S_G} \arrow{r}{\TrFrob{G}} \arrow{r} & G(\Fq)^* \arrow{d} \arrow{r} & 0\\
   0 \arrow{r} & \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \arrow{r} & \Hh^2(E^\bullet_G) \arrow{r} & \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \arrow{r} & 0.
  \end{tikzcd}
  \]
-In particular,
-$\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$
-is surjective.
 \end{proposition}
-
-
 \begin{proof}
-We've discussed the fact that the square on the right commutes, using Lemma~\ref{lem:dual-inv}. \todo{David, could you add that here?}
-So, if $\qcs{L} \in \QC(G)$ and $S_G(\qcs{L}) = [\alpha\oplus\beta]$  then $\trFrob{\qcs{L}} =1$ implies $[\beta]=0$. In Section~\ref{sec:SES} we identified\todo{ ... and this, too?} $\{ [\alpha\oplus\beta] \in \Hh^2(E^\bullet_G) \tq [\beta]=0 \}$ with $\Hh^0(\Weil{},\Hh^2({\bar G},\EEx))$.
-
-Next we show that $\TrFrob{G}$ is surjective.
-Pick $\chi \in G(\Fq)^*$.
-By Lemma~\ref{lem:dual-inv}, there is some $b\in G(\bFq)^*$ such that $b\vert_{G(\Fq)^*} = \chi$.
-Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$.
-Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$.
-Define $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = b(x)$.
-Since $b : G(\bFq) \to \EEx$ is a group homomorphism,
-condition \eqref{nohom} is satisfied with $a =1$, the trivial cocycle in $Z^2(G(\bFq),\EEx)$.
-It is now clear that we have defined a (tight) quasicharacter sheaf $\qcs{L}$ with $\trFrob{\qcs{L}} = \chi$.
-
-Now we show that $S_G: \QCiso{G}\to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx))$ injective;
-Suppose $\qcs{L} \in \QCiso{G}$.
-Let $a$ and $b$ be defined, as in Section~\ref{sec:S}, by a choice $\{ v_x \in \gqcs{L}_x^\times \tq x\in {\bar G}\}$; and let $\alpha\oplus\beta$ be the corresponding representative for the class $S_G(\qcs{L})\in \Hh^2(E^\bullet_G)$.
-Now suppose $S_G(\qcs{L}) = [\alpha\oplus\beta]=0$.
-Then $\alpha\oplus\beta = d\gamma$ for some $\gamma \in C^1(\Weil{},C^1({\bar G},\EEx)$. Let $c : {\bar G}\to \EEx$ be the function given by $x\mapsto \gamma(\Frob{})(x)$.
-For each $x\in {\bar G}$, define $\gamma_x : \gqcs{L}_x \to \EE$ by $v_x \mapsto c(x)$.
-Then the indexed set of isomorphisms $\{ \gamma_x : \gqcs{L}_x \to \EE \tq x\in {\bar G}\}$ satisfies condition \ref{qc.4} (with $\gqcs{L'}$, $\mu'$ and $\phi'$ trivial) and therefore defines an isomorphism $\qcs{L} \to (\EE)_{G}$. This shows that $S_G: \QCiso{G}\to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx))$ is injective.
-
-To see that $S_G: \QCiso{G}\to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx))$ is surjective, begin with $\alpha\oplus\beta \in Z^2(E^\bullet_G)$.
-Let $a \in C^2({\bar G},\EEx)$ and $b \in C^1({\bar G},\EEx)$ be defined as above, which makes use of the fact $d_{\rightarrow}\beta =0$.
-Set $\gqcs{L}_x = \EEx$ and define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes\gqcs{L}_y$ by $\mu_{x,y}(1) = a(x,y) 1\otimes 1$ and define $\phi_x : \gqcs{L}_{\Frob{G}(x)} \to \gqcs{L}_x$ by $\phi_x(1)= b(x)$. Then \ref{qc.1} is true since $d_{\uparrow}\alpha =0$ and \ref{qc.2} is true since $d_{\rightarrow}\alpha =d_{\uparrow} \beta$.
-In this way, from $\alpha\oplus\beta\in Z^2(E^\bullet_G)$ we have define a quasicharacter sheaf $\qcs{L}$ on $G$ with $S_G(\qcs{L}) = [\alpha\oplus\beta]$, showing that $S_G$ is surjective.
+This result follows easily from Proposition \ref{prop:ses_desc}.
 \end{proof}
 
 
 \section{The main result}\label{sec:main}
 
 In the introduction to this paper we noted that, when working with connected commutative algebraic groups over finite fields, Deligne's dictionary can be described using Weil sheaves $\qcs{L}$ for which there exists an isomorphism $m^* \qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, without keeping track of the isomorphism.
-In this section use that perspective to find a perfect dictionary between (loose) quasicharacter sheaves on $G$ and characters of $G(\Fq)$.
+In this section use that perspective to find a perfect dictionary between quasicharacter sheaves on $G$ and characters of $G(\Fq)$.
 
-\subsection{(loose) quasicharacter sheaves}\label{sec:loose}
+\subsection{Quasicharacter sheaves}\label{sec:loose}
 
 \begin{definition}\label{def:lQC}
 Let $G$ be a smooth commutative group scheme over $\Fq$.
-A \emph{(loose) quasicharacter sheaf} on $G$ is a Weil sheaf $(\gqcs{L},\phi)$ on $G$
-for which $(\gqcs{L},\mu,\phi)$ is a (tight) quasicharacter sheaf on $G$
-for som $\mu: \bm^* \gqcs{L} \to \gqcs{L} \boxtimes \gqcs{L}$.
+A \emph{quasicharacter sheaf} on $G$ is a Weil sheaf $(\gqcs{L},\phi)$ on $G$
+for which $(\gqcs{L},\mu,\phi)$ is a rigid quasicharacter sheaf on $G$
+for some $\mu: \bm^* \gqcs{L} \to \gqcs{L} \boxtimes \gqcs{L}$.
 %The resulting objects lie in the essential image of the forgetful functor $(\gqcs{L},\mu,\phi) \mapsto (\gqcs{L},\phi)$ from $\QC(G)$ to Weil sheaves on $G$.
-We form a category from (loose) quasicharacter sheaves by declaring that a morphism $(\gqcs{L},\phi) \to (\gqcs{L'},\phi')$ is a sheaf homomorphism $\alpha : \gqcs{L} \to \gqcs{L'}$ for which the two diagrams in Condition~\ref{QC.4} commute, for some choice of $\mu$, $\mu'$ such that $(\gqcs{L},\mu,\phi)$ and $(\gqcs{L'},\mu',\phi')$ are quasicharacter sheaves on $G$.
-The category of \emph{loose} quasicharacter sheaves on $G$ is denoted by $\lQC(G)$.
+We form a category from quasicharacter sheaves by declaring that a morphism $(\gqcs{L},\phi) \to (\gqcs{L'},\phi')$ is a sheaf homomorphism $\alpha : \gqcs{L} \to \gqcs{L'}$ for which the two diagrams in Condition~\ref{QC.4} commute, for some choice of $\mu$, $\mu'$ such that $(\gqcs{L},\mu,\phi)$ and $(\gqcs{L'},\mu',\phi')$ are quasicharacter sheaves on $G$.
+The category of quasicharacter sheaves on $G$ is denoted by $\lQC(G)$.
 \end{definition}
 
-The category of loose quasicharacter sheaves on $G$ is rigid monoidal and the functor $\QC(G) \to \lQC(G)$ is monoidal and essentially surjective but neither full nor faithfull, generally.
+The category of quasicharacter sheaves on $G$ is rigid monoidal and the functor $\QC(G) \to \lQC(G)$ is monoidal and essentially surjective but neither full nor faithful, generally.
 %
 Since objects in $\lQC(G)$ are Weil sheaves and since in the first diagram in Condition~\ref{QC.4} ensures that a morphism in $\lQC(G)$ is a morphism of Weil sheaves, it follows that $\lQC(G)$ is a subcategory of Weil sheaves on $G$.
 
@@ -1696,7 +1731,7 @@ The top row is also exact:
   while Proposition~\ref{prop:etale-iso} gives $\ker \TrFrob{\pi_0(G)} \iso \Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$
   and $\coker \TrFrob{\pi_0(G)}=0$.
 %
-It follows from the sname lemma that $\coker \TrFrob{G} =0$
+It follows from the snake lemma that $\coker \TrFrob{G} =0$
 and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is surjective.
 
 
@@ -1705,18 +1740,18 @@ First, note that $\lTrFrob{G}$ is surjective because $\TrFrob{G}$ is surjective.
 We will now show that the kernel of $\lTrFrob{G}$ is trivial.
 
 First, suppose $G$ is etale.
-Let $(\gqcs{E},\phi')$ be a loose quasicharacter sheaf on $G$ with $\trFrob{(\gqcs{E},\phi')}=1$.
+Let $(\gqcs{E},\phi')$ be a quasicharacter sheaf on $G$ with $\trFrob{(\gqcs{E},\phi')}=1$.
 Let $\qcs{E} = (\gqcs{E},\mu,\phi')$ be a quasicharacter sheaf.
 By Proposition~\ref{prop:etale-iso}, $S_G(\qcs{E}) = [\alpha\oplus 0]$ for some $\alpha \in Z^0(\Weil{},Z^2({\bar G},\EEx))$
 corresponding to a choice $\{ v_x \in \gqcs{E}_x^\times \tq x\in {\bar C}\}$.
-Let $a\in Z^2({\bar G},\EEx)$ be the mutliplicative version of $\alpha$
+Let $a\in Z^2({\bar G},\EEx)$ be the multiplicative version of $\alpha$
 and let $\mu'$ be the indexed set of isomorphisms $\mu'_{x,y} : \EE \to \EE\otimes \EE$ defined by $1 \mapsto a(x,y) 1 \otimes 1$.
 Then $(\EE,\mu', 1)$ is a quasicharacter sheaf the isomorphisms $\gqcs{E}_x \to \EE$ defined by $v_x \mapsto 1$ gives an isomorphism $(\gqcs{E},\mu,\phi')\to ((\EE)_{\bar C},\mu', 1)$ in $\QC(G)$.
 It follows that $(\gqcs{E},\phi')\iso ((\EE)_{\bar G},1)$ in $\lQC(G)$, so $\lTrFrob{G}$ is injective.
 This completes the proof of Theorem~\ref{thm:snake} in the case that $G$ is etale.
 
 Now let $G$ be arbitrary
-and let $(\gqcs{L},\phi)$ be a loose quasicharacter sheaf on $G$ with $\trFrob{(\gqcs{L},\phi)}=1$.
+and let $(\gqcs{L},\phi)$ be a quasicharacter sheaf on $G$ with $\trFrob{(\gqcs{L},\phi)}=1$.
 Let $\qcs{L} = (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf.
 We saw above that $\ker \TrFrob{\pi_0(G)}\to \TrFrob{G}$ is surjective in this case,
 so $\qcs{L} = \pi_0^*\qcs{E}$ for some $\qcs{E}\in \QC(\pi_0(G))$.
@@ -1775,17 +1810,17 @@ $\qcs{L}$ is bounded if and only if $b(x) \in \Zlx$ for all $x\in {\bar G}$.
 \end{proof}
 
 With Corollary~\ref{cor:bounded-and-finite} in hand
-we see that all loose quasicharacter sheaves on $G$ are finite quasicharacter sheaves
+we see that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves
 when $G$ is a commutative algebraic group over $\Fq$;
 observe that the component group $\pi_0({\bar G})$ is finite in this case.
-On the otherhand, Corollary~\ref{cor:bounded-and-finite} also shows us
+On the other hand, Corollary~\ref{cor:bounded-and-finite} also shows us
 why neither finite quasicharacter sheaves nor bounded quasicharacter sheaves
 are up to the task of geometrizing all characters of $G(\Fq)$ for smooth commutative group schemes $G$ since, in general, neither of the full subcategories
 $\QCf(G) \subset \QCb(G) \subset \QC(G)$ are equivalences.
 For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$:
-the (loose) quasicharacter sheaf on $G$ corresponding, under Theorem~\ref{thm:snake},
+the quasicharacter sheaf on $G$ corresponding, under Theorem~\ref{thm:snake},
 to the character $1 \mapsto \ell$ is not a bounded quasicharacter sheaf,
-while the (loose) quasicharacter sheaf on $G$ corresponding
+while the quasicharacter sheaf on $G$ corresponding
 to the character $1 \mapsto 1+ \ell$ is a bounded but not finite quasicharacter sheaf.
 %In this latter case the stalk of the quasicharacter sheaf at the component $1$ is defined by a pro-\'etale cover rather than an \'etale cover.
 
@@ -1804,7 +1839,7 @@ as we saw in Section~\ref{sec:spectral}.
 Joining the back to the front are the injections from
 Section~\ref{sec:spectral} making the entire diagram commute.
 The vertical left face is an isomorphism of exact sequences by Proposition~\ref{prop:etale-iso}
-and the vertical right faceis an isomorphism of exact sequences by Proposition~\ref{prop:connected-iso}.
+and the vertical right face is an isomorphism of exact sequences by Proposition~\ref{prop:connected-iso}.
 %
 Note that these injections are isomorphisms at the bottom, by Lemma~\ref{lem:dual-inv}, and at the left, by Section~\ref{sec:etale}, and at the right, by Section~\ref{sec:connected} and the Five Lemma.
 It now follows that $\ker T_B \to \Hh^0(\Weil{},\Hh^2(B,\EEx))$ is also an isomorphism,
