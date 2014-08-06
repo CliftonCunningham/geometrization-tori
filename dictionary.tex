@@ -1321,6 +1321,21 @@ Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of rigid quas
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
+\todo{Find an appropriate place for this discussion}
+
+If $\rho_0 = 0$ then the second diagram for $y=0$ implies that $\rho_x = 0$ for all $x$.  Conversely, if $\rho_0$ is nonzero then the second diagram for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since $\gqcs{L}_x$ is one dimensional.  Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\rQC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
+
+\begin{proposition}
+The trace map induces an isomorphism of groups
+\[
+\Aut(\qcs{L}) \cong \Hom(G(\bFq)_{\Weil{}}, \EEx).
+\]
+\end{proposition}
+
+\begin{proof}
+The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group ismorphism.
+\end{proof}
+
 We will see that the Trace of Frobenius may not provide complete
 information about isomorphism classes of rigid quasicharacter sheaves on $G$ when $G$ is not a connected algebraic group.
 Our main tool for understanding this phenomenon
