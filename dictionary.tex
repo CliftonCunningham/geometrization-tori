@@ -820,57 +820,48 @@ We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacte
 
 \subsection{Finite quasicharacter sheaves}\label{sec:finite}
 
-In this section we define \emph{finite quasicharacter sheaves}, a further refinement
-of bounded quasicharacter sheaves; finite quasicharacter sheaves will play a role in Section \ref{sec:restriction}.
+In this section we define \emph{finite quasicharacter sheaves}, 
+a notion informed by a certain perspective on local systems on connected groups.
+Finite quasicharacter sheaves will play a role in Section \ref{sec:restriction}.
 
-The notion of a finite quasicharacter sheaf is informed
-by a certain perspective on local systems on connected groups.
-Recall that every geometric point $\bg$ on a connected scheme $G$
-determines an equivalence between the categories of $\ell$-adic local systems on $G$
-and $\ell$-adic representations of the \'etale fundamental group $\pi_1(G, \bg)$
-\citelist{\cite{SGA5}*{VI,Prop. 1.2.5} \cite{deligne:80a}*{1.1.1}}.
- Since $\pi_1(G, \bg)$ is a projective limit of automorphism groups of finite \'etale covers,
- a general local system corresponds to a projective limit of characters of such groups.
- But some local systems can be described in terms of a single cover $f: H \to G$
- and a representation $\psi: \ker f \to \Aut(V)$;
- two such descriptions yield isomorphic local systems if and only if they are related by a weak
- isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
- not adapt well to non-connected $G$, a perspective using finite \'etale covers does.
-
-The definition of finite quasicharacter sheaves will require several steps,
-beginning with the localization of a category introduced here.
-Let us say that a morphism $f : H\to G$ of smooth commutative group schemes over $\Fq$ is a \emph{discrete isogeny}
-if it is finite, surjective, \'etale and the action of $\Gal(\bFq/\Fq)$ on the \'etale group
-scheme $\ker f = f^{-1}({\bar e)} = \Aut(f)$ is trivial.
-Consider the category $C(G)$ whose objects consist of triples $(f,\psi,V)$, where
+%The definition of finite quasicharacter sheaves will require several steps, beginning with the localization of a category introduced here.
+Consider the category $C(G)$ whose objects consist of triples $(f,\psi,r)$, where:
 \begin{itemize}
-\item $f : H\to G$ is a discrete isogeny of smooth commutative group schemes over $\Fq$,
-\item $\psi : \ker f\to \Aut(V)$ is a representation on a finite-dimensional $\EE$-vector space $V$.
+\item $f : H\to G$ is a \emph{discrete isogeny} (a morphism of smooth commutative group schemes over $\Fq$ which is finite, surjective and \'etale and for which the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f = f^{-1}({\bar e)} = \Aut(f)$ is trivial);
+\item $\psi : \Aut(f)\to \Aut(V)$ is a finite-dimensional $\EE$-representation;
+\item $r : V \to V\otimes V$ is an injective linear transformation.
 \end{itemize}
-A morphism $(f,\psi,V) \to (f',\psi',V')$ in $C(G)$ is a pair $(\gamma,T)$, where
+A morphism $(f,\psi,r) \to (f',\psi',r)$ in $C(G)$ is a pair $(\gamma,T)$, where:
 \begin{itemize}
-\item $\gamma : H' \to H$ is a morphism of group schemes such that $f' = f\circ \gamma$,
-\item $T : V\to V'$ is a linear transformation, equivariant for the action of
-$\ker f'$ on $V'$ by $\psi'$ and the action of $\ker f'$ on $V$ by $\psi \circ \alpha$.
+\item $\gamma : H' \to H$ is a morphism of group schemes such that $f\circ \gamma = f'$;
+\item $T: V\to V'$ is a linear transformation, equivariant for the action of
+$\Aut(f')$ on $V'$ by $\psi'$ and the action of $\Aut(f')$ on $V$ by $\psi \circ \gamma$,
+\end{itemize}
+such that
 \[
 \begin{tikzcd}
-V \arrow{d}{T} & \Aut(V) & \arrow[swap]{l}{\psi} \ker f \arrow[hook]{r} & H \arrow{r}{f} & \arrow[equal]{d} G\\
-V' & \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{\gamma\vert_{\ker f'}} \ker f' \arrow[hook]{r} & \arrow[swap]{u}{\gamma} H' \arrow{r}{f'} & G
+\arrow{d}[swap]{T\otimes T} V\otimes V & \arrow{l}{r} V \arrow{d}{T} 
+%& \Aut(V) & \arrow[swap]{l}{\psi} \Aut(f) \arrow{r} & H \arrow{r}{f} & \arrow[equal]{d} G
+\\
+V'\otimes V' & \arrow{l}{r'} V' 
+%& \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{} \Aut(f') \arrow{r} & \arrow[swap]{u}{\gamma} H' \arrow{r}{f'} & G
 \end{tikzcd}
 \]
-\end{itemize}
+commutes.
 
-We put a tensor category structure on $C(G)$ as follows.
-Let $(f,\psi,V)$ and $(f',\psi',V')$ be objects in $C(G)$.
+We define a tensor product in $C(G)$ as follows.
+Let $(f,\psi,r)$ and $(f',\psi',r')$ be objects in $C(G)$.
 Write $f\times_G f' : H\times_G H' \to G$ for the product of $f$ and $f'$
 in the category of isogenies to $G$. We define an external tensor product
 $\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$ and a external sum
 $\psi \oplus\psi' :  \ker(f\times_G f') \to \Aut(V\oplus V')$
 using the canonical isomorphism $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$.
-We may thus define $(f,\psi,V)\otimes(f',\psi',V') \ceq (f\times_G f' ,\psi\otimes\psi', V\otimes V')$ and
-$(f,\psi,V)\oplus(f',\psi',V')\ceq (f\times_G f' ,\psi\oplus\psi', V\oplus V')$. To define duals in $C(G)$,
+We may thus define $(f,\psi,r)\otimes(f',\psi',r') \ceq (f\times_G f' ,\psi\otimes\psi', r\otimes r')$ and
+$(f,\psi,r)\oplus(f',\psi',r')\ceq (f\times_G f' ,\psi\oplus\psi', r\oplus r')$. 
+To define duals in $C(G)$,
 let $V^\vee \ceq \Hom_\text{vec}(V,\EE)$ and $\psi^\vee : \ker f \to \Aut(V^\vee)$ be
-the dual representation.  We may then set $(f,\psi,V)^\vee \ceq (f,\psi^\vee, V^\vee)$.
+the dual representation.  We may then set $(f,\psi,r)^\vee \ceq (f,\psi^\vee, r^\vee)$ 
+where $r^\vee : V^\vee \to V^\vee \otimes V^\vee$ is the adjoint of $r$.
 These operations give $C(G)$ the structure of a tensor category.
 
 Now we localize $C(G)$.
@@ -882,22 +873,44 @@ Since weak isomorphisms in $C(G)$ form a \emph{right multiplicative system}, in 
 a morphism in $C(G)[W^{-1}]$ is an equivalence class of diagrams
 \[
 \begin{tikzcd}[column sep=30]
-   (f,\psi,V) \arrow{r}{(\gamma,T)} & (f',\psi',V') & \arrow[swap]{l}{(\gamma_1,T_1)}[swap]{\text{w-iso}} (f_1,\psi_1,V_1)
+   (f,\psi,r) \arrow{r}{(\gamma,T)} & (f',\psi',r') & \arrow[swap]{l}{(\gamma_1,T_1)}[swap]{\text{w-iso}} (f_1,\psi_1,V_1)
    \end{tikzcd}
 \]
- where $(\gamma,T) : (f,\psi,V) \to (f',\psi',V')$ is any map in $C(G)$
- and $(\gamma_1, T_1) :  (f',\psi',V') \to (f_1,\psi_1,V_1)$ is a weak isomorphism in $C(G)$;
+ where $(\gamma,T) : (f,\psi,r) \to (f',\psi',r')$ is any map in $C(G)$
+ and $(\gamma_1, T_1) :  (f',\psi',r') \to (f_1,\psi_1,r_1)$ is a weak isomorphism in $C(G)$;
 for the equivalence relation on these diagrams, see \cite{kashiwara-schapira:CatgoriesSheaves}*{(7.1.3)}.
 
-It is straightforward to verify that the subcategory $C_1(G)$ of $C(G)$ consisting of $(f,\psi,V)$ for which $\psi$ is one-dimensional, is a full, rigid monoidal subcategory of $C(G)$ and further, that the family $W_1$ of weak isomorphisms in $C_1(G)$ is a right multiplicative system.
+It is straightforward to verify that the subcategory $C_1(G)$ of $C(G)$ consisting of $(f,\psi,r)$ for which $\psi$ is one-dimensional, is a full, rigid monoidal subcategory of $C(G)$ and further, that the family $W_1$ of weak isomorphisms in $C_1(G)$ is a right multiplicative system.
 
 \begin{definition}
 The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\rfQC(G)$,
 is the rigid monoidal category $C_1(G)[W_1^{-1}]$ obtained by localizing $C_1(G)$ at weak isomorphisms $W_1$.
 \end{definition}
 
-Trivial morphisms in $\rfQC(G)$ are defined as follows. Let $(f,\psi,V)$ and $(f_1,\psi_1,V_1)$ be finite quasicharacter sheaves on $G$.  
-Form $(f\times_G f_1,1\otimes \psi_1, V\otimes V_1)$ in $C_1(G)$. 
+\begin{remark}
+Recall that every geometric point $\bg$ on a connected scheme $G$
+determines an equivalence between the categories of $\ell$-adic local systems on $G$
+and $\ell$-adic representations of the \'etale fundamental group $\pi_1(G, \bg)$
+\citelist{\cite{SGA5}*{VI,Prop. 1.2.5} \cite{deligne:80a}*{1.1.1}}.
+ Since $\pi_1(G, \bg)$ is a projective limit of automorphism groups of finite \'etale covers,
+ a general local system corresponds to a projective limit of characters of such groups.
+ But some local systems can be described in terms of a single cover $f: H \to G$
+ and a representation $\psi: \ker f \to \Aut(V)$;
+ two such descriptions yield isomorphic local systems if and only if they are related by a weak
+ isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
+ not adapt well to non-connected $G$, a perspective using finite \'etale covers does.
+\end{remark}
+
+Later in the paper we will make a study of isomorphism classes of objects in $\rfQC{G}$. Here we focus on morphisms in this category.
+
+\begin{proposition}\label{prop:autornaught}
+Every morphism in $\rfQC(G)$ is either an isomorphism or trivial.
+Moreover, for every finite quasicharacter sheaf $(f,\psi,r)$, the group $\Aut_{\rfQC(G)}(f,\psi,r)$ is trivial.
+\end{proposition}
+
+\begin{proof}
+Trivial morphisms in $\rfQC(G)$ are defined as follows. Let $(f,\psi,r)$ and $(f_1,\psi_1,r_1)$ be finite quasicharacter sheaves on $G$.  
+Form $(f\times_G f_1,1\otimes \psi_1, r\otimes r_1)$ in $C_1(G)$. 
 Let $0 : V \to V\otimes V_1$ be the trivial linear transformation. 
 Choose $0\ne v \in V$ and let $T_v: V_1 \to V\otimes V_1$ be the isomorphism $T_v(v_1) = v\otimes v_1$.  
 Let $\pi : H\times_G H_1 \to H$ and $\pi_1 : H\times_G H_1 \to H_1$ be the natural projections.
@@ -911,12 +924,7 @@ The morphism in $\rfQC(G)$ represented by
 \]
 does not depend on the choice of $0\ne v\in V$; this defines the {\em trivial morphism} $0: (f,\psi,V) \to (f_1,\psi_1,V_1)$ in $\rfQC(G)$.
 
-\begin{proposition}\label{prop:autornaught}
-Every morphism in $\rfQC(G)$ is either an isomorphism or trivial.
-\todo{I may add something here about $\Aut_{\rfQC(G)}(f,\psi,V)$.}
-\end{proposition}
-
-\begin{proof}
+ 
 Let $(f,\psi,V)$ and $(f_1,\psi_1,V_1)$ be finite quasicharacter sheaves on $G$. 
 Let
 \[
