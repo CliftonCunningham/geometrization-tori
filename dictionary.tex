@@ -381,14 +381,14 @@ Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$,
 \begin{enumerate}
 \labitem{(QC.4)}{QC.4} if $\qcs{L} = (\gqcs{L},\mu,\phi)$ and
   $\qcs{L'} = (\gqcs{L'},\mu',\phi')$ are quasicharacter sheaves on $G$ then
-  a morphism $\qcs{L} \to \qcs{L}'$ is a map $\alpha : \gqcs{L} \to \gqcs{L'}$
+  a morphism $\qcs{L} \to \qcs{L}'$ is a map $\rho : \gqcs{L} \to \gqcs{L'}$
   of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
   \[
   \begin{tikzcd}[column sep=40]
-  \Frob{G}^* \gqcs{L} \rar{\Frob{G}^* \alpha} \arrow[swap]{d}{\phi} & \Frob{G}^* \gqcs{L'} \dar{\phi'}
-  & & \arrow[swap]{d}{\mu} m^* \gqcs{L} \rar{m^* \alpha} & m^* \gqcs{L'} \dar{\mu'} \\
-  \gqcs{L} \rar{\alpha} & \gqcs{L'}
-  & {} & \LxL \rar{\tight{1}{\alpha\boxtimes \alpha}{1}} & \gqcs{L'} \tight{0}{\boxtimes}{0} \gqcs{L'}
+  \Frob{G}^* \gqcs{L} \rar{\Frob{G}^* \rho} \arrow[swap]{d}{\phi} & \Frob{G}^* \gqcs{L'} \dar{\phi'}
+  & & \arrow[swap]{d}{\mu} m^* \gqcs{L} \rar{m^* \rho} & m^* \gqcs{L'} \dar{\mu'} \\
+  \gqcs{L} \rar{\rho} & \gqcs{L'}
+  & {} & \LxL \rar{\tight{1}{\rho\boxtimes \rho}{1}} & \gqcs{L'} \tight{0}{\boxtimes}{0} \gqcs{L'}
   \end{tikzcd}
   \]
 \end{enumerate}
@@ -628,16 +628,24 @@ In [point] we will use trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ 
 
 %\subsection{Quasicharacter sheaves, revisited}
 
-\'Etale group schemes form a counterpoint to connected groups,
-since the component group of a smooth commutative group scheme
-is an \'etale group scheme \cite{vdGeer-Moonen:AbelianVarieties}*{III, \S 4}.
-However, the function--sheaf dictionary is substantially different in the two cases.
-To see why, we begin by specializing the definition of quasicharacter sheaves to the case
-of etale commutative group schemes,
-using the equivalence $G \mapsto G(\bFq)$
-from the category of \'etale group schemes over $\Fq$ to the category of groups equipped
-with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group.
-Under this equivalence, a quasicharacter sheaf on an etale commutative group scheme $G$ over $\Fq$ is given by the data of:
+%\'Etale group schemes form a counterpoint to connected groups,
+%since the component group of a smooth commutative group scheme
+%is an \'etale group scheme \cite{vdGeer-Moonen:AbelianVarieties}*{III, \S 4}.
+%However, the function--sheaf dictionary is substantially different in the two cases.
+%To see why, we begin by specializing the definition of quasicharacter sheaves to the case
+%of etale commutative group schemes,
+%using the equivalence $G \mapsto G(\bFq)$
+%from the category of \'etale group schemes over $\Fq$ to the category of groups equipped
+%with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group.
+
+In this section we find a complete characterization of quasicharacter sheaves on etale commutative group schemes over finite fields.
+
+The equivalence $G \mapsto G(\bFq)$
+from the category of \'etale commutative group schemes over $\Fq$ to the category of commutative groups equipped
+with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group,
+provides the following simple description of quasicharacter sheaves.
+
+A quasicharacter sheaf $\qcs{L}$ on an etale commutative group scheme $G$ over $\Fq$ is:
 \begin{enumerate}
  \labitem{(qc.1)}{qc.1} an indexed set of one-dimensional
   $\EE$-vector spaces $\gqcs{L}_x$, as $x$ runs over
@@ -667,38 +675,21 @@ Under this equivalence, a quasicharacter sheaf on an etale commutative group sch
   \]
   commutes, for all $x,y\in G(\bFq)$.
 \end{enumerate}
-Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasicharacter sheaves on $G$ is given by
+Under this equivalence, a morphism $\rho : \qcs{L} \to \qcs{L'}$ of quasicharacter sheaves on $G$ is given by
 \begin{enumerate}
- \labitem{(qc.4)}{qc.4} an indexed set $\alpha_x : \gqcs{L}_x \to \gqcs{L'}_x$
+ \labitem{(qc.4)}{qc.4} an indexed set $\rho_x : \gqcs{L}_x \to \gqcs{L'}_x$
   of linear transformations such that
   \[
    \begin{tikzcd}[column sep=40]
-    \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{}(x)} \rar{\alpha_{\Frob{}(x)}} & \gqcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
+    \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{}(x)} \rar{\rho_{\Frob{}(x)}} & \gqcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
-    & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\alpha_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
-    \gqcs{L}_x \rar{\alpha_x} & \gqcs{L'}_x
-    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
+    & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\rho_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
+    \gqcs{L}_x \rar{\rho_x} & \gqcs{L'}_x
+    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\rho_x\otimes\rho_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
   \]
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
-
-\subsection{Morphisms}\label{sec:mor-etale}
-
-\todo{Find an appropriate place for this discussion}
-
-If $\alpha_0 = 0$ then the second diagram for $y=0$ implies that $\rho_x = 0$ for all $x$.  Conversely, if $\rho_0$ is nonzero then the second diagram for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since $\gqcs{L}_x$ is one dimensional.  Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
-
-\begin{proposition}
-The trace map induces an isomorphism of groups
-\[
-\Aut(\qcs{L}) \cong \Hom(G(\bFq)_{\Weil{}}, \EEx).
-\]
-\end{proposition}
-
-\begin{proof}
-The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group ismorphism.
-\end{proof}
 
 We will see that the Trace of Frobenius may not provide complete
 information about isomorphism classes of quasicharacter sheaves on $G$ when $G$ is not a connected algebraic group.
@@ -835,9 +826,10 @@ Tracing the construction backward, we have defined a quasicharacter sheaf $\qcs{
 $S_G(\qcs{L}) = [\alpha\oplus\beta\oplus\gamma]$, showing that $S_G$ is surjective.
 \end{proof}
 
-\subsection{\texorpdfstring{$S$ and $T$}{S and T}}
+\subsection{Objects}%\texorpdfstring{$S$ and $T$}{S and T}}
 
-In this section we describe the relationship between the group homomorphisms $\TrFrob{G}$ and $S_G$.
+In this section we find the relationship between the group homomorphisms $\TrFrob{G}$ and $S_G$, and use this to find the group $\QCiso{G}$ when $G$ is an etale commutative group scheme over $\Fq$.
+
 %
 We begin with a simple, general result relating duals, invariants and coinvariants.
 
@@ -893,7 +885,31 @@ is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
 This result follows easily from Proposition \ref{prop:ses_desc}.
 \end{proof}
 
+\subsection{Morphisms}\label{sec:mor-etale}
+
+Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
+
+\begin{proposition}
+If $\qcs{L}$ and $\qcs{L}'$ are quasicharacter sheaves on $G$ then
+every $\alpha\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
+\[
+\Aut(\qcs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
+\]
+\end{proposition}
+
+\begin{proof}
+Suppose $\rho \in \Hom(\qcs{L},\qcs{L}')$.
+If $\rho_0 = 0$ then the second diagram for $y=0$ implies that $\rho_x = 0$ for all $x\in G$.  Conversely, if $\rho_0$ is nonzero then the second diagram for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since the stalk of quasicharacter sheaves are one dimensional.  
+%
+The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group ismorphism.
+\end{proof}
+
+
 \section{The main result}\label{sec:main}
+
+Having found $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ when $G$ is an etale commutative group scheme over $\Fq$, we now wish to find these groups for all commutative group scheme over $\Fq$.
+
+\subsection{The case of connected commutative algebraic groups over finite fields}\label{sec:connected}.
 
 In the introduction to this paper we noted that, when working with connected commutative algebraic groups over finite fields, Deligne's dictionary can be described using Weil sheaves $\qcs{L}$ for which there exists an isomorphism $m^* \qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, without keeping track of the isomorphism.
 \todo{rephrase objective of section}
