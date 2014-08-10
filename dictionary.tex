@@ -339,7 +339,7 @@ defined as follows: if $\mathcal{F}$ and $\mathcal{G}$ are constructible $\ell$-
 sheaves on schemes $X$ and $Y$ and $p_X : X\times Y\to X$ and $p_Y : X\times Y \to Y$
 are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{F} \otimes p_Y^*\mathcal{G}$.
 
-For any group $A$, we will denote by $A^*$ the dual group $\Hom_\text{grp}(A, \EEx)$.
+For any group $A$, we will write $A^*$ for the dual group $\Hom_\text{grp}(A, \EEx)$.
 
 \subsection{The category of quasicharacter sheaves}\label{sec:category}
 
@@ -398,29 +398,22 @@ The category $\QC(G)$ of quasicharacter sheaves on $G$ is a rigid monoidal categ
 $\qcs{L} \otimes \qcs{L'} \ceq (\gqcs{L}\otimes\gqcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$,
 with duals given by applying the sheaf hom functor
 $\sheafHom(\ - \ ,\EE)$.
-The category of quasicharacter sheaves on $G$ is not abelian, so $\QC(G)$
-is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.
 This rigid monoidal category structure for $\QC(G)$ gives the set $\QCiso{G}$
 of isomorphism classes in $\QC(G)$ the structure of a group.
 
-%Observe that the rule $(\gqcs{L},\mu,\phi) \mapsto (\gqcs{L},\phi)$ defines a forgetful functor from quasicharacter
-%sheaves on $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{deligne:80a}*{Def.~1.1.10 (i)}.
-%
+In this paper we find the group $\QCiso{G}$ [point]
+and also the set $\Hom(\qcs{L},\qcs{L}')$, for all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $G$ [point]; in this was we provide a complete description of the category $\QC(G)$.
 
-%A Weil sheaf $(\gqcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gqcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. 
-%We now briefly review this point of view for later use in Section~\ref{sec:basechange}; see also \cite{deligne:80a}*{Def.~1.1.10}.  If $w \ceq \Frob{}^n$ we write $w_G$ for $\Frob{G}^n$.
-%For each such $w$ we define an isomorphism $\varphi(w) : w_G^* \gqcs{L}\to \gqcs{L}$ by $\varphi(w) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi);$
-%these isomorphisms satisfy $\varphi(uv) = \varphi(v) \circ v_G^* \varphi(u)$ for $u,v\in \Weil{}$, and we have $\phi = \varphi(\Frob{})$.
-%If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then $\varphi_1(w) : (w_G)_* \gqcs{L}\to \gqcs{L}$ is an isomorphism and $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for $u,v\in \Weil{}$.
-%Thus the pair $(\gqcs{L},\varphi_1)$ almost satisfies the criteria for an action of $\Weil{}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of\cite{deligne:SGA4.5}*{Expos\'e XIII, 1.1}, failing only because $\Weil{}$ is not profinite.
-%As we will see in Corollary~\ref{cor:bounded-and-finite}, our use of $\Weil{}$ rather than $\Gal(\bFq/\Fq)$ allows quasicharacter sheaves to correspond to unbounded characters.
+\begin{remark}
+The category of quasicharacter sheaves on $G$ is not abelian; $\QC(G)$
+is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.
+\end{remark}
 
 \subsection{Pull-back and products}\label{sec:pullback}
 
-As a step toward the proof of Proposition~\ref{prop:functorialG} we show that every
-morphism  $H \to G$ of smooth commutative groups schemes over $\Fq$ induces a monoidal functor from quasicharacter
-sheaves on $G$ to quasicharacters on $H$. This simple but important result will also
-play a role in the proof of many other results in this paper.
+As a step toward understanding quasicharacter sheaves we begin by showing that quasicharacter sheaves admit pull-backs and external products.
+%show that every morphism $H \to G$ of smooth commutative groups schemes over $\Fq$ induces a monoidal functor from quasicharacter sheaves on $G$ to quasicharacters on $H$. 
+These simple but important results will be used in the proofs of many results in this paper.
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of smooth commutative group schemes over $\Fq$ then
@@ -464,7 +457,7 @@ play a role in the proof of many other results in this paper.
   $b_j^* \left( (\bf^*\gqcs{L})\vert_{\bH^j}\right)$ along $g_j$ is also constant.
   Thus $\bf^*\gqcs{L}$ is locally constant on
   $\bH^j$. To complete the proof that $\bf^*\gqcs{L}$ satisfies
-  \ref{qc.4}
+  \ref{QC.1}
   simply observe that $\bf^*\gqcs{L}$ has rank~one since
   $(\bf^*\gqcs{L})_{\bg} = \gqcs{L}_{f(\bg)}$, for every geometric point ${\bg}$ on $\bG$.
 
@@ -492,8 +485,7 @@ play a role in the proof of many other results in this paper.
   statements about the pullback functor on $\ell$-adic constructible sheaves.
 \end{proof}
 
-We end this section with a simple result on products of quasicharacter sheaves,
-which is needed to show that the isomorphism above is functorial.
+%We end this section with a simple result on products of quasicharacter sheaves, which is needed to show that the isomorphism above is functorial.
 
 \begin{proposition}\label{prop:product}
 If $G_1$ and $G_2$ are smooth commutative group schemes over $\Fq$ then the rule
@@ -560,7 +552,21 @@ This completes the proof that $\boxtimes$ is essentially surjective.
 
 \subsection{Trace of Frobenius}\label{sec:Frob}
 
-We now introduce a tool which will help us understand isomorphism classes of objects in $\QCiso{G}$ and $\lQCiso{G}$.
+We now introduce a tool which will help us understand isomorphism classes of objects in $\QCiso{G}$.
+
+
+%A Weil sheaf $(\gqcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gqcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. 
+%We now briefly review this point of view for later use in Section~\ref{sec:basechange}; see also \cite{deligne:80a}*{Def.~1.1.10}.  If $w \ceq \Frob{}^n$ we write $w_G$ for $\Frob{G}^n$.
+%For each such $w$ we define an isomorphism $\varphi(w) : w_G^* \gqcs{L}\to \gqcs{L}$ by $\varphi(w) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi);$
+%these isomorphisms satisfy $\varphi(uv) = \varphi(v) \circ v_G^* \varphi(u)$ for $u,v\in \Weil{}$, and we have $\phi = \varphi(\Frob{})$.
+%If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then $\varphi_1(w) : (w_G)_* \gqcs{L}\to \gqcs{L}$ is an isomorphism and $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for $u,v\in \Weil{}$.
+%Thus the pair $(\gqcs{L},\varphi_1)$ almost satisfies the criteria for an action of $\Weil{}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ in the sense of\cite{deligne:SGA4.5}*{Expos\'e XIII, 1.1}, failing only because $\Weil{}$ is not profinite.
+%As we will see in Corollary~\ref{cor:bounded-and-finite}, our use of $\Weil{}$ rather than $\Gal(\bFq/\Fq)$ allows quasicharacter sheaves to correspond to unbounded characters.
+
+%Observe that the rule $(\gqcs{L},\mu,\phi) \mapsto (\gqcs{L},\phi)$ defines a forgetful functor from quasicharacter
+%sheaves on $G$ to ($\ell$-adic) Weil sheaves on $G$ \cite{deligne:80a}*{Def.~1.1.10 (i)}.
+%
+
 
 Let $(\gqcs{L},\phi)$ be a Weil sheaf on $G$. Every $g\in G(\Fq)$
 determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$. 
@@ -614,6 +620,10 @@ transformation between additive functors,
 concluding the proof of Proposition~\ref{prop:functorialG}.
 \end{proof}
 
+In [point] we will use trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ to show that $\QCiso{G}$ is an extension of $G(\Fq)^*$ by $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$.
+
+%\subsection{Morphisms of quasicharacter sheaves}\label{sec:mor}
+
 \section{The case of \'etale commutative group schemes} \label{sec:etale}
 
 %\subsection{Quasicharacter sheaves, revisited}
@@ -659,23 +669,25 @@ Under this equivalence, a quasicharacter sheaf on an etale commutative group sch
 \end{enumerate}
 Under this equivalence, a morphism $\alpha : \qcs{L} \to \qcs{L'}$ of quasicharacter sheaves on $G$ is given by
 \begin{enumerate}
- \labitem{(qc.4)}{qc.4} an indexed set $\rho_x : \gqcs{L}_x \to \gqcs{L'}_x$
+ \labitem{(qc.4)}{qc.4} an indexed set $\alpha_x : \gqcs{L}_x \to \gqcs{L'}_x$
   of linear transformations such that
   \[
    \begin{tikzcd}[column sep=40]
-    \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{}(x)} \rar{\rho_{\Frob{}(x)}} & \gqcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
+    \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{}(x)} \rar{\alpha_{\Frob{}(x)}} & \gqcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
-    & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\rho_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
-    \gqcs{L}_x \rar{\rho_x} & \gqcs{L'}_x
-    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\rho_x\otimes\rho_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
+    & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\alpha_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
+    \gqcs{L}_x \rar{\alpha_x} & \gqcs{L'}_x
+    & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\alpha_x\otimes\alpha_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
   \]
   both commute for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
+\subsection{Morphisms}\label{sec:mor-etale}
+
 \todo{Find an appropriate place for this discussion}
 
-If $\rho_0 = 0$ then the second diagram for $y=0$ implies that $\rho_x = 0$ for all $x$.  Conversely, if $\rho_0$ is nonzero then the second diagram for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since $\gqcs{L}_x$ is one dimensional.  Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
+If $\alpha_0 = 0$ then the second diagram for $y=0$ implies that $\rho_x = 0$ for all $x$.  Conversely, if $\rho_0$ is nonzero then the second diagram for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since $\gqcs{L}_x$ is one dimensional.  Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
 
 \begin{proposition}
 The trace map induces an isomorphism of groups
