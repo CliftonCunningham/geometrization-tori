@@ -21,7 +21,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % AMS packages
-\usepackage{amsmath, amsthm, amssymb, todonotes}% showkeys}
+\usepackage{amsmath, amsthm, amssymb, todonotes}%, showkeys}
 \usepackage[alphabetic]{amsrefs}
 % Fonts
 \usepackage{mathrsfs, yfonts}
@@ -402,7 +402,7 @@ This rigid monoidal category structure for $\QC(G)$ gives the set $\QCiso{G}$
 of isomorphism classes in $\QC(G)$ the structure of a group.
 
 In this paper we find the group $\QCiso{G}$ [point]
-and also the set $\Hom(\qcs{L},\qcs{L}')$, for all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $G$ [point]; in this was we provide a complete description of the category $\QC(G)$.
+and also the set $\Hom(\qcs{L},\qcs{L}')$, for all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $G$ [point]; in this way we provide a complete description of the category $\QC(G)$.
 
 \begin{remark}
 The category of quasicharacter sheaves on $G$ is not abelian; $\QC(G)$
@@ -644,7 +644,7 @@ The equivalence $G \mapsto G(\bFq)$
 from the category of \'etale commutative group schemes over $\Fq$ to the category of commutative groups equipped
 with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group,
 provides the following simple description of quasicharacter sheaves.
-
+%
 A quasicharacter sheaf $\qcs{L}$ on an etale commutative group scheme $G$ over $\Fq$ is:
 \begin{enumerate}
  \labitem{(qc.1)}{qc.1} an indexed set of one-dimensional
@@ -683,7 +683,7 @@ Under this equivalence, a morphism $\rho : \qcs{L} \to \qcs{L'}$ of quasicharact
    \begin{tikzcd}[column sep=40]
     \arrow[swap]{d}{\phi_x} \gqcs{L}_{\Frob{}(x)} \rar{\rho_{\Frob{}(x)}} & \gqcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
-    & \arrow[swap]{d}{\mu} \gqcs{L}_{x+y} \rar{\rho_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x+y}} \\
+    & \arrow[swap]{d}{\mu_{x,y}} \gqcs{L}_{x+y} \rar{\rho_{x+y}} & \gqcs{L'}_{x+y} \dar{\mu'_{x,y}} \\
     \gqcs{L}_x \rar{\rho_x} & \gqcs{L'}_x
     & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\rho_x\otimes\rho_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
@@ -826,7 +826,7 @@ Tracing the construction backward, we have defined a quasicharacter sheaf $\qcs{
 $S_G(\qcs{L}) = [\alpha\oplus\beta\oplus\gamma]$, showing that $S_G$ is surjective.
 \end{proof}
 
-\subsection{Objects}%\texorpdfstring{$S$ and $T$}{S and T}}
+\subsection{Objects, when $G$ is etale}%\texorpdfstring{$S$ and $T$}{S and T}}
 
 In this section we find the relationship between the group homomorphisms $\TrFrob{G}$ and $S_G$, and use this to find the group $\QCiso{G}$ when $G$ is an etale commutative group scheme over $\Fq$.
 
@@ -856,9 +856,9 @@ yields
 Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
 \end{proof}
 
-\begin{corollary}
+\begin{proposition}\label{prop:sur_etale}
 If $G$ is \'etale then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
-\end{corollary}
+\end{proposition}
 \begin{proof}
 Pick $\chi \in G(\Fq)^*$.
 By Lemma~\ref{lem:dual-inv}, there is some $b\in G(\bFq)^*$ such that $b\vert_{G(\Fq)^*} = \chi$.
@@ -882,14 +882,15 @@ is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
  \]
 \end{proposition}
 \begin{proof}
-This result follows easily from Proposition \ref{prop:ses_desc}.
+This result follows easily from Propositions~\ref{prop:ses_desc} and \ref{prop:sur_etale}.
 \end{proof}
 
 \subsection{Morphisms}\label{sec:mor-etale}
 
 Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
 
-\begin{proposition}
+\begin{proposition}\label{prop:mor_etale}
+Let $G$ be an etale commutative group scheme over $\Fq$.
 If $\qcs{L}$ and $\qcs{L}'$ are quasicharacter sheaves on $G$ then
 every $\alpha\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
 \[
@@ -899,184 +900,75 @@ every $\alpha\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. Mo
 
 \begin{proof}
 Suppose $\rho \in \Hom(\qcs{L},\qcs{L}')$.
-If $\rho_0 = 0$ then the second diagram for $y=0$ implies that $\rho_x = 0$ for all $x\in G$.  Conversely, if $\rho_0$ is nonzero then the second diagram for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since the stalk of quasicharacter sheaves are one dimensional.  
-%
-The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group ismorphism.
+If $\rho_0 = 0$ then the second diagram in \ref{qc.4} for $y=0$ implies that $\rho_x = 0$ for all $x\in G$, in which case $\rho$ is trivial.
+On the other hand, if $\rho_0$ is nonzero then the second diagram in \ref{qc.4} for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since the stalk of quasicharacter sheaves are one dimensional; in this case $\rho$ is an isomorphism.
+
+Now suppose $\rho \in \Aut(\qcs{L})$.
+The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{qc.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
 
+Note that Proposition~\ref{prop:mor_etale} tells us that if $G$ is an etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
 
 \section{The main result}\label{sec:main}
 
-Having found $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ when $G$ is an etale commutative group scheme over $\Fq$, we now wish to find these groups for all commutative group scheme over $\Fq$.
+Having found $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ when $G$ is an etale commutative group scheme over $\Fq$, we now wish to find these for all commutative group scheme over $\Fq$. The next section introduces a concept that will be helpful in that regard.
 
-\subsection{The case of connected commutative algebraic groups over finite fields}\label{sec:connected}.
+\subsection{Bounded quasicharacter sheaves}\label{sec:bounded}
 
-In the introduction to this paper we noted that, when working with connected commutative algebraic groups over finite fields, Deligne's dictionary can be described using Weil sheaves $\qcs{L}$ for which there exists an isomorphism $m^* \qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, without keeping track of the isomorphism.
-\todo{rephrase objective of section}
-In this section use that perspective to find a perfect dictionary between flabby quasicharacter sheaves on $G$ and characters of $G(\Fq)$.
-
-\subsection{Finite quasicharacter sheaves}\label{sec:finite}
-
-In this section we define \emph{finite quasicharacter sheaves}, 
-a notion informed by a certain perspective on local systems on connected groups.
-Finite quasicharacter sheaves will play a role in Section \ref{sec:restriction}.
-
-%The definition of finite quasicharacter sheaves will require several steps, beginning with the localization of a category introduced here.
-Consider the category $C(G)$ whose objects consist of triples $(f,\psi,r)$, where:
-\begin{itemize}
-\item $f : H\to G$ is a \emph{discrete isogeny} (a morphism of smooth commutative group schemes over $\Fq$ which is finite, surjective and \'etale and for which the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f = f^{-1}({\bar e)} = \Aut(f)$ is trivial);
-\item $\psi : \Aut(f)\to \Aut(V)$ is a finite-dimensional $\EE$-representation;
-\item $r : V \to V\otimes V$ is an injective linear transformation.
-\end{itemize}
-A morphism $(f,\psi,r) \to (f',\psi',r)$ in $C(G)$ is a pair $(\gamma,T)$, where:
-\begin{itemize}
-\item $\gamma : H' \to H$ is a morphism of group schemes such that $f\circ \gamma = f'$;
-\item $T: V\to V'$ is a linear transformation, equivariant for the action of
-$\Aut(f')$ on $V'$ by $\psi'$ and the action of $\Aut(f')$ on $V$ by $\psi \circ \gamma$,
-\end{itemize}
-such that
-\[
-\begin{tikzcd}
-\arrow{d}[swap]{T\otimes T} V\otimes V & \arrow{l}{r} V \arrow{d}{T} 
-%& \Aut(V) & \arrow[swap]{l}{\psi} \Aut(f) \arrow{r} & H \arrow{r}{f} & \arrow[equal]{d} G
-\\
-V'\otimes V' & \arrow{l}{r'} V' 
-%& \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{} \Aut(f') \arrow{r} & \arrow[swap]{u}{\gamma} H' \arrow{r}{f'} & G
-\end{tikzcd}
-\]
-commutes.
-
-We define a tensor product in $C(G)$ as follows.
-Let $(f,\psi,r)$ and $(f',\psi',r')$ be objects in $C(G)$.
-Write $f\times_G f' : H\times_G H' \to G$ for the product of $f$ and $f'$
-in the category of isogenies to $G$. We define an external tensor product
-$\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$ and a external sum
-$\psi \oplus\psi' :  \ker(f\times_G f') \to \Aut(V\oplus V')$
-using the canonical isomorphism $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$.
-We may thus define $(f,\psi,r)\otimes(f',\psi',r') \ceq (f\times_G f' ,\psi\otimes\psi', r\otimes r')$ and
-$(f,\psi,r)\oplus(f',\psi',r')\ceq (f\times_G f' ,\psi\oplus\psi', r\oplus r')$. 
-To define duals in $C(G)$,
-let $V^\vee \ceq \Hom_\text{vec}(V,\EE)$ and $\psi^\vee : \ker f \to \Aut(V^\vee)$ be
-the dual representation.  We may then set $(f,\psi,r)^\vee \ceq (f,\psi^\vee, r^\vee)$ 
-where $r^\vee : V^\vee \to V^\vee \otimes V^\vee$ is the adjoint of $r$.
-These operations give $C(G)$ the structure of a tensor category.
-
-Now we localize $C(G)$.
-Let us say that $(\gamma,T)$ in $C(G)$ is a \emph{weak isomorphism} if $T$ is an isomorphism of vector spaces.  
-Let $W$ be the family of weak isomorphism and
-et $C(G)[W^{-1}]$ be the localization of $C(G)$ with respect to $W$, 
-in the sense of \cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.1}.
-Since weak isomorphisms in $C(G)$ form a \emph{right multiplicative system}, in the sense of \cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.5}, it follows from \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16} that morphisms in $C(G)[W^{-1}]$ are simple to describe: 
-a morphism in $C(G)[W^{-1}]$ is an equivalence class of diagrams
-\[
-\begin{tikzcd}[column sep=30]
-   (f,\psi,r) \arrow{r}{(\gamma,T)} & (f',\psi',r') & \arrow[swap]{l}{(\gamma_1,T_1)}[swap]{\text{w-iso}} (f_1,\psi_1,V_1)
-   \end{tikzcd}
-\]
- where $(\gamma,T) : (f,\psi,r) \to (f',\psi',r')$ is any map in $C(G)$
- and $(\gamma_1, T_1) :  (f',\psi',r') \to (f_1,\psi_1,r_1)$ is a weak isomorphism in $C(G)$;
-for the equivalence relation on these diagrams, see \cite{kashiwara-schapira:CatgoriesSheaves}*{(7.1.3)}.
-
-It is straightforward to verify that the subcategory $C_1(G)$ of $C(G)$ consisting of $(f,\psi,r)$ for which $\psi$ is one-dimensional, is a full, rigid monoidal subcategory of $C(G)$ and further, that the family $W_1$ of weak isomorphisms in $C_1(G)$ is a right multiplicative system.
+Let $G$ be a smooth commutative group scheme over $\Fq$.
+In this section we consider a class of quasicharacter sheaves on $G$ obtained by
+replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter
+sheaf with an $\ell$-adic local system on $G$ itself.
 
 \begin{definition}
-The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\fQC(G)$,
-is the rigid monoidal category $C_1(G)[W_1^{-1}]$ obtained by localizing $C_1(G)$ at weak isomorphisms $W_1$.
+Let $\bQC(G)$ be the category of pairs $(\qcs{L}_0,\mu_0)$
+where $\qcs{L}_0$ an $\ell$-adic local system on $G$ of rank~one,
+equipped with an isomorphism $\mu_0 : m^* \qcs{L}_0 \to \qcs{L}_0 \boxtimes \qcs{L}_0$
+satisfying the analogue of \ref{QC.1} on $G$;
+morphisms in $\bQC(G)$ are defined as in the second part of
+\ref{QC.3}.
+This is the category of \emph{bounded quasicharacter sheaves} on $G$.
 \end{definition}
 
-\begin{remark}
-Recall that every geometric point $\bg$ on a connected scheme $G$
-determines an equivalence between the categories of $\ell$-adic local systems on $G$
-and $\ell$-adic representations of the \'etale fundamental group $\pi_1(G, \bg)$
-\citelist{\cite{SGA5}*{VI,Prop. 1.2.5} \cite{deligne:80a}*{1.1.1}}.
- Since $\pi_1(G, \bg)$ is a projective limit of automorphism groups of finite \'etale covers,
- a general local system corresponds to a projective limit of characters of such groups.
- But some local systems can be described in terms of a single cover $f: H \to G$
- and a representation $\psi: \ker f \to \Aut(V)$;
- two such descriptions yield isomorphic local systems if and only if they are related by a weak
- isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
- not adapt well to non-connected $G$, a perspective using finite \'etale covers does.
-\end{remark}
+The category of bounded quasicharacter sheaves is a rigid monoidal category in the obvious way.
 
-Later in the paper we will make a study of isomorphism classes of objects in $\fQC(G)$. Here we focus on morphisms in this category.
-
-\begin{proposition}\label{prop:autornaught}
-Every morphism in $\fQC(G)$ is either an isomorphism or trivial.
-Moreover, for every finite quasicharacter sheaf $(f,\psi,r)$, the group $\Aut_{\fQC(G)}(f,\psi,r)$ is trivial.
+\begin{proposition}\label{prop:BG}
+Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(G)$.
 \end{proposition}
 
 \begin{proof}
-\todo{This proof is under construction.}
-Trivial morphisms in $\fQC(G)$ are defined as follows. Let $(f,\psi,r)$ and $(f_1,\psi_1,r_1)$ be finite quasicharacter sheaves on $G$.  
-Form $(f\times_G f_1,1\otimes \psi_1, r\otimes r_1)$ in $C_1(G)$. 
-Let $0 : V \to V\otimes V_1$ be the trivial linear transformation. 
-Choose $0\ne v \in V$ and let $T_v: V_1 \to V\otimes V_1$ be the isomorphism $T_v(v_1) = v\otimes v_1$.  
-Let $\pi : H\times_G H_1 \to H$ and $\pi_1 : H\times_G H_1 \to H_1$ be the natural projections.
-Then $(\pi,0) : (f,\psi, V) \to  (f\times_G f_1,1\otimes \psi_1, V\otimes V_1)$ is a morphism in $C_1(G)$ and $(\pi_1,T_v) : (f_1,\psi_1,V_1) \to (f\times_G f_1,1\otimes \psi_1, V\otimes V_1)$ is a weak isomorphism in $C_1(G)$.
-%
-The morphism in $\fQC(G)$ represented by
-\[
-\begin{tikzcd}[column sep=30]
-   (f,\psi,V) \arrow{r}{(\pi,0)} & (f\times_G f_1,1\otimes \psi_1, V\otimes V_1) & \arrow[swap]{l}{(\pi_1,T_v)}[swap]{\text{w-iso}}  (f_1,\psi_1,V_1),
-   \end{tikzcd}
-\]
-does not depend on the choice of $0\ne v\in V$; this defines the {\em trivial morphism} $0: (f,\psi,V) \to (f_1,\psi_1,V_1)$ in $\fQC(G)$.
-
- 
-Let $(f,\psi,V)$ and $(f_1,\psi_1,V_1)$ be finite quasicharacter sheaves on $G$. 
-Let
-\[
-\begin{tikzcd}[column sep=30]
-   (f,\psi,V) \arrow{r}{(\gamma,T)} & (f',\psi',V') & \arrow[swap]{l}{(\gamma_1,T_1)}[swap]{\text{w-iso}}  (f_1,\psi_1,V_1)
-   \end{tikzcd}
-\]
-represent a morphism $(f,\psi,V)  \to (f_1,\psi_1,V_1)$ in $\fQC(G)$;
-note that, by definition, $(\gamma_1 , T_1) : (f_1,\psi_1,V_1) \to (f',\psi',V')$ is a weak isomorphism.
-Since $V$, $V'$ and $V_1$ are one-dimensional $\EE$-vector spaces, either $T : V \to V'$ is an isomorphism or trivial.  
-
-Suppose $T$ is trivial. 
-Let $\theta : H'\to H\times_G H_1$ be the morphism of group schemes given by the universal property of the pull back of $f: H\to G$ and $f_1 : H_1 \to G$, as pictured below.
-\[
-\begin{tikzcd}
-\ & \arrow{ddl}[swap]{\gamma} H' \arrow{d}{\theta} \arrow{ddr}{\gamma_1} & \\
-\ & \arrow{dl}{\pi} H \times_G H_1 \arrow{dr}[swap]{\pi_1} & \\
-H \arrow{rd}[swap]{f} && \arrow{ld}{f_1} H_1 \\
-& G & \\
-\end{tikzcd}
-\]
-Let $T_1' : V\otimes V_1 \to V'$ be the linear transformation defined by projection $V\otimes V_1 \to V_1$ followed by $T_1 : V_1 \to V'$. Then
-\[
-\begin{tikzcd}[column sep=30]
-\ & (f',\psi',V')  & \\
-\arrow{dr}[swap]{(\pi,0)}  (f,\psi,V)  \arrow{ru}{(\gamma,T=0)} &  & \arrow[swap]{lu}{(\gamma_1,T_1)}[swap]{\text{w-iso}} (f_1,\psi_1,V_1) \arrow{dl}{(\pi_1,T_v)}[swap]{\text{w-iso}} \\
-\ & \arrow{uu}[swap]{(\theta,T_1')} (f\times_G f_1,1\otimes \psi_1, V\otimes V_1) & \\   
-   \end{tikzcd}
-\]
-is a commuting diagram in $C_1(G)$, where $T_v : V_1 \to V\otimes V_1$ is defined as in the construction of the trivial morphism $0 : (f,\psi,V) \to (f_1,\psi_1,V_1)$, above.
-By \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16}, 
-it follows that $(f,\psi,V)  \to (f_1,\psi_1,V_1)$ is the trivial morphism in $\fQC(G)$.
-
-Now suppose $T$ is an isomorphism, then $(\gamma,T)$ is a weak isomorphism, in which case the morphism $(f,\psi,V) \to (f_1,\psi_1,V_1)$ is an isomorphism in $\fQC(G)$.
-\todo{This is where some information about $\Aut_{\fQC(G)}(f,\psi,V)$ will go, when I've sorted it out.}
+ Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
+ Let $(\qcs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$.
+ Then $\qcs{L}_0$ is an $\ell$-adic constructible sheaf on $G$ and
+ $b_G^* \qcs{L}_0$ comes equipped with an isomorphism
+ $\phi : \Frob{G}^* b_G^*\qcs{L}_0 \to b_G^* \qcs{L}_0$.
+ Moreover, the functor $\qcs{L}_0 \mapsto (b_G^* \qcs{L}_0,\phi)$
+ from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
+ is full and faithful \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}}.
+ This functor preserves local constancy, so takes local systems to local systems.
+ Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies \ref{QC.2}
+ with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
+ Moreover, $\phi$ is compatible with $\mu$ in the sense of \ref{QC.3}.
+ This construction defines the functor $B_G : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,b_{G\times G}^*\mu_0, \phi)$
+ and also shows that it is full and faithful.
 \end{proof}
 
-\subsection{When quasicharacter sheaves are finite}
+We will identify $\bQC(G)$ with its image under $B_G$
+and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded}
+if it is isomorphic to some $B_G(\qcs{L}_0, \mu_0)$.
+We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.\todo{Check this, later.}
 
-\begin{proposition}\label{prop:connected}
-  If $G$ is a connected commutative algebraic group over $\Fq$ then
-  the full subcategories $\fQC(G) \hookrightarrow \bQC(G) \hookrightarrow \QC(G)$
-  appearing in Sections~\ref{sec:bounded} and \ref{sec:finite} are equivalences.
+In general, $\bQC(G)$ is an essentially
+proper subcategory of $\QC(G)$. 
+However, if $G$ is connected, the categories are equivalent, as we now show.
+
+\begin{proposition}\label{prop:bounded_connected}
+If $G$ is a connected commutative algebraic group over $\Fq$ then
+$B_G : \bQC(G) \to \QC(G)$ is an equivalence of categories.
 \end{proposition}
 
 \begin{proof}
-  Observe that the forgetful functor $(\gqcs{L},\mu,\phi) \mapsto (\gqcs{L},\phi)$
-  sends quasicharacter sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{deligne:80a}*{1.1.10}.
-  While is it not true that all Weil sheaves on $G$ descend to local systems on $G$,
-  we will see that those that appear in the image of this forgetful functor from quasicharacter sheaves do.
-
-%When $G$ is connected, we may apply the classic function--sheaf dictionary.  
-%In order to do so, however, we must relate our notion of quasicharacter sheaf to the sheaf side of the standard dictionary.
-Choose any $\Fq$-rational point of $G$ and let $\bg$ be the geometric point on $G$ lying above $g$.
+Choose any $\Fq$-rational point $g$ on $G$ and let $\bg$ be the geometric point on $G$ lying above $g$.
 Recall that the \emph{Weil group} of $G$, which we will denote by $\W(G,\bg)$, is a subgroup of the \'etale
 fundamental group defined by the following diagram:
 \[
@@ -1087,18 +979,19 @@ fundamental group defined by the following diagram:
 \]
 The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
 $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
-
+%
   Since $G$ is connected, the geometric point $\bg$ determines
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
   $\ell$-adic representations of $\W(G,\bg)$ \cite{deligne:80a}*{1.1.12}.
+  
   Now let $(\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$
   and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
   Composing with the splitting $\Weil{} \to \W(G,\bg)$ yields an $\ell$-adic character
-  $\rho_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{sec:Frob}:
-  \[
+  $\rho_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{sec:Frob}, for every $\Fq$ rational point $g$ on $G$:
+  $
   \rho_g(\Frob{}) =  \trFrob{\qcs{L}}(g).
-  \]
-
+  $
+%
   On the other hand, we have already seen that $\trFrob{\qcs{L}} : G(\Fq) \to \EEx$
   is a group homomorphism. Since $G$ is an algebraic group over $\Fq$, it is a
   variety over $\Fq$ and thus $G(\Fq)$ is finite.
@@ -1108,15 +1001,18 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   a character, it follows that the image of $\rho_g$ is a finite group.
   Thus, $\rho_g$ extends to an $\ell$-adic character of $\Gal(\bFq/\Fq)$,
   which we will also denote $\rho_g$.
-
+%
   We may now lift the $\ell$-adic character $\rho_g : \Gal(\bFq/\Fq) \to \EEx$
   to an $\ell$-adic character $\pi_1(G,\bg) \to \EEx$ using the canonical topological group homomorphism
-  $\pi_1(G,\bg) \to \Gal(\bFq/\Fq)$. But $\bg$ also
+  $\pi_1(G,\bg) \to \Gal(\bFq/\Fq)$. 
+ % 
+  The $\Fq$ rational point $g$ also
   determines an equivalence between the category of $\ell$-adic
   representations of $\pi_1(G,\bg)$ and $\ell$-adic local systems on $G$. Let
   $\qcs{L}_0$ be a local system on $G$ in the isomorphism class
   determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
   Then $b_G^*\qcs{L}_0 \iso \gqcs{L}$.
+  
   Since $b_G^*$ is full and faithful
   \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}},
   $
@@ -1133,102 +1029,46 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   and $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\qcs{L}_0,b_{G\times G}^*\mu_0)$ in $\QC(G)$.
   Thus, the full and faithful functor $B_G : \bQC(G) \to \QC(G)$ from Section~\ref{sec:bounded}
   is also essentially surjective, hence an equivalence.
-
-  In Section~\ref{sec:finite} we saw that $\fQC(G)$ is a full subcategory of $\bQC(G)$;
-  more precisely, we exhibited a full and faithful functor $L_G : \fQC(G) \to \bQC(G)$.
-  We now show that this functor is essentially surjective
-  when $G$ is a connected, commutative algebraic group over $\Fq$.
-
-  Let $(\qcs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$.
-  Then $\qcs{L}\ceq B_G(\qcs{L}_0,\mu_0)$ is a quasicharacter sheaf on $G$.
-  Recall the definition of the character $\trFrob{\qcs{L}} : G(\Fq) \to \EEx$ from Section~\ref{sec:Frob}.
-  Let $f : G\to G$ be the Lang isogeny.
-  Recall that $\ker f = G(\Fq) = G^{\Frob{}}$;
-  in particular, the action of $\Gal(\bFq/\Fq)$ on $\ker f$ is trivial.
-  Let $V \ceq \EE$ and let $\psi : \ker f \to \Aut(V)$ be the representation given by
-  $\psi(g)(v) \ceq \trFrob{\qcs{L}}(g) v$ for $v\in V$.
-  Then $(f,\psi)$ is a finite quasicharacter sheaf.
-
-  To show that $L_G(f,\psi) \iso (\qcs{L}_0,\mu_0)$ we apply the function--sheaf dictionary
-  \citelist{\cite{laumon:87a}*{1.1.3} \cite{deligne:SGA4.5}*{sommes trig.}}  as follows.
-  First, recall that $L_G(f,\psi) \ceq (L(f,\psi), \mu(f,\psi))$.
-  Let $k'/k$ be any degree-$n$ extension;
-  let $\Nm : G(k')\to G(k)$ be the norm map
-  and let $b : G_{k'} \to G$ be the base change map.
-  By \cite{laumon:87a}*{1.1.3.3},
-  $\trFrob{b^*L(f,\psi)} = \trFrob{\qcs{L}} \circ \Nm$;
-  on the other hand, $\trFrob{\qcs{L}} \circ \Nm = \trFrob{b^*\qcs{L}}$,
-   by Proposition~\ref{prop:basechange}.
-  Using \cite{laumon:87a}*{Th\'eor\`eme 1.1.2}, it follows that  $L(f,\psi) \iso \qcs{L}_0$ in $\Loc(G)$.
-  It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\qcs{L}_0,\mu_0)$ in $\bQC(G)$.
-  This completes the proof that $L_G $ is essentially surjective.
-  Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful,
-  it follows that $L_G$ is an equivalence.
 \end{proof}
 
-As Proposition~\ref{prop:connected} shows,
-when $G$ is a connected algebraic group over $\Fq$,
-it is appropriate to replace quasicharacter sheaves on $G$
-with the conceptually simpler category $\fQC(G)$ of finite quasicharacter sheaves on $G$.
-In this context, finite quasicharacter sheaves may also be apprehended as
-\emph{certain} $\ell$-adic characters of fundamental group $\pi_1(G,{\bar e})$.
-As explained in \cite{kamgarpour:09a}*{\S2},
-the relevant characters of $\pi_1(G,{\bar e})$ are precisely those
-that factor through a particular quotient of $\pi_1(G,{\bar e})$
-denoted there by $\Pi_\text{disc}(G)$.
-Using this fact, one can show that the category of discrete isogenies to $G$ is a Galois category,
-in the sense of \cite{grothendieck:SGA1}*{Expos\'e V, \S 4}.
-Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$ \cite{kamgarpour:09a}*{App'x B},
-the fundamental functor attached to this Galois category can be used to produce an equivalence
-between the category of finite quasicharacter sheaves on $G$ and
-the category of one-dimensional representations of $G(\Fq)^*$.
-We will see an alternate proof of this fact in the next section; see Corollary~\ref{cor:connected}.
+\subsection{Objects, when $G$ is connected and of finite type}\label{sec:connected}
 
-In principle, something similar is possible in the more general
-context of this paper, where $G$ is a smooth commutative group scheme over $\Fq$. 
-%to which we now return.
-In this generality, however, neither of the full subcategories $\fQC(G) \subset \bQC(G) \subset \QC(G)$ are equivalences;
-see the end of Section~\ref{sec:snake}.
-Nevertheless, every quasicharacter sheaf $(\gqcs{L},\mu,\phi)$ on $G$
-determines a Weil sheaf $(\gqcs{L},\phi)$ on $G$
-so if we choose a geometric point ${\bar g}_x$ in each component $\bG^x$ of $G$
-then this choice can be used to convert
-the Weil sheaf $(\gqcs{L},\phi)$ into an $\ell$-adic character of $\prod_{x\in \pi_0(\bG)}\W(\bG^x, {\bar g}_x)$.
-However, it seemed cumbersome to manage various
-choices of families of base points and track the action
-of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of
-Weil groups and also difficult to identify the relevant quotient of this group.
-Viewed in this light, Definition~\ref{def:QC} seems comparatively simple.
-
-\subsection{Recovery}
-
-We are in a good position to understand $\QC(G)$ when $G$ is a connected algebraic group over $\Fq$, since we can now describe objects and maps in this category in very concrete terms. We begin by recovering a classical result. 
-
-\begin{corollary}\label{cor:connected}
+\begin{proposition}\label{prop:obj_connected}
  If $G$ is a connected, commutative algebraic group over $\Fq$ then
  \[
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
  \]
  is an isomorphism of groups.
-\end{corollary}
-
-\begin{proof}
- It suffices\todo{Explain why $T_G$ is injective.} to observe that the group homomorphism
- $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$
- is surjective: each character $\chi \in G(\Fq)^*$ determines a finite quasicharacter
- sheaf $(\Lang,\chi^{-1})$ such that Trace of Frobenius of the quasicharacter sheaf
- $B_G (L_G(\Lang,\chi^{-1}))$ is $\chi$.
-\end{proof}
-
-Morphisms in $\QC(G)$ are also very simple.
-
-\begin{proposition}
-If $G$ is a connected algebraic group then $\Aut_{\QC(G)}(\qcs{L})$ is . . . .
 \end{proposition}
 
 \begin{proof}
-Pick up from the proof of Proposition~\ref{prop:autornaught}.
+At its heart, this is Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields, as we now briefly recall from \citelist{\cite{deligne:SGA4.5}*{Sommes trig.}, \cite{laumon:87a}*{1.1.3}}.
+
+We begin by showing that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
+Let $\chi : G(\Fq) \to \EEx$ be a character.
+Let $\Lang : G \to G$ be the Lang isogeny for $G$.
+Set $\qcs{L}_0 = ( \Lang_* \EE)_{\chi^{-1}}$, the $\chi^{-1}$-isotypic component of the push-forward of the constant sheaf on $G$ along the Lang isogeny.
+Let $\gqcs{L}$ be the local system on $\bG$ obtained by pull-back along $\bG \to G$.
+Then $\gqcs{L}$ comes equipped with an isomorphism $\phi : \Frob{G}^* \gqcs{L} \to \gqcs{L}$.
+As explained in \cite{laumon:87a}*{1.1.3}, the trace of the Weil sheaf $(\gqcs{L},\phi)$ is $\chi$.
+The sheaf $\qcs{L}_0$ also comes equipped with an isomorphism 
+$\mu_0 : m^*\qcs{L}_0 \to \qcs{L}_0\boxtimes \qcs{L}_0$ 
+\cite{laumon:87a}*{1.1.3.2},
+which satisfies the analogue of \ref{QC.2} over $G$.
+Writing $\mu : \bm^* \gqcs{L}  \to \gqcs{L} \boxtimes \gqcs{L}$ for the isomorphism obtained by base change, it follows immediately that $\mu$ satisfies conditions \ref{QC.2} and \ref{QC.3}.
+Thus, $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$ with $\trFrob{\qcs{L}} = \chi$.
+It follows that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
+
+In order to show that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is injective we need to recall some facts about Weil sheaves.
+%
+  
+Now, let $\qcs{L}$ and $\qcs{L}'$ be quasicharacter sheaves on $G$ with $\trFrob{\qcs{L}} = \trFrob{\qcs{L}'}$.\todo{The rest of the proof is under construction.}
 \end{proof}
+
+
+In the introduction to this paper we noted that, when working with connected commutative algebraic groups over finite fields, Deligne's dictionary can be described using Weil sheaves $\qcs{L}$ for which there exists an isomorphism $m^* \qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, without keeping track of the isomorphism.
+\todo{rephrase objective of section}
+In this section use that perspective to find a perfect dictionary between flabby quasicharacter sheaves on $G$ and characters of $G(\Fq)$.
 
 \subsection{The component group sequence} \label{sec:restriction}
 
@@ -1520,54 +1360,10 @@ and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
 %using the category $\lQC(G)$ in place of $\QC(G)$.
 %\end{proof}
 
+\subsection{Morphisms, in the general case}
 
 \section{Application to \texorpdfstring{$p$}{p}-adic tori}
 
-\subsection{Bounded quasicharacter sheaves}\label{sec:bounded}
-
-In this section we consider a class of quasicharacter sheaves on $G$ obtained by
-replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter
-sheaf with an $\ell$-adic local system on $G$ itself.
-
-\begin{definition}
-Let $\bQC(G)$ be the category of pairs $(\qcs{L}_0,\mu_0)$
-where $\qcs{L}_0$ an $\ell$-adic local system on $G$ of rank~one,
-equipped with an isomorphism $\mu_0 : m^* \qcs{L}_0 \to \qcs{L}_0 \boxtimes \qcs{L}_0$
-satisfying the analogue of \ref{QC.1} on $G$;
-morphisms in $\bQC(G)$ are defined as in the second part of
-\ref{QC.3}.
-This is the category of \emph{bounded quasicharacter sheaves} on $G$.
-\end{definition}
-
-The category of bounded quasicharacter sheaves is a rigid monoidal category in the obvious way.
-
-\begin{proposition}\label{prop:BG}
-Extension of scalars defines a full and faithful functor
-$B_G : \bQC(G) \hookrightarrow \QC(G)$.
-\end{proposition}
-
-\begin{proof}
- Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
- Let $(\qcs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$.
- Then $\qcs{L}_0$ is an $\ell$-adic constructible sheaf on $G$ and
- $b_G^* \qcs{L}_0$ comes equipped with an isomorphism
- $\phi : \Frob{G}^* b_G^*\qcs{L}_0 \to b_G^* \qcs{L}_0$.
- Moreover, the functor $\qcs{L}_0 \mapsto (b_G^* \qcs{L}_0,\phi)$
- from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
- is full and faithful \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}}.
- This functor preserves local constancy, so takes local systems to local systems.
- Set $\mu \ceq b_{G\times G}^*\mu_0$; clearly, this satisfies \ref{QC.2}
- with $b_G^*\qcs{L}_0$ playing the role of $\gqcs{L}$.
- Moreover, $\phi$ is compatible with $\mu$ in the sense of \ref{QC.3}.
- This construction defines the functor $B_G : (\qcs{L}_0,\mu_0) \mapsto (b_G^*\qcs{L}_0,\mu, \phi)$
- and also shows that it is full and faithful.
-\end{proof}
-
-In general, $\bQC(G)$ is an essentially
-proper subcategory of $\QC(G)$. We will identify $\bQC(G)$ with its image under $B_G$
-and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded}
-if it is isomorphic to some $B_G(\qcs{L}_0, \mu_0)$.
-We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.
 
 \subsection{Finite implies Bounded}
 
@@ -1948,6 +1744,305 @@ of abelian groups.\todo{Pure speculation.}
 Really? Then does this make sense: $\Hh^3(E^\bullet_{\pi_0(G)}) =0$? Perhaps. $\Hh^3(\pi_0({\bar G})\rtimes \Weil{},\EEx)=0?$
 \end{proof}
 
+\subsection{Finite quasicharacter sheaves}\label{sec:finite}
+
+In this section we define \emph{finite quasicharacter sheaves}, 
+a notion informed by a certain perspective on local systems on connected groups.
+Finite quasicharacter sheaves will play a role in Section \ref{sec:restriction}.
+
+%The definition of finite quasicharacter sheaves will require several steps, beginning with the localization of a category introduced here.
+Consider the category $C(G)$ whose objects consist of triples $(f,\psi,r)$, where:
+\begin{itemize}
+\item $f : H\to G$ is a \emph{discrete isogeny} (a morphism of smooth commutative group schemes over $\Fq$ which is finite, surjective and \'etale and for which the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f = f^{-1}({\bar e)} = \Aut(f)$ is trivial);
+\item $\psi : \Aut(f)\to \Aut(V)$ is a finite-dimensional $\EE$-representation;
+\item $r : V \to V\otimes V$ is an injective linear transformation.
+\end{itemize}
+A morphism $(f,\psi,r) \to (f',\psi',r)$ in $C(G)$ is a pair $(\gamma,T)$, where:
+\begin{itemize}
+\item $\gamma : H' \to H$ is a morphism of group schemes such that $f\circ \gamma = f'$;
+\item $T: V\to V'$ is a linear transformation, equivariant for the action of
+$\Aut(f')$ on $V'$ by $\psi'$ and the action of $\Aut(f')$ on $V$ by $\psi \circ \gamma$,
+\end{itemize}
+such that
+\[
+\begin{tikzcd}
+\arrow{d}[swap]{T\otimes T} V\otimes V & \arrow{l}{r} V \arrow{d}{T} 
+%& \Aut(V) & \arrow[swap]{l}{\psi} \Aut(f) \arrow{r} & H \arrow{r}{f} & \arrow[equal]{d} G
+\\
+V'\otimes V' & \arrow{l}{r'} V' 
+%& \Aut(V') & \arrow[swap]{l}{\psi'} \arrow[swap]{u}{} \Aut(f') \arrow{r} & \arrow[swap]{u}{\gamma} H' \arrow{r}{f'} & G
+\end{tikzcd}
+\]
+commutes.
+
+We define a tensor product in $C(G)$ as follows.
+Let $(f,\psi,r)$ and $(f',\psi',r')$ be objects in $C(G)$.
+Write $f\times_G f' : H\times_G H' \to G$ for the product of $f$ and $f'$
+in the category of isogenies to $G$. We define an external tensor product
+$\psi \otimes\psi' :  \ker(f\times_G f') \to \Aut(V\otimes V')$ and a external sum
+$\psi \oplus\psi' :  \ker(f\times_G f') \to \Aut(V\oplus V')$
+using the canonical isomorphism $\ker(f\times_G f') \iso (\ker f)\times (\ker f')$.
+We may thus define $(f,\psi,r)\otimes(f',\psi',r') \ceq (f\times_G f' ,\psi\otimes\psi', r\otimes r')$ and
+$(f,\psi,r)\oplus(f',\psi',r')\ceq (f\times_G f' ,\psi\oplus\psi', r\oplus r')$. 
+To define duals in $C(G)$,
+let $V^\vee \ceq \Hom_\text{vec}(V,\EE)$ and $\psi^\vee : \ker f \to \Aut(V^\vee)$ be
+the dual representation.  We may then set $(f,\psi,r)^\vee \ceq (f,\psi^\vee, r^\vee)$ 
+where $r^\vee : V^\vee \to V^\vee \otimes V^\vee$ is the adjoint of $r$.
+These operations give $C(G)$ the structure of a tensor category.
+
+Now we localize $C(G)$.
+Let us say that $(\gamma,T)$ in $C(G)$ is a \emph{weak isomorphism} if $T$ is an isomorphism of vector spaces.  
+Let $W$ be the family of weak isomorphism and
+et $C(G)[W^{-1}]$ be the localization of $C(G)$ with respect to $W$, 
+in the sense of \cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.1}.
+Since weak isomorphisms in $C(G)$ form a \emph{right multiplicative system}, in the sense of \cite{kashiwara-schapira:CatgoriesSheaves}*{Def 7.1.5}, it follows from \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16} that morphisms in $C(G)[W^{-1}]$ are simple to describe: 
+a morphism in $C(G)[W^{-1}]$ is an equivalence class of diagrams
+\[
+\begin{tikzcd}[column sep=30]
+   (f,\psi,r) \arrow{r}{(\gamma,T)} & (f',\psi',r') & \arrow[swap]{l}{(\gamma_1,T_1)}[swap]{\text{w-iso}} (f_1,\psi_1,V_1)
+   \end{tikzcd}
+\]
+ where $(\gamma,T) : (f,\psi,r) \to (f',\psi',r')$ is any map in $C(G)$
+ and $(\gamma_1, T_1) :  (f',\psi',r') \to (f_1,\psi_1,r_1)$ is a weak isomorphism in $C(G)$;
+for the equivalence relation on these diagrams, see \cite{kashiwara-schapira:CatgoriesSheaves}*{(7.1.3)}.
+
+It is straightforward to verify that the subcategory $C_1(G)$ of $C(G)$ consisting of $(f,\psi,r)$ for which $\psi$ is one-dimensional, is a full, rigid monoidal subcategory of $C(G)$ and further, that the family $W_1$ of weak isomorphisms in $C_1(G)$ is a right multiplicative system.
+
+\begin{definition}
+The category of \emph{finite quasicharacter sheaves} of $G$, denoted by $\fQC(G)$,
+is the rigid monoidal category $C_1(G)[W_1^{-1}]$ obtained by localizing $C_1(G)$ at weak isomorphisms $W_1$.
+\end{definition}
+
+\begin{remark}
+Recall that every geometric point $\bg$ on a connected scheme $G$
+determines an equivalence between the categories of $\ell$-adic local systems on $G$
+and $\ell$-adic representations of the \'etale fundamental group $\pi_1(G, \bg)$
+\citelist{\cite{SGA5}*{VI,Prop. 1.2.5} \cite{deligne:80a}*{1.1.1}}.
+ Since $\pi_1(G, \bg)$ is a projective limit of automorphism groups of finite \'etale covers,
+ a general local system corresponds to a projective limit of characters of such groups.
+ But some local systems can be described in terms of a single cover $f: H \to G$
+ and a representation $\psi: \ker f \to \Aut(V)$;
+ two such descriptions yield isomorphic local systems if and only if they are related by a weak
+ isomorphism in $C(G)$.  While the description of local systems in terms of $\pi_1(G, \bg)$ does
+ not adapt well to non-connected $G$, a perspective using finite \'etale covers does.
+\end{remark}
+
+Later in the paper we will make a study of isomorphism classes of objects in $\fQC(G)$. Here we focus on morphisms in this category.
+
+\begin{proposition}\label{prop:autornaught}
+Every morphism in $\fQC(G)$ is either an isomorphism or trivial.
+Moreover, for every finite quasicharacter sheaf $(f,\psi,r)$, the group $\Aut_{\fQC(G)}(f,\psi,r)$ is trivial.
+\end{proposition}
+
+\begin{proof}
+\todo{This proof is under construction.}
+Trivial morphisms in $\fQC(G)$ are defined as follows. Let $(f,\psi,r)$ and $(f_1,\psi_1,r_1)$ be finite quasicharacter sheaves on $G$.  
+Form $(f\times_G f_1,1\otimes \psi_1, r\otimes r_1)$ in $C_1(G)$. 
+Let $0 : V \to V\otimes V_1$ be the trivial linear transformation. 
+Choose $0\ne v \in V$ and let $T_v: V_1 \to V\otimes V_1$ be the isomorphism $T_v(v_1) = v\otimes v_1$.  
+Let $\pi : H\times_G H_1 \to H$ and $\pi_1 : H\times_G H_1 \to H_1$ be the natural projections.
+Then $(\pi,0) : (f,\psi, V) \to  (f\times_G f_1,1\otimes \psi_1, V\otimes V_1)$ is a morphism in $C_1(G)$ and $(\pi_1,T_v) : (f_1,\psi_1,V_1) \to (f\times_G f_1,1\otimes \psi_1, V\otimes V_1)$ is a weak isomorphism in $C_1(G)$.
+%
+The morphism in $\fQC(G)$ represented by
+\[
+\begin{tikzcd}[column sep=30]
+   (f,\psi,V) \arrow{r}{(\pi,0)} & (f\times_G f_1,1\otimes \psi_1, V\otimes V_1) & \arrow[swap]{l}{(\pi_1,T_v)}[swap]{\text{w-iso}}  (f_1,\psi_1,V_1),
+   \end{tikzcd}
+\]
+does not depend on the choice of $0\ne v\in V$; this defines the {\em trivial morphism} $0: (f,\psi,V) \to (f_1,\psi_1,V_1)$ in $\fQC(G)$.
+
+ 
+Let $(f,\psi,V)$ and $(f_1,\psi_1,V_1)$ be finite quasicharacter sheaves on $G$. 
+Let
+\[
+\begin{tikzcd}[column sep=30]
+   (f,\psi,V) \arrow{r}{(\gamma,T)} & (f',\psi',V') & \arrow[swap]{l}{(\gamma_1,T_1)}[swap]{\text{w-iso}}  (f_1,\psi_1,V_1)
+   \end{tikzcd}
+\]
+represent a morphism $(f,\psi,V)  \to (f_1,\psi_1,V_1)$ in $\fQC(G)$;
+note that, by definition, $(\gamma_1 , T_1) : (f_1,\psi_1,V_1) \to (f',\psi',V')$ is a weak isomorphism.
+Since $V$, $V'$ and $V_1$ are one-dimensional $\EE$-vector spaces, either $T : V \to V'$ is an isomorphism or trivial.  
+
+Suppose $T$ is trivial. 
+Let $\theta : H'\to H\times_G H_1$ be the morphism of group schemes given by the universal property of the pull back of $f: H\to G$ and $f_1 : H_1 \to G$, as pictured below.
+\[
+\begin{tikzcd}
+\ & \arrow{ddl}[swap]{\gamma} H' \arrow{d}{\theta} \arrow{ddr}{\gamma_1} & \\
+\ & \arrow{dl}{\pi} H \times_G H_1 \arrow{dr}[swap]{\pi_1} & \\
+H \arrow{rd}[swap]{f} && \arrow{ld}{f_1} H_1 \\
+& G & \\
+\end{tikzcd}
+\]
+Let $T_1' : V\otimes V_1 \to V'$ be the linear transformation defined by projection $V\otimes V_1 \to V_1$ followed by $T_1 : V_1 \to V'$. Then
+\[
+\begin{tikzcd}[column sep=30]
+\ & (f',\psi',V')  & \\
+\arrow{dr}[swap]{(\pi,0)}  (f,\psi,V)  \arrow{ru}{(\gamma,T=0)} &  & \arrow[swap]{lu}{(\gamma_1,T_1)}[swap]{\text{w-iso}} (f_1,\psi_1,V_1) \arrow{dl}{(\pi_1,T_v)}[swap]{\text{w-iso}} \\
+\ & \arrow{uu}[swap]{(\theta,T_1')} (f\times_G f_1,1\otimes \psi_1, V\otimes V_1) & \\   
+   \end{tikzcd}
+\]
+is a commuting diagram in $C_1(G)$, where $T_v : V_1 \to V\otimes V_1$ is defined as in the construction of the trivial morphism $0 : (f,\psi,V) \to (f_1,\psi_1,V_1)$, above.
+By \cite{kashiwara-schapira:CatgoriesSheaves}*{Thm 7.1.16}, 
+it follows that $(f,\psi,V)  \to (f_1,\psi_1,V_1)$ is the trivial morphism in $\fQC(G)$.
+
+Now suppose $T$ is an isomorphism, then $(\gamma,T)$ is a weak isomorphism, in which case the morphism $(f,\psi,V) \to (f_1,\psi_1,V_1)$ is an isomorphism in $\fQC(G)$.
+\todo{This is where some information about $\Aut_{\fQC(G)}(f,\psi,V)$ will go, when I've sorted it out.}
+\end{proof}
+
+\subsection{When quasicharacter sheaves are finite}
+
+\begin{proposition}\label{prop:connected}
+  If $G$ is a connected commutative algebraic group over $\Fq$ then
+  the full subcategories $\fQC(G) \hookrightarrow \bQC(G) \hookrightarrow \QC(G)$
+  appearing in Sections~\ref{sec:bounded} and \ref{sec:finite} are equivalences.
+\end{proposition}
+
+\begin{proof}
+  Observe that the forgetful functor $(\gqcs{L},\mu,\phi) \mapsto (\gqcs{L},\phi)$
+  sends quasicharacter sheaves on $G$ to $\ell$-adic Weil sheaves on $G$ \cite{deligne:80a}*{1.1.10}.
+  While is it not true that all Weil sheaves on $G$ descend to local systems on $G$,
+  we will see that those that appear in the image of this forgetful functor from quasicharacter sheaves do.
+
+%When $G$ is connected, we may apply the classic function--sheaf dictionary.  
+%In order to do so, however, we must relate our notion of quasicharacter sheaf to the sheaf side of the standard dictionary.
+Choose any $\Fq$-rational point of $G$ and let $\bg$ be the geometric point on $G$ lying above $g$.
+Recall that the \emph{Weil group} of $G$, which we will denote by $\W(G,\bg)$, is a subgroup of the \'etale
+fundamental group defined by the following diagram:
+\[
+ \begin{tikzcd}
+ 1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \W(G,\bg) \rar \dar[hook] & \Weil{} \rar \dar[hook] & 1 \\
+ 1 \rar &  \pi_1(\bG, \bg) \rar & \pi_1(G,\bg) \rar & \Gal(\bFq/\Fq) \rar & 1.
+ \end{tikzcd}
+\]
+The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
+$\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
+
+  Since $G$ is connected, the geometric point $\bg$ determines
+  an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
+  $\ell$-adic representations of $\W(G,\bg)$ \cite{deligne:80a}*{1.1.12}.
+  Now let $(\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$
+  and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
+  Composing with the splitting $\Weil{} \to \W(G,\bg)$ yields an $\ell$-adic character
+  $\rho_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{sec:Frob}:
+  \[
+  \rho_g(\Frob{}) =  \trFrob{\qcs{L}}(g).
+  \]
+
+  On the other hand, we have already seen that $\trFrob{\qcs{L}} : G(\Fq) \to \EEx$
+  is a group homomorphism. Since $G$ is an algebraic group over $\Fq$, it is a
+  variety over $\Fq$ and thus $G(\Fq)$ is finite.
+  Therefore $\trFrob{\qcs{L}}(g) = \rho_g(\Frob{})$ is a root of unity
+  for every $g\in G(\Fq)$.  Since $\Weil{}$ is generated by
+  $\Frob{}$ and $\rho_g : \Weil{} \to \EEx$ is
+  a character, it follows that the image of $\rho_g$ is a finite group.
+  Thus, $\rho_g$ extends to an $\ell$-adic character of $\Gal(\bFq/\Fq)$,
+  which we will also denote $\rho_g$.
+
+  We may now lift the $\ell$-adic character $\rho_g : \Gal(\bFq/\Fq) \to \EEx$
+  to an $\ell$-adic character $\pi_1(G,\bg) \to \EEx$ using the canonical topological group homomorphism
+  $\pi_1(G,\bg) \to \Gal(\bFq/\Fq)$. But $\bg$ also
+  determines an equivalence between the category of $\ell$-adic
+  representations of $\pi_1(G,\bg)$ and $\ell$-adic local systems on $G$. Let
+  $\qcs{L}_0$ be a local system on $G$ in the isomorphism class
+  determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
+  Then $b_G^*\qcs{L}_0 \iso \gqcs{L}$.
+  Since $b_G^*$ is full and faithful
+  \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}},
+  $
+  b_{G\times G}^* : \Hom(m^*\qcs{L}_0,\qcs{L}_0\boxtimes\qcs{L}_0) \to \Hom({\bar m}^*\gqcs{L},\gqcs{L}\boxtimes\gqcs{L})
+  $
+  is a bijection
+  (hom taken in the categories on constructible $\ell$-adic sheaves on
+  $G\times G$ and ${\bar G}\times {\bar G}$ respectively,
+  in which $\ell$-adic local systems sit as full subcategories).
+  Let $\mu_0 : m^*\qcs{L}_0 \to \qcs{L}_0\boxtimes\qcs{L}_0$ be the isomorphism matching
+  $\mu : {\bar m}^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$,
+  the latter appearing in the definition of $\qcs{L}$.
+  Then, as in Section~\ref{sec:bounded}, $(\qcs{L}_0,\mu_0)$ is an object in $\bQC(G)$
+  and $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\qcs{L}_0,b_{G\times G}^*\mu_0)$ in $\QC(G)$.
+  Thus, the full and faithful functor $B_G : \bQC(G) \to \QC(G)$ from Section~\ref{sec:bounded}
+  is also essentially surjective, hence an equivalence.
+
+  In Section~\ref{sec:finite} we saw that $\fQC(G)$ is a full subcategory of $\bQC(G)$;
+  more precisely, we exhibited a full and faithful functor $L_G : \fQC(G) \to \bQC(G)$.
+  We now show that this functor is essentially surjective
+  when $G$ is a connected, commutative algebraic group over $\Fq$.
+
+  Let $(\qcs{L}_0,\mu_0)$ be a bounded quasicharacter sheaf on $G$.
+  Then $\qcs{L}\ceq B_G(\qcs{L}_0,\mu_0)$ is a quasicharacter sheaf on $G$.
+  Recall the definition of the character $\trFrob{\qcs{L}} : G(\Fq) \to \EEx$ from Section~\ref{sec:Frob}.
+  Let $f : G\to G$ be the Lang isogeny.
+  Recall that $\ker f = G(\Fq) = G^{\Frob{}}$;
+  in particular, the action of $\Gal(\bFq/\Fq)$ on $\ker f$ is trivial.
+  Let $V \ceq \EE$ and let $\psi : \ker f \to \Aut(V)$ be the representation given by
+  $\psi(g)(v) \ceq \trFrob{\qcs{L}}(g) v$ for $v\in V$.
+  Then $(f,\psi)$ is a finite quasicharacter sheaf.
+
+  To show that $L_G(f,\psi) \iso (\qcs{L}_0,\mu_0)$ we apply the function--sheaf dictionary
+  \citelist{\cite{laumon:87a}*{1.1.3} \cite{deligne:SGA4.5}*{sommes trig.}}  as follows.
+  First, recall that $L_G(f,\psi) \ceq (L(f,\psi), \mu(f,\psi))$.
+  Let $k'/k$ be any degree-$n$ extension;
+  let $\Nm : G(k')\to G(k)$ be the norm map
+  and let $b : G_{k'} \to G$ be the base change map.
+  By \cite{laumon:87a}*{1.1.3.3},
+  $\trFrob{b^*L(f,\psi)} = \trFrob{\qcs{L}} \circ \Nm$;
+  on the other hand, $\trFrob{\qcs{L}} \circ \Nm = \trFrob{b^*\qcs{L}}$,
+   by Proposition~\ref{prop:basechange}.
+  Using \cite{laumon:87a}*{Th\'eor\`eme 1.1.2}, it follows that  $L(f,\psi) \iso \qcs{L}_0$ in $\Loc(G)$.
+  It is now clear that $(L(f,\psi),\mu(f,\psi)) \iso (\qcs{L}_0,\mu_0)$ in $\bQC(G)$.
+  This completes the proof that $L_G $ is essentially surjective.
+  Since we have already seen (in Section~\ref{sec:finite}) that $L_G$ is full and faithful,
+  it follows that $L_G$ is an equivalence.
+\end{proof}
+
+As Proposition~\ref{prop:connected} shows,
+when $G$ is a connected algebraic group over $\Fq$,
+it is appropriate to replace quasicharacter sheaves on $G$
+with the conceptually simpler category $\fQC(G)$ of finite quasicharacter sheaves on $G$.
+In this context, finite quasicharacter sheaves may also be apprehended as
+\emph{certain} $\ell$-adic characters of fundamental group $\pi_1(G,{\bar e})$.
+As explained in \cite{kamgarpour:09a}*{\S2},
+the relevant characters of $\pi_1(G,{\bar e})$ are precisely those
+that factor through a particular quotient of $\pi_1(G,{\bar e})$
+denoted there by $\Pi_\text{disc}(G)$.
+Using this fact, one can show that the category of discrete isogenies to $G$ is a Galois category,
+in the sense of \cite{grothendieck:SGA1}*{Expos\'e V, \S 4}.
+Moreover, since $\Pi_\text{disc}(G) \iso G(\Fq)$ \cite{kamgarpour:09a}*{App'x B},
+the fundamental functor attached to this Galois category can be used to produce an equivalence
+between the category of finite quasicharacter sheaves on $G$ and
+the category of one-dimensional representations of $G(\Fq)^*$.
+We will see an alternate proof of this fact in the next section; see Corollary~\ref{cor:connected}.
+
+In principle, something similar is possible in the more general
+context of this paper, where $G$ is a smooth commutative group scheme over $\Fq$. 
+%to which we now return.
+In this generality, however, neither of the full subcategories $\fQC(G) \subset \bQC(G) \subset \QC(G)$ are equivalences;
+see the end of Section~\ref{sec:snake}.
+Nevertheless, every quasicharacter sheaf $(\gqcs{L},\mu,\phi)$ on $G$
+determines a Weil sheaf $(\gqcs{L},\phi)$ on $G$
+so if we choose a geometric point ${\bar g}_x$ in each component $\bG^x$ of $G$
+then this choice can be used to convert
+the Weil sheaf $(\gqcs{L},\phi)$ into an $\ell$-adic character of $\prod_{x\in \pi_0(\bG)}\W(\bG^x, {\bar g}_x)$.
+However, it seemed cumbersome to manage various
+choices of families of base points and track the action
+of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of
+Weil groups and also difficult to identify the relevant quotient of this group.
+Viewed in this light, Definition~\ref{def:QC} seems comparatively simple.
+
+\subsection{Recovery}
+
+We are in a good position to understand $\QC(G)$ when $G$ is a connected algebraic group over $\Fq$, since we can now describe objects and maps in this category in very concrete terms. We begin by recovering a classical result. 
+
+
+Morphisms in $\QC(G)$ are also very simple.
+
+\begin{proposition}
+If $G$ is a connected algebraic group then $\Aut_{\QC(G)}(\qcs{L})$ is . . . .
+\end{proposition}
+
+\begin{proof}
+Pick up from the proof of Proposition~\ref{prop:autornaught}.
+\end{proof}
 
 
 %sagemathcloud={"zoom_width":105}
