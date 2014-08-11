@@ -954,7 +954,7 @@ Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(
 \end{proof}
 
 We will identify $\bQC(G)$ with its image under $B_G$
-and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded}
+and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descends to a bounded quasicharacter sheaf} on $G$
 if it is isomorphic to some $B_G(\qcs{L}_0, \mu_0)$.
 We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.\todo{Check this, later.}
 
@@ -1059,10 +1059,11 @@ Writing $\mu : \bm^* \gqcs{L}  \to \gqcs{L} \boxtimes \gqcs{L}$ for the isomorph
 Thus, $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$ with $\trFrob{\qcs{L}} = \chi$.
 It follows that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
 
-In order to show that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is injective we need to recall some facts about Weil sheaves.
-%
-  
-Now, let $\qcs{L}$ and $\qcs{L}'$ be quasicharacter sheaves on $G$ with $\trFrob{\qcs{L}} = \trFrob{\qcs{L}'}$.\todo{The rest of the proof is under construction.}
+
+Now, let $\qcs{L}$ and $\qcs{L}'$ be quasicharacter sheaves on $G$ with $\trFrob{\qcs{L}} = \trFrob{\qcs{L}'}$. We will show $\qcs{L} \iso \qcs{L}$.
+We have just seen that $\qcs{L}$ and $\qcs{L}'$ descend to bounded quasicharacter sheaves on $G$: $B_G(\qcs{L}_0,\mu_0) \iso \qcs{L}$ and $B_G(\qcs{L}'_0,\mu'_0) \iso \qcs{L}'$.
+Since bounded quasicharacter sheaves enjoy property \cite{laumon:87a}*{1.1.3.3}, \todo{Justify} it follows (arguing as in \cite{laumon:87a}*{1.1.2.1}) that there is an isomorphism $\qcs{L}_0 \to \qcs{L}'_0$. This morphism is compatible with $\mu_0$ and $\mu'_0$, \todo{Justify} hence a morphism of bounded quasicharacter sheaves.
+Its image under $B_G$ is the isomorphism $\qcs{L} \to \qcs{L}'$ of quasicharacter sheaves we seek.
 \end{proof}
 
 
@@ -1098,9 +1099,7 @@ and $\QCiso{\pi_0(G)}$
 in Sections~\ref{sec:connected} and \ref{sec:etale}, respectively.
 In this section we show that \eqref{eq:pi2} is right exact.
 
-Recall from Section~\ref{sec:finite} that
-a morphism $f : H\to G$ of group $\Fq$-schemes is a discrete isogeny
-if it is a finite, surjective \'etale morphism and
+We say that a morphism $f : H\to G$ of commutative group $\Fq$-schemes is a discrete isogeny if it is a finite, surjective \'etale morphism and
 the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f$ is trivial.
 
 \begin{lemma}\label{lemma:ext}
@@ -1170,9 +1169,10 @@ If $G$ is a commutative smooth group scheme over $\Fq$ then $G^0$ is a connected
 \end{proof}
 
 \begin{proposition}\label{prop:restriction}
-For every quasicharacter sheaf $\qcs{L}^0$ on $G^0$ there is some finite quasicharacter sheaf
-$\qcs{L}$ on $G$ such that $\qcs{L}\vert_{G^0} \iso \qcs{L}^0$.
-As a consequence, the restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjective.
+%For every quasicharacter sheaf $\qcs{L}^0$ on $G^0$ there is some finite quasicharacter sheaf
+%$\qcs{L}$ on $G$ such that $\qcs{L}\vert_{G^0} \iso \qcs{L}^0$.
+%As a consequence, t
+The restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjective.
 \end{proposition}
 
 \begin{proof}
