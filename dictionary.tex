@@ -909,16 +909,15 @@ The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ i
 
 Note that Proposition~\ref{prop:mor_etale} tells us that if $G$ is an etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
 
-\section{The main result}\label{sec:main}
+\section{Main results}\label{sec:main}
 
-Having found $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ when $G$ is an etale commutative group scheme over $\Fq$, we now wish to find these for all commutative group scheme over $\Fq$. The next section introduces a concept that will be helpful in that regard.
+In this section we find $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ for every smooth commutative group scheme over $\Fq$; note that we found these in Section~\ref{sec:etale} when $G$ is etale. 
 
 \subsection{Bounded quasicharacter sheaves}\label{sec:bounded}
 
-Let $G$ be a smooth commutative group scheme over $\Fq$.
-In this section we consider a class of quasicharacter sheaves on $G$ obtained by
-replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter
-sheaf with an $\ell$-adic local system on $G$ itself.
+%Let $G$ be a smooth commutative group scheme over $\Fq$.
+In this section we consider a category of sheaves on $G$ obtained by
+replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter sheaf with an $\ell$-adic local system on $G$ itself.
 
 \begin{definition}
 Let $\bQC(G)$ be the category of pairs $(\qcs{L}_0,\mu_0)$
@@ -954,18 +953,19 @@ Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(
 \end{proof}
 
 We will identify $\bQC(G)$ with its image under $B_G$
-and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descends to a bounded quasicharacter sheaf} on $G$
+and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded} on $G$
 if it is isomorphic to some $B_G(\qcs{L}_0, \mu_0)$.
 We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.\todo{Check this, later.}
 
+\subsection{Quasicharacter sheaves on connected commutative algebraic groups}\label{sec:connected}
+
 In general, $\bQC(G)$ is an essentially
 proper subcategory of $\QC(G)$. 
-However, if $G$ is connected, the categories are equivalent, as we now show.
+However, if $G$ is connected and of finite type, the categories are equivalent, as we now show.
 
-\begin{proposition}\label{prop:bounded_connected}
-If $G$ is a connected commutative algebraic group over $\Fq$ then
-$B_G : \bQC(G) \to \QC(G)$ is an equivalence of categories.
-\end{proposition}
+\begin{lemma}\label{lem:bounded_connected}
+If $G$ is a connected commutative algebraic group over $\Fq$ then every quasisharacter sheaf on $G$ is finite and $B_G : \bQC(G) \to \QC(G)$ is an equivalence of categories.
+\end{lemma}
 
 \begin{proof}
 Choose any $\Fq$-rational point $g$ on $G$ and let $\bg$ be the geometric point on $G$ lying above $g$.
@@ -1031,7 +1031,6 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   is also essentially surjective, hence an equivalence.
 \end{proof}
 
-\subsection{Objects, when $G$ is connected and of finite type}\label{sec:connected}
 
 \begin{proposition}\label{prop:obj_connected}
  If $G$ is a connected, commutative algebraic group over $\Fq$ then
@@ -1039,37 +1038,41 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
  \]
  is an isomorphism of groups.
+ Moreover, for every quasicharacter sheaf $\qcs{L}$ on $G$, $\Aut(\qcs{L}) = 1$.
 \end{proposition}
 
 \begin{proof}
-At its heart, this is Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields, as we now briefly recall from \citelist{\cite{deligne:SGA4.5}*{Sommes trig.}, \cite{laumon:87a}*{1.1.3}}.
-
-We begin by showing that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
-Let $\chi : G(\Fq) \to \EEx$ be a character.
-Let $\Lang : G \to G$ be the Lang isogeny for $G$.
-Set $\qcs{L}_0 = ( \Lang_* \EE)_{\chi^{-1}}$, the $\chi^{-1}$-isotypic component of the push-forward of the constant sheaf on $G$ along the Lang isogeny.
-Let $\gqcs{L}$ be the local system on $\bG$ obtained by pull-back along $\bG \to G$.
-Then $\gqcs{L}$ comes equipped with an isomorphism $\phi : \Frob{G}^* \gqcs{L} \to \gqcs{L}$.
-As explained in \cite{laumon:87a}*{1.1.3}, the trace of the Weil sheaf $(\gqcs{L},\phi)$ is $\chi$.
-The sheaf $\qcs{L}_0$ also comes equipped with an isomorphism 
-$\mu_0 : m^*\qcs{L}_0 \to \qcs{L}_0\boxtimes \qcs{L}_0$ 
-\cite{laumon:87a}*{1.1.3.2},
-which satisfies the analogue of \ref{QC.2} over $G$.
-Writing $\mu : \bm^* \gqcs{L}  \to \gqcs{L} \boxtimes \gqcs{L}$ for the isomorphism obtained by base change, it follows immediately that $\mu$ satisfies conditions \ref{QC.2} and \ref{QC.3}.
-Thus, $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$ with $\trFrob{\qcs{L}} = \chi$.
-It follows that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
-
-
-Now, let $\qcs{L}$ and $\qcs{L}'$ be quasicharacter sheaves on $G$ with $\trFrob{\qcs{L}} = \trFrob{\qcs{L}'}$. We will show $\qcs{L} \iso \qcs{L}$.
-We have just seen that $\qcs{L}$ and $\qcs{L}'$ descend to bounded quasicharacter sheaves on $G$: $B_G(\qcs{L}_0,\mu_0) \iso \qcs{L}$ and $B_G(\qcs{L}'_0,\mu'_0) \iso \qcs{L}'$.
-Since bounded quasicharacter sheaves enjoy property \cite{laumon:87a}*{1.1.3.3}, \todo{Justify} it follows (arguing as in \cite{laumon:87a}*{1.1.2.1}) that there is an isomorphism $\qcs{L}_0 \to \qcs{L}'_0$. This morphism is compatible with $\mu_0$ and $\mu'_0$, \todo{Justify} hence a morphism of bounded quasicharacter sheaves.
-Its image under $B_G$ is the isomorphism $\qcs{L} \to \qcs{L}'$ of quasicharacter sheaves we seek.
+In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf on $G$ descends to bounded quasicharacter sheaf on $G$. 
+From here, Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields \citelist{\cite{deligne:SGA4.5}*{Sommes trig.}, \cite{laumon:87a}*{1.1.3}}  gives us all we need, as we briefly recall.
+The key observation is that, by descent theory, pull-back by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{L}$ is $\trFrob{\qcs{L}}^{-1}$ for every bounded quasicharacter sheaf $\qcs{L}$ on $G$. 
+Note that since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
+Using the equivalence given by $\Lang^*$, it follows that if $\Lang^*\qcs{L} = V$ with character $\psi$ and isomorphism $\mu : V\to V\otimes V$ then $\Aut(\qcs{L})$ is the group of automorphisms of $\rho : V\to V$ for which 
+\[
+\begin{tikzcd}
+\arrow{d}{\mu} V \arrow{r}{\rho} & V\arrow{d}{\mu}\\
+V\otimes V \arrow{r}{\rho\otimes \rho} & V\otimes V
+\end{tikzcd}
+\]
+commutes. 
+Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\qcs{L}) = 1$.
 \end{proof}
 
 
-In the introduction to this paper we noted that, when working with connected commutative algebraic groups over finite fields, Deligne's dictionary can be described using Weil sheaves $\qcs{L}$ for which there exists an isomorphism $m^* \qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, without keeping track of the isomorphism.
-\todo{rephrase objective of section}
-In this section use that perspective to find a perfect dictionary between flabby quasicharacter sheaves on $G$ and characters of $G(\Fq)$.
+We have just seen that, on a connected commutative algebraic group $G$ over $\Fq$, the category of quasicharacters $\qcs{L}$ on $G$ is equivalent to the category of characters $\psi$ of $G(\Fq)$. This can be used to understand all quasicharacter sheaves on such $G$ using central extensions of the form
+\[
+\]
+Kamgarpour
+
+
+
+
+We have also just seen moreover, that the equality $m^*\psi = \psi \boxtimes \psi$ determines the isomorphism $\mu : \qcs{L} \to \qcs{L}\boxtimes\qcs{L}$ which is part of the data of the quasicharacter sheaf $\qcs{L}$. Means leads us back to a more common perspective on the function--sheaf dictionary in which one considers $1$-dimensional local systems $\qcs{L}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, or sometimes $1$-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$. 
+%In the introduction to this paper we noted that, when working with connected commutative algebraic groups over finite fields, Deligne's dictionary can be described using Weil sheaves $\qcs{L}$ for which there exists an isomorphism $m^* \qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, without keeping track of the isomorphism.
+We have seen that the category of quasicharacter sheaves on commutative smooth group schemes over finite fields specializes to  
+that notion when $G$ is connected and of finite type.
+However, as we have already seen in Section~\ref{sec:etale}, that notion is not up to the not appropriate if one wishes to extend the dictionary to commutative smooth group schemes over finite fields.
+
+
 
 \subsection{The component group sequence} \label{sec:restriction}
 
