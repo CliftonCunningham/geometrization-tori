@@ -1093,7 +1093,7 @@ In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $\EE$ on $H$ w
 Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ from the canonical isomorphism $m^*\psi \iso \psi \boxtimes\psi$.
 \end{proof}
 
-\subsection{The component group sequence} \label{sec:restriction}
+\subsection{Restriction to the identity component} \label{sec:restriction}
 
 Consider the short exact sequence
 defining the component group scheme for $G$:
@@ -1206,9 +1206,18 @@ The restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjecti
  By Lemma~\ref{lemma:ext}, there is an extension of the
  discrete isogeny $\pi : B \to G^0$ to a discrete isogeny $f : H \to G$
  such that $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism.
- Then $(\pi_! \EE)\psi$ is a quasicharacter sheaf on $G$ and
- $(\pi_! \EE)\psi\vert_{G^0} \iso (\pi_! \EE)\psi$.
+ Then $(f_! \EE)\psi$ is a quasicharacter sheaf on $G$ and
+ $(f_! \EE)\psi\vert_{G^0} \iso (\pi_! \EE)\psi$.
 \end{proof}
+
+\subsection{The component group sequence} \label{sec:component}
+
+\begin{lemma}\label{lem:extension}
+The group homomorphism $\pi_0^*: \QCiso{\pi_0(G)} \to \QCiso{G}$ is injective.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
 
 \begin{proposition}\label{prop:middleexact}
  The sequence
@@ -1221,8 +1230,9 @@ The restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjecti
 \end{proposition}
 
 \begin{proof}
-The sequence is exact at $\QCiso{G^0}$ by Proposition~\ref{prop:restriction},
-so here we show that it is also exact at $\QCiso{G}$.
+The sequence is exact at $\QCiso{G^0}$ by Proposition~\ref{prop:restriction}
+and exact at $\QCiso{\pi_0(G)}$ by Lemma~\ref{lem:extension}.
+Here we show that it is also exact at $\QCiso{G}$.
 First note that $\iota_0^* \circ \pi_0^*$ is trivial by Proposition~\ref{prop:pullback}.
 So it suffices to show that if $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$
 with $\qcs{L}\vert_{G^0} = (\EE)_{G^0}$ then $\qcs{L}$ is in the essential image of $\pi_0^*$.
