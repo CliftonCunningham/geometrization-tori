@@ -1359,6 +1359,7 @@ and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
 \end{proof}
 
 
+
 \section{Application to \texorpdfstring{$p$}{p}-adic tori}
 
 On general smooth group $\Fq$-schemes $G$, 
@@ -1552,6 +1553,37 @@ is an equivalence of categories?}
 
 \end{document}
 
+\begin{table}[ht]
+\caption{A big diagram}
+\begin{center}
+{\smaller\smaller\smaller
+    \[
+  \begin{tikzcd}[row sep=20, column sep=3]
+&   &  0 \arrow{dd} && 0 \arrow{dd} && 0\arrow{dd} & \\
+& &&  0 \arrow[crossing over]{dd} && 0 \arrow[crossing over]{dd} && 0\arrow{dd} & & \\
+&   {}& \ker \TrFrob{C} \arrow[->>]{rr} \arrow[>->>]{dr} \arrow{dd} && \arrow{dd} \ker \TrFrob{B} \arrow{rr} \arrow[>->]{dr}  && \ker \TrFrob{A}=0 \arrow[>->>]{dr} \arrow{dd} \arrow{rr} && 0 & \\
+& && \Hh^0(\Weil{},\Hh^2(C,\EEx)) \arrow[crossing over,->>]{rr} \arrow[crossing over]{dd} && \Hh^0(\Weil{},\Hh^2(B,\EEx)) \arrow[crossing over]{rr} \arrow[crossing over]{dd} && \Hh^0(\Weil{},\Hh^2(A,\EEx)) \arrow[crossing over]{dd}  &  &  \\
+0  \arrow{rr} & & \QCiso{C} \arrow[>->>]{dr}\arrow{rr} \arrow{dd}%{\TrFrob{C}}
+    && \QCiso{B} \arrow[>->]{dr} \arrow{rr} \arrow{dd}%{\TrFrob{B}}
+    && \QCiso{A} \arrow[>->>]{dr} \arrow{dd}%{\TrFrob{A}}
+    \arrow{rr}  &   & 0 & \\
+& \Hh^1(E^\bullet_{A}) \arrow[crossing over]{rr}  && \Hh^2(E^\bullet_{C}) \arrow[crossing over]{rr} \arrow[crossing over]{dd} && \Hh^2(E^\bullet_{B}) \arrow[crossing over]{rr} \arrow[crossing over]{dd} && \Hh^2(E^\bullet_{A}) \arrow{rr} \arrow[crossing over]{dd} &  & \Hh^3(E^\bullet_{C}) \\
+0  \arrow{rr} & & C(\Fq)^* \arrow[>->>]{dr} \arrow{rr} \arrow{dd}
+    && \arrow{dd} B(\Fq)^* \arrow[>->>]{dr} \arrow{rr} && A(\Fq)^* \arrow[>->>]{dr}  \arrow{dd}
+    \arrow{rr}&& 0 & \\
+& %\Hh^2(\Weil{},\Hh^1({\bar A},\EEx)) \arrow{rr}
+ && \Hh^1(\Weil{},\Hh^1(C,\EEx)) \arrow[crossing over]{dd} \arrow[crossing over]{rr}  && \Hh^1(\Weil{},\Hh^1(B,\EEx)) \arrow[crossing over]{dd} \arrow[crossing over]{rr} && \Hh^1(\Weil{},\Hh^1(A,\EEx)) \arrow[crossing over]{dd}  &  & %\Hh^0(\Weil{},\Hh^1({\bar C},\EEx))
+ \\
+& & 0  && 0  &&  0  && & \\
+ &      &&  0 && 0 && 0 & & \\
+  \end{tikzcd}
+  \]
+}
+\end{center}
+\label{diagram}
+\end{table}
+
+
 \begin{proof}
 Here are some pieces that might help . . .
 
@@ -1569,36 +1601,6 @@ It now follows that $\ker T_B \to \Hh^0(\Weil{},\Hh^2(B,\EEx))$ is also an isomo
 completing the proof of Theorem~\ref{thm:snake}.
 \end{proof}
 
-\begin{table}[ht]
-\caption{A big diagram}
-\begin{center}
-{\smaller\smaller\smaller
-    \[
-  \begin{tikzcd}[row sep=20, column sep=3]
-    &  0 \arrow{dd} && 0 \arrow{dd} && 0\arrow{dd} & \\
-    &&  0 \arrow[crossing over]{dd} && 0 \arrow[crossing over]{dd} && 0\arrow{dd} & & \\
-    {}& \ker \TrFrob{C} \arrow[->>]{rr} \arrow[>->>]{dr} \arrow{dd} && \arrow{dd} \ker \TrFrob{B} \arrow{rr} \arrow[>->]{dr}  && \ker \TrFrob{A}=0 \arrow[>->>]{dr} \arrow{dd} \arrow{rr} && 0 & \\
-    && \Hh^0(\Weil{},\Hh^2(C,\EEx)) \arrow[crossing over,->>]{rr} \arrow[crossing over]{dd} && \Hh^0(\Weil{},\Hh^2(B,\EEx)) \arrow[crossing over]{rr} \arrow[crossing over]{dd} && \Hh^0(\Weil{},\Hh^2(A,\EEx)) \arrow[crossing over]{dd}  &  &  \\
-    & \QCiso{C} \arrow[>->>]{dr}\arrow{rr} \arrow{dd}%{\TrFrob{C}}
-    && \QCiso{B} \arrow[>->]{dr} \arrow{rr} \arrow{dd}%{\TrFrob{B}}
-    && \QCiso{A} \arrow[>->>]{dr} \arrow{dd}%{\TrFrob{A}}
-    \arrow{rr}  &   & 0 & \\
-\Hh^1(E^\bullet_{A}) \arrow[crossing over]{rr}  && \Hh^2(E^\bullet_{C}) \arrow[crossing over]{rr} \arrow[crossing over]{dd} && \Hh^2(E^\bullet_{B}) \arrow[crossing over]{rr} \arrow[crossing over]{dd} && \Hh^2(E^\bullet_{A}) \arrow{rr} \arrow[crossing over]{dd} &  & \Hh^3(E^\bullet_{C}) \\
-   0 \arrow{r}
-    & C(\Fq)^* \arrow[>->>]{dr} \arrow{rr} \arrow{dd}
-    && \arrow{dd} B(\Fq)^* \arrow[>->>]{dr} \arrow{rr} && A(\Fq)^* \arrow[>->>]{dr}  \arrow{dd}
-    \arrow{rr}&& 0 & \\
- %\Hh^2(\Weil{},\Hh^1({\bar A},\EEx)) \arrow{rr}
- && \Hh^1(\Weil{},\Hh^1(C,\EEx)) \arrow[crossing over]{dd} \arrow[crossing over]{rr}  && \Hh^1(\Weil{},\Hh^1(B,\EEx)) \arrow[crossing over]{dd} \arrow[crossing over]{rr} && \Hh^1(\Weil{},\Hh^1(A,\EEx)) \arrow[crossing over]{dd}  &  & %\Hh^0(\Weil{},\Hh^1({\bar C},\EEx))
- \\
-  & 0  && 0  &&  0  && & \\
-        &&  0 && 0 && 0 & & \\
-  \end{tikzcd}
-  \]
-}
-\end{center}
-\label{diagram}
-\end{table}
 
 
 \begin{corollary}\label{cor:exact}
