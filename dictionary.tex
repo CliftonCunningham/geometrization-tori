@@ -892,7 +892,7 @@ Most of this paper focuses on the question of determining the isomorphism classe
 \begin{proposition}\label{prop:mor_etale}
 Let $G$ be an etale commutative group scheme over $\Fq$.
 If $\qcs{L}$ and $\qcs{L}'$ are quasicharacter sheaves on $G$ then
-every $\alpha\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
+every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
 \[
 \Aut(\qcs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
 \]
@@ -1038,8 +1038,9 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
  \]
  is an isomorphism of groups.
- Moreover, for every quasicharacter sheaf $\qcs{L}$ on $G$, $\Aut(\qcs{L}) = 1$.
-\end{proposition}
+ Moreover, for every quasicharacter sheaf $\qcs{L}$ on $G$, $\Aut(\qcs{L}) = 1$
+ and every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
+ \end{proposition}
 
 \begin{proof}
 In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qcs{L}$ on $G$ descends to bounded quasicharacter sheaf $\qcs{E}$ on $G$. Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
@@ -1057,16 +1058,16 @@ V\otimes V \arrow{r}{\rho\otimes \rho} & V\otimes V
 \]
 commutes. 
 Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\qcs{E}) = 1$, completing the proof.
+For the last part of the proposition, argue as in the analogous part of Proposition~\ref{prop:mor_etale}.
 \end{proof}
 
 
 We have just seen that, for a connected commutative algebraic group $G$ over $\Fq$, the category of quasicharacters $\qcs{L}$ on $G$ is equivalent to the category of characters $\psi$ of $G(\Fq)$.
-We have also just seen if the character of $\Lang^*\qcs{L}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu : \qcs{L} \to \qcs{L}\boxtimes\qcs{L}$ which is part of the data of the quasicharacter sheaf $\qcs{L}$. That leads to a perspective on the function--sheaf dictionary common in the literature in which one considers $1$-dimensional local systems $\qcs{L}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$ \cite{kamgarpour:09a}*{Introduction}, or sometimes, $1$-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$. 
+We have also just seen if the character of $\Lang^*\qcs{L}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu : \qcs{L} \to \qcs{L}\boxtimes\qcs{L}$ which is part of the data of the quasicharacter sheaf $\qcs{L}$. That leads to a perspective on the function--sheaf dictionary common in the literature in which one considers $1$-dimensional local systems $\qcs{L}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$ \cite{kamgarpour:09a}*{Introduction}, or sometimes, $1$-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$.
 
 %In the introduction to this paper we noted that, when working with connected commutative algebraic groups over finite fields, Deligne's dictionary can be described using Weil sheaves $\qcs{L}$ for which there exists an isomorphism $m^* \qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$, without keeping track of the isomorphism.
 
-Although the category of quasicharacter sheaves on commutative smooth group schemes $G$ over finite fields does specialize to  
-that common notion when $G$ is connected and of finite type, that notion is not appropriate if one wishes to extend the dictionary to commutative smooth group schemes over finite fields. 
+Although the category of quasicharacter sheaves on commutative smooth group schemes $G$ over finite fields does specialize to that common notion when $G$ is connected and of finite type, that notion is not appropriate if one wishes to extend the dictionary to commutative smooth group schemes over finite fields. 
 In particular, as we have already seen in Section~\ref{sec:etale}, for a given quasicharacter sheaf $\qcs{L} = (\gqcs{L},\mu,\phi)$ there may be a different isomorphism $\mu' : \bm^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$ for which $\qcs{L}'=(\gqcs{L},\mu',\phi)$ is also a quasicharacter sheaf on $G$, not isomorphic to $\qcs{L}$. 
 Indeed, Proposition~\ref{prop:etale-iso} shows that $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ measures the possibilities for such $\mu'$ when $G$ is etale.
 We will see later in this section that, for any smooth commutative group scheme $G$, the possibilities for such $\mu'$ are measured by $\Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx))$.
@@ -1216,6 +1217,7 @@ The restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjecti
 The group homomorphism $\pi_0^*: \QCiso{\pi_0(G)} \to \QCiso{G}$ is injective.
 \end{lemma}
 \begin{proof}
+Let $\qcs{L}$ be a quasicharacter sheaf on $\pi_0(G)$ and let $\rho : \pi_0^*\qcs{L} \to (\EE)_{G}$ be an isomorphism in $\QC(G)$. For each $x\in \pi_0(\bG)$, the restriction $\pi_0^*\gqcs{L}\vert_{\bG^x}$ is the constant sheaf $(\gqcs{L}_x)_{\bG^x}$ so the isomorphism $\rho_{\bG^x} : (\gqcs{L}_x)_{\bG^x} \to (\EE)_{\bG^x}$ determines an isomorphism $\rho_x : \gqcs{L}_x \to (\EE)_x$. The collection $\{ \rho_x \tq x\in \pi_0(\bG) \}$ determines an isomorphism $\qcs{L} \to (\EE)_{\pi_0(G)}$  in $\QC(\pi_0(G))$.
 \end{proof}
 
 
@@ -1306,6 +1308,7 @@ In this section we improve that result.
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
 is surjective with kernel isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$.
+ Moreover, $\Aut(\qcs{L}) = \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism, for all quasicharacter sheaves $\qcs{L}$ and $\qcs{L}'$ on $G$. 
 \end{theorem}
 
 \begin{proof}
@@ -1349,48 +1352,12 @@ is surjective with kernel isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EE
 It follows from the snake lemma that $\coker \TrFrob{G} =0$
 and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
 
-%We now turn our attention $\lTrFrob{G}: \lQCiso{G}  \to G(\Fq)^*$ is an isomorphism.
-%First, note that $\lTrFrob{G}$ is surjective because $\TrFrob{G}$ is surjective.
-%We will now show that the kernel of $\lTrFrob{G}$ is trivial.
-
-%First, suppose $G$ is etale.
-%Let $(\gqcs{E},\phi')$ be a quasicharacter sheaf on $G$ with $\trFrob{(\gqcs{E},\phi')}=1$.
-%Let $\qcs{E} = (\gqcs{E},\mu,\phi')$ be a quasicharacter sheaf.
-%By Proposition~\ref{prop:etale-iso}, $S_G(\qcs{E}) = [\alpha\oplus 0]$ for some $\alpha \in Z^0(\Weil{},Z^2({\bar G},\EEx))$
-%corresponding to a choice $\{ v_x \in \gqcs{E}_x^\times \tq x\in {\bar C}\}$.
-%Let $a\in Z^2({\bar G},\EEx)$ be the multiplicative version of $\alpha$
-%and let $\mu'$ be the indexed set of isomorphisms $\mu'_{x,y} : \EE \to \EE\otimes \EE$ defined by $1 \mapsto a(x,y) 1 \otimes 1$.
-%Then $(\EE,\mu', 1)$ is a quasicharacter sheaf the isomorphisms $\gqcs{E}_x \to \EE$ defined by $v_x \mapsto 1$ gives an isomorphism $(\gqcs{E},\mu,\phi')\to ((\EE)_{\bar C},\mu', 1)$ in $\QC(G)$.
-%It follows that $(\gqcs{E},\phi')\iso ((\EE)_{\bar G},1)$ in $\lQC(G)$, so $\lTrFrob{G}$ is injective.
-%This completes the proof of Theorem~\ref{thm:snake} in the case that $G$ is etale.
-
-%Now let $G$ be arbitrary
-%and let $(\gqcs{L},\phi)$ be a flabby quasicharacter sheaf on $G$ with $\trFrob{(\gqcs{L},\phi)}=1$.
-%Let $\qcs{L} = (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf.
-%We saw above that $\ker \TrFrob{\pi_0(G)}\to \TrFrob{G}$ is surjective in this case,
-%so $\qcs{L} = \pi_0^*\qcs{E}$ for some $\qcs{E}\in \QC(\pi_0(G))$.
-%Since $\trFrob{\qcs{L}}(g) = \trFrob{\qcs{E}}(\pi_0(g))$ and since $\pi_0 : G(\Fq) \to \pi_0(G)(\Fq)$ is surjective, $\trFrob{\qcs{E}}=1$.
-%But now $\qcs{E} \iso ((\EE)_{\pi_0({\bar G})},\mu', 1)$ by the paragraph above.
-%So $\qcs{L} = \pi_0^*\qcs{E} \iso \pi_0^*((\EE)_{\pi_0({\bar G})},\mu', 1) = ((\EE)_{\bar G},\pi_0^*\mu', \pi_0^*1)$ in $\QC(G)$.
-%It follows that $(\gqcs{L},\phi) \iso ((\EE)_{\bar G},1)$ in $\lQC(G)$.
-%This completes the proof of Theorem~\ref{thm:snake}.
+ (. . . where $G(\bFq)$ is given the topology of the espace étalé of the sheaf of sections of $G$.)
+ \todo{Still under construction: $\Aut(\qcs{L})$.}
+ 
+ For the last part of the proposition, argue as in the analogous part of Proposition~\ref{prop:mor_etale}.
 \end{proof}
 
-%\begin{corollary}\label{cor:exact}
-%  If $G$ is a smooth, commutative group scheme over
-%  $\Fq$ then pullback yields an exact sequence
-%\[
-%0 \to \lQCiso{\pi_0(G)} \to \lQCiso{G} \to \lQCiso{G^0} \to 0
-%\]
-%of abelian groups.
-%\end{corollary}
-
-%\begin{proof}
-%Argue as in the first paragraph in the proof of Theorem~\ref{thm:snake},
-%using the category $\lQC(G)$ in place of $\QC(G)$.
-%\end{proof}
-
-\subsection{Morphisms, in the general case}
 
 \section{Application to \texorpdfstring{$p$}{p}-adic tori}
 
