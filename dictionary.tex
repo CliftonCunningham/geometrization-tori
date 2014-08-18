@@ -889,7 +889,7 @@ This result follows easily from Propositions~\ref{prop:ses_desc} and \ref{prop:s
 
 Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
 
-\begin{proposition}\label{prop:mor_etale}
+\begin{proposition}\label{prop:autornaught_etale}
 Let $G$ be an etale commutative group scheme over $\Fq$.
 If $\qcs{L}$ and $\qcs{L}'$ are quasicharacter sheaves on $G$ then
 every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
@@ -907,9 +907,9 @@ Now suppose $\rho \in \Aut(\qcs{L})$.
 The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{qc.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
 
-Note that Proposition~\ref{prop:mor_etale} tells us that if $G$ is an etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
+Note that Proposition~\ref{prop:autornaught_etale} tells us that if $G$ is an etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
 
-\section{Main results}\label{sec:main}
+\section{The function--sheaf dictionary for smooth, commutative group schemes}\label{sec:main}
 
 In this section we find $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ for every smooth commutative group scheme over $\Fq$; note that we found these in Section~\ref{sec:etale} when $G$ is etale. 
 
@@ -953,7 +953,7 @@ Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(
  and also shows that it is full and faithful.
 \end{proof}
 
-We will identify $\bQC(G)$ with its image under $B_G$ and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descend to $G$} if it is isomorphic to some $B_G(\qcs{E}, \mu_\qcs{E})$.
+We will identify $\bQC(G)$ with its image under $B_G$ and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\qcs{E}, \mu_\qcs{E})$.
 %We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.\todo{Check this, later.}
 
 \subsection{Quasicharacter sheaves on connected commutative algebraic groups}\label{sec:connected}
@@ -963,7 +963,7 @@ proper subcategory of $\QC(G)$.
 However, if $G$ is connected and of finite type, the categories are equivalent, as we now show.
 
 \begin{lemma}\label{lem:bounded_connected}
-If $G$ is a connected commutative algebraic group over $\Fq$ then every quasisharacter sheaf on $G$ is finite and $B_G : \bQC(G) \to \QC(G)$ is an equivalence of categories.
+If $G$ is a connected commutative algebraic group over $\Fq$ then $B_G : \bQC(G) \to \QC(G)$ is an equivalence of categories.
 \end{lemma}
 
 \begin{proof}
@@ -1042,9 +1042,10 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
  \end{proposition}
 
 \begin{proof}
-In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qcs{L}$ on $G$ descends to bounded quasicharacter sheaf $\qcs{E}$ on $G$. Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
+In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qcs{L}$ on $G$ descends to $G$; let $\qcs{E}$ be an object in $\bQC(G)$ for which $B_G(\qcs{E}) \iso \qcs{L}$.
+ Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
 From here, Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields \citelist{\cite{deligne:SGA4.5}*{Sommes trig.}, \cite{laumon:87a}*{1.1.3}}  gives us all we need, as we briefly recall.
-The key observation is that, by etale descent, pull-back by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every bounded quasicharacter sheaf $\qcs{E}$ on $G$. 
+The key observation is that, by etale descent, pull-back by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$. 
 Note that since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 Using the equivalence given by $\Lang^*$, if $\Lang^*\qcs{E} = V$ with character $\psi$ and isomorphism $V\to V\otimes V$ then 
 $\qcs{E} \iso (\Lang_* V)_\psi$, the $\psi$-isotypic component of the push-forward $\Lang_* V$ of the constand sheaf $V$ on $G$, equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes\qcs{E}$ determined by $V\to V\otimes V$.
@@ -1057,9 +1058,8 @@ V\otimes V \arrow{r}{\rho\otimes \rho} & V\otimes V
 \]
 commutes. 
 Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\qcs{E}) = 1$, completing the proof.
-For the last part of the proposition, argue as in the analogous part of Proposition~\ref{prop:mor_etale}.
+For the last part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
 \end{proof}
-
 
 We have just seen that, for a connected commutative algebraic group $G$ over $\Fq$, the category of quasicharacters $\qcs{L}$ on $G$ is equivalent to the category of characters $\psi$ of $G(\Fq)$.
 We have also just seen if the character of $\Lang^*\qcs{L}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu : \qcs{L} \to \qcs{L}\boxtimes\qcs{L}$ which is part of the data of the quasicharacter sheaf $\qcs{L}$. That leads to a perspective on the function--sheaf dictionary common in the literature in which one considers $1$-dimensional local systems $\qcs{L}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{L} \iso \qcs{L} \boxtimes\qcs{L}$ \cite{kamgarpour:09a}*{Introduction}, or sometimes, $1$-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$.
@@ -1071,7 +1071,7 @@ In particular, as we have already seen in Section~\ref{sec:etale}, for a given q
 Indeed, Proposition~\ref{prop:etale-iso} shows that $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ measures the possibilities for such $\mu'$ when $G$ is etale.
 We will see later in this section that, for any smooth commutative group scheme $G$, the possibilities for such $\mu'$ are measured by $\Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx))$.
 
-\subsection{Finite quasicharacter sheaves}
+\subsection{Discrete isogenies}\label{sec:discrete_isogenies}
 
 In this section we return to the case when $G$ is any smooth commutative group scheme over $\Fq$ and describe a class of quasicharacter sheaves on $G$ that will play a role in Section~\ref{sec:restriction}.
 
@@ -1080,7 +1080,7 @@ A finite, etale, surjective morphism $H\to G$ of smooth group schemes over $\Fq$
 \begin{proposition}\label{prop:finite}
 Let $f: H \to G$ be a discrete isogeny; let $A$ be the kernel of $f$.
 Let $\psi : A \to \EEx$ be a character.
-Then $(f_* \EE)_\psi$ (the $\psi$-isotypic component of $f_*\EE$) is a bounded quasicharacter on $G$.
+Then $(f_* \EE)_\psi$ (the $\psi$-isotypic component of $f_*\EE$) is an object in $\bQC(G)$.
 \end{proposition}
 
 \begin{proof}
@@ -1121,12 +1121,12 @@ and $\QCiso{\pi_0(G)}$
 in Sections~\ref{sec:connected} and \ref{sec:etale}, respectively.
 In this section we show that \eqref{eq:pi2} is right exact.
 
-We say that a morphism $f : H\to G$ of commutative group $\Fq$-schemes is a discrete isogeny if it is a finite, surjective \'etale morphism and
+We say that a morphism $f : H\to G$ of commutative group $\Fq$-schemes is a {\it discrete isogeny} to $G$ if it is a finite, surjective \'etale morphism and
 the action of $\Gal(\bFq/\Fq)$ on the \'etale group scheme $\ker f$ is trivial.
 
 \begin{lemma}\label{lemma:ext}
-Every discrete isogeny onto $G^0$ extends to a discrete
-isogeny onto $G$ inducing an isomorphism on component groups.
+Every discrete isogeny to $G^0$ extends to a discrete
+isogeny to $G$ inducing an isomorphism on component groups.
 \end{lemma}
 
 \begin{proof}
@@ -1294,7 +1294,7 @@ The resulting isomorphism $\gqcs{L} \to \pi_0^* \gqcs{E}$ satisfies \ref{QC.4},
 thus defining an isomorphism $\qcs{L} \to \pi_0^* \qcs{E}$ in $\QC(G)$.
 \end{proof}
 
-\subsection{The function--sheaf dictionary for smooth, commutative group schemes}
+\subsection{The dictionary}
 \label{sec:snake}
 
 We saw in Proposition~\ref{prop:functorialG} that Trace of Frobenius
@@ -1353,15 +1353,15 @@ and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
 
 \subsection{Morphisms of quasicharacters}
 
-\begin{theorem}\label{thm:hom}
+\begin{theorem}\label{thm:autornaught}
 Let $G$ be a smooth, commutative group scheme over $\Fq$.
 For all quasicharacter sheaves $\qcs{L}$ and $\qcs{L}'$ on $G$,
 every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
 Moreover, $\Aut(\qcs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$, canonically.
 \end{theorem}
 \begin{proof} 
-For the first part of the proposition, argue as in the analogous part of Proposition~\ref{prop:mor_etale}.
-For the second, fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the homomorphism $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:mor_etale}.
+For the first part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
+For the second, fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the homomorphism $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
 This group homomorphism is clearly injective: if $\rho_x = \id_{\qcs{L}_x}$ for every $x\in \bG$ then $\rho = \id_{\qcs{L}}$.
 Note that the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom_\text{cts}(\bG_{\Weil{}},\EEx)$, where $\bG_{\Weil{}}$ is given the topology of the base of the espace étalé attached to $\gqcs{L}$.
 Since $\ell$ is invertible in $\Fq$, it follows that $\Hom_\text{cts}(\bG_{\Weil{}},\EEx) = \Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
@@ -1373,62 +1373,6 @@ This defines an isomorphism $\bar\rho : \gqcs{L}\to \gqcs{L}$ of local systems o
 
 
 
-\section{Application to \texorpdfstring{$p$}{p}-adic tori}
-
-On general smooth group $\Fq$-schemes $G$, 
-there are bounded quasicharacter sheaves which are not finite.  
-Identifying $\fQC(G)$ with its image under $B_G \circ L_G$, as defined in
-Proposition~\ref{prop:BG} and in the proof of Proposition~\ref{prop:bounded},
-we will see in Corollary~\ref{cor:bounded-and-finite} that
-a quasicharacter sheaf is finite if and only if its Trace of Frobenius has finite image.
-
-\begin{corollary} \label{cor:bounded-and-finite}
-Let $G$ be a smooth commutative group scheme over $\Fq$.
-\begin{enumerate}
-\item $\qcs{L} \in \QC(G)$ is bounded if and only if $\trFrob{\qcs{L}}$ has bounded image,
-\item $\qcs{L}\in \QC(G)$ is finite if and only if $\trFrob{\qcs{L}}$ has finite image.
-\end{enumerate}
-\end{corollary}
-
-\begin{proof}
-We first reduce to the case that $G$ is etale.
-On the connected component
-$G^0$, all quasicharacter sheaves are bounded and finite by Proposition~\ref{prop:connected}.
-On the other hand, $G^0(\Fq)$ is finite by Lemma~\ref{lem:G0alg-grp} and thus Trace of Frobenius
-has finite and therefore bounded image.  If $\chi \in G(\Fq)^*$ then there is some finite-image character $\chi_0$
-with the same restriction to $G^0(\Fq)$ since $G^0(\Fq)$ is lies inside the torsion part of
-the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ is bounded (resp. has finite image)
-if and only if $\chi \cdot \chi_0^{-1}$ is bounded (resp. has finite image).  But $\chi \cdot \chi_0^{-1}$ descends
-to a character of $\pi_0(G)$.  A similar argument relates boundedness/finiteness of quasicharacter
-sheaves on $G$ to those on $\pi_0(G)$, using the fact that the preimage constructed in the proof of
-Proposition~\ref{prop:restriction} is a finite quasicharacter sheaf on $G$.
-Using these equivalences, it is enough to prove Corollary~\ref{cor:bounded-and-finite} when $G$ is etale.
-
-In the case that $G$ is \'etale, which we now suppose,
-one can easily detect when a quasicharacter sheaf is bounded or finite.
-With reference to Section~\ref{sec:S},
-let $S_G(\qcs{L}) = [\alpha \oplus \beta]$
-and let $b : {\bar G}\to \EEx$ be the multiplicative version of $\beta(\Frob{})$.
-Then $\qcs{L}$ is finite if and only if
-$b(x)$ is a root of unity for all $x\in {\bar G}$.
-By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.2.1},
-$\qcs{L}$ is bounded if and only if $b(x) \in \Zlx$ for all $x\in {\bar G}$.
-\end{proof}
-
-With Corollary~\ref{cor:bounded-and-finite} in hand
-we see that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves
-when $G$ is a commutative algebraic group over $\Fq$;
-observe that the component group $\pi_0({\bar G})$ is finite in this case.
-On the other hand, Corollary~\ref{cor:bounded-and-finite} also shows us
-why neither finite quasicharacter sheaves nor bounded quasicharacter sheaves
-are up to the task of geometrizing all characters of $G(\Fq)$ for smooth commutative group schemes $G$ since, in general, neither of the full subcategories
-$\fQC(G) \subset \bQC(G) \subset \QC(G)$ are equivalences.
-For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$:
-the flabby quasicharacter sheaf on $G$ corresponding, under Theorem~\ref{thm:snake},
-to the character $1 \mapsto \ell$ is not a bounded quasicharacter sheaf,
-while the flabby quasicharacter sheaf on $G$ corresponding
-to the character $1 \mapsto 1+ \ell$ is a bounded but not finite quasicharacter sheaf.
-%In this latter case the stalk of the quasicharacter sheaf at the component $1$ is defined by a pro-\'etale cover rather than an \'etale cover.
 
 \subsection{Base change}\label{sec:basechange}
 
@@ -1560,6 +1504,67 @@ is given by permuting coordinates, composition with the norm map yields the iden
 
 \todo{Can we improve on this result by proving that $\rho$
 is an equivalence of categories?}
+
+\subsection{Finite and bounded - fragments}
+
+
+On general smooth group $\Fq$-schemes $G$, 
+there are bounded quasicharacter sheaves which are not finite.  
+Identifying $\fQC(G)$ with its image under $B_G \circ L_G$, as defined in
+Proposition~\ref{prop:BG} and in the proof of Proposition~\ref{prop:bounded},
+we will see in Corollary~\ref{cor:bounded-and-finite} that
+a quasicharacter sheaf is finite if and only if its Trace of Frobenius has finite image.
+
+\begin{corollary} \label{cor:bounded-and-finite}
+Let $G$ be a smooth commutative group scheme over $\Fq$.
+\begin{enumerate}
+\item $\qcs{L} \in \QC(G)$ is bounded if and only if $\trFrob{\qcs{L}}$ has bounded image,
+\item $\qcs{L}\in \QC(G)$ is finite if and only if $\trFrob{\qcs{L}}$ has finite image.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+We first reduce to the case that $G$ is etale.
+On the connected component
+$G^0$, all quasicharacter sheaves are bounded and finite by Proposition~\ref{prop:connected}.
+On the other hand, $G^0(\Fq)$ is finite by Lemma~\ref{lem:G0alg-grp} and thus Trace of Frobenius
+has finite and therefore bounded image.  If $\chi \in G(\Fq)^*$ then there is some finite-image character $\chi_0$
+with the same restriction to $G^0(\Fq)$ since $G^0(\Fq)$ is lies inside the torsion part of
+the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ is bounded (resp. has finite image)
+if and only if $\chi \cdot \chi_0^{-1}$ is bounded (resp. has finite image).  But $\chi \cdot \chi_0^{-1}$ descends
+to a character of $\pi_0(G)$.  A similar argument relates boundedness/finiteness of quasicharacter
+sheaves on $G$ to those on $\pi_0(G)$, using the fact that the preimage constructed in the proof of
+Proposition~\ref{prop:restriction} is a finite quasicharacter sheaf on $G$.
+Using these equivalences, it is enough to prove Corollary~\ref{cor:bounded-and-finite} when $G$ is etale.
+
+In the case that $G$ is \'etale, which we now suppose,
+one can easily detect when a quasicharacter sheaf is bounded or finite.
+With reference to Section~\ref{sec:S},
+let $S_G(\qcs{L}) = [\alpha \oplus \beta]$
+and let $b : {\bar G}\to \EEx$ be the multiplicative version of $\beta(\Frob{})$.
+Then $\qcs{L}$ is finite if and only if
+$b(x)$ is a root of unity for all $x\in {\bar G}$.
+By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.2.1},
+$\qcs{L}$ is bounded if and only if $b(x) \in \Zlx$ for all $x\in {\bar G}$.
+\end{proof}
+
+With Corollary~\ref{cor:bounded-and-finite} in hand
+we see that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves
+when $G$ is a commutative algebraic group over $\Fq$;
+observe that the component group $\pi_0({\bar G})$ is finite in this case.
+On the other hand, Corollary~\ref{cor:bounded-and-finite} also shows us
+why neither finite quasicharacter sheaves nor bounded quasicharacter sheaves
+are up to the task of geometrizing all characters of $G(\Fq)$ for smooth commutative group schemes $G$ since, in general, neither of the full subcategories
+$\fQC(G) \subset \bQC(G) \subset \QC(G)$ are equivalences.
+For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$:
+the flabby quasicharacter sheaf on $G$ corresponding, under Theorem~\ref{thm:snake},
+to the character $1 \mapsto \ell$ is not a bounded quasicharacter sheaf,
+while the flabby quasicharacter sheaf on $G$ corresponding
+to the character $1 \mapsto 1+ \ell$ is a bounded but not finite quasicharacter sheaf.
+%In this latter case the stalk of the quasicharacter sheaf at the component $1$ is defined by a pro-\'etale cover rather than an \'etale cover.
+
+\section{Applications to algebraic tori and Abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
+
 
 \bibliographystyle{amsalpha}
 \bibliography{Biblio}
@@ -1914,20 +1919,6 @@ of $\Gal(\bFq/\Fq)$ on this (generally) infinite product of
 Weil groups and also difficult to identify the relevant quotient of this group.
 Viewed in this light, Definition~\ref{def:QC} seems comparatively simple.
 
-\subsection{Recovery}
-
-We are in a good position to understand $\QC(G)$ when $G$ is a connected algebraic group over $\Fq$, since we can now describe objects and maps in this category in very concrete terms. We begin by recovering a classical result. 
-
-
-Morphisms in $\QC(G)$ are also very simple.
-
-\begin{proposition}
-If $G$ is a connected algebraic group then $\Aut_{\QC(G)}(\qcs{L})$ is . . . .
-\end{proposition}
-
-\begin{proof}
-Pick up from the proof of Proposition~\ref{prop:autornaught}.
-\end{proof}
 
 
 %sagemathcloud={"zoom_width":105}
