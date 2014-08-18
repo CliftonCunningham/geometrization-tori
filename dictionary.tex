@@ -913,7 +913,8 @@ Note that Proposition~\ref{prop:mor_etale} tells us that if $G$ is an etale comm
 
 In this section we find $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ for every smooth commutative group scheme over $\Fq$; note that we found these in Section~\ref{sec:etale} when $G$ is etale. 
 
-\subsection{Bounded quasicharacter sheaves}\label{sec:bounded}
+%\subsection{Bounded quasicharacter sheaves}\label{sec:bounded}
+\subsection{Descent to G}\label{sec:bounded}
 
 %Let $G$ be a smooth commutative group scheme over $\Fq$.
 In this section we consider a category of sheaves on $G$ obtained by
@@ -926,10 +927,10 @@ equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes \q
 satisfying the analogue of \ref{QC.1} on $G$;
 morphisms in $\bQC(G)$ are defined as in the second part of
 \ref{QC.3}.
-This is the category of \emph{bounded quasicharacter sheaves} on $G$.
+%This is the category of \emph{bounded quasicharacter sheaves} on $G$.
 \end{definition}
 
-The category of bounded quasicharacter sheaves is a rigid monoidal category in the obvious way.
+Category $\bQC(G)$ is a rigid monoidal category in the obvious way.
 
 \begin{proposition}\label{prop:BG}
 Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(G)$.
@@ -937,7 +938,7 @@ Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(
 
 \begin{proof}
  Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
- Let $(\qcs{E},\mu_\qcs{E})$ be a bounded quasicharacter sheaf on $G$.
+ Suppose $(\qcs{E},\mu_\qcs{E})$ in an object in $\bQC(G)$.
  Then $\qcs{E}$ is an $\ell$-adic constructible sheaf on $G$ and
  $b_G^* \qcs{E}$ comes equipped with an isomorphism
  $\phi_\qcs{E} : \Frob{G}^* b_G^*\qcs{E} \to b_G^* \qcs{E}$.
@@ -952,10 +953,8 @@ Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(
  and also shows that it is full and faithful.
 \end{proof}
 
-We will identify $\bQC(G)$ with its image under $B_G$
-and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ is \emph{bounded} on $G$
-if it is isomorphic to some $B_G(\qcs{E}, \mu_\qcs{E})$.
-We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.\todo{Check this, later.}
+We will identify $\bQC(G)$ with its image under $B_G$ and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descend to $G$} if it is isomorphic to some $B_G(\qcs{E}, \mu_\qcs{E})$.
+%We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.\todo{Check this, later.}
 
 \subsection{Quasicharacter sheaves on connected commutative algebraic groups}\label{sec:connected}
 
@@ -1308,7 +1307,6 @@ In this section we improve that result.
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
 is surjective with kernel isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$.
- Moreover, $\Aut(\qcs{L}) = \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism, for all quasicharacter sheaves $\qcs{L}$ and $\qcs{L}'$ on $G$. 
 \end{theorem}
 
 \begin{proof}
@@ -1332,7 +1330,7 @@ is surjective with kernel isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EE
   \]
   be the commutative diagram of abelian groups obtained by applying
   Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.
-  
+ %
   The sequence of abelian groups
   \begin{equation}\label{eq:pi0k}
   \begin{tikzcd}
@@ -1342,7 +1340,7 @@ is surjective with kernel isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EE
   is exact since $\Hh^1(\Fq,G^0) =0$ by Lemma~\ref{lem:G0alg-grp} and Lang's theorem on connected algebraic groups over finite fields \cite{lang:56a}.
   Since $\EEx$ is divisible, $\Hom_\text{Ab}(\ - \ ,\EEx)$ is exact and thus the dual sequence of
   character groups is also exact.
-
+%
   The upper row is exact by Proposition~\ref{prop:middleexact}.
   Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
   imply that $\ker \TrFrob{G^0} =0$ and $\coker \TrFrob{G^0}=0$,
@@ -1351,12 +1349,27 @@ is surjective with kernel isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EE
 %
 It follows from the snake lemma that $\coker \TrFrob{G} =0$
 and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
-
- (. . . where $G(\bFq)$ is given the topology of the espace étalé of the sheaf of sections of $G$.)
- \todo{Still under construction: $\Aut(\qcs{L})$.}
- 
- For the last part of the proposition, argue as in the analogous part of Proposition~\ref{prop:mor_etale}.
 \end{proof}
+
+\subsection{Morphisms of quasicharacters}
+
+\begin{theorem}\label{thm:hom}
+Let $G$ be a smooth, commutative group scheme over $\Fq$.
+For all quasicharacter sheaves $\qcs{L}$ and $\qcs{L}'$ on $G$,
+every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
+Moreover, $\Aut(\qcs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$, canonically.
+\end{theorem}
+\begin{proof} 
+For the first part of the proposition, argue as in the analogous part of Proposition~\ref{prop:mor_etale}.
+For the second, fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the homomorphism $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:mor_etale}.
+This group homomorphism is clearly injective: if $\rho_x = \id_{\qcs{L}_x}$ for every $x\in \bG$ then $\rho = \id_{\qcs{L}}$.
+Note that the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom_\text{cts}(\bG_{\Weil{}},\EEx)$, where $\bG_{\Weil{}}$ is given the topology of the base of the espace étalé attached to $\gqcs{L}$.
+Since $\ell$ is invertible in $\Fq$, it follows that $\Hom_\text{cts}(\bG_{\Weil{}},\EEx) = \Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
+Note that $\pi_0(\bG_{\Weil{}})=\pi_0(\bG)_{\Weil{}}$. 
+To see that $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, begin with $\theta\in\Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and, for each $[x] \in \pi_0(\bG)_{\Weil{}}$ define $\bar\rho_y: \gqcs{L}_y \to \gqcs{L}_y$ by scalar multiplication by $\theta([x])\in \EEx$ for each $y\in [x]$.
+This defines an isomorphism $\bar\rho : \gqcs{L}\to \gqcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\qcs{L}\to \qcs{L}$ with maps to $\theta$ under $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
+\end{proof}
+
 
 
 
