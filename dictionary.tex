@@ -172,10 +172,8 @@
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
 %% Hyphenation override
 \hyphenation{quasi-character}
-
-
 \newcommand{\lTrFrob}[1]{\TrFrob{#1}^2}
-
+\newcommand{\comp}{\Pi} % Component group
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%
 \begin{document}
@@ -624,7 +622,7 @@ In [point] we will use trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ 
 
 %\subsection{Morphisms of quasicharacter sheaves}\label{sec:mor}
 
-\section{The case of \'etale commutative group schemes} \label{sec:etale}
+\section{Quasicharacter sheaves on \'etale commutative group schemes} \label{sec:etale}
 
 %\subsection{Quasicharacter sheaves, revisited}
 
@@ -909,7 +907,7 @@ The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ i
 
 Note that Proposition~\ref{prop:autornaught_etale} tells us that if $G$ is an etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
 
-\section{The function--sheaf dictionary for smooth, commutative group schemes}\label{sec:main}
+\section{Quasicharacter sheaves on commutative algebraic groups}
 
 In this section we find $\QCiso{G}$ and $\Hom(\qcs{L},\qcs{L}')$ for every smooth commutative group scheme over $\Fq$; note that we found these in Section~\ref{sec:etale} when $G$ is etale. 
 
@@ -955,6 +953,31 @@ Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(
 
 We will identify $\bQC(G)$ with its image under $B_G$ and say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\qcs{E}, \mu_\qcs{E})$.
 %We will see in Corollary~\ref{cor:bounded-and-finite} that bounded quasicharacter sheaves are exactly quasicharacter sheaves with bounded Trace of Frobenius.\todo{Check this, later.}
+
+\subsection{Discrete isogenies}\label{sec:discrete_isogenies}
+
+%Here we describe a class of quasicharacter sheaves on $G$ that will play a role in Section~\ref{sec:restriction}.
+
+A finite, etale, surjective morphism $H\to G$ of smooth group schemes over $\Fq$ for which the action of $\Gal(\bFq/\Fq)$ on the kernel is trivial is called a {\it discrete isogeny}.
+
+\begin{proposition}\label{prop:finite}
+Let $f: H \to G$ be a discrete isogeny; let $A$ be the kernel of $f$.
+Let $V$ be a $1$-dimensional representation of $A$ 
+equipped with an isomorphism $V\to V\otimes V$.
+Let $\psi : A \to \EEx$ be the character of $V$.
+Then $(f_! V_H)_\psi$ (the $\psi$-isotypic component of $f_!V_H$) is an object in $\bQC(G)$.
+\end{proposition}
+
+\begin{proof}
+Let $f$, $A$, $V$ and $\psi$ be as above; set $\qcs{E} = (f_! V_H)_\psi$.
+It is clear that $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank one.
+We must show that comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
+To do this we use etale descent to see that pull-back along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$. 
+In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
+Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
+\end{proof}
+
+We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 
 \subsection{Quasicharacter sheaves on connected commutative algebraic groups}\label{sec:connected}
 
@@ -1030,15 +1053,15 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   is also essentially surjective, hence an equivalence.
 \end{proof}
 
-
 \begin{proposition}\label{prop:connected}
- If $G$ is a connected, commutative algebraic group over $\Fq$ then
- \[
-  \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
- \]
- is an isomorphism of groups.
- Moreover, for every quasicharacter sheaf $\qcs{L}$ on $G$, $\Aut(\qcs{L}) = 1$
- and every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
+ If $G$ is a connected, commutative algebraic group over $\Fq$ then:
+ \begin{enumerate}
+ \item $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
+ \item every quasicharacter sheaf on $G$ is isomorphic to one defined by a discrete isogeny;%as in Proposition~\ref{prop:finite};
+ \item $\Aut(\qcs{L}) = 1$, for all quasicharacter sheaves $\qcs{L}$ on $G$;
+  \item every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism,
+  for all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $G$.
+ \end{enumerate}
  \end{proposition}
 
 \begin{proof}
@@ -1046,9 +1069,8 @@ In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qc
  Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
 From here, Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields \citelist{\cite{deligne:SGA4.5}*{Sommes trig.}, \cite{laumon:87a}*{1.1.3}}  gives us all we need, as we briefly recall.
 The key observation is that, by etale descent, pull-back by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$. 
-Note that since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 Using the equivalence given by $\Lang^*$, if $\Lang^*\qcs{E} = V$ with character $\psi$ and isomorphism $V\to V\otimes V$ then 
-$\qcs{E} \iso (\Lang_* V)_\psi$, the $\psi$-isotypic component of the push-forward $\Lang_* V$ of the constand sheaf $V$ on $G$, equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes\qcs{E}$ determined by $V\to V\otimes V$.
+$\qcs{E} \iso (\Lang_! V)_\psi$, the $\psi$-isotypic component of the push-forward $\Lang_* V$ ($\Lang$ is proper, so $\Lang_* = \Lang_!$) of the constant sheaf $V$ on $G$ equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes\qcs{E}$ determined by $V\to V\otimes V$. 
 Moreover, $\Aut(\qcs{E})$ is the group of automorphisms of $\rho : V\to V$ for which 
 \[
 \begin{tikzcd}
@@ -1071,27 +1093,8 @@ In particular, as we have already seen in Section~\ref{sec:etale}, for a given q
 Indeed, Proposition~\ref{prop:etale-iso} shows that $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ measures the possibilities for such $\mu'$ when $G$ is etale.
 We will see later in this section that, for any smooth commutative group scheme $G$, the possibilities for such $\mu'$ are measured by $\Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx))$.
 
-\subsection{Discrete isogenies}\label{sec:discrete_isogenies}
+\section{The function--sheaf dictionary for smooth, commutative group schemes}\label{sec:main}
 
-In this section we return to the case when $G$ is any smooth commutative group scheme over $\Fq$ and describe a class of quasicharacter sheaves on $G$ that will play a role in Section~\ref{sec:restriction}.
-
-A finite, etale, surjective morphism $H\to G$ of smooth group schemes over $\Fq$ for which the action of $\Gal(\bFq/\Fq)$ on the kernel is trivial is called a {\it discrete isogeny}.
-
-\begin{proposition}\label{prop:finite}
-Let $f: H \to G$ be a discrete isogeny; let $A$ be the kernel of $f$.
-Let $\psi : A \to \EEx$ be a character.
-Then $(f_* \EE)_\psi$ (the $\psi$-isotypic component of $f_*\EE$) is an object in $\bQC(G)$.
-\end{proposition}
-
-\begin{proof}
-Let $f$, $A$ and $\psi$ be as above; set $\qcs{E} = (f_! \EE)_\psi$.
-It is clear that $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank one.
-We must show that comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
-To do this we may use etale descent exactly as in the proof of Proposition~\ref{prop:connected}. 
-Pull-back along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$. 
-In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $\EE$ on $H$ with character $\psi$.
-Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ from the canonical isomorphism $m^*\psi \iso \psi \boxtimes\psi$.
-\end{proof}
 
 \subsection{Restriction to the identity component} \label{sec:restriction}
 
@@ -1199,15 +1202,15 @@ The restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjecti
 
 \begin{proof}
   By Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}, every
-  quasicharacter sheaf on $G^0$ is isomorphic to $(\pi_! \EE)\psi$ for some discrete isogeny $\pi : B \to G^0$ and character $\psi : \ker \pi \to \EEx$.
-  So to prove the proposition it suffices to show that $(\pi_! \EE)\psi$ extends to a quasicharacter sheaf on $G$.
+  quasicharacter sheaf on $G^0$ is isomorphic to $(\pi_! \EE)_\psi$ for some discrete isogeny $\pi : B \to G^0$ and character $\psi : \ker \pi \to \EEx$.
+  So to prove the proposition it suffices to show that $(\pi_! \EE)_\psi$ extends to a quasicharacter sheaf on $G$.
 %
  %Let $(\pi,\psi)$ be a finite quasicharacter sheaf on $G^0$.
  By Lemma~\ref{lemma:ext}, there is an extension of the
  discrete isogeny $\pi : B \to G^0$ to a discrete isogeny $f : H \to G$
  such that $\pi_0(f) : \pi_0(H)\to \pi_0(G)$ is an isomorphism.
- Then $(f_! \EE)\psi$ is a quasicharacter sheaf on $G$ and
- $(f_! \EE)\psi\vert_{G^0} \iso (\pi_! \EE)\psi$.
+ Then $(f_! \EE)_\psi$ is a quasicharacter sheaf on $G$ and
+ $(f_! \EE)_\psi\vert_{G^0} \iso (\pi_! \EE)_\psi$.
 \end{proof}
 
 \subsection{The component group sequence} \label{sec:component}
@@ -1306,7 +1309,7 @@ In this section we improve that result.
   \[
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
-is surjective with kernel isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$.
+is surjective with kernel canonically isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$.
 \end{theorem}
 
 \begin{proof}
@@ -1351,6 +1354,11 @@ It follows from the snake lemma that $\coker \TrFrob{G} =0$
 and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
 \end{proof}
 
+\todo{Insert comments on $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$. 
+It is trivial if $G$ is an algebraic group with cyclic component group.
+Lusztig}
+
+
 \subsection{Morphisms of quasicharacters}
 
 \begin{theorem}\label{thm:autornaught}
@@ -1369,10 +1377,6 @@ Note that $\pi_0(\bG_{\Weil{}})=\pi_0(\bG)_{\Weil{}}$.
 To see that $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, begin with $\theta\in\Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and, for each $[x] \in \pi_0(\bG)_{\Weil{}}$ define $\bar\rho^y: \gqcs{L}^y \to \gqcs{L}^y$ by scalar multiplication by $\theta([x])\in \EEx$ for each $y\in [x]$.
 This defines an isomorphism $\bar\rho : \gqcs{L}\to \gqcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\qcs{L}\to \qcs{L}$ with maps to $\theta$ under $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
 \end{proof}
-
-
-
-
 
 \subsection{Base change}\label{sec:basechange}
 
@@ -1505,6 +1509,106 @@ is given by permuting coordinates, composition with the norm map yields the iden
 \todo{Can we improve on this result by proving that $\rho$
 is an equivalence of categories?}
 
+
+\section{Applications}\label{sec:applications}% to algebraic tori and Abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
+
+\subsection{Smooth commutative group schemes over DVRs}
+
+Let $X$ be a smooth commutative group scheme over a complete discrete valuation ring $R$ with residue field $\Fq$.
+We say that a character $X(R)\to \EEx$ is {\it admissible} if there is some 
+
+
+
+
+We will also need the Greenberg functor \citelist{\cite{greenberg:61} \cite{greenberg:63a}}:
+a functor from the category of schemes locally of finite type
+over an Artinian local ring with perfect residue field $k$
+to the category of schemes locally of finite type over $k$.
+This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
+See
+\citelist{
+\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1}
+\cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6}
+\cite{nicaise-sebag:motivicSerre}*{\S 2.2}
+\cite{bertrapelle-gonzales:Greenberg}*{\S 5}
+}
+for the definition and fundamental properties of the Greenberg functor as it is used here.
+
+\begin{definition}\label{def:Grn}
+For any local field $K$ with residue field $\Fq$ and for any positive integer $n$, let
+\[
+\Gr_n : \partop{\text{Schemes}}{\text{lft over $\OK$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
+\]
+be the functor produced by precomposing pullback along $\OK \to \OK/\pK^n$ with the Greenberg functor.
+\end{definition}
+
+The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a
+natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ between additive functors.
+For a given Néron model $\TT$ of $T$, set
+\begin{align*}
+ \GN{T}_n &\ceq \Gr_n(\TT), \\
+ f_n &\ceq P_n(\TT).
+\end{align*}
+
+We list some fundamental properties of $f_n$ and $\GN{T}_n$ for further use:
+ \begin{enumerate}
+  \labitem{(GN.0)}{truncation}
+  $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is a surjective morphism of group schemes over $\Fq$
+  \citelist{\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276} \cite{bertrapelle-gonzales:Greenberg}*{Prop. 7.2}}.
+  We remark that $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is not induced from a morphism of Néron models.
+  \labitem{(GN.1)}{smooth}
+  $\GN{T}_n$ is a $\QC$-scheme.
+  Note that $\underline{T}$ is a smooth group scheme over $\OK$, by construction.
+  Since smoothness is preserved under base change, the group scheme
+  $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$
+  is smooth over an Artinian ring with perfect residue field.
+  The Greenberg functor preserves smoothness,
+  so $\GN{T}_n$ is a smooth group scheme locally of finite type over $\Fq$.
+  The Greenberg functor takes the geometric identity component of $\TT_n$
+  to the geometric identity component of $\GN{T}_n$.
+  In fact, $\pi_0(\GN{T}_n)$ is independent of $n$, equal to $\comp \ceq \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$.
+  Moreover, $\Pi$ is finitely generated \cite{xarles:93a}*{2.18}.
+  \labitem{(GN.2)}{identity} $\GN{T}_n^\circ$ is affine of finite type over $\Fq$.
+  \labitem{(GN.3)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
+\end{enumerate}
+
+\begin{proposition}
+The projective limit of the system
+\[
+\cdots \xrightarrow{f_n} \GN{T}_{n+1} \xrightarrow{f_{n-1}} \cdots \xrightarrow{f_1} \GN{T}_1
+\]
+exists in the category of group schemes over $\Fq$.
+\end{proposition}
+\begin{proof}
+Since the component group $\comp$ is independent of $n$, the projective system induces a sequence of affine schemes
+\begin{equation} \label{eq:Ti}
+\cdots \xrightarrow{f^i_n} \GN{T}^i_{n+1} \xrightarrow{f^i_{n-1}} \cdots \xrightarrow{f^i_1} \GN{T}^i_1
+\end{equation}
+for each $i \in \comp$.
+Since the category of affine schemes over $k$ is equivalent to the category of $k$-algebras, which has direct limits \todo{citation},
+the limit of \eqref{eq:Ti} exists in the category of affine group schemes over $k$ for each $i \in \comp$.  Write $\GN{T}^i$ for the limit,
+and define
+\[
+\GN{T} \ceq \coprod_{i \in \comp} \GN{T}^i
+\]
+as a $k$-scheme.  We claim that $\GN{T}$ is a projective limit of the original system, in the category of $k$-schemes.  Suppose that $Z$ is a $k$-scheme
+with a system of morphisms $z_n : Z \to \GN{T}_n$.  Let $\alpha : \pi_0(Z) \to \comp$ be the induced map on component groups, which is
+independent of $n$.  \todo{the components of $Z$ are not necessarily affine; is the projective limit in the category of affine schemes still the limit in the category of schemes?}
+
+
+The multiplication maps $m_n : \GN{T}_n \times \GN{T}_n \to \GN{T}_n$ induce maps of affine schemes
+$m_n^{i,j} : \GN{T}_n^i \times \GN{T}_n^j \to \GN{T}_n^{i+j},$ inducing maps $m^{i,j} : \GN{T}^i \times \GN{T}$ [under construction]
+\end{proof}
+
+\subsection{Smooth commutative group schemes over local fields, with Neron models}
+
+Let $X_K$ be a smooth commutative group scheme over a local field $K$ with residue field $\Fq$. Suppose that $X_K$ admits a Neron model $X$.
+
+
+
+\section{Fragments}
+
+
 \subsection{Finite and bounded - fragments}
 
 
@@ -1563,7 +1667,6 @@ while the flabby quasicharacter sheaf on $G$ corresponding
 to the character $1 \mapsto 1+ \ell$ is a bounded but not finite quasicharacter sheaf.
 %In this latter case the stalk of the quasicharacter sheaf at the component $1$ is defined by a pro-\'etale cover rather than an \'etale cover.
 
-\section{Applications to algebraic tori and Abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
 
 
 \bibliographystyle{amsalpha}
