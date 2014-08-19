@@ -174,6 +174,7 @@
 \hyphenation{quasi-character}
 \newcommand{\lTrFrob}[1]{\TrFrob{#1}^2}
 \newcommand{\comp}{\Pi} % Component group
+\newcommand{\m}{{\mathfrak{m}}}
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%
 \begin{document}
@@ -1514,13 +1515,14 @@ is an equivalence of categories?}
 
 \subsection{Smooth commutative group schemes over DVRs}
 
-Let $X$ be a smooth commutative group scheme over a complete discrete valuation ring $R$ with residue field $\Fq$.
-We say that a character $X(R)\to \EEx$ is {\it admissible} if there is some 
+Let $R$ complete discrete valuation ring $R$ with residue field $\Fq$;
+write $\m$ for the maximal ideal of $R$ and $K$ for the quotient 
+In this section we use quasicharacter sheaves to geometrize and categorify the group 
+of admissible characters of smooth commutative group schemes over $R$.
 
 
 
-
-We will also need the Greenberg functor \citelist{\cite{greenberg:61} \cite{greenberg:63a}}:
+We will need the Greenberg functor \citelist{\cite{greenberg:61} \cite{greenberg:63a}}:
 a functor from the category of schemes locally of finite type
 over an Artinian local ring with perfect residue field $k$
 to the category of schemes locally of finite type over $k$.
@@ -1533,29 +1535,26 @@ See
 \cite{bertrapelle-gonzales:Greenberg}*{\S 5}
 }
 for the definition and fundamental properties of the Greenberg functor as it is used here.
-
-\begin{definition}\label{def:Grn}
-For any local field $K$ with residue field $\Fq$ and for any positive integer $n$, let
+We will write
 \[
-\Gr_n : \partop{\text{Schemes}}{\text{lft over $\OK$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
+\Gr_n : \partop{\text{Schemes}}{\text{lft over $R$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
 \]
-be the functor produced by precomposing pullback along $\OK \to \OK/\pK^n$ with the Greenberg functor.
-\end{definition}
+for the functor produced by precomposing pullback along $R \to R_n$ with the Greenberg functor.
 
-The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a
+The surjective ring homomorphism $R_{n+1} \to R_n$ determines a
 natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ between additive functors.
-For a given Néron model $\TT$ of $T$, set
+Set
 \begin{align*}
- \GN{T}_n &\ceq \Gr_n(\TT), \\
- f_n &\ceq P_n(\TT).
+ \GN{X}_n &\ceq \Gr_n(X), \\
+ f_n &\ceq P_n(X).
 \end{align*}
 
-We list some fundamental properties of $f_n$ and $\GN{T}_n$ for further use:
+We list some fundamental properties of $f_n$ and $\GN{X}_n$ for further use:
  \begin{enumerate}
   \labitem{(GN.0)}{truncation}
-  $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is a surjective morphism of group schemes over $\Fq$
+  $f_n : \GN{X}_{n+1} \to \GN{X}_n$ is a surjective morphism of group schemes over $\Fq$
   \citelist{\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276} \cite{bertrapelle-gonzales:Greenberg}*{Prop. 7.2}}.
-  We remark that $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is not induced from a morphism of Néron models.
+  We remark that $f_n : \GN{X}_{n+1} \to \GN{X}_n$ is not induced from a morphism of Néron models.
   \labitem{(GN.1)}{smooth}
   $\GN{T}_n$ is a $\QC$-scheme.
   Note that $\underline{T}$ is a smooth group scheme over $\OK$, by construction.
@@ -1599,6 +1598,12 @@ independent of $n$.  \todo{the components of $Z$ are not necessarily affine; is 
 The multiplication maps $m_n : \GN{T}_n \times \GN{T}_n \to \GN{T}_n$ induce maps of affine schemes
 $m_n^{i,j} : \GN{T}_n^i \times \GN{T}_n^j \to \GN{T}_n^{i+j},$ inducing maps $m^{i,j} : \GN{T}^i \times \GN{T}$ [under construction]
 \end{proof}
+
+Let $X$ be a smooth commutative group scheme over a 
+For every $n\in \NN_0$ set $R_n = R/\m^{n+1}$.
+We say that a character $\chi: X(R)\to \EEx$ is {\it admissible} if there is some $n \in \NN_0$ such that $\chi$ factors through $X(R) \to X(R_n)$.
+
+$\Hom_\text{ad}(X(R),\EEx)$ 
 
 \subsection{Smooth commutative group schemes over local fields, with Neron models}
 
