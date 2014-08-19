@@ -1513,102 +1513,119 @@ is an equivalence of categories?}
 
 \section{Applications}\label{sec:applications}% to algebraic tori and Abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
 
-\subsection{Smooth commutative group schemes over DVRs}
+in this section we use quasicharacter sheaves to geometrize and categorify the group 
+of admissible characters of smooth commutative group schemes over local fields that admit Neron models.
 
-Let $R$ complete discrete valuation ring $R$ with residue field $\Fq$;
-write $\m$ for the maximal ideal of $R$ and $K$ for the quotient 
-In this section we use quasicharacter sheaves to geometrize and categorify the group 
-of admissible characters of smooth commutative group schemes over $R$.
+Let $R$ complete discrete valuation ring $R$ with residue field $\Fq$.
+Write $\m$ for the maximal ideal of $R$ and $K$ for the quotient field for $R$.
+Set $R_n = R/\m^{n+1}$ and $S_n = \Spec{R_n}$ and $S = \Spec{R}$; 
+note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
 
+\subsection{Greenberg transform}
 
-
-We will need the Greenberg functor \citelist{\cite{greenberg:61} \cite{greenberg:63a}}:
-a functor from the category of schemes locally of finite type
-over an Artinian local ring with perfect residue field $k$
-to the category of schemes locally of finite type over $k$.
-This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
-See
+We will need the Greenberg functor, which is
+a functor from the category of schemes 
+over an Artinian local ring with perfect residue field
+to the category of schemes over the residue field;
+See \cite{bertrapelle-gonzales:Greenberg} for the definition and fundamental properties of the Greenberg functor as we use it; other important references include
 \citelist{
-\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1}
-\cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6}
+\cite{greenberg:61}, \cite{greenberg:63a},
+\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1},
+\cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6},
 \cite{nicaise-sebag:motivicSerre}*{\S 2.2}
-\cite{bertrapelle-gonzales:Greenberg}*{\S 5}
-}
-for the definition and fundamental properties of the Greenberg functor as it is used here.
-We will write
+}.
+This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
+
+For any $n\in \NN_0$, we will write
 \[
 \Gr_n : \partop{\text{Schemes}}{\text{lft over $R$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
 \]
-for the functor produced by precomposing pullback along $R \to R_n$ with the Greenberg functor.
+for the functor produced by composing pullback along $S_n \to S$ with the Greenberg functor. This functor respects \'etale morphisms, smooth morphisms and geometric components, \todo{open immersions? closed immersion?} and
+\[
+\Gr_n(X)(\Fq) \iso X(R_n),
+\]
+canonically, for any $X$ lft over $R$.
 
-The surjective ring homomorphism $R_{n+1} \to R_n$ determines a
-natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ between additive functors.
-Set
-\begin{align*}
- \GN{X}_n &\ceq \Gr_n(X), \\
- f_n &\ceq P_n(X).
-\end{align*}
+For any $n\leq m$,  the surjective ring homomorphism $R_{m} \to R_n$ determines a
+natural transformation $\Gr_{m} \to \Gr_n$ between additive functors.
+Crucially, $(\Gr_{m}\to \Gr_n)(X)$ is an affine morphism of $\Fq$-schemes, for every $R$-scheme $X$ and every $n\leq m$ \cite{bertrapelle-gonzales:Greenberg}*{Prop 4.3}.
+This observation is key to the proof that, for any $X$ lft over $S$, the projective limit 
+\[
+\Gr(X) \ceq \varprojlim_{n\in \NN_0} \Gr_n(X)
+\]
+taken with respect to the surjective morphisms $(\Gr_{m}\to \Gr_n)(X)$,
+exists in the category of group schemes over $\Fq$.
+This leads to the definition of what we call the {\it Greenberg transform}:
+\[
+\Gr : \partop{\text{Schemes}}{\text{lft over $R$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}.
+\]
+By construction, the $\Fq$-scheme $\Gr(X)$ comes equipped with morphisms 
+\[
+P_n(X) : \Gr(X) \to \Gr_n(X),\qquad \forall n\in \NN_0.
+\]
+The Greenberg transform $\Gr$ respects \'etale morphisms, smooth morphisms  \todo{open immersions? closed immersion?} and geometric components, and
+\[
+\Gr(X)(\Fq) \iso X(R),
+\]
+canonically, for any $X$ lft over $R$.
 
-We list some fundamental properties of $f_n$ and $\GN{X}_n$ for further use:
- \begin{enumerate}
-  \labitem{(GN.0)}{truncation}
-  $f_n : \GN{X}_{n+1} \to \GN{X}_n$ is a surjective morphism of group schemes over $\Fq$
-  \citelist{\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276} \cite{bertrapelle-gonzales:Greenberg}*{Prop. 7.2}}.
-  We remark that $f_n : \GN{X}_{n+1} \to \GN{X}_n$ is not induced from a morphism of Néron models.
-  \labitem{(GN.1)}{smooth}
-  $\GN{T}_n$ is a $\QC$-scheme.
-  Note that $\underline{T}$ is a smooth group scheme over $\OK$, by construction.
-  Since smoothness is preserved under base change, the group scheme
-  $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$
-  is smooth over an Artinian ring with perfect residue field.
-  The Greenberg functor preserves smoothness,
-  so $\GN{T}_n$ is a smooth group scheme locally of finite type over $\Fq$.
-  The Greenberg functor takes the geometric identity component of $\TT_n$
-  to the geometric identity component of $\GN{T}_n$.
-  In fact, $\pi_0(\GN{T}_n)$ is independent of $n$, equal to $\comp \ceq \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$.
-  Moreover, $\Pi$ is finitely generated \cite{xarles:93a}*{2.18}.
-  \labitem{(GN.2)}{identity} $\GN{T}_n^\circ$ is affine of finite type over $\Fq$.
-  \labitem{(GN.3)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
+\subsection{Quasicharacter sheaves on the Greenberg transform of a Neron model}
+
+Now suppose $X_K$ is a commutative algebraic group over $K$ 
+that admits a Neron model, $X$.
+Then $\Gr(X)$ is commutative group scheme over $\Fq$
+with component group scheme
+$\pi_0(\Gr(X))= \pi_0(X) \times_S S_0$
+and
+\[
+\Gr(X)(\Fq)\iso X_K(K)
+\]
+canonically.
+For every $n\in \NN_0$,
+$\Gr_n(X)$ is {\it smooth} commutative group scheme over $\Fq$
+with component group scheme
+$\pi_0(\Gr_n(X))= \pi_0(X) \times_S S_0$.
+
+
+A {\it quasicharacter sheaf for $X_K$} is a triple
+$\qcs{F}\ceq (\gqcs{F},\mu_\qcs{F},\phi_\qcs{F})$ where
+\begin{enumerate}
+\item[(0)] $\gqcs{F}$ is a constructible $\ell$-adic sheaf on $\Gr(X)_{\bFq} \ceq \Gr(X)\otimes \bFq$,
+\item[(1)]  $\mu_\qcs{F}: \bm^* \gqcs{F} \to \gqcs{F}\boxtimes\gqcs{F}$ is an isomorphism $\ell$-adic sheaves, where $\bm : \Gr(X)_{\bFq} \times \Gr(X)_{\bFq} \to \Gr(X)_{\bFq}$ is multiplication for $\Gr(X)_{\bFq}$,
+\item[(2)] $\phi_\qcs{F} : \Frob{\Gr(X)}^* \gqcs{F} \to \gqcs{F}$ is an
+  isomorphism of constructible $\ell$-adic sheaves, where $\Frob{\Gr(X)}^* : \Gr(X)_{\bFq}  \to \Gr(X)_{\bFq}$ is Frobenius for $\Gr(X)_{\bFq}$,
+\end{enumerate}
+such that, for some $n\in \NN_0$,
+\begin{enumerate}
+\item[(3)]
+$\qcs{F} = P_n(X)^*\qcs{L}$ for some quasicharacter sheaf $\qcs{L}$ on $\Gr_n(X)$, where pull-back by $P_n(X)$ is defined as in Proposition~\ref{prop:pullback}.
 \end{enumerate}
 
-\begin{proposition}
-The projective limit of the system
+\begin{theorem}
+Let $X_K$ be a commutative algebraic group over $K$ with Neron model $X$ over $R$. 
+\begin{enumerate}
+\item[(0)] Quasicharacter sheaves for $X_K$ form a rigid monoidal category, $\QC(X_K)$, in a natural way. 
+\item[(1)] There is a canonical short exact sequence of abelian groups 
 \[
-\cdots \xrightarrow{f_n} \GN{T}_{n+1} \xrightarrow{f_{n-1}} \cdots \xrightarrow{f_1} \GN{T}_1
-\]
-exists in the category of group schemes over $\Fq$.
-\end{proposition}
-\begin{proof}
-Since the component group $\comp$ is independent of $n$, the projective system induces a sequence of affine schemes
-\begin{equation} \label{eq:Ti}
-\cdots \xrightarrow{f^i_n} \GN{T}^i_{n+1} \xrightarrow{f^i_{n-1}} \cdots \xrightarrow{f^i_1} \GN{T}^i_1
-\end{equation}
-for each $i \in \comp$.
-Since the category of affine schemes over $k$ is equivalent to the category of $k$-algebras, which has direct limits \todo{citation},
-the limit of \eqref{eq:Ti} exists in the category of affine group schemes over $k$ for each $i \in \comp$.  Write $\GN{T}^i$ for the limit,
-and define
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{X_K} \to \Hom_\text{ad}(X_K(K),\EEx) \to 0
+\] 
+where $\Hom_\text{ad}(X_K(K),\EEx)$ is the group of characters of $X_K(K)$ that factor through $X(R)\to X(R_n)$, for some $n\in\NN_0$.
+\item[(2)] For all quasicharacter sheaves $\qcs{F}$, $\qcs{F}'$ for $X_K$, and for every $\rho \in \Hom(\qcs{F},\qcs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism.
+\item[(3)] For all quasicharacter sheaves $\qcs{F}$ for $X_K$,
 \[
-\GN{T} \ceq \coprod_{i \in \comp} \GN{T}^i
+\Aut(\qcs{L}) \iso \Hom((\pi_0(X)_{\Fq})_{\Weil{}},\EEx),
 \]
-as a $k$-scheme.  We claim that $\GN{T}$ is a projective limit of the original system, in the category of $k$-schemes.  Suppose that $Z$ is a $k$-scheme
-with a system of morphisms $z_n : Z \to \GN{T}_n$.  Let $\alpha : \pi_0(Z) \to \comp$ be the induced map on component groups, which is
-independent of $n$.  \todo{the components of $Z$ are not necessarily affine; is the projective limit in the category of affine schemes still the limit in the category of schemes?}
+canonically.
+\end{enumerate}
+\end{theorem}
 
 
-The multiplication maps $m_n : \GN{T}_n \times \GN{T}_n \to \GN{T}_n$ induce maps of affine schemes
-$m_n^{i,j} : \GN{T}_n^i \times \GN{T}_n^j \to \GN{T}_n^{i+j},$ inducing maps $m^{i,j} : \GN{T}^i \times \GN{T}$ [under construction]
-\end{proof}
 
-Let $X$ be a smooth commutative group scheme over a 
-For every $n\in \NN_0$ set $R_n = R/\m^{n+1}$.
-We say that a character $\chi: X(R)\to \EEx$ is {\it admissible} if there is some $n \in \NN_0$ such that $\chi$ factors through $X(R) \to X(R_n)$.
 
-$\Hom_\text{ad}(X(R),\EEx)$ 
+\bibliographystyle{amsalpha}
+\bibliography{bibliography/Biblio}
 
-\subsection{Smooth commutative group schemes over local fields, with Neron models}
-
-Let $X_K$ be a smooth commutative group scheme over a local field $K$ with residue field $\Fq$. Suppose that $X_K$ admits a Neron model $X$.
-
+\end{document}
 
 
 \section{Fragments}
@@ -1673,11 +1690,6 @@ to the character $1 \mapsto 1+ \ell$ is a bounded but not finite quasicharacter 
 %In this latter case the stalk of the quasicharacter sheaf at the component $1$ is defined by a pro-\'etale cover rather than an \'etale cover.
 
 
-
-\bibliographystyle{amsalpha}
-\bibliography{bibliography/Biblio}
-
-\end{document}
 
 \begin{table}[ht]
 \caption{A big diagram}
