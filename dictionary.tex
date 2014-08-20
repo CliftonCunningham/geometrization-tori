@@ -1517,11 +1517,23 @@ of admissible characters of smooth commutative group schemes over local fields t
 
 Let $R$ be a complete discrete valuation ring $R$ with residue field $\Fq$.
 Write $\m$ for the maximal ideal of $R$ and $K$ for the quotient field for $R$.
-Set $S = \Spec{R}$.
-For every non-negative integer $n$, set $R_n = R/\m^{n+1}$ and $S_n = \Spec{R_n}$;  
-note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
+For every non-negative integer $n$,  set $R_n = R/\m^{n+1}$.
+
+Suppose $X_K$ is a connected commutative algebraic group over $K$ that admits a Néron model $X$ over $R$.
+%
+A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) \to X(R_n)$, for some $n\in\NN_0$;
+the group of quasicharacters of $X_K(K)$ will be denoted by $\Hom_\text{qc}(X_K(K),\EEx)$ and the subgroup of those that factor through $X(R_n)$ will be denoted by $\Hom_n(X_K(K),\EEx)$.
+%
+In this section we explain how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves.
+
+It seems likely that there connected commutative algebraic groups over local fields that admit Neron models but are neither algebraic tori nor Abelian varieties; indeed, it is conjectured that K-wound unipotent group schemes over local fields like $\Fq((t))$ are examples. We have use the ponderous phrase "let $X_K$ be a connected commutative algebraic group over $K$ that admits a Néron model $X$" in Section~\ref{sec:applications} to draw attention to the fact that our theory of quasicharacter sheaves is applicable to more than algebraic tori and Abelian varieties.
 
 \subsection{Review of the Greenberg transform}
+
+Let $K$, $R$ and $R_n$ be as above.
+Set $S = \Spec{R}$.
+For every non-negative integer $n$,  and $S_n = \Spec{R_n}$;  
+note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
 
 We will need the Greenberg functor, which is
 a functor from the category of schemes 
@@ -1571,13 +1583,7 @@ The Greenberg transform respects open immersions, closed immersions, \'etale mor
 canonically, for any $X$ lft over $R$.
 
 \subsection{Quasicharacter sheaves on the Greenberg transform of a Néron model}
-
-Suppose $X_K$ is a connected commutative algebraic group over $K$ that admits a Néron model $X$ over $R$.
-%
-A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) = X(R)\to X(R_n)$, for some $n\in\NN_0$;
-the group of quasicharacters of $X_K(K)$ will be denoted by $\Hom_\text{qc}(X_K(K),\EEx)$ and the subgroup of those that factor through $X(R_n)$ will be denoted by $\Hom_n(X_K(K),\EEx)$.
-%
-In this section we explain how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves. 
+ 
 
 Let $G$ be a commutative group scheme over $\Fq$.
 Consider the category $\mathcal{C}(G)$ of triples
@@ -1650,7 +1656,7 @@ The following statements follow directly from Theorems~\ref{thm:snake} and \ref{
 \]
 canonically.
 \end{enumerate}
-So Theorem~\ref{thm:QCX} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
+So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 \end{proof}
 
 \subsection{Group schemes that admit a Neron model}
@@ -1670,7 +1676,6 @@ Then the trace of Frobenius provides a natural transformation between the additi
 from the additive category $\mathcal{N}/K$ to the category of abelian groups.
 \end{proposition}
 
-It seems likely that there connected commutative algebraic groups over local fields that admit Neron models but are neither algebraic tori nor Abelian varieties; indeed, it is conjectured that K-wound unipotent group schemes over local fields like $\Fq((t))$ are examples. We have use the ponderous phrase "let $X_K$ be a connected commutative algebraic group over $K$ that admits a Néron model $X$" in Section~\ref{sec:applications} to draw attention to the fact that our theory of quasicharacter sheaves is applicable to more than algebraic tori and Abelian varieties.
 
 \subsection{Weil restriction and quasicharacters}\label{sec:wrK}
 
