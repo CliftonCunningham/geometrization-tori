@@ -14,7 +14,7 @@
 \email{roed.math@gmail.com}
 \address{Pacific Institute for the Mathematical Sciences, University of Calgary}
 \subjclass[2010]{14F05 (primary), 14L15 (secondary)}
-\keywords{function--sheaf dictionary, geometrization, quasicharacters, quasicharacter sheaves, smooth commutative group schemes}
+\keywords{function--sheaf dictionary, trace of Frobenius, geometrization, quasicharacters, quasicharacter sheaves, smooth commutative group schemes}
 
 %%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 % Encodings
@@ -1498,21 +1498,18 @@ is an equivalence of categories?}
 
 \section{Applications}\label{sec:applications}% to algebraic tori and Abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
 
-In this section we use quasicharacter sheaves to geometrize and categorify the group 
-of admissible characters of smooth commutative group schemes over local fields that admit Néron models.
+Let $K$ be a local field (in the sense of Serre) with residue field $\Fq$. 
+In this section we consider connected smooth commutative algebraic groups over $K$ that admit a Néron model, by which we means a perhaps lft Néron model.
+By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected smooth commutative algebraic groups over $K$ that contain no subgroup of type $\mathbb{G}_\text{a}$.
+We remark that these connected commutative algebraic groups over $K$ form an additive category in a natural way, as a full subcategory of connected commutative algebraic groups over $K$, and that this category includes algebraic tori over $K$ and Abelian varieties over $K$.
 
-Let $R$ be a complete discrete valuation ring $R$ with residue field $\Fq$.
-Write $\m$ for the maximal ideal of $R$ and $K$ for the quotient field for $R$.
-For every non-negative integer $n$,  set $R_n = R/\m^{n+1}$.
-
-Suppose $X_K$ is a connected commutative algebraic group over $K$ that admits a Néron model $X$ over $R$.
-%
-A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) \to X(R_n)$, for some $n\in\NN_0$;
+Let $R$ be the ring of integers of $K$.
+Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$, for every non-negative integer $n$.
+Let $X_K$ be a connected smooth commutative algebraic groups over $K$ that admit a Néron model, $X$.
+A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) \to X(R_n)$, for some non-negative integer $n$;
 the group of quasicharacters of $X_K(K)$ will be denoted by $\Hom_\text{qc}(X_K(K),\EEx)$ and the subgroup of those that factor through $X(R_n)$ will be denoted by $\Hom_n(X_K(K),\EEx)$.
 %
 In this section we explain how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves.
-
-It seems likely that there connected commutative algebraic groups over local fields that admit Neron models but are neither algebraic tori nor Abelian varieties; indeed, it is conjectured that K-wound unipotent group schemes over local fields like $\Fq((t))$ are examples. We have use the ponderous phrase "let $X_K$ be a connected commutative algebraic group over $K$ that admits a Néron model $X$" in Section~\ref{sec:applications} to draw attention to the fact that our theory of quasicharacter sheaves is applicable to more than algebraic tori and Abelian varieties.
 
 \subsection{Review of the Greenberg transform}
 
@@ -1570,7 +1567,6 @@ canonically, for any $X$ lft over $R$.
 
 \subsection{Quasicharacter sheaves on the Greenberg transform of a Néron model}
  
-
 Let $G$ be a commutative group scheme over $\Fq$.
 Consider the category $\mathcal{C}(G)$ of triples
 $\qcs{F}\ceq (\gqcs{F},\mu_\qcs{F},\phi_\qcs{F})$ where
@@ -1612,14 +1608,22 @@ Quasicharacter sheaves on $\Gr_R(X)$ form a rigid monoidal category in the obvio
 %Note that we may informally regard $\QC(\Gr_R(X))$ a `union' of the full subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 
 \begin{theorem}\label{thm:QCXK}
-Let $X_K$ be a commutative algebraic group over $K$ with Néron model $X$ over $R$. 
-\begin{enumerate}
-\item[(1)] There is a canonical short exact sequence of abelian groups 
+Let $K$ and $R$ be as above.
+The trace of Frobenius provides a natural transformation between the additive functors
 \[
-0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{\Gr_R(X)} \to \Hom_\text{qc}(X_K(K),\EEx) \to 0.
+F_{\QC}: X_K \mapsto \QCiso{\Gr_R(X)}
+\qquad\text{and}\qquad
+F_{\text{qc}}: X_K \mapsto \Hom_{\text{qc}}(X_K(K),\EEx)
+\]
+where $X$ is a Neron model for $X_K$, as functors from the additive category of connected commutative algebraic groups over $K$ that admit Neron models to the category of abelian groups. 
+Regarding this natural transformation:
+\begin{enumerate}
+\item[(1)] there is a canonical short exact sequence of abelian groups 
+\[
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{\Gr_R(X)} \to \Hom_\text{qc}(X_K(K),\EEx) \to 0;
 \] 
-\item[(2)] For all quasicharacter sheaves $\qcs{F}$, $\qcs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\qcs{F},\qcs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism.
-\item[(3)] For all quasicharacter sheaves $\qcs{F}$ on $\Gr_R(X)$,
+\item[(2)] for all quasicharacter sheaves $\qcs{F}$, $\qcs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\qcs{F},\qcs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
+\item[(3)] for all quasicharacter sheaves $\qcs{F}$ on $\Gr_R(X)$,
 \[
 \Aut(\qcs{F}) \iso \Hom((\pi_0(X)_{\Fq})_{\Weil{}},\EEx),
 \]
@@ -1645,7 +1649,7 @@ canonically.
 So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 \end{proof}
 
-\subsection{Group schemes that admit a Neron model}
+\subsection{Natural transformation}
 
 We have just seen that if $X_K$ is a connected commutative algebraic group $X_K$ over a local field $K$ that admits a Neron model $X$ over $R$, then the category of   quasicharacter sheaves on the Greenberg transform of the Neron model $X$ provides a geometrization and categorification of quasicharacters of $X_K(K)$. 
 
