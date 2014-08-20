@@ -410,8 +410,7 @@ is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.
 
 \subsection{Trace of Frobenius}\label{sec:Frob}
 
-We now introduce a tool which will help us understand isomorphism classes of objects in $\QCiso{G}$.
-
+In this section we introduce two tools which will help us understand isomorphism classes of objects in $\QC(G)$: the trace of Frobenius map $\QCiso{G} \to G(k)^*$ and the pullback functor $\QC(G) \to \QC(H)$ associated to a morphism $H \to G$.
 
 %A Weil sheaf $(\gqcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gqcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. 
 %We now briefly review this point of view for later use in Section~\ref{sec:basechange}; see also \cite{deligne:80a}*{Def.~1.1.10}.  If $w \ceq \Frob{}^n$ we write $w_G$ for $\Frob{G}^n$.
@@ -441,43 +440,15 @@ then $\trFrob{(\gqcs{L},\phi)} = \trFrob{(\gqcs{L'},\phi')}$ as functions on $G(
 Now suppose $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$.
 The isomorphism $\mu : \bm^* \gqcs{L} \to \LxL$ together with
 \ref{QC.3} guarantee
-that the function $\trFrob{(\qcs{L},\phi)} : G(\Fq)\to \EEx$ is a group homomorphism.  
-Moreover, this group homomorphism is insensitive to $\phi$ in the sense 
-that if $(\gqcs{L},\mu,\phi)$ and $(\gqcs{L},\mu,\phi')$ are quasicharacter sheaves, then $\trFrob{(\qcs{L},\phi)} = \trFrob{(\qcs{L},\phi')}$. \todo{Sketch proof?}
-This justifies abbreviating $\trFrob{(\gqcs{L},\phi)}$ to $\trFrob{\qcs{L}}$ in this case.
-The diagram below defines two group homomorphisms, both denoted $\TrFrob{G}$ and both called the \emph{Trace of Frobenius} for $G$; we trust that context will remove any ambiguity regarding this notation.
-\[
-\begin{tikzcd}
-\QCiso{G} \arrow{rr} \arrow{dr}[swap]{\qcs{L} \mapsto t_{\qcs{L}}}{\TrFrob{G}} && \arrow{dl}[swap]{\TrFrob{G}}{(\gqcs{L},\phi) \mapsto t_{\gqcs{L},\phi}} \lQCiso{G} \\
-& G(\Fq)^* & 
-\end{tikzcd}
-\]
-As remarked above, the group homomorphism $\QCiso{G} \to \lQCiso{G}$ is surjective;
-we will see that $\QCiso{G} \to \lQCiso{G}$ need not be injective.
-However, in Theorem~\ref{thm:snake}, we will see that the group homomorphism $\QCiso{G} \to G(\Fq)^*$ is surjective
-while the main result of this paper, Theorem~\ref{thm:snake}, 
-shows that $\lQCiso{G} \to G(\Fq)^*$ is an isomorphism.
-
-\begin{proposition}\label{prop:functorialG}
-Trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a natural transformation
-between the two contravariant additive functors
+that the function $\trFrob{(\gqcs{L},\phi)} : G(\Fq)\to \EEx$ is a group homomorphism, which we will also denote by $\trFrob{\qcs{L}}$.  Moreover,
+this homomorphism depends only on the isomorphism class of $\qcs{L}$, so we obtain a map
 \begin{align*}
-F_1 : G &\mapsto \QCiso{G} \\
-F_2 : G &\mapsto G(\Fq)^*
+\TrFrob{G} : \QCiso{G} &\to G(\Fq)^* \\
+\qcs{L} &\mapsto \trFrob{\qcs{L}}.
 \end{align*}
-from the category of smooth commutative group schemes over $\Fq$ to the category of abelian groups.
-Likewise, for $\TrFrob{G} : \lQCiso{G} \to G(\Fq)^*$, {\it mut.\hskip-1pt mut.}
-\end{proposition}
-
-We will prove this proposition at the end of Section \ref{sec:pullback}
-
-In [point] we will use trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ to show that $\QCiso{G}$ is an extension of $G(\Fq)^*$ by $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$.
-
-\subsection{Pull-back and products}\label{sec:pullback}
-
-As a step toward understanding quasicharacter sheaves we begin by showing that quasicharacter sheaves admit pull-backs and external products.
-%show that every morphism $H \to G$ of smooth commutative groups schemes over $\Fq$ induces a monoidal functor from quasicharacter sheaves on $G$ to quasicharacters on $H$. 
-These simple but important results will be used in the proofs of many results in this paper.
+Since tensor products on the stalks of $\qcs{L}$ induce pointwise multiplication on the trace of Frobenius, $\TrFrob{G}$ is a group homomorphism.  We devote the remainder of this section to
+studying the behavior of the trace of Frobenius under morphisms of group schemes.  These simple but important
+results on pullbacks and external products will be used in the proofs of many results in this paper.
 
 \begin{proposition}\label{prop:pullback}
   If $f : H\to G$ is a morphism of smooth commutative group schemes over $\Fq$ then
@@ -614,9 +585,20 @@ $\qcs{L} \to \qcs{L}_1\boxtimes \qcs{L}_2$ of quasicharacters sheaves on $G\time
 This completes the proof that $\boxtimes$ is essentially surjective.
 \end{proof}
 
-Using these results on pullbacks we may now prove that Trace of Frobenius is a natural transformation.
+Using these results on pullbacks and products, we may prove a naturality property of $\TrFrob{G}$.
 
-\begin{proof}[Proof of Proposition~\ref{prop:functorialG}]
+\begin{proposition}\label{prop:functorialG}
+Trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a natural transformation
+between the two contravariant additive functors
+\begin{align*}
+F_1 : G &\mapsto \QCiso{G} \\
+F_2 : G &\mapsto G(\Fq)^*
+\end{align*}
+from the category of smooth commutative group schemes over $\Fq$ to the category of abelian groups.
+Likewise, for $\TrFrob{G} : \lQCiso{G} \to G(\Fq)^*$, {\it mut.\hskip-1pt mut.}
+\end{proposition}
+
+\begin{proof}
 The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
 while the second part shows that Trace of Frobenius is a natural transformation
 $T: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product},
@@ -977,7 +959,7 @@ Then $(f_! V_H)_\psi$ (the $\psi$-isotypic component of $f_!V_H$) is an object i
 Let $f$, $A$, $V$ and $\psi$ be as above; set $\qcs{E} = (f_! V_H)_\psi$.
 It is clear that $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank one.
 We must show that comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
-To do this we use etale descent to see that pull-back along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$. 
+To do this we use etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$. 
 In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
 Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
 \end{proof}
@@ -1072,7 +1054,7 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
 In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qcs{L}$ on $G$ descends to $G$; let $\qcs{E}$ be an object in $\bQC(G)$ for which $B_G(\qcs{E}) \iso \qcs{L}$.
  Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
 From here, Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields \citelist{\cite{deligne:SGA4.5}*{Sommes trig.}, \cite{laumon:87a}*{1.1.3}}  gives us all we need, as we briefly recall.
-The key observation is that, by etale descent, pull-back by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$. 
+The key observation is that, by etale descent, pullback by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$. 
 Using the equivalence given by $\Lang^*$, if $\Lang^*\qcs{E} = V$ with character $\psi$ and isomorphism $V\to V\otimes V$ then 
 $\qcs{E} \iso (\Lang_! V)_\psi$, the $\psi$-isotypic component of the push-forward $\Lang_* V$ ($\Lang$ is proper, so $\Lang_* = \Lang_!$) of the constant sheaf $V$ on $G$ equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes\qcs{E}$ determined by $V\to V\otimes V$. 
 Moreover, $\Aut(\qcs{E})$ is the group of automorphisms of $\rho : V\to V$ for which 
