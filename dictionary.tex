@@ -1572,6 +1572,13 @@ canonically, for any $X$ lft over $R$.
 
 \subsection{Quasicharacter sheaves on the Greenberg transform of a Néron model}
 
+Suppose $X_K$ is a connected commutative algebraic group over $K$ that admits a Néron model $X$ over $R$.
+%
+A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) = X(R)\to X(R_n)$, for some $n\in\NN_0$;
+the group of quasicharacters of $X_K(K)$ will be denoted by $\Hom_\text{qc}(X_K(K),\EEx)$ and the subgroup of those that factor through $X(R_n)$ will be denoted by $\Hom_n(X_K(K),\EEx)$.
+%
+In this section we explain how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves. 
+
 Let $G$ be a commutative group scheme over $\Fq$.
 Consider the category $\mathcal{C}(G)$ of triples
 $\qcs{F}\ceq (\gqcs{F},\mu_\qcs{F},\phi_\qcs{F})$ where
@@ -1584,15 +1591,7 @@ subject to the conditions as in \ref{QC.1} and \ref{QC.2},
 with morphisms defined as in \ref{QC.3}.
 This category $\mathcal{C}(G)$ is rigid monoidal, with tensor product defined as in Definition~\ref{def:QC}. Note that $\mathcal{C}(G) = \QC(G)$ if $G$ is also smooth.
 
-
-Now suppose $X_K$ is a connected commutative algebraic group over $K$ that admits a Néron model $X$ over $R$.
-
-A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) = X(R)\to X(R_n)$, for some $n\in\NN_0$;
-the group of quasicharacters of $X_K(K)$ will be denoted by $\Hom_\text{qc}(X_K(K),\EEx)$.
-
-
-Then $\Gr_R(X)$ is commutative group scheme over $\Fq$
-with component group scheme
+The Greenberg transform $\Gr_R(X)$ of $X$ is commutative group scheme over $\Fq$ with component group scheme
 \[
 \pi_0(\Gr_R(X))= \pi_0(X) \times_S S_0
 \]
@@ -1605,8 +1604,7 @@ For every $n\in \NN_0$,
 $\Gr^R_n(X)$ is {\it smooth} commutative group scheme over $\Fq$
 with component group scheme
 $\pi_0(\Gr^R_n(X))= \pi_0(X) \times_S S_0$.
-
-
+%
 For every non-negative integer $n$, the morphism of $\Fq$-schemes $P^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
 \[
 P^R_n(X)^* : \QC(\Gr^R_n(X)) \to \mathcal{C}(\Gr_R(X)),
@@ -1619,10 +1617,9 @@ A {\it quasicharacter sheaf on $\Gr_R(X)$} is an object $\qcs{F}$ in $\mathcal{C
 Quasicharacter sheaves on $\Gr_R(X)$ form a rigid monoidal category in the obvious way, denoted by $\QC(\Gr_R(X))$.
 \end{definition}
 
-Note that we may informally regard $\QC(\Gr_R(X))$ a `union' of the full subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
+%Note that we may informally regard $\QC(\Gr_R(X))$ a `union' of the full subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 
-
-\begin{theorem}\label{thm:QCX}
+\begin{theorem}\label{thm:QCXK}
 Let $X_K$ be a commutative algebraic group over $K$ with Néron model $X$ over $R$. 
 \begin{enumerate}
 \item[(1)] There is a canonical short exact sequence of abelian groups 
@@ -1655,6 +1652,25 @@ canonically.
 \end{enumerate}
 So Theorem~\ref{thm:QCX} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 \end{proof}
+
+\subsection{Group schemes that admit a Neron model}
+
+We have just seen that if $X_K$ is a connected commutative algebraic group $X_K$ over a local field $K$ that admits a Neron model $X$ over $R$, then the category of   quasicharacter sheaves on the Greenberg transform of the Neron model $X$ provides a geometrization and categorification of quasicharacters of $X_K(K)$. 
+
+It is known that all Abelian varieties over local fields and all algebraic tori over local fields admit Neron models. In those two cases, we can improve Theorem~\ref{thm:QCXK} slightly with the following addendum.
+
+\begin{proposition}\label{prop:natural_transformation}
+Let $K$ be a local field with ring of integers $R$ and residue field $\Fq$.
+Let $\mathcal{N}/K$ be the additive category of Abelian varieties over $K$ or the  additive category of algebraic tori over $K$.
+Then the trace of Frobenius provides a natural transformation between the additive functors
+\begin{enumerate}
+\item[$F_{\QC}$:] $X_K \mapsto \QCiso{\Gr_R(X)}$
+\item[$F_{\text{qc}}$:] $X_K \mapsto \Hom_{\text{qc}}(X_K(K),\EEx)$
+\end{enumerate}
+from the additive category $\mathcal{N}/K$ to the category of abelian groups.
+\end{proposition}
+
+It seems likely that there connected commutative algebraic groups over local fields that admit Neron models but are neither algebraic tori nor Abelian varieties; indeed, it is conjectured that K-wound unipotent group schemes over local fields like $\Fq((t))$ are examples. We have use the ponderous phrase "let $X_K$ be a connected commutative algebraic group over $K$ that admits a Néron model $X$" in Section~\ref{sec:applications} to draw attention to the fact that our theory of quasicharacter sheaves is applicable to more than algebraic tori and Abelian varieties.
 
 \subsection{Weil restriction and quasicharacters}\label{sec:wrK}
 
@@ -1735,7 +1751,7 @@ Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction o
 
 \subsection{Transfer of quasicharacters}\label{sec:transfer}
 
-Let $K$ and $K'$ be local fields with rings of integers $R$ and $R'$ and residue fields $k$ and $k'$, respectively. Set $S = \Spec(S)$ and $S_n = \Spec(R_n)$; likewise define $S' = \Spec{R'}$ and $S'_{n'} = \Spec{R'_{n'}}$.
+Let $K$ and $K'$ be local fields with rings of integers $R$ and $R'$ and residue fields $k$ and $k'$, respectively. Set $S = \Spec{S}$ and $S_n = \Spec{R_n}$; likewise define $S' = \Spec{R'}$ and $S'_{n'} = \Spec{R'_{n'}}$.
 
 Let $X_K$ and $X'_{K'}$ be connected commutative algebraic groups over $K$ and $K'$, respectively, that admit Néron models $X$ and $X'$ over $R$ and $R'$, respectively.
 Suppose $m$ and $m'$ are non-negative integers such that 
@@ -1751,7 +1767,7 @@ Then
 $
 \Gr^R_m(X) \iso \Gr^{R'}_{m'}(X')
 $
-as smooth group schemes over $\Fq$ and, by Proposition~\ref{prop:pullback} the isomorphism above determines an equivalence of categories
+as smooth group schemes over $\Fq$; accordingly, by Proposition~\ref{prop:pullback} the isomorphism above determines an equivalence of categories
 \begin{equation}\label{eq:categorical_transfer}
 \QC(\Gr^R_m(X)) \cong \QC(\Gr^{R'}_{m'}(X'))
 \end{equation}
@@ -1761,14 +1777,13 @@ $
 $
 and thence, by trace of Frobenius, an isomorphism
 \begin{equation}\label{eq:transfer}
-\Hom(X(R_m),\EEx) \iso \Hom(X'(R'_{m'}),\EEx).
+\Hom_m(X_K(K),\EEx) = \Hom(X(R_m),\EEx) \iso \Hom(X'(R'_{m'}),\EEx) = \Hom_{m'}(X'_{K'}(K'),\EEx).
 \end{equation}
-Recall that $\Hom(X(R_m),\EEx)$ is a subgroup of $\Hom_\text{qc}(X_K(K),\EEx)$ and $\Hom(X'(R'_{m'}),\EEx)$ is a subgroup of $\Hom_\text{qc}(X_K(K),\EEx)$.
-The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of certain quasicharacters between $X_K(K)$ and $X_{K'}(K')$.
+Recall that $\Hom_m(X_K(K),\EEx)$ is a subgroup of $\Hom_\text{qc}(X_K(K),\EEx)$ and $\Hom_{m'}(X'_{K'}(K'),\EEx)$ is a subgroup of $\Hom_\text{qc}(X_K(K),\EEx)$.
+The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of certain quasicharacters between $X_K(K)$ and $X_{K'}(K')$. 
+When it exists, we now recognize this transfer of quasicharacters as a consequence of the equivalence of categories of quasicharacter sheaves \eqref{eq:categorical_transfer}.
 
-Such a relationship can exist between quasicharacters of algebraic tori over local fields, even when the characteristics of $K$ and $K'$ differ
-\citelist{\cite{chai-yu:01a} \cite{deligne:84a}*{\S 1}}.
-
+Such a relationship can exist between quasicharacters of algebraic tori over local fields, even when the characteristics of $K$ and $K'$ differ.
 Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
 splitting over $L$ and $L'$ respectively.
 Then $T$ and $T'$ are said to be \emph{$N$-congruent} \cite{chai-yu:01a}*{\S 2} if there are isomorphisms
@@ -1783,15 +1798,15 @@ Then $T$ and $T'$ are said to be \emph{$N$-congruent} \cite{chai-yu:01a}*{\S 2} 
   \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$, and
   \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
  \end{enumerate}
-If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
+If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism 
 \begin{equation}\label{transfer}
   \Hom_N(T(K), \EEx) \iso \Hom_N(T'(K'),\EEx).
 \end{equation}
 Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every
-$N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
-
+$N' \leq N$, the isomorphism \eqref{transfer} is level-preserving at integers less than $N$.
+%
 One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between the
-$\TT_n$ and $\TT'_n$ assuming that $T$ and $T'$ are sufficiently congruent.
+$\underline{T} \times_S S_n$ and $\underline{T}' \times_{S'} {S'}_n$ assuming that $T$ and $T'$ are sufficiently congruent.
 They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
 Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
 Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent
@@ -1800,38 +1815,20 @@ then there is a canonical isomorphism of smooth group schemes
   \TT_{N-3h} \to \TT'_{N-3h}
  $
  determined by $\alpha, \beta$ and $\phi$.
-Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
+Combining this with the paragraph above gives an instance of the geometrization and categorification of the transfer of characters.
 
 \begin{proposition}\label{prop:transfer}
- With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $n \ceq N-3h$.
+ With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $m \ceq N-3h$.
  Then there is a canonical equivalence of categories
  \[
-  \QC(\GN{T}'_{n}) \to \QC(\GN{T}_{n})
+ \QC(\Gr^{R}_m(\underline{T})) \to \QC(\Gr^{R'}_m(\underline{T}'))
  \]
- determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
+ determined by $\alpha, \beta$ and $\phi$ inducing an isomorphism
  \[
-  \Hom_{<n}(T'(K'), \EEx) \to \Hom_{<n}(T(K), \EEx)
+\Hom_m(T(K), \EEx) \to  \Hom_m(T'(K'), \EEx)
  \]
- through the trace of Frobenius.
+ through the trace of Frobenius,  compatible with \eqref{transfer}.% ($m < N$).
 \end{proposition}
-
-\subsection{Algebraic tori and Abelian varieties over local fields}
-
-\begin{corollary}\label{cor:application}
-For every algebraic torus $T$ over $K$, the trace of Frobenius
-  \[
-\trFrob{T}:  \QCiso{\GN{T}} \to \Hom_{\text{qc}}(T(K),\EEx)
-  \]
-is an isomomorphism.
-Moreover, the isomorphism $\trFrob{T}$ is a natural transformation
-between the additive functors
-\begin{enumerate}
-\item[$F_{\QC}$:] $T \mapsto \QCiso{\GN{T}}$
-\item[$F_{\text{qc}}$:] $T \mapsto \Hom_{\text{qc}}(T(K),\EEx)$
-\end{enumerate}
-from the additive category of algebraic tori over $K$ to the category of abelian groups.
-\end{corollary}
-
 
 
 \bibliographystyle{amsalpha}
