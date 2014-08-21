@@ -76,7 +76,7 @@
 \newcommand{\EEx}{\EE^\times}
 \newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
 \newcommand{\Weil}[1]{\mathcal{W}_{#1}}
-
+\newcommand{\m}{{\mathfrak{m}}}
 %%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
 \newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
 \newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
@@ -85,7 +85,7 @@
 \newcommand{\TT}{\underline{T}}
 \newcommand{\TL}{\underline{T_L}}
 \newcommand{\TTp}{\underline{T}'}
-
+\newcommand{\comp}{\Pi} % Component group
 %%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\W}{W}
@@ -118,6 +118,9 @@
 \newcommand{\ceq}{{\, :=\, }}
 \newcommand{\tq}{{\ \vert\ }}
 \newcommand{\iso}{{\ \cong\ }}
+\newcommand{\trFrob}[1]{t_{#1}}
+\newcommand{\TrFrob}[1]{T_{#1}}
+\newcommand{\lTrFrob}[1]{\TrFrob{#1}^2}
 %% Limits
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
@@ -137,8 +140,6 @@
 \newcommand{\QCiso}[1]{\QC(#1)_{/\text{iso}}}
 \newcommand{\bQCiso}[1]{\bQC(#1)_{/\text{iso}}}
 \newcommand{\fQCiso}[1]{\fQC(#1)_{/\text{iso}}}
-\newcommand{\trFrob}[1]{t_{#1}}
-\newcommand{\TrFrob}[1]{T_{#1}}
 %% amsmath replacements for \atop
 \newcommand{\latop}[2]{\genfrac{}{}{0pt}{0}{#1}{#2}}
 \newcommand{\partop}[2]{\genfrac{(}{)}{0pt}{0}{#1}{#2}}
@@ -172,9 +173,7 @@
 \newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
 %% Hyphenation override
 \hyphenation{quasi-character}
-\newcommand{\lTrFrob}[1]{\TrFrob{#1}^2}
-\newcommand{\comp}{\Pi} % Component group
-\newcommand{\m}{{\mathfrak{m}}}
+
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%
 \begin{document}
@@ -595,7 +594,7 @@ F_1 : G &\mapsto \QCiso{G} \\
 F_2 : G &\mapsto G(\Fq)^*
 \end{align*}
 from the category of smooth commutative group schemes over $\Fq$ to the category of abelian groups.
-Likewise, for $\TrFrob{G} : \lQCiso{G} \to G(\Fq)^*$, {\it mut.\hskip-1pt mut.}
+%Likewise, for $\TrFrob{G} : \lQCiso{G} \to G(\Fq)^*$, {\it mut.\hskip-1pt mut.}
 \end{proposition}
 
 \begin{proof}
@@ -1499,13 +1498,13 @@ is an equivalence of categories?}
 \section{Applications}\label{sec:applications}% to algebraic tori and Abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
 
 Let $K$ be a local field (in the sense of Serre) with residue field $\Fq$. 
-In this section we consider connected smooth commutative algebraic groups over $K$ that admit a Néron model, by which we means a perhaps lft Néron model.
+In this section we consider connected smooth commutative algebraic groups over $K$ that admit a Néron model, by which we means a lft Néron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected smooth commutative algebraic groups over $K$ that contain no subgroup of type $\mathbb{G}_\text{a}$.
-We remark that these connected commutative algebraic groups over $K$ form an additive category in a natural way, as a full subcategory of connected commutative algebraic groups over $K$, and that this category includes algebraic tori over $K$ and Abelian varieties over $K$.
+These algebraic groups over $K$ form an additive category, denoted by $\mathcal{N}/K$ below, in a natural way, as a full subcategory of connected commutative algebraic groups over $K$. This category includes algebraic tori over $K$ and Abelian varieties over $K$.
 
 Let $R$ be the ring of integers of $K$.
 Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$, for every non-negative integer $n$.
-Let $X_K$ be a connected smooth commutative algebraic groups over $K$ that admit a Néron model, $X$.
+Suppose $X_K \in \mathcal{N}/K$.
 A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) \to X(R_n)$, for some non-negative integer $n$;
 the group of quasicharacters of $X_K(K)$ will be denoted by $\Hom_\text{qc}(X_K(K),\EEx)$ and the subgroup of those that factor through $X(R_n)$ will be denoted by $\Hom_n(X_K(K),\EEx)$.
 %
@@ -1530,8 +1529,8 @@ See \cite{bertrapelle-gonzales:Greenberg} for the definition and fundamental pro
 \cite{nicaise-sebag:motivicSerre}*{\S 2.2}
 }.
 This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
-
-For any $n\in \NN_0$, we will write
+%
+For any non-negative integer $n$ we will write
 \[
 \Gr^R_n : \partop{\text{Schemes}}{\text{lft over $R$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
 \]
@@ -1588,9 +1587,7 @@ and $\Fq$-rational points
 \Gr_R(X)(\Fq)\iso X_K(K),
 \]
 canonically.
-For every $n\in \NN_0$,
-$\Gr^R_n(X)$ is {\it smooth} commutative group scheme over $\Fq$
-with component group scheme
+For every non-negative integer $n$, $\Gr^R_n(X)$ is {\it smooth} commutative group scheme over $\Fq$ with component group scheme
 $\pi_0(\Gr^R_n(X))= \pi_0(X) \times_S S_0$.
 %
 For every non-negative integer $n$, the morphism of $\Fq$-schemes $P^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
@@ -1615,8 +1612,8 @@ F_{\QC}: X_K \mapsto \QCiso{\Gr_R(X)}
 \qquad\text{and}\qquad
 F_{\text{qc}}: X_K \mapsto \Hom_{\text{qc}}(X_K(K),\EEx)
 \]
-where $X$ is a Neron model for $X_K$, as functors from the additive category of connected commutative algebraic groups over $K$ that admit Neron models to the category of abelian groups. 
-Regarding this natural transformation:
+where $X$ is a Neron model for $X_K$, as functors from $\mathcal{N}/K$ to the category of abelian groups. 
+Regarding this natural transformation, for every $X_K \in \mathcal{N}/K$:
 \begin{enumerate}
 \item[(1)] there is a canonical short exact sequence of abelian groups 
 \[
@@ -1633,8 +1630,15 @@ canonically.
 
 \begin{proof}
 To begin, fix $n\in \NN$.
-The following statements follow directly from Theorems~\ref{thm:snake} and \ref{thm:autornaught} together with our observations about the component group of $\Gr^R_n(X)$.
+The following statements follow directly from properties of Néron models, Proposition~\ref{prop:functorialG} and Theorems~\ref{thm:snake} and \ref{thm:autornaught} together with our observations about the component group of $\Gr^R_n(X)$.
 \begin{enumerate}
+\item[(0)] Trace of Frobenius gives a natural transformation from
+\[
+F_{\QC,n}: X_K \mapsto \QCiso{\Gr^R_n(X)}
+\qquad\text{to}\qquad
+F_{\text{qc},n}: X_K \mapsto \Hom_n(X_K(K),\EEx)
+\]
+as functors from $\mathcal{N}/K$ to Abelian groups.
 \item[(1)] There is a canonical short exact sequence of abelian groups 
 \[
 0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{\Gr^R_n(X)} \to \Hom(X(R_n),\EEx) \to 0.
@@ -1648,24 +1652,6 @@ canonically.
 \end{enumerate}
 So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 \end{proof}
-
-\subsection{Natural transformation}
-
-We have just seen that if $X_K$ is a connected commutative algebraic group $X_K$ over a local field $K$ that admits a Neron model $X$ over $R$, then the category of   quasicharacter sheaves on the Greenberg transform of the Neron model $X$ provides a geometrization and categorification of quasicharacters of $X_K(K)$. 
-
-It is known that all Abelian varieties over local fields and all algebraic tori over local fields admit Neron models. In those two cases, we can improve Theorem~\ref{thm:QCXK} slightly with the following addendum.
-
-\begin{proposition}\label{prop:natural_transformation}
-Let $K$ be a local field with ring of integers $R$ and residue field $\Fq$.
-Let $\mathcal{N}/K$ be the additive category of Abelian varieties over $K$ or the  additive category of algebraic tori over $K$.
-Then the trace of Frobenius provides a natural transformation between the additive functors
-\begin{enumerate}
-\item[$F_{\QC}$:] $X_K \mapsto \QCiso{\Gr_R(X)}$
-\item[$F_{\text{qc}}$:] $X_K \mapsto \Hom_{\text{qc}}(X_K(K),\EEx)$
-\end{enumerate}
-from the additive category $\mathcal{N}/K$ to the category of abelian groups.
-\end{proposition}
-
 
 \subsection{Weil restriction and quasicharacters}\label{sec:wrK}
 
@@ -1748,8 +1734,8 @@ Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction o
 
 Let $K$ and $K'$ be local fields with rings of integers $R$ and $R'$ and residue fields $k$ and $k'$, respectively. Set $S = \Spec{S}$ and $S_n = \Spec{R_n}$; likewise define $S' = \Spec{R'}$ and $S'_{n'} = \Spec{R'_{n'}}$.
 
-Let $X_K$ and $X'_{K'}$ be connected commutative algebraic groups over $K$ and $K'$, respectively, that admit Néron models $X$ and $X'$ over $R$ and $R'$, respectively.
-Suppose $m$ and $m'$ are non-negative integers such that 
+Suppose $X_K\in \mathcal{N}/K$ and $X'_{K'}\in \mathcal{N}/K'$ 
+and that $m$ and $m'$ are non-negative integers such that 
 \begin{equation}\label{eq:schematic_transfer}
 R_m \iso R'_{m'}
 \qquad
@@ -1772,11 +1758,10 @@ $
 $
 and thence, by trace of Frobenius, an isomorphism
 \begin{equation}\label{eq:transfer}
-\Hom_m(X_K(K),\EEx) = \Hom(X(R_m),\EEx) \iso \Hom(X'(R'_{m'}),\EEx) = \Hom_{m'}(X'_{K'}(K'),\EEx).
+\Hom_m(X_K(K),\EEx)  \iso  \Hom_{m'}(X'_{K'}(K'),\EEx).
 \end{equation}
-Recall that $\Hom_m(X_K(K),\EEx)$ is a subgroup of $\Hom_\text{qc}(X_K(K),\EEx)$ and $\Hom_{m'}(X'_{K'}(K'),\EEx)$ is a subgroup of $\Hom_\text{qc}(X_K(K),\EEx)$.
 The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of certain quasicharacters between $X_K(K)$ and $X_{K'}(K')$. 
-When it exists, we now recognize this transfer of quasicharacters as a consequence of the equivalence of categories of quasicharacter sheaves \eqref{eq:categorical_transfer}.
+We now recognize this transfer of quasicharacters as a consequence of the equivalence of categories of quasicharacter sheaves \eqref{eq:categorical_transfer}.
 
 Such a relationship can exist between quasicharacters of algebraic tori over local fields, even when the characteristics of $K$ and $K'$ differ.
 Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
@@ -1801,19 +1786,17 @@ Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for ev
 $N' \leq N$, the isomorphism \eqref{transfer} is level-preserving at integers less than $N$.
 %
 One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between the
-$\underline{T} \times_S S_n$ and $\underline{T}' \times_{S'} {S'}_n$ assuming that $T$ and $T'$ are sufficiently congruent.
-They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
-Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
-Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent
-then there is a canonical isomorphism of smooth group schemes
+$\underline{T} \times_S S_n$ and $\underline{T}' \times_{S'} {S'}_n$, where $\underline{T}$ is a Neron model of $T$ and $\underline{T}'$ is a Neron model of $T'$, assuming that $T$ and $T'$ are sufficiently congruent.
+They define a quantity $h$ (the smallest integer so that $\pi^h$ lies in the
+Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}) and show  that if $N > 3h$ and $T$ and $T'$ are $N$-congruent then there is a canonical isomorphism of smooth group schemes
  $
-  \TT_{N-3h} \to \TT'_{N-3h}
+ \underline{T}_{N-3h} \to \underline{T}'_{N-3h}
  $
- determined by $\alpha, \beta$ and $\phi$.
+ determined by $\alpha, \beta$ and $\phi$ \cite{chai-yu:01a}*{Thm. 8.5}.
 Combining this with the paragraph above gives an instance of the geometrization and categorification of the transfer of characters.
 
 \begin{proposition}\label{prop:transfer}
- With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $m \ceq N-3h$.
+ With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $m = N-3h$.
  Then there is a canonical equivalence of categories
  \[
  \QC(\Gr^{R}_m(\underline{T})) \to \QC(\Gr^{R'}_m(\underline{T}'))
