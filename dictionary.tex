@@ -1061,15 +1061,21 @@ Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\qcs{E}
 For the last part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
 \end{proof}
 
+%\begin{remark}
 We have just seen that, for a connected commutative algebraic group $G$ over $\Fq$, the category of quasicharacter sheaves on $G$ is equivalent to the category of characters $\psi$ of $G(\Fq)$.
 We have also just seen that if the character of $\Lang^*\qcs{E}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu_\qcs{E} : \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ which is part of the data that determines a quasicharacter sheaf on $G$.
-That leads to a perspective on the function--sheaf dictionary common in the literature in which one considers $1$-dimensional local systems $\qcs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{E} \iso \qcs{E} \boxtimes\qcs{E}$.
-% as in \cite{kamgarpour:09a}*{Introduction} (or sometimes, $1$-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$).
+That leads to a perspective on the function--sheaf dictionary common in the literature in which one considers $1$-dimensional local systems $\qcs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{E} \iso \qcs{E} \boxtimes\qcs{E}$; see \cite{kamgarpour:09a}*{Introduction}, for example.
+As a slight variation, one may also consider $1$-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$.
+One may show that all such $\gqcs{L}$ are determined by extensions of $\bG$ by $\EEx$ which are fixed by Frobenius and that the trace of Frobenius provides a canonical isomorphism from $\Hh^2(\bG,\EEx)^{\Frob{}}$ to $G(\Fq)^*$; {\it cf.\ }\cite{kamgarpour:09a}*{Prop 2.15}.
 %
+
 Although the category of quasicharacter sheaves on $G$ does specialize to that common notion when $G$ is connected and of finite type, the common notion is not appropriate if one wishes to extend the dictionary to smooth commutative group schemes over finite fields. 
 In particular, as we have already seen in Section~\ref{sec:etale}, for a given quasicharacter sheaf $\qcs{L} = (\gqcs{L},\mu,\phi)$ there may be a different isomorphism $\mu' : \bm^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$ for which $\qcs{L}'=(\gqcs{L},\mu',\phi)$ is also a quasicharacter sheaf on $G$, not isomorphic to $\qcs{L}$ in $\QC(G)$.
-Indeed, Proposition~\ref{prop:etale-iso} shows that $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ measures the possibilities for $\mu'$ when $G$ is etale.
-We will see in Section~\ref{sec:main} that, for any smooth commutative group scheme $G$, the possibilities for $\mu'$ are measured by $\Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx))$.
+Indeed, Proposition~\ref{prop:etale-iso} shows that when $G$ is etale, $\Hh^2(\bG,\EEx)^{\Frob{}}$ measures the possibilities for $\mu'$.
+In other words, the common perspective on the function--sheaf dictionary leads only, and exactly, to the part of category of quasicharacter sheaves that is {\it completely invisible} to the trace of Frobenius! 
+
+We will see in Section~\ref{sec:main} that, for any smooth commutative group scheme $G$, the part of category of quasicharacter sheaves that is invisible to the trace of Frobenius are measured by $\Hh^2(\pi_0(\bG),\EEx)^{\Frob{}}$.
+%\end{remark}
 
 \section{The function--sheaf dictionary for smooth, commutative group schemes}\label{sec:main}
 
@@ -1154,7 +1160,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
 We now wish to use the apply the results of Section~\ref{sec:connected} to the identity component of $G$; to do so, we must know that the identity component of $G$ is actually an algebraic group over $\Fq$.
 
 \begin{lemma} \label{lem:G0alg-grp}
-If $G$ is a commutative smooth group scheme over $\Fq$ then its identity component,$G^0$ is a connected algebraic group over $\Fq$.
+If $G$ is a commutative smooth group scheme over $\Fq$ then its identity component, $G^0$, is a connected algebraic group over $\Fq$.
 \end{lemma}
 \begin{proof}
  Since $G$ is a smooth group scheme over $\Fq$, its
@@ -1813,13 +1819,39 @@ compatible with \eqref{transfer}.% ($m < N$).
 
 \section{Notes for the new Introduction}
 
-Motivated to an application to the geometrization and categorification of quasicharacters of p-adic tori,
+Motivated by an application to the geometrization and categorification of quasicharacters of p-adic tori,
 this paper extends Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields to all smooth commutative group schemes over finite fields.
 
-As Deligne explained in \cite{deligne:SGA4.5}*{sommes trig.}, if $G$ is a connected commutative algebraic group over $\FF_q$, then the trace of Frobenius provides a perfect dictionary between characters of $G(\FF_q)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which $m^*\qcs{E} \iso \qcs{E} \boxtimes \qcs{E}$, where $m : G\times G\to G$ is the multiplication map.
-If one wishes to make a category from this class of local systems, one is lead to consider sheaf morphisms $\qcs{E} \to \qcs{E}'$ which are compatible with particular choices of isomorphisms $m^*\qcs{E} \iso \qcs{E} \boxtimes \qcs{E}$ and $m^*\qcs{E}' \iso \qcs{E}'\boxtimes \qcs{E}'$. {\it A priori}, these sheaf morphisms do not form a category, since 
+As Deligne explained in \cite{deligne:SGA4.5}*{sommes trig.}, if $G$ is a connected commutative algebraic group over $\FF_q$, then the trace of Frobenius provides a perfect dictionary between characters of $G(\FF_q)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which 
+\begin{equation}\label{introbox}
+m^* \qcs{E} \iso \qcs{E} \boxtimes \qcs{E},\tag{0}
+\end{equation}
+where $m : G\times G\to G$ is the multiplication map.
+%
+If one wishes to make a category from this class of local systems, one is led to consider sheaf morphisms $\qcs{E} \to \qcs{E}'$ which are compatible with particular choices of \eqref{introbox} for $\qcs{E}$ and $\qcs{E'}$. {\it A priori}, these sheaf morphisms do not form a category, but since $G$ is connected, the existence of \eqref{introbox} makes \eqref{introbox} unique; as a consequence, there is no impediment to categorifying the dictionary in this case.
+
+If $G$ is a commutative algebraic group over $\FF_q$ which is not connected, however, then one must keep track of the choice of \eqref{introbox}, leading to a category of pairs $(\qcs{E},\mu_\qcs{E})$ where $\qcs{E}$ is a rank-one local system on $G$ and $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ is an isomorphism of local systems on $G\times G$. As we show in this paper, if the component group scheme $\pi_0(G)$ (which is an étale commutative group scheme over $\FF_q$) is not cyclic, then while the trace of Frobenius provides a surjection from isomorphism classes in the category of pairs $(\qcs{E},\mu_\qcs{E})$ to characters of $G(\FF_q)$, that group homomorphism need not be injective. In other words, if $G$ is a commutative algebraic group over $\FF_q$ which is not connected, then every character may be geometrized as a pair $(\qcs{E},\mu_\qcs{E})$ but perhaps not uniquely. While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious since, as we show in the paper, if $(\qcs{E},\mu_\qcs{E})$ and $(\qcs{E}',\mu_\qcs{E}')$ determine the same character of $G(\FF_q)$, then $\qcs{E}\iso \qcs{E}'$ as local systems on $G$.
+
+In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\FF_q$ we simply replace the local system $\qcs{E}$ on $G$ with a Weil local system. 
+In this way we are lead to the category of quasicharacter sheaves on $G$ in which objects are triples $(\gqcs{L}, \mu,\phi)$, where $\gqcs{L}$ is a rank-one local system on ${\bar G} = G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$ and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves; the isomorphisms $\mu$ and $\phi$ must of course be compatible in the obvious way.
 
 
+Étale group schemes form a counterpoint to connected algebraic groups,
+since the component group of a smooth commutative group scheme
+is an étale group scheme. 
+Accordingly, we first test the category of quasicharacter sheaves by examining its objects on etale commutative group schemes $G$ over $\FF_q$.
+Here again we find that the dictionary is imperfect: the trace of Frobenius provides a group epimorphism from isomorphism classes of quasicharacter sheaves on $G$ to characters of $G(\FF_q)$; the kernel of this epimorphism is $\Hh^2(\bG,\EEx)^{\Frob{}}$. Again, this imperfection should not be too troubling: if $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$ determine the same character of $G(\FF_q)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
+
+Returning to the case of connected commutative algebraic groups $G$ over $\Fq$, we confirm that, in this case, the category of quasicharacter sheaves on $G$ is equivalent to the category of characters $\psi$ of $G(\Fq)$, the equivalence being given by pullback by the Lang isogeny for $G$. Indeed, one may show that isomorphism classes of quasicharacter sheaves on $G$ are determined by classes of extensions of $\bG$ by $\EEx$ which are fixed by Frobenius, and therefore given by $\Hh^2(\bG,\EEx)^{\Frob{}}$ to $G(\Fq)^*$.
+
+
+Although the category of quasicharacter sheaves on $G$ does specialize to that common notion when $G$ is connected and of finite type, the common notion is not appropriate if one wishes to extend the dictionary to smooth commutative group schemes over finite fields. 
+In particular, as we have already seen in Section~\ref{sec:etale}, for a given quasicharacter sheaf $\qcs{L} = (\gqcs{L},\mu,\phi)$ there may be a different isomorphism $\mu' : \bm^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$ for which $\qcs{L}'=(\gqcs{L},\mu',\phi)$ is also a quasicharacter sheaf on $G$, not isomorphic to $\qcs{L}$ in $\QC(G)$.
+Indeed, Proposition~\ref{prop:etale-iso} shows that when $G$ is etale, $\Hh^2(\bG,\EEx)^{\Frob{}}$ measures the possibilities for $\mu'$.
+In other words, the common perspective on the function--sheaf dictionary leads only, and exactly, to the part of category of quasicharacter sheaves that is {\it completely invisible} to the trace of Frobenius! 
+
+We will see in Section~\ref{sec:main} that, for any smooth commutative group scheme $G$, the part of category of quasicharacter sheaves that is invisible to the trace of Frobenius are measured by $\Hh^2(\pi_0(\bG),\EEx)^{\Frob{}}$.
+%\end{remark}
 
 
 \bibliographystyle{amsalpha}
