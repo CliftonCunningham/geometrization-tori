@@ -282,7 +282,7 @@ one direction of the function--sheaf dictionary.
 them to prove a functoriality result on Trace of Frobenius.
 In Section~\ref{sec:basechange} we study how quasicharacter sheaves behave under base change
 and Weil restriction.
-Sections~\ref{sec:bounded} and \ref{sec:finite} describe bounded quasicharacter sheaves and finite quasicharacter sheaves, respectively,
+Sections~\ref{sec:descentG} and \ref{sec:finite} describe bounded quasicharacter sheaves and finite quasicharacter sheaves, respectively,
 forming two important subcategories of $\QC(G)$.
 %These subcategories play a key role in the proof of Proposition~\ref{prop:restriction}.
 In Section \ref{sec:connected} we show that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves when $G$ is connected, and that Trace of Frobenius is an isomorphism in this case.
@@ -892,11 +892,11 @@ The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ i
 
 %Note that Proposition~\ref{prop:autornaught_etale} tells us that if $G$ is an etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\{ 0 \} \cup \left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
 
-\section{Quasicharacter sheaves on connected commutative algebraic groups}
+\section{Quasicharacter sheaves defined by discrete isogenies}
 
-Before turning our attention to quasicharacter sheaves on connected commutative algebraic groups in Section~\ref{sec:connected}, we being with two sections that treat two special classes of quasicharacter sheaves on arbitrary smooth commutative group schemes $G$: those that descend from local systems on $\bG$ to local systems on $G$ in Section~\ref{sec:bounded}; and those local systems on $G$ that are defined by discrete isogenies onto $G$ in Section~\ref{sec:discrete_isogenies}. The latter will play a role in Sections~\ref{sec:connected} and \ref{sec:restriction}.
+Before turning our attention to quasicharacter sheaves on connected commutative algebraic groups in Section~\ref{sec:connected}, we treat two special classes of quasicharacter sheaves on arbitrary smooth commutative group schemes $G$:  in Section~\ref{sec:descentG}, those that descend from local systems on $\bG$ to local systems on $G$; and in Section~\ref{sec:discrete_isogenies}, those that are defined by discrete isogenies onto $G$. The latter will play a role in Sections~\ref{sec:connected} and \ref{sec:restriction}.
 
-\subsection{Descent to G}\label{sec:bounded}
+\subsection{Descent to G}\label{sec:descentG}
 
 In this section we consider a category of sheaves on $G$ obtained by
 replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter sheaf with an $\ell$-adic local system on $G$ itself.
@@ -1026,9 +1026,9 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   Let $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ be the isomorphism matching
   $\mu : {\bar m}^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$,
   the latter appearing in the definition of $\qcs{L}$.
-  Then, as in Section~\ref{sec:bounded}, $(\qcs{E},\mu_\qcs{E})$ is an object in $\bQC(G)$
+  Then, as in Section~\ref{sec:descentG}, $(\qcs{E},\mu_\qcs{E})$ is an object in $\bQC(G)$
   and $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\qcs{E},b_{G\times G}^*\mu_\qcs{E})$ in $\QC(G)$.
-  Thus, the full and faithful functor $B_G : \bQC(G) \to \QC(G)$ from Section~\ref{sec:bounded}
+  Thus, the full and faithful functor $B_G : \bQC(G) \to \QC(G)$ from Section~\ref{sec:descentG}
   is also essentially surjective, hence an equivalence.
 \end{proof}
 
@@ -1810,6 +1810,16 @@ Combining this with the paragraph above gives an instance of the geometrization 
  \]
 compatible with \eqref{transfer}.% ($m < N$).
 \end{proposition}
+
+\section{Notes for the new Introduction}
+
+Motivated to an application to the geometrization and categorification of quasicharacters of p-adic tori,
+this paper extends Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields to all smooth commutative group schemes over finite fields.
+
+As Deligne explained in \cite{deligne:SGA4.5}*{sommes trig.}, if $G$ is a connected commutative algebraic group over $\FF_q$, then the trace of Frobenius provides a perfect dictionary between characters of $G(\FF_q)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which $m^*\qcs{E} \iso \qcs{E} \boxtimes \qcs{E}$, where $m : G\times G\to G$ is the multiplication map.
+If one wishes to make a category from this class of local systems, one is lead to consider sheaf morphisms $\qcs{E} \to \qcs{E}'$ which are compatible with particular choices of isomorphisms $m^*\qcs{E} \iso \qcs{E} \boxtimes \qcs{E}$ and $m^*\qcs{E}' \iso \qcs{E}'\boxtimes \qcs{E}'$. {\it A priori}, these sheaf morphisms do not form a category, since 
+
+
 
 
 \bibliographystyle{amsalpha}
