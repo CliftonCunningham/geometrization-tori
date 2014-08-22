@@ -249,7 +249,7 @@ As indicated above, our interest in the function--sheaf dictionary for smooth co
 We found, however, that this application applies to all local fields $K$ with finite residue field $\Fq$ and all connected commutative algebraic groups $X_K$ over $K$ that do not contain a subgroup of type $\mathbb{G}_\text{a}$, such as Abelian varieties, unipotent $K$-wound groups, and of course, algebraic tori. 
 Such algebraic groups $X_K$ always admit a Neron model $X$ over $R$, the ring of integers of $K$.
 In this paper we show that quasicharacters of $X_K$ are geometrized and categorified by quasicharacter sheaves on the
-Greenberg transform $\Gr_R(X)$ of the N\'eron model $X$; although not smooth, $\Gr_R(X)$ is a commutative group scheme over $\Fq$ and it is a projective limit of smooth commutative group schemes $\Gr^R_n(X)$.
+Greenberg transform $\Gr_R(X)$ of the N\'eron model $X$; although not locally of finite type, $\Gr_R(X)$ is a commutative group scheme over $\Fq$ and also a projective limit of smooth commutative group schemes $\Gr^R_n(X)$.
 This allows us to adapt our work on quasicharacter sheaves to construct a category $\QC(\Gr_R(X))$ of quasicharacter sheaves on $\Gr(X)$.
 The ability to generalize the function--sheaf dictionary to non-connected group schemes, of which the component group of the special fibre of the Néron model $X$ is an important example, plays a crucial role in this application
 since these group schemes are not connected in general.
@@ -290,19 +290,18 @@ The interesting new features that we have found pertaining to Weil sheaves and t
 
 
 \subsection{Structure of the paper}
-\todo{Describe the overall structure of the paper in enough detail that one can follow the argument; include snake lemma diagram}
 
 We close the introduction with an overview of the structure of this paper.
 After setting some basic notation in Section~\ref{sec:notation},
 in Section~\ref{sec:category} we define the category of quasicharacter sheaves.
-Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism $\TrFrob{G} : \QCiso{G} \to \Hom(G(k), \EEx)$.
+Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism $\TrFrob{G} : \QCiso{G} \to \Hom(G(\FF_q), \EEx)$.
 We also define pullbacks of quasicharacter sheaves along morphisms of group schemes.  Applying pullbacks to the component group
 sequence for $G$ yields the diagram
  \begin{equation} \label{eq:intro-snake}
   \begin{tikzcd}[row sep=20]
     0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
     & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
-    0 \rar & \pi_0(G)(\Fq)^* \rar & G(\Fq)^* \rar & G^0(\Fq)^* \rar & 0,\\
+    0 \rar & \pi_0(G)(\FF_q)^* \rar & G(\Fq)^* \rar & G^0(\FF_q)^* \rar & 0,
   \end{tikzcd}
   \end{equation}
 which is central to the proof of Theorem~\ref{thm:snake}.  Much of Sections~\ref{sec:etale}, \ref{sec:disc-isog} and \ref{sec:main}
@@ -341,8 +340,6 @@ induces an essentially surjective functor of quasicharacter sheaves.
 %Section~\ref{sec:snake} presents the main theorem of this paper: Trace of Frobenius
 %is a functorial isomorphism from isomorphism classes of flabby quasicharacter sheaves on $G$
 %to characters of $G(\Fq)$.
-
-\todo{Comments about Joseph Bernstein's comments?}
 
 %\begin{acknowledgements}
 \subsection{Acknowledgments}
@@ -393,7 +390,7 @@ For any group $A$, we will write $A^*$ for the dual group $\Hom_\text{grp}(A, \E
 A \emph{quasicharacter sheaf on $G$} is a triple
 $\qcs{L}\ceq (\gqcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(QC.1)}{QC.1} $\gqcs{L}$ is a rank~one $\ell$-adic local system on $\bG$, by which we mean
+\labitem{(QC.1)}{QC.1} $\gqcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean
 a constructible $\ell$-adic sheaf on $\bG$, locally constant on each connected
 component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces;
 \labitem{(QC.2)}{QC.2} $\mu: \bm^* \gqcs{L} \to \LxL$ is an isomorphism of
@@ -515,36 +512,8 @@ results on pullbacks and external products will be used in the proofs of many re
 \end{proposition}
 
 \begin{proof}
-  Let $\qcs{L}$ be a quasicharacter sheaf on $G$. We start by showing that
-  $\bf^*\gqcs{L}$ is a local system of rank~one. Let $c_j :\bH^j \hookrightarrow \bH$ be any
-  connected component and let $d_i : \bG^i \hookrightarrow \bG$ be the image of $j$ under the group
-  homomorphism $\pi_0(\bf) : \pi_0(\bH) \to \pi_0(\bG)$.  Write $\bf^j : \bH^j \to \bG^i$
-  for the restriction of $f$ to $\bH^j$.  Since $\gqcs{L}$ is locally constant on the connected
-  components of $\bG$, there is a finite \'etale covering
-  $a_i : X_i \to \bG^i$ such that $a_i^* (\gqcs{L}\vert_{\bG^i})$
-  is constant.  Define $Y_j$ in the following diagram through pullback:
-  \[
-  \begin{tikzcd}[row sep=20, column sep=30]
-   Y_j \dar[dashed]{g_j} \rar[dashed]{b_j} & \bH^j \dar{\bf^j} \rar[hook]{c_j} & \bH \dar{\bf} \\
-   X_i \rar{a_i} & \bG^i \rar[hook]{d_i} & \bG
-  \end{tikzcd}
-  \]
-  Then $b_j$ is a finite \'etale covering
-  of $\bH^j$ and
-  \[
-  b_j^* \left( (\bf^* \gqcs{L})\vert_{\bH^j}\right)
-  = (\bf\circ c_j \circ b_j)^*\gqcs{L}
-  = (d_i\circ a_i\circ g_j)^*\gqcs{L} = g_j^* a_i^* (\gqcs{L}\vert_{\bG^i}).
-  \]
-  Since $a_i^* (\gqcs{L}\vert_{\bG^i})$ is a constant sheaf, its pullback
-  $b_j^* \left( (\bf^*\gqcs{L})\vert_{\bH^j}\right)$ along $g_j$ is also constant.
-  Thus $\bf^*\gqcs{L}$ is locally constant on
-  $\bH^j$. To complete the proof that $\bf^*\gqcs{L}$ satisfies
-  \ref{QC.1}
-  simply observe that $\bf^*\gqcs{L}$ has rank~one since
-  $(\bf^*\gqcs{L})_{\bg} = \gqcs{L}_{f(\bg)}$, for every geometric point ${\bg}$ on $\bG$.
-
-
+  Let $\qcs{L}$ be a quasicharacter sheaf on $G$. It is clear \todo{Reference} that
+  $\bf^*\gqcs{L}$ is a local system of rank~one, so  \ref{QC.1}  is satisfied.
   To see that $(\bfxf)^* \mu$ satisfies \ref{QC.2},
   apply the functor $(\bfxf)^*$
   to \ref{QC.2} for $\qcs{L}$ and use the canonical isomorphism
@@ -559,7 +528,7 @@ results on pullbacks and external products will be used in the proofs of many re
   of $f^*$ on morphisms of quasicharacter sheaves; arguing as above shows that $f^*$ is
   a functor from $\QC(G)$ to $\QC(H)$.  Since tensor products commute with pullback in schemes,
   $f^* : \QC(G) \to \QC(H)$ is a monoidal functor.
-  The diagram relating $f^* : \QC(G) \to \QC(H)$, $f^* : G(k)^* \to H(k)^*$ and Trace of Frobenius
+  The diagram relating $f^* : \QC(G) \to \QC(H)$, $f^* : G(k)^* \to H(k)^*$ and trace of Frobenius
   commutes by \cite{laumon:87a}*{1.1.1.2}, where the ambient
   hypothesis that $X$ is of finite type over $\Fq$ can be replaced by
   the hypothesis that $X$ is locally of finite type over $\Fq$.
@@ -932,7 +901,7 @@ every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. More
 \begin{proof}
 Suppose $\rho \in \Hom(\qcs{L},\qcs{L}')$.
 If $\rho_0 = 0$ then the second diagram in \ref{qc.4} for $y=0$ implies that $\rho_x = 0$ for all $x\in G$, in which case $\rho$ is trivial.
-On the other hand, if $\rho_0$ is nonzero then the second diagram in \ref{qc.4} for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since the stalk of quasicharacter sheaves are one dimensional; in this case $\rho$ is an isomorphism.
+On the other hand, if $\rho_0$ is nonzero then the second diagram in \ref{qc.4} for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since the stalk of quasicharacter sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
 
 Now suppose $\rho \in \Aut(\qcs{L})$.
 The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{qc.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
