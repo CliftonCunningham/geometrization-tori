@@ -204,7 +204,7 @@ If one wishes to make a category from this class of local systems, one is led to
 If $G$ is a commutative algebraic group over $\FF_q$ which is not connected, however, then one must keep track of the choice of \eqref{introbox}, leading to a category of pairs $(\qcs{E},\mu_\qcs{E})$ where $\qcs{E}$ is a rank-one local system on $G$ and $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ is an isomorphism of local systems on $G\times G$. 
 If the component group scheme $\pi_0(G)$ (which is an étale commutative group scheme over $\FF_q$) is not cyclic, then while the trace of Frobenius provides a surjection from isomorphism classes in the category of pairs $(\qcs{E},\mu_\qcs{E})$ to characters of $G(\FF_q)$, that group homomorphism need not be injective. 
 In other words, if $G$ is a commutative algebraic group over $\FF_q$ which is not connected, then every character may be geometrized as a pair $(\qcs{E},\mu_\qcs{E})$ but perhaps not uniquely. 
-While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not a serious defect since if $(\qcs{E},\mu_\qcs{E})$ and $(\qcs{E}',\mu_\qcs{E}')$ determine the same character of $G(\FF_q)$, then $\qcs{E}\iso \qcs{E}'$ as local systems on $G$.
+While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious since if $(\qcs{E},\mu_\qcs{E})$ and $(\qcs{E}',\mu_\qcs{E}')$ determine the same character of $G(\FF_q)$ then $\qcs{E}\iso \qcs{E}'$ as local systems on $G$.
 
 In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\FF_q$ we simply replace the local system $\qcs{E}$ on $G$ with a Weil local system, while retaining the extra structure $\mu_\qcs{E}$.
 In this way we are lead to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$ in which objects are triples $(\gqcs{L}, \mu,\phi)$, where $\gqcs{L}$ is a rank-one local system on ${\bar G} = G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$ and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves; the isomorphisms $\mu$ and $\phi$ must of course be compatible in the obvious way. Morphism in $\QC(G)$ are then homomorphisms of Weil sheaves which are compatible with the extra structure.
@@ -217,9 +217,10 @@ T_G: \QCiso{G} \to \Hom(G(\FF_q),\EEx)
 \end{equation}
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$, canonically.
 One can show, using the Kunneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
-The fact that $T_G$ is not an isomorohism should not be too troubling because if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$ determine the same character of $G(\FF_q)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
+The fact that $T_G$ is not an isomorphism should not be too troubling because if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$ determine the same character of $G(\FF_q)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
+Here we also see the importance of working with Weil sheaves: without them, we would not be able to geometrize the character of the étale group scheme $\ZZ$ over $\FF_q$ given by $1\mapsto \ell$, for example.
 
-Returning to the case of connected commutative algebraic groups $G$ over $\FF_q$, we confirm that, in this case, the category of quasicharacter sheaves on $G$ is equivalent to the category of characters $\psi$ of $G(\FF_q)$, the equivalence being given by pullback by the Lang isogeny for $G$. 
+Returning to the case of connected commutative algebraic groups $G$ over $\FF_q$, we confirm that, in this case, $\QC(G)$ is equivalent to the category of characters $\psi$ of $G(\FF_q)$, the equivalence being given by descent to $G$ followed by pullback by the Lang isogeny for $G$. 
 %
 %The appearance of $\Hh^2(\bG,\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ in these two cases is interesting: on the one hand, when $G$ is a connected commutative algebraic group over $\Fq$, isomorphism classes of quasicharacter sheaves on $G$ are measured by $\Hh^2(\bG,\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ and the trace of Frobenius gives an isomorphism $T_G: \QCiso{G} \to \Hom(G(\FF_q),\EEx)$; on the other hand, if $G$ an etale commutative group scheme over $\FF_q$, then $\Hh^2(\bG,\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ measures the kernel of $T_G: \QCiso{G} \to \Hom(G(\FF_q),\EEx)$. 
 %This observation makes plain the fact that  . . .
@@ -265,7 +266,7 @@ We further show that automorphism groups in the $\QC(\Gr_R(\underline{T}))$ are 
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
 
-Joseph Bernstein has suggested to us that, although quasicharacter sheaves on $\Gr(\underline{T})$ do not correspond exactly to quasicharacters of $T(K)$, the category $\QC(\Gr_R(\underline{T}))$ is the right one to consider and that the category $\QC(\Gr(\underline{T})$ may be closely tied to characters of  the pure rational forms of $T$ in the sense of Vogan \cite{vogan:93a} or perhaps the rigid inner twists of Tasho Kaletha. 
+Joseph Bernstein has suggested to us that, although quasicharacter sheaves on $\Gr(\underline{T})$ do not correspond exactly to quasicharacters of $T(K)$, the category $\QC(\Gr_R(\underline{T}))$ is the right one to consider and that $\QC(\Gr(\underline{T})$ may be closely tied to characters of  the pure rational forms of $T$ in the sense of Vogan \cite{vogan:93a} or perhaps the rigid inner twists of Tasho Kaletha. 
 A better understanding of 
 $\Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Frob{}}$ should provide insight into this suggestion.
 
@@ -1560,8 +1561,14 @@ Let $R$ be the ring of integers of $K$.
 Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$, for every non-negative integer $n$.
 Suppose $X_K \in \mathcal{N}_K$ with Néron model $X$ over $R$.
 A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) \to X(R_n)$, for some non-negative integer $n$;
-the group of quasicharacters of $X_K(K)$ will be denoted by $\Hom_\text{qc}(X_K(K),\EEx)$ and the subgroup of those that factor through $X(R_n)$ will be denoted by $\Hom_n(X_K(K),\EEx)$.
-%
+the group of quasicharacters of $X_K(K)$ will be denoted by 
+\[
+\Hom_\text{qc}(X_K(K),\EEx)
+\]
+ and the subgroup of those that factor through $X(R_n)$ will be denoted by 
+ \[
+ \Hom_n(X_K(K),\EEx).
+\]
 In this section we explain how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves.
 
 \subsection{Review of the Greenberg transform}
