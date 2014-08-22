@@ -325,22 +325,28 @@ Section~\ref{sec:disc-isog} focuses on the right-hand side of \eqref{eq:intro-sn
 giving descriptions of quasicharacter sheaves that are particularly useful when $G$ is connected.  In Section \ref{ssec:descentG}
 we consider quasicharacter sheaves that arise via base change to $\bFq$ from local systems on $G$, and in Section \ref{ssec:discrete_isogenies}
 those that arise via pushforward from a constant sheaf along a discrete isogeny $H \to G$.  When $G$ is connected,
-we show in Section~\ref{} that every quasicharacter sheaf can be described in both of these ways.  We also show that $\TrFrob{G}$ is an isomorphism
-in this case.
+we show in Section~\ref{ssec:connected} that every quasicharacter sheaf can be described in both of these ways.
+We also show that $\TrFrob{G}$ is an isomorphism in this case.
 
-In Section~\ref{sec:basechange} we study how quasicharacter sheaves behave under base change
-and Weil restriction.
-Sections~\ref{ssec:descentG} and \ref{sec:finite} describe bounded quasicharacter sheaves and finite quasicharacter sheaves, respectively,
-forming two important subcategories of $\QC(G)$.
-%These subcategories play a key role in the proof of Proposition~\ref{prop:restriction}.
-In Section \ref{ssec:connected} we show that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves when $G$ is connected, and that Trace of Frobenius is an isomorphism in this case.
-We shift to \'etale group schemes $G$ in Section~\ref{sec:etale} and find a cohomological interpretation
-of quasicharacter sheaves in this case.
-In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
-induces an essentially surjective functor of quasicharacter sheaves.
-%Section~\ref{sec:snake} presents the main theorem of this paper: Trace of Frobenius
-%is a functorial isomorphism from isomorphism classes of flabby quasicharacter sheaves on $G$
-%to characters of $G(\Fq)$.
+In Section~\ref{sec:main} we prove that the rows of \eqref{eq:intro-snake} are exact and
+use the snake lemma to determine the kernel and cokernel of $\TrFrob{G}$ for general $G$.
+We show that $\QCiso{G^0} \to \QCiso{G}$ is surjective in Section~\ref{ssec:restriction} and
+that the remainder of the top row of \eqref{eq:intro-snake} is exact in Section~\ref{ssec:component}.
+We put it together in Theorem~\ref{thm:snake} of Section~\ref{ssec:snake}, showing that $\TrFrob{G}$
+is surjective with kernel $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$.  Having described the isomorphism classes of objects,
+in Theorem~\ref{thm:autornaught} of Section~\ref{ssec:qcmor} we show that
+\[
+\Aut(\qcs{L}) \cong \Hom(\pi_0(\bG)_{\Weil{}}, \EEx)
+\]
+and that every morphism is either trivial or an isomorphism.  We conclude in Section~\ref{sec:basechange} by
+giving functorial versions of the restriction and norm homomorphisms $G(k')^* \to G(k)^*$ and $G(k)^* \to G(k')^*$
+and describing how quasicharacter sheaves behave under Weil restriction.
+
+Section~\ref{sec:applications} gives applications of quasicharacter sheaves to commutative algebraic groups over local fields.
+We begin with a review of N\'eron models and of the Greenberg transform in Section~\ref{ssec:rev_Greenberg}.  We then
+define, in Section~\ref{ssec:qc_on_GN}, a quasicharacter sheaf for an algebraic group over a local field to be a quasicharacter
+sheaf on the Greenberg transform of the N\'eron model.  In Theorem~\ref{thm:QCXK}, we translate our results from the earlier sections
+to give a description of the categories of 
 
 \todo{Comments about Joseph Bernstein's comments?}
 
@@ -942,7 +948,7 @@ The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ i
 
 \section{Quasicharacter sheaves defined by discrete isogenies} \label{sec:disc-isog}
 
-Before turning our attention to quasicharacter sheaves on connected commutative algebraic groups in Section~\ref{ssec:connected}, we treat two special classes of quasicharacter sheaves on arbitrary smooth commutative group schemes $G$:  in Section~\ref{ssec:descentG}, those that descend from local systems on $\bG$ to local systems on $G$; and in Section~\ref{ssec:discrete_isogenies}, those that are defined by discrete isogenies onto $G$. The latter will play a role in Sections~\ref{ssec:connected} and \ref{sec:restriction}.
+Before turning our attention to quasicharacter sheaves on connected commutative algebraic groups in Section~\ref{ssec:connected}, we treat two special classes of quasicharacter sheaves on arbitrary smooth commutative group schemes $G$:  in Section~\ref{ssec:descentG}, those that descend from local systems on $\bG$ to local systems on $G$; and in Section~\ref{ssec:discrete_isogenies}, those that are defined by discrete isogenies onto $G$. The latter will play a role in Sections~\ref{ssec:connected} and \ref{ssec:restriction}.
 
 \subsection{Descent to G}\label{ssec:descentG}
 
@@ -1129,7 +1135,7 @@ We will see in Section~\ref{sec:main} that, for any smooth commutative group sch
 \section{The function--sheaf dictionary for smooth, commutative group schemes}\label{sec:main}
 
 
-\subsection{Restriction to the identity component} \label{sec:restriction}
+\subsection{Restriction to the identity component} \label{ssec:restriction}
 
 Consider the short exact sequence
 defining the component group scheme for $G$:
@@ -1242,7 +1248,7 @@ The restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjecti
  $(f_! \EE)_\psi\vert_{G^0} \iso (\pi_! \EE)_\psi$.
 \end{proof}
 
-\subsection{The component group sequence} \label{sec:component}
+\subsection{The component group sequence} \label{ssec:component}
 
 \begin{lemma}\label{lem:extension}
 The group homomorphism $\pi_0^*: \QCiso{\pi_0(G)} \to \QCiso{G}$ is injective.
@@ -1327,7 +1333,7 @@ thus defining an isomorphism $\qcs{L} \to \pi_0^* \qcs{E}$ in $\QC(G)$.
 \end{proof}
 
 \subsection{The dictionary}
-\label{sec:snake}
+\label{ssec:snake}
 
 We saw in Proposition~\ref{prop:functorialG} that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
 In this section we improve that result.
@@ -1391,7 +1397,7 @@ This calculates $\ker  \TrFrob{G}$ and shows that
 is exact.
 \end{proof}
 
-\subsection{Morphisms of quasicharacters}
+\subsection{Morphisms of quasicharacters} \label{ssec:qcmor}
 
 \begin{theorem}\label{thm:autornaught}
 Let $G$ be a smooth commutative group scheme over $\Fq$.
@@ -1553,7 +1559,7 @@ is given by permuting coordinates, composition with the norm map yields the iden
 \section{Applications}\label{sec:applications}% to algebraic tori and Abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
 
 Let $K$ be a local field (in the sense of Serre) with residue field $\Fq$. 
-In this section we consider connected commutative algebraic groups over $K$ that admit a Néron model, by which we means a lft Néron model.
+In this section we consider connected commutative algebraic groups over $K$ that admit a Néron model, by which we mean an lft Néron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup of type $\mathbb{G}_\text{a}$.
 These algebraic groups over $K$ form an additive category, denoted by $\mathcal{N}_K$ below, in a natural way, as a full subcategory of connected commutative algebraic groups over $K$. This category includes algebraic tori over $K$ and Abelian varieties over $K$, and sometimes unipotent K-wound groups, depending on $K$.
 
@@ -1571,7 +1577,7 @@ the group of quasicharacters of $X_K(K)$ will be denoted by
 \]
 In this section we explain how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves.
 
-\subsection{Review of the Greenberg transform}
+\subsection{Review of the Greenberg transform} \label{ssec:rev_Greenberg}
 
 Let $K$, $R$ and $R_n$ be as above.
 Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$, for every non-negative integer $n$;
@@ -1623,7 +1629,7 @@ The Greenberg transform respects open immersions, closed immersions, \'etale mor
 \]
 canonically, for any $X$ lft over $R$.
 
-\subsection{Quasicharacter sheaves on the Greenberg transform of a Néron model}
+\subsection{Quasicharacter sheaves on the Greenberg transform of a Néron model} \label{ssec:qc_on_GN}
  
 Let $G$ be a commutative group scheme over $\Fq$.
 Consider the category $\mathcal{C}(G)$ of triples
