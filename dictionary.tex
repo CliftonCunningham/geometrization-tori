@@ -1597,17 +1597,8 @@ canonically, for any $X$ lft over $R$.
 
 \subsection{Quasicharacter sheaves on the Greenberg transform of a NÃ©ron model}
  
-Let $G$ be a commutative group scheme over $\Fq$.
-Consider the category $\mathcal{C}(G)$ of triples
-$\qcs{F}\ceq (\gqcs{F},\mu_\qcs{F},\phi_\qcs{F})$ where
-\begin{enumerate}
-\labitem{(C.0)}{C.0} $\gqcs{F}$ is a rank one $\ell$-adic local system on $\bG\ceq G \times_\Spec{\Fq} \Spec{\bFq}$,
-\labitem{(C.1)}{C.1} $\mu_\qcs{F}: \bm^* \gqcs{F} \to \gqcs{F}\boxtimes\gqcs{F}$ is an isomorphism $\ell$-adic sheaves, where $\bm : \bG \times \bG \to \bG$ is multiplication $m$ for $G$ extended to $\bG$.
-\labitem{(C.2)}{C.2} $\phi_\qcs{F} : \Frob{G}^* \gqcs{F} \to \gqcs{F}$ is an isomorphism of constructible $\ell$-adic sheaves, where $\Frob{G}^* : \bG  \to \bG$ is the Frobenius automorphism,
-\end{enumerate}
-subject to the conditions as in \ref{QC.1} and \ref{QC.2},
-with morphisms defined as in \ref{QC.3}.
-This category $\mathcal{C}(G)$ is rigid monoidal, with tensor product defined as in Definition~\ref{def:QC}. %Note that $\mathcal{C}(G) = \QC(G)$ if $G$ is also smooth.
+Let $X_K \in \mathcal{N}_K$ and $X$ be as above.
+Although $\Gr_R(X)$ is not locally of finite type, and thus not smooth, let us write $\QC(\Gr_R(X))$ for the rigid monoidal category defined as in Section~\ref{sec:category}, without insisting that the commutative group scheme $G$ is smooth.
 
 The Greenberg transform $\Gr_R(X)$ of $X$ is commutative group scheme over $\Fq$ with component group scheme
 $
@@ -1628,15 +1619,15 @@ canonically.
 %
 Moreover, the morphism of $\Fq$-schemes $P^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
 \[
-P^R_n(X)^* : \QC(\Gr^R_n(X)) \to \mathcal{C}(\Gr_R(X)),
+P^R_n(X)^* : \QC(\Gr^R_n(X)) \to \QC(\Gr_R(X)),
 \]
 as in Proposition~\ref{prop:pullback}.
-This functor is full and faithful, so we may view $\QC(\Gr^R_n(X))$ as a full subcategory of $\mathcal{C}(\Gr_R(X))$.
+This functor is full and faithful, so we may view $\QC(\Gr^R_n(X))$ as a full subcategory of $\QC(\Gr_R(X))$.
 
 \begin{definition}
 Let $X_K$ be a connected commutative group scheme that admits a Neron model, $X$.
-A {\it quasicharacter sheaf on $\Gr_R(X)$} is an object $\qcs{F}$ in $\mathcal{C}(\Gr_R(X))$ such that $\qcs{F} \iso P^R_n(X)^*\qcs{L}$ for some quasicharacter sheaf $\qcs{L}$ on $\Gr^R_n(X)$.
-Quasicharacter sheaves on $\Gr_R(X)$ form a rigid monoidal category in the obvious way, denoted by $\QC(\Gr_R(X))$.
+A {\it quasicharacter sheaf for $X_K$} is an object $\qcs{F}$ in $\QC(\Gr_R(X))$ such that $\qcs{F} \iso P^R_n(X)^*\qcs{L}$ for some $\qcs{L} \in \QC(\Gr^R_n(X))$.
+Quasicharacter sheaves for $X_K$ form a rigid monoidal category in the obvious way, denoted by $\QC(X_K)$.
 \end{definition}
 
 %Note that we may informally regard $\QC(\Gr_R(X))$ a `union' of the full subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
@@ -1645,7 +1636,7 @@ Quasicharacter sheaves on $\Gr_R(X)$ form a rigid monoidal category in the obvio
 Let $K$ and $R$ be as above.
 The trace of Frobenius provides a natural transformation between the additive functors
 \[
-F_{\QC}: X_K \mapsto \QCiso{\Gr_R(X)}
+F_{\QC}: X_K \mapsto \QCiso{X_K}
 \qquad\text{and}\qquad
 F_{\text{qc}}: X_K \mapsto \Hom_{\text{qc}}(X_K(K),\EEx)
 \]
@@ -1654,7 +1645,7 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with NÃ
 \begin{enumerate}
 \item[(1)] there is a canonical short exact sequence of abelian groups 
 \[
-0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{\Gr_R(X)} \to \Hom_\text{qc}(X_K(K),\EEx) \to 0;
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{X_K} \to \Hom_\text{qc}(X_K(K),\EEx) \to 0;
 \] 
 \item[(2)] for all quasicharacter sheaves $\qcs{F}$, $\qcs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\qcs{F},\qcs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
 \item[(3)] for all quasicharacter sheaves $\qcs{F}$ on $\Gr_R(X)$,
