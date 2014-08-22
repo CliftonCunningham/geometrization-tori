@@ -14,7 +14,7 @@
 \email{roed.math@gmail.com}
 \address{Pacific Institute for the Mathematical Sciences, University of Calgary}
 \subjclass[2010]{14F05 (primary), 14L15 (secondary)}
-\keywords{function--sheaf dictionary, trace of Frobenius, geometrization, quasicharacters, quasicharacter sheaves, smooth commutative group schemes}
+\keywords{function--sheaf dictionary, trace of Frobenius, geometrization, categorification, quasicharacters, quasicharacter sheaves, smooth commutative group schemes, finite fields, local fields, algebraic tori, Neron models, Greenberg functor}
 
 %%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 % Encodings
@@ -35,7 +35,7 @@
 \usepackage{tikz-cd}
 % Hyperrefs
 \usepackage{hyperref}
-
+\setcounter{section}{-1}
 %%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
 \theoremstyle{plain}
       \newtheorem{theorem}{Theorem}[section]
@@ -187,7 +187,7 @@
 
 \maketitle
 
-\section*{Introduction}
+\section{Introduction}
 
 Motivated by an application to the geometrization and categorification of quasicharacters of p-adic tori,
 this paper extends Deligne's function--sheaf dictionary for connected commutative algebraic groups over finite fields to all smooth commutative group schemes over finite fields.
@@ -226,28 +226,44 @@ Having understood quasicharacter sheaves on commutative smooth group schemes ove
 0 \to G^0 \to G \to \pi_0(G) \to 0.
 \]
 The main result of the paper uses this sequence to find $\QCiso{G}$ by situating it in a canonical short exact sequence
-\[
+\begin{equation}
 0 \to \Hh^2(\pi_0(\bG),\EEx)^{\Gal({\bar\FF}_q/\FF_q)} \to \QCiso{G} \to \Hom(G(\FF_q),\EEx) \to 0.
-\]
-We also illuminate the nature of the category $\QC(G)$ by showing that every morphism in this category is either an isomorphism or trivial, and by showing that $\Aut(\qcs{L}) \iso \Hom(G(\bFq)_{\Gal(\bFq/\Fq)},\EEx)$, canonically, for all quasicharacter sheaves $\qcs{L}$ on $G$.
+\end{equation}
+We remark that $\Hh^2(\pi_0(\bG),\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ is non-trivial even for some commutative algebraic groups.
+We also illuminate the nature of the category $\QC(G)$ by showing that every morphism in this category is either an isomorphism or trivial, and by showing that 
+\begin{equation}
+\Aut(\qcs{L}) \iso \Hom(G(\bFq)_{\Gal(\bFq/\Fq)},\EEx),
+\end{equation}
+canonically, for all quasicharacter sheaves $\qcs{L}$ on $G$.
 
-Joseph Bernstein has suggested to us that we should not view 
+\subsection{Applications over local fields}
 
-
-Our interest in the function--sheaf dictionary for smooth commutative group schemes over $\Fq$ comes from an application to $p$-adic representation theory.
-In this paper we show quasicharacters of $p$-adic tori are geometrized and categorified by quasicharacter sheaves on the
-Greenberg transform of the N\'eron model of the $p$-adic torus. 
-The ability to generalize the function--sheaf dictionary to non-connected group schemes, of which the component group of the special fibre of the Néron model of a torus is an important example, plays a crucial role in this application,
+As indicated above, our interest in the function--sheaf dictionary for smooth commutative group schemes over finite fields comes from an application to $p$-adic representation theory.
+In this paper we show that quasicharacters of $p$-adic tori $T$ over local fields $K$ are geometrized and categorified by quasicharacter sheaves on the
+Greenberg transform of the N\'eron model of $T$, which is a commutative group scheme over the residue field of $K$, denoted by $\Gr(\underline{T})$.
+While $\Gr(\underline{T})$ is not smooth, it is a projective limit of smooth commutative group schemes $\Gr_n(\underline{T})$, and this allows us to adapt the work above to construct a category $\QC(\Gr_R(\underline{T}))$ of quasicharacter sheaves on $\Gr(\underline{T})$.
+The ability to generalize the function--sheaf dictionary to non-connected group schemes, of which the component group of the special fibre of the Néron model of a torus is an important example, plays a crucial role in this application
 since these group schemes are not connected in general.
-This process of creating a category from the group of quasicharacters of such a torus
-informs our choice of the term quasicharacter sheaf, here.
+This paper gives a canonical short exact sequence 
+\begin{equation}
+0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Frob{}} \to \QCiso{\Gr_R(\underline{T})} \to \Hom_\text{qc}(T(K),\EEx) \to 0
+\end{equation}
+and shows that automorphism groups in the $\QC(\Gr_R(\underline{T}))$ are given, for every quasicharacter sheaf $\qcs{F}$ on $\Gr_R(X)$, by
+\begin{equation}
+\Aut(\qcs{F}) \iso (\check{T}_\ell)^{\Weil{K}}
+\end{equation}
+where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 
-%\subsection*{Comparison with other character sheaves}
+Joseph Bernstein has suggested to us that we should not interpret the fact that the quasicharacter sheaves on $\Gr(\underline{T})$ do not correspond exactly to quasicharacters of $T(K)$ as an imperfection. Rather, he has suggested that the category $\QC(\Gr(\underline{T})$ may be more closely tied to characters of $T(K)$ and its pure rational forms in the sense of \cite{vogan:93a}. A better understanding of 
+$\Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Frob{}}$ should provide insight into this suggestion.
 
+\subsection{Comparison with character sheaves}
+
+The process of creating a category from the group of quasicharacters of a $p$-adic  torus, as explained above, informs our choice of the term quasicharacter sheaf in this paper.
 We also want to situate our terminology in a historical context.
 It is not uncommon to refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves;
-see for example, \cite{kamgarpour:09a}.
-As our application reveals, quasicharacter sheaves evolved from this notion,
+see for example, \cite{kamgarpour:09a}*{Intro}.
+As we have indicated, quasicharacter sheaves evolved from this notion,
 with an eye toward quasicharacters of $p$-adic groups.
 However, the main use of the term character sheaf is of course due to Lusztig.
 It is applied to certain perverse sheaves on connected reductive algebraic groups over algebraically closed fields in
@@ -256,10 +272,11 @@ over algebraically closed fields with finite cyclic component groups in the seri
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
-The interesting new features pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ do not arise in this context.
+The interesting new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ do not arise in this context.
 
 
-%\subsection*{Structure of the paper}
+
+\subsection{Structure of the paper}
 \todo{Describe the overall structure of the paper in enough detail that one can follow the argument; include snake lemma diagram}
 
 We close the introduction with an overview of the structure of this paper.
@@ -296,7 +313,7 @@ induces an essentially surjective functor of quasicharacter sheaves.
 \todo{Comments about Joseph Bernstein's comments?}
 
 %\begin{acknowledgements}
-\subsection*{Acknowledgments}
+\subsection{Acknowledgments}
 We thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable.
@@ -1063,7 +1080,7 @@ For the last part of the proposition, argue as in the analogous part of Proposit
 %\begin{remark}
 We have just seen that, for a connected commutative algebraic group $G$ over $\Fq$, the category of quasicharacter sheaves on $G$ is equivalent to the category of characters $\psi$ of $G(\Fq)$.
 We have also just seen that if the character of $\Lang^*\qcs{E}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu_\qcs{E} : \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ which is part of the data that determines a quasicharacter sheaf on $G$.
-That leads to a perspective on the function--sheaf dictionary common in the literature in which one considers $1$-dimensional local systems $\qcs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{E} \iso \qcs{E} \boxtimes\qcs{E}$; see \cite{kamgarpour:09a}*{Introduction}, for example.
+That leads to a perspective on the function--sheaf dictionary common in the literature in which one considers $1$-dimensional local systems $\qcs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{E} \iso \qcs{E} \boxtimes\qcs{E}$; see \cite{kamgarpour:09a}*{Intro}, for example.
 As a slight variation, one may also consider $1$-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$.
 One may show that all such $\gqcs{L}$ are determined by extensions of $\bG$ by $\EEx$ which are fixed by Frobenius and that the trace of Frobenius provides a canonical isomorphism from $\Hh^2(\bG,\EEx)^{\Frob{}}$ to $G(\Fq)^*$; {\it cf.\ }\cite{kamgarpour:09a}*{Prop 2.15}.
 %
@@ -1350,7 +1367,11 @@ is exact.
 Let $G$ be a smooth commutative group scheme over $\Fq$.
 For all quasicharacter sheaves $\qcs{L}$ and $\qcs{L}'$ on $G$,
 every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
-Moreover, $\Aut(\qcs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$, canonically.
+Moreover, 
+\[
+\Aut(\qcs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx),
+\]
+ canonically.
 \end{theorem}
 \begin{proof} 
 For the first part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
@@ -1605,6 +1626,7 @@ as in Proposition~\ref{prop:pullback}.
 This functor is full and faithful, so we may view $\QC(\Gr^R_n(X))$ as a full subcategory of $\mathcal{C}(\Gr_R(X))$.
 
 \begin{definition}
+Let $X_K$ be a connected commutative group scheme that admits a Neron model, $X$.
 A {\it quasicharacter sheaf on $\Gr_R(X)$} is an object $\qcs{F}$ in $\mathcal{C}(\Gr_R(X))$ such that $\qcs{F} \iso P^R_n(X)^*\qcs{L}$ for some quasicharacter sheaf $\qcs{L}$ on $\Gr^R_n(X)$.
 Quasicharacter sheaves on $\Gr_R(X)$ form a rigid monoidal category in the obvious way, denoted by $\QC(\Gr_R(X))$.
 \end{definition}
@@ -1629,7 +1651,7 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N�
 \item[(2)] for all quasicharacter sheaves $\qcs{F}$, $\qcs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\qcs{F},\qcs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
 \item[(3)] for all quasicharacter sheaves $\qcs{F}$ on $\Gr_R(X)$,
 \[
-\Aut(\qcs{F}) \iso \Hom((\pi_0(X)_{\Fq})_{\Weil{}},\EEx),
+\Aut(\qcs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx),
 \]
 canonically.
 \end{enumerate}
@@ -1653,12 +1675,31 @@ as functors from $\mathcal{N}_K$ to Abelian groups.
 \item[(2)] For all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $\Gr^R_n(X)$ and for every $\rho \in \Hom(\qcs{L},\qcs{L}')$, either $\rho$ is trivial or $\rho$ is an isomorphism.
 \item[(3)] For all quasicharacter sheaves $\qcs{L}$ on $\Gr^R_n(X)$,
 \[
-\Aut(\qcs{L}) \iso \Hom((\pi_0(X)_{\Fq})_{\Weil{}},\EEx),
+\Aut(\qcs{L}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx),
 \]
 canonically.
 \end{enumerate}
 So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 \end{proof}
+
+\subsection{Quasicharacters of $p$-adic tori}
+
+As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T\in \mathcal{N}_K$ is an algebraic torus over $K$, in which case we write $\underline{T}$ for the Neron model $X$. Now,
+\[
+ \pi_0(\underline{T})_{\bFq} = X_*(T)_{\mathcal{I}_K},
+\]
+where $X_*(T)$ is the cocharacter lattice of $T$ and $\mathcal{I}_K$ is the inertia group for $K$ \cite{bitan:discriminant}*{Eq 3.1}. 
+Accordingly, the short exact sequence in Theorem~\ref{thm:QCXK} becomes
+\begin{equation}
+0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Frob{}} \to \QCiso{\Gr_R(\underline{T})} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
+\end{equation}
+Again by Theorem~\ref{thm:QCXK}, the automorphism groups in the $\QC(\Gr_R(\underline{T}))$ are given, for every quasicharacter sheaf $\qcs{F}$ on $\Gr_R(X)$, by
+\begin{equation}
+\Aut(\qcs{F}) \iso \Hom(X_*(T)_{\Weil{K}},\EEx) = \Hom(X_*(T),\EEx)^{\Weil{K}} = (X^*(T)\otimes \EEx)^{\Weil{K}} = (\check{T}_\ell)^{\Weil{K}}
+\end{equation}
+where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
+
+
 
 \subsection{Weil restriction and quasicharacters}\label{sec:wrK}
 
@@ -1732,7 +1773,7 @@ f^* : \QC(\Res_{k'/k} \Gr_{R'}(X'))\to \QC(\Gr_{R}(X))
 \]
 inducing
 \[
-\Hom_{\text{qc}}(T(K'),\EEx) \to \Hom_{\text{qc}}(T(K),\EEx).
+\Hom_{\text{qc}}(X_K(K'),\EEx) \to \Hom_{\text{qc}}(X_K(K),\EEx).
 \]
 Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction of characters.
 \end{proof}
