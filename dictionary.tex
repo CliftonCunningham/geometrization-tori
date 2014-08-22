@@ -285,16 +285,35 @@ sequence for $G$ yields the diagram
     0 \rar & \pi_0(G)(\Fq)^* \rar & G(\Fq)^* \rar & G^0(\Fq)^* \rar & 0,\\
   \end{tikzcd}
   \end{equation}
-which is central to the proof of Theorem \ref{thm:snake}.  Much of Sections \ref{sec:etale}, \ref{sec:disc-isog} and \ref{sec:main}
+which is central to the proof of Theorem~\ref{thm:snake}.  Much of Sections~\ref{sec:etale}, \ref{sec:disc-isog} and \ref{sec:main}
 are devoted to proving that the rows of \eqref{eq:intro-snake} are exact and determining the kernels and cokernels of the vertical maps.
 
-Section~\ref{sec:etale} is devoted to the left-most vertical morphism in \eqref{eq:intro-snake}
+Section~\ref{sec:etale} is devoted to the left-most vertical morphism in \eqref{eq:intro-snake}: studying $\TrFrob{G}$ for $G$ \'etale.  We begin by giving a reinterpretation of
+$\QC(G)$ in this case using stalks.  After a brief review of the Hochschild-Serre spectral sequence in Section~\ref{ssec:E},
+we define in Section~\ref{ssec:S} an isomorphism $S_G$ from $\QCiso{G}$ to the second cohomology of the total space of the spectral sequence
+\[
+E_2^{p,q} \ceq \Hh^p(\Weil{}, \Hh^q(\bG, \EEx)) \Rightarrow \Hh^{p+q}(\Weil{} \ltimes \bG, \EEx).
+\]
+Paired with the short exact sequence
+\[
+  0 \to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to 0
+\]
+arising from the spectral sequence, the isomorphism $S_G$ allows us to describe the kernel and cokernel of $\TrFrob{G}$ in Section \ref{ssec:SandT}.
+We close our discussion of \'etale $G$ with a description, in Section~\ref{ssec:mor-etale}, of $\Hom(\qcs{L},\qcs{L}')$ for $\qcs{L}, \qcs{L}' \in \QC(G)$.
+
+Section~\ref{sec:disc-isog} focuses on the right-hand side of \eqref{eq:intro-snake},
+giving descriptions of quasicharacter sheaves that are particularly useful when $G$ is connected.  In Section \ref{ssec:descentG}
+we consider quasicharacter sheaves that arise via base change to $\bFq$ from local systems on $G$, and in Section \ref{ssec:discrete_isogenies}
+those that arise via pushforward from a constant sheaf along a discrete isogeny $H \to G$.  When $G$ is connected,
+we show in Section~\ref{} that every quasicharacter sheaf can be described in both of these ways.  We also show that $\TrFrob{G}$ is an isomorphism
+in this case.
+
 In Section~\ref{sec:basechange} we study how quasicharacter sheaves behave under base change
 and Weil restriction.
-Sections~\ref{sec:descentG} and \ref{sec:finite} describe bounded quasicharacter sheaves and finite quasicharacter sheaves, respectively,
+Sections~\ref{ssec:descentG} and \ref{sec:finite} describe bounded quasicharacter sheaves and finite quasicharacter sheaves, respectively,
 forming two important subcategories of $\QC(G)$.
 %These subcategories play a key role in the proof of Proposition~\ref{prop:restriction}.
-In Section \ref{sec:connected} we show that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves when $G$ is connected, and that Trace of Frobenius is an isomorphism in this case.
+In Section \ref{ssec:connected} we show that all quasicharacter sheaves on $G$ are finite quasicharacter sheaves when $G$ is connected, and that Trace of Frobenius is an isomorphism in this case.
 We shift to \'etale group schemes $G$ in Section~\ref{sec:etale} and find a cohomological interpretation
 of quasicharacter sheaves in this case.
 In Section~\ref{sec:restriction} we show that for non-connected $G$, restriction to the identity component
@@ -688,9 +707,9 @@ Under this equivalence, a morphism $\rho : \qcs{L} \to \qcs{L'}$ of quasicharact
 We will see that the Trace of Frobenius may not provide complete
 information about isomorphism classes of quasicharacter sheaves on $G$ when $G$ is not a connected algebraic group.
 Our main tool for understanding this phenomenon
-is a group homomorphism from $\QCiso{G}$ to $\Hh^2(E^\bullet_G)$, defined in Section~\ref{sec:S}, for which the next two sections are preparation.
+is a group homomorphism from $\QCiso{G}$ to $\Hh^2(E^\bullet_G)$, defined in Section~\ref{ssec:S}, for which the next two sections are preparation.
 
-\subsection{A spectral sequence}\label{sec:E}
+\subsection{A spectral sequence}\label{ssec:E}
 
 The zeroth page of the Hochschild-Serre spectral sequence is a double complex $E^{\bullet, \bullet}$ defined by
 \[
@@ -748,7 +767,7 @@ Subtracting $d \gamma_1$ from $\alpha\oplus\beta\oplus\gamma$, we may assume tha
 The latter two claims follow from tracing through the definition of latter pages in the spectral sequence; see Vakil \cite{} for example \todo{update reference}.
 \end{proof}
 
-\subsection{From quasicharacter sheaves to the total complex}\label{sec:S}
+\subsection{From quasicharacter sheaves to the total complex}\label{ssec:S}
 
 In this section we define an isomorphism
 \[
@@ -820,7 +839,7 @@ Tracing the construction backward, we have defined a quasicharacter sheaf $\qcs{
 $S_G(\qcs{L}) = [\alpha\oplus\beta\oplus\gamma]$, showing that $S_G$ is surjective.
 \end{proof}
 
-\subsection{Objects, when $G$ is etale}\label{sec:SandT}
+\subsection{Objects, when $G$ is etale}\label{ssec:SandT}
 
 In this section we find the relationship between the group homomorphisms $\TrFrob{G}$ and $S_G$, and use this to find the group $\QCiso{G}$ when $G$ is an etale commutative group scheme over $\Fq$.
 
@@ -877,7 +896,7 @@ is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
 This result follows easily from Propositions~\ref{prop:ses_desc} and \ref{prop:sur_etale}.
 \end{proof}
 
-\subsection{Morphisms}\label{sec:mor-etale}
+\subsection{Morphisms}\label{ssec:mor-etale}
 
 Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
 
@@ -903,9 +922,9 @@ The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ i
 
 \section{Quasicharacter sheaves defined by discrete isogenies} \label{sec:disc-isog}
 
-Before turning our attention to quasicharacter sheaves on connected commutative algebraic groups in Section~\ref{sec:connected}, we treat two special classes of quasicharacter sheaves on arbitrary smooth commutative group schemes $G$:  in Section~\ref{sec:descentG}, those that descend from local systems on $\bG$ to local systems on $G$; and in Section~\ref{sec:discrete_isogenies}, those that are defined by discrete isogenies onto $G$. The latter will play a role in Sections~\ref{sec:connected} and \ref{sec:restriction}.
+Before turning our attention to quasicharacter sheaves on connected commutative algebraic groups in Section~\ref{ssec:connected}, we treat two special classes of quasicharacter sheaves on arbitrary smooth commutative group schemes $G$:  in Section~\ref{ssec:descentG}, those that descend from local systems on $\bG$ to local systems on $G$; and in Section~\ref{ssec:discrete_isogenies}, those that are defined by discrete isogenies onto $G$. The latter will play a role in Sections~\ref{ssec:connected} and \ref{sec:restriction}.
 
-\subsection{Descent to G}\label{sec:descentG}
+\subsection{Descent to G}\label{ssec:descentG}
 
 In this section we consider a category of sheaves on $G$ obtained by
 replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter sheaf with an $\ell$-adic local system on $G$ itself.
@@ -944,7 +963,7 @@ Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(
 
 We will say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\qcs{E}, \mu_\qcs{E})$.
 
-\subsection{Discrete isogenies}\label{sec:discrete_isogenies}
+\subsection{Discrete isogenies}\label{ssec:discrete_isogenies}
 
 A finite, etale, surjective morphism $H\to G$ of smooth group schemes over $\Fq$ for which the action of $\Gal(\bFq/\Fq)$ on the kernel is trivial is called a {\it discrete isogeny}.
 
@@ -962,12 +981,13 @@ It is clear that $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank one.
 We must show that comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
 To do this we use etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$. 
 In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
-Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
+Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$
+from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
 \end{proof}
 
 We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 
-\subsection{Quasicharacter sheaves on connected commutative algebraic groups}\label{sec:connected}
+\subsection{Quasicharacter sheaves on connected commutative algebraic groups}\label{ssec:connected}
 
 In general, $\bQC(G)$ is an essentially
 proper subcategory of $\QC(G)$. 
@@ -1035,9 +1055,9 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   Let $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ be the isomorphism matching
   $\mu : {\bar m}^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$,
   the latter appearing in the definition of $\qcs{L}$.
-  Then, as in Section~\ref{sec:descentG}, $(\qcs{E},\mu_\qcs{E})$ is an object in $\bQC(G)$
+  Then, as in Section~\ref{ssec:descentG}, $(\qcs{E},\mu_\qcs{E})$ is an object in $\bQC(G)$
   and $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\qcs{E},b_{G\times G}^*\mu_\qcs{E})$ in $\QC(G)$.
-  Thus, the full and faithful functor $B_G : \bQC(G) \to \QC(G)$ from Section~\ref{sec:descentG}
+  Thus, the full and faithful functor $B_G : \bQC(G) \to \QC(G)$ from Section~\ref{ssec:descentG}
   is also essentially surjective, hence an equivalence.
 \end{proof}
 
@@ -1113,7 +1133,7 @@ and therefore, after passing to isomorphism classes, the sequence of abelian gro
 \end{tikzcd}
 \end{equation}
  Note that we found the groups $\QCiso{\pi_0(G)}$ and $\QCiso{G^0}$
-in Sections~\ref{sec:SandT} and \ref{sec:connected}, respectively.
+in Sections~\ref{ssec:SandT} and \ref{ssec:connected}, respectively.
 We will shortly see that \eqref{eq:pi2} is exact.
 
 
@@ -1166,7 +1186,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   morphisms are $\Gal(\bFq/\Fq)$-equivariant.
 \end{proof}
 
-We now wish to use the apply the results of Section~\ref{sec:connected} to the identity component of $G$; to do so, we must know that the identity component of $G$ is actually an algebraic group over $\Fq$.
+We now wish to use the apply the results of Section~\ref{ssec:connected} to the identity component of $G$; to do so, we must know that the identity component of $G$ is actually an algebraic group over $\Fq$.
 
 \begin{lemma} \label{lem:G0alg-grp}
 If $G$ is a commutative smooth group scheme over $\Fq$ then its identity component, $G^0$, is a connected algebraic group over $\Fq$.
