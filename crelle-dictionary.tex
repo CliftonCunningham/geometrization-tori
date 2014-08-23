@@ -34,15 +34,16 @@ as well the hospitality of the Banff International Research Station during our w
 
 %%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 % Encodings
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
 % AMS packages
-\usepackage{amsmath, amsthm, amssymb, todonotes}%, showkeys}
+%\usepackage{amsmath, amsthm, amssymb}
+\usepackage{todonotes}%, showkeys}
 \usepackage[alphabetic]{amsrefs}
 % Fonts
 \usepackage{mathrsfs, yfonts}
 %Geometry
-\usepackage{geometry}
+%\usepackage{geometry}
 % Enumitem
 %\usepackage{enumitem}
 % TikZ
@@ -314,7 +315,7 @@ Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism $\TrFrob{G
 We also define pullbacks of quasicharacter sheaves along morphisms of group schemes.  Applying pullbacks to the component group
 sequence for $G$ yields the diagram
  \begin{equation} \label{eq:intro-snake}
-  \begin{tikzcd}[row sep=20]
+  \begin{tikzcd}[row sep=20, column sep=20]
     0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
     & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
     0 \rar & \Hom(\pi_0(G)(\FF_q),\EEx) \rar & \Hom(G(\Fq),\EEx) \rar & \Hom(G^0(\FF_q),\EEx) \rar & 0,
@@ -348,13 +349,15 @@ use the snake lemma to determine the kernel and cokernel of $\TrFrob{G}$ for gen
 We show that $\QCiso{G^0} \to \QCiso{G}$ is surjective in Section~\ref{ssec:restriction} and
 that the remainder of the top row of \eqref{eq:intro-snake} is exact in Section~\ref{ssec:component}.
 We put it together in Theorem~\ref{thm:snake} of Section~\ref{ssec:snake}, showing that $\TrFrob{G}$
-is surjective with kernel $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$.  Having described the isomorphism classes of objects,
+is surjective with kernel $\Hh^2(\pi_0(\bG), \EEx)^{\Weil{}}$.  Having described the isomorphism classes of objects,
 in Theorem~\ref{thm:autornaught} of Section~\ref{ssec:qcmor} we show that
 \[
 \Aut(\qcs{L}) \cong \Hom(\pi_0(\bG)_{\Weil{}}, \EEx)
 \]
 and that every morphism is either trivial or an isomorphism.  We conclude in Section~\ref{sec:basechange} by
-giving functorial versions of the restriction and norm homomorphisms $\Hom(G(k'),\EEx) \to \Hom(G(k),\EEx)$ and $\Hom(G(k),\EEx) \to \Hom(G(k'),\EEx)$
+giving functorial versions of the restriction and norm homomorphisms 
+of character groups
+%$\Hom(G(k'),\EEx) \to \Hom(G(k),\EEx)$ and $\Hom(G(k),\EEx) \to \Hom(G(k'),\EEx)$
 and describing how quasicharacter sheaves behave under Weil restriction.
 
 Section~\ref{sec:applications} gives applications of quasicharacter sheaves to commutative algebraic groups over local fields.
@@ -449,7 +452,7 @@ Morphisms in the category of quasicharacter sheaves on $G$, denoted by $\QC(G)$,
   \]
 \end{enumerate}
 
-The category $\QC(G)$ of quasicharacter sheaves on $G$ is a rigid monoidal category
+Category $\QC(G)$ is a rigid monoidal category
 \cite{etingof:09a}*{\S1.10} under the tensor product
 $\qcs{L} \otimes \qcs{L'} \ceq (\gqcs{L}\otimes\gqcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$,
 with duals given by applying the sheaf hom functor
@@ -486,7 +489,7 @@ On the other hand, if $\rho_{\bar e}$ is nontrivial then the second diagram in \
 
 \subsection{Trace of Frobenius}\label{sec:Frob}
 
-In this section we introduce two tools which will help us understand isomorphism classes of objects in $\QC(G)$: the trace of Frobenius map $\QCiso{G} \to G(k)^*$ and the pullback functor $\QC(G) \to \QC(H)$ associated to a morphism $H \to G$.
+In this section we introduce two tools which will help us understand isomorphism classes of objects in $\QC(G)$: the map $\QCiso{G} \to G(k)^*$ given by trace of Frobenius and the pullback functor $\QC(G) \to \QC(H)$ associated to a morphism $H \to G$.
 
 %A Weil sheaf $(\gqcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gqcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. 
 %We now briefly review this point of view for later use in Section~\ref{sec:basechange}; see also \cite{deligne:80a}*{Def.~1.1.10}.  If $w \ceq \Frob{}^n$ we write $w_G$ for $\Frob{G}^n$.
@@ -514,7 +517,7 @@ Note that if $(\gqcs{L},\phi) \iso (\gqcs{L'},\phi')$ as Weil sheaves,
 then $\trFrob{(\gqcs{L},\phi)} = \trFrob{(\gqcs{L'},\phi')}$ as functions on $G(\Fq)$.
 
 Now suppose $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$.
-The isomorphism $\mu : \bm^* \gqcs{L} \to \LxL$ together with
+The isomorphism $\mu : \bm^* \gqcs{L} \to \gqcs{L} \boxtimes\gqcs{L} $ together with
 \ref{QC.3} guarantee
 that the function $\trFrob{(\gqcs{L},\phi)} : G(\Fq)\to \EEx$ is a group homomorphism, which we will also denote by $\trFrob{\qcs{L}}$.  Moreover,
 this homomorphism depends only on the isomorphism class of $\qcs{L}$, so we obtain a map
@@ -586,7 +589,10 @@ such that
 commutes.
 \end{lemma}
 \begin{proof}
-The only non-trivial part of the proof is to show that $\boxtimes : \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)$
+The only non-trivial part of the proof is to show that 
+\[\boxtimes
+ : \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)
+ \]
 is essentially surjective, so we will only address that point here.
 
 Set $G \ceq G_1\times G_2$
