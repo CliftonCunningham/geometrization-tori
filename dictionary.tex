@@ -179,18 +179,14 @@
 \begin{document}
 
 \begin{abstract}
-  We extend Deligne's function--sheaf dictionary from
-  connected commutative algebraic groups over finite fields to smooth
-  commutative group schemes over finite fields,
-  in which case some interesting new features of the dictionary arise.
-   \end{abstract}
+Motivated by an application to the geometrization and categorification of quasicharacters of $p$-adic tori,
+this paper extends Deligne's function--sheaf dictionary for characters of connected commutative algebraic groups over finite fields to characters of smooth commutative group schemes over finite fields.
+ \end{abstract}
 
 \maketitle
 
-\section{Introduction}
 
-Motivated by an application to the geometrization and categorification of quasicharacters of $p$-adic tori,
-this paper extends Deligne's function--sheaf dictionary for characters of connected commutative algebraic groups over finite fields to characters of smooth commutative group schemes over finite fields.
+\section{Introduction}
 
 \subsection{Overview}
 
@@ -253,7 +249,7 @@ We found, however, that this application applies to all local fields $K$ with fi
 Such algebraic groups $X_K$ always admit a Neron model $X$ over $R$, the ring of integers of $K$.
 In this paper we show that quasicharacters of $X_K$ are geometrized and categorified by quasicharacter sheaves on the
 Greenberg transform $\Gr_R(X)$ of the N\'eron model $X$; although not locally of finite type, $\Gr_R(X)$ is a commutative group scheme over $\Fq$ and also a projective limit of smooth commutative group schemes $\Gr^R_n(X)$.
-This allows us to adapt our work on quasicharacter sheaves to construct a category $\QC(\Gr_R(X))$ of quasicharacter sheaves on $\Gr_R(X)$.
+This allows us to adapt our work on quasicharacter sheaves to construct a category $\QC(X_K)$ of quasicharacter sheaves for $X_K$, which are certain sheaves on $\Gr_R(X)\times_{\Spec{\Fq}} \Spec{\bFq}$, with extra structure.
 The ability to generalize the function--sheaf dictionary to non-connected group schemes, of which the component group of the special fibre of the Néron model $X$ is an important example, plays a crucial role in this application
 since these group schemes are not connected in general.
 
@@ -267,11 +263,13 @@ We further show that automorphism groups in the $\QC(\Gr_R(\underline{T}))$ are 
 \Aut(\qcs{F}) \iso (\check{T}_\ell)^{\Weil{K}}
 \end{equation}
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
-We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
+%We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
 
-Joseph Bernstein has suggested to us that, although quasicharacter sheaves on $\Gr(\underline{T})$ do not correspond exactly to quasicharacters of $T(K)$, the category $\QC(\Gr(\underline{T}))$ may be closely tied to characters of the pure rational forms of $T$ in the sense of Vogan \cite{vogan:93a} or perhaps the rigid inner twists of Tasho Kaletha. 
-A better understanding of 
-$\Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Weil{}}$ should provide insight into this suggestion. \todo{rephrase}
+By any measure, there are more quasicharacter sheaves for $T$ than quasicharacters of $T(K)$.  
+%\todo{Maybe move this from the introduction into the body of the paper somewhere.}
+In this regard, we are reminded of the work of David Vogan \cite{vogan:93a}, in which he finds a geometrization of complete Langlands parameters for $p$-adic groups as equivariant perverse sheaves on Vogan varieties and, in the process, is lead to study the representations of all the pure rational forms of the $p$-adic group simultaneously.
+A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group.
+Indeed, he has suggested to us that our category of quasicharacters for $T$ may be tied to characters of all the pure rational forms of $T$.
 
 \subsection{Comparison with character sheaves}
 
@@ -289,8 +287,6 @@ beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
 The interesting new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in this context.
-
-
 
 \subsection{Structure of the paper}
 
@@ -361,8 +357,8 @@ with different characteristic.
 We thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable.
-We also thank Takashi Suzuki, who made some very helpful observations and suggestions.
-%
+We thank Takashi Suzuki for some very helpful observations and suggestions, including those related to our use of the Hochschild-Serre spectral sequence.
+We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves on $G$ and his sheaves on the stacky classifying space of $G$.
 Finally, we gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and the National Science and Engineering Research Council,
 as well the hospitality of the Banff International Research Station during our week-long stay in May 2012.
@@ -457,14 +453,32 @@ $\sheafHom(\ - \ ,\EE)$.
 This rigid monoidal category structure for $\QC(G)$ gives the set $\QCiso{G}$
 of isomorphism classes in $\QC(G)$ the structure of a group.
 
-We will describe the group $\QCiso{G}$ in Theorem \ref{thm:snake}
-and the sets $\Hom(\qcs{L},\qcs{L}')$ in Theorem \ref{thm:autornaught}; in this way we provide a complete description of the category $\QC(G)$.
-
 \begin{remark}
 The category of quasicharacter sheaves on $G$ is not abelian since it is not closed under direct sums and thus $\QC(G)$
 is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.  We suspect that requiring that $\mu$ be injective rather than
 an isomorphism and dropping the condition that the stalks be one-dimensional would yield an abelian category.
 \end{remark}
+
+We will describe the group $\QCiso{G}$ in Theorem \ref{thm:snake}
+and the sets $\Hom(\qcs{L},\qcs{L}')$ in Theorem \ref{thm:autornaught}; in this way we provide a complete description of the category $\QC(G)$.
+%
+In the meantime, we close this section with an elementary observation about $\Hom(\qcs{L},\qcs{L}')$.
+
+\begin{lemma}\label{lem:autornaught}
+Let $G$ be a smooth commutative group scheme over $\Fq$.
+If $\qcs{L}$ and $\qcs{L}'$ are quasicharacter sheaves on $G$ then
+every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. 
+\end{lemma}
+
+\begin{proof}
+Suppose $\rho \in \Hom(\qcs{L},\qcs{L}')$.
+We prove the lemma by considering the linear transformations $\rho_{\bar g} : \gqcs{L}_{\bar g} \to \gqcs{L}_{\bar g}$ at the stalks above geometric points ${\bar g}$ on $G$ and showing that, either each $\rho_{\bar g}$ trivial or each $\rho_{\bar g}$ is an isomorphism.
+(This idea is expanded upon in Section~\ref{sec:stalks}.)
+Let ${\bar e}$ be the geometric point above the identity $e$ for $G$ determined by our choice of algebraic closure $\bFq$ of $\Fq$.
+If $\rho_{\bar e} = 0$ then the second diagram in \ref{QC.4} implies that $\rho_{\bar g} = 0$ for all ${\bar g}$, in which case $\rho$ is trivial.
+On the other hand, if $\rho_{\bar e}$ is nontrivial then the second diagram in \ref{QC.4}  implies that $\rho_{\bar g}$ is nontrivial for all ${\bar g}$ and thus an isomorphism, since the stalk of quasicharacter sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
+\end{proof}
+
 
 \subsection{Trace of Frobenius}\label{sec:Frob}
 
@@ -484,7 +498,7 @@ In this section we introduce two tools which will help us understand isomorphism
 
 
 Let $(\gqcs{L},\phi)$ be a Weil sheaf on $G$. Every $g\in G(\Fq)$
-determines a point $\bg$ on $\bG$ fixed by $\Frob{G}$. 
+determines a point geometric point $\bg$ fixed by $\Frob{G}$. 
 Together with the canonical isomorphism $(\Frob{G}^*\gqcs{L})_{\bg} \iso  \gqcs{L}_{\Frob{G}(\bg)}$, in this way the automorphism $\phi$ determines an automorphism $\phi_{\bg}$ of the $\EE$-vector space $\gqcs{L}_{\bg}$; let $\trace(\phi_{\bg};\gqcs{L}_{\bg})$ be the trace of $\phi_{\bg} \in \Aut_{\EE}(\gqcs{L}_{\bg})$ and let $\trFrob{(\gqcs{L},\phi)} : G(\Fq)\to \EE$ be the function defined by 
 \begin{equation}\label{trWeil}
 %\begin{equation}\label{trWeil}
@@ -508,7 +522,7 @@ Since tensor products on the stalks of $\qcs{L}$ induce pointwise multiplication
 studying the behavior of the trace of Frobenius under morphisms of group schemes.  These simple but important
 results on pullbacks and external products will be used in the proofs of many results in this paper.
 
-\begin{proposition}\label{prop:pullback}
+\begin{lemma}\label{lem:pullback}
   If $f : H\to G$ is a morphism of smooth commutative group schemes over $\Fq$ then
   \begin{align*}
   f^* : \QC(G) &\to \QC(H) \\
@@ -522,8 +536,7 @@ results on pullbacks and external products will be used in the proofs of many re
   \end{tikzcd}
   \]
   is a commutative diagram of groups.  Moreover, $(f\circ g)^* = g^* \circ f^*$.
-\end{proposition}
-
+\end{lemma}
 \begin{proof}
   Let $\qcs{L}$ be a quasicharacter sheaf on $G$. 
   Pullback by $\bf$ takes rank~one local systems to rank~one local systems.
@@ -552,7 +565,7 @@ results on pullbacks and external products will be used in the proofs of many re
 
 %We end this section with a simple result on products of quasicharacter sheaves, which is needed to show that the isomorphism above is functorial.
 
-\begin{proposition}\label{prop:product}
+\begin{lemma}\label{lem:product}
 If $G_1$ and $G_2$ are smooth commutative group schemes over $\Fq$ then the rule
 $\boxtimes : (\qcs{L}_1,\qcs{L}_2)\to \qcs{L}_1\boxtimes\qcs{L}_2$ defines an equivalence of categories
 \[
@@ -567,8 +580,7 @@ such that
 \end{tikzcd}
 \]
 commutes.
-\end{proposition}
-
+\end{lemma}
 \begin{proof}
 The only non-trivial part of the proof is to show that $\boxtimes : \QC(G_1)\times \QC(G_2) \to \QC(G_1\times G_2)$
 is essentially surjective, so we will only address that point here.
@@ -596,7 +608,7 @@ Observe that $p_1\circ f = q_1 \circ r_1$ and $p_2 \circ f = q_2\circ r_2$.
 
 Now, let $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$.
 Set $\qcs{L}_1 \ceq q_1^* \qcs{L}$ and $\qcs{L}_2 \ceq q_2^* \qcs{L}$;
-by Proposition~\ref{prop:pullback}, $\qcs{L}_1$ a quasicharacter sheaf on $G_1$
+by Lemma~\ref{lem:pullback}, $\qcs{L}_1$ a quasicharacter sheaf on $G_1$
 and $\qcs{L}_2$ is a quasicharacter sheaf on $G_2$.
 We will obtain an isomorphism $\qcs{L} \iso  \qcs{L}_1\boxtimes \qcs{L}_2$.
 Applying the functor $f^*$ to the isomorphism $\mu$ yields
@@ -629,9 +641,9 @@ from the category of smooth commutative group schemes over $\Fq$ to the category
 \end{proposition}
 
 \begin{proof}
-The first part of Proposition~\ref{prop:pullback} shows that $F_1$ is a functor,
+The first part of Lemma~\ref{lem:pullback} shows that $F_1$ is a functor,
 while the second part shows that Trace of Frobenius is a natural transformation
-$T: F_1 \to F_2$. When further combined with Proposition~\ref{prop:product},
+$T: F_1 \to F_2$. When further combined with Lemma~\ref{lem:product},
 we see that $F_1$ is an additive functor and $T: F_1 \to F_2$ is a natural
 transformation between additive functors,
 concluding the proof of Proposition~\ref{prop:functorialG}.
@@ -655,7 +667,7 @@ concluding the proof of Proposition~\ref{prop:functorialG}.
 
 In this section we find a complete characterization of the category of quasicharacter sheaves on étale commutative group schemes over finite fields.
 
-\subsection{Stalks of quasicharacter sheaves}
+\subsection{Stalks of quasicharacter sheaves}\label{sec:stalks}
 
 The equivalence $G \mapsto G(\bFq)$
 from the category of \'etale commutative group schemes over $\Fq$ to the category of commutative groups equipped
@@ -737,6 +749,7 @@ The machinery of spectral sequences gives us a sequence of pages $E_r^{i,j}$, co
 \item there is a filtration $\Hh^n(\Weil{} \ltimes G(\bFq), \EEx) = F_n \supset \cdots \supset F_0 \supset F_{-1} = 0$ where $F_i / F_{i-1} \cong E_{\infty}^{i, n-i}$.
 \end{enumerate}
 \end{proposition}
+%\todo{Is this a lemma? Is the corollary a proposition?}
 
 Moreover, since $\Weil{} \cong \ZZ$ has cohomological dimension $1$, $E_2^{i,j} = 0$ for $i > 1$ and the sequence degenerates at the second page: $E_{\infty}^{i,j} = E_2^{i,j}$. We obtain the following corollary:
 
@@ -914,10 +927,7 @@ every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. More
 \end{proposition}
 
 \begin{proof}
-Suppose $\rho \in \Hom(\qcs{L},\qcs{L}')$.
-If $\rho_0 = 0$ then the second diagram in \ref{qc.4} for $y=0$ implies that $\rho_x = 0$ for all $x\in G$, in which case $\rho$ is trivial.
-On the other hand, if $\rho_0$ is nonzero then the second diagram in \ref{qc.4} for $y = -x$ implies that $\rho_x$ is nonzero for all $x$ and thus an isomorphism since the stalk of quasicharacter sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
-
+We have already seen, in Lemma~\ref{lem:autornaught}, that every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
 Now suppose $\rho \in \Aut(\qcs{L})$.
 The second diagram in \ref{qc.4} shows that the association $x \mapsto \rho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{qc.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\rho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
@@ -1071,7 +1081,7 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
  \item $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
  \item every quasicharacter sheaf on $G$ is isomorphic to one defined by a discrete isogeny;%as in Proposition~\ref{prop:finite};
  \item $\Aut(\qcs{L}) = 1$, for all quasicharacter sheaves $\qcs{L}$ on $G$;
-  \item for all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $G$ and for every $\rho \in \Hom(\qcs{L},\qcs{L}')$, either $\rho$ is trivial or an isomorphism.
+%  \item for all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $G$ and for every $\rho \in \Hom(\qcs{L},\qcs{L}')$, either $\rho$ is trivial or an isomorphism.
  \end{enumerate}
  \end{proposition}
 
@@ -1091,7 +1101,6 @@ V\otimes V \arrow{r}{\rho\otimes \rho} & V\otimes V
 \]
 commutes. 
 Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\qcs{E}) = 1$, completing the proof.
-For the last part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
 \end{proof}
 
 %\begin{remark}
@@ -1110,7 +1119,7 @@ In other words, the common perspective on the function--sheaf dictionary leads o
 We will see in Section~\ref{sec:main} that, for any smooth commutative group scheme $G$, the part of category of quasicharacter sheaves that is invisible to the trace of Frobenius are measured by $\Hh^2(\pi_0(\bG),\EEx)^{\Frob{}}$.
 %\end{remark}
 
-\section{The function--sheaf dictionary for smooth, commutative group schemes}\label{sec:main}
+\section{The function--sheaf dictionary for smooth commutative group schemes}\label{sec:main}
 
 
 \subsection{Restriction to the identity component} \label{ssec:restriction}
@@ -1123,7 +1132,7 @@ defining the component group scheme for $G$:
 \end{tikzcd}
 \end{equation}
 Since $\pi_0(G)$ is a étale commutative group scheme -- and thus smooth --
-Proposition~\ref{prop:pullback} implies that \eqref{eq:pi0} defines the sequence of functors
+Lemma~\ref{lem:pullback} implies that \eqref{eq:pi0} defines the sequence of functors
 \begin{equation}\label{eq:pi1}
 \begin{tikzcd}
 \QC(0) \rar & \QC(\pi_0(G)) \arrow{r}{\pi_0^*} & \QC(G) \arrow{r}{\iota_0^*} & \QC(G^0) \rar & \QC(0)
@@ -1250,7 +1259,7 @@ Let $\qcs{L}$ be a quasicharacter sheaf on $\pi_0(G)$ and let $\rho : \pi_0^*\qc
 The sequence is exact at $\QCiso{G^0}$ by Proposition~\ref{prop:restriction}
 and exact at $\QCiso{\pi_0(G)}$ by Lemma~\ref{lem:extension}.
 Here we show that it is also exact at $\QCiso{G}$.
-First note that $\iota_0^* \circ \pi_0^*$ is trivial by Proposition~\ref{prop:pullback}.
+First note that $\iota_0^* \circ \pi_0^*$ is trivial by Lemma~\ref{lem:pullback}.
 So it suffices to show that if $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$
 with $\qcs{L}\vert_{G^0} = (\EE)_{G^0}$ then $\qcs{L}$ is in the essential image of $\pi_0^*$.
 
@@ -1346,7 +1355,7 @@ is surjective with kernel canonically isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({
   \end{tikzcd}
   \]
   be the commutative diagram of abelian groups obtained by applying
-  Proposition~\ref{prop:pullback} to \eqref{eq:pi0}.
+  Lemma~\ref{lem:pullback} to \eqref{eq:pi0}.
  %
   The sequence of abelian groups
   \begin{equation}\label{eq:pi0k}
@@ -1379,8 +1388,7 @@ is exact.
 
 \begin{theorem}\label{thm:autornaught}
 Let $G$ be a smooth commutative group scheme over $\Fq$.
-For all quasicharacter sheaves $\qcs{L}$ and $\qcs{L}'$ on $G$,
-every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
+%For all quasicharacter sheaves $\qcs{L}$ and $\qcs{L}'$ on $G$, every $\rho \in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
 Moreover, 
 \[
 \Aut(\qcs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx),
@@ -1388,8 +1396,9 @@ Moreover,
  canonically.
 \end{theorem}
 \begin{proof} 
-For the first part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
-For the second, fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the homomorphism $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
+%For the first part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
+%For the second, f
+Fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the homomorphism $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
 This group homomorphism is clearly injective: if $\rho_x = \id_{\qcs{L}_x}$ for every $x\in \bG$ then $\rho = \id_{\qcs{L}}$.
 Note that the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom_\text{cts}(\bG_{\Weil{}},\EEx)$, where $\bG_{\Weil{}}$ is given the topology of the base of the espace étalé attached to $\gqcs{L}$.
 Since $\ell$ is invertible in $\Fq$, it follows that $\Hom_\text{cts}(\bG_{\Weil{}},\EEx) = \Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
@@ -1427,7 +1436,7 @@ G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \]
 \end{proposition}
 \begin{proof}
-This result follows immediately from Proposition~\ref{prop:pullback} together with the identifications
+This result follows immediately from Lemma~\ref{lem:pullback} together with the identifications
 \[
 \Res_{k'/k}(G_{k'})(k) \cong G_{k'}(k') \cong G(k')
 \]
@@ -1520,7 +1529,7 @@ G'(k')^* \rar & G'(k')^*,
 where the bottom map is the identity.
 \end{proposition}
 \begin{proof}
-By Proposition~\ref{prop:pullback} the pullback part of the definition of $\rho$ corresponds to the map
+By Lemma~\ref{lem:pullback} the pullback part of the definition of $\rho$ corresponds to the map
 \[
 (\Res_{k'/k}G')(k') \to G'(k')^*
 \]
@@ -1641,7 +1650,7 @@ Moreover, the morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(N
 \[
 \varrho^R_n(X)^* : \QC(\Gr^R_n(X)) \to \QC(\Gr_R(X)),
 \]
-as in Proposition~\ref{prop:pullback}.
+as in Lemma~\ref{lem:pullback}.
 This functor is faithful, so we may view $\QC(\Gr^R_n(X))$ as a subcategory of $\QC(\Gr_R(X))$.
 
 We now define a category which will geometrize quasicharacters of $X_K(K)$.
@@ -1651,7 +1660,7 @@ Although $\Gr_R(X)$ is not locally of finite type, and thus not smooth, we begin
 We construct an evil subcategory $\QC(X_K)$ of $\QC(\Gr_R(X))$ as follows:
 objects in $\QC(X_K)$ are the $\ell$-adic sheaves $\varrho^R_n(X)^*\qcs{L}$, for $n\in \NN$ and $\qcs{L} \in \QC(\Gr^R_n(X))$; morphism from $\varrho^R_n(X)^*\qcs{L}$ to $\varrho^R_m(X)^*\qcs{L}'$ are $\varrho^R_m(X)^*\rho$ for $\rho \in \Hom(\varrho^R_{n\leq m}(X)^*\qcs{L},\qcs{L}')$ when $n\leq m$, and $\varrho^R_n(X)^*\rho$ for $\rho \in \Hom(\qcs{L},\varrho^R_{m\leq n}(X)^*\qcs{L}')$ when $m\leq n$.
  We refer to $\QC(X_K)$ as the {\it evil category of quasicharacter sheaves for $X_K$}; objects will simply be called {\it 
-Quasicharacter sheaves for $X_K$}.
+quasicharacter sheaves for $X_K$}.
 \end{definition}
 
 The evil category of quasicharacter sheaves for $X_K$ is rigid monoidal in the obvious way.
@@ -1703,7 +1712,7 @@ canonically.
 
 \begin{proof}
 To begin, fix $n\in \NN$.
-The following statements follow directly from properties of Néron models, Proposition~\ref{prop:functorialG} and Theorems~\ref{thm:snake} and \ref{thm:autornaught} together with our observations about the component group of $\Gr^R_n(X)$.
+The following statements follow directly from Lemma~\ref{lem:autornaught}, Proposition~\ref{prop:functorialG}, Theorems~\ref{thm:snake} and \ref{thm:autornaught}, properties of Néron models and our observations about the component group of $\Gr^R_n(X)$.
 \begin{enumerate}
 \item[(0)] Trace of Frobenius gives a natural transformation from
 \[
@@ -1723,10 +1732,10 @@ as functors from $\mathcal{N}_K$ to Abelian groups.
 \]
 canonically.
 \end{enumerate}
-So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(X_K)$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(X_K)$.
+So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(X_K)$ and the observation that $\QC(X_K)$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\QC(\Gr_R(X))$.
 \end{proof}
 
-\subsection{Quasicharacters of $p$-adic tori} \label{ssec:qc_tori}
+\subsection{Quasicharacters for $p$-adic tori} \label{ssec:qc_tori}
 
 As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T\in \mathcal{N}_K$ is an algebraic torus over $K$, in which case we write $\underline{T}$ for the Neron model $X$. Now,
 \[
@@ -1737,9 +1746,9 @@ Accordingly, the short exact sequence in Theorem~\ref{thm:QCXK} becomes
 \begin{equation}
 0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Frob{}} \to \QCiso{T} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
 \end{equation}
-Again by Theorem~\ref{thm:QCXK}, the automorphism groups in the $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ on $\Gr_R(X)$, by
+Again by Theorem~\ref{thm:QCXK}, the automorphism groups in the $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T$, by
 \begin{equation}
-\Aut(\qcs{F}) \iso \Hom(X_*(T)_{\Weil{K}},\EEx) = \Hom(X_*(T),\EEx)^{\Weil{K}} = (X^*(T)\otimes \EEx)^{\Weil{K}} = (\check{T}_\ell)^{\Weil{K}}
+\Aut(\qcs{F}) \iso \Hom(X_*(T)_{\Weil{K}},\EEx) \iso \Hom(X_*(T),\EEx)^{\Weil{K}} = (\check{T}_\ell)^{\Weil{K}}
 \end{equation}
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 
@@ -1803,7 +1812,7 @@ the pullback functor
 \[
 f_n^* : \QC(\Res_{k'/k} \Gr_{en-1}^{R'}(X'))\to \QC(\Gr_{n-1}^{R}(X))
 \]
-obtained by applying Proposition~\ref{prop:pullback} to \eqref{men} gives
+obtained by applying Lemma~\ref{lem:pullback} to \eqref{men} gives
 \[
 \Hom(X(R'_{en}),\EEx) \to \Hom(X(R_n),\EEx).
 \]
@@ -1828,11 +1837,11 @@ Let $K$ and $K'$ be local fields with rings of integers $R$ and $R'$ and residue
 
 Suppose $X_K\in \mathcal{N}_K$ with Néron model $X$ and $X'_{K'}\in \mathcal{N}_K'$ with Néron model $X'$.
 Suppose $m$ and $m'$ are non-negative integers such that 
+\[
+R_m \iso R'_{m'},
+\]
+in which case $K$ and $K'$ are said to be $m$-close, and
 \begin{equation}\label{eq:schematic_transfer}
-R_m \iso R'_{m'}
-\qquad
-\text{and}
-\qquad
 X \times_{S} S_m \iso X' \times_{S'} S'_{m'}.
 \end{equation}
 as smooth group schemes over $R_m$. 
@@ -1840,7 +1849,7 @@ Then
 $
 \Gr^R_m(X) \iso \Gr^{R'}_{m'}(X')
 $
-as smooth group schemes over $\Fq$; accordingly, by Proposition~\ref{prop:pullback} the isomorphism above determines an equivalence of categories
+as smooth group schemes over $\Fq$; accordingly, by Lemma~\ref{lem:pullback} the isomorphism above determines an equivalence of categories
 \begin{equation}\label{eq:categorical_transfer}
 \QC(\Gr^R_m(X)) \cong \QC(\Gr^{R'}_{m'}(X'))
 \end{equation}
@@ -1852,10 +1861,10 @@ and thence, by trace of Frobenius, an isomorphism
 \begin{equation}\label{eq:transfer}
 \Hom_m(X_K(K),\EEx)  \iso  \Hom_{m'}(X'_{K'}(K'),\EEx).
 \end{equation}
-The isomorphism \eqref{eq:transfer} is an instance of {\it transfer of (certain) quasicharacters} between $X_K(K)$ and $X_{K'}(K')$. 
+The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of (certain) quasicharacters between $X_K(K)$ and $X_{K'}(K')$. 
 We now recognize this transfer of quasicharacters as a consequence of the equivalence of categories of quasicharacter sheaves \eqref{eq:categorical_transfer}.
 
-Such a relationship can exist between quasicharacters of algebraic tori over local fields, even when the characteristics of $K$ and $K'$ differ.
+The isomorphism \eqref{eq:schematic_transfer} can indeed exist between quasicharacters of algebraic tori over local fields, even when the characteristics of $K$ and $K'$ differ.
 Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
 splitting over $L$ and $L'$ respectively.
 Then $T$ and $T'$ are said to be \emph{$N$-congruent} \cite{chai-yu:01a}*{\S 2} if there are isomorphisms
