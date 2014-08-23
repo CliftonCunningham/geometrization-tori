@@ -4,7 +4,7 @@
 
 %%%%%%%%%%%%%%%%%% HEADING %%%%%%%%%%%%%%%%%%
 
-\title[The function--sheaf dictionary, with applications over local fields]{The function--sheaf dictionary for smooth commutative group schemes over finite fields, with applications over local fields}
+\title[The function--sheaf dictionary]{The function--sheaf dictionary for smooth commutative group schemes over finite fields}
 
 \date{\today}
 \author{Clifton Cunningham}
@@ -253,13 +253,13 @@ We found, however, that this application applies to all local fields $K$ with fi
 Such algebraic groups $X_K$ always admit a Neron model $X$ over $R$, the ring of integers of $K$.
 In this paper we show that quasicharacters of $X_K$ are geometrized and categorified by quasicharacter sheaves on the
 Greenberg transform $\Gr_R(X)$ of the N\'eron model $X$; although not locally of finite type, $\Gr_R(X)$ is a commutative group scheme over $\Fq$ and also a projective limit of smooth commutative group schemes $\Gr^R_n(X)$.
-This allows us to adapt our work on quasicharacter sheaves to construct a category $\QC(\Gr_R(X))$ of quasicharacter sheaves on $\Gr(X)$.
+This allows us to adapt our work on quasicharacter sheaves to construct a category $\QC(\Gr_R(X))$ of quasicharacter sheaves on $\Gr_R(X)$.
 The ability to generalize the function--sheaf dictionary to non-connected group schemes, of which the component group of the special fibre of the Néron model $X$ is an important example, plays a crucial role in this application
 since these group schemes are not connected in general.
 
 Specializing to the case when $X_K$ is an algebraic tori $T$ over $K$, and writing $\underline{T}$ for the Neron model $X$ in this case, this paper gives a canonical short exact sequence 
 \begin{equation}
-0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{\Gr_R(\underline{T})} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
+0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
 \end{equation}
 where $\Hom_\text{qc}(T(K),\EEx)$ denoted the group of quasicharacters of $T(K)$.
 We further show that automorphism groups in the $\QC(\Gr_R(\underline{T}))$ are given, for every quasicharacter sheaf $\qcs{F}$ on $\Gr_R(X)$, by
@@ -1539,7 +1539,9 @@ is given by permuting coordinates, composition with the norm map yields the iden
 Let $K$ be a local field (in the sense of Serre) with residue field $\Fq$. 
 In this section we consider connected commutative algebraic groups over $K$ that admit a Néron model, by which we mean an lft Néron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup of type $\mathbb{G}_\text{a}$.
-These algebraic groups over $K$ form an additive category, denoted by $\mathcal{N}_K$ below, in a natural way, as a full subcategory of connected commutative algebraic groups over $K$. This category includes algebraic tori over $K$ and Abelian varieties over $K$, and sometimes unipotent K-wound groups, depending on $K$.
+These algebraic groups over $K$ form an additive category, denoted by $\mathcal{N}_K$ below, in a natural way, as a full subcategory of connected commutative algebraic groups over $K$. This category includes algebraic tori over $K$ and Abelian varieties over $K$ unipotent K-wound groups.
+
+\subsection{Quasicharacters}
 
 Let $R$ be the ring of integers of $K$.
 Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$, for every non-negative integer $n$.
@@ -1553,7 +1555,7 @@ the group of quasicharacters of $X_K(K)$ will be denoted by
  \[
  \Hom_n(X_K(K),\EEx).
 \]
-In this section we explain how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves.
+In this section we will see how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves.
 
 \subsection{Review of the Greenberg transform} \label{ssec:rev_Greenberg}
 
@@ -1585,13 +1587,17 @@ This functor also respects open immersions, closed immersions, \'etale morphisms
 canonically, for any $X$ lft over $S$.
 
 For any $n\leq m$,  the surjective ring homomorphism $R_{m} \to R_n$ determines a
-natural transformation $P^R_{n\leq m} : \Gr^R_{m} \to \Gr^R_n$ between additive functors.
-Crucially, $P^R_{n\leq m}(X): \Gr^R_{m}(X)\to \Gr^R_n(X)$ is an affine morphism of $\Fq$-schemes, for every $R$-scheme $X$ and every $n\leq m$ \cite{bertrapelle-gonzales:Greenberg}*{Prop 4.3}.
+natural transformation 
+\[
+\varrho^R_{n\leq m} : \Gr^R_{m} \to \Gr^R_n
+\]
+between additive functors.
+Crucially, $\varrho^R_{n\leq m}(X): \Gr^R_{m}(X)\to \Gr^R_n(X)$ is an affine morphism of $\Fq$-schemes, for every $R$-scheme $X$ and every $n\leq m$ \cite{bertrapelle-gonzales:Greenberg}*{Prop 4.3}.
 This observation is key to the proof that, for any $X$ lft over $S$, the projective limit 
 \[
-\Gr_R(X) \ceq \varprojlim_{n\in \NN} \Gr^R_n(X)
+\Gr_R(X) \ceq \varprojlim_{n\in \NN} \Gr^R_n(X),
 \]
-taken with respect to the surjective morphisms $P^R_{n\leq m}(X) : \Gr^R_{m}(X) \to \Gr^R_n(X)$,
+taken with respect to the surjective morphisms $\varrho^R_{n\leq m}(X) : \Gr^R_{m}(X) \to \Gr^R_n(X)$,
 exists in the category of group schemes over $\Fq$.
 This leads to the definition of what we shall call the {\it Greenberg transform}:
 \[
@@ -1599,7 +1605,7 @@ This leads to the definition of what we shall call the {\it Greenberg transform}
 \]
 By construction, the $\Fq$-scheme $\Gr_R(X)$ comes equipped with morphisms 
 \[
-P^R_n(X) : \Gr^R(X) \to \Gr^R_n(X),\qquad \forall n\in \NN_0.
+\varrho^R_n(X) : \Gr^R(X) \to \Gr^R_n(X),\qquad \forall n\in \NN_0.
 \]
 The Greenberg transform respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components, and
 \[
@@ -1610,17 +1616,8 @@ canonically, for any $X$ lft over $R$.
 \subsection{Quasicharacter sheaves on the Greenberg transform of a Néron model} \label{ssec:qc_on_GN}
  
 Let $X_K \in \mathcal{N}_K$ and $X$ be as above.
-Although $\Gr_R(X)$ is not locally of finite type, and thus not smooth, let us write $\QC(\Gr_R(X))$ for the rigid monoidal category defined as in Section~\ref{sec:category}, without insisting that the commutative group scheme $G$ is smooth.
 
-The Greenberg transform $\Gr_R(X)$ of $X$ is commutative group scheme over $\Fq$ with component group scheme
-$
-\pi_0(\Gr_R(X))= \pi_0(X) \times_S S_0
-$
-and $\Fq$-rational points
-$
-\Gr_R(X)(\Fq)\iso X_K(K),
-$
-canonically.
+
 For every non-negative integer $n$, $\Gr^R_n(X)$ is {\it smooth} commutative group scheme over $\Fq$ with component group scheme
 $\pi_0(\Gr^R_n(X))= \pi_0(X) \times_S S_0$
 and $\Fq$-rational points
@@ -1629,20 +1626,56 @@ $
 $
 canonically.
 %
-Moreover, the morphism of $\Fq$-schemes $P^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
+The Greenberg transform $\Gr_R(X)$ of $X$ is still a commutative group scheme over $\Fq$ with component group scheme
+$
+\pi_0(\Gr_R(X))= \pi_0(X) \times_S S_0
+$
+and its $\Fq$-rational points are given by
+$
+\Gr_R(X)(\Fq)\iso X_K(K),
+$
+canonically, but $\Gr_R(X)$ is not locally of finite type, and therefore not smooth.
+
+%
+Moreover, the morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
 \[
-P^R_n(X)^* : \QC(\Gr^R_n(X)) \to \QC(\Gr_R(X)),
+\varrho^R_n(X)^* : \QC(\Gr^R_n(X)) \to \QC(\Gr_R(X)),
 \]
 as in Proposition~\ref{prop:pullback}.
-This functor is full and faithful, so we may view $\QC(\Gr^R_n(X))$ as a full subcategory of $\QC(\Gr_R(X))$.
+This functor is faithful, so we may view $\QC(\Gr^R_n(X))$ as a subcategory of $\QC(\Gr_R(X))$.
+
+We now define a category which will geometrize quasicharacters of $X_K(K)$.
+Although $\Gr_R(X)$ is not locally of finite type, and thus not smooth, we begin by considering the rigid monoidal category $\QC(\Gr_R(X))$ defined in Section~\ref{sec:category}, without insisting that the commutative group scheme is smooth.
 
 \begin{definition}
-Let $X_K$ be a connected commutative group scheme that admits a Neron model, $X$.
-A {\it quasicharacter sheaf for $X_K$} is an object $\qcs{F}$ in $\QC(\Gr_R(X))$ such that $\qcs{F} \iso P^R_n(X)^*\qcs{L}$ for some $\qcs{L} \in \QC(\Gr^R_n(X))$.
-Quasicharacter sheaves for $X_K$ form a rigid monoidal category in the obvious way, denoted by $\QC(X_K)$.
+We construct an evil subcategory $\QC(X_K)$ of $\QC(\Gr_R(X))$ as follows:
+objects in $\QC(X_K)$ are the $\ell$-adic sheaves $\varrho^R_n(X)^*\qcs{L}$, for $n\in \NN$ and $\qcs{L} \in \QC(\Gr^R_n(X))$; morphism from $\varrho^R_n(X)^*\qcs{L}$ to $\varrho^R_m(X)^*\qcs{L}'$ are $\varrho^R_m(X)^*\rho$ for $\rho \in \Hom(\varrho^R_{n\leq m}(X)^*\qcs{L},\qcs{L}')$ when $n\leq m$, and $\varrho^R_n(X)^*\rho$ for $\rho \in \Hom(\qcs{L},\varrho^R_{m\leq n}(X)^*\qcs{L}')$ when $m\leq n$.
+ We refer to $\QC(X_K)$ as the {\it evil category of quasicharacter sheaves for $X_K$}; objects will simply be called {\it 
+Quasicharacter sheaves for $X_K$}.
 \end{definition}
 
-%Note that we may informally regard $\QC(\Gr_R(X))$ a `union' of the full subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
+The evil category of quasicharacter sheaves for $X_K$ is rigid monoidal in the obvious way.
+
+\begin{remark}
+The evil category of quasicharacter sheaves for $X_K$ is evil in the categorical sense.
+If $\varrho^R_n(X)^* : \QC(\Gr^R_n(X)) \to \QC(\Gr_R(X))$ is full then the construction above is easily modified to be non-evil; however, we do not know if $\varrho^R_n(X)^*$ is full.
+In any case, a non-evil alternative construction of $\QC(X_K)$ is available, but it is quite ugly.
+For objects, one considers triples $\qcs{F} \ceq (n, \{\qcs{F}_i\}_{i \ge n}, \{\alpha_{i \le j}\}_{j \ge i \ge n})$, where $n$
+is a positive integer, each $\qcs{F}_i$ is a quasicharacter sheaf on $\Gr^R_i(X)$ and each $\alpha_{i \le j} : \qcs{L}_j \to f^*_{i \le j} \qcs{L}_i$ is an isomorphism; of course, $\alpha_{i \le i}$ is the identity and the $\alpha_{i \le j}$ are compatible with each other.  
+If $\qcs{F} \ceq (n, \{\qcs{F}_i\}, \{\alpha_{i \le j}\})$
+and $\qcs{F}' \ceq (m, \{\qcs{F}'_i\}, \{\alpha'_{i \le j}\})$ are objects then $\Hom(\qcs{F}, \qcs{F}')$ is the set
+of equivalence classes of pairs $(k, \{\beta_i\}_{i \ge k})$, where $k \ge m, n$ and the $\beta_i : \qcs{F}_i \to \qcs{F}'_i$ are
+morphisms of quasicharacter sheaves so that
+\[
+\begin{tikzcd}
+\qcs{F}_j \rar{\alpha_j} \dar{\beta_i} & f^*_{i \le j} \qcs{F}_i \dar{f_{i \le j}^*\beta_j} \\
+\qcs{F}'_j \rar{\alpha_j} & f^*_{i \le j} \qcs{L}'_i
+\end{tikzcd}
+\]
+commutes for all $j \ge i \ge k$; we identify two such pairs $(k, \{\beta_i\})$ and $(l, \{\gamma_i\})$ if $\beta_i = \gamma_i$
+for sufficiently large $i$.  Identities and composites are defined in the natural way.
+\end{remark}
+
 
 \begin{theorem}\label{thm:QCXK}
 Let $K$ and $R$ be as above.
@@ -1690,7 +1723,7 @@ as functors from $\mathcal{N}_K$ to Abelian groups.
 \]
 canonically.
 \end{enumerate}
-So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
+So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(X_K)$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(X_K)$.
 \end{proof}
 
 \subsection{Quasicharacters of $p$-adic tori} \label{ssec:qc_tori}
@@ -1702,9 +1735,9 @@ As we explained in the Introduction, our original motivation for this paper was 
 where $X_*(T)$ is the cocharacter lattice of $T$ and $\mathcal{I}_K$ is the inertia group for $K$ \cite{bitan:discriminant}*{Eq 3.1}. 
 Accordingly, the short exact sequence in Theorem~\ref{thm:QCXK} becomes
 \begin{equation}
-0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Frob{}} \to \QCiso{\Gr_R(\underline{T})} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
+0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Frob{}} \to \QCiso{T} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
 \end{equation}
-Again by Theorem~\ref{thm:QCXK}, the automorphism groups in the $\QC(\Gr_R(\underline{T}))$ are given, for every quasicharacter sheaf $\qcs{F}$ on $\Gr_R(X)$, by
+Again by Theorem~\ref{thm:QCXK}, the automorphism groups in the $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ on $\Gr_R(X)$, by
 \begin{equation}
 \Aut(\qcs{F}) \iso \Hom(X_*(T)_{\Weil{K}},\EEx) = \Hom(X_*(T),\EEx)^{\Weil{K}} = (X^*(T)\otimes \EEx)^{\Weil{K}} = (\check{T}_\ell)^{\Weil{K}}
 \end{equation}
@@ -1720,7 +1753,7 @@ Let $R$ and $R'$ be the rings of integers of $K$ and $K'$, respectively.
 Let $X_K$ be a connected commutative algebraic group over $K$
 that admits a Néron model $X$ over $R$.
 Set $X_{K'} \ceq X_K \times_\Spec{K} \Spec{K'}$
-and $X' \ceq X \times_\Spec{R} \Spec{R'}$.
+Let $X'$ be a Néron model for $X_{K'}$.
 
 \begin{proposition}\label{prop:wrK}
 The canonical closed immersion 
@@ -1732,9 +1765,9 @@ induces a map of $\Fq$-group schemes
 \[
 f : \Gr_R(X) \to \Res_{k'/k} \Gr_{R'}(X')
 \] 
-such that the functor
+such that the restriction of the functor
 \[
-f^* : \QC(\Gr_R(X)) \to \QC(\Res_{k'/k} \Gr_{R'}(X'))
+f^* : \QC(\Res_{k'/k} \Gr_{R'}(X')) \to  \QC(\Gr_R(X))
 \]
 induces
 \[
@@ -1756,7 +1789,7 @@ X_K\hookrightarrow \Res_{K'/K}(X_{K'})
 X\to \Res_{R'/R}(X')
 \]
  of smooth $R$-group schemes.
-
+%
 Applying the functor $\Gr_{n}$ to this morphism
 and using \cite{bertrapelle-gonzales:Greenberg}*{Thm 1.1} defines the morphism of smooth group schemes
 \begin{equation}\label{men}
@@ -1780,9 +1813,9 @@ f: \Gr_R(X) \to \Res_{k'/k} \Gr_{R'}(X').
 \]
 which induces the functor
 \[
-f^* : \QC(\Res_{k'/k} \Gr_{R'}(X'))\to \QC(\Gr_{R}(X))
+f^* : \QC(\Res_{k'/k} \Gr_{R'}(X'))\to \QC(\Gr_{R}(X)).
 \]
-inducing
+When restricted to the appropriate evil subcategories, this induces
 \[
 \Hom_{\text{qc}}(X_K(K'),\EEx) \to \Hom_{\text{qc}}(X_K(K),\EEx).
 \]
