@@ -269,9 +269,9 @@ We further show that automorphism groups in the $\QC(\Gr_R(\underline{T}))$ are 
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
 
-Joseph Bernstein has suggested to us that, although quasicharacter sheaves on $\Gr(\underline{T})$ do not correspond exactly to quasicharacters of $T(K)$, the category $\QC(\Gr_R(\underline{T}))$ is the right one to consider and that $\QC(\Gr(\underline{T})$ may be closely tied to characters of  the pure rational forms of $T$ in the sense of Vogan \cite{vogan:93a} or perhaps the rigid inner twists of Tasho Kaletha. 
+Joseph Bernstein has suggested to us that, although quasicharacter sheaves on $\Gr(\underline{T})$ do not correspond exactly to quasicharacters of $T(K)$, the category $\QC(\Gr(\underline{T}))$ may be closely tied to characters of the pure rational forms of $T$ in the sense of Vogan \cite{vogan:93a} or perhaps the rigid inner twists of Tasho Kaletha. 
 A better understanding of 
-$\Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Weil{}}$ should provide insight into this suggestion.
+$\Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Weil{}}$ should provide insight into this suggestion. \todo{rephrase}
 
 \subsection{Comparison with character sheaves}
 
@@ -347,8 +347,14 @@ and describing how quasicharacter sheaves behave under Weil restriction.
 Section~\ref{sec:applications} gives applications of quasicharacter sheaves to commutative algebraic groups over local fields.
 We begin with a review of N\'eron models and of the Greenberg transform in Section~\ref{ssec:rev_Greenberg}.  We then
 define, in Section~\ref{ssec:qc_on_GN}, a quasicharacter sheaf for an algebraic group over a local field to be a quasicharacter
-sheaf on the Greenberg transform of the N\'eron model.  In Theorem~\ref{thm:QCXK}, we translate our results from the earlier sections
-to give a description of the categories of 
+sheaf on the Greenberg transform of the N\'eron model.  In Theorem~\ref{thm:QCXK}, we translate our results from earlier sections
+to give a description of the isomorphism classes and automorphism groups
+in the category of quasicharacter sheaves on such an algebraic group.
+We specialize to $p$-adic tori in Section~\ref{ssec:qc_tori}, and discuss
+Weil restriction and base change over local fields in Section~\ref{ssec:wrK}.
+Finally, we give a categorical version of a result of Chai and Yu \cite{chai-yu:01a},
+relating quasicharacter sheaves for tori over different local fields, even local fields
+with different characteristic.
 
 %\begin{acknowledgements}
 \subsection{Acknowledgments}
@@ -1687,7 +1693,7 @@ canonically.
 So Theorem~\ref{thm:QCXK} now follows from the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(\Gr_R(X))$ and the observation that $\QC(\Gr_R(X))$ a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\mathcal{C}(\Gr_R(X))$.
 \end{proof}
 
-\subsection{Quasicharacters of $p$-adic tori}
+\subsection{Quasicharacters of $p$-adic tori} \label{ssec:qc_tori}
 
 As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T\in \mathcal{N}_K$ is an algebraic torus over $K$, in which case we write $\underline{T}$ for the Neron model $X$. Now,
 \[
@@ -1706,7 +1712,7 @@ where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-ad
 
 
 
-\subsection{Weil restriction and quasicharacters}\label{sec:wrK}
+\subsection{Weil restriction and quasicharacters}\label{ssec:wrK}
 
 Let $K'/K$ be a finite Galois extension of local fields and
 let $k'/k$ be the corresponding extension of residue fields.
