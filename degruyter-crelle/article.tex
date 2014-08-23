@@ -1,0 +1,182 @@
+%%------------------------------------------------------%%
+%% This file should be the main file of your article.   %%
+%% Please uncomment exactly one of the following lines. %%
+%%------------------------------------------------------%%
+
+%% \documentclass[CM,Submssn]{degruyter-crelle}       %% Equations numbered as (1), (2) etc.
+ \documentclass[CM,Submssn,SecEq]{degruyter-crelle} %% Equations numbered as (1.1), (1.2) etc.
+
+%% Do not alter the following line.
+\firstpage{}\volume{}\volumeyear{}\copyrightyear{}\doiyear{}\doi{}\received{XXX}\revised{XXX}
+
+\title[Shortened title for the running title]{Title}
+
+\author{Firstname}{Lastname}{F.~Lastname}{City}
+\author{Firstname}{Lastname}{F.~Lastname}{City}
+
+\contact{Department, university, street, zip code, city, country}{e-mail}
+\contact{Department, university, street, zip code, city, country}{e-mail}
+
+\researchsupported{Please insert information concerning research grant support here.}
+
+%% Define theorem-like environments as usual:
+
+\theoremstyle{plain}
+ \newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+ \newtheorem{remark}[theorem]{Remark}
+
+
+\begin{document}
+
+\begin{abstract}
+Insert your abstract here. Remember that online systems rely heavily on the content
+of titles and abstracts to identify articles in electronic bibliographic databases
+and search engines. We ask you to take great care in preparing the abstract
+and to not use references to the bibliography.
+\end{abstract}
+
+%% \tableofcontents %% Just for papers exceeding 50 pages.
+
+
+\section{Introduction}\label{sec:intro}
+
+PLEASE INSERT YOUR MANUSCRIPT HERE.
+
+\acknowl{Insert acknowledgments of the assistance of colleagues or similar notes of appreciation here.}
+
+
+%-------------------------------------------------------------------------%
+% GENERAL INSTRUCTIONS                                                    %
+% Please keep formatting macros to a minimum.                             %
+% Avoid redundant source code such as unused definitions or longer        %
+% passages of comments (% or {comment}).                                  %
+% Do not worry about bad page breaks, etc. and avoid adding extra space   %
+% and using glue to improve the appearance of the manuscript.             %
+% Please ensure that the material has been carefully proofread and that   %
+% all files used are made available to the editors/publisher.             %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% PACKAGES                                                                %
+% Missing packages can be downloaded at www.tug.org/ctan.html.            %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% MULTILINE EQUATIONS                                                     %
+% For numbered/unnumbered multiline equations use align/align* instead of %
+% eqnarray. (Other available environments for multiline displays are      %
+% gather, multline, aligned, split, etc.)                                 %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% QED SYMBOL                                                              %
+% The \qedhere command forces the QED symbol to go on the present line,   %
+% which might be useful if the last part of a proof environment is, e.g., %
+% a displayed equation or list environment.                               %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% SOME MORE MATH                                                          %
+% -- Avoid blank lines before or after a display, unless you really want  %
+%    to start a new paragraph.                                            %
+% -- Use equation*, gather* or the bracket pair \[ and \] instead of      %
+%    double dollar signs $$.                                              %
+% -- Use \operatorname{...} for math operators that are not predefined    %
+%    or define new operators with \DeclareMathOperator. lim-like          %
+%    operators can be defined with \DeclareOperator*                      %
+% -- Use \quad for spacings in displayed formulas.                        %
+% -- Use \substack{... \\ ...} for multiline subscripts on, e.g., sums.   %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% ENUMERATIONS                                                            %
+% By default, the labels of first level enumerations are (i), (ii), etc.  %
+% You may change them to become, e.g., A., B. etc., using an optional     %
+% argument: \begin{enumerate}[A.]                                         %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% FIGURES AND TABLES                                                      %
+% You may include a figure writing                                        %
+% \begin{figure}[t]                                                       %
+%   \includegraphics[width=.8\textwidth]{xxx.yyy}                         %
+%   \caption{Caption.}\label{fig:zzz}                                     %
+% \end{figure}                                                            %
+% A table is included similar using the table environment.                %
+% Sub-captions are created as follows:                                    %
+% \begin{figure}[t]                                                       %
+%   \subfloat[Caption a]{\includegraphics[width=.45\textwidth]{...}}      %
+%   \hfill                                                                %
+%   \subfloat[Caption b]{\includegraphics[width=.45\textwidth]{...}}      %
+%   \caption{Caption.}                                                    %
+% \end{figure}                                                            %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% QUOTATION MARKS                                                         %
+% Double quotation marks are produced using `` and ''. The opening quote  %
+% then looks like a superscript 66 and the closing quote like a           %
+% superscript 99.                                                         %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% HYPHEN VS. DASH                                                         %
+% The hyphen (-) is used for compound words like $n$-dimensional.         %
+% (Don't write things like $n-$dimensional!)                              %
+% The en-dash (--) is used for number ranges and it can stand for `and',  %
+% e.g., between two names: ``Various generalizations of the               %
+% Cauchy--Schwarz inequality are presented on pages 63--67.''             %
+% To partition a sentence one may use the em-dash (---) with no space     %
+% on either side; we prefer the en-dash with a blank on both sides.       %
+% The mathematical minus sign is produced by a single - within            %
+% mathematics mode.                                                       %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% REFERENCES                                                              %
+% Use \label and \ref for all cross-references to equations, figures,     %
+% tables, sections, subsections, etc.                                     %
+%-------------------------------------------------------------------------%
+
+%-------------------------------------------------------------------------%
+% BIBLIOGRAPHY                                                            %
+% References should be collected at the end of the paper and numbered in  %
+% alphabetical order of the authors' names. Titles of journals should be  %
+% abbreviated as in Mathematical Reviews. Please do not use small caps    %
+% for the names of the authors. The preferred style is shown in the       %
+% examples below.                                                         %
+% Refer to the bibliography entries using \cite commands.                 %
+% Using BibTeX, you simply have to add the names of your databases as     %
+%   \bibliography{mydatabase}                                             %
+% The file crelle.bst then ensures the correct style.                     %
+%-------------------------------------------------------------------------%
+
+\begin{thebibliography}{9}
+
+\bibitem{article}
+\textit{T.~Angel} and \textit{I.~E.~Shparlinski},
+Article in a journal, J. reine angew. Math. \textbf{647} (2010), 123--156.
+
+\bibitem{preprint}
+\textit{C.~Bonnaf\'e},
+Preprint, preprint 2008, \url{http://arxiv.org/abs/0805.4100}.
+
+\bibitem{proceedings}
+\textit{P. Brooksbank},
+Article in a conference proceedings,
+in: Finite geometries (Pingree Park 2004), Oxford University Press, Oxford (2006), 1--16.
+
+\bibitem{phdthesis}
+\textit{J.~D.~King},
+Unpublished dissertation,
+Ph.D. thesis, University of Cambridge, 1995.
+
+\bibitem{book}
+\textit{F. Sukochev}, \textit{S. Lord} and \textit{D. Zanin},
+Book, 2nd ed., De Gruyter, Berlin 2012.
+
+\end{thebibliography}
+
+\end{document}
