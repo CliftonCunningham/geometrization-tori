@@ -227,8 +227,7 @@ every character of $G(\Fq)$ may be geometrized as a pair $(\qcs{E},\mu_\qcs{E})$
 While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious: if $(\qcs{E},\mu_\qcs{E})$ and $(\qcs{E}',\mu_\qcs{E}')$ determine the same character of $G(\FF_q)$ then $\qcs{E}\iso \qcs{E}'$ as local systems on $G$.
 
 In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\FF_q$ we simply replace the local system $\qcs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\qcs{E}$. 
-Set ${\bar G} := G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$ and let $\Frob{G} : \bG \to \bG$ be the Frobenius automorphism for $\bG$.
-In this way we are lead to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$ in which objects are triples $(\gqcs{L}, \mu,\phi)$ where $\gqcs{L}$ is a rank-one local system on ${\bar G}$ and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves; the isomorphisms $\mu$ and $\phi$ must of course be compatible in the obvious way. Morphism in $\QC(G)$ are then homomorphisms of Weil sheaves which are compatible with the extra structure.
+In this way we are lead to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$ in which objects are triples $(\gqcs{L}, \mu,\phi)$ where $\gqcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$ and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves; the isomorphisms $\mu$ and $\phi$ must of course be compatible in the obvious way. Morphism in $\QC(G)$ are then homomorphisms of Weil sheaves which are compatible with the extra structure.
 
 
 We first test the category of quasicharacter sheaves by examining its objects on \'etale commutative group schemes $G$ over $\FF_q$; \'etale group schemes form a counterpoint to connected algebraic groups, since the component group of a smooth commutative group scheme is an \'etale group scheme. 
@@ -291,8 +290,10 @@ where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-ad
 
 By any measure, there are more quasicharacter sheaves for $T$ than quasicharacters of $T(K)$.  
 %\todo{Maybe move this from the introduction into the body of the paper somewhere.}
-In this regard, we are reminded of the work of David Vogan \cite{vogan:93a}, in which he finds a geometrization of complete Langlands parameters for $p$-adic groups as equivariant perverse sheaves on Vogan varieties and, in the process, is lead to study the representations of all the pure rational forms of the $p$-adic group simultaneously.
-A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group.
+In this regard, we are reminded of the work of David Vogan \cite{vogan:93a}, in which he finds a geometrization of complete Langlands parameters for $p$-adic groups 
+%as equivariant perverse sheaves on Vogan varieties 
+and, in the process, is lead to study the representations of all the pure rational forms of the $p$-adic group simultaneously.
+A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group \cite{bernstein:vogan_conference}.
 Indeed, Bernstein has suggested to us that our category of quasicharacters for $T$ may be tied to characters of all the pure rational forms of $T$.
 
 \subsection{Comparison with character sheaves}
@@ -316,7 +317,7 @@ The interesting new features that we have found pertaining to Weil sheaves and t
 
 We close the introduction with an overview of the structure of this paper.
 After setting some basic notation in Section~\ref{sec:notation} 
-such as $A^*\ceq \Hom(A,\EEx)$ for any group $A$ and using $G$ for a commutative group scheme over $\FF_q$,
+such as $A^*\ceq \Hom(A,\EEx)$ for any group $A$ and using $G$ for a smooth commutative group scheme over $\FF_q$,
 in Section~\ref{sec:category} we define the category of quasicharacter sheaves on $G$.
 Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism $\TrFrob{G} : \QCiso{G} \to G(\FF_q)^*$.
 We also define pullbacks of quasicharacter sheaves along morphisms of group schemes.  Applying pullbacks to the component group
@@ -800,7 +801,7 @@ The map $\Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G)$ is given by
 Since $\Hh^2(\Weil{}, C^0({\bar G}, \EEx)) = 0$, we may find a $\gamma_1 \in C^1(\Weil{}, C^0({\bar G}, \EEx))$ with $d_{\Weil{}}\gamma_1 = \gamma$.
 Subtracting $d \gamma_1$ from $\alpha\oplus\beta\oplus\gamma$, we may assume that $\gamma = 0$.
 
-The latter two claims follow from tracing through the definition of latter pages in the spectral sequence; see Vakil \cite{} for example \todo{update reference}.
+The latter two claims follow from tracing through the definition of latter pages in the spectral sequence; see \cite{Vakil:spectral_sequences} following \cite{Weibel:Homological_Algebra}*{Ch 5}, for example.
 \end{proof}
 
 \subsection{From quasicharacter sheaves to the total complex}\label{ssec:S}
@@ -989,7 +990,7 @@ B_G : \bQC(G) \to \QC(G).
  $\phi_\qcs{E} : \Frob{G}^* b_G^*\qcs{E} \to b_G^* \qcs{E}$.
  The functor $\qcs{E} \mapsto (b_G^* \qcs{E},\phi_\qcs{E})$
  from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
- is full and faithful \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}}.
+ is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}.
  This functor preserves local constancy, so takes local systems to local systems.
  Set $\mu \ceq b_{G\times G}^*\mu_\qcs{E}$; clearly, this satisfies \ref{QC.2}
  with $b_G^*\qcs{E}$ playing the role of $\gqcs{L}$.
@@ -1084,8 +1085,8 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
   Then $b_G^*\qcs{E} \iso \gqcs{L}$.
   
-  Since $b_G^*$ is full and faithful
-  \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}},
+  Since $b_{G\times G}^*$ is full and faithful (again, see
+\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}),
  \[
   b_{G\times G}^* : \Hom(m^*\qcs{E},\qcs{E}\boxtimes\qcs{E}) \to \Hom({\bar m}^*\gqcs{L},\gqcs{L}\boxtimes\gqcs{L})
  \]
@@ -1115,7 +1116,7 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
 \begin{proof}
 In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qcs{L}$ on $G$ descends to $G$; let $\qcs{E}$ be an object in $\bQC(G)$ for which $B_G(\qcs{E}) \iso \qcs{L}$.
  Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
-From here, Deligne's function-sheaf dictionary for connected commutative algebraic groups over finite fields \citelist{\cite{deligne:SGA4.5}*{Sommes trig.}, \cite{laumon:87a}*{1.1.3}}  gives us all we need, as we briefly recall.
+From here, Deligne's function-sheaf dictionary for connected commutative algebraic groups over finite fields, as in \cite{deligne:SGA4.5}*{Sommes trig.} or \cite{laumon:87a}*{1.1.3},  gives us all we need, as we briefly recall.
 The key observation is that, by \'etale descent, pullback by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$. 
 Using the equivalence given by $\Lang^*$, if $\Lang^*\qcs{E} = V$ with character $\psi$ and isomorphism $V\to V\otimes V$ then 
 $\qcs{E} \iso (\Lang_! V)_\psi$, the $\psi$-isotypic component of the push-forward $\Lang_* V$ ($\Lang$ is proper, so $\Lang_* = \Lang_!$) of the constant sheaf $V$ on $G$ equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes\qcs{E}$ determined by $V\to V\otimes V$. 
@@ -1603,12 +1604,10 @@ We will need the Greenberg functor, which provides
 a functor from the category of schemes 
 over $R_n$, for each $n\in \NN$, to the category of schemes over $\Fq$;
 See \cite{bertrapelle-gonzales:Greenberg} for the definition and fundamental properties of the Greenberg functor as we use it; other important references include
-\citelist{
 \cite{greenberg:61}, \cite{greenberg:63a},
 \cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1},
 \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6},
-\cite{nicaise-sebag:motivicSerre}*{\S 2.2}
-}.
+\cite{nicaise-sebag:motivicSerre}*{\S 2.2}.
 This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
 %
 For any non-negative integer $n$ we will write
