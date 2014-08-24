@@ -522,7 +522,7 @@ Note that if $(\gqcs{L},\phi) \iso (\gqcs{L'},\phi')$ as Weil sheaves,
 then $\trFrob{(\gqcs{L},\phi)} = \trFrob{(\gqcs{L'},\phi')}$ as functions on $G(\Fq)$.
 
 Now suppose $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$.
-The isomorphism $\mu : \bm^* \gqcs{L} \to \gqcs{L} \boxtimes\gqcs{L} $ together with
+Then $\bm^* \gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L} $ together with
 \ref{QC.3} guarantee
 that the function $\trFrob{(\gqcs{L},\phi)} : G(\Fq)\to \EEx$ is a group homomorphism, which we will also denote by $\trFrob{\qcs{L}}$.  Moreover,
 this homomorphism depends only on the isomorphism class of $\qcs{L}$, so we obtain a map
@@ -630,10 +630,12 @@ Applying the functor $f^*$ to the isomorphism $\mu$ yields
 \begin{equation}\label{eq:fm}
 f^*\mu : f^* m^* \gqcs{L} \to f^*(\gqcs{L}\boxtimes \gqcs{L}) .
 \end{equation}
-We have already observed that $m\circ f = \id_G$, so $f^* m^* \gqcs{L} = \gqcs{L}$.
-On the other hand, $f^*(\gqcs{L}\boxtimes \gqcs{L}) = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L}$
-by definition.  Since $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L}$ and $f^*p_2^*\gqcs{L} = r_2^* q_2^* \gqcs{L}$
-we get that $f^*(\gqcs{L}\boxtimes \gqcs{L}) = \gqcs{L}_1\boxtimes \gqcs{L}_2$.
+We have already seen that $m\circ f = \id_G$, so $f^* m^* \gqcs{L} = \gqcs{L}$.  
+Since $f^*p_1^*\gqcs{L} = r_1^* q_1^* \gqcs{L} = r_1^* \gqcs{L}_1$ and $f^*p_2^*\gqcs{L} = r_2^* q_2^* \gqcs{L} = r_2^*\gqcs{L}_2$,
+we have 
+\[
+f^*(\gqcs{L}\boxtimes \gqcs{L})  = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L} = \gqcs{L}_1\boxtimes \gqcs{L}_2.
+\]
 It follows that \eqref{eq:fm} gives an isomorphism $\gqcs{L} \to  \gqcs{L}_1\boxtimes \gqcs{L}_2$.
 It is a matter of routine to show that this morphism satisfies
 \ref{QC.3} as it applies here,
@@ -854,7 +856,8 @@ However, the next result is false in that context.
 If $G$ is \'etale then $S_G$ is an isomorphism.
 \end{proposition}
 \begin{proof}
-We first show that $S_G$ is injective.  Suppose $\qcs{L} \in \QCiso{G}$ with $S_G(\qcs{L}) = [\alpha \oplus \beta] = 0$,
+%We first show that $S_G$ is injective.  
+Suppose $\qcs{L} \in \QCiso{G}$ with $S_G(\qcs{L}) = [\alpha \oplus \beta] = 0$,
 so that $\alpha \oplus \beta = d\rho$ for some $\rho \in C^0(\Weil{},C^1({\bar G},\EEx) = C^1({\bar G},\EEx)$.
 For each $x\in {\bar G}$, define $\rho_x : \gqcs{L}_x \to \EEx$ by $v_x \mapsto \rho(x)$.
 Then the indexed set of isomorphisms $\{ \gamma_x : \gqcs{L}_x \to \EE \tq x\in {\bar G}\}$
@@ -970,7 +973,10 @@ morphisms in $\bQC(G)$ are defined as in the second part of
 Category $\bQC(G)$ is a rigid monoidal category in the obvious way.
 
 \begin{proposition}\label{prop:BG}
-Extension of scalars defines a full and faithful functor $B_G : \bQC(G) \to \QC(G)$.
+Extension of scalars defines a full and faithful functor
+\[
+B_G : \bQC(G) \to \QC(G).
+\]
 \end{proposition}
 
 \begin{proof}
@@ -1023,7 +1029,11 @@ proper subcategory of $\QC(G)$.
 However, if $G$ is connected and of finite type, the categories are equivalent, as we now show.
 
 \begin{lemma}\label{lem:bounded_connected}
-If $G$ is a connected commutative algebraic group over $\Fq$ then $B_G : \bQC(G) \to \QC(G)$ is an equivalence of categories.
+If $G$ is a connected commutative algebraic group over $\Fq$ then 
+\[
+B_G : \bQC(G) \to \QC(G)
+\]
+ is an equivalence of categories.
 \end{lemma}
 
 \begin{proof}
@@ -1074,9 +1084,9 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   
   Since $b_G^*$ is full and faithful
   \citelist{\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}},
-  $
+ \[
   b_{G\times G}^* : \Hom(m^*\qcs{E},\qcs{E}\boxtimes\qcs{E}) \to \Hom({\bar m}^*\gqcs{L},\gqcs{L}\boxtimes\gqcs{L})
-  $
+ \]
   is a bijection
   (hom taken in the categories on constructible $\ell$-adic sheaves on
   $G\times G$ and ${\bar G}\times {\bar G}$ respectively,
@@ -1195,11 +1205,12 @@ Let $\pi: B \to G^0$ be a discrete isogeny; set $A \ceq \ker \pi$.
   \[
   \Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq))
   \]
-  fitting into the long exact sequence derived from applying
-  the functor $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$:
+  fitting into the long exact sequence 
   \[
-  \Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Weil{}]}(\pi_0(G)(\bFq), A(\bFq)).
+  \Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq)) \to \Ext^2_{\ZZ[\Weil{}]}(\pi_0(G)(\bFq), A(\bFq))
   \]
+  derived from applying
+  the functor $\Hom(\mbox{---}, A(\bFq))$ to $G^0(\bFq) \to G(\bFq) \to \pi_0(G)(\bFq)$.
   Since $\Weil{} \cong \ZZ$ has cohomological dimension $1$ \cite{brown:CohomologyGrps}*{Ex. 4.3},
   $\Ext^2_{\ZZ[\Weil{}]}(\pi_0(G)(\bFq), A(\bFq))$ vanishes \cite{cartan-eilenberg:HomologicalAlgebra}*{Thm. 2.6}.
 
@@ -1359,14 +1370,15 @@ is surjective with kernel canonically isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({
   Let
   \[
   \begin{tikzcd}[row sep=20]
-  & 0 \arrow{d} & 0 \arrow{d} & 0\arrow{d} \\
+%  & 0 \arrow{d} & 0 \arrow{d} & 0\arrow{d} \\
     0 \arrow[dashed]{r} & \ker \TrFrob{\pi_0(G)} \arrow[dashed]{r} \dar & \arrow{d} \ker \TrFrob{G} \arrow[dashed]{r} & \ker \TrFrob{G^0} =0 \arrow[dotted, out=-10, in=170]{dddll} \dar & \\
     0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
     & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
     0 \rar & \pi_0(G)(\Fq)^* \rar \dar
     & \arrow{d} G(\Fq)^* \rar & G^0(\Fq)^* \rar \dar & 0\\
-    & \arrow{d} \coker \TrFrob{\pi_0(G)} =0 \arrow[dashed]{r} & \arrow{d} \coker \TrFrob{G} \arrow[dashed]{r} &  \arrow{d} \coker \TrFrob{G^0} =0 & \\
-      & 0 & 0 & 0 \\
+   &  \coker \TrFrob{\pi_0(G)} =0 \arrow[dashed]{r} & \coker \TrFrob{G} \arrow[dashed]{r} & \coker \TrFrob{G^0} =0 & 
+%    & \arrow{d} \coker \TrFrob{\pi_0(G)} =0 \arrow[dashed]{r} & \arrow{d} \coker \TrFrob{G} \arrow[dashed]{r} &  \arrow{d} \coker \TrFrob{G^0} =0 & \\
+%      & 0 & 0 & 0 \\
   \end{tikzcd}
   \]
   be the commutative diagram of abelian groups obtained by applying
@@ -1439,9 +1451,9 @@ Set $G_{k'} \ceq G\times_\Spec{k} \Spec{k'}$ and let
 \[
 \QC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota^*} \QC(G)
 \]
-be the functor obtained by pullback along the canonical closed immersion of $k$-schemes
-$\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$
-\cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6}.
+be the functor obtained by pullback along the canonical closed immersion 
+$\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ of $k$-schemes
+given by \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6}.
 The following diagram commutes:
 \[
 \begin{tikzcd}
@@ -1466,7 +1478,8 @@ In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consid
 We can also interpret this operation on characters in terms of quasicharacter sheaves.
 
 If $\qcs{L} \ceq (\gqcs{L}, \mu, \phi)$ is a quasicharacter sheaf on $G$, we define
-a quasicharacter sheaf $\qcs{L}' \ceq (\gqcs{L}, \mu, \phi_{k'})$ on the base change
+%a quasicharacter sheaf 
+$\qcs{L}' \ceq (\gqcs{L}, \mu, \phi_{k'})$ on the base change
 $G_{k'}$ of $G$ to $k'$ by setting
 \[
 \phi_{k'} \ceq \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi).
@@ -1502,8 +1515,8 @@ Applying \ref{QC.3} to the stalk of $\gqcs{L}^{\boxtimes n}$ at the point $(x, \
 \gqcs{L}_{\Nm(x)} \rar & \gqcs{L}_x \otimes \gqcs{L}_{F(x)} \otimes \cdots \otimes \gqcs{L}_{F^{n-1}(x)}.
 \end{tikzcd}
 \]
-Choose a basis vector $v$ for $\gqcs{L}_{\Nm(x)}$ and write the image of $v$ under the
-bottom map as $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$
+Choose a basis vector $v$ for $\gqcs{L}_{\Nm(x)}$ and write $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$ for the image of $v$ under the
+bottom map,
 for $v_i \in \gqcs{L}_{\Frob{}^i(x)}$.  By \ref{QC.2}, $v$ maps to
 $v_1 \otimes v_2 \otimes \cdots \otimes v_0$ along the top of the diagram.
 Let $\alpha_i \in \EEx$ represent $((F^i)^*\phi)_x$ with respect to these bases and let $\alpha$ be
@@ -1584,9 +1597,6 @@ In this section we will see how to geometrize and categorify quasicharacters of 
 \subsection{Review of the Greenberg transform} \label{ssec:rev_Greenberg}
 
 Let $K$, $R$ and $R_n$ be as above.
-Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$, for every non-negative integer $n$;
-note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
-
 We will need the Greenberg functor, which provides
 a functor from the category of schemes 
 over $R_n$, for each $n\in \NN$, to the category of schemes over $\Fq$;
@@ -1603,12 +1613,12 @@ For any non-negative integer $n$ we will write
 \[
 \Gr^R_n : \partop{\text{Schemes}}{\text{lft over $R$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
 \]
-for the functor produced by composing pullback along $S_n \to S$ with the Greenberg functor. 
+for the functor produced by composing pullback along $\Spec{R_n} \to \Spec{R}$ with the Greenberg functor. 
 This functor also respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components, and
 \[
 \Gr^R_n(X)(\Fq) \iso X(R_n),
 \]
-canonically, for any $X$ lft over $S$.
+canonically, for any $X$ lft over $R$.
 
 For any $n\leq m$,  the surjective ring homomorphism $R_{m} \to R_n$ determines a
 natural transformation 
@@ -1617,7 +1627,7 @@ natural transformation
 \]
 between additive functors.
 Crucially, $\varrho^R_{n\leq m}(X): \Gr^R_{m}(X)\to \Gr^R_n(X)$ is an affine morphism of $\Fq$-schemes, for every $R$-scheme $X$ and every $n\leq m$ \cite{bertrapelle-gonzales:Greenberg}*{Prop 4.3}.
-This observation is key to the proof that, for any $X$ lft over $S$, the projective limit 
+This observation is key to the proof that, for any $X$ lft over $R$, the projective limit 
 \[
 \Gr_R(X) \ceq \varprojlim_{n\in \NN} \Gr^R_n(X),
 \]
@@ -1640,28 +1650,33 @@ canonically, for any $X$ lft over $R$.
 \subsection{Quasicharacter sheaves on the Greenberg transform of a N\'eron model} \label{ssec:qc_on_GN}
  
 Let $X_K \in \mathcal{N}_K$ and $X$ be as above.
+Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$;
+% for every non-negative integer $n$;
+note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
 
-
-For every non-negative integer $n$, $\Gr^R_n(X)$ is {\it smooth} commutative group scheme over $\Fq$ with component group scheme
-$\pi_0(\Gr^R_n(X))= \pi_0(X) \times_S S_0$
+For every non-negative integer $n$, $\Gr^R_n(X)$ is {\it smooth} commutative group scheme over $S_0$ with component group scheme
+%$\pi_0(\Gr^R_n(X))= 
+$\pi_0(X) \times_S S_0$
 and $\Fq$-rational points
 $
-\Gr^R_N(X)(\Fq)\iso X(R_n),
+%\Gr^R_N(X)(\Fq)\iso 
+X(R_n),
 $
 canonically.
 %
-The Greenberg transform $\Gr_R(X)$ of $X$ is still a commutative group scheme over $\Fq$ with component group scheme
+The Greenberg transform $\Gr_R(X)$ of $X$ is a commutative group scheme over $\Fq$ with component group scheme
 $
-\pi_0(\Gr_R(X))= \pi_0(X) \times_S S_0
+%\pi_0(\Gr_R(X))= 
+\pi_0(X) \times_S S_0
 $
-and its $\Fq$-rational points are given by
+and $\Fq$-rational points 
 $
-\Gr_R(X)(\Fq)\iso X_K(K),
+%\Gr_R(X)(\Fq)\iso 
+X_K(K),
 $
-canonically, but $\Gr_R(X)$ is not locally of finite type, and therefore not smooth.
-
+canonically, but $\Gr_R(X)$ is not locally of finite type, therefore not locally of finite presentation, and therefore not smooth.
 %
-Moreover, the morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
+The morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
 \[
 \varrho^R_n(X)^* : \QC(\Gr^R_n(X)) \to \QC(\Gr_R(X)),
 \]
@@ -1669,16 +1684,16 @@ as in Lemma~\ref{lem:pullback}.
 This functor is faithful, so we may view $\QC(\Gr^R_n(X))$ as a subcategory of $\QC(\Gr_R(X))$.
 
 We now define a category which will geometrize quasicharacters of $X_K(K)$.
-Although $\Gr_R(X)$ is not locally of finite type, and thus not smooth, we begin by considering the rigid monoidal category $\QC(\Gr_R(X))$ defined in Section~\ref{sec:category}, without insisting that the commutative group scheme is smooth.
+We begin by considering the rigid monoidal category $\QC(\Gr_R(X))$ defined in Section~\ref{sec:category} without insisting that the commutative group scheme is smooth.
 
 \begin{definition}
 We construct an evil subcategory $\QC(X_K)$ of $\QC(\Gr_R(X))$ as follows:
 objects in $\QC(X_K)$ are the $\ell$-adic sheaves $\varrho^R_n(X)^*\qcs{L}$, for $n\in \NN$ and $\qcs{L} \in \QC(\Gr^R_n(X))$; morphism from $\varrho^R_n(X)^*\qcs{L}$ to $\varrho^R_m(X)^*\qcs{L}'$ are $\varrho^R_m(X)^*\rho$ for $\rho \in \Hom(\varrho^R_{n\leq m}(X)^*\qcs{L},\qcs{L}')$ when $n\leq m$, and $\varrho^R_n(X)^*\rho$ for $\rho \in \Hom(\qcs{L},\varrho^R_{m\leq n}(X)^*\qcs{L}')$ when $m\leq n$.
  We refer to $\QC(X_K)$ as the {\it evil category of quasicharacter sheaves for $X_K$}; objects will simply be called {\it 
 quasicharacter sheaves for $X_K$}.
+The evil category of quasicharacter sheaves for $X_K$ is rigid monoidal in the obvious way.
 \end{definition}
 
-The evil category of quasicharacter sheaves for $X_K$ is rigid monoidal in the obvious way.
 
 \begin{remark}
 The evil category of quasicharacter sheaves for $X_K$ is evil in the categorical sense.
@@ -1852,9 +1867,9 @@ Let $K$ and $K'$ be local fields with rings of integers $R$ and $R'$ and residue
 
 Suppose $X_K\in \mathcal{N}_K$ with N\'eron model $X$ and $X'_{K'}\in \mathcal{N}_K'$ with N\'eron model $X'$.
 Suppose $m$ and $m'$ are non-negative integers such that 
-\[
+$
 R_m \iso R'_{m'},
-\]
+$
 in which case $K$ and $K'$ are said to be $m$-close, and
 \begin{equation}\label{eq:schematic_transfer}
 X \times_{S} S_m \iso X' \times_{S'} S'_{m'}.
