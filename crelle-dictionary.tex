@@ -1100,6 +1100,7 @@ In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qc
  Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
 From here, Deligne's function-sheaf dictionary for connected commutative algebraic groups over finite fields, as in \cite{deligne:SGA4.5}*{Sommes trig.} or \cite{laumon:87a}*{1.1.3}, gives us all we need, as we briefly recall. %\todo{Fix citelist} %\citelist{\cite{deligne:SGA4.5}*{Sommes trig.},\cite{laumon:87a}*{1.1.3}}
 The key observation is that, by \'etale descent, pullback by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$. 
+(Note that this is a particular case of the argument in the proof of Proposition~\ref{prop:finite}.)
 Using the equivalence given by $\Lang^*$, if $\Lang^*\qcs{E} = V$ with character $\psi$ and isomorphism $V\to V\otimes V$ then 
 $\qcs{E} \iso (\Lang_! V)_\psi$, the $\psi$-isotypic component of the push-forward $\Lang_* V$ of the constant sheaf $V$ on $G$ equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes\qcs{E}$ determined by $V\to V\otimes V$. 
 Moreover, $\Aut(\qcs{E})$ is the group of automorphisms of $\rho : V\to V$ for which 
@@ -1435,8 +1436,7 @@ Set $G_{k'} \ceq G\times_\Spec{k} \Spec{k'}$ and let
 \QC(\Res_{k'/k}(G_{k'})) \xrightarrow{\iota^*} \QC(G)
 \]
 be the functor obtained by pullback along the canonical closed immersion 
-$\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ of $k$-schemes
-given by \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6}.
+\[\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})\] of $k$-schemes.
 The following diagram commutes:
 \[
 \begin{tikzcd}
@@ -1446,7 +1446,8 @@ G(k')^* \arrow[two heads]{r}{i_{k'/k}^*} & G(k)^*.
 \]
 \end{proposition}
 \begin{proof}
-This result follows immediately from Lemma~\ref{lem:pullback} together with the identifications
+The closed immersion $\iota : G \hookrightarrow \Res_{k'/k}(G_{k'})$ is given by \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6}.
+Proposition~\ref{prop:csbe} follows immediately from Lemma~\ref{lem:pullback} together with the identifications
 \[
 \Res_{k'/k}(G_{k'})(k) \cong G_{k'}(k') \cong G(k')
 \]
@@ -1470,8 +1471,10 @@ $G_{k'}$ of $G$ to $k'$ by setting
 The commutativity of the diagram (QC.3) for $\phi_{k'}$
 follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
 Note that we may also think about the construction of $\phi_{k'}$ from $\phi$
-as taking the action $\varphi$ of $\Weil{k}$ on $\gqcs{L}$
-defined in Section~\ref{ssec:category} and restricting it to the subgroup $\Weil{k'}$.
+as taking the action $\varphi$ of the Weil group for $k$%, $\Weil{k}$, 
+on $\gqcs{L}$
+defined in Section~\ref{ssec:category} and restricting it to the Weil group for $k'$.
+%, $\Weil{k'}$.
 
 \begin{proposition}\label{prop:basechange}
 With notation above,
