@@ -247,8 +247,9 @@ Paired with the short exact sequence
 \[
   0 \to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to 0
 \]
-arising from the spectral sequence, the isomorphism $S_G$ allows us to show (\S\ref{ssec:SandT}) that $\TrFrob{G}$ is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
-We find that the group homomorphism 
+arising from the spectral sequence, the isomorphism $S_G$ allows us to show (\S\ref{ssec:SandT}) that 
+%$\TrFrob{G}$ is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$. We find that 
+the group homomorphism 
 \[
 T_G: \QCiso{G} \to G(\FF_q)^*
 \]
@@ -268,8 +269,8 @@ and to determine the automorphism groups of quasicharacter sheaves on such $G$.
 %Indeed, quasicharacter sheaves on \'etale commutative group schemes that are trivialized by discrete isogenies are invisible to the trace of Frobenius.
 
 Having understood quasicharacter sheaves on commutative smooth group schemes over $\FF_q$ in two extreme cases --
-connected algebraic groups and \'etale commutative group schemes -- we turn to the general case.
-We find that the general case can be understood from these two extreme cases, using the component group sequence
+connected commutative algebraic groups and \'etale commutative group schemes -- we turn to the general case.
+We find that the general case can be understood from these two extreme cases using the component group sequence
 \[
 0 \to G^0 \to G \to \pi_0(G) \to 0.
 \]
@@ -278,7 +279,7 @@ Using pullbacks of quasicharacter sheaves (\S\ref{ssec:Frob}), we obtain a diagr
   \begin{tikzcd}[row sep=20, column sep=20]
     0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
     & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
-    0 \rar & \pi_0(G)(\FF_q)^* \rar & G(\Fq)^* \rar & G^0(\FF_q)^* \rar & 0,
+    0 \rar & \pi_0(G)(\FF_q)^* \rar & G(\Fq)^* \rar & G^0(\FF_q)^* \rar & 0.
   \end{tikzcd}
 \]
 The rows of this diagram are exact (\S\S\ref{ssec:restriction},\ref{ssec:component}), so we may apply the snake lemma to prove the main theorem of the paper
@@ -1407,7 +1408,7 @@ There is a canonical isomorphism
 \begin{proof} 
 %For the first part of the proposition, argue as in the analogous part of Proposition~\ref{prop:autornaught_etale}.
 %For the second, f
-Fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the group homomorphism $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
+Fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the group homomorphism from $\Aut(\qcs{L})$ to $\Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
 This homomorphism is injective because morphisms of sheaves are determined by the linear transformations induced on stalks.  
 Note that homomorphisms in the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ are continuous where $\bG_{\Weil{}}$ is given the topology of the base of the espace \'etal\'e attached to $\gqcs{L}$.
 Since $\ell$ is invertible in $\Fq$, it now follows that the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
