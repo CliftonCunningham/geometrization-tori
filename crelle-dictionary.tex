@@ -129,8 +129,6 @@
 \DeclareMathOperator{\Tot}{Tot}
 \newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
 \newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
-\newcommand{\Sch}[1]{{\left(\operatorname{Sch}_{/#1}\right)}}
-
 %%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
@@ -155,10 +153,12 @@
 \newcommand{\lQC}{{\QC_\text{flb}}}
 \newcommand{\lQCiso}[1]{\lQC(#1)_{/\text{iso}}}
 \newcommand{\bQC}{{\QC_0}}
-\newcommand{\fQC}{{\QC_\text{fin}}}
+%\newcommand{\fQC}{{\QC_\text{fin}}}
 \newcommand{\QCiso}[1]{\QC(#1)_{/\text{iso}}}
 \newcommand{\bQCiso}[1]{\bQC(#1)_{/\text{iso}}}
-\newcommand{\fQCiso}[1]{\fQC(#1)_{/\text{iso}}}
+%\newcommand{\fQCiso}[1]{\fQC(#1)_{/\text{iso}}}
+\newcommand{\catname}[1]{\normalfont{\textsf{#1}}}
+\newcommand{\Sch}[1]{{\catname{Sch}_{/#1}}}
 %% amsmath replacements for \atop
 \newcommand{\latop}[2]{\genfrac{}{}{0pt}{0}{#1}{#2}}
 \newcommand{\partop}[2]{\genfrac{(}{)}{0pt}{0}{#1}{#2}}
@@ -1563,35 +1563,35 @@ is given by permuting coordinates, composition with the norm map yields the iden
 Let $K$ be a local field (in the sense of Serre) with residue field $\Fq$. 
 In this section we consider connected commutative algebraic groups over $K$ that admit a N\'eron model, by which we mean an lft N\'eron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup of type $\mathbb{G}_\text{a}$.
-These algebraic groups over $K$ form an additive category, denoted by $\mathcal{N}_K$ below, in a natural way, as a full subcategory of connected commutative algebraic groups over $K$. This category includes algebraic tori over $K$ and abelian varieties over $K$ unipotent K-wound groups.
+These algebraic groups over $K$ form an additive category, denoted by $\mathcal{N}_K$ below, in a natural way, as a full subcategory of connected commutative algebraic groups over $K$. This category includes algebraic tori over $K$, abelian varieties over $K$ and unipotent $K$-wound groups.
 
 \subsection{Quasicharacters}
 
 Let $R$ be the ring of integers of $K$.
 Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$, for every non-negative integer $n$.
 Suppose $X_K \in \mathcal{N}_K$ with N\'eron model $X$ over $R$.
-A {\it quasicharacter of $X_K(K)$} is a group homomorphism $X_K(K) \to \EEx$ that factors through $X_K(X) \to X(R_n)$, for some non-negative integer $n$;
-the group of quasicharacters of $X_K(K)$ will be denoted by 
+Note that $X(K) = X(R)$.
+A {\it quasicharacter of $X(K)$} is a group homomorphism $X(K) \to \EEx$ that factors through $X(R) \to X(R_n)$, for some non-negative integer $n$;
+the group of quasicharacters of $X(K)$ will be denoted by 
 \[
-\Hom_\text{qc}(X_K(K),\EEx)
+\Hom_\text{qc}(X(K),\EEx)
 \]
  and the subgroup of those that factor through $X(R_n)$ will be denoted by 
  \[
- \Hom_n(X_K(K),\EEx).
+ \Hom_n(X(K),\EEx).
 \]
-In this section we will see how to geometrize and categorify quasicharacters of $X_K(K)$ using quasicharacter sheaves.
+In this section we will see how to geometrize and categorify quasicharacters of $X(K)$ using quasicharacter sheaves.
 
 \subsection{Review of the Greenberg transform} \label{ssec:rev_Greenberg}
 
 Let $K$, $R$ and $R_n$ be as above.
 We will need the Greenberg functor, which provides
 a functor from the category of schemes 
-over $R_n$, for each $n\in \NN$, to the category of schemes over $\Fq$; \todo{font for categories, subscripts on homsets}
+over $R_n$, for each $n\in \NN$, to the category of schemes over $\Fq$.
 See \cite{bertrapelle-gonzales:Greenberg} for the definition and fundamental properties of the Greenberg functor as we use it; other important references include
 \cite{greenberg:61}, \cite{greenberg:63a},
 \cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1},
 \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6},
-
 \cite{nicaise-sebag:motivicSerre}*{\S 2.2}. %citelist
 %
 For any non-negative integer $n$ we will write
@@ -1612,7 +1612,7 @@ natural transformation
 \]
 between additive functors.
 Crucially, $\varrho^R_{n\leq m}(X): \Gr^R_{m}(X)\to \Gr^R_n(X)$ is an affine morphism of $\Fq$-schemes, for every $R$-scheme $X$ and every $n\leq m$ \cite{bertrapelle-gonzales:Greenberg}*{Prop 4.3}.
-This observation is key to the proof that, for any $X$ lft over $R$, the projective limit 
+This observation is key to the proof that, for any scheme $X$ over $R$, the projective limit 
 \[
 \Gr_R(X) \ceq \varprojlim_{n\in \NN} \Gr^R_n(X),
 \]
@@ -1620,11 +1620,11 @@ taken with respect to the surjective morphisms $\varrho^R_{n\leq m}(X) : \Gr^R_{
 exists in the category of group schemes over $\Fq$.
 This leads to the definition of what we shall call the {\it Greenberg transform}:
 \[
-\Gr_R : \partop{\text{Schemes}}{\text{lft over $R$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}.
+\Gr_R : \Sch{R} \to \Sch{\Fq}.
 \]
 By construction, the $\Fq$-scheme $\Gr_R(X)$ comes equipped with morphisms 
 \[
-\varrho^R_n(X) : \Gr^R(X) \to \Gr^R_n(X),\qquad \forall n\in \NN_0.
+\varrho^R_n(X) : \Gr^R(X) \to \Gr^R_n(X),\qquad \forall n\in \NN.
 \]
 
 \subsection{Quasicharacter sheaves on the Greenberg transform of a N\'eron model} \label{ssec:qc_on_GN}
@@ -1639,7 +1639,7 @@ with component group scheme $\pi_0(X) \times_S S_0$ and $\Fq$-rational points $X
 %
 The Greenberg transform $\Gr_R(X)$ of $X$ is a commutative group scheme over $\Fq$
 with component group scheme $\pi_0(X) \times_S S_0$
-and $\Fq$-rational points $X_K(K).$
+and $\Fq$-rational points $X(K).$
 However, $\Gr_R(X)$ is not locally of finite type and therefore not smooth.
 %
 The morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces a functor
@@ -1649,7 +1649,7 @@ The morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(N)$ induces
 as in Lemma~\ref{lem:pullback}.
 %This functor is faithful, so we may view $\QC(\Gr^R_n(X))$ as a subcategory of $\QC(\Gr_R(X))$.
 
-We now define a category which will geometrize quasicharacters of $X_K(K)$.
+We now define a category which will geometrize quasicharacters of $X(K)$.
 We begin by considering the rigid monoidal category $\QC(\Gr_R(X))$ defined in Section~\ref{sec:category} without insisting that the commutative group scheme is smooth.
 
 \begin{definition}
@@ -1703,7 +1703,7 @@ The trace of Frobenius provides a natural transformation between the additive fu
 \[
 F_{\QC}: X_K \mapsto \QCiso{X_K}
 \qquad\text{and}\qquad
-F_{\text{qc}}: X_K \mapsto \Hom_{\text{qc}}(X_K(K),\EEx)
+F_{\text{qc}}: X_K \mapsto \Hom_{\text{qc}}(X(K),\EEx)
 \]
 as functors from $\mathcal{N}_K$ to the category of abelian groups.
 \end{enumerate} 
@@ -1711,7 +1711,7 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 \begin{enumerate}[resume]
 \item there is a canonical short exact sequence of abelian groups 
 \[
-0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{X_K} \to \Hom_\text{qc}(X_K(K),\EEx) \to 0;
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Frob{}} \to \QCiso{X_K} \to \Hom_\text{qc}(X(K),\EEx) \to 0;
 \] 
 \item for all quasicharacter sheaves $\qcs{F}$, $\qcs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\qcs{F},\qcs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
 \item for all quasicharacter sheaves $\qcs{F}$ on $\Gr_R(X)$ there is a canonical isomorphism
@@ -1770,7 +1770,7 @@ f : \Gr_R(X) \to \Res_{k'/k} \Gr_{R'}(X')
 which, through quasicharacter sheaves, induces
 \[
 \begin{tikzcd}[column sep=60]
-\Hom_{\text{qc}}(X_K(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X_K(K)}} &\Hom_{\text{qc}}(X_K(K), \EEx).
+\Hom_{\text{qc}}(X(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X(K)}} &\Hom_{\text{qc}}(X(K), \EEx).
 \end{tikzcd}
 \]
 \end{proposition}
@@ -1809,11 +1809,11 @@ it follows from Lemma~\ref{lem:pullback} that the pullback functor \eqref{men-pu
 Since $X'$ is a N\'eron model for $X_{K'}$ and $X$ is a N\'eron model for $X_K$,
  this may be re-written as
 \[ 
-\Hom_{en-1}(X_{K'}(K'),\EEx) \to \Hom_{n-1}(X_K(K)),\EEx)
+\Hom_{en-1}(X(K'),\EEx) \to \Hom_{n-1}(X(K)),\EEx)
 \]
-Note that $X_{K'}(K') = X_{K}(K')$. Passing to limits now defines
+Passing to limits now defines
 \[ 
-\Hom_\text{qc}(X_{K}(K'),\EEx) \to \Hom_\text{qc}(X_K(K)),\EEx)
+\Hom_\text{qc}(X(K'),\EEx) \to \Hom_\text{qc}(X(K)),\EEx)
 \]
 Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction of characters.
 \end{proof}
@@ -1845,9 +1845,9 @@ as smooth group schemes over $\Fq$; accordingly, by Lemma~\ref{lem:pullback} the
 \end{equation}
 which induces an isomorphism
 \begin{equation}\label{eq:transfer}
-\Hom_m(X_K(K),\EEx)  \iso  \Hom_{m}(Y_{L}(L),\EEx).
+\Hom_m(X(K),\EEx)  \iso  \Hom_{m}(Y(L),\EEx).
 \end{equation}
-The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of (certain) quasicharacters between $X_K(K)$ and $Y_{L}(L)$. 
+The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of (certain) quasicharacters between $X(K)$ and $Y(L)$. 
 We now recognize this transfer of quasicharacters as a consequence of the equivalence of categories of quasicharacter sheaves \eqref{eq:categorical_transfer}.
 
 The isomorphism \eqref{eq:schematic_transfer} can indeed exist between quasicharacters of algebraic tori over local fields, even when the characteristics of $K$ and $L$ differ.
