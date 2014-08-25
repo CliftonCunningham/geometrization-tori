@@ -849,7 +849,7 @@ If $G$ is \'etale then $S_G$ is an isomorphism.
 %We first show that $S_G$ is injective.  
 Suppose $[\qcs{L}] \in \QCiso{G}$ with $S_G([\qcs{L}]) = [\alpha \oplus \beta] = 0$,
 so that $\alpha \oplus \beta = d\sigma$ for some $\sigma \in C^0(\Weil{},C^1({\bar G},\EEx) = C^1({\bar G},\EEx)$.
-For each $x\in {\bar G}$, define $\sigma_x : \gqcs{L}_x \to \EEx$ by $v_x \mapsto \sigma(x)$.
+For each $x\in {\bar G}$, define $\sigma_x : \gqcs{L}_x \to \EE$ by $\sigma_x : v_x \mapsto \sigma(x)$.
 Then the indexed set of isomorphisms $\{ \sigma_x : \gqcs{L}_x \to \EE \tq x\in {\bar G}\}$
 defines an isomorphism $\qcs{L} \to (\EE)_G$.
 Since $\qcs{L} = 0 \in \QCiso{G}$, $S_G$ is injective.
@@ -857,16 +857,16 @@ Since $\qcs{L} = 0 \in \QCiso{G}$, $S_G$ is injective.
 To see that $S_G$ is surjective, begin with $\alpha\oplus\beta\oplus 0 \in Z^2(E^\bullet_G)$.
 Since $d_{\Weil{}} \beta = 0$, we may define $a = \alpha \in C^2({\bar G},\EEx)$ and
 $b = \beta(\Frob{}) \in C^1({\bar G},\EEx)$, which are related to $\alpha$ and $\beta$ as above.
-Set $\gqcs{L}_x = \EEx$, define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes\gqcs{L}_y$
-by $\mu_{x,y}(1) = a(x,y) 1\otimes 1$ and $\phi_x : \gqcs{L}_{\Frob{G}(x)} \to \gqcs{L}_x$ by $\phi_x(1)= b(x)$.
+Set $\gqcs{L}_x = \EE$, define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes\gqcs{L}_y$
+by $\mu_{x,y}(1) = a(x,y) (1\otimes 1)$ and $\phi_x : \gqcs{L}_{\Frob{G}(x)} \to \gqcs{L}_x$ by $\phi_x(1)= b(x)$.
 Then \ref{qc.1} holds since $d_G \alpha =0$ and \ref{qc.2} holds since $d_{\Weil{}}\alpha =d_G \beta$.
 Tracing the construction backward, we have defined a quasicharacter sheaf $\qcs{L}$ on $G$ with
-$S_G(\qcs{L}) = [\alpha\oplus\beta\oplus\gamma]$, showing that $S_G$ is surjective.
+$S_G(\qcs{L}) = [\alpha\oplus\beta\oplus 0]$, showing that $S_G$ is surjective.
 \end{proof}
 
 \subsection{Objects, when $G$ is etale}\label{ssec:SandT}
 
-In this section we find the relationship between the group homomorphisms $\TrFrob{G}$ and $S_G$, and use this to find the group $\QCiso{G}$ when $G$ is an \'etale commutative group scheme over $\Fq$.
+In this section we fit the group homomorphisms $\TrFrob{G}$ and $S_G$ into a commutative diagram, determining the kernel and cokernel of the homomorphism $\TrFrob{G} : \QCiso{G} \to G(k)^*$ when $G$ is an \'etale commutative group scheme over $\Fq$.
 
 %
 We begin with a simple, general result relating duals, invariants and coinvariants.
@@ -875,31 +875,31 @@ We begin with a simple, general result relating duals, invariants and coinvarian
 Let $X$ be an abelian group equipped with an action of $\Weil{}$.
  Then
 \begin{align*}
- (X^*)_{\Frob{}} &\to (X^{\Frob{}})^* \\
- [f] &\mapsto f|_{X^{\Frob{}}}
+ (X^*)_{\Weil{}} &\to (X^{\Weil{}})^* \\
+ [f] &\mapsto f|_{X^{\Weil{}}}
 \end{align*}
 is an isomorphism.
 \end{lemma}
 
 \begin{proof}
-We can describe $X^{\Frob{}}$ as the kernel of the map $X \xrightarrow{\Frob{}-1} X$;
+We can describe $X^{\Weil{}}$ as the kernel of the map $X \xrightarrow{\Frob{}-1} X$;
 let $Y = (\Frob{}-1)X$ be the augmentation ideal.  Dualizing the sequence
 \[
- 0 \to X^{\Frob{}} \to X \to Y \to 0
+ 0 \to X^{\Weil{}} \to X \to Y \to 0
 \]
 yields
 \[
- 0 \to Y^* \to X^* \to (X^{\Frob{}})^* \to \Ext^1_\ZZ(Y, \EEx).
+ 0 \to Y^* \to X^* \to (X^{\Weil{}})^* \to \Ext^1_\ZZ(Y, \EEx).
 \]
-Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Frob{}})^*$.
+Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Weil{}})^*$.
 \end{proof}
 
 \begin{proposition}\label{prop:sur_etale}
-If $G$ is \'etale then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
+If $G$ is \'etale, then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
 \end{proposition}
 \begin{proof}
 Pick $\chi \in G(\Fq)^*$.
-By Lemma~\ref{lem:dual-inv}, there is some $b\in G(\bFq)^*$ such that $b\vert_{G(\Fq)^*} = \chi$.
+By Lemma~\ref{lem:dual-inv}, there is some $b\in G(\bFq)^*$ such that $b\vert_{G(\Fq)} = \chi$.
 Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$.
 Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and
 $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = b(x)$.
