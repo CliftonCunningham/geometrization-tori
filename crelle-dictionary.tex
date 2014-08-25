@@ -459,10 +459,11 @@ We will describe the group $\QCiso{G}$ in Theorem~\ref{thm:snake}
 and the sets $\Hom(\qcs{L},\qcs{L}')$ in Theorem~\ref{thm:autornaught}; in this way we provide a complete description of the category $\QC(G)$.
 %
 In the meantime, we close this section with an elementary observation about $\Hom(\qcs{L},\qcs{L}')$.
+We call a morphism of sheaves \emph{trivial} if it is zero on every stalk.
 
 \begin{lemma}\label{lem:autornaught}
 Let $G$ be a smooth commutative group scheme over $\Fq$.
-If $\qcs{L}$ and $\qcs{L}'$ are quasicharacter sheaves on $G$ then
+If $\qcs{L}$ and $\qcs{L}'$ are quasicharacter sheaves on $G$, then
 every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. 
 \end{lemma}
 
@@ -507,25 +508,25 @@ Note that if $(\gqcs{L},\phi) \iso (\gqcs{L'},\phi')$ as Weil sheaves,
 then $\trFrob{(\gqcs{L},\phi)} = \trFrob{(\gqcs{L'},\phi')}$ as functions on $G(\Fq)$.
 
 Now suppose $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$.
-Then $\bm^* \gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L} $ together with
+Then the isomorphism $\bm^* \gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$ and the diagram of
 \ref{QC.3} guarantee
 that the function $\trFrob{(\gqcs{L},\phi)} : G(\Fq)\to \EEx$ is a group homomorphism, which we will also denote by $\trFrob{\qcs{L}}$.  Moreover,
 this homomorphism depends only on the isomorphism class of $\qcs{L}$, so we obtain a map
 \begin{align*}
-\TrFrob{G} : \QCiso{G} &\to G(\Fq)^* \\
+\TrFrob{G} : \QCiso{G} &\to G(\Fq)^*, \\
 \qcs{L} &\mapsto \trFrob{\qcs{L}}.
 \end{align*}
 Since tensor products on the stalks of $\qcs{L}$ induce pointwise multiplication on the trace of Frobenius, $\TrFrob{G}$ is a group homomorphism.  We devote the remainder of this section to
 studying the behavior of the trace of Frobenius under morphisms of group schemes.  These simple but important
-results on pullbacks and external products will be used in the proofs of many results in this paper.
+properties of pullbacks and external products will be used in the proofs of many results in this paper.
 
 \begin{lemma}\label{lem:pullback}
-  If $f : H\to G$ is a morphism of smooth commutative group schemes over $\Fq$ then
+  If $f : H\to G$ is a morphism of smooth commutative group schemes over $\Fq$, then
   \begin{align*}
   f^* : \QC(G) &\to \QC(H) \\
   (\gqcs{L},\mu,\phi) &\mapsto (\bf^*\gqcs{L},(\bfxf)^*\mu,\bf^*F)
   \end{align*}
-  defines a monoidal functor dual to $f \colon H(\Fq) \to G(\Fq)$:
+  defines a monoidal functor dual to $f \colon H(\Fq) \to G(\Fq)$ in the sense that
   \[
   \begin{tikzcd}[row sep=20, column sep=30]
    \QCiso{G} \rar{f^*} \arrow[swap]{d}{\TrFrob{G}} & \QCiso{H} \dar{\TrFrob{H}} \\
@@ -536,7 +537,7 @@ results on pullbacks and external products will be used in the proofs of many re
 \end{lemma}
 \begin{proof}
   Let $\qcs{L}$ be a quasicharacter sheaf on $G$. 
-  Pullback by $\bf$ takes rank~one local systems to rank~one local systems.
+  Pullback by $\bf$ takes rank-one local systems to rank-one local systems.
   To see that $(\bfxf)^* \mu$ satisfies \ref{QC.2},
   apply the functor $(\bfxf)^*$
   to \ref{QC.2} for $\qcs{L}$ and use the canonical isomorphism
@@ -606,9 +607,9 @@ G_1  \arrow[swap, bend right]{r}{q_1} &
 \]
 Observe that $p_1\circ f = q_1 \circ r_1$ and $p_2 \circ f = q_2\circ r_2$.
 
-Now, let $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$.
-Set $\qcs{L}_1 \ceq q_1^* \qcs{L}$ and $\qcs{L}_2 \ceq q_2^* \qcs{L}$;
-by Lemma~\ref{lem:pullback}, $\qcs{L}_1$ a quasicharacter sheaf on $G_1$
+Now, let $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$
+and set $\qcs{L}_1 \ceq q_1^* \qcs{L}$ and $\qcs{L}_2 \ceq q_2^* \qcs{L}$.
+By Lemma~\ref{lem:pullback}, $\qcs{L}_1$ is a quasicharacter sheaf on $G_1$
 and $\qcs{L}_2$ is a quasicharacter sheaf on $G_2$.
 We will obtain an isomorphism $\qcs{L} \iso  \qcs{L}_1\boxtimes \qcs{L}_2$.
 Applying the functor $f^*$ to the isomorphism $\mu$ yields
@@ -623,7 +624,7 @@ f^*(\gqcs{L}\boxtimes \gqcs{L})  = f^*p_1^*\gqcs{L}\otimes f^* p_2^*\gqcs{L} = \
 \]
 It follows that \eqref{eq:fm} gives an isomorphism $\gqcs{L} \to  \gqcs{L}_1\boxtimes \gqcs{L}_2$.
 It is a matter of routine to show that this morphism satisfies
-\ref{QC.3} as it applies here,
+\ref{QC.4} as it applies here,
 from which it follows that we have exhibited an isomorphism
 $\qcs{L} \to \qcs{L}_1\boxtimes \qcs{L}_2$ of quasicharacters sheaves on $G\times G$.
 This completes the proof that $\boxtimes$ is essentially surjective.
@@ -632,7 +633,7 @@ This completes the proof that $\boxtimes$ is essentially surjective.
 Using these results on pullbacks and products, we may prove a naturality property of $\TrFrob{G}$.
 
 \begin{proposition}\label{prop:functorialG}
-Trace of Frobenius $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a natural transformation
+The homomorphism $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ defines a natural transformation
 between the two contravariant additive functors
 \begin{align*}
 F_1 : G &\mapsto \QCiso{G} \\
@@ -671,9 +672,9 @@ In this section we find a complete characterization of the category of quasichar
 
 \subsection{Stalks of quasicharacter sheaves}\label{ssec:stalks}
 
-The equivalence $G \mapsto G(\bFq)$
+The equivalence $G \mapsto G(\bFq)$,
 from the category of \'etale commutative group schemes over $\Fq$ to the category of commutative groups equipped
-with an action of $\Gal(\bFq/\Fq)$, continuous for the discrete topology on the group,
+with a continuous action of $\Gal(\bFq/\Fq)$,
 provides the following simple description of quasicharacter sheaves.
 %
 A quasicharacter sheaf $\qcs{L}$ on an \'etale commutative group scheme $G$ over $\Fq$ is:
@@ -719,7 +720,7 @@ Under this equivalence, a morphism $\rho : \qcs{L} \to \qcs{L'}$ of quasicharact
     & {} & \gqcs{L}_x\otimes\gqcs{L}_y \rar{\rho_x\otimes\rho_y} & \gqcs{L'}_x \otimes\gqcs{L'}_y
    \end{tikzcd}
   \]
-  both commute for all $x, y \in G(\bFq)$.
+  both commute, for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
 We will see that $T_G : \QCiso{G} \to G(\Fq)^*$ may not provide complete
@@ -729,27 +730,29 @@ is a group homomorphism $S_G: \QCiso{G} \to \Hh^2(E^\bullet_G)$ defined in Secti
 
 \subsection{A spectral sequence}\label{ssec:E}
 
-The zeroth page of the Hochschild-Serre spectral sequence, as in \cite{Vakil:spectral_sequences} following \cite{Weibel:Homological_Algebra}*{Ch 5 and \S 7.5}, for example,
+The zeroth page of the Hochschild-Serre spectral sequence
 is a double complex $E^{\bullet, \bullet}$ defined by
 \[
-E^{i,j} = C^i(\Weil{}, C^j(G(\bFq), \EEx)),
+E^{i,j} = C^i(\Weil{}, C^j(G(\bFq), \EEx));
 \]
-The derivative of group cohomology yields two derivatives:
+see \cite{Vakil:spectral_sequences}, which follows \cite{Weibel:Homological_Algebra}*{Ch 5 and \S 7.5}.
+The standard derivative on cochains yields two derivatives,
 \begin{align*}
-d_0 = d_G &: E^{i,j} \to E^{i,j+1} \\
-d_{\Weil{}} &: E^{i,j} \to E^{i+1,j}.
+d_G &: E^{i,j} \to E^{i,j+1} \mbox{and} \\
+d_{\Weil{}} &: E^{i,j} \to E^{i+1,j};
 \end{align*}
-Combining these yields a derivative $d = d_G + (-1)^j d_{\Weil{}}$ on the total complex
+we use the first as the derivative $d_0$ and the second to induce $d_1$.
+Combining them also yields a derivative $d = d_G + (-1)^j d_{\Weil{}}$ on the total complex
 \[
 E^n_G = \bigoplus_{i+j=n} E^{i,j}.
 \]
 The machinery of spectral sequences gives us a sequence of pages $E_r^{i,j}$, converging to a page $E_{\infty}^{i,j}$. We summarize the key properties of this spectral sequence in the following proposition.
 
-\begin{proposition}
+\begin{proposition} In the spectral sequence defined above,
 \begin{enumerate}
-\item The second page is given by $E_2^{i,j} = \Hh^i(\Weil{}, \Hh^j(G(\bFq), \EEx))$,
-\item there is an isomorphism $\Hh^n(\Weil{} \ltimes G(\bFq), \EEx) \cong \Hh^n(E_G^\bullet)$,
-\item there is a filtration $\Hh^n(\Weil{} \ltimes G(\bFq), \EEx) = F_n \supset \cdots \supset F_0 \supset F_{-1} = 0$ where $F_i / F_{i-1} \cong E_{\infty}^{i, n-i}$.
+\item the second page is given by $E_2^{i,j} = \Hh^i(\Weil{}, \Hh^j(G(\bFq), \EEx))$,
+\item there is an isomorphism $\Hh^n(\Weil{} \ltimes G(\bFq), \EEx) \cong \Hh^n(E_G^\bullet)$, and
+\item there is a filtration $\Hh^n(\Weil{} \ltimes G(\bFq), \EEx) = F_n \supset \cdots \supset F_{-1} = 0$, with $F_i / F_{i-1} \cong E_{\infty}^{i, n-i}$.
 \end{enumerate}
 \end{proposition}
 %\todo{Is this a lemma? Is the corollary a proposition?}
@@ -759,13 +762,11 @@ Moreover, since $\Weil{} \cong \ZZ$ has cohomological dimension $1$, $E_2^{i,j} 
 \begin{corollary}
 There is a short exact sequence
  \[
-  \begin{tikzcd}
-    0 \arrow{r}
-    & \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \arrow{r}
-    & \Hh^2(E^\bullet_G) \arrow{r}
-    & \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \arrow{r}
-    & 0
-  \end{tikzcd}
+    0 \to
+    \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to
+    \Hh^2(E^\bullet_G) \to
+    \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to
+    0
  \]
 \end{corollary}
 
@@ -809,7 +810,7 @@ for all $x,y,z\in {\bar G}$, so $a \in Z^2({\bar G},\EEx)$.  Similarly, conditio
 \frac{a(\Frob{G}(x),\Frob{G}(y))}{a(x,y)} =  \frac{b(x+y)}{b(x) b(y)}
 \end{equation}
 for $x, y \in {\bar G}$.
-Let $\alpha \in C^0(\Weil{},C^2({\bar G},\EEx)$ be the $0$-cochain corresponding to $a$ and let $\beta\in C^1(\Weil{},C^1({\bar G},\EEx)$ be the cocycle such that $\beta(\Frob{})$ is $b$ \emph{written additively}.
+Let $\alpha \in C^0(\Weil{},C^2({\bar G},\EEx)$ be the $0$-cochain corresponding to $a$ and let $\beta\in C^1(\Weil{},C^1({\bar G},\EEx)$ be the cocycle such that $\beta(\Frob{})$ is $b$.  We will write both $\alpha$ and $\beta$ additively.
 Then
 \[
 d_G\alpha =0, \qquad\qquad
@@ -820,8 +821,8 @@ in other words,
 \[\alpha\oplus \beta \in Z^2(E^\bullet_G).\]
 Although the cocycle $\alpha\oplus \beta$ is not well defined by $\qcs{L}$, its class in $Z^2(E^\bullet_G)$ is.
 To see this, let $\{ v'_x \in \gqcs{L}_x^\times \tq x \in {\bar G}\}$ be another choice and let $\alpha'\oplus \beta' \in Z^2(E^\bullet_G)$ be defined by $\qcs{L}$ and this choice, as above.
-Now let $\delta \in C^0(\Weil{},C^1({\bar G},\EEx))$ be the additive version of the function $d : {\bar G}\to \EEx$ defined by $v'_x = d(x) v_x$.
-Then, chasing through \ref{QC.2} and \ref{QC.3} we find
+Now let $\delta \in C^0(\Weil{},C^1({\bar G},\EEx))$ correspond to the function $d : {\bar G}\to \EEx$ defined by $v'_x = d(x) v_x$.
+Chasing through \ref{QC.2} and \ref{QC.3}, we find
 \[
 \alpha'\oplus\beta' = \alpha\oplus\beta + d\delta,
 \]
@@ -843,7 +844,7 @@ If $G$ is \'etale then $S_G$ is an isomorphism.
 \end{proposition}
 \begin{proof}
 %We first show that $S_G$ is injective.  
-Suppose $\qcs{L} \in \QCiso{G}$ with $S_G(\qcs{L}) = [\alpha \oplus \beta] = 0$,
+Suppose $[\qcs{L}] \in \QCiso{G}$ with $S_G([\qcs{L}]) = [\alpha \oplus \beta] = 0$,
 so that $\alpha \oplus \beta = d\sigma$ for some $\sigma \in C^0(\Weil{},C^1({\bar G},\EEx) = C^1({\bar G},\EEx)$.
 For each $x\in {\bar G}$, define $\sigma_x : \gqcs{L}_x \to \EEx$ by $v_x \mapsto \sigma(x)$.
 Then the indexed set of isomorphisms $\{ \sigma_x : \gqcs{L}_x \to \EE \tq x\in {\bar G}\}$
@@ -949,7 +950,7 @@ replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quas
 
 \begin{definition}
 Let $\bQC(G)$ be the category of pairs $(\qcs{E},\mu_\qcs{E})$
-where $\qcs{E}$ an $\ell$-adic local system on $G$ of rank~one,
+where $\qcs{E}$ an $\ell$-adic local system on $G$ of rank-one,
 equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes \qcs{E}$
 satisfying the analogue of \ref{QC.1} on $G$;
 morphisms in $\bQC(G)$ are defined as in the second part of
