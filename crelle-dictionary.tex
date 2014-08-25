@@ -1821,27 +1821,27 @@ Pick uniformizers $\varpi_K$ and $\varpi_L$ for $\OK$ and $\OL$, respectively;
 what follows will not depend on these choices.
 
 Suppose $X_K\in \mathcal{N}_K$ with N\'eron model $X$ and $Y_{L}\in \mathcal{N}_L$ with N\'eron model $Y$.
-Suppose $m$ is a non-negative integers such that 
+Suppose $m$ is a positive integer such that 
 \[
-\OK/\varpi_K^m\OK \iso \OL/\varpi_L^m\OL
+\OK/\varpi_K^{m}\OK \iso \OL/\varpi_L^{m}\OL.
 \]
 %(in which case $K$ and $L$ are said to be $m$-close).
 Suppose also that
 \begin{equation}\label{eq:schematic_transfer}
-X \times_{\Spec{\OK}} \Spec{\OK/\varpi_K^m\OK} \iso Y \times_{\Spec{\OL}} \Spec{\OL/\varpi_L^m\OL}
+X \times_{\Spec{\OK}} \Spec{\OK/\varpi_K^{m}\OK} \iso Y \times_{\Spec{\OL}} \Spec{\OL/\varpi_L^{m}\OL}
 \end{equation}
-as smooth group schemes over $\OK/\varpi_K^m\OK$. 
+as smooth group schemes over $\OK/\varpi_K^{m}\OK$. 
 Then
 $
-\Gr^{\OK}_m(X) \iso \Gr^{\OL}_{m}(Y)
+\Gr^{\OK}_{m-1}(X) \iso \Gr^{\OL}_{m-1}(Y)
 $
 as smooth group schemes over $\Fq$; accordingly, by Lemma~\ref{lem:pullback} the isomorphism above determines an equivalence of categories
 \begin{equation}\label{eq:categorical_transfer}
-\QC(\Gr^{\OK}_m(X)) \cong \QC(\Gr^{\OL}_{m}(Y))
+\QC(\Gr^{\OK}_{m-1}(X)) \cong \QC(\Gr^{\OL}_{m-1}(Y))
 \end{equation}
 which induces an isomorphism
 \begin{equation}\label{eq:transfer}
-\Hom_m(X(K),\EEx)  \iso  \Hom_{m}(Y(L),\EEx).
+\Hom_{m-1}(X(K),\EEx)  \iso  \Hom_{m-1}(Y(L),\EEx).
 \end{equation}
 The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of (certain) quasicharacters between $X(K)$ and $Y(L)$. 
 We now recognize this transfer of quasicharacters as a consequence of the equivalence of categories of quasicharacter sheaves \eqref{eq:categorical_transfer}.
@@ -1865,31 +1865,34 @@ If $T_K$ and $M_L$ are $n$-congruent then $\alpha$, $\beta$ and $\phi$ determine
 \begin{equation}\label{transfer}
   \Hom_{n-1}(T_K(K), \EEx) \iso \Hom_{n-1}(M_L(M),\EEx).
 \end{equation}
-Note that if $T_K$ and $M_L$ are $n$-congruent, then they are $m$ congruent for every
+Note that if $T_K$ and $M_L$ are $n$-congruent, then they are $m$-congruent for every
 $m \leq n$.
 %the isomorphism \eqref{transfer} is level-preserving at integers less than $N$.
 %
 
 Now let $T$ be a N\'eron model for $T_K$ and let $M$ be a N\'eron model for $M_L$.
-One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between the
-$T \times_{\Spec{\OK}} \Spec{\OK/\varpi_n\OK}$ and $M \times_{\Spec{\OL}} \Spec{\OL/\varpi^n\OL}$, assuming that $T_K$ and $M_L$ are sufficiently congruent.
+One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes 
+\[
+T \times_{\Spec{\OK}} \Spec{\OK/\varpi_K^n\OK} \iso M \times_{\Spec{\OL}} \Spec{\OL/\varpi_L^n\OL}
+\] 
+assuming that $T_K$ and $M_L$ are sufficiently congruent.
 They define a quantity $h$ (the smallest integer so that $\varpi^h$ lies in the
-Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}) and show  that if $n > 3h$ and $T_K$ and $M_L$ are $n$-congruent then there is a canonical isomorphism of smooth group schemes
+Jacobian ideal associated to a natural embedding of $T_K$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}) and show  that if $n > 3h$ and $T_K$ and $M_L$ are $n$-congruent then there is a canonical isomorphism of smooth group schemes
  $
-\Gr_{n-3h}(T) \to \Gr_{n-3h}(M)
+\Gr_{n-3h-1}(T) \to \Gr_{n-3h-1}(M)
  $
  determined by $\alpha, \beta$ and $\phi$ \cite{chai-yu:01a}*{Thm. 8.5}.
-Combining this with the paragraph above gives an instance of the geometrization and categorification of the transfer of quasicharacters.
+Combining this with the paragraph above gives the following instance of the geometrization and categorification of the transfer of quasicharacters.
 
 \begin{proposition}\label{prop:transfer}
  With notation above, suppose that $T_K$ and $M_L$ are $n$-congruent and $n > 3h$.  Set $m = n-3h$.
  Then there is a canonical equivalence of categories
  \[
- \QC(\Gr^{\OK}_m(T)) \iso \QC(\Gr^{\OL}_m(M))
+ \QC(\Gr^{\OK}_{m-1}(T)) \iso \QC(\Gr^{\OL}_{m-1}(M))
  \]
  determined by $\alpha, \beta$ and $\phi$ inducing an isomorphism
  \[
-\Hom_m(T_K(K), \EEx) \iso  \Hom_m(M_L(L), \EEx)
+\Hom_{m-1}(T_K(K), \EEx) \iso  \Hom_{m-1}(M_L(L), \EEx)
  \]
 compatible with \eqref{transfer}.% ($m < N$).
 \end{proposition}
@@ -1898,8 +1901,8 @@ compatible with \eqref{transfer}.% ($m < N$).
 \acknowl{We thank Masoud Kamgarpour, Pramod Achar and Hadi Salmasian
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable.
-We thank Takashi Suzuki for some very helpful observations and suggestions, including those related to our use of the Hochschild-Serre spectral sequence.
-We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves on $G$ and his sheaves on the stacky classifying space of $G$.
+We thank Takashi Suzuki for some very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
+We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
 We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and drawing our attention to their result on Weil restriction and the Greenberg transform.
 }
 
