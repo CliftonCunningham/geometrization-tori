@@ -219,13 +219,13 @@ m^* \qcs{E} \iso \qcs{E} \boxtimes \qcs{E},%\tag{0}
 \end{equation}
 where $m : G\times G\to G$ is the multiplication map.
 %
-If one wishes to make a category from this class of local systems, one is led to consider sheaf homorphisms $\qcs{E} \to \qcs{E}'$ which are compatible with particular choices of \eqref{introbox} for $\qcs{E}$ and $\qcs{E'}$. 
-{\it A priori}, these sheaf homomorphisms do not form a category, but since $G$ is connected, the existence of the isomorphism \eqref{introbox} for $\qcs{E}$ makes it unique; as a consequence, there is no impediment to categorifying the dictionary in this case. \todo{clarify}
+If one wishes to make a category from this class of local systems, one is led to consider morphisms $\qcs{E} \to \qcs{E}'$ of sheaves which are compatible with particular choices of \eqref{introbox} for $\qcs{E}$ and $\qcs{E'}$. 
+{\it A priori}, the composition $\qcs{E} \to \qcs{E}' \to \qcs{E}''$ of two such morphisms need not be compatible with the choices of \eqref{introbox} for $\qcs{E}$ and $\qcs{E}''$ since the choice for $\qcs{E}'$ might differ.  However, for connected $G$ the isomorphism \eqref{introbox} is unique if it exists, and there is no impediment to making the dictionary categorical.
 
-If $G$ is a commutative algebraic group over $\FF_q$ which is not connected, however, then the isomorphism \eqref{introbox} need not be unique, so one must keep track of the choice. This leads to the category of pairs $(\qcs{E},\mu_\qcs{E})$ where $\qcs{E}$ is a rank-one local system on $G$ and $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
+If $G$ is a commutative algebraic group over $\FF_q$ which is not connected, then the isomorphism \eqref{introbox} need not be unique, so one must keep track of the choice. This leads to the category of pairs $(\qcs{E},\mu_\qcs{E})$ where $\qcs{E}$ is a rank-one local system on $G$ and $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
 %If the component group scheme $\pi_0(G)$ is not cyclic, then 
 In this case, the trace of Frobenius provides an epimorphism from isomorphism classes of pairs $(\qcs{E},\mu_\qcs{E})$ to characters of $G(\FF_q)$, but that group homomorphism need not be injective; consequently,
-every character of $G(\Fq)$ may be geometrized as a pair $(\qcs{E},\mu_\qcs{E})$ but perhaps not uniquely in the category of pairs. 
+every character of $G(\FF_q)$ may be geometrized as a pair $(\qcs{E},\mu_\qcs{E})$ but perhaps not uniquely in the category of pairs. 
 While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious: if $(\qcs{E},\mu_\qcs{E})$ and $(\qcs{E}',\mu_\qcs{E}')$ determine the same character of $G(\FF_q)$ then $\qcs{E}\iso \qcs{E}'$ as local systems on $G$.
 
 In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\FF_q$,
@@ -233,7 +233,7 @@ we simply replace the local system $\qcs{E}$ on $G$ with a Weil local system whi
 In this way we are led to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$ (\S\ref{ssec:category}).
 Objects in $\QC(G)$ are triples $(\gqcs{L}, \mu,\phi)$, where $\gqcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$
 and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves satisfying a certain compatibility condition.
-Morphisms in $\QC(G)$ are then homomorphisms of Weil sheaves which are compatible with the extra structure.
+Morphisms in $\QC(G)$ are then morphisms of Weil sheaves which are compatible with the extra structure.
 
 We first test the category of quasicharacter sheaves by examining its objects on \'etale commutative group schemes $G$ over $\FF_q$ (\S\ref{sec:etale});
 \'etale group schemes form a counterpoint to connected algebraic groups, since the component group of any smooth group scheme is an \'etale group scheme.
@@ -252,7 +252,7 @@ We find that the group homomorphism
 \[
 T_G: \QCiso{G} \to G(\FF_q)^*
 \]
-provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$, where $\Weil{} \subset \Gal({\bar\FF}_q/\FF_q)$ is the Weil group for $\FF_q$.
+provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
 One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
 The fact that $T_G$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$
 determine the same character of $G(\FF_q)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
