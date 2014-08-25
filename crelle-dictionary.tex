@@ -52,10 +52,11 @@
 \usepackage{hyperref}
 
 %%%%%%%%%%%%%%% COUNTER %%%%%%%%%%%%%%%
-\setcounter{section}{-1}
+%\setcounter{section}{-1}
 %%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
 \theoremstyle{plain}
       \newtheorem{theorem}{Theorem}[section]
+      \newtheorem*{theorem*}{Theorem}
       \newtheorem{proposition}[theorem]{Proposition}
       \newtheorem{lemma}[theorem]{Lemma}
       \newtheorem{corollary}[theorem]{Corollary}
@@ -205,14 +206,14 @@ this paper extends Deligne's function-sheaf dictionary to smooth commutative gro
 %% \tableofcontents %% Just for papers exceeding 50 pages.
 
 
-\section{Introduction}
+\section*{Introduction}
 
-\subsection{Overview}
+%\subsection{Overview}
 
 Motivated by an application to the geometrization and categorification of quasicharacters of $p$-adic tori,
 this paper extends Deligne's function-sheaf dictionary to smooth commutative group schemes over finite fields. 
 
-As Deligne explained in \cite{deligne:SGA4.5}*{Sommes trig.}, if $G$ is a connected commutative algebraic group over $\FF_q$, then the trace of Frobenius provides a bijection between characters of $G(\FF_q)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which 
+As Deligne explained in \cite{deligne:SGA4.5}*{Sommes trig.}, if $G$ is a connected commutative algebraic group over $\FF_q$, then the trace of Frobenius provides a bijection between the group $G(\FF_q)^*$ of $\ell$-adic characters of $G(\FF_q)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which 
 \begin{equation}\label{introbox}
 m^* \qcs{E} \iso \qcs{E} \boxtimes \qcs{E},%\tag{0}
 \end{equation}
@@ -227,44 +228,83 @@ In this case, the trace of Frobenius provides an epimorphism from isomorphism cl
 every character of $G(\Fq)$ may be geometrized as a pair $(\qcs{E},\mu_\qcs{E})$ but perhaps not uniquely in the category of pairs. 
 While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious: if $(\qcs{E},\mu_\qcs{E})$ and $(\qcs{E}',\mu_\qcs{E}')$ determine the same character of $G(\FF_q)$ then $\qcs{E}\iso \qcs{E}'$ as local systems on $G$.
 
-In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\FF_q$, we simply replace the local system $\qcs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\qcs{E}$. 
-In this way we are led to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$. Objects in $\QC(G)$ are triples $(\gqcs{L}, \mu,\phi)$, where $\gqcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$ and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves satisfying a certain compatibility condition.  Morphisms in $\QC(G)$ are then homomorphisms of Weil sheaves which are compatible with the extra structure.
+In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\FF_q$,
+we simply replace the local system $\qcs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\qcs{E}$. 
+In this way we are led to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$ (\S\ref{sec:category}).
+Objects in $\QC(G)$ are triples $(\gqcs{L}, \mu,\phi)$, where $\gqcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$
+and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves satisfying a certain compatibility condition.
+Morphisms in $\QC(G)$ are then homomorphisms of Weil sheaves which are compatible with the extra structure.
 
-We first test the category of quasicharacter sheaves by examining its objects on \'etale commutative group schemes $G$ over $\FF_q$; \'etale group schemes form a counterpoint to connected algebraic groups, since the component group of a smooth commutative group scheme is an \'etale group scheme. 
+We first test the category of quasicharacter sheaves by examining its objects on \'etale commutative group schemes $G$ over $\FF_q$ (\S\ref{sec:etale});
+\'etale group schemes form a counterpoint to connected algebraic groups, since the component group of any smooth group scheme is an \'etale group scheme.
+Our key tools for understanding the trace of Frobenius in the \'etale case are a reinterpretation of $\QC(G)$ in terms of stalks (\S\ref{ssec:stalks}) and a
+relationship with the Hochschild-Serre spectral sequence (\S\ref{ssec:E}) for $\Weil{} \ltimes \bG$, where $\Weil{} \subset \Gal({\bar\FF}_q/\FF_q)$ is the Weil group for $\FF_q$.
+We define (\S\ref{ssec:S}) an isomorphism $S_G$ from $\QCiso{G}$ to the second cohomology of the total space of the spectral sequence
+\[
+E_2^{p,q} \ceq \Hh^p(\Weil{}, \Hh^q(\bG, \EEx)) \Rightarrow \Hh^{p+q}(\Weil{} \ltimes \bG, \EEx).
+\]
+Paired with the short exact sequence
+\[
+  0 \to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to 0
+\]
+arising from the spectral sequence, the isomorphism $S_G$ allows us to show (\S\ref{ssec:SandT}) that $\TrFrob{G}$ is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
 We find that the group homomorphism 
 \begin{equation}
-T_G: \QCiso{G} \to \Hom(G(\FF_q),\EEx)
+T_G: \QCiso{G} \to G(\FF_q)^*
 \end{equation}
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$, where $\Weil{} \subset \Gal({\bar\FF}_q/\FF_q)$ is the Weil group for $\FF_q$.
-One can show, using the Kunneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
-The fact that $T_G$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$ determine the same character of $G(\FF_q)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
-Here we also see the importance of working with Weil sheaves; without them, we would not be able to geometrize any character of the \'etale group scheme $\ZZ$ 
-with non-compact image, such as $\ell^{\ZZ}$.
+One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
+The fact that $T_G$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$
+determine the same character of $G(\FF_q)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
 
-Returning to the case of connected commutative algebraic groups $G$ over $\FF_q$, we confirm that, in this case, $\QC(G)$ is equivalent to the category of characters $\psi$ of $G(\FF_q)$, the equivalence being given by descent to $G$ followed by pullback by the Lang isogeny for $G$. 
+Returning to the case of connected commutative algebraic groups $G$, we consider quasicharacter sheaves that arise via base change to $\bFq$ from local systems on $G$ (\S\ref{ssec:descentG}) and
+those that appear in a pushforward from a constant sheaf along a discrete isogeny $H \to G$ (\S\ref{ssec:discrete_isogenies}).  While these constructions make sense even for non-connected $G$, in the connected
+case we show that every quasicharacter sheaf can be described in both of these ways (\S\ref{ssec:connected}).  We use this fact to prove that $T_G$ is an isomorphism for connected commutative algebraic groups $G$
+and to determine the automorphism groups of quasicharacter sheaves on such $G$.
+
 %
 %The appearance of $\Hh^2(\bG,\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ in these two cases is interesting: on the one hand, when $G$ is a connected commutative algebraic group over $\Fq$, isomorphism classes of quasicharacter sheaves on $G$ are measured by $\Hh^2(\bG,\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ and the trace of Frobenius gives an isomorphism $T_G: \QCiso{G} \to \Hom(G(\FF_q),\EEx)$; on the other hand, if $G$ an etale commutative group scheme over $\FF_q$, then $\Hh^2(\bG,\EEx)^{\Gal({\bar\FF}_q/\FF_q)}$ measures the kernel of $T_G: \QCiso{G} \to \Hom(G(\FF_q),\EEx)$. 
 %This observation makes plain the fact that  . . .
-%
-As we show in the paper, while characters of connected commutative algebraic groups $G$ can be geometrized using  local systems trivialized by discrete isogenies to $G$, this is not the right perspective if one wishes to geometrize characters of smooth commutative group schemes, such as \'etale commutative group schemes. Indeed, quasicharacter sheaves on \'etale commutative group schemes that are trivialized by discrete isogenies are invisible to the trace of Frobenius.
+%Indeed, quasicharacter sheaves on \'etale commutative group schemes that are trivialized by discrete isogenies are invisible to the trace of Frobenius.
 
-
-Having understood quasicharacter sheaves on commutative smooth group schemes over $\FF_q$ in two extreme cases -- connected algebraic groups and \'etale commutative group schemes -- we turn to the general case. Remarkably, we find that the general case can be understood from these two extreme cases, using the component group sequence
+Having understood quasicharacter sheaves on commutative smooth group schemes over $\FF_q$ in two extreme cases --
+connected algebraic groups and \'etale commutative group schemes -- we turn to the general case.
+We find that the general case can be understood from these two extreme cases, using the component group sequence
 \begin{equation}
 0 \to G^0 \to G \to \pi_0(G) \to 0.
 \end{equation}
-The main result of the paper uses this sequence to find $\QCiso{G}$ by situating it in a short exact sequence
-\begin{equation}
-0 \to \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \to \QCiso{G} \to \Hom(G(\FF_q),\EEx) \to 0.
-\end{equation}
-%We remark that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ is non-trivial even for some commutative algebraic groups.
-We also illuminate the nature of the category $\QC(G)$ by showing that every morphism in this category is either an isomorphism or trivial, and by showing that 
+Using pullbacks of quasicharacter sheaves (\S\ref{sec:Frob}), we obtain a diagram
+\begin{equation} \label{eq:intro-snake}
+  \begin{tikzcd}[row sep=20, column sep=20]
+    0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
+    & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
+    0 \rar & \pi_0(G)(\FF_q)^* \rar & G(\Fq)^* \rar & G^0(\FF_q)^* \rar & 0,
+  \end{tikzcd}
+  \end{equation}
+The rows of this diagram are exact (\S\S\ref{ssec:restriction},\ref{ssec:component}), so we may apply the snake lemma to prove the main theorem of the paper%, Theorem~\ref{thm:snake} $\QCiso{G}$ into a short exact sequence
+\begin{theorem*}[{Thm. \ref{thm:snake}}]
+If $G$ is a smooth commutative group scheme over $\FF_q$ then
+\[
+\TrFrob{G} : \QCiso{G} \to G(\FF_q)^*
+\]
+is surjective with kernel $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.
+\end{theorem*}
+We also illuminate the nature of the category $\QC(G)$ by showing that every morphism in this category is either an isomorphism or trivial, and by showing that
+\begin{theorem*}[{Thm. \ref{thm:autornaught}}]
+If $G$ is a smooth commutative group scheme over $\FF_q$ then
 \begin{equation}
 \Aut(\qcs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx),
 \end{equation}
+\end{theorem*}
 for all quasicharacter sheaves $\qcs{L}$ on $G$.
 
-\subsection{Applications over local fields}
+%Here we also see the importance of working with Weil sheaves: sheaves on $G$ itself only allow us to geometrize characters with compact image.
+%We conclude in Section~\ref{sec:basechange} by
+%giving functorial versions of the restriction and norm homomorphisms 
+%of character groups $G(k')^* \to G(k)^*$ and $G(k)^* \to G(k')^*$
+%and describing how quasicharacter sheaves behave under Weil restriction.
+
+%\subsection{Applications over local fields}
 
 As indicated above, our interest in the function-sheaf dictionary for smooth commutative group schemes over finite fields comes from an application to $p$-adic representation theory. 
 We found, however, that this application applies to all local fields $K$ with finite residue field $\Fq$ and all connected commutative algebraic groups $X_K$ over $K$ that do not contain a subgroup of type $\mathbb{G}_\text{a}$, such as abelian varieties, unipotent $K$-wound groups, and of course, algebraic tori. 
@@ -275,6 +315,18 @@ Although not locally of finite type, $\Gr_R(X)$ is a commutative group scheme ov
 This allows us to adapt our work on quasicharacter sheaves to construct a category $\QC(X_K)$ of quasicharacter sheaves for $X_K$, which are certain sheaves on $\Gr_R(X)\times_{\Spec{\Fq}} \Spec{\bFq}$, with extra structure.
 The ability to generalize the function-sheaf dictionary to non-connected group schemes, of which the component group of the special fibre of the N\'eron model $X$ is an important example, plays a crucial role in this application.
 %since these group schemes are not connected in general.
+
+Section~\ref{sec:applications} gives applications of quasicharacter sheaves to commutative algebraic groups over local fields.
+We begin with a review of N\'eron models and of the Greenberg transform in Section~\ref{ssec:rev_Greenberg}.  We then
+define, in Section~\ref{ssec:qc_on_GN}, a quasicharacter sheaf for an algebraic group over a local field to be a quasicharacter
+sheaf on the Greenberg transform of the N\'eron model.  In Theorem~\ref{thm:QCXK}, we translate our results from earlier sections
+to give a description of the isomorphism classes and automorphism groups
+in the category of quasicharacter sheaves on such an algebraic group.
+We specialize to $p$-adic tori in Section~\ref{ssec:qc_tori}, and discuss
+Weil restriction and base change over local fields in Section~\ref{ssec:wrK}.
+Finally, we give a categorical version of a result of Chai and Yu \cite{chai-yu:01a},
+relating quasicharacter sheaves for tori over different local fields, even local fields
+with different characteristic.
 
 Specializing to the case when $X_K$ is an algebraic torus $T$ over $K$, and writing $\underline{T}$ for the Neron model $X$ in this case, this paper gives a canonical short exact sequence 
 \begin{equation}
@@ -296,7 +348,7 @@ and, in the process, is led to study the representations of all the pure rationa
 A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group \cite{bernstein:vogan_conference}.
 Indeed, Bernstein has suggested to us that our category of quasicharacters for $T$ may be tied to characters of all the pure rational forms of $T$.
 
-\subsection{Comparison with character sheaves}
+%\subsection{Comparison with character sheaves}
 
 The process of creating a category from the group of quasicharacters of a $p$-adic  torus, as explained above, informs our choice of the term quasicharacter sheaf in this paper.
 We also want to situate our terminology in a historical context.
@@ -313,74 +365,7 @@ When commutative, such groups are extensions of finite cyclic groups by algebrai
 in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
 The interesting new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in this context.
 
-\subsection{Structure of the paper}
-
-We close the introduction with an overview of the structure of this paper.
-After setting some basic notation in Section~\ref{sec:notation} 
-such as $A^*\ceq \Hom(A,\EEx)$ for any abelian group $A$ and using $G$ for a smooth commutative group scheme over $\FF_q$,
-in Section~\ref{sec:category} we define the category of quasicharacter sheaves on $G$.
-Section~\ref{sec:Frob} introduces the trace of Frobenius homomorphism $\TrFrob{G} : \QCiso{G} \to G(\FF_q)^*$.
-We also define pullbacks of quasicharacter sheaves along morphisms of group schemes.  Applying pullbacks to the component group
-sequence for $G$ yields the diagram
- \begin{equation} \label{eq:intro-snake}
-  \begin{tikzcd}[row sep=20, column sep=20]
-    0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
-    & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
-    0 \rar & \pi_0(G)(\FF_q)^* \rar & G(\Fq)^* \rar & G^0(\FF_q)^* \rar & 0,
-  \end{tikzcd}
-  \end{equation}
-which is central to the proof of Theorem~\ref{thm:snake}.  Much of Sections~\ref{sec:etale}, \ref{sec:disc-isog} and \ref{sec:main}
-are devoted to proving that the rows of \eqref{eq:intro-snake} are exact and determining the kernels and cokernels of the vertical maps.
-
-Section~\ref{sec:etale} is devoted to the left-most vertical morphism in \eqref{eq:intro-snake}: studying $\TrFrob{G}$ for $G$ \'etale.  We begin by giving a reinterpretation of
-$\QC(G)$ in this case using stalks.  After a brief review of the Hochschild-Serre spectral sequence in Section~\ref{ssec:E},
-we define in Section~\ref{ssec:S} an isomorphism $S_G$ from $\QCiso{G}$ to the second cohomology of the total space of the spectral sequence
-\[
-E_2^{p,q} \ceq \Hh^p(\Weil{}, \Hh^q(\bG, \EEx)) \Rightarrow \Hh^{p+q}(\Weil{} \ltimes \bG, \EEx).
-\]
-Paired with the short exact sequence
-\[
-  0 \to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to 0
-\]
-arising from the spectral sequence, the isomorphism $S_G$ allows us to describe the kernel and cokernel of $\TrFrob{G}$ in Section \ref{ssec:SandT}.
-We close our discussion of \'etale $G$ with a description, in Section~\ref{ssec:mor-etale}, of $\Hom(\qcs{L},\qcs{L}')$ for $\qcs{L}, \qcs{L}' \in \QC(G)$.
-
-Section~\ref{sec:disc-isog} focuses on the right-hand side of \eqref{eq:intro-snake},
-giving descriptions of quasicharacter sheaves that are particularly useful when $G$ is connected.  In Section \ref{ssec:descentG}
-we consider quasicharacter sheaves that arise via base change to $\bFq$ from local systems on $G$, and in Section \ref{ssec:discrete_isogenies}
-those that arise via pushforward from a constant sheaf along a discrete isogeny $H \to G$.  When $G$ is connected,
-we show in Section~\ref{ssec:connected} that every quasicharacter sheaf can be described in both of these ways.
-We also show that $\TrFrob{G}$ is an isomorphism in this case.
-
-In Section~\ref{sec:main} we prove that the rows of \eqref{eq:intro-snake} are exact and
-use the snake lemma to determine the kernel and cokernel of $\TrFrob{G}$ for general $G$.
-We show that $\QCiso{G^0} \to \QCiso{G}$ is surjective in Section~\ref{ssec:restriction} and
-that the remainder of the top row of \eqref{eq:intro-snake} is exact in Section~\ref{ssec:component}.
-We put it together in Theorem~\ref{thm:snake} of Section~\ref{ssec:snake}, showing that $\TrFrob{G}$
-is surjective with kernel $\Hh^2(\pi_0(\bG), \EEx)^{\Weil{}}$.  Having described the isomorphism classes of objects,
-in Theorem~\ref{thm:autornaught} of Section~\ref{ssec:qcmor} we show that
-\[
-\Aut(\qcs{L}) \cong \Hom(\pi_0(\bG)_{\Weil{}}, \EEx)
-\]
-and that every morphism is either trivial or an isomorphism.  We conclude in Section~\ref{sec:basechange} by
-giving functorial versions of the restriction and norm homomorphisms 
-of character groups
-$G(k')^* \to G(k)^*$ and $G(k)^* \to G(k')^*$
-and describing how quasicharacter sheaves behave under Weil restriction.
-
-Section~\ref{sec:applications} gives applications of quasicharacter sheaves to commutative algebraic groups over local fields.
-We begin with a review of N\'eron models and of the Greenberg transform in Section~\ref{ssec:rev_Greenberg}.  We then
-define, in Section~\ref{ssec:qc_on_GN}, a quasicharacter sheaf for an algebraic group over a local field to be a quasicharacter
-sheaf on the Greenberg transform of the N\'eron model.  In Theorem~\ref{thm:QCXK}, we translate our results from earlier sections
-to give a description of the isomorphism classes and automorphism groups
-in the category of quasicharacter sheaves on such an algebraic group.
-We specialize to $p$-adic tori in Section~\ref{ssec:qc_tori}, and discuss
-Weil restriction and base change over local fields in Section~\ref{ssec:wrK}.
-Finally, we give a categorical version of a result of Chai and Yu \cite{chai-yu:01a},
-relating quasicharacter sheaves for tori over different local fields, even local fields
-with different characteristic.
-
-%\tableofcontents
+\tableofcontents
 
 \section{The category of quasicharacter sheaves}
 
@@ -488,7 +473,7 @@ every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
 \begin{proof}
 Suppose $\rho \in \Hom(\qcs{L},\qcs{L}')$.
 We prove the lemma by considering the linear transformations $\rho_{\bar g} : \gqcs{L}_{\bar g} \to \gqcs{L}_{\bar g}$ at the stalks above geometric points ${\bar g}$ on $G$ and showing that, either each $\rho_{\bar g}$ trivial or each $\rho_{\bar g}$ is an isomorphism.
-(This idea is expanded upon in Section~\ref{sec:stalks}.)
+(This idea is expanded upon in Section~\ref{ssec:stalks}.)
 Let ${\bar e}$ be the geometric point above the identity $e$ for $G$ determined by our choice of algebraic closure $\bFq$ of $\Fq$.
 If $\rho_{\bar e} = 0$ then the second diagram in \ref{QC.4} implies that $\rho_{\bar g} = 0$ for all ${\bar g}$, in which case $\rho$ is trivial.
 On the other hand, if $\rho_{\bar e}$ is nontrivial then the second diagram in \ref{QC.4}  implies that $\rho_{\bar g}$ is nontrivial for all ${\bar g}$ and thus an isomorphism, since the stalk of quasicharacter sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
@@ -688,7 +673,7 @@ concluding the proof of Proposition~\ref{prop:functorialG}.
 
 In this section we find a complete characterization of the category of quasicharacter sheaves on \'etale commutative group schemes over finite fields.
 
-\subsection{Stalks of quasicharacter sheaves}\label{sec:stalks}
+\subsection{Stalks of quasicharacter sheaves}\label{ssec:stalks}
 
 The equivalence $G \mapsto G(\bFq)$
 from the category of \'etale commutative group schemes over $\Fq$ to the category of commutative groups equipped
@@ -1360,7 +1345,7 @@ In this section we improve that result.
   \[
   \TrFrob{G} : \QCiso{G} \to G(\Fq)^*
   \]
-is surjective with kernel canonically isomorphic to $\Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$.
+is surjective with kernel canonically isomorphic to $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$.
 \end{theorem}
 
 \begin{proof}
