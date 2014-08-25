@@ -230,7 +230,7 @@ While this might appear to be a defect in the dictionary for characters of commu
 
 In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\FF_q$,
 we simply replace the local system $\qcs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\qcs{E}$. 
-In this way we are led to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$ (\S\ref{sec:category}).
+In this way we are led to the category $\QC(G)$ of {\it quasicharacter sheaves} on $G$ (\S\ref{ssec:category}).
 Objects in $\QC(G)$ are triples $(\gqcs{L}, \mu,\phi)$, where $\gqcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\FF_q}} \Spec{{\bar \FF}_q}$
 and $\phi : \Frob{G}^* \gqcs{L}\to \gqcs{L}$ and $\mu : {\bar m}^* \gqcs{L} \iso \gqcs{L} \boxtimes \gqcs{L}$ are isomorphisms of sheaves satisfying a certain compatibility condition.
 Morphisms in $\QC(G)$ are then homomorphisms of Weil sheaves which are compatible with the extra structure.
@@ -249,9 +249,9 @@ Paired with the short exact sequence
 \]
 arising from the spectral sequence, the isomorphism $S_G$ allows us to show (\S\ref{ssec:SandT}) that $\TrFrob{G}$ is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
 We find that the group homomorphism 
-\begin{equation}
+\[
 T_G: \QCiso{G} \to G(\FF_q)^*
-\end{equation}
+\]
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$, where $\Weil{} \subset \Gal({\bar\FF}_q/\FF_q)$ is the Weil group for $\FF_q$.
 One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
 The fact that $T_G$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$
@@ -270,18 +270,18 @@ and to determine the automorphism groups of quasicharacter sheaves on such $G$.
 Having understood quasicharacter sheaves on commutative smooth group schemes over $\FF_q$ in two extreme cases --
 connected algebraic groups and \'etale commutative group schemes -- we turn to the general case.
 We find that the general case can be understood from these two extreme cases, using the component group sequence
-\begin{equation}
+\[
 0 \to G^0 \to G \to \pi_0(G) \to 0.
-\end{equation}
-Using pullbacks of quasicharacter sheaves (\S\ref{sec:Frob}), we obtain a diagram
-\begin{equation} \label{eq:intro-snake}
+\]
+Using pullbacks of quasicharacter sheaves (\S\ref{ssec:Frob}), we obtain a diagram
+\[
   \begin{tikzcd}[row sep=20, column sep=20]
     0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
     & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
     0 \rar & \pi_0(G)(\FF_q)^* \rar & G(\Fq)^* \rar & G^0(\FF_q)^* \rar & 0,
   \end{tikzcd}
-  \end{equation}
-The rows of this diagram are exact (\S\S\ref{ssec:restriction},\ref{ssec:component}), so we may apply the snake lemma to prove the main theorem of the paper%, Theorem~\ref{thm:snake} $\QCiso{G}$ into a short exact sequence
+\]
+The rows of this diagram are exact (\S\S\ref{ssec:restriction},\ref{ssec:component}), so we may apply the snake lemma to prove the main theorem of the paper
 \begin{theorem*}[{Thm. \ref{thm:snake}}]
 If $G$ is a smooth commutative group scheme over $\FF_q$ then
 \[
@@ -292,65 +292,60 @@ is surjective with kernel $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.
 We also illuminate the nature of the category $\QC(G)$ by showing that every morphism in this category is either an isomorphism or trivial, and by showing that
 \begin{theorem*}[{Thm. \ref{thm:autornaught}}]
 If $G$ is a smooth commutative group scheme over $\FF_q$ then
-\begin{equation}
+\[
 \Aut(\qcs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx),
-\end{equation}
-\end{theorem*}
+\]
 for all quasicharacter sheaves $\qcs{L}$ on $G$.
+\end{theorem*}
 
 %Here we also see the importance of working with Weil sheaves: sheaves on $G$ itself only allow us to geometrize characters with compact image.
-%We conclude in Section~\ref{sec:basechange} by
+%We conclude in Section~\ref{ssec:basechange} by
 %giving functorial versions of the restriction and norm homomorphisms 
 %of character groups $G(k')^* \to G(k)^*$ and $G(k)^* \to G(k')^*$
 %and describing how quasicharacter sheaves behave under Weil restriction.
 
 %\subsection{Applications over local fields}
 
-As indicated above, our interest in the function-sheaf dictionary for smooth commutative group schemes over finite fields comes from an application to $p$-adic representation theory. 
-We found, however, that this application applies to all local fields $K$ with finite residue field $\Fq$ and all connected commutative algebraic groups $X_K$ over $K$ that do not contain a subgroup of type $\mathbb{G}_\text{a}$, such as abelian varieties, unipotent $K$-wound groups and, of course, algebraic tori. 
-Such algebraic groups $X_K$ always admit a Neron model $X$ over $R$, the ring of integers of $K$.
-In this paper we show that quasicharacters of $X_K$ are geometrized and categorified by quasicharacter sheaves on the
+As indicated above, our interest in the function-sheaf dictionary for smooth commutative group schemes
+over finite fields comes from an application to $p$-adic representation theory. 
+However, we found that our method of passing from $p$-adic tori to group schemes over $\FF_q$ applies more generally to
+any local field $K$ with finite residue field $\Fq$ and any algebraic group $X_K$ that admits a N\'eron model $X$ over $R$, the ring of integers of $K$.
+This class of groups includes abelian varieties and unipotent $K$-wound groups in addition to the tori we initially considered.
+In this paper we show that quasicharacters of $X(K)$ are geometrized and categorified by quasicharacter sheaves on the
 Greenberg transform $\Gr_R(X)$ of the N\'eron model $X$.
 Although not locally of finite type, $\Gr_R(X)$ is a commutative group scheme over $\Fq$ and also a projective limit of smooth commutative group schemes $\Gr^R_n(X)$.
-This allows us to adapt our work on quasicharacter sheaves to construct a category $\QC(X_K)$ of quasicharacter sheaves for $X_K$, which are certain sheaves on $\Gr_R(X)\times_{\Spec{\Fq}} \Spec{\bFq}$, with extra structure.
-The ability to generalize the function-sheaf dictionary to non-connected group schemes, of which the component group of the special fibre of the N\'eron model $X$ is an important example, plays a crucial role in this application.
-%since these group schemes are not connected in general.
+This structure allows us to adapt our work on quasicharacter sheaves to construct (\S\ref{ssec:qc_on_GN}) a category $\QC(X_K)$
+of quasicharacter sheaves for $X_K$, which are certain sheaves on $\Gr_R(X)\times_{\Spec{\Fq}} \Spec{\bFq}$, with extra structure.
+The ability to generalize the function-sheaf dictionary to non-connected group schemes plays a crucial role in this application.
 
-Section~\ref{sec:applications} gives applications of quasicharacter sheaves to commutative algebraic groups over local fields.
-We begin with a review of N\'eron models and of the Greenberg transform in Section~\ref{ssec:rev_Greenberg}.  We then
-define, in Section~\ref{ssec:qc_on_GN}, a quasicharacter sheaf for an algebraic group over a local field to be a quasicharacter
-sheaf on the Greenberg transform of the N\'eron model.  In Theorem~\ref{thm:QCXK}, we translate our results from earlier sections
-to give a description of the isomorphism classes and automorphism groups
-in the category of quasicharacter sheaves on such an algebraic group.
-We specialize to $p$-adic tori in Section~\ref{ssec:qc_tori}, and discuss
-Weil restriction and base change over local fields in Section~\ref{ssec:wrK}.
-Finally, we give a categorical version of a result of Chai and Yu \cite{chai-yu:01a},
+Having defined quasicharacter sheaves for groups over $K$ and $\Fq$, we consider how
+these categories are related as $K$ and $\Fq$ vary.  We describe (\S\ref{ssec:basechange}) functors between categories
+of quasicharacter sheaves that model restriction and norm homomorphisms of character groups $G(k')^* \to G(k)^*$ and $G(k)^* \to G(k')^*$,
+and describe how quasicharacter sheaves behave under Weil restriction (\S\ref{ssec:wrK}).  We also give (\S\ref{ssec:transfer})
+a categorical version of a result of Chai and Yu \cite{chai-yu:01a},
 relating quasicharacter sheaves for tori over different local fields, even local fields
 with different characteristic.
 
-Specializing to the case when $X_K$ is an algebraic torus $T$ over $K$, and writing $\underline{T}$ for the Neron model $X$ in this case, this paper gives a canonical short exact sequence 
-\begin{equation}
-0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
-\end{equation}
-where $\Hom_\text{qc}(T(K),\EEx)$ denoted the group of quasicharacters of $T(K)$.
-We further show that automorphism groups in the $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T$, by
-\begin{equation}
-\Aut(\qcs{F}) \iso (\check{T}_\ell)^{\Weil{K}}
-\end{equation}
+Specializing to the case that $X = T$ is the N\'eron model of an algebraic torus (\S\ref{ssec:qc_tori}), 
+we give a canonical short exact sequence 
+\[
+0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
+\]
+where $\Hom_\text{qc}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
+We further show that automorphism groups in $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
+\[
+\Aut(\qcs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
+\]
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 %We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
 
 By any measure, there are more quasicharacter sheaves for $T$ than quasicharacters of $T(K)$.  
-%\todo{Maybe move this from the introduction into the body of the paper somewhere.}
 In this regard, we are reminded of the work of David Vogan \cite{vogan:93a}, in which he finds a geometrization of complete Langlands parameters for $p$-adic groups 
-%as equivariant perverse sheaves on Vogan varieties 
 and, in the process, is led to study the representations of all the pure rational forms of the $p$-adic group simultaneously.
 A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group \cite{bernstein:vogan_conference}.
-Indeed, Bernstein has suggested to us that our category of quasicharacters for $T$ may be tied to characters of all the pure rational forms of $T$.
+Indeed, Bernstein has suggested to us that our category of quasicharacters for $T$ may be tied to quasicharacters of all the pure rational forms of $T$.
 
-%\subsection{Comparison with character sheaves}
-
-The process of creating a category from the group of quasicharacters of a $p$-adic  torus, as explained above, informs our choice of the term quasicharacter sheaf in this paper.
+The process of creating a category from the group of quasicharacters of a $p$-adic  torus informs our choice of the term quasicharacter sheaf in this paper.
 We also want to situate our terminology in a historical context.
 It is not uncommon to refer to local systems satisfying \eqref{introbox} on a connected, commutative algebraic group as character sheaves;
 see for example, \cite{kamgarpour:09a}*{Intro}.
@@ -363,14 +358,14 @@ over algebraically closed fields with finite cyclic component groups in the seri
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
-The interesting new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in this context.
+The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in this context.
 
-\tableofcontents
+%\tableofcontents
 
-\section{The category of quasicharacter sheaves}
+\section{The category of quasicharacter sheaves} \label{sec:category}
 
 
-\subsection{Notations}\label{sec:notation}
+\subsection{Notations}\label{ssec:notation}
 
 Throughout this paper, $G$ is a smooth commutative group scheme
 over a finite field $\Fq$, and $m : \GxG\to G$ is its multiplication morphism.
@@ -395,7 +390,7 @@ are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{
 
 For any abelian group $A$, we will write $A^*$ for the dual group $\Hom(A, \EEx)$.
 
-\subsection{The category of quasicharacter sheaves}\label{sec:category}
+\subsection{The category of quasicharacter sheaves}\label{ssec:category}
 
 \begin{definition}\label{def:QC}
 A \emph{quasicharacter sheaf on $G$} is a triple
@@ -459,8 +454,8 @@ is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.  We suspect t
 an isomorphism and dropping the condition that the stalks be one-dimensional would yield an abelian category.
 \end{remark}
 
-We will describe the group $\QCiso{G}$ in Theorem \ref{thm:snake}
-and the sets $\Hom(\qcs{L},\qcs{L}')$ in Theorem \ref{thm:autornaught}; in this way we provide a complete description of the category $\QC(G)$.
+We will describe the group $\QCiso{G}$ in Theorem~\ref{thm:snake}
+and the sets $\Hom(\qcs{L},\qcs{L}')$ in Theorem~\ref{thm:autornaught}; in this way we provide a complete description of the category $\QC(G)$.
 %
 In the meantime, we close this section with an elementary observation about $\Hom(\qcs{L},\qcs{L}')$.
 
@@ -480,12 +475,12 @@ On the other hand, if $\rho_{\bar e}$ is nontrivial then the second diagram in \
 \end{proof}
 
 
-\subsection{Trace of Frobenius}\label{sec:Frob}
+\subsection{Trace of Frobenius}\label{ssec:Frob}
 
 In this section we introduce two tools which will help us understand isomorphism classes of objects in $\QC(G)$: the map $\QCiso{G} \to G(k)^*$ given by trace of Frobenius and the pullback functor $\QC(G) \to \QC(H)$ associated to a morphism $H \to G$.
 
 %A Weil sheaf $(\gqcs{L},\phi)$ on $G$ may be interpreted as a constructible $\ell$-adic sheaf $\gqcs{L}$ on $\bG$ together with an action of the Weil group $\Weil{}$ on $\gqcs{L}$ compatible with the action of $\Gal(\bFq/\Fq)$ on $\bG$. 
-%We now briefly review this point of view for later use in Section~\ref{sec:basechange}; see also \cite{deligne:80a}*{Def.~1.1.10}.  If $w \ceq \Frob{}^n$ we write $w_G$ for $\Frob{G}^n$.
+%We now briefly review this point of view for later use in Section~\ref{ssec:basechange}; see also \cite{deligne:80a}*{Def.~1.1.10}.  If $w \ceq \Frob{}^n$ we write $w_G$ for $\Frob{G}^n$.
 %For each such $w$ we define an isomorphism $\varphi(w) : w_G^* \gqcs{L}\to \gqcs{L}$ by $\varphi(w) \ceq  \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi);$
 %these isomorphisms satisfy $\varphi(uv) = \varphi(v) \circ v_G^* \varphi(u)$ for $u,v\in \Weil{}$, and we have $\phi = \varphi(\Frob{})$.
 %If we further define $\varphi_1(w) \ceq (w_G)_*(\varphi(w)^{-1})$ then $\varphi_1(w) : (w_G)_* \gqcs{L}\to \gqcs{L}$ is an isomorphism and $\varphi_1(uv) = \varphi_1(u) \circ (u_G)_* \varphi_1(v)$ for $u,v\in \Weil{}$.
@@ -655,7 +650,7 @@ transformation between additive functors,
 concluding the proof of Proposition~\ref{prop:functorialG}.
 \end{proof}
 
-%\subsection{Morphisms of quasicharacter sheaves}\label{sec:mor}
+%\subsection{Morphisms of quasicharacter sheaves}\label{ssec:mor}
 
 \section{Quasicharacter sheaves on \'etale commutative group schemes} \label{sec:etale}
 
@@ -1045,7 +1040,7 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
   Now let $(\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$
   and let $\rho : \W(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
   Composing with the splitting $\Weil{} \to \W(G,\bg)$ yields an $\ell$-adic character
-  $\rho_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{sec:Frob}, for every $\Fq$ rational point $g$ on $G$:
+  $\rho_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{ssec:Frob}, for every $\Fq$ rational point $g$ on $G$:
   $
   \rho_g(\Frob{}) =  \trFrob{\qcs{L}}(g).
   $
@@ -1421,7 +1416,7 @@ To see that $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, b
 This defines an isomorphism $\bar\rho : \gqcs{L}\to \gqcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\qcs{L}\to \qcs{L}$ with maps to $\theta$ under $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
 \end{proof}
 
-\subsection{Base change}\label{sec:basechange}
+\subsection{Base change}\label{ssec:basechange}
 
 When using quasicharacter sheaves to study characters, it is useful to understand
 how quasicharacter sheaves behave under change of fields.
@@ -1475,7 +1470,7 @@ The commutativity of the diagram (QC.3) for $\phi_{k'}$
 follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
 Note that we may also think about the construction of $\phi_{k'}$ from $\phi$
 as taking the action $\varphi$ of $\Weil{k}$ on $\gqcs{L}$
-defined in Section~\ref{sec:category} and restricting it to the subgroup $\Weil{k'}$.
+defined in Section~\ref{ssec:category} and restricting it to the subgroup $\Weil{k'}$.
 
 \begin{proposition}\label{prop:basechange}
 With notation above,
@@ -1650,7 +1645,7 @@ as in Lemma~\ref{lem:pullback}.
 %This functor is faithful, so we may view $\QC(\Gr^R_n(X))$ as a subcategory of $\QC(\Gr_R(X))$.
 
 We now define a category which will geometrize quasicharacters of $X_K(K)$.
-We begin by considering the rigid monoidal category $\QC(\Gr_R(X))$ defined in Section~\ref{sec:category} without insisting that the commutative group scheme is smooth.
+We begin by considering the rigid monoidal category $\QC(\Gr_R(X))$ defined in Section~\ref{ssec:category} without insisting that the commutative group scheme is smooth.
 
 \begin{definition}
 A {\it quasicharacter sheaf for $X_K$} is an object of
@@ -1818,7 +1813,7 @@ Note that $X_{K'}(K') = X_{K}(K')$. Passing to limits now defines
 Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction of characters.
 \end{proof}
 
-\subsection{Transfer of quasicharacters}\label{sec:transfer}
+\subsection{Transfer of quasicharacters}\label{ssec:transfer}
 
 Let $K$ and $L$ be local fields with rings of integers $\OK$ and $\OL$, respectively. 
 Pick uniformizers $\varpi_K$ and $\varpi_L$ for $\OK$ and $\OL$, respectively;
