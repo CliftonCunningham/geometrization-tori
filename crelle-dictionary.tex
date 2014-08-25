@@ -738,10 +738,10 @@ is a double complex $E^{\bullet, \bullet}$ defined by
 \[
 E^{i,j} = C^i(\Weil{}, C^j(G(\bFq), \EEx));
 \]
-see \cite{Vakil:spectral_sequences}, which follows \cite{Weibel:Homological_Algebra}*{Ch 5 and \S 7.5}.
+see \cite{Vakil:spectral_sequences}, expanding on \cite{Weibel:Homological_Algebra}*{Ch 5 and \S 7.5}.
 The standard derivative on cochains yields two derivatives,
 \begin{align*}
-d_G &: E^{i,j} \to E^{i,j+1} \mbox{and} \\
+d_G &: E^{i,j} \to E^{i,j+1} \quad \mbox{and} \\
 d_{\Weil{}} &: E^{i,j} \to E^{i+1,j};
 \end{align*}
 we use the first as the derivative $d_0$ and the second to induce $d_1$.
@@ -937,7 +937,11 @@ every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism. More
 \begin{proof}
 We have already seen, in Lemma~\ref{lem:autornaught}, that every $\rho\in \Hom(\qcs{L},\qcs{L}')$ is either trivial or an isomorphism.
 Now suppose $\rho \in \Aut(\qcs{L})$.
-The second diagram in \ref{qc.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{qc.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\brho_x$ as multiplication by $\rho(x)$ will satisfy the two diagrams.  Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
+The second diagram in \ref{qc.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{qc.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  
+
+Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\brho_x$ as multiplication by $\rho(x)$ will define $\gqcs{L} \to \gqcs{L}'$ satisfy the two diagrams in \ref{qc.4}.  
+
+Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
 
 %Note that Proposition~\ref{prop:autornaught_etale} tells us that if $G$ is an \'etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\{ 0 \} \cup \left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
