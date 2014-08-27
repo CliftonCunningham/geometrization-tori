@@ -256,19 +256,19 @@ arising from the spectral sequence, the isomorphism $S_G$ allows us to show (\S\
 %$\TrFrob{G}$ is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$. We find that 
 the group homomorphism 
 \[
-T_G: \QCiso{G} \to G(\Fq)^*
+\TrFrob{G}: \QCiso{G} \to G(\Fq)^*
 \]
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
 One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
-%The fact that $T_G$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$ determine the same character of $G(\Fq)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
+%The fact that $\TrFrob{G}$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$ determine the same character of $G(\Fq)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
 
 Returning to the case of connected commutative algebraic groups $G$, we consider quasicharacter sheaves that arise via base change to $\bFq$ from local systems on $G$ (\S\ref{ssec:descentG}) and
 those that appear in a pushforward from a constant sheaf along a discrete isogeny $H \to G$ (\S\ref{ssec:discrete_isogenies}).  While these constructions make sense even for non-connected $G$, in the connected
-case we show that every quasicharacter sheaf can be described in both of these ways (\S\ref{ssec:connected}).  We use this fact to prove that $T_G$ is an isomorphism for connected commutative algebraic groups $G$
+case we show that every quasicharacter sheaf can be described in both of these ways (\S\ref{ssec:connected}).  We use this fact to prove that $\TrFrob{G}$ is an isomorphism for connected commutative algebraic groups $G$
 and to determine the automorphism groups of quasicharacter sheaves on such $G$.
 
 %
-%The appearance of $\Hh^2(\bG,\EEx)^{\Gal(\bFq/\Fq)}$ in these two cases is interesting: on the one hand, when $G$ is a connected commutative algebraic group over $\Fq$, isomorphism classes of quasicharacter sheaves on $G$ are measured by $\Hh^2(\bG,\EEx)^{\Gal(\bFq/\Fq)}$ and the trace of Frobenius gives an isomorphism $T_G: \QCiso{G} \to \Hom(G(\Fq),\EEx)$; on the other hand, if $G$ an etale commutative group scheme over $\Fq$, then $\Hh^2(\bG,\EEx)^{\Gal(\bFq/\Fq)}$ measures the kernel of $T_G: \QCiso{G} \to \Hom(G(\Fq),\EEx)$. 
+%The appearance of $\Hh^2(\bG,\EEx)^{\Gal(\bFq/\Fq)}$ in these two cases is interesting: on the one hand, when $G$ is a connected commutative algebraic group over $\Fq$, isomorphism classes of quasicharacter sheaves on $G$ are measured by $\Hh^2(\bG,\EEx)^{\Gal(\bFq/\Fq)}$ and the trace of Frobenius gives an isomorphism $\TrFrob{G}: \QCiso{G} \to \Hom(G(\Fq),\EEx)$; on the other hand, if $G$ an etale commutative group scheme over $\Fq$, then $\Hh^2(\bG,\EEx)^{\Gal(\bFq/\Fq)}$ measures the kernel of $\TrFrob{G}: \QCiso{G} \to \Hom(G(\Fq),\EEx)$. 
 %This observation makes plain the fact that  . . .
 %Indeed, quasicharacter sheaves on \'etale commutative group schemes that are trivialized by discrete isogenies are invisible to the trace of Frobenius.
 
@@ -362,7 +362,7 @@ over algebraically closed fields with finite cyclic component groups in the seri
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
-The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in this context.
+The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
 
 %\tableofcontents
 
@@ -725,7 +725,7 @@ Under this equivalence, a morphism $\rho : \qcs{L} \to \qcs{L'}$ of quasicharact
   both commute, for all $x, y \in G(\bFq)$.
 \end{enumerate}
 
-We will see that $T_G : \QCiso{G} \to G(\Fq)^*$ may not provide complete
+We will see that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ may not provide complete
 information about isomorphism classes of quasicharacter sheaves on $G$ when $G$ is not a connected algebraic group.
 Our main tool for understanding this phenomenon
 is a group homomorphism $S_G: \QCiso{G} \to \Hh^2(E^\bullet_G)$ defined in Section~\ref{ssec:S}, for which the next two sections are preparation.
@@ -772,7 +772,7 @@ There is a short exact sequence
  \]
 \end{corollary}
 
-This sequence will play a key role in understanding the kernel of $T_G$, as described in the next few sections.
+This sequence will play a key role in understanding the kernel of $\TrFrob{G}$, as described in the next few sections.
 For this application, we need a good understanding of these maps to and from the total complex.
 
 \begin{proposition} \label{prop:ses_desc}
@@ -895,18 +895,29 @@ Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the coker
 \end{proof}
 
 \begin{proposition}\label{prop:sur_etale}
-If $G$ is \'etale, then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective.
+If $G$ is \'etale, then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective
+and admits a section.
 \end{proposition}
 \begin{proof}
-Pick $\chi \in G(\Fq)^*$.
-By Lemma~\ref{lem:dual-inv}, there is some $b\in G(\bFq)^*$ such that $b\vert_{G(\Fq)} = \chi$.
+Pick $\chi \in G(\Fq)^*$. 
+Let $[\beta]\in \Hh^1(\Weil{},\bG^*)$ be the class corresponding to $\chi$ under Lemma~\ref{lem:dual-inv}.
+Every representative cocycle $\beta \in Z^1(\Weil{},\bG^*)$ determines a homomorphism $\beta(\Frob{}) : G(\bFq)\to \EEx$ such that $\beta(\Frob{})\vert_{G(\Fq)} = \chi$.
 Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$.
 Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and
-$\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = b(x)$.
-Since $b : G(\bFq) \to \EEx$ is a group homomorphism,
+$\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = \beta(\Frob{})(x)$.
+Since $\beta(\Frob{}) : G(\bFq) \to \EEx$ is a group homomorphism,
 condition \eqref{nohom} is satisfied with $a =1$.
 So $\qcs{L} = (\gqcs{L}, \mu, \phi)$
 is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
+This shows that $\TrFrob{G}$ is surjective.
+%
+Now let $\beta' \in Z^1(\Weil{},\bG^*)$ be another representative for $[\beta]$
+so $\beta'-\beta = d_{\Weil{}} \delta$ for some $\delta \in C^0(\Weil{},\bG^*)$ defining $d \in \Hom(G(\bFq),\EEx)$.
+Let $\qcs{L}'$ be the quasicharacter sheaf on $G$ defined by $\beta'$, as above.
+For each $x\in G(\bFq)$, define $\brho_x :\qcs{L}_x\to \qcs{L}'_x$ by $\brho_x(1) = d(x)$.
+Since condition~\ref{qc.4} is satisfied for $\{ \brho_x \tq x\in G(\bFq)\}$, it defines a morphism $\rho : \qcs{L}\to \qcs{L}'$, which is clearly and isomorphism. 
+%
+We have now defined a section of $\TrFrob{G}$. 
 \end{proof}
 
 \begin{proposition} \label{prop:etale-iso}
@@ -922,7 +933,18 @@ is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
 This result follows easily from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
 
+Combining Propositions~\ref{prop:sur_etale} and \ref{prop:etale-iso} gives the following
+
 \begin{corollary}\label{cor:split}
+The short exact sequence
+ \[
+    0 \to
+    \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to
+    \Hh^2(E^\bullet_G) \to
+    \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to
+    0
+ \]
+ is split.
 \end{corollary}
 
 \subsection{Morphisms}\label{ssec:mor-etale}
