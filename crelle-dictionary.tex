@@ -1288,7 +1288,9 @@ The restriction functor $\iota_0^* : \QC(G)\to \QC(G^0)$ is essentially surjecti
 The group homomorphism $\pi_0^*: \QCiso{\pi_0(G)} \to \QCiso{G}$ is injective.
 \end{lemma}
 \begin{proof}
-Let $\qcs{L}$ be a quasicharacter sheaf on $\pi_0(G)$ and let $\rho : \pi_0^*\qcs{L} \to (\EE)_{G}$ be an isomorphism in $\QC(G)$. For each $x\in \pi_0(\bG)$, the restriction $\pi_0^*\gqcs{L}\vert_{\bG^x}$ is the constant sheaf $(\gqcs{L}_x)_{\bG^x}$ so the isomorphism $\brho_{\bG^x} : (\gqcs{L}_x)_{\bG^x} \to (\EE)_{\bG^x}$ determines an isomorphism $\brho_x : \gqcs{L}_x \to (\EE)_x$. The collection $\{ \brho_x \tq x\in \pi_0(\bG) \}$ determines an isomorphism $\qcs{L} \to (\EE)_{\pi_0(G)}$  in $\QC(\pi_0(G))$.
+Let $\qcs{L}$ be a quasicharacter sheaf on $\pi_0(G)$ and let $\rho : \pi_0^*\qcs{L} \to (\EE)_{G}$ be an isomorphism in $\QC(G)$. 
+For each $x\in \pi_0(\bG)$, set $\bG^x \ceq \pi_0^{-1}(x)$.
+The restriction $\pi_0^*\gqcs{L}\vert_{\bG^x}$ is the constant sheaf $(\gqcs{L}_x)_{\bG^x}$ so the isomorphism $\brho_{\bG^x} : (\gqcs{L}_x)_{\bG^x} \to (\EE)_{\bG^x}$ determines an isomorphism $\brho_x : \gqcs{L}_x \to (\EE)_x$. The collection $\{ \brho_x \tq x\in \pi_0(\bG) \}$ determines an isomorphism $\qcs{L} \to (\EE)_{\pi_0(G)}$  in $\QC(\pi_0(G))$.
 \end{proof}
 
 
@@ -1310,7 +1312,7 @@ First note that $\iota_0^* \circ \pi_0^*$ is trivial by Lemma~\ref{lem:pullback}
 So it suffices to show that if $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$
 with $\qcs{L}\vert_{G^0} = (\EE)_{G^0}$ then $\qcs{L}$ is in the essential image of $\pi_0^*$.
 
-For each $x\in \pi_0(\bG)$, set $\bG^x \ceq \pi_0^{-1}(x)$.
+As above, set $\bG^x \ceq \pi_0^{-1}(x)$ for $x\in \pi_0(\bG)$.
 Let $g, g'$ be geometric points in the same
 geometric connected component $\bG^x$.
 Set $a = g^{-1}g'$ and note that $a$ is a geometric point in $\bG^0$.
@@ -1323,13 +1325,13 @@ the stalk of $\gqcs{L}$ at $a$ is $\EE$.
 In this way the pair of geometric points $g, g' \in \bG^x$
 determines an isomorphism $\varphi_{g,g'} \ceq \mu_{g,a}^{-1}$
 from $\gqcs{L}_{g}$ to $\gqcs{L}_{g'}$.
-
+%
 The isomorphisms $\varphi_{g,g'}: \gqcs{L}_{g} \to \gqcs{L}_{g'}$ are canonical
 in the following sense: if $g,g'\in \bG^x$ and $h,h'\in \bG^y$
 then it follows from \ref{QC.2} and \ref{QC.3}
 that
  \begin{equation}\label{eq:qc}
-  \begin{tikzcd}[column sep=55]
+  \begin{tikzcd}[column sep=40]
    \gqcs{L}_{gh} \arrow{r}{\varphi_{gh,g'h'}} \arrow[swap]{d}{\mu_{g,h}}
   & \gqcs{L}_{g'h'} \arrow{d}{\mu_{g',h'}}
   &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
@@ -1370,7 +1372,7 @@ thus defining an isomorphism $\qcs{L} \to \pi_0^* \qcs{E}$ in $\QC(G)$.
 \label{ssec:snake}
 
 We saw in Proposition~\ref{prop:functorialG} that $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is a functorial group homomorphism.
-In this section we improve that result.
+In this section we find the image and kernel of $\TrFrob{G}$.
 
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth commutative group scheme over $\Fq$ then
@@ -1381,16 +1383,16 @@ is surjective with kernel canonically isomorphic to $\Hh^2(\pi_0({\bar G}),\EEx)
 \end{theorem}
 
 \begin{proof}
-  Recall the short exact sequence \eqref{eq:pi0}
-  defining the component group scheme for $G$:
-  \[
-  \begin{tikzcd}
-    1 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
-  \end{tikzcd}
-  \]
+%  Recall the short exact sequence \eqref{eq:pi0}
+%  defining the component group scheme for $G$:
+%  \[
+%  \begin{tikzcd}
+%    1 \rar & G^0 \rar & G \rar & \pi_0(G) \rar & 0.
+%  \end{tikzcd}
+%  \]
   Let
   \[
-  \begin{tikzcd}[row sep=20]
+  \begin{tikzcd}[row sep=20, column sep=20]
 %  & 0 \arrow{d} & 0 \arrow{d} & 0\arrow{d} \\
     0 \arrow[dashed]{r} & \ker \TrFrob{\pi_0(G)} \arrow[dashed]{r} \dar & \arrow{d} \ker \TrFrob{G} \arrow[dashed]{r} & \ker \TrFrob{G^0} =0 \arrow[dotted, out=-10, in=170]{dddll} \dar & \\
     0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
@@ -1446,11 +1448,11 @@ There is a canonical isomorphism
 %For the second, f
 Fix $\qcs{L} = (\gqcs{L},\mu,\phi)$ and consider the group homomorphism from $\Aut(\qcs{L})$ to $\Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
 This homomorphism is injective because morphisms of sheaves are determined by the linear transformations induced on stalks.  
-Note that homomorphisms in the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ are continuous where $\bG_{\Weil{}}$ is given the topology of the base of the espace \'etal\'e attached to $\gqcs{L}$.
-Since $\ell$ is invertible in $\Fq$, it now follows that the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
+Homomorphisms in the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ are continuous when $\bG$ is viewed as the base of the espace \'etal\'e attached to $\gqcs{L}$.
+Since $\ell$ is invertible in $\Fq$, it follows that the image of $\Aut(\qcs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
 We also have $\pi_0(\bG_{\Weil{}})=\pi_0(\bG)_{\Weil{}}$. 
 To see that $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, begin with $\theta\in\Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and, for each $[x] \in \pi_0(\bG)_{\Weil{}}$ define $\bar\rho^y: \gqcs{L}^y \to \gqcs{L}^y$ by scalar multiplication by $\theta([x])\in \EEx$ for each $y\in [x]$.
-This defines an isomorphism $\bar\rho : \gqcs{L}\to \gqcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\qcs{L}\to \qcs{L}$ with maps to $\theta$ under $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
+This defines an isomorphism $\bar\rho : \gqcs{L}\to \gqcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\qcs{L}\to \qcs{L}$ which maps to $\theta$ under $\Aut(\qcs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
 \end{proof}
 
 \subsection{Base change}\label{ssec:basechange}
