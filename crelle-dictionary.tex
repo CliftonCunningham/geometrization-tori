@@ -227,7 +227,7 @@ If one wishes to make a category from this class of local systems, one is led to
 {\it A priori}, the composition $\qcs{E} \to \qcs{E}' \to \qcs{E}''$ of two such morphisms need not be compatible with the choices of \eqref{introbox} for $\qcs{E}$ and $\qcs{E}''$. % since the choice for $\qcs{E}'$ might differ.  
  However, for connected $G$ the isomorphism \eqref{introbox} is unique if it exists, and there is no impediment to making the dictionary categorical.
 
-If $G$ is a commutative algebraic group over $\Fq$ which is not connected, then the isomorphism \eqref{introbox} need not be unique, so one must keep track of the choice. This leads to the category of pairs $(\qcs{E},\mu_\qcs{E})$ where $\qcs{E}$ is a rank-one local system on $G$ and $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
+If $G$ is a commutative algebraic group over $\Fq$ which is not connected, then the isomorphism \eqref{introbox} need not be unique. In order to track the choice of isomorphism, consider the category of pairs $(\qcs{E},\mu_\qcs{E})$ where $\qcs{E}$ is a rank-one local system on $G$ and $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
 %If the component group scheme $\pi_0(G)$ is not cyclic, then 
 In this case, the trace of Frobenius provides an epimorphism from isomorphism classes of pairs $(\qcs{E},\mu_\qcs{E})$ to characters of $G(\Fq)$, but the epimomorphism need not be injective; consequently,
 every character of $G(\Fq)$ may be geometrized as a pair $(\qcs{E},\mu_\qcs{E})$ but perhaps not uniquely in the category of pairs. 
@@ -896,7 +896,7 @@ Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the coker
 
 \begin{proposition}\label{prop:sur_etale}
 If $G$ is \'etale, then $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is surjective
-and admits a section.
+and split.
 \end{proposition}
 \begin{proof}
 Pick $\chi \in G(\Fq)^*$. 
@@ -910,14 +910,16 @@ condition \eqref{nohom} is satisfied with $a =1$.
 So $\qcs{L} = (\gqcs{L}, \mu, \phi)$
 is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
 This shows that $\TrFrob{G}$ is surjective.
-%
+
 Now let $\beta' \in Z^1(\Weil{},\bG^*)$ be another representative for $[\beta]$
-so $\beta'-\beta = d_{\Weil{}} \delta$ for some $\delta \in C^0(\Weil{},\bG^*)$ defining $d \in \Hom(G(\bFq),\EEx)$.
+so $\beta-\beta' = d_{\Weil{}} \delta$ for some $\delta \in C^0(\Weil{},\bG^*)$ defining $d \in \Hom(G(\bFq),\EEx)$.
 Let $\qcs{L}'$ be the quasicharacter sheaf on $G$ defined by $\beta'$, as above.
 For each $x\in G(\bFq)$, define $\brho_x :\qcs{L}_x\to \qcs{L}'_x$ by $\brho_x(1) = d(x)$.
-Since condition~\ref{qc.4} is satisfied for $\{ \brho_x \tq x\in G(\bFq)\}$, it defines a morphism $\rho : \qcs{L}\to \qcs{L}'$, which is clearly and isomorphism. 
+The collection of isomorphisms $\{ \brho_x \tq x\in G(\bFq)\}$ satisfies condition~\ref{qc.4}, so it defines a morphism $\rho : \qcs{L}\to \qcs{L}'$, which is clearly an isomorphism. 
 %
 We have now defined a section of $\TrFrob{G}$. 
+
+Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1(\Weil{},\bG^*)$ and construct quasicharacter sheaves $\qcs{L}_1$ and $\qcs{L}_2$ on $G$ as above. Since $\qcs{L}_1\otimes \qcs{L}_2$ is exactly the quasicharacter sheaf built from the cocycle $\beta_1\cdot \beta_2$, and since $\trFrob{\qcs{L}_1\otimes \qcs{L}_2} = \trFrob{\qcs{L}_1}\cdot \trFrob{\qcs{L}_2}$, the section of $\TrFrob{G}$ defined here is a homomorphism.
 \end{proof}
 
 \begin{proposition} \label{prop:etale-iso}
@@ -930,12 +932,12 @@ We have now defined a section of $\TrFrob{G}$.
  \]
 \end{proposition}
 \begin{proof}
-This result follows easily from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
+This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
 
 \subsection{Morphisms}\label{ssec:mor-etale}
 
-Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
+While most of this paper focuses on the question of determining the isomorphism classes of objects, a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
 
 \begin{proposition}\label{prop:autornaught_etale}
 Let $G$ be an \'etale commutative group scheme over $\Fq$.
@@ -1433,6 +1435,10 @@ This gives the short exact sequence
   \end{tikzcd}
 \]
 \end{proof}
+
+\begin{remark}
+Although $\TrFrob{\pi_0(G)}$ is split and $\TrFrob{G^0}$ is an isomorphism, as examples show, it does not follow that $\TrFrob{G}$ is split. 
+\end{remark}
 
 \subsection{Morphisms of quasicharacters} \label{ssec:qcmor}
 
