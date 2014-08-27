@@ -200,9 +200,9 @@
 \begin{document}
 
 \begin{abstract}
-We introduce the category of quasicharacter sheaves on smooth commutative group schemes $G$ over finite fields $k$ and, in doing so, expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
+We introduce the category of quasicharacter sheaves on smooth commutative group schemes $G$ over finite fields $k$ and expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
 We show that the group of isomorphism classes of quasicharacter sheaves is an extension of the group of characters of $G(k)$ by a cohomology group determined by the component group scheme of $G$.
-As an application, we find a category of sheaves for which isomorphism classes determine quasi\-characters in the case of algebraic tori, abelian varieties and unipotent wound groups over local fields. 
+As an application, we find a category of sheaves for which isomorphism classes correspond to quasi\-characters in the case of algebraic tori, abelian varieties and unipotent wound groups over local fields. 
 In this geometrization of quasicharacters, our sheaves are local systems on
 Greenberg transforms of locally finite type N\'eron models.
 \end{abstract}
@@ -921,7 +921,7 @@ We have now defined a section of $\TrFrob{G}$.
 \end{proof}
 
 \begin{proposition} \label{prop:etale-iso}
- If $G$ is \'etale then the map $S_G : \QCiso{G}\to \Hh^2(E^\bullet_G)$ induces an isomorphism of short exact sequences
+ If $G$ is \'etale then the map $S_G : \QCiso{G}\to \Hh^2(E^\bullet_G)$ induces an isomorphism of split short exact sequences
 \[
 \begin{tikzcd}
  0 \arrow{r} & \ker \TrFrob{G} \arrow{d} \arrow{r} & \QCiso{G}\arrow{d}{S_G} \arrow{r}{\TrFrob{G}} \arrow{r} & G(\Fq)^* \arrow{d} \arrow{r} & 0\\
@@ -932,20 +932,6 @@ We have now defined a section of $\TrFrob{G}$.
 \begin{proof}
 This result follows easily from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
-
-Combining Propositions~\ref{prop:sur_etale} and \ref{prop:etale-iso} gives the following
-
-\begin{corollary}\label{cor:split}
-The short exact sequence
- \[
-    0 \to
-    \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to
-    \Hh^2(E^\bullet_G) \to
-    \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to
-    0
- \]
- is split.
-\end{corollary}
 
 \subsection{Morphisms}\label{ssec:mor-etale}
 
@@ -1391,47 +1377,61 @@ is surjective with kernel canonically isomorphic to $\Hh^2(\pi_0({\bar G}),\EEx)
 %  \end{tikzcd}
 %  \]
   Let
-  \[
+  \begin{equation}\label{eq:pre-snake}
   \begin{tikzcd}[row sep=20, column sep=20]
 %  & 0 \arrow{d} & 0 \arrow{d} & 0\arrow{d} \\
-    0 \arrow[dashed]{r} & \ker \TrFrob{\pi_0(G)} \arrow[dashed]{r} \dar & \arrow{d} \ker \TrFrob{G} \arrow[dashed]{r} & \ker \TrFrob{G^0} =0 \arrow[dotted, out=-10, in=170]{dddll} \dar & \\
+%    0 \arrow[dotted]{r} & \ker \TrFrob{\pi_0(G)} \arrow[dotted]{r} \dar & \arrow{d} \ker \TrFrob{G} \arrow[dotted]{r} & \ker \TrFrob{G^0} =0 \arrow[dotted, out=-10, in=170]{dddll} \dar & \\
     0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
     & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
-    0 \rar & \pi_0(G)(\Fq)^* \rar \dar
-    & \arrow{d} G(\Fq)^* \rar & G^0(\Fq)^* \rar \dar & 0\\
-   &  \coker \TrFrob{\pi_0(G)} =0 \arrow[dashed]{r} & \coker \TrFrob{G} \arrow[dashed]{r} & \coker \TrFrob{G^0} =0 & 
+    0 \rar & \pi_0(G)(\Fq)^* \rar
+    &  G(\Fq)^* \rar & G^0(\Fq)^* \rar & 0
+%   &  \coker \TrFrob{\pi_0(G)} =0 \arrow[dotted]{r} & \coker \TrFrob{G} \arrow[dotted]{r} & \coker \TrFrob{G^0} =0 & 
 %    & \arrow{d} \coker \TrFrob{\pi_0(G)} =0 \arrow[dashed]{r} & \arrow{d} \coker \TrFrob{G} \arrow[dashed]{r} &  \arrow{d} \coker \TrFrob{G^0} =0 & \\
 %      & 0 & 0 & 0 \\
   \end{tikzcd}
-  \]
+  \end{equation}
   be the commutative diagram of abelian groups obtained by applying
   Lemma~\ref{lem:pullback} to \eqref{eq:pi0}.
  %
   The sequence of abelian groups
-  \begin{equation}\label{eq:pi0k}
+\[
   \begin{tikzcd}
     1 \rar & G^0(\Fq) \rar & G(\Fq) \rar & \pi_0(G)(\Fq) \rar & 0,
   \end{tikzcd}
-  \end{equation}
+\]
   is exact since $\Hh^1(\Fq,G^0) =0$ by Lemma~\ref{lem:G0alg-grp} and Lang's theorem on connected algebraic groups over finite fields \cite{lang:56a}.
   Since $\EEx$ is divisible, $\Hom(\ - \ ,\EEx)$ is exact and thus the dual sequence of
-  character groups is also exact.
+  character groups in \eqref{eq:pre-snake} is exact.
 %
-  The upper row is exact by Proposition~\ref{prop:middleexact}.
+  The upper row in \eqref{eq:pre-snake} is exact by Proposition~\ref{prop:middleexact}.
   Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
   imply that $\ker \TrFrob{G^0} =0$ and $\coker \TrFrob{G^0}=0$,
   while Proposition~\ref{prop:etale-iso} gives $\ker \TrFrob{\pi_0(G)} \iso \Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$
   and $\coker \TrFrob{\pi_0(G)}=0$.
-%
-It follows from the snake lemma that $\coker \TrFrob{G} =0$
+It now follows from the snake lemma 
+   %\begin{equation}\label{eq:snake}
+ \[
+  \begin{tikzcd}[row sep=20, column sep=15]
+%  & 0 \arrow{d} & 0 \arrow{d} & 0\arrow{d} \\
+    0 \arrow[dotted]{r} & \ker \TrFrob{\pi_0(G)} \arrow[dotted]{r} \dar & \arrow{d} \ker \TrFrob{G} \arrow[dotted]{r} & \ker \TrFrob{G^0} =0 \arrow[dotted, out=-10, in=170]{dddll} \dar & \\
+    0 \rar & \QCiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
+    & \QCiso{G} \rar \dar{\TrFrob{G}} & \QCiso{G^0} \rar \dar{\TrFrob{G^0}} & 0\\
+    0 \rar & \pi_0(G)(\Fq)^* \rar \dar
+    & \arrow{d} G(\Fq)^* \rar & G^0(\Fq)^* \rar \dar & 0\\
+   &  \coker \TrFrob{\pi_0(G)} =0 \arrow[dotted]{r} & \coker \TrFrob{G} \arrow[dotted]{r} & \coker \TrFrob{G^0} =0 & 
+%    & \arrow{d} \coker \TrFrob{\pi_0(G)} =0 \arrow[dashed]{r} & \arrow{d} \coker \TrFrob{G} \arrow[dashed]{r} &  \arrow{d} \coker \TrFrob{G^0} =0 & \\
+%      & 0 & 0 & 0 \\
+  \end{tikzcd}
+  \]
+ % \end{equation}
+that $\coker \TrFrob{G} =0$
 and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
-This calculates $\ker  \TrFrob{G}$ and shows that
+This gives the short exact sequence
 \[
   \begin{tikzcd}
-0 \arrow{r} & \Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx)) \arrow{r} & \QCiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0 
+0 \arrow{r} & \Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx)) \arrow{r} & \QCiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0. 
   \end{tikzcd}
 \]
-is exact.
 \end{proof}
 
 \subsection{Morphisms of quasicharacters} \label{ssec:qcmor}
