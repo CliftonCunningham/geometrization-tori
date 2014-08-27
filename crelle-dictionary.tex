@@ -200,9 +200,9 @@
 \begin{document}
 
 \begin{abstract}
-We introduce the category of quasicharacter sheaves on smooth commutative group schemes $G$ over finite fields $k$ and expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
+We introduce the category of quasicharacter sheaves on smooth commutative group schemes $G$ over finite fields $k$ and, in doing so, expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
 We show that the group of isomorphism classes of quasicharacter sheaves is an extension of the group of characters of $G(k)$ by a cohomology group determined by the component group scheme of $G$.
-As an application, we find a category of sheaves whose isomorphism classes correspond to quasicharacters in the case of algebraic tori, abelian varieties and unipotent wound groups over local fields. 
+As an application, we find a category of sheaves for which isomorphism classes determine quasi\-characters in the case of algebraic tori, abelian varieties and unipotent wound groups over local fields. 
 In this geometrization of quasicharacters, our sheaves are local systems on
 Greenberg transforms of locally finite type N\'eron models.
 \end{abstract}
@@ -260,8 +260,7 @@ T_G: \QCiso{G} \to G(\Fq)^*
 \]
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
 One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
-The fact that $T_G$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$
-determine the same character of $G(\Fq)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
+%The fact that $T_G$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gqcs{L}, \mu,\phi)$ and $(\gqcs{L}', \mu',\phi')$ determine the same character of $G(\Fq)$ then $(\gqcs{L},\phi)$ and $(\gqcs{L}',\phi')$ are isomorphic as Weil sheaves.
 
 Returning to the case of connected commutative algebraic groups $G$, we consider quasicharacter sheaves that arise via base change to $\bFq$ from local systems on $G$ (\S\ref{ssec:descentG}) and
 those that appear in a pushforward from a constant sheaf along a discrete isogeny $H \to G$ (\S\ref{ssec:discrete_isogenies}).  While these constructions make sense even for non-connected $G$, in the connected
@@ -762,14 +761,14 @@ The machinery of spectral sequences gives us a sequence of pages $E_r^{i,j}$, co
 
 Moreover, since $\Weil{} \cong \ZZ$ has cohomological dimension $1$, $E_2^{i,j} = 0$ for $i > 1$ and the sequence degenerates at the second page: $E_{\infty}^{i,j} = E_2^{i,j}$. We obtain the following corollary:
 
-\begin{corollary}
+\begin{corollary}\label{cor:spectral_ses}
 There is a short exact sequence
  \[
     0 \to
     \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to
     \Hh^2(E^\bullet_G) \to
     \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to
-    0
+    0.
  \]
 \end{corollary}
 
@@ -777,6 +776,7 @@ This sequence will play a key role in understanding the kernel of $T_G$, as desc
 For this application, we need a good understanding of these maps to and from the total complex.
 
 \begin{proposition} \label{prop:ses_desc}
+Consider the short exact sequence in Corollary~\ref{cor:spectral_ses}.
 \begin{enumerate}
 \item Every class $[\alpha\oplus\beta\oplus\gamma] \in \Hh^2({\bar G},\EEx)$ is cohomologous to one with $\gamma=0$.
 \item The map $\Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx))$ is given by $[\alpha\oplus\beta\oplus 0] \mapsto [\beta]$.
@@ -842,7 +842,7 @@ Although we will only use the group homomorphism $S_G : \QCiso{G}\to \Hh^2(E^\bu
 However, the next result is false in that context.
 \end{remark}
 
-\begin{proposition}
+\begin{proposition}\label{prop:SGiso}
 If $G$ is \'etale then $S_G$ is an isomorphism.
 \end{proposition}
 \begin{proof}
@@ -904,7 +904,8 @@ Set $\gqcs{L}_x = \EE$ for every $x\in G(\bFq)$.
 Define $\mu_{x,y} : \gqcs{L}_{x+y} \to \gqcs{L}_x\otimes \gqcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and
 $\phi_{x} : \gqcs{L}_{\Frob{}(x)} \to \gqcs{L}_x$ by $\phi_{x}(1) = b(x)$.
 Since $b : G(\bFq) \to \EEx$ is a group homomorphism,
-condition \eqref{nohom} is satisfied with $a =1$ and $\qcs{L} = (\gqcs{L}, \mu, \phi)$
+condition \eqref{nohom} is satisfied with $a =1$.
+So $\qcs{L} = (\gqcs{L}, \mu, \phi)$
 is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
 \end{proof}
 
@@ -918,8 +919,11 @@ is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
  \]
 \end{proposition}
 \begin{proof}
-This result follows easily from Propositions~\ref{prop:ses_desc} and \ref{prop:sur_etale}.
+This result follows easily from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
+
+\begin{corollary}\label{cor:split}
+\end{corollary}
 
 \subsection{Morphisms}\label{ssec:mor-etale}
 
@@ -1008,7 +1012,7 @@ Then $(f_! V_H)_\psi$ (the $\psi$-isotypic component of $f_!V_H$) is an object o
 Let $f$, $A$, $V$ and $\psi$ be as above; set $\qcs{E} = (f_! V_H)_\psi$.
 Since $A$ is abelian, $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank one.
 We must show that comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
-To do this we use \'etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$ \cite{bernstein-luntz:equivariant_sheaves}*{Prop 8.1.1}. 
+To do this we use \'etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$; {\it cf.\ } \cite{bernstein-luntz:equivariant_sheaves}*{Prop 8.1.1}. 
 In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
 Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$
 from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
