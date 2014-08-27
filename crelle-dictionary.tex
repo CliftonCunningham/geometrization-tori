@@ -1596,8 +1596,8 @@ is given by permuting coordinates, composition with the norm map yields the iden
 
 \section{Applications}\label{sec:applications}% to algebraic tori and abelian varieties over \texorpdfstring{$p$}{p}-adic fields}
 
-Let $K$ be a local field (in the sense of Serre) with residue field $\Fq$. 
-In this section we consider connected commutative algebraic groups over $K$ that admit a N\'eron model, by which we mean a locally of finite type N\'eron model.
+Let $K$ be a local field with finite residue field $\Fq$. 
+In this section we consider connected commutative algebraic groups over $K$ that admit a N\'eron model, by which we mean a locally finite type N\'eron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup of type $\mathbb{G}_\text{a}$.
 These algebraic groups over $K$ form an additive category, denoted by $\mathcal{N}_K$ below, in a natural way, as a full subcategory of connected commutative algebraic groups over $K$. This category includes algebraic tori over $K$, abelian varieties over $K$ and unipotent $K$-wound groups.
 
@@ -1671,10 +1671,10 @@ Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$;
 note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
 
 For every non-negative integer $n$, $\Gr^R_n(X)$ is a {\it smooth} commutative group scheme over $S_0$
-with component group scheme $\pi_0(X) \times_S S_0$ and $\Fq$-rational points $X(R_n).$
+with component group scheme $\pi_0(X)_{\Fq} \ceq \pi_0(X) \times_S S_0$ and $\Fq$-rational points $X(R_n).$
 %
 The Greenberg transform $\Gr_R(X)$ of $X$ is a commutative group scheme over $\Fq$
-with component group scheme $\pi_0(X) \times_S S_0$
+with component group scheme $\pi_0(X)_{\Fq}$
 and $\Fq$-rational points $X(K).$
 However, $\Gr_R(X)$ is not locally of finite type and therefore not smooth.
 %
@@ -1766,22 +1766,21 @@ For part (iv), use Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, the fact
 
 \subsection{Quasicharacters for $p$-adic tori} \label{ssec:qc_tori}
 
-As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T\in \mathcal{N}_K$ is an algebraic torus over $K$, in which case we write $\underline{T}$ for the Neron model $X$. Now,
+As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T_K\in \mathcal{N}_K$ is an algebraic torus over $K$. Now,
 \[
- \pi_0(\underline{T})_{\bFq} = X_*(T)_{\mathcal{I}_K},
+ \pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K},
 \]
-where $X_*(T)$ is the cocharacter lattice of $T$ and $\mathcal{I}_K$ is the inertia group for $K$ \cite{bitan:discriminant}*{Eq 3.1}. 
+where $X_*(T_K)$ is the cocharacter lattice of $T_K$ and $\mathcal{I}_K$ is the inertia group for $K$ \cite{bitan:discriminant}*{Eq 3.1}. 
 Accordingly, the short exact sequence in Theorem~\ref{thm:QCXK} becomes
 \begin{equation}
-0 \to \Hh^2(X_*(T)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
+0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
 \end{equation}
-Again by Theorem~\ref{thm:QCXK}, the automorphism groups in the $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T$, by
+Again by Theorem~\ref{thm:QCXK}, the automorphism groups in $\QC(T_K)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
 \begin{equation}
-\Aut(\qcs{F}) \iso \Hom(X_*(T)_{\Weil{K}},\EEx) \iso \Hom(X_*(T),\EEx)^{\Weil{K}} = (\check{T}_\ell)^{\Weil{K}}
+\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}} = (\check{T}_\ell)^{\Weil{K}}
 \end{equation}
-where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
-
-
+where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T_K$.
+This provides good information above the category $\QC(T_K)$ of quasicharacters for $T_K$ and its relation to quasicharacters of $T(K)$. 
 
 \subsection{Weil restriction and quasicharacters}\label{ssec:wrK}
 
@@ -1859,8 +1858,9 @@ Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction o
 Let $K$ and $L$ be local fields with rings of integers $\OK$ and $\OL$, respectively. 
 Pick uniformizers $\varpi_K$ and $\varpi_L$ for $\OK$ and $\OL$, respectively;
 what follows will not depend on these choices.
+Suppose $\ell$ is invertible in the residue fields of $K$ and $L$.
 
-Suppose $X_K\in \mathcal{N}_K$ with N\'eron model $X$ and $Y_{L}\in \mathcal{N}_L$ with N\'eron model $Y$.
+We begin with $X_K\in \mathcal{N}_K$ with N\'eron model $X$ and $Y_{L}\in \mathcal{N}_L$ with N\'eron model $Y$.
 Suppose $m$ is a positive integer such that 
 \[
 \OK/\varpi_K^{m}\OK \iso \OL/\varpi_L^{m}\OL.
@@ -1872,9 +1872,9 @@ X \times_{\Spec{\OK}} \Spec{\OK/\varpi_K^{m}\OK} \iso Y \times_{\Spec{\OL}} \Spe
 \end{equation}
 as smooth group schemes over $\OK/\varpi_K^{m}\OK$. 
 Then
-$
+\[
 \Gr^{\OK}_{m-1}(X) \iso \Gr^{\OL}_{m-1}(Y)
-$
+\]
 as smooth group schemes over $\Fq$; accordingly, by Lemma~\ref{lem:pullback} the isomorphism above determines an equivalence of categories
 \begin{equation}\label{eq:categorical_transfer}
 \QC(\Gr^{\OK}_{m-1}(X)) \cong \QC(\Gr^{\OL}_{m-1}(Y))
@@ -1887,8 +1887,8 @@ The isomorphism \eqref{eq:transfer} is an instance of {\it transfer} of (certain
 We now recognize this transfer of quasicharacters as a consequence of the equivalence of categories of quasicharacter sheaves \eqref{eq:categorical_transfer}.
 
 The isomorphism \eqref{eq:schematic_transfer} can indeed exist between quasicharacters of algebraic tori over local fields, even when the characteristics of $K$ and $L$ differ.
-Suppose $T_K$ and $M_L$ are tori over non-archimedian local fields $K$ and $L$,
-splitting over $K'$ and $L'$ respectively.
+Suppose $T_K$ and $M_L$ are tori over local fields $K$ and $L$,
+splitting over $K'$ and $L'$, respectively.
 Then $T_K$ and $M_L$ are said to be \emph{$n$-congruent} \cite{chai-yu:01a}*{\S 2} if there are isomorphisms
  \begin{align*}
   \alpha : \OO{K'}/\varpi_K^n \OO{K'} &\to \OO{L'}/\varpi_{L}^n \OO{L'} \\
@@ -1897,13 +1897,13 @@ Then $T_K$ and $M_L$ are said to be \emph{$n$-congruent} \cite{chai-yu:01a}*{\S 
  \end{align*}
  satisfying the conditions
  \begin{enumerate}
-  \item $\alpha$ induces an isomorphism $\OK/\pi_K^n \OK \to \OO{L}/\pi_{L}^n \OO{L}$,
+  \item $\alpha$ induces an isomorphism $\OK/\varpi_K^n \OK \to \OO{L}/\varpi_{L}^n \OO{L}$,
   \item $\alpha$ is $\Gal(K'/K)$-equivariant relative to $\beta$, and
   \item $\phi$ is $\Gal(K'/K)$-equivariant relative to $\beta$.
  \end{enumerate}
 If $T_K$ and $M_L$ are $n$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism 
 \begin{equation}\label{transfer}
-  \Hom_{n-1}(T_K(K), \EEx) \iso \Hom_{n-1}(M_L(M),\EEx).
+  \Hom_{n-1}(T_K(K), \EEx) \iso \Hom_{n-1}(M_L(L),\EEx).
 \end{equation}
 Note that if $T_K$ and $M_L$ are $n$-congruent, then they are $m$-congruent for every
 $m \leq n$.
@@ -1932,7 +1932,7 @@ Combining this with the paragraph above gives the following instance of the geom
  \]
  determined by $\alpha, \beta$ and $\phi$ inducing an isomorphism
  \[
-\Hom_{m-1}(T_K(K), \EEx) \iso  \Hom_{m-1}(M_L(L), \EEx)
+\Hom_{m-1}(T(K), \EEx) \iso  \Hom_{m-1}(M(L), \EEx)
  \]
 compatible with \eqref{transfer}.% ($m < N$).
 \end{proposition}
@@ -1942,8 +1942,8 @@ compatible with \eqref{transfer}.% ($m < N$).
 for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of
 quasicharacter sheaves; their knowledge and help have been invaluable.
 We thank Takashi Suzuki for some very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
-We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
 We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and drawing our attention to their result on Weil restriction and the Greenberg transform.
+We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
 }
 
 
