@@ -744,7 +744,7 @@ The standard derivative on cochains yields two derivatives,
 d_G &: E^{i,j} \to E^{i,j+1} \quad \mbox{and} \\
 d_{\Weil{}} &: E^{i,j} \to E^{i+1,j};
 \end{align*}
-we use the first as the derivative $d_0$ and the second to induce $d_1$.
+we use the first as the derivative $d_0$ on the zeroth page, and the second to induce $d_1$.
 Combining them also yields a derivative $d = d_G + (-1)^j d_{\Weil{}}$ on the total complex
 \[
 E^n_G = \bigoplus_{i+j=n} E^{i,j}.
@@ -777,12 +777,14 @@ This sequence will play a key role in understanding the kernel of $T_G$, as desc
 For this application, we need a good understanding of these maps to and from the total complex.
 
 \begin{proposition} \label{prop:ses_desc}
+$ $
 \begin{enumerate}
-\item Every class $[\alpha\oplus\beta\oplus\gamma] \in \Hh^2({\bar G},\EEx)$ is cohomologous to one with $\gamma=0$.
+\item Every class $[\alpha\oplus\beta\oplus\gamma] \in \Hh^2(E^\bullet_G)$ is cohomologous to one with $\gamma=0$.
 \item The map $\Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx))$ is given by $[\alpha\oplus\beta\oplus 0] \mapsto [\beta]$.
 \item Suppose $a \in Z^2({\bar G}, \EEx)$ represents a class in $\Hh^2({\bar G},\EEx)$ fixed by Frobenius.
 The map $\Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G)$ is given by $[a] \mapsto [a \oplus 0 \oplus 0]$.
 \end{enumerate}
+\todo{add more connecting prose}
 \end{proposition}
 \begin{proof}
 Since $\Hh^2(\Weil{}, C^0({\bar G}, \EEx)) = 0$, we may find a $\gamma_1 \in C^1(\Weil{}, C^0({\bar G}, \EEx))$ with $d_{\Weil{}}\gamma_1 = \gamma$.
@@ -822,7 +824,7 @@ d_{\Weil{}} \beta =0;
 \]
 in other words,
 \[\alpha\oplus \beta \in Z^2(E^\bullet_G).\]
-Although the cocycle $\alpha\oplus \beta$ is not well defined by $\qcs{L}$, its class in $Z^2(E^\bullet_G)$ is.
+Although the cocycle $\alpha\oplus \beta$ is not well defined by $\qcs{L}$, its class in $\Hh^2(E^\bullet_G)$ is.
 To see this, let $\{ v'_x \in \gqcs{L}_x^\times \tq x \in {\bar G}\}$ be another choice and let $\alpha'\oplus \beta' \in Z^2(E^\bullet_G)$ be defined by $\qcs{L}$ and this choice, as above.
 Now let $\delta \in C^0(\Weil{},C^1({\bar G},\EEx))$ correspond to the function $d : {\bar G}\to \EEx$ defined by $v'_x = d(x) v_x$.
 Chasing through \ref{QC.2} and \ref{QC.3}, we find
@@ -918,12 +920,13 @@ is a quasicharacter sheaf with $\trFrob{\qcs{L}} = \chi$.
  \]
 \end{proposition}
 \begin{proof}
-This result follows easily from Propositions~\ref{prop:ses_desc} and \ref{prop:sur_etale}.
+This result follows from Propositions~\ref{prop:ses_desc} and \ref{prop:sur_etale}.
 \end{proof}
 
 \subsection{Morphisms}\label{ssec:mor-etale}
 
-Most of this paper focuses on the question of determining the isomorphism classes of objects; a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
+Most of this paper focuses on the question of determining the isomorphism classes of objects in $\QC{G}$.
+A full understanding of the category also requires a description of the morphisms.
 
 \begin{proposition}\label{prop:autornaught_etale}
 Let $G$ be an \'etale commutative group scheme over $\Fq$.
@@ -939,7 +942,7 @@ We have already seen, in Lemma~\ref{lem:autornaught}, that every $\rho\in \Hom(\
 Now suppose $\rho \in \Aut(\qcs{L})$.
 The second diagram in \ref{qc.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{qc.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  
 
-Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism then defining $\brho_x$ as multiplication by $\rho(x)$ will define $\gqcs{L} \to \gqcs{L}'$ satisfy the two diagrams in \ref{qc.4}.  
+Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism, then defining $\brho_x$ as multiplication by $\rho(x)$ will define a morphism $\gqcs{L} \to \gqcs{L}'$ satisfy the two diagrams in \ref{qc.4}.  
 
 Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
@@ -957,11 +960,11 @@ replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quas
 
 \begin{definition}
 Let $\bQC(G)$ be the category of pairs $(\qcs{E},\mu_\qcs{E})$
-where $\qcs{E}$ an $\ell$-adic local system on $G$ of rank-one,
+where $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank-one,
 equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes \qcs{E}$
-satisfying the analogue of \ref{QC.1} on $G$;
+satisfying the analogue of \ref{QC.2} on $G$;
 morphisms in $\bQC(G)$ are defined as in the second part of
-\ref{QC.3}.
+\ref{QC.4}.
 \end{definition}
 
 We put a rigid monoidal structure on $\bQC(G)$ in the same way as for $\QC(G)$.
@@ -976,11 +979,11 @@ B_G : \bQC(G) \to \QC(G).
 \begin{proof}
  Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
  Suppose $(\qcs{E},\mu_\qcs{E})$ in an object of $\bQC(G)$.
- Then $\qcs{E}$ is an $\ell$-adic constructible sheaf on $G$ and
+ Then $\qcs{E}$ \todo{should this be $b_G^* \qcs{E}$?} is an $\ell$-adic constructible sheaf on $G$ and
  $b_G^* \qcs{E}$ comes equipped with an isomorphism
  $\phi_\qcs{E} : \Frob{G}^* b_G^*\qcs{E} \to b_G^* \qcs{E}$.
  The functor $\qcs{E} \mapsto (b_G^* \qcs{E},\phi_\qcs{E})$
- from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$
+ from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$ \todo{are the domain and codomain here really supposed to be the same?}
  is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} and \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}.
  This functor preserves local constancy, so takes local systems to local systems.
  The isomorphism $\mu \ceq b_{G\times G}^*\mu_\qcs{E}$ satisfies \ref{QC.2}
@@ -997,7 +1000,7 @@ We will say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descends to $
 A finite, \'etale, surjective morphism $H\to G$ of smooth group schemes over $\Fq$ for which the action of $\Gal(\bFq/\Fq)$ on the kernel is trivial is called a {\it discrete isogeny}.
 
 \begin{proposition}\label{prop:finite}
-Let $f: H \to G$ be a discrete isogeny; let $A$ be the kernel of $f$.
+Let $f: H \to G$ be a discrete isogeny and let $A$ be the kernel of $f$.
 Let $V$ be a $1$-dimensional representation of $A$ 
 equipped with an isomorphism $V\to V\otimes V$.
 Let $\psi : A \to \EEx$ be the character of $V$.
@@ -1005,9 +1008,9 @@ Then $(f_! V_H)_\psi$ (the $\psi$-isotypic component of $f_!V_H$) is an object o
 \end{proposition}
 
 \begin{proof}
-Let $f$, $A$, $V$ and $\psi$ be as above; set $\qcs{E} = (f_! V_H)_\psi$.
+Let $f$, $A$, $V$ and $\psi$ be as above and set $\qcs{E} = (f_! V_H)_\psi$.
 Since $A$ is abelian, $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank one.
-We must show that comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
+We must show that $\qcs{E}$ comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
 To do this we use \'etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$ \cite{bernstein-luntz:equivariant_sheaves}*{Prop 8.1.1}. 
 In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
 Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$
