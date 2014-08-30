@@ -979,11 +979,11 @@ B_G : \bQC(G) \to \QC(G).
 \begin{proof}
  Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
  Suppose $(\qcs{E},\mu_\qcs{E})$ in an object of $\bQC(G)$.
- Then $\qcs{E}$ \todo{should this be $b_G^* \qcs{E}$?} is an $\ell$-adic constructible sheaf on $G$ and
- $b_G^* \qcs{E}$ comes equipped with an isomorphism
+ Then $b_G^* \qcs{E}$ is an $\ell$-adic constructible sheaf on $G$ and
+ comes equipped with an isomorphism
  $\phi_\qcs{E} : \Frob{G}^* b_G^*\qcs{E} \to b_G^* \qcs{E}$.
  The functor $\qcs{E} \mapsto (b_G^* \qcs{E},\phi_\qcs{E})$
- from $\ell$-adic constructible sheaves on $G$ to $\ell$-adic constructible sheaves on $G$ \todo{are the domain and codomain here really supposed to be the same?}
+ from $\ell$-adic constructible sheaves on $G$ to Weil sheaves on $\bG$
  is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} and \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}.
  This functor preserves local constancy, so takes local systems to local systems.
  The isomorphism $\mu \ceq b_{G\times G}^*\mu_\qcs{E}$ satisfies \ref{QC.2}
@@ -1102,16 +1102,16 @@ $\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
  \begin{enumerate}
  \item $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
  \item every quasicharacter sheaf on $G$ is isomorphic to one defined by a discrete isogeny;%as in Proposition~\ref{prop:finite};
- \item $\Aut(\qcs{L}) = 1$, for all quasicharacter sheaves $\qcs{L}$ on $G$;
+ \item $\Aut(\qcs{L}) = 1$, for all quasicharacter sheaves $\qcs{L}$ on $G$.
 %  \item for all quasicharacter sheaves $\qcs{L}$, $\qcs{L}'$ on $G$ and for every $\rho \in \Hom(\qcs{L},\qcs{L}')$, either $\rho$ is trivial or an isomorphism.
  \end{enumerate}
  \end{proposition}
 
 \begin{proof}
-In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qcs{L}$ on $G$ descends to $G$; let $\qcs{E}$ be an object of $\bQC(G)$ for which $B_G(\qcs{E}) \iso \qcs{L}$.
+In Lemma~\ref{lem:bounded_connected} we saw that every quasicharacter sheaf $\qcs{L}$ on $\bG$ descends to $G$; let $\qcs{E}$ be an object of $\bQC(G)$ for which $B_G(\qcs{E}) \iso \qcs{L}$.
  Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
 From here, Deligne's function-sheaf dictionary for connected commutative algebraic groups over finite fields, as in \cite{deligne:SGA4.5}*{Sommes trig.} or \cite{laumon:87a}*{1.1.3}, gives us all we need, as we briefly recall. %\todo{Fix citelist} %\citelist{\cite{deligne:SGA4.5}*{Sommes trig.},\cite{laumon:87a}*{1.1.3}}
-The key observation is that, by \'etale descent, pullback by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$. 
+The key observation is that, by \'etale descent, pullback by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories from $\bQC(G)$ to the category of $1$-dimensional $\ell$-adic representations $V$ of $G(\Fq)$ equipped with an isomorphism $V \to V\otimes V$ such that the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ for every $\qcs{E}$ in $\bQC(G)$.  \todo{clarify phrasing}
 (Note that this is a particular case of the argument in the proof of Proposition~\ref{prop:finite}.)
 Using the equivalence given by $\Lang^*$, if $\Lang^*\qcs{E} = V$ with character $\psi$ and isomorphism $V\to V\otimes V$ then 
 $\qcs{E} \iso (\Lang_! V)_\psi$, the $\psi$-isotypic component of the push-forward $\Lang_* V$ of the constant sheaf $V$ on $G$ equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes\qcs{E}$ determined by $V\to V\otimes V$. 
