@@ -9,7 +9,7 @@
 %% Do not alter the following line.
 \firstpage{}\volume{}\volumeyear{}\copyrightyear{}\doiyear{}\doi{}\received{XXX}\revised{XXX}
 
-\title[The function-sheaf dictionary for smooth commutative group schemes]{The function-sheaf dictionary for smooth commutative group schemes over finite fields}
+\title{Quasicharacters and the function-sheaf dictionary}
 
 \author{Clifton}{Cunningham}{C.~Cunningham}{Calgary}
 \author{David}{Roe}{D.~Roe}{Calgary}
@@ -339,7 +339,7 @@ we give a canonical short exact sequence
 where $\Hom_\text{qc}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
 We further show that automorphism groups in $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
 \[
-\Aut(\qcs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
+\Aut(\qcs{F}) \iso \Hh^1(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} = (\check{T}_\ell)^{\Weil{K}},
 \]
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 %We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
@@ -894,6 +894,7 @@ yields
  0 \to Y^* \to X^* \to (X^{\Weil{}})^* \to \Ext^1_\ZZ(Y, \EEx).
 \]
 Since $\Ext^1_\ZZ(-,\EEx)$ vanishes, we get a natural isomorphism from the cokernel of $Y^* \xrightarrow{\Frob{}-1} X^*$ to $(X^{\Weil{}})^*$.
+\todo{Can we use this sort or argument to prove $(X_{\Weil{}})^* \iso (X^*)^{\Weil{}}$? If so, let's re-state the $\Aut(\qcs{L})$ result as $\Hh^1(\pi_0(\bG),\EEx)^{\Weil{}}$ since the iso classes are $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.}
 \end{proof}
 
 \begin{proposition}\label{prop:sur_etale}
@@ -1787,7 +1788,7 @@ Accordingly, the short exact sequence in Theorem~\ref{thm:QCXK} becomes
 \end{equation}
 Again by Theorem~\ref{thm:QCXK}, the automorphism groups in $\QC(T_K)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
 \begin{equation}
-\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}} = (\check{T}_\ell)^{\Weil{K}}
+\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx)  = (\check{T}_\ell)^{\Weil{K}}
 \end{equation}
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T_K$.
 This provides good information above the category $\QC(T_K)$ of quasicharacters for $T_K$ and its relation to quasicharacters of $T(K)$. 
