@@ -207,7 +207,7 @@ In this geometrization of quasicharacters, our sheaves are local systems on
 Greenberg transforms of locally finite type N\'eron models.
 \end{abstract}
 
-%% \tableofcontents %% Just for papers exceeding 50 pages.
+ \tableofcontents %% Just for papers exceeding 50 pages.
 
 
 \section*{Introduction}
@@ -395,7 +395,7 @@ are the projections, then $\mathcal{F}\boxtimes \mathcal{G} \ceq p_X^* \mathcal{
 
 For any abelian group $A$, we will write $A^*$ for the dual group $\Hom(A, \EEx)$.
 
-\subsection{The category of quasicharacter sheaves}\label{ssec:category}
+\subsection{Quasicharacter sheaves}\label{ssec:category}
 
 \begin{definition}\label{def:QC}
 A \emph{quasicharacter sheaf on $G$} is a triple
@@ -784,7 +784,6 @@ Consider the short exact sequence in Corollary~\ref{cor:spectral_ses}.
 \item Suppose $a \in Z^2({\bar G}, \EEx)$ represents a class in $\Hh^2({\bar G},\EEx)$ fixed by Frobenius.
 The map $\Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G)$ is given by $[a] \mapsto [a \oplus 0 \oplus 0]$.
 \end{enumerate}
-\todo{add more connecting prose}
 \end{proposition}
 \begin{proof}
 Since $\Hh^2(\Weil{}, C^0({\bar G}, \EEx)) = 0$, we may find a $\gamma_1 \in C^1(\Weil{}, C^0({\bar G}, \EEx))$ with $d_{\Weil{}}\gamma_1 = \gamma$.
@@ -866,7 +865,7 @@ Tracing the construction backward, we have defined a quasicharacter sheaf $\qcs{
 $S_G(\qcs{L}) = [\alpha\oplus\beta\oplus 0]$, showing that $S_G$ is surjective.
 \end{proof}
 
-\subsection{Objects, when $G$ is etale}\label{ssec:SandT}
+\subsection{Objects in the \'etale case}\label{ssec:SandT}
 
 In this section we fit the group homomorphisms $\TrFrob{G}$ and $S_G$ into a commutative diagram, determining the kernel and cokernel of the homomorphism $\TrFrob{G} : \QCiso{G} \to G(k)^*$ when $G$ is an \'etale commutative group scheme over $\Fq$.
 
@@ -936,7 +935,7 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
 
-\subsection{Morphisms}\label{ssec:mor-etale}
+\subsection{Morphisms in the \'etale case}\label{ssec:mor-etale}
 
 While most of this paper focuses on the question of determining the isomorphism classes of objects, a complete understanding of the morphisms in $\QC(G)$ also requires a description of the automorphisms of an arbitrary quasicharacter sheaf $\qcs{L}$.
 
@@ -961,7 +960,7 @@ Composition of morphisms corresponds to pointwise multiplication in this corresp
 
 %Note that Proposition~\ref{prop:autornaught_etale} tells us that if $G$ is an \'etale commutative group scheme over $\Fq$ then every hom-set is either trivial or $\{ 0 \} \cup \left(G(\bFq)_{\Weil{}}\right)^*$, non-canonically.
 
-\section{Quasicharacter sheaves defined by discrete isogenies} \label{sec:disc-isog}
+\section{Quasicharacter sheaves on connected commutative algebraic groups} \label{sec:disc-isog}
 
 Before turning our attention to quasicharacter sheaves on connected commutative algebraic groups in Section~\ref{ssec:connected}, we treat two special classes of quasicharacter sheaves on arbitrary smooth commutative group schemes $G$:  in Section~\ref{ssec:descentG}, those that descend from local systems on $\bG$ to local systems on $G$; and in Section~\ref{ssec:discrete_isogenies}, those that are defined by discrete isogenies onto $G$. The latter will play a role in Sections~\ref{ssec:connected} and \ref{ssec:restriction}.
 
@@ -1029,7 +1028,7 @@ from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\oti
 
 We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 
-\subsection{Quasicharacter sheaves on connected commutative algebraic groups}\label{ssec:connected}
+\subsection{The classical function--sheaf dictionary revisited}\label{ssec:connected}
 
 In general, $\bQC(G)$ is an essentially
 proper subcategory of $\QC(G)$. 
@@ -1768,10 +1767,9 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 \end{enumerate}
 \end{proof}
 
-\subsection{Quasicharacters for $p$-adic tori} \label{ssec:qc_tori}
+\subsection{Quasicharacter sheaves for $p$-adic tori} \label{ssec:qc_tori}
 
 As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. 
- \todo{Is this the right place to recall/define the term quasicharacter?}
 This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T_K\in \mathcal{N}_K$ is an algebraic torus over $K$. 
 Let $T$ be a Neron model for $T_K$.
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
@@ -1787,11 +1785,11 @@ Again by Theorem~\ref{thm:QCXK}, the automorphism groups in $\QC(T_K)$ are given
 \begin{equation}
 \Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx).
 \end{equation}
-\todo{This is dual to Lemma 2.6, and isn't true in general.  Is the fact that $X_*(T_K)$ is torsion-free sufficient?} where $\Weil{K}$ is the Weil group for $K$.
+%\todo{This is dual to Lemma 2.6, and isn't true in general.  Is the fact that $X_*(T_K)$ is torsion-free sufficient?} where $\Weil{K}$ is the Weil group for $K$.
 
 % and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T_K$.
 
-\subsection{Weil restriction and quasicharacters}\label{ssec:wrK}
+\subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
 
 Let $K'/K$ be a finite Galois extension of local fields and
 let $k'/k$ be the corresponding extension of residue fields.
@@ -1845,14 +1843,14 @@ Since
 \left(\Res_{k'/k} \Gr_{en-1}^{R'}(X') \right)(\Fq) = \left(\Gr_{en-1}^{R'}(X')\right)(k'),
 \]
 it follows from Lemma~\ref{lem:pullback} that the pullback functor \eqref{men-pulled} actually induces
-\[
-\Hom(X'(R'_{en-1}),\EEx)  \to  \Hom(X(R_{n-1}),\EEx) .
-\]
+%\[
+%\Hom(X'(R'_{en-1}),\EEx)  \to  \Hom(X(R_{n-1}),\EEx) .
+%\]
 \[ 
 \Hom_{en-1}(X'(R'),\EEx) \to \Hom_{n-1}(X(R)),\EEx)
 \]
 Since $X'$ is a N\'eron model for $X_{K'}$ and $X$ is a N\'eron model for $X_K$,
- this may be re-written as
+ this may be re-written as \todo{I'm going to think about this a bit more.}
 \[ 
 \Hom_{en-1}(X_{K'}(K'),\EEx)= \Hom_{en-1}(X_{K}(K'),\EEx) \to \Hom_{n-1}(X_K(K)),\EEx)
 \]
