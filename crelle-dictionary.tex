@@ -312,7 +312,7 @@ for all quasicharacter sheaves $\qcs{L}$ on $G$.
 
 As indicated above, our interest in the function-sheaf dictionary for smooth commutative group schemes
 over finite fields comes from an application to $p$-adic representation theory,
-specifically to quasicharacters of $p$-adic tori.
+specifically to quasicharacters of $p$-adic tori (\S\ref{sec:quasicharacters}).
 However, we found that our method of passing from $p$-adic tori to group schemes over $\Fq$ applies more generally to
 any local field $K$ with finite residue field $\Fq$ and any algebraic group $X_K$ that admits a N\'eron model $X$. % over $R$, the ring of integers of $K$.
 This class of groups includes abelian varieties and unipotent $K$-wound groups in addition to the tori we initially considered.
@@ -337,9 +337,9 @@ we give a canonical short exact sequence
 0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
 \]
 where $\Hom_\text{qc}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
-We further show that automorphism groups in $\QC(T)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
+We further show that automorphism groups in $\QC(T_K)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
 \[
-\Aut(\qcs{F}) \iso \Hh^1(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} = (\check{T}_\ell)^{\Weil{K}},
+\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx),
 \]
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 %We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
@@ -1605,7 +1605,7 @@ In this section we consider connected commutative algebraic groups over $K$ that
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup isomorphic to $\mathbb{G}_\text{a}$.
 Write $\mathcal{N}_K$ for the full subcategory of the category of algebraic groups consisting of such objects.  This category is additive, and includes all algebraic tori over $K$, abelian varieties over $K$ and unipotent $K$-wound groups.
 
-\subsection{Quasicharacters}
+\subsection{Quasicharacters}\label{sec:quasicharacters}
 
 Let $R$ be the ring of integers of $K$.
 Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$ for every non-negative integer $n$.
@@ -1770,20 +1770,26 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 
 \subsection{Quasicharacters for $p$-adic tori} \label{ssec:qc_tori}
 
-As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T_K\in \mathcal{N}_K$ is an algebraic torus over $K$. Now,
+As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. 
+ \todo{Is this the right place to recall/define the term quasicharacter?}
+This is is now provided by specializing Theorem~\ref{thm:QCXK} to the case when $X_K= T_K\in \mathcal{N}_K$ is an algebraic torus over $K$. 
+Let $T$ be a Neron model for $T_K$.
+By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
 \[
  \pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K},
 \]
-where $X_*(T_K)$ is the cocharacter lattice of $T_K$ and $\mathcal{I}_K$ is the inertia group for $K$ \cite{bitan:discriminant}*{Eq 3.1}. 
-Accordingly, the short exact sequence in Theorem~\ref{thm:QCXK} becomes
+where $X_*(T_K)$ is the cocharacter lattice of $T_K$ and $\mathcal{I}_K$ is the inertia group for $K$.
+Accordingly, by Theorem~\ref{thm:QCXK}, isomorphism classes in $\QC(T)$   becomes
 \begin{equation}
 0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
 \end{equation}
 Again by Theorem~\ref{thm:QCXK}, the automorphism groups in $\QC(T_K)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
 \begin{equation}
-\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx)  = (\check{T}_\ell)^{\Weil{K}}
+\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx).
 \end{equation}
-\todo{This is dual to Lemma 2.6, and isn't true in general.  Is the fact that $X_*(T_K)$ is torsion-free sufficient?} where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T_K$.
+\todo{This is dual to Lemma 2.6, and isn't true in general.  Is the fact that $X_*(T_K)$ is torsion-free sufficient?} where $\Weil{K}$ is the Weil group for $K$.
+
+% and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T_K$.
 
 \subsection{Weil restriction and quasicharacters}\label{ssec:wrK}
 
@@ -1806,7 +1812,7 @@ f : \Gr_R(X) \to \Res_{k'/k} \Gr_{R'}(X')
 which, through quasicharacter sheaves, induces
 \[
 \begin{tikzcd}[column sep=60]
-\Hom_{\text{qc}}(X(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X(K)}} &\Hom_{\text{qc}}(X(K), \EEx).
+\Hom_{\text{qc}}(X_K(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X(K)}} &\Hom_{\text{qc}}(X_K(K), \EEx).
 \end{tikzcd}
 \]
 \end{proposition}
@@ -1842,14 +1848,17 @@ it follows from Lemma~\ref{lem:pullback} that the pullback functor \eqref{men-pu
 \[
 \Hom(X'(R'_{en-1}),\EEx)  \to  \Hom(X(R_{n-1}),\EEx) .
 \]
+\[ 
+\Hom_{en-1}(X'(R'),\EEx) \to \Hom_{n-1}(X(R)),\EEx)
+\]
 Since $X'$ is a N\'eron model for $X_{K'}$ and $X$ is a N\'eron model for $X_K$,
  this may be re-written as
 \[ 
-\Hom_{en-1}(X(K'),\EEx) \to \Hom_{n-1}(X(K)),\EEx)
+\Hom_{en-1}(X_{K'}(K'),\EEx)= \Hom_{en-1}(X_{K}(K'),\EEx) \to \Hom_{n-1}(X_K(K)),\EEx)
 \]
-\todo{Is $X(K') = X'(K')$?} Passing to limits now defines
+Passing to limits now defines
 \[ 
-\Hom_\text{qc}(X(K'),\EEx) \to \Hom_\text{qc}(X(K)),\EEx)
+\Hom_\text{qc}(X_K(K'),\EEx) \to \Hom_\text{qc}(X_K(K)),\EEx)
 \]
 Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction of characters.
 \end{proof}
