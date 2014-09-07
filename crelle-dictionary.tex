@@ -207,7 +207,7 @@ In this geometrization of quasicharacters, our sheaves are local systems on
 Greenberg transforms of locally finite type N\'eron models.
 \end{abstract}
 
- \tableofcontents %% Just for papers exceeding 50 pages.
+%% \tableofcontents %% Just for papers exceeding 50 pages.
 
 
 \section*{Introduction}
@@ -339,7 +339,7 @@ we give a canonical short exact sequence
 where $\Hom_\text{qc}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
 We further show that automorphism groups in $\QC(T_K)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
 \[
-\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx),
+\Aut(\qcs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 %We also use quasicharacter sheaves to categorify the transfer of quasicharacters of tori between characteristic $0$ and characteristic $p$ local fields.
@@ -1028,7 +1028,7 @@ from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\oti
 
 We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 
-\subsection{The classical function--sheaf dictionary revisited}\label{ssec:connected}
+\subsection{The classical function-sheaf dictionary revisited}\label{ssec:connected}
 
 In general, $\bQC(G)$ is an essentially
 proper subcategory of $\QC(G)$. 
@@ -1611,6 +1611,8 @@ Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$ for every non
 Suppose $X_K \in \mathcal{N}_K$ has N\'eron model $X$ over $R$.
 Note that $X(K) = X(R)$.
 A \emph{quasicharacter of $X(K)$} is a group homomorphism $X(K) \to \EEx$ that factors through $X(R) \to X(R_n)$ for some non-negative integer $n$.
+We note that this use of the term is compatible with the use of the term {\it quasicharacter} in \cite{Cassels-Frohlich:ANT}*{Ch XV, \S 2.3}.
+ \todo{add bibliography entry for Tate's thesis}
 The group of quasicharacters of $X(K)$ will be denoted by 
 \[
 \Hom_\text{qc}(X(K),\EEx)
@@ -1649,12 +1651,14 @@ natural transformation
 \]
 between additive functors.
 Crucially, $\varrho^R_{n\leq m}(X): \Gr^R_{m}(X)\to \Gr^R_n(X)$ is an affine morphism of $\Fq$-schemes, for every $R$-scheme $X$ and every $n\leq m$ \cite{bertrapelle-gonzales:Greenberg}*{Prop 4.3}.
-This observation is key to the proof that, \todo{add reference to the Stacks project} for any scheme $X$ over $R$, the projective limit 
+This observation is key to the proof that, for any scheme $X$ over $R$, the projective limit 
 \[
 \Gr_R(X) \ceq \varprojlim_{n\in \NN} \Gr^R_n(X),
 \]
 taken with respect to the surjective morphisms $\varrho^R_{n\leq m}(X) : \Gr^R_{m}(X) \to \Gr^R_n(X)$,
-exists in the category of group schemes over $\Fq$.
+exists in the category of group schemes over $\Fq$;
+see \cite{stacks_project:limits}*{Lem 2.2}.
+\todo{add bibliography entry for the Stacks project}
 This leads to the definition of what we shall call the {\it Greenberg transform}:
 \[
 \Gr_R : \Sch{R} \to \Sch{\Fq}.
@@ -1777,17 +1781,20 @@ By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group 
  \pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K},
 \]
 where $X_*(T_K)$ is the cocharacter lattice of $T_K$ and $\mathcal{I}_K$ is the inertia group for $K$.
-Accordingly, by Theorem~\ref{thm:QCXK}, isomorphism classes in $\QC(T)$   becomes
-\begin{equation}
+Accordingly, by Theorem~\ref{thm:QCXK}, isomorphism classes of quasicharacter sheaves for $T_K$ determine quasicharacter sheaves according to the exact sequence
+\[
 0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0.
-\end{equation}
-Again by Theorem~\ref{thm:QCXK}, the automorphism groups in $\QC(T_K)$ are given, for every quasicharacter sheaf $\qcs{F}$ for $T_K$, by
-\begin{equation}
-\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx).
-\end{equation}
-%\todo{This is dual to Lemma 2.6, and isn't true in general.  Is the fact that $X_*(T_K)$ is torsion-free sufficient?} where $\Weil{K}$ is the Weil group for $K$.
-
-% and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T_K$.
+\]
+Also by Theorem~\ref{thm:QCXK} and \cite{bitan:discriminant}*{Eq 3.1}, the automorphism group of every $\qcs{F} \in \QC(T_K)$ is given by 
+\[
+\Aut(\qcs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx),
+\]
+where $\Weil{K}$ is the Weil group for $K$. 
+Since 
+\[
+\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}
+\]
+it follows that the automorphism group of every quasicharacter sheaf for $T_K$ is $(\check{T}_\ell)^{\Weil{K}}$, where $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 
 \subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
 
@@ -1850,8 +1857,8 @@ it follows from Lemma~\ref{lem:pullback} that the pullback functor \eqref{men-pu
 \Hom_{en-1}(X'(R'),\EEx) \to \Hom_{n-1}(X(R)),\EEx)
 \]
 Since $X'$ is a N\'eron model for $X_{K'}$ and $X$ is a N\'eron model for $X_K$,
- this may be re-written as \todo{I'm going to think about this a bit more.}
-\[ 
+ this may be re-written as
+ \[ 
 \Hom_{en-1}(X_{K'}(K'),\EEx)= \Hom_{en-1}(X_{K}(K'),\EEx) \to \Hom_{n-1}(X_K(K)),\EEx)
 \]
 Passing to limits now defines
