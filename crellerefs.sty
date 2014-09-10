@@ -1,0 +1,118 @@
+\ProvidesPackage{crellerefs}[2014/09/08 v0.1]
+\RequirePackage[numeric,initials]{amsrefs}\relax
+
+%\DefineSimpleKey{bib}{lecture}
+
+%\renewcommand{\PrintNames@a}[4]{%
+%    \PrintSeries{\name}
+%        {#1}
+%        {}{ and \set@othername}
+%        {,}{ \set@othername}
+%        {,}{ and \set@othername}
+%        {#2}{\textit{#4}}{#3}%
+%}
+
+%\newcommand{\ItAuthors}[1]{\textit{\PrintAuthors{#1}}}
+\newcommand{\ItPrimary}[1]{\textit{\PrintPrimary{#1}}}
+\BibSpec{article}{%
+    +{}  {\PrintAuthors}				{author}
+    +{,} { }							{title}
+    +{.} { }							{part}
+    +{:} { \textit}						{subtitle}
+    +{,} { \PrintContributions}			{contribution}
+    +{.} { \PrintPartials}				{partial}
+    +{,} { }							{journal}
+    +{}  { \textbf}						{volume}
+    +{}  { \PrintDatePV}				{date}
+    +{,} { \issuetext}					{number}
+    +{,} { \eprintpages}				{pages}
+    +{,} { }							{status}
+    +{,} { \PrintDOI}					{doi}
+    +{,} { available at \eprint}			{eprint}
+    +{}  { \parenthesize}				{language}
+    +{}  { \PrintTranslation}				{translation}
+    +{;} { \PrintReprint}				{reprint}
+    +{.} { }							{note}
+    +{.} {}							{transition}
+    +{}  {\SentenceSpace \PrintReviews}	{review}
+}
+
+\BibSpec{book}{%
+    +{}  {\ItPrimary}					{transition}
+    +{,} { }							{title}
+    +{.} { }							{part}
+    +{:} { }							{subtitle}
+    +{,} { \PrintEdition}					{edition}
+    +{}  { \PrintEditorsB}				{editor}
+    +{,} { \PrintTranslatorsC}			{translator}
+    +{,} { \PrintContributions}			{contribution}
+    +{,} { }							{series}
+    +{,} { \voltext}					{volume}
+    +{,} { }							{publisher}
+    +{,} { } 							{organization}
+    +{,} { }							{address}
+    +{,} { \PrintDateB}					{date}
+    +{,} { }							{status}
+    +{}  { \parenthesize}				{language}
+    +{}  { \PrintTranslation}				{translation}
+    +{;} { \PrintReprint}				{reprint}
+    +{.} { }							{note}
+    +{.} {}							{transition}
+    +{}  {\SentenceSpace \PrintReviews}	{review}
+}
+
+\BibSpec{collection.article}{%
+    +{}  {\PrintAuthors}				{author}
+    +{,} { }							{title}
+    +{.} { }							{part}
+    +{:} { }							{subtitle}
+    +{,} { \PrintContributions}			{contribution}
+    +{,} { \PrintConference}				{conference}
+    +{}  {\PrintBook}					{book}
+    +{,} { }							{booktitle}
+    +{,} { \PrintDateB}					{date}
+    +{,} { pp.~}						{pages}
+    +{,} { }							{status}
+    +{,} { \PrintDOI}					{doi}
+    +{,} { available at \eprint}			{eprint}
+    +{}  { \parenthesize}				{language}
+    +{}  { \PrintTranslation}				{translation}
+    +{;} { \PrintReprint}				{reprint}
+    +{.} { }							{note}
+    +{.} {}							{transition}
+    +{}  {\SentenceSpace \PrintReviews}	{review}
+}
+
+\BibSpec{innerbook}{%
+    +{,} { }					{title}
+    +{.} { }					{part}
+    +{:} { }                            {subtitle}
+    +{,} { \PrintEdition}               {edition}
+    +{}  { \PrintEditorsB}              {editor}
+    +{,} { \PrintTranslatorsC}          {translator}
+    +{,} { \PrintContributions}         {contribution}
+    +{,} { }                            {series}
+    +{,} { \voltext}                    {volume}
+    +{,} { }                            {publisher}
+    +{,} { }                            {organization}
+    +{,} { }                            {address}
+    +{,} { \PrintDateB}                 {date}
+    +{.} { }                            {note}
+}
+
+\BibSpec{lecture}{%
+  +{} {\PrintAuthors}				{author}
+  +{,}{ }						{title}
+  +{}{ \parenthesize}				{date}
+  +{.}{ Lecture delivered at \textit}	{conference}
+  +{,}{ }						{place}
+  +{.}{ }						{transition}
+}
+
+\BibSpec{unpublished}{%
+  +{}{\PrintAuthors}	{author}
+  +{,}{ }			{title}
+  +{,}{ preprint }		{date}
+  +{,}{ }			{note}
+  +{.}{ }			{transition}
+}

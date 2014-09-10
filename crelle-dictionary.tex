@@ -37,22 +37,9 @@
 % AMS packages
 %\usepackage{amsmath, amsthm, amssymb}
 \usepackage{todonotes}%, showkeys}
-\usepackage{amsrefs}
-\BibSpec{lecture}{%
-  +{}{\PrintAuthors} {author}
-  +{,}{ \textit} {title}
-  +{}{ \parenthesize} {date}
-  +{,}{ } {note}
-  +{,}{ } {location}
-  +{.}{ } {transition}
-}
-\BibSpec{preprint}{%
-  +{}{\PrintAuthors} {author}
-  +{,}{ \textit} {title}
-  +{,}{ preprint } {date}
-  +{,}{ } {note}
-  +{.}{ } {transition}
-}
+%\usepackage[numeric,initials]{amsrefs}
+\usepackage{crellerefs}
+
 % Fonts
 \usepackage{mathrsfs, yfonts}
 %Geometry
@@ -363,7 +350,7 @@ where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-ad
 By any measure, there are more quasicharacter sheaves for $T$ than quasicharacters of $T(K)$.  
 In this regard, we are reminded of the work of David Vogan \cite{vogan:93a}, in which he finds a geometrization of complete Langlands parameters for $p$-adic groups 
 and, in the process, is led to study the representations of all the pure rational forms of the $p$-adic group, simultaneously.
-A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group \cite{bernstein:vogan_conference}.
+A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group %\cite{bernstein:vogan_conference}.
 Indeed, Bernstein has suggested to us that our category of quasicharacters for $T$ may be tied to quasicharacters of all the pure rational forms of $T$.
 
 The process of creating a category from the group of quasicharacters of a $p$-adic  torus informs our choice of the term quasicharacter sheaf in this paper.
@@ -2083,8 +2070,19 @@ We thank Joseph Bernstein for suggesting a connection between our category of qu
 %   \bibliography{mydatabase}                                             %
 % The file crelle.bst then ensures the correct style.                     %
 %-------------------------------------------------------------------------%
-%\bibliographystyle{amsalpha}
-%\bibliography{../bibliography/Biblio}   
+\bibliographystyle{crelle}
+\bibliography{bibliography/Biblio}   
+
+\end{document}
+
+
+% italicized and
+% Bernstein lecture
+% Etingof url, preprint note
+% Italicized author in D-G appendix
+% EGA ordering
+% Ravi notes
+% Vogan LLC
 
 \begin{bibdiv}
 \begin{biblist}
