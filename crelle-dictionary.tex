@@ -41,7 +41,8 @@
 \usepackage{crellerefs}
 
 % Fonts
-\usepackage{mathrsfs, yfonts}
+\usepackage{mathrsfs}
+%\usepackage{yfonts}
 %Geometry
 %\usepackage{geometry}
 % Enumitem
@@ -53,8 +54,6 @@
 % Hyperrefs
 \usepackage{hyperref}
 
-%%%%%%%%%%%%%%% COUNTER %%%%%%%%%%%%%%%
-%\setcounter{section}{-1}
 %%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
 \theoremstyle{plain}
       \newtheorem{theorem}{Theorem}[section]
@@ -80,7 +79,7 @@
 \newcommand{\QQ}{{\mathbb{Q}}}
 \newcommand{\RR}{{\mathbb{R}}}
 \newcommand{\EE}{\mathbb{\bar Q}_\ell}
-\newcommand{\Zl}{\mathbb{\bar Z}_\ell}
+%\newcommand{\Zl}{\mathbb{\bar Z}_\ell}
 \newcommand{\OK}{\mathcal{O}_K}
 %\newcommand{\pK}{\mathfrak{p}_K}
 %\newcommand{\OKp}{\mathcal{O}_{K'}}
@@ -94,7 +93,7 @@
 \newcommand{\Fqm}{k_m}
 %\newcommand{\WW}{\mathbb{W}}
 \newcommand{\EEx}{\EE^\times}
-\newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
+%\newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
 \newcommand{\Weil}[1]{\mathcal{W}_{#1}}
 \newcommand{\m}{{\mathfrak{m}}}
 %%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
@@ -108,7 +107,7 @@
 \newcommand{\comp}{\Pi} % Component group
 %%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
-\DeclareMathOperator{\W}{W}
+%\DeclareMathOperator{\W}{W}
 \newcommand{\Frob}[1]{\operatorname{F}_{#1}}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Hom}{Hom}
@@ -207,7 +206,6 @@ We show that the group of isomorphism classes of quasicharacter sheaves is an ex
 As an application, we find a category of sheaves for which isomorphism classes correspond to quasi\-characters in the case of algebraic tori, abelian varieties and unipotent wound groups over local fields. 
 In this geometrization of quasicharacters, our sheaves are local systems on
 Greenberg transforms of locally finite type N\'eron models.
-Mathematics Subject Classification 2010: 14F05 (primary), 14L15 (secondary)
 \end{abstract}
 
 %% \tableofcontents %% Just for papers exceeding 50 pages.
@@ -219,6 +217,7 @@ Mathematics Subject Classification 2010: 14F05 (primary), 14L15 (secondary)
 
 Motivated by an application to the geometrization and categorification of quasicharacters of $p$-adic tori,
 this paper extends Deligne's function-sheaf dictionary to smooth commutative group schemes over finite fields. 
+\footnote{Mathematics Subject Classification 2010: 14F05 (primary), 14L15 (secondary), 22E50 (tertiary)}
 
 As Deligne explained in \cite{deligne:SGA4.5}*{Sommes trig.}, if $G$ is a connected commutative algebraic group over a finite field $k$, then the trace of Frobenius provides a bijection between the group $G(\Fq)^*$ of $\ell$-adic characters of $G(\Fq)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which 
 \begin{equation}\label{introbox}
@@ -1047,24 +1046,24 @@ B_G : \bQC(G) \to \QC(G)
 
 \begin{proof}
 Choose any $\Fq$-rational point $g$ on $G$ and let $\bg$ be the geometric point on $G$ lying above $g$.
-Recall that the \emph{Weil group} of $G$, which we will denote by $\W(G,\bg)$, is a subgroup of the \'etale
+Recall that the \emph{Weil group} of $G$, which we will denote by $\Weil{}(G,\bg)$, is a subgroup of the \'etale
 fundamental group defined by the following diagram:
 \[
  \begin{tikzcd}
- 1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \W(G,\bg) \rar \dar[hook] & \Weil{} \rar \dar[hook] & 1 \\
+ 1 \rar & \ar[equal]{d} \pi_1(\bG, \bg) \rar & \Weil{}(G,\bg) \rar \dar[hook] & \Weil{} \rar \dar[hook] & 1 \\
  1 \rar &  \pi_1(\bG, \bg) \rar & \pi_1(G,\bg) \rar & \Gal(\bFq/\Fq) \rar & 1.
  \end{tikzcd}
 \]
 The $\Fq$-rational point $g$ under the geometric point $\bg$ determines a splitting
-$\Weil{}\to \W(G,\bg)$ of $\W(G,\bg)\to \Weil{}$.
+$\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
 %
   Since $G$ is connected, the geometric point $\bg$ determines
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
-  $\ell$-adic representations of $\W(G,\bg)$ \cite{deligne:80a}*{1.1.12}.
+  $\ell$-adic representations of $\Weil{}(G,\bg)$ \cite{deligne:80a}*{1.1.12}.
   
   Now let $(\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$
-  and let $\lambda : \W(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
-  Composing with the splitting $\Weil{} \to \W(G,\bg)$ yields an $\ell$-adic character
+  and let $\lambda : \Weil{}(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
+  Composing with the splitting $\Weil{} \to \Weil{}(G,\bg)$ yields an $\ell$-adic character
   $\lambda_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{ssec:Frob}, for every $\Fq$ rational point $g$ on $G$:
   $
   \lambda_g(\Frob{}) =  \trFrob{\qcs{L}}(g).
@@ -1660,7 +1659,7 @@ This observation is key to the proof that, for any scheme $X$ over $R$, the proj
 \]
 taken with respect to the surjective morphisms $\varrho^R_{n\leq m}(X) : \Gr^R_{m}(X) \to \Gr^R_n(X)$,
 exists in the category of group schemes over $\Fq$;
-see \cite{EGAIV3}*{\S 8.13}.
+see \cite{EGAIV3}*{\S 8.2}.
 This leads to the definition of what we shall call the {\it Greenberg transform}:
 \[
 \Gr_R : \Sch{R} \to \Sch{\Fq}.
@@ -2403,33 +2402,5 @@ We thank Joseph Bernstein for suggesting a connection between our category of qu
 
 \end{biblist}
 \end{bibdiv}
-
-
-\begin{thebibliography}{9}
-
-\bibitem{article}
-\textit{T.~Angel} and \textit{I.~E.~Shparlinski},
-Article in a journal, J. reine angew. Math. \textbf{647} (2010), 123--156.
-
-\bibitem{preprint}
-\textit{C.~Bonnaf\'e},
-Preprint, preprint 2008, \url{http://arxiv.org/abs/0805.4100}.
-
-\bibitem{proceedings}
-\textit{P. Brooksbank},
-Article in a conference proceedings,
-in: Finite geometries (Pingree Park 2004), Oxford University Press, Oxford (2006), 1--16.
-
-\bibitem{phdthesis}
-\textit{J.~D.~King},
-Unpublished dissertation,
-Ph.D. thesis, University of Cambridge, 1995.
-
-\bibitem{book}
-\textit{F. Sukochev}, \textit{S. Lord} and \textit{D. Zanin},
-Book, 2nd ed., De Gruyter, Berlin 2012.
-
-\end{thebibliography}
-
 
 \end{document}
