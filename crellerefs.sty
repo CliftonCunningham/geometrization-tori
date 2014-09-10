@@ -3,17 +3,19 @@
 
 %\DefineSimpleKey{bib}{lecture}
 
-%\renewcommand{\PrintNames@a}[4]{%
-%    \PrintSeries{\name}
-%        {#1}
-%        {}{ and \set@othername}
-%        {,}{ \set@othername}
-%        {,}{ and \set@othername}
-%        {#2}{\textit{#4}}{#3}%
-%}
+\renewcommand{\PrintNames@a}[4]{%
+    \PrintSeries{\name}
+        {#1}
+        {}{ and \set@othername}
+        {,}{ \set@othername}
+        {}{ and \set@othername}
+        {#2}{#4}{#3}%
+}
+
+\def\set@name@a#1{%    \begingroup        \get@current@properties        \select@auxlanguage        \def\@tempa{yes}%        \ifx\@tempa\prop'inverted            \setbib@nameBE        \else            \textit{#1}%        \fi    \endgroup}
 
 %\newcommand{\ItAuthors}[1]{\textit{\PrintAuthors{#1}}}
-\newcommand{\ItPrimary}[1]{\textit{\PrintPrimary{#1}}}
+%\newcommand{\ItPrimary}[1]{\textit{\PrintPrimary{#1}}}
 \BibSpec{article}{%
     +{}  {\PrintAuthors}				{author}
     +{,} { }							{title}
@@ -38,7 +40,7 @@
 }
 
 \BibSpec{book}{%
-    +{}  {\ItPrimary}					{transition}
+    +{}  {\PrintPrimary}				{transition}
     +{,} { }							{title}
     +{.} { }							{part}
     +{:} { }							{subtitle}
@@ -47,7 +49,7 @@
     +{,} { \PrintTranslatorsC}			{translator}
     +{,} { \PrintContributions}			{contribution}
     +{,} { }							{series}
-    +{,} { \voltext}					{volume}
+    +{} { \textbf}						{volume}
     +{,} { }							{publisher}
     +{,} { } 							{organization}
     +{,} { }							{address}
