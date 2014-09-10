@@ -195,6 +195,8 @@
 %% Hyphenation override
 \hyphenation{quasi-character}
 
+% Eliminate a font warning
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%
 
@@ -1206,11 +1208,11 @@ Let $\pi: B \to G^0$ be a discrete isogeny, and set $A \ceq \ker \pi$.
   $\Fq$.  We will do so by passing back and forth between group
   schemes over $\Fq$ and their $\bFq$-points.
 
-  Extensions of $G^0(\bFq)$ by $A(\bFq)$, such as $B(\bFq)$,
+  Extensions of $G^0(\bFq)$ by $A(\bFq)$ with $\Weil{}$-equivariant maps, such as $B(\bFq)$,
   correspond to classes in $\Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq))$.
   Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
   classes in $\Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq))$.  The map
-  $G^0(\bFq) \to G(\bFq)$ induces the map
+  $G^0(\bFq) \to G(\bFq)$ induces a homomorphism
   \[
   \Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq)) \to \Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq))
   \]
@@ -1293,8 +1295,8 @@ The restriction $\pi_0^*\gqcs{L}\vert_{\bG^x}$ is the constant sheaf $(\gqcs{L}_
 \end{proposition}
 
 \begin{proof}
-The sequence is exact at $\QCiso{G^0}$ by Proposition~\ref{prop:restriction}
-and exact at $\QCiso{\pi_0(G)}$ by Lemma~\ref{lem:extension}.
+Exactness at $\QCiso{G^0}$ follows from Proposition~\ref{prop:restriction},
+and at $\QCiso{\pi_0(G)}$ from Lemma~\ref{lem:extension}.
 Here we show that it is also exact at $\QCiso{G}$.
 First note that $\iota_0^* \circ \pi_0^*$ is trivial by Lemma~\ref{lem:pullback}.
 So it suffices to show that if $\qcs{L} = (\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$
@@ -1766,7 +1768,7 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 
 \begin{proof}
 \begin{enumerate}
-\item Use Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$, the fact that N\'eron models are unique up to isomorphism, the fact that each $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(X_K)$ and the observation that $\QC(X_K)$ is a `union' of the subcategories $\QC(\Gr^R_n(X))$ in $\QC(\Gr_R(X))$.
+\item Use Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$, the fact that N\'eron models are unique up to isomorphism, the fact that every $\QC(\Gr^R_n(X))$ is a full subcategory of $\QC(X_K)$ and the observation that every object in $\QC(X_K)$ is in the essential image of $\QC(\Gr^R_n(X))$ for some $n$.
 \item Use Theorem~\ref{thm:snake} with $G = \Gr^R_n(X)$ and then argue as in part (i).
 \item Argue as in the proof of Lemma~\ref{lem:autornaught}.
 \item Use Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, the fact that the component group of $\Gr^R_n(X)$ is independent of $n$ and then argue as in part (i).
@@ -1955,9 +1957,9 @@ compatible with \eqref{transfer}.% ($m < N$).
 \end{proposition}
 
 
-\acknowl{We thank Masoud Kamgarpour, Pramod Achar and Hadi Salmasian
-for allowing us to hijack much of our Research in Teams meeting at the Banff International Research Station into a discussion of
-quasicharacter sheaves; their knowledge and help have been invaluable.
+\acknowl{Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
+allowed us to hijack much of a Research in Teams meeting at the Banff International Research Station into a discussion of
+quasicharacter sheaves.  We thank them for their kindness, knowledge and invaluable help.
 We thank Takashi Suzuki for some very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
 We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and drawing our attention to their result on Weil restriction and the Greenberg transform.
 We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
