@@ -1,31 +1,36 @@
 %%------------------------------------------------------%%
 %% This file should be the main file of your article.   %%
-%% Please uncomment exactly one of the following lines. %%
-%%------------------------------------------------------%%
 
-%% \documentclass[CM,Submssn]{degruyter-crelle}       %% Equations numbered as (1), (2) etc.
- \documentclass[CM,Submssn,SecEq]{degruyter-crelle} %% Equations numbered as (1.1), (1.2) etc.
+\documentclass[10pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
 
-%% Do not alter the following line.
-\firstpage{}\volume{}\volumeyear{}\copyrightyear{}\doiyear{}\doi{}\received{XXX}\revised{XXX}
+% See the ``Article customise'' template for come common customisations
 
-\title{Quasicharacters and the function-sheaf dictionary}
+\title{From the function-sheaf dictionary to quasicharacters of $p$-adic tori}
 
-\author{Clifton}{Cunningham}{C.~Cunningham}{Calgary}
-\author{David}{Roe}{D.~Roe}{Calgary}
+\author{Clifton Cunningham}
+\author{David Roe}
 
-\contact{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive, {T2N~1N4}, Calgary, Canada}{cunning@math.ucalgary.ca}
-\contact{Pacific Institute for the Mathematical Sciences, University of Calgary, 2500 University Drive, {T2N~1N4}, Calgary, Canada}{roed.math@gmail.com}
+\address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Alberta, Calgary, Canada, {T2N~1N4}.}
+\email{cunning@math.ucalgary.ca}
+%\address{Pacific Institute for the Mathematical Sciences, University of Calgary, 2500 University Drive, {T2N~1N4}, Calgary, Canada, {\tt roed.math@gmail.com}}
+\address{Department of Mathematics, University of British Columbia, 1984 Mathematics Road, Vancouver, British Columbia, Canada, {V6T~1Z2}.}
+\email{roed.math@gmail.com}
 
-%\subjclass[2010]{14F05 (primary), 14L15 (secondary)}
-%\keywords{function-sheaf dictionary, trace of Frobenius, geometrization, categorification, quasicharacters, quasicharacter sheaves, smooth commutative group schemes, finite fields, local fields, algebraic tori, Neron models, Greenberg functor}
+\subjclass[2010]{14F05 (primary), 14L15 (secondary), 22E50 (tertiary)}
 
-\researchsupported{We gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences and the National Science and Engineering Research Council (Canada), as well the hospitality of the Banff International Research Station during a Research in Teams program.}
+\keywords{function-sheaf dictionary, trace of Frobenius, geometrization, categorification, quasicharacter sheaves, smooth commutative group schemes, finite fields, local fields, algebraic tori, Neron models, Greenberg functor, quasicharacters}
+
+
 
 %%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 %\usepackage{todonotes}
 % crellerefs is a custom version of amsrefs complying with the Crelle style guidelines
-\usepackage{crellerefs}
+%\usepackage{crellerefs}
+
+\usepackage{amssymb,amsrefs}
 
 % Fonts
 \usepackage{mathrsfs}
@@ -156,7 +161,7 @@
 \hyphenation{quasi-character}
 
 % Eliminate a font warning
-\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+%\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
 
 % MSC footnote
 \makeatletter
@@ -176,6 +181,7 @@
 
 \begin{document}
 
+
 \begin{abstract}
 We introduce the category of quasicharacter sheaves on smooth commutative group schemes $G$ over finite fields $k$ and expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
 We show that the group of isomorphism classes of quasicharacter sheaves is an extension of the group of characters of $G(k)$ by a cohomology group determined by the component group scheme of $G$.
@@ -184,11 +190,12 @@ In this geometrization of quasicharacters, our sheaves are local systems on
 Greenberg transforms of locally finite type N\'eron models.
 \end{abstract}
 
+\maketitle
+
 \section*{Introduction}
 
 Motivated by an application to the geometrization and categorification of quasicharacters of $p$-adic tori,
-this paper extends Deligne's function-sheaf dictionary to smooth commutative group schemes over finite fields. 
-\MSC{14F05 (primary), 14L15 (secondary), 22E50 (tertiary)}
+this paper extends Deligne's function-sheaf dictionary from commutative algebraic groups to smooth commutative group schemes over finite fields. 
 
 As Deligne explained in \cite{deligne:SGA4.5}*{Sommes trig.}, if $G$ is a connected commutative algebraic group over a finite field $k$, then the trace of Frobenius provides a bijection between the group $G(\Fq)^*$ of $\ell$-adic characters of $G(\Fq)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which 
 \begin{equation}\label{introbox}
@@ -293,7 +300,7 @@ a categorical version of a result of Chai and Yu \cite{chai-yu:01a},
 relating quasicharacter sheaves for tori over different local fields, even local fields
 with different characteristic.
 
-Specializing to the case that $X = T$ is the N\'eron model of an algebraic torus (\S\ref{ssec:qc_tori}), 
+Specializing to the case that $X = T$ is the N\'eron model of an algebraic torus over $K$ (\S\ref{ssec:qc_tori}), 
 we give a canonical short exact sequence 
 \[
 0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
@@ -325,6 +332,18 @@ beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our quasicharacter sheaves.
 The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
+
+\medskip
+\noindent\textbf{Acknowledgements.\ } {Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
+allowed us to hijack much of a Research in Teams meeting at the Banff International Research Station into a discussion of
+quasicharacter sheaves.  We thank them for their kindness, knowledge and invaluable help.
+We thank Takashi Suzuki for some very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
+We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and drawing our attention to their result on Weil restriction and the Greenberg transform.
+We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.}
+
+{Finally, we gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences and the National Science and Engineering Research Council (Canada), as well the hospitality of the Banff International Research Station during a Research in Teams program.}
+
+
 
 \section{The category of quasicharacter sheaves} \label{sec:category}
 
@@ -1835,15 +1854,6 @@ Combining this with the paragraph above gives the following instance of the geom
  \]
 compatible with \eqref{transfer}.
 \end{proposition}
-
-
-\acknowl{Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
-allowed us to hijack much of a Research in Teams meeting at the Banff International Research Station into a discussion of
-quasicharacter sheaves.  We thank them for their kindness, knowledge and invaluable help.
-We thank Takashi Suzuki for some very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
-We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and drawing our attention to their result on Weil restriction and the Greenberg transform.
-We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
-}
 
 \bibliography{bibliography/Biblio}   
 
