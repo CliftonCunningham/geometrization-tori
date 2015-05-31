@@ -128,10 +128,10 @@
 \newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
 \newcommand{\colimit}[1]{\mathop{\textsc{colim}}\limits_{#1}}
 %% Fonts for quasicharacter sheaves
-\newcommand{\CSs}[1]{{\mathcal{#1}}}
-\newcommand{\gCSs}[1]{{\mathcal{\bar #1}}}
-\newcommand{\dualgcs}[1]{\gCSs{#1}^\dagger}
-\newcommand{\dualcs}[1]{\CSs{#1}^\dagger}
+\newcommand{\cs}[1]{{\mathcal{#1}}}
+\newcommand{\gcs}[1]{{\mathcal{\bar #1}}}
+\newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
+\newcommand{\dualcs}[1]{\cs{#1}^\dagger}
 %% Categories
 \newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
 \newcommand{\lCS}{{\CS_\text{flb}}}
@@ -163,9 +163,9 @@
 \newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
 \newcommand{\bfxf}{\text{$\bar{f} \tight{1}{\times}{1} \bar{f}$}}
 \newcommand{\GxxG}{\text{$G \tight{1}{\times}{1} G$}}
-\newcommand{\LxL}{\text{$\gCSs{L} \tight{0}{\boxtimes}{0} \gCSs{L}$}}
-\newcommand{\ExE}{\text{$\CSs{E}\tight{0}{\boxtimes}{0}\CSs{E}$}}
-\newcommand{\bExE}{\text{$\gCSs{E}\tight{0}{\boxtimes}{0}\gCSs{E}$}}
+\newcommand{\LxL}{\text{$\gcs{L} \tight{0}{\boxtimes}{0} \gcs{L}$}}
+\newcommand{\ExE}{\text{$\cs{E}\tight{0}{\boxtimes}{0}\cs{E}$}}
+\newcommand{\bExE}{\text{$\gcs{E}\tight{0}{\boxtimes}{0}\gcs{E}$}}
 \newcommand{\AxA}{\text{$A \tight{1}{\times}{1} A$}}
 \newcommand{\BxB}{\text{$B \tight{1}{\times}{1} B$}}
 \newcommand{\GzxGz}{\text{$G^0 \tight{1}{\times}{1} G^0$}}
@@ -211,24 +211,24 @@ this paper extends Deligne's function-sheaf dictionary from connected commutativ
 
 As Deligne explained in \cite{deligne:SGA4.5}*{Sommes trig.}, if $G$ is a connected commutative algebraic group over a finite field $k$, then the trace of Frobenius provides a bijection between the group $G(\Fq)^*$ of $\ell$-adic characters of $G(\Fq)$ and isomorphism classes of rank-one $\ell$-adic local systems $\mathcal{E}$ on $G$ for which 
 \begin{equation}\label{introbox}
-m^* \CSs{E} \iso \CSs{E} \boxtimes \CSs{E},
+m^* \cs{E} \iso \cs{E} \boxtimes \cs{E},
 \end{equation}
 where $m : G\times G\to G$ is the multiplication map.
 %
-If one wishes to make a category from this class of local systems, one is led to consider morphisms $\CSs{E} \to \CSs{E}'$ of sheaves which are compatible with particular choices of \eqref{introbox} for $\CSs{E}$ and $\CSs{E'}$. 
-{\it A priori}, the composition $\CSs{E} \to \CSs{E}' \to \CSs{E}''$ of two such morphisms need not be compatible with the choices of \eqref{introbox} for $\CSs{E}$ and $\CSs{E}''$.
+If one wishes to make a category from this class of local systems, one is led to consider morphisms $\cs{E} \to \cs{E}'$ of sheaves which are compatible with particular choices of \eqref{introbox} for $\cs{E}$ and $\cs{E'}$. 
+{\it A priori}, the composition $\cs{E} \to \cs{E}' \to \cs{E}''$ of two such morphisms need not be compatible with the choices of \eqref{introbox} for $\cs{E}$ and $\cs{E}''$.
  However, for connected $G$ the isomorphism \eqref{introbox} is unique if it exists, and there is no impediment to making the dictionary categorical.
 
-If $G$ is a commutative algebraic group over $\Fq$ which is not connected, then the isomorphism \eqref{introbox} need not be unique. In order to track the choice of isomorphism, consider the category of pairs $(\CSs{E},\mu_\CSs{E})$ where $\CSs{E}$ is a rank-one local system on $G$ and $\mu_\CSs{E} : m^*\CSs{E} \to \CSs{E}\boxtimes\CSs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
-In this case, the trace of Frobenius provides an epimorphism from isomorphism classes of pairs $(\CSs{E},\mu_\CSs{E})$ to characters of $G(\Fq)$, but the epimomorphism need not be injective; consequently,
-every character of $G(\Fq)$ may be geometrized as a pair $(\CSs{E},\mu_\CSs{E})$ but perhaps not uniquely in the category of pairs. 
-While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious: if $(\CSs{E},\mu_\CSs{E})$ and $(\CSs{E}',\mu_\CSs{E}')$ determine the same character of $G(\Fq)$ then $\CSs{E}\iso \CSs{E}'$ as local systems on $G$.
+If $G$ is a commutative algebraic group over $\Fq$ which is not connected, then the isomorphism \eqref{introbox} need not be unique. In order to track the choice of isomorphism, consider the category of pairs $(\cs{E},\mu_\cs{E})$ where $\cs{E}$ is a rank-one local system on $G$ and $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
+In this case, the trace of Frobenius provides an epimorphism from isomorphism classes of pairs $(\cs{E},\mu_\cs{E})$ to characters of $G(\Fq)$, but the epimomorphism need not be injective; consequently,
+every character of $G(\Fq)$ may be geometrized as a pair $(\cs{E},\mu_\cs{E})$ but perhaps not uniquely in the category of pairs. 
+While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious: if $(\cs{E},\mu_\cs{E})$ and $(\cs{E}',\mu_\cs{E}')$ determine the same character of $G(\Fq)$ then $\cs{E}\iso \cs{E}'$ as local systems on $G$.
 
 In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\Fq$,
-we simply replace the local system $\CSs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\CSs{E}$. 
+we simply replace the local system $\cs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\cs{E}$. 
 In this way we are led to the category $\CS(G)$ of {\it quasicharacter sheaves} on $G$ (\S\ref{ssec:category}).
-Objects in $\CS(G)$ are triples $(\gCSs{L}, \mu,\phi)$, where $\gCSs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\Fq}} \Spec{\bFq}$
-and $\phi : \Frob{G}^* \gCSs{L}\to \gCSs{L}$ and $\mu : {\bar m}^* \gCSs{L} \iso \gCSs{L} \boxtimes \gCSs{L}$ are isomorphisms of sheaves satisfying certain compatibility conditions.
+Objects in $\CS(G)$ are triples $(\gcs{L}, \mu,\phi)$, where $\gcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\Fq}} \Spec{\bFq}$
+and $\phi : \Frob{G}^* \gcs{L}\to \gcs{L}$ and $\mu : {\bar m}^* \gcs{L} \iso \gcs{L} \boxtimes \gcs{L}$ are isomorphisms of sheaves satisfying certain compatibility conditions.
 Morphisms in $\CS(G)$ are then morphisms of Weil sheaves which are compatible with the extra structure.
 
 We first test the category of quasicharacter sheaves by examining its objects on \'etale commutative group schemes $G$ over $\Fq$ (\S\ref{sec:etale});
@@ -250,7 +250,7 @@ the group homomorphism
 \]
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
 One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
-%The fact that $\TrFrob{G}$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gCSs{L}, \mu,\phi)$ and $(\gCSs{L}', \mu',\phi')$ determine the same character of $G(\Fq)$ then $(\gCSs{L},\phi)$ and $(\gCSs{L}',\phi')$ are isomorphic as Weil sheaves.
+%The fact that $\TrFrob{G}$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gcs{L}, \mu,\phi)$ and $(\gcs{L}', \mu',\phi')$ determine the same character of $G(\Fq)$ then $(\gcs{L},\phi)$ and $(\gcs{L}',\phi')$ are isomorphic as Weil sheaves.
 
 Returning to the case of connected commutative algebraic groups $G$, we consider quasicharacter sheaves that arise via base change to $\bFq$ from local systems on $G$ (\S\ref{ssec:descentG}) and
 those that appear in a pushforward from a constant sheaf along a discrete isogeny $H \to G$ (\S\ref{ssec:discrete_isogenies}).  While these constructions make sense even for non-connected $G$, in the connected
@@ -286,9 +286,9 @@ We also illuminate the nature of the category $\CS(G)$ by showing that every mor
 \begin{theorem*}[{Thm. \ref{thm:autornaught}}]
 If $G$ is a smooth commutative group scheme over $\Fq$ then
 \[
-\Aut_{\CS{}}(\CSs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx),
+\Aut_{\CS{}}(\cs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx),
 \]
-for all quasicharacter sheaves $\CSs{L}$ on $G$.
+for all quasicharacter sheaves $\cs{L}$ on $G$.
 \end{theorem*}
 
 As indicated above, our interest in the function-sheaf dictionary for smooth commutative group schemes
@@ -318,9 +318,9 @@ we give a canonical short exact sequence
 0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T_K} \to \Hom_\text{QC}(T(K),\EEx) \to 0,
 \]
 where $\Hom_\text{QC}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
-We further show that automorphism groups in $\CS(T_K)$ are given, for every quasicharacter sheaf $\CSs{F}$ for $T_K$, by
+We further show that automorphism groups in $\CS(T_K)$ are given, for every quasicharacter sheaf $\cs{F}$ for $T_K$, by
 \[
-\Aut_{\QCS{}}(\CSs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
+\Aut_{\QCS{}}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 
@@ -388,30 +388,30 @@ For any abelian group $A$, we will write $A^*$ for the dual group $\Hom(A, \EEx)
 
 \begin{definition}\label{def:CS}
 A \emph{character sheaf on $G$} is a triple
-$\CSs{L}\ceq (\gCSs{L},\mu,\phi)$ where:
+$\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(CS.1)}{CS.1} $\gCSs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean a constructible $\ell$-adic sheaf on $\bG$, {\it lisse} on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces;
-\labitem{(CS.2)}{CS.2} $\mu: \bm^* \gCSs{L} \to \LxL$ is an isomorphism of
+\labitem{(CS.1)}{CS.1} $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean a constructible $\ell$-adic sheaf on $\bG$, {\it lisse} on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces;
+\labitem{(CS.2)}{CS.2} $\mu: \bm^* \gcs{L} \to \LxL$ is an isomorphism of
 sheaves on $\bGxG$ such that the following diagram commutes,
   where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
   \[
   \begin{tikzcd}[row sep=30]
-  \bm_3^*\gCSs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu}
-    &&  \bm^*\gCSs{L} \boxtimes \gCSs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id} \\
-    \gCSs{L} \boxtimes \bm^* \gCSs{L} \arrow{rr}{\id \boxtimes \mu}
-    &&  \gCSs{L} \tight{0}{\boxtimes}{0} \LxL
+  \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu}
+    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id} \\
+    \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
+    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL
   \end{tikzcd}
   \]
-\labitem{(CS.3)}{CS.3} $\phi : \Frob{G}^* \gCSs{L} \to \gCSs{L}$ is an
+\labitem{(CS.3)}{CS.3} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
   isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with
   $\mu$ in the sense that the following diagram commutes.
   \[
   \begin{tikzcd}[row sep=20]
-  \Frob{\GxxG}^* \bm^* \gCSs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
+  \Frob{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
     && \Frob{\GxxG}^*(\LxL)\\
-    \arrow[equal]{u} \bm^*  \Frob{G}^* \gCSs{L} \arrow[swap]{d}{\bm^* \phi}
-    && \Frob{G}^*\gCSs{L}\boxtimes \Frob{G}^*\gCSs{L} \dar{\phi\boxtimes \phi} \arrow[equal]{u} \\
-    \bm^*\gCSs{L} \arrow{rr}{\mu}
+    \arrow[equal]{u} \bm^*  \Frob{G}^* \gcs{L} \arrow[swap]{d}{\bm^* \phi}
+    && \Frob{G}^*\gcs{L}\boxtimes \Frob{G}^*\gcs{L} \dar{\phi\boxtimes \phi} \arrow[equal]{u} \\
+    \bm^*\gcs{L} \arrow{rr}{\mu}
     && \LxL
   \end{tikzcd}
   \]
@@ -420,23 +420,23 @@ sheaves on $\bGxG$ such that the following diagram commutes,
 
 Morphisms in the category of character sheaves on $G$, denoted by $\CS(G)$, are defined in the natural way:
 \begin{enumerate}
-\labitem{(CS.4)}{CS.4} if $\CSs{L} = (\gCSs{L},\mu,\phi)$ and
-  $\CSs{L'} = (\gCSs{L'},\mu',\phi')$ are character sheaves on $G$ then
-  a morphism $\rho : \CSs{L} \to \CSs{L}'$ is a map $\brho : \gCSs{L} \to \gCSs{L'}$
+\labitem{(CS.4)}{CS.4} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
+  $\cs{L'} = (\gcs{L'},\mu',\phi')$ are character sheaves on $G$ then
+  a morphism $\rho : \cs{L} \to \cs{L}'$ is a map $\brho : \gcs{L} \to \gcs{L'}$
   of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
   \[
   \begin{tikzcd}[column sep=40]
-  \Frob{G}^* \gCSs{L} \rar{\Frob{G}^* \brho} \arrow[swap]{d}{\phi} & \Frob{G}^* \gCSs{L'} \dar{\phi'}
-  & & \arrow[swap]{d}{\mu} \bm^* \gCSs{L} \rar{\bm^* \brho} & \bm^* \gCSs{L'} \dar{\mu'} \\
-  \gCSs{L} \rar{\brho} & \gCSs{L'}
-  & {} & \LxL \rar{\tight{1}{\rho\boxtimes \rho}{1}} & \gCSs{L'} \tight{0}{\boxtimes}{0} \gCSs{L'}
+  \Frob{G}^* \gcs{L} \rar{\Frob{G}^* \brho} \arrow[swap]{d}{\phi} & \Frob{G}^* \gcs{L'} \dar{\phi'}
+  & & \arrow[swap]{d}{\mu} \bm^* \gcs{L} \rar{\bm^* \brho} & \bm^* \gcs{L'} \dar{\mu'} \\
+  \gcs{L} \rar{\brho} & \gcs{L'}
+  & {} & \LxL \rar{\tight{1}{\rho\boxtimes \rho}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
   \end{tikzcd}
   \]
 \end{enumerate}
 
 Category $\CS(G)$ is a rigid monoidal category
 \cite{etingof:09a}*{\S1.10} under the tensor product
-$\CSs{L} \otimes \CSs{L'}$ defined by $(\gCSs{L}\otimes\gCSs{L'}, \mu\otimes\mu', \phi\otimes \phi')$,
+$\cs{L} \otimes \cs{L'}$ defined by $(\gcs{L}\otimes\gcs{L'}, \mu\otimes\mu', \phi\otimes \phi')$,
 with duals given by applying the sheaf hom functor
 $\sheafHom(\ - \ ,\EE)$.
 This rigid monoidal category structure for $\CS(G)$ gives the set $\CSiso{G}$
@@ -449,20 +449,20 @@ an isomorphism and dropping the condition that the stalks be one-dimensional wou
 \end{remark}
 
 We will describe the group $\CSiso{G}$ in Theorem~\ref{thm:snake}
-and the sets $\Hom(\CSs{L},\CSs{L}')$ in Theorem~\ref{thm:autornaught}; in this way we provide a complete description of the category $\CS(G)$.
+and the sets $\Hom(\cs{L},\cs{L}')$ in Theorem~\ref{thm:autornaught}; in this way we provide a complete description of the category $\CS(G)$.
 %
-In the meantime, we close this section with an elementary observation about $\Hom(\CSs{L},\CSs{L}')$.
+In the meantime, we close this section with an elementary observation about $\Hom(\cs{L},\cs{L}')$.
 We call a morphism of sheaves \emph{trivial} if it is zero on every stalk.
 
 \begin{lemma}\label{lem:autornaught}
 Let $G$ be a smooth commutative group scheme over $\Fq$.
-If $\CSs{L}$ and $\CSs{L}'$ are character sheaves on $G$, then
-every $\rho\in \Hom(\CSs{L},\CSs{L}')$ is either trivial or an isomorphism. 
+If $\cs{L}$ and $\cs{L}'$ are character sheaves on $G$, then
+every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism. 
 \end{lemma}
 
 \begin{proof}
-Suppose $\rho \in \Hom(\CSs{L},\CSs{L}')$.
-We prove the lemma by considering the linear transformations $\brho_{\bar g} : \gCSs{L}_{\bar g} \to \gCSs{L}_{\bar g}$ at the stalks above geometric points ${\bar g}$ on $G$ and showing that, either each $\brho_{\bar g}$ trivial or each $\brho_{\bar g}$ is an isomorphism.
+Suppose $\rho \in \Hom(\cs{L},\cs{L}')$.
+We prove the lemma by considering the linear transformations $\brho_{\bar g} : \gcs{L}_{\bar g} \to \gcs{L}_{\bar g}$ at the stalks above geometric points ${\bar g}$ on $G$ and showing that, either each $\brho_{\bar g}$ trivial or each $\brho_{\bar g}$ is an isomorphism.
 (This idea is expanded upon in Section~\ref{ssec:stalks}.)
 Let ${\bar e}$ be the geometric point above the identity $e$ for $G$ determined by our choice of algebraic closure $\bFq$ of $\Fq$.
 If $\brho_{\bar e} = 0$ then the second diagram in \ref{CS.4} implies that $\brho_{\bar g} = 0$ for all ${\bar g}$, in which case $\rho$ is trivial.
@@ -474,27 +474,27 @@ On the other hand, if $\brho_{\bar e}$ is nontrivial then the second diagram in 
 
 In this section we introduce two tools which will help us understand isomorphism classes of objects in $\CS(G)$: the map $\CSiso{G} \to G(k)^*$ given by trace of Frobenius and the pullback functor $\CS(G) \to \CS(H)$ associated to a morphism $H \to G$.
 
-Let $(\gCSs{L},\phi)$ be a Weil sheaf on $G$. Every $g\in G(\Fq)$
+Let $(\gcs{L},\phi)$ be a Weil sheaf on $G$. Every $g\in G(\Fq)$
 determines a geometric point $\bg$ fixed by $\Frob{G}$. 
-Together with the canonical isomorphism $(\Frob{G}^*\gCSs{L})_{\bg} \iso  \gCSs{L}_{\Frob{G}(\bg)}$, the automorphism $\phi$ determines an automorphism $\phi_{\bg}$ of the $\EE$-vector space $\gCSs{L}_{\bg}$.
-Let $\trace(\phi_{\bg};\gCSs{L}_{\bg})$ be the trace of $\phi_{\bg} \in \Aut_{\EE}(\gCSs{L}_{\bg})$ and let $\trFrob{(\gCSs{L},\phi)} : G(\Fq)\to \EE$ be the function defined by 
+Together with the canonical isomorphism $(\Frob{G}^*\gcs{L})_{\bg} \iso  \gcs{L}_{\Frob{G}(\bg)}$, the automorphism $\phi$ determines an automorphism $\phi_{\bg}$ of the $\EE$-vector space $\gcs{L}_{\bg}$.
+Let $\trace(\phi_{\bg};\gcs{L}_{\bg})$ be the trace of $\phi_{\bg} \in \Aut_{\EE}(\gcs{L}_{\bg})$ and let $\trFrob{(\gcs{L},\phi)} : G(\Fq)\to \EE$ be the function defined by 
 \begin{equation}\label{trWeil}
-\trFrob{(\gCSs{L},\phi)}(g) \ceq \trace(\phi_{\bg};\gCSs{L}_{\bg}),
+\trFrob{(\gcs{L},\phi)}(g) \ceq \trace(\phi_{\bg};\gcs{L}_{\bg}),
 \end{equation}
-commonly called the {\em trace of Frobenius of $(\gCSs{L},\phi)$}.
-Note that if $(\gCSs{L},\phi) \iso (\gCSs{L'},\phi')$ as Weil sheaves, 
-then $\trFrob{(\gCSs{L},\phi)} = \trFrob{(\gCSs{L'},\phi')}$ as functions on $G(\Fq)$.
+commonly called the {\em trace of Frobenius of $(\gcs{L},\phi)$}.
+Note that if $(\gcs{L},\phi) \iso (\gcs{L'},\phi')$ as Weil sheaves, 
+then $\trFrob{(\gcs{L},\phi)} = \trFrob{(\gcs{L'},\phi')}$ as functions on $G(\Fq)$.
 
-Now suppose $\CSs{L} = (\gCSs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$.
-Then the isomorphism $\bm^* \gCSs{L} \iso \gCSs{L} \boxtimes\gCSs{L}$ and the diagram of
+Now suppose $\cs{L} = (\gcs{L},\mu,\phi)$ is a quasicharacter sheaf on $G$.
+Then the isomorphism $\bm^* \gcs{L} \iso \gcs{L} \boxtimes\gcs{L}$ and the diagram of
 \ref{CS.3} guarantee
-that the function $\trFrob{(\gCSs{L},\phi)} : G(\Fq)\to \EEx$ is a group homomorphism, which we will also denote by $\trFrob{\CSs{L}}$.  Moreover,
-this homomorphism depends only on the isomorphism class of $\CSs{L}$, so we obtain a map
+that the function $\trFrob{(\gcs{L},\phi)} : G(\Fq)\to \EEx$ is a group homomorphism, which we will also denote by $\trFrob{\cs{L}}$.  Moreover,
+this homomorphism depends only on the isomorphism class of $\cs{L}$, so we obtain a map
 \begin{align*}
 \TrFrob{G} : \CSiso{G} &\to G(\Fq)^*, \\
-\CSs{L} &\mapsto \trFrob{\CSs{L}}.
+\cs{L} &\mapsto \trFrob{\cs{L}}.
 \end{align*}
-Since tensor products on the stalks of $\CSs{L}$ induce pointwise multiplication on the trace of Frobenius, $\TrFrob{G}$ is a group homomorphism.  We devote the remainder of this section to
+Since tensor products on the stalks of $\cs{L}$ induce pointwise multiplication on the trace of Frobenius, $\TrFrob{G}$ is a group homomorphism.  We devote the remainder of this section to
 studying the behavior of the trace of Frobenius under morphisms of group schemes.  These simple but important
 properties of pullbacks and external products will be used in the proofs of many results in this paper.
 
@@ -502,7 +502,7 @@ properties of pullbacks and external products will be used in the proofs of many
   If $f : H\to G$ is a morphism of smooth commutative group schemes over $\Fq$, then
   \begin{align*}
   f^* : \CS(G) &\to \CS(H) \\
-  (\gCSs{L},\mu,\phi) &\mapsto (\bf^*\gCSs{L},(\bfxf)^*\mu,\bf^*F)
+  (\gcs{L},\mu,\phi) &\mapsto (\bf^*\gcs{L},(\bfxf)^*\mu,\bf^*F)
   \end{align*}
   defines a monoidal functor dual to $f \colon H(\Fq) \to G(\Fq)$ in the sense that
   \[
@@ -514,14 +514,14 @@ properties of pullbacks and external products will be used in the proofs of many
   is a commutative diagram of groups.  Moreover, $(f\circ g)^* = g^* \circ f^*$.
 \end{lemma}
 \begin{proof}
-  Let $\CSs{L}$ be a character sheaf on $G$. 
+  Let $\cs{L}$ be a character sheaf on $G$. 
   Pullback by $\bf$ takes rank-one local systems to rank-one local systems.
   To see that $(\bfxf)^* \mu$ satisfies \ref{CS.2},
   apply the functor $(\bfxf)^*$
-  to \ref{CS.2} for $\CSs{L}$ and use the canonical isomorphism
-  $(\bfxf)^*(\LxL) \iso \bf^*\gCSs{L} \tight{-3}{\boxtimes}{-3} \bf^*\gCSs{L}$.
-  To show that $f^*\CSs{L}$ satisfies
-  \ref{CS.3}, apply the same functor to \ref{CS.3} for $\CSs{L}$.
+  to \ref{CS.2} for $\cs{L}$ and use the canonical isomorphism
+  $(\bfxf)^*(\LxL) \iso \bf^*\gcs{L} \tight{-3}{\boxtimes}{-3} \bf^*\gcs{L}$.
+  To show that $f^*\cs{L}$ satisfies
+  \ref{CS.3}, apply the same functor to \ref{CS.3} for $\cs{L}$.
   Since $f$ is a morphism of group schemes defined over $\Fq$
   it provides isomorphisms $(\bfxf)^*\Frob{\GxxG}^* \iso \Frob{\GxxG}^* (\bfxf)^*$
   and $(\bfxf)^* \bm^*\iso \bm^* \bf^*$ between functors of constructible sheaves.
@@ -539,27 +539,18 @@ properties of pullbacks and external products will be used in the proofs of many
 \end{proof}
 
 \begin{lemma}\label{lem:product}
-If $G_1$ and $G_2$ are smooth commutative group schemes over $\Fq$ then the rule
-$\boxtimes : (\CSs{L}_1,\CSs{L}_2)\to \CSs{L}_1\boxtimes\CSs{L}_2$ defines an equivalence of categories
-\[
-\boxtimes : \CS(G_1)\times \CS(G_2) \to \CS(G_1\times G_2)
-\]
-such that
+If $G_1$ and $G_2$ are smooth commutative group schemes over $\Fq$ then the following diagram commutes.
 \[
 \begin{tikzcd}[column sep=60]
-\arrow{d}{\TrFrob{G_1} \times \TrFrob{G_2}} \CSiso{G_1}\times \CSiso{G_2} \arrow{r}{\boxtimes}
+\arrow{d}{\TrFrob{G_1} \times \TrFrob{G_2}} \CSiso{G_1}\times \CSiso{G_2} \arrow{r}{(\cs{L}_1,\cs{L}_2)\mapsto \cs{L}_1\boxtimes \cs{L}_2}
 & \arrow{d}{\TrFrob{G_1\times G_2}} \CSiso{G_1\times G_2}\\
 (G_1)(\Fq)^*\times (G_2)(\Fq)^* \arrow{r}{(\chi_1,\chi_2)\mapsto \chi_1\otimes \chi_2}  & (G_1\times G_2)(\Fq)^*
 \end{tikzcd}
 \]
-commutes.
+Moreover, every character sheaf on $G_1\times G_2$ is isomorphic to $\cs{L}_1\boxtimes\cs{L}_2$ for some character sheaves $\cs{L}_1$ on $G_1$ and $\cs{L}_2$ on $G_2$.
 \end{lemma}
 \begin{proof}
-The only non-trivial part of the proof is to show that 
-\[\boxtimes
- : \CS(G_1)\times \CS(G_2) \to \CS(G_1\times G_2)
- \]
-is essentially surjective, so we will only address that point here.
+The only non-trivial part is the last claim, so we will only address that point here.
 %
 Set $G \ceq G_1\times G_2$
 and write $e_1$ and $e_2$ for the identity elements of $G_1$ and $G_2$.
@@ -582,28 +573,27 @@ G_1  \arrow[swap, bend right]{r}{q_1} &
 \]
 Observe that $p_1\circ f = q_1 \circ r_1$ and $p_2 \circ f = q_2\circ r_2$.
 %
-Now, let $\CSs{L} \ceq (\gCSs{L},\mu,\phi)$ be a character sheaf on $G$
-and set $\CSs{L}_1 \ceq q_1^* \CSs{L}$ and $\CSs{L}_2 \ceq q_2^* \CSs{L}$.
-By Lemma~\ref{lem:pullback}, $\CSs{L}_1$ is a character sheaf on $G_1$
-and $\CSs{L}_2$ is a character sheaf on $G_2$.
-We will obtain an isomorphism $\CSs{L} \iso  \CSs{L}_1\boxtimes \CSs{L}_2$.
+Now, let $\cs{L} \ceq (\gcs{L},\mu,\phi)$ be a character sheaf on $G$
+and set $\cs{L}_1 \ceq q_1^* \cs{L}$ and $\cs{L}_2 \ceq q_2^* \cs{L}$.
+By Lemma~\ref{lem:pullback}, $\cs{L}_1$ is a character sheaf on $G_1$
+and $\cs{L}_2$ is a character sheaf on $G_2$.
+We will obtain an isomorphism $\cs{L} \iso  \cs{L}_1\boxtimes \cs{L}_2$.
 
 Applying the functor $f^*$ to the isomorphism $\mu$ yields
 \begin{equation}\label{eq:fm}
-f^*\mu : f^* m^* \gCSs{L} \to f^*(\gCSs{L}\boxtimes \gCSs{L}) .
+f^*\mu : f^* m^* \gcs{L} \to f^*(\gcs{L}\boxtimes \gcs{L}) .
 \end{equation}
-We have already seen that $m\circ f = \id_G$, so $f^* m^* \gCSs{L} = \gCSs{L}$.  
-Since $f^*p_1^*\gCSs{L} = r_1^* q_1^* \gCSs{L} = r_1^* \gCSs{L}_1$ and $f^*p_2^*\gCSs{L} = r_2^* q_2^* \gCSs{L} = r_2^*\gCSs{L}_2$,
+We have already seen that $m\circ f = \id_G$, so $f^* m^* \gcs{L} = \gcs{L}$.  
+Since $f^*p_1^*\gcs{L} = r_1^* q_1^* \gcs{L} = r_1^* \gcs{L}_1$ and $f^*p_2^*\gcs{L} = r_2^* q_2^* \gcs{L} = r_2^*\gcs{L}_2$,
 we have 
 \[
-f^*(\gCSs{L}\boxtimes \gCSs{L})  = f^*p_1^*\gCSs{L}\otimes f^* p_2^*\gCSs{L} = \gCSs{L}_1\boxtimes \gCSs{L}_2.
+f^*(\gcs{L}\boxtimes \gcs{L})  = f^*p_1^*\gcs{L}\otimes f^* p_2^*\gcs{L} = \gcs{L}_1\boxtimes \gcs{L}_2.
 \]
-It follows that \eqref{eq:fm} gives an isomorphism $\gCSs{L} \to  \gCSs{L}_1\boxtimes \gCSs{L}_2$.
+It follows that \eqref{eq:fm} gives an isomorphism $\gcs{L} \to  \gcs{L}_1\boxtimes \gcs{L}_2$.
 It is routine to show that this morphism satisfies
-\ref{CS.4} as it applies here,
+\ref{CS.4}, as it applies here,
 from which it follows that we have exhibited an isomorphism
-$\CSs{L} \to \CSs{L}_1\boxtimes \CSs{L}_2$ of quasicharacters sheaves on $G\times G$.
-This completes the proof that $\boxtimes$ is essentially surjective.
+$\cs{L} \to \cs{L}_1\boxtimes \cs{L}_2$ of characters sheaves on $G\times G$.
 \end{proof}
 
 Using these results on pullbacks and products, we may prove a naturality property of $\TrFrob{G}$.
@@ -634,12 +624,12 @@ concluding the proof of Proposition~\ref{prop:functorialG}.
 Before turning our attention to character sheaves on connected commutative algebraic groups in Section~\ref{ssec:connected}, we treat two special classes of character sheaves on arbitrary smooth commutative group schemes $G$: those that descend from local systems on $\bG$ to local systems on $G$ (\S \ref{ssec:descentG}); and those that are defined by discrete isogenies onto $G$ (\S \ref{ssec:discrete_isogenies}). The latter will play a role in Sections~\ref{ssec:connected} and \ref{ssec:restriction}.
 
 In this section we consider a category of sheaves on $G$ obtained by
-replacing the Weil sheaf $(\gCSs{L}, \phi)$ on $\bG$ in the definition of a character sheaf with an $\ell$-adic local system on $G$ itself.
+replacing the Weil sheaf $(\gcs{L}, \phi)$ on $\bG$ in the definition of a character sheaf with an $\ell$-adic local system on $G$ itself.
 
 \begin{definition}
-Let $\bCS(G)$ be the category of pairs $(\CSs{E},\mu_\CSs{E})$
-where $\CSs{E}$ is an $\ell$-adic local system on $G$ of rank-one,
-equipped with an isomorphism $\mu_\CSs{E} : m^* \CSs{E} \to \CSs{E} \boxtimes \CSs{E}$
+Let $\bCS(G)$ be the category of pairs $(\cs{E},\mu_\cs{E})$
+where $\cs{E}$ is an $\ell$-adic local system on $G$ of rank-one,
+equipped with an isomorphism $\mu_\cs{E} : m^* \cs{E} \to \cs{E} \boxtimes \cs{E}$
 satisfying the analogue of \ref{CS.2} on $G$;
 morphisms in $\bCS(G)$ are defined as in the second part of
 \ref{CS.4}.
@@ -655,21 +645,21 @@ B_G : \bCS(G) \to \CS(G).
 \end{proposition}
 
 \begin{proof}
- Suppose $(\CSs{E},\mu_\CSs{E})$ in an object of $\bCS(G)$.
+ Suppose $(\cs{E},\mu_\cs{E})$ in an object of $\bCS(G)$.
  Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
- Set $\gCSs{L} = b_G^* \CSs{E}$. 
+ Set $\gcs{L} = b_G^* \cs{E}$. 
  The functor $b_G^*$ takes local systems on $G$ to local systems on $\bG$.
- The local system $\gCSs{L}$ comes equipped with an isomorphism
- $\phi: \Frob{G}^* \gCSs{L} \to \gCSs{L}$.
- The resulting functor from local systems on $G$ to Weil local systems on $\bG$, given on objects by $\CSs{E} \mapsto (\gCSs{L},\phi)$, 
+ The local system $\gcs{L}$ comes equipped with an isomorphism
+ $\phi: \Frob{G}^* \gcs{L} \to \gcs{L}$.
+ The resulting functor from local systems on $G$ to Weil local systems on $\bG$, given on objects by $\cs{E} \mapsto (\gcs{L},\phi)$, 
  is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} and \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}.
- The isomorphism $\mu \ceq b_{G\times G}^*\mu_\CSs{E}$ satisfies \ref{CS.2}
- for $\gCSs{L}$ and $\phi$ is compatible with $\mu$ in the sense of \ref{CS.3}.
- This construction defines the functor $B_G : \bCS(G) \to \CS(G)$ given on objects by $(\CSs{E},\mu_\CSs{E}) \mapsto (\gCSs{L},\mu, \phi)$, as defined here. 
+ The isomorphism $\mu \ceq b_{G\times G}^*\mu_\cs{E}$ satisfies \ref{CS.2}
+ for $\gcs{L}$ and $\phi$ is compatible with $\mu$ in the sense of \ref{CS.3}.
+ This construction defines the functor $B_G : \bCS(G) \to \CS(G)$ given on objects by $(\cs{E},\mu_\cs{E}) \mapsto (\gcs{L},\mu, \phi)$, as defined here. 
  Because morphisms in $\bCS(G)$ and $\CS(G)$ are morphisms of local systems on $G$ and $\bG$, respectively, satisfying condition~\ref{CS.4}, this functor is also full and faithful.
 \end{proof}
 
-We will say that a character sheaf $\CSs{L} \in \CS(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\CSs{E}, \mu_\CSs{E})$.
+We will say that a character sheaf $\cs{L} \in \CS(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\cs{E}, \mu_\cs{E})$.
 
 \subsection{Discrete isogenies}\label{ssec:discrete_isogenies}
 
@@ -684,12 +674,12 @@ Then $(f_! V_H)_\psi$ (the $\psi$-isotypic component of $f_!V_H$) is an object o
 \end{proposition}
 
 \begin{proof}
-Let $f$, $A$, $V$ and $\psi$ be as above and set $\CSs{E} = (f_! V_H)_\psi$.
-Since $A$ is abelian, $\CSs{E}$ is an $\ell$-adic local system on $G$ of rank one.
-We must show that $\CSs{E}$ comes equipped with an isomorphism $\mu_\CSs{E} : m^* \CSs{E} \to \CSs{E}\boxtimes\CSs{E}$.
+Let $f$, $A$, $V$ and $\psi$ be as above and set $\cs{E} = (f_! V_H)_\psi$.
+Since $A$ is abelian, $\cs{E}$ is an $\ell$-adic local system on $G$ of rank one.
+We must show that $\cs{E}$ comes equipped with an isomorphism $\mu_\cs{E} : m^* \cs{E} \to \cs{E}\boxtimes\cs{E}$.
 To do this we use \'etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$ {\it cf.\ } \cite{bernstein-luntz:equivariant_sheaves}*{Prop 8.1.1}. 
-In particular, $f^*\CSs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
-Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\CSs{E} : m^*\CSs{E} \to \CSs{E}\boxtimes\CSs{E}$
+In particular, $f^*\cs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
+Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$
 from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
 \end{proof}
 
@@ -726,18 +716,18 @@ $\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
   $\ell$-adic representations of $\Weil{}(G,\bg)$ \cite{deligne:80a}*{1.1.12}.
   
-  Now let $(\gCSs{L},\mu,\phi)$ be a character sheaf on $G$
-  and let $\lambda : \Weil{}(G, \bg) \to \EEx$ be the character determined by $(\gCSs{L},\phi)$.
+  Now let $(\gcs{L},\mu,\phi)$ be a character sheaf on $G$
+  and let $\lambda : \Weil{}(G, \bg) \to \EEx$ be the character determined by $(\gcs{L},\phi)$.
   Composing with the splitting $\Weil{} \to \Weil{}(G,\bg)$ yields an $\ell$-adic character
   $\lambda_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{ssec:Frob}, for every $\Fq$ rational point $g$ on $G$:
   $
-  \lambda_g(\Frob{}) =  \trFrob{\CSs{L}}(g).
+  \lambda_g(\Frob{}) =  \trFrob{\cs{L}}(g).
   $
 %
-  On the other hand, we have already seen that $\trFrob{\CSs{L}} : G(\Fq) \to \EEx$
+  On the other hand, we have already seen that $\trFrob{\cs{L}} : G(\Fq) \to \EEx$
   is a group homomorphism. 
   Since $G$ is an algebraic group over $\Fq$, $G(\Fq)$ is finite.
-  Therefore $\trFrob{\CSs{L}}(g) = \lambda_g(\Frob{})$ is a root of unity
+  Therefore $\trFrob{\cs{L}}(g) = \lambda_g(\Frob{})$ is a root of unity
   for every $g\in G(\Fq)$.  Since $\Weil{}$ is generated by
   $\Frob{}$ and $\lambda_g : \Weil{} \to \EEx$ is
   a character, it follows that the image of $\lambda_g$ is a finite group.
@@ -751,24 +741,24 @@ $\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
   The $\Fq$ rational point $g$ also
   determines an equivalence between the category of $\ell$-adic
   representations of $\pi_1(G,\bg)$ and $\ell$-adic local systems on $G$. Let
-  $\CSs{E}$ be a local system on $G$ in the isomorphism class
+  $\cs{E}$ be a local system on $G$ in the isomorphism class
   determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
-  Then $b_G^*\CSs{E} \iso \gCSs{L}$.
+  Then $b_G^*\cs{E} \iso \gcs{L}$.
   
   Since $b_{G\times G}^*$ is full and faithful (again, see
 \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}),
  \[
-  b_{G\times G}^* : \Hom(m^*\CSs{E},\CSs{E}\boxtimes\CSs{E}) \to \Hom({\bar m}^*\gCSs{L},\gCSs{L}\boxtimes\gCSs{L})
+  b_{G\times G}^* : \Hom(m^*\cs{E},\cs{E}\boxtimes\cs{E}) \to \Hom({\bar m}^*\gcs{L},\gcs{L}\boxtimes\gcs{L})
  \]
   is a bijection
   (hom taken in the categories on constructible $\ell$-adic sheaves on
   $G\times G$ and ${\bar G}\times {\bar G}$ respectively,
   in which $\ell$-adic local systems sit as full subcategories).
-  Let $\mu_\CSs{E} : m^*\CSs{E} \to \CSs{E}\boxtimes\CSs{E}$ be the isomorphism matching
-  $\mu : {\bar m}^*\gCSs{L} \to \gCSs{L}\boxtimes\gCSs{L}$,
-  the latter appearing in the definition of $\CSs{L}$.
-  Then, as in Section~\ref{ssec:descentG}, $(\CSs{E},\mu_\CSs{E})$ is an object of $\bCS(G)$
-  and $\CSs{L} \ceq (\gCSs{L},\mu,\phi)$ is isomorphic to $(b_G^*\CSs{E},b_{G\times G}^*\mu_\CSs{E})$ in $\CS(G)$.
+  Let $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ be the isomorphism matching
+  $\mu : {\bar m}^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$,
+  the latter appearing in the definition of $\cs{L}$.
+  Then, as in Section~\ref{ssec:descentG}, $(\cs{E},\mu_\cs{E})$ is an object of $\bCS(G)$
+  and $\cs{L} \ceq (\gcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\cs{E},b_{G\times G}^*\mu_\cs{E})$ in $\CS(G)$.
   Thus, the full and faithful functor $B_G : \bCS(G) \to \CS(G)$ from Section~\ref{ssec:descentG}
   is also essentially surjective, hence an equivalence.
 \end{proof}
@@ -778,24 +768,24 @@ Using this equivalence of categories, we may give a good description of $\CS(G)$
 \begin{proposition}\label{prop:connected}
  If $G$ is a connected, commutative algebraic group over $\Fq$ then:
  \begin{enumerate}
- \item $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
- \item every character sheaf on $G$ is isomorphic to one defined by a discrete isogeny;
- \item $\Aut(\CSs{L}) = 1$, for all character sheaves $\CSs{L}$ on $G$.
+ \labitem{(1)}{c1} $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
+ \labitem{(2)}{c2} every character sheaf on $G$ is isomorphic to one defined by a discrete isogeny;
+ \labitem{(3)}{c3} $\Aut(\cs{L}) = 1$, for all character sheaves $\cs{L}$ on $G$.
  \end{enumerate}
  \end{proposition}
 \begin{proof}
-In Lemma~\ref{lem:bounded_connected}, we saw that every character sheaf $\CSs{L}$ on $\bG$ descends to $G$; let $\CSs{E}$ be an object of $\bCS(G)$ for which $B_G(\CSs{E}) \iso \CSs{L}$.
- Since the functor $B_G : \bCS(G) \to \CS(G)$ is full and faithful, $\Aut(\CSs{L}) = \Aut(\CSs{E})$.
+In Lemma~\ref{lem:bounded_connected}, we saw that every character sheaf $\cs{L}$ on $\bG$ descends to $G$; let $\cs{E}$ be an object of $\bCS(G)$ for which $B_G(\cs{E}) \iso \cs{L}$.
+ Since the functor $B_G : \bCS(G) \to \CS(G)$ is full and faithful, $\Aut(\cs{L}) = \Aut(\cs{E})$.
 From here, Deligne's function-sheaf dictionary for connected commutative algebraic groups over finite fields, as in \cite{deligne:SGA4.5}*{Sommes trig.} or \cite{laumon:87a}*{1.1.3}, gives us all we need, as we briefly recall. %\todo{Fix citelist} %\citelist{\cite{deligne:SGA4.5}*{Sommes trig.},\cite{laumon:87a}*{1.1.3}}
 
 As in the proof of Proposition~\ref{prop:finite}, use \'etale descent to see that pullback by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$. 
-Under this equivalence, local systems $\CSs{E}$ on $G$ arising from objects in $\bCS(G)$ are matched with $G(\Fq)$-equivariant constant local systems of rank-one on $G$, and therefore with one-dimensional representations of $G(\Fq)$. 
-In the same way, pullback along the isogeny $\Lang\times\Lang : G\times G\to G\times G$ matches the extra structure $\mu_\CSs{E} : m^*\CSs{E} \to \CSs{E}\boxtimes\CSs{E}$ with an isomorphism $m^*V \to V\boxtimes V$ of one-dimensional representations of $G(\Fq)\times G(\Fq)$, which is exactly an isomorphism $V \to V\otimes V$ of one-dimensional representations, which is exactly the choice of an isomorphism $V\iso \EE$.
+Under this equivalence, local systems $\cs{E}$ on $G$ arising from objects in $\bCS(G)$ are matched with $G(\Fq)$-equivariant constant local systems of rank-one on $G$, and therefore with one-dimensional representations of $G(\Fq)$. 
+In the same way, pullback along the isogeny $\Lang\times\Lang : G\times G\to G\times G$ matches the extra structure $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ with an isomorphism $m^*V \to V\boxtimes V$ of one-dimensional representations of $G(\Fq)\times G(\Fq)$, which is exactly an isomorphism $V \to V\otimes V$ of one-dimensional representations, which is exactly the choice of an isomorphism $V\iso \EE$.
 We see that $\bCS(G)$ is equivalent to the category of characters of $G(\Fq)$.
-Let $\bg$ be a geometric point above $g \in G(\Fq)$.  If $\CSs{E}$ matches $\psi : G(\Fq)\to \EEx$ under this equivalence, a simple calculation on stalks reveals that the action of Frobenius on $\CSs{E}_{\bar g}$ is multiplication by $\psi(g)^{-1}$.
-In other words, for every $\CSs{E}$ in $\bCS(G)$, the trace of $\Lang^*\CSs{E}$ is $\trFrob{\CSs{E}}^{-1}$ as a representation of $G(\Fq)$, proving parts (i) and (ii).
+Let $\bg$ be a geometric point above $g \in G(\Fq)$.  If $\cs{E}$ matches $\psi : G(\Fq)\to \EEx$ under this equivalence, a simple calculation on stalks reveals that the action of Frobenius on $\cs{E}_{\bar g}$ is multiplication by $\psi(g)^{-1}$.
+In other words, for every $\cs{E}$ in $\bCS(G)$, the trace of $\Lang^*\cs{E}$ is $\trFrob{\cs{E}}^{-1}$ as a representation of $G(\Fq)$, proving parts \ref{c1} and \ref{c2}.
 
-To finish the proof of part (iii), suppose $\Lang^*\CSs{E} = V$ with isomorphism $V \to V\otimes V$.  Observe that the equivalence above establishes a bijection between $\Aut(\CSs{E})$ and the group of automorphisms of $\rho : V\to V$ for which 
+To finish the proof of part \ref{c3}, suppose $\Lang^*\cs{E} = V$ with isomorphism $V \to V\otimes V$.  Observe that the equivalence above establishes a bijection between $\Aut(\cs{E})$ and the group of automorphisms of $\rho : V\to V$ for which 
 \[
 \begin{tikzcd}
 \arrow{d}{} V \arrow{r}{\rho} & V\arrow{d}{}\\
@@ -803,16 +793,16 @@ V\otimes V \arrow{r}{\rho\otimes \rho} & V\otimes V
 \end{tikzcd}
 \]
 commutes. 
-Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\CSs{E}) = 1$, completing the proof.
+Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\cs{E}) = 1$, completing the proof.
 \end{proof}
 
 We have just seen that, for a connected commutative algebraic group $G$ over $\Fq$, the category of character sheaves on $G$ is equivalent to the category of one-dimensional representations $V$ of $G(\Fq)$ equipped with an isomorphism $V\iso \EE$, and therefore equivalent to the category of characters $\psi$ of $G(\Fq)$.
-We have also just seen that if the character of $\Lang^*\CSs{E}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu_\CSs{E} : \CSs{E} \to \CSs{E}\boxtimes\CSs{E}$.
-This fact leads to a perspective on the function-sheaf dictionary common in the literature in which one considers one-dimensional local systems $\CSs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\CSs{E} \iso \CSs{E} \boxtimes\CSs{E}$ \cite{kamgarpour:09a}*{Intro}.
-As a slight variation, one may also consider one-dimensional local systems $\gCSs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gCSs{L} \iso \gCSs{L}$ and an isomorphism $\bm^*\gCSs{L} \iso \gCSs{L} \boxtimes\gCSs{L}$.
+We have also just seen that if the character of $\Lang^*\cs{E}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu_\cs{E} : \cs{E} \to \cs{E}\boxtimes\cs{E}$.
+This fact leads to a perspective on the function-sheaf dictionary common in the literature in which one considers one-dimensional local systems $\cs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\cs{E} \iso \cs{E} \boxtimes\cs{E}$ \cite{kamgarpour:09a}*{Intro}.
+As a slight variation, one may also consider one-dimensional local systems $\gcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gcs{L} \iso \gcs{L}$ and an isomorphism $\bm^*\gcs{L} \iso \gcs{L} \boxtimes\gcs{L}$.
 
 Although the category of character sheaves on $G$ specializes to the one described above when $G$ is connected and of finite type, this description is not sufficient when extending the dictionary to smooth commutative group schemes. 
-In particular, for a given $\gCSs{L}$ and $\phi$ there may be many $\mu$ so that $(\gCSs{L},\mu,\phi)$ is a character sheaf.  For \'etale $G$, Proposition~\ref{prop:etale-iso} shows that $\Hh^2(\bG,\EEx)^{\Weil{}}$ measures the possibilities for $\mu$.  We will see in Section~\ref{sec:main} that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ plays an analogous role for general smooth commutative group schemes $G$.
+In particular, for a given $\gcs{L}$ and $\phi$ there may be many $\mu$ so that $(\gcs{L},\mu,\phi)$ is a character sheaf.  For \'etale $G$, Proposition~\ref{prop:etale-iso} shows that $\Hh^2(\bG,\EEx)^{\Weil{}}$ measures the possibilities for $\mu$.  We will see in Section~\ref{sec:main} that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ plays an analogous role for general smooth commutative group schemes $G$.
 
 
 \section{Character sheaves on \'etale commutative group schemes} \label{sec:etale}
@@ -826,47 +816,47 @@ from the category of \'etale commutative group schemes over $\Fq$ to the categor
 with a continuous action of $\Gal(\bFq/\Fq)$,
 provides the following simple description of character sheaves.
 %
-A character sheaf $\CSs{L}$ on an \'etale commutative group scheme $G$ over $\Fq$ is:
+A character sheaf $\cs{L}$ on an \'etale commutative group scheme $G$ over $\Fq$ is:
 \begin{enumerate}
  \labitem{(cs.1)}{cs.1} an indexed set of one-dimensional
-  $\EE$-vector spaces $\gCSs{L}_x$, as $x$ runs over
+  $\EE$-vector spaces $\gcs{L}_x$, as $x$ runs over
   $G(\bFq)$;
 
  \labitem{(cs.2)}{cs.2} an indexed set of isomorphisms
-  $\mu_{x,y} : \gCSs{L}_{x+y} \xrightarrow{\iso} \gCSs{L}_{x} \otimes\gCSs{L}_{y}$,
+  $\mu_{x,y} : \gcs{L}_{x+y} \xrightarrow{\iso} \gcs{L}_{x} \otimes\gcs{L}_{y}$,
   for all $x,y \in G(\bFq)$, such that
   \[
    \begin{tikzcd}[row sep=40]
-    \gCSs{L}_{x+y+z} \arrow{rr}{\mu_{x+y,z}} \arrow[swap]{d}{\mu_{x,y+z}}
-    && \gCSs{L}_{x+y}\otimes\gCSs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
-    \gCSs{L}_{x} \otimes\gCSs{L}_{y+z} \arrow{rr}{\id \otimes\mu_{y,z}}
-    && \gCSs{L}_{x} \otimes\gCSs{L}_{y} \otimes\gCSs{L}_{z}
+    \gcs{L}_{x+y+z} \arrow{rr}{\mu_{x+y,z}} \arrow[swap]{d}{\mu_{x,y+z}}
+    && \gcs{L}_{x+y}\otimes\gcs{L}_{z} \dar{\mu_{x,y} \tight{0.5}{\otimes}{1} \id} \\
+    \gcs{L}_{x} \otimes\gcs{L}_{y+z} \arrow{rr}{\id \otimes\mu_{y,z}}
+    && \gcs{L}_{x} \otimes\gcs{L}_{y} \otimes\gcs{L}_{z}
    \end{tikzcd}
   \]
   commutes, for all $x,y,z\in G(\bFq)$; and
- \labitem{(cs.3)}{cs.3} an indexed set of isomorphisms $\phi_{x} : \gCSs{L}_{\Frob{}(x)} \to \gCSs{L}_x$
+ \labitem{(cs.3)}{cs.3} an indexed set of isomorphisms $\phi_{x} : \gcs{L}_{\Frob{}(x)} \to \gcs{L}_x$
   such that
   \[
    \begin{tikzcd}[row sep=40]
-    \gCSs{L}_{\Frob{}(x)+\Frob{}(y)} \arrow[swap]{d}{\phi_{x+y}} \arrow{rr}{\mu_{\Frob{}(x),\Frob{}(y)}}
-    && \gCSs{L}_{\Frob{}(x)}\otimes\gCSs{L}_{\Frob{}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
-    \gCSs{L}_{x+y} \arrow{rr}{\mu_{x,y}}
-    && \gCSs{L}_x \otimes\gCSs{L}_y
+    \gcs{L}_{\Frob{}(x)+\Frob{}(y)} \arrow[swap]{d}{\phi_{x+y}} \arrow{rr}{\mu_{\Frob{}(x),\Frob{}(y)}}
+    && \gcs{L}_{\Frob{}(x)}\otimes\gcs{L}_{\Frob{}(y)} \dar{\phi_x \tight{0}{\otimes}{0} \phi_y} \\
+    \gcs{L}_{x+y} \arrow{rr}{\mu_{x,y}}
+    && \gcs{L}_x \otimes\gcs{L}_y
    \end{tikzcd}
   \]
   commutes, for all $x,y\in G(\bFq)$.
 \end{enumerate}
-Under this equivalence, a morphism $\rho : \CSs{L} \to \CSs{L'}$ of character sheaves on $G$ is given by
+Under this equivalence, a morphism $\rho : \cs{L} \to \cs{L'}$ of character sheaves on $G$ is given by
 \begin{enumerate}
- \labitem{(cs.4)}{cs.4} an indexed set $\brho_x : \gCSs{L}_x \to \gCSs{L'}_x$
+ \labitem{(cs.4)}{cs.4} an indexed set $\brho_x : \gcs{L}_x \to \gcs{L'}_x$
   of linear transformations such that
   \[
    \begin{tikzcd}[column sep=40]
-    \arrow[swap]{d}{\phi_x} \gCSs{L}_{\Frob{}(x)} \rar{\brho_{\Frob{}(x)}} & \gCSs{L'}_{\Frob{}(x)} \dar{\phi_x'}
+    \arrow[swap]{d}{\phi_x} \gcs{L}_{\Frob{}(x)} \rar{\brho_{\Frob{}(x)}} & \gcs{L'}_{\Frob{}(x)} \dar{\phi_x'}
     &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
-    & \arrow[swap]{d}{\mu_{x,y}} \gCSs{L}_{x+y} \rar{\brho_{x+y}} & \gCSs{L'}_{x+y} \dar{\mu'_{x,y}} \\
-    \gCSs{L}_x \rar{\brho_x} & \gCSs{L'}_x
-    & {} & \gCSs{L}_x\otimes\gCSs{L}_y \rar{\brho_x\otimes\brho_y} & \gCSs{L'}_x \otimes\gCSs{L'}_y
+    & \arrow[swap]{d}{\mu_{x,y}} \gcs{L}_{x+y} \rar{\brho_{x+y}} & \gcs{L'}_{x+y} \dar{\mu'_{x,y}} \\
+    \gcs{L}_x \rar{\brho_x} & \gcs{L'}_x
+    & {} & \gcs{L}_x\otimes\gcs{L}_y \rar{\brho_x\otimes\brho_y} & \gcs{L'}_x \otimes\gcs{L'}_y
    \end{tikzcd}
   \]
   both commute, for all $x, y \in G(\bFq)$.
@@ -943,9 +933,9 @@ In this section we define an isomorphism
 \[
 S_G : \CSiso{G} \to \Hh^2(E^\bullet_G).
 \]
-Let $\CSs{L} = (\gCSs{L},\mu,\phi)$ be a character sheaf on $G$.
-For each geometric point $x\in {\bar G}$, choose a basis $\{ v_x \}$ for $\gCSs{L}_x$.
-Through this choice, $\CSs{L}$ determines functions
+Let $\cs{L} = (\gcs{L},\mu,\phi)$ be a character sheaf on $G$.
+For each geometric point $x\in {\bar G}$, choose a basis $\{ v_x \}$ for $\gcs{L}_x$.
+Through this choice, $\cs{L}$ determines functions
 \begin{align*}
 a : {\bar G}\times {\bar G} &\to \EEx & b : {\bar G} &\to \EEx \\
 \mu_{x,y}(v_{x+y}) &= a(x,y) v_x \otimes v_y & \phi_x(v_{\Frob{G}(x)}) &= b(x) v_x.
@@ -968,20 +958,20 @@ d_{\Weil{}} \beta =0;
 \]
 in other words,
 \[\alpha\oplus \beta \in Z^2(E^\bullet_G).\]
-Although the cocycle $\alpha\oplus \beta$ is not well defined by $\CSs{L}$, its class in $\Hh^2(E^\bullet_G)$ is.
-To see this, let $\{ v'_x \in \gCSs{L}_x^\times \tq x \in {\bar G}\}$ be another choice and let $\alpha'\oplus \beta' \in Z^2(E^\bullet_G)$ be defined by $\CSs{L}$ and this choice, as above.
+Although the cocycle $\alpha\oplus \beta$ is not well defined by $\cs{L}$, its class in $\Hh^2(E^\bullet_G)$ is.
+To see this, let $\{ v'_x \in \gcs{L}_x^\times \tq x \in {\bar G}\}$ be another choice and let $\alpha'\oplus \beta' \in Z^2(E^\bullet_G)$ be defined by $\cs{L}$ and this choice, as above.
 Now let $\delta \in C^0(\Weil{},C^1({\bar G},\EEx))$ correspond to the function $d : {\bar G}\to \EEx$ defined by $v'_x = d(x) v_x$.
 Chasing through \ref{CS.2} and \ref{CS.3}, we find
 \[
 \alpha'\oplus\beta' = \alpha\oplus\beta + d\delta,
 \]
-so the class $[\alpha\oplus\beta]$ of $\alpha\oplus\beta$ in $\Hh^2(E^\bullet_G)$ is independent of the choice made above. It is also easy to see that $[\alpha\oplus\beta] = [\alpha_0\oplus\beta_0]$ when $\CSs{L} \iso \CSs{L}_0$,
+so the class $[\alpha\oplus\beta]$ of $\alpha\oplus\beta$ in $\Hh^2(E^\bullet_G)$ is independent of the choice made above. It is also easy to see that $[\alpha\oplus\beta] = [\alpha_0\oplus\beta_0]$ when $\cs{L} \iso \cs{L}_0$,
 which concludes the definition of the function
 \begin{align*}
 S_G : \CSiso{G} &\to \Hh^2(E^\bullet_G)\\
-[\CSs{L}] &\mapsto [\alpha\oplus \beta].
+[\cs{L}] &\mapsto [\alpha\oplus \beta].
 \end{align*}
-It is also easy to see that $[\alpha_1\oplus\beta_1] + [\alpha_2\oplus\beta_2] = [\alpha_3\oplus\beta_3]$ when $\CSs{L}_3 = \CSs{L}_1\otimes \CSs{L}_2$, so $S_G$ is a group homomorphism.
+It is also easy to see that $[\alpha_1\oplus\beta_1] + [\alpha_2\oplus\beta_2] = [\alpha_3\oplus\beta_3]$ when $\cs{L}_3 = \cs{L}_1\otimes \cs{L}_2$, so $S_G$ is a group homomorphism.
 
 \begin{remark}
 Although we will only use the group homomorphism $S_G : \CSiso{G}\to \Hh^2(E^\bullet_G)$ when $G$ is an \'etale commutative group scheme, the function is defined for all smooth commutative group schemes $G$.
@@ -992,21 +982,21 @@ However, the next result is false in that context.
 If $G$ is \'etale then $S_G$ is an isomorphism.
 \end{proposition}
 \begin{proof}
-Suppose $[\CSs{L}] \in \CSiso{G}$ with $S_G([\CSs{L}]) = [\alpha \oplus \beta] = 0$,
+Suppose $[\cs{L}] \in \CSiso{G}$ with $S_G([\cs{L}]) = [\alpha \oplus \beta] = 0$,
 so that $\alpha \oplus \beta = d\sigma$ for some $\sigma \in C^0(\Weil{},C^1({\bar G},\EEx) = C^1({\bar G},\EEx)$.
-For each $x\in {\bar G}$, define $\sigma_x : \gCSs{L}_x \to \EE$ by $\sigma_x : v_x \mapsto \sigma(x)$.
-Then the indexed set of isomorphisms $\{ \sigma_x : \gCSs{L}_x \to \EE \tq x\in {\bar G}\}$
-defines an isomorphism $\CSs{L} \to (\EE)_G$.
-Since $\CSs{L} = 0 \in \CSiso{G}$, $S_G$ is injective.
+For each $x\in {\bar G}$, define $\sigma_x : \gcs{L}_x \to \EE$ by $\sigma_x : v_x \mapsto \sigma(x)$.
+Then the indexed set of isomorphisms $\{ \sigma_x : \gcs{L}_x \to \EE \tq x\in {\bar G}\}$
+defines an isomorphism $\cs{L} \to (\EE)_G$.
+Since $\cs{L} = 0 \in \CSiso{G}$, $S_G$ is injective.
 
 To see that $S_G$ is surjective, begin with $\alpha\oplus\beta\oplus 0 \in Z^2(E^\bullet_G)$.
 Since $d_{\Weil{}} \beta = 0$, we may define $a = \alpha \in C^2({\bar G},\EEx)$ and
 $b = \beta(\Frob{}) \in C^1({\bar G},\EEx)$, which are related to $\alpha$ and $\beta$ as above.
-Set $\gCSs{L}_x = \EE$, define $\mu_{x,y} : \gCSs{L}_{x+y} \to \gCSs{L}_x\otimes\gCSs{L}_y$
-by $\mu_{x,y}(1) = a(x,y) (1\otimes 1)$ and $\phi_x : \gCSs{L}_{\Frob{G}(x)} \to \gCSs{L}_x$ by $\phi_x(1)= b(x)$.
+Set $\gcs{L}_x = \EE$, define $\mu_{x,y} : \gcs{L}_{x+y} \to \gcs{L}_x\otimes\gcs{L}_y$
+by $\mu_{x,y}(1) = a(x,y) (1\otimes 1)$ and $\phi_x : \gcs{L}_{\Frob{G}(x)} \to \gcs{L}_x$ by $\phi_x(1)= b(x)$.
 Then \ref{CS.1} holds since $d_G \alpha =0$ and \ref{CS.2} holds since $d_{\Weil{}}\alpha =d_G \beta$.
-Tracing the construction backward, we have defined a character sheaf $\CSs{L}$ on $G$ with
-$S_G(\CSs{L}) = [\alpha\oplus\beta\oplus 0]$, showing that $S_G$ is surjective.
+Tracing the construction backward, we have defined a character sheaf $\cs{L}$ on $G$ with
+$S_G(\cs{L}) = [\alpha\oplus\beta\oplus 0]$, showing that $S_G$ is surjective.
 \end{proof}
 
 \subsection{Objects in the \'etale case}\label{ssec:SandT}
@@ -1046,24 +1036,24 @@ and split.
 Pick $\chi \in G(\Fq)^*$. 
 Let $[\beta]\in \Hh^1(\Weil{},\bG^*)$ be the class corresponding to $\chi$ under Lemma~\ref{lem:dual-inv}.
 Every representative cocycle $\beta \in Z^1(\Weil{},\bG^*)$ determines a homomorphism $\beta(\Frob{}) : G(\bFq)\to \EEx$ such that $\beta(\Frob{})\vert_{G(\Fq)} = \chi$.
-Set $\gCSs{L}_x = \EE$ for every $x\in G(\bFq)$.
-Define $\mu_{x,y} : \gCSs{L}_{x+y} \to \gCSs{L}_x\otimes \gCSs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and
-$\phi_{x} : \gCSs{L}_{\Frob{}(x)} \to \gCSs{L}_x$ by $\phi_{x}(1) = \beta(\Frob{})(x)$.
+Set $\gcs{L}_x = \EE$ for every $x\in G(\bFq)$.
+Define $\mu_{x,y} : \gcs{L}_{x+y} \to \gcs{L}_x\otimes \gcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and
+$\phi_{x} : \gcs{L}_{\Frob{}(x)} \to \gcs{L}_x$ by $\phi_{x}(1) = \beta(\Frob{})(x)$.
 Since $\beta(\Frob{}) : G(\bFq) \to \EEx$ is a group homomorphism,
 condition \eqref{nohom} is satisfied with $a =1$.
-So $\CSs{L} = (\gCSs{L}, \mu, \phi)$
-is a character sheaf with $\trFrob{\CSs{L}} = \chi$.
+So $\cs{L} = (\gcs{L}, \mu, \phi)$
+is a character sheaf with $\trFrob{\cs{L}} = \chi$.
 This shows that $\TrFrob{G}$ is surjective.
 
 Now let $\beta' \in Z^1(\Weil{},\bG^*)$ be another representative for $[\beta]$
 so $\beta-\beta' = d_{\Weil{}} \delta$ for some $\delta \in C^0(\Weil{},\bG^*)$ defining $d \in \Hom(G(\bFq),\EEx)$.
-Let $\CSs{L}'$ be the character sheaf on $G$ defined by $\beta'$, as above.
-For each $x\in G(\bFq)$, define $\brho_x :\CSs{L}_x\to \CSs{L}'_x$ by $\brho_x(1) = d(x)$.
-The collection of isomorphisms $\{ \brho_x \tq x\in G(\bFq)\}$ satisfies condition~\ref{CS.4}, so it defines a morphism $\rho : \CSs{L}\to \CSs{L}'$, which is clearly an isomorphism. 
+Let $\cs{L}'$ be the character sheaf on $G$ defined by $\beta'$, as above.
+For each $x\in G(\bFq)$, define $\brho_x :\cs{L}_x\to \cs{L}'_x$ by $\brho_x(1) = d(x)$.
+The collection of isomorphisms $\{ \brho_x \tq x\in G(\bFq)\}$ satisfies condition~\ref{CS.4}, so it defines a morphism $\rho : \cs{L}\to \cs{L}'$, which is clearly an isomorphism. 
 %
 We have now defined a section of $\TrFrob{G}$. 
 
-Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1(\Weil{},\bG^*)$ and construct character sheaves $\CSs{L}_1$ and $\CSs{L}_2$ on $G$ as above. Since $\CSs{L}_1\otimes \CSs{L}_2$ is exactly the character sheaf built from the cocycle $\beta_1\cdot \beta_2$, and since $\trFrob{\CSs{L}_1\otimes \CSs{L}_2} = \trFrob{\CSs{L}_1}\cdot \trFrob{\CSs{L}_2}$, the section of $\TrFrob{G}$ defined here is a homomorphism.
+Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1(\Weil{},\bG^*)$ and construct character sheaves $\cs{L}_1$ and $\cs{L}_2$ on $G$ as above. Since $\cs{L}_1\otimes \cs{L}_2$ is exactly the character sheaf built from the cocycle $\beta_1\cdot \beta_2$, and since $\trFrob{\cs{L}_1\otimes \cs{L}_2} = \trFrob{\cs{L}_1}\cdot \trFrob{\cs{L}_2}$, the section of $\TrFrob{G}$ defined here is a homomorphism.
 \end{proof}
 
 \begin{proposition} \label{prop:etale-iso}
@@ -1081,27 +1071,26 @@ This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and 
 
 \subsection{Morphisms in the \'etale case}\label{ssec:mor-etale}
 
-While most of this paper focuses on the question of determining the isomorphism classes of objects, a complete understanding of the morphisms in $\CS(G)$ also requires a description of the automorphisms of an arbitrary character sheaf $\CSs{L}$.
+While most of this paper focuses on the question of determining the isomorphism classes of objects, a complete understanding of the morphisms in $\CS(G)$ also requires a description of the automorphisms of an arbitrary character sheaf $\cs{L}$.
 
 \begin{proposition}\label{prop:autornaught_etale}
 Let $G$ be an \'etale commutative group scheme over $\Fq$.
-If $\CSs{L}$ and $\CSs{L}'$ are character sheaves on $G$ then
-every $\rho\in \Hom(\CSs{L},\CSs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
+If $\cs{L}$ and $\cs{L}'$ are character sheaves on $G$ then
+every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
 \[
-\Aut(\CSs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
+\Aut(\cs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
 \]
 \end{proposition}
 
 \begin{proof}
-We have already seen, in Lemma~\ref{lem:autornaught}, that every $\rho\in \Hom(\CSs{L},\CSs{L}')$ is either trivial or an isomorphism.
-Now suppose $\rho \in \Aut(\CSs{L})$.
+We have already seen, in Lemma~\ref{lem:autornaught}, that every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism.
+Now suppose $\rho \in \Aut(\cs{L})$.
 The second diagram in \ref{CS.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{CS.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  
 
-Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism, then defining $\brho_x$ as multiplication by $\rho(x)$ will define a morphism $\gCSs{L} \to \gCSs{L}'$ satisfy the two diagrams in \ref{CS.4}.  
+Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism, then defining $\brho_x$ as multiplication by $\rho(x)$ will define a morphism $\gcs{L} \to \gcs{L}'$ satisfy the two diagrams in \ref{CS.4}.  
 
 Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
-
 
 \section{The function-sheaf dictionary for smooth commutative group schemes}\label{sec:main}
 
@@ -1222,9 +1211,9 @@ The restriction functor $\iota_0^* : \CS(G)\to \CS(G^0)$ is essentially surjecti
 The group homomorphism $\pi_0^*: \CSiso{\pi_0(G)} \to \CSiso{G}$ is injective.
 \end{lemma}
 \begin{proof}
-Let $\CSs{L}$ be a character sheaf on $\pi_0(G)$ and let $\rho : \pi_0^*\CSs{L} \to (\EE)_{G}$ be an isomorphism in $\CS(G)$. 
+Let $\cs{L}$ be a character sheaf on $\pi_0(G)$ and let $\rho : \pi_0^*\cs{L} \to (\EE)_{G}$ be an isomorphism in $\CS(G)$. 
 For each $x\in \pi_0(\bG)$, set $\bG^x \ceq \pi_0^{-1}(x)$.
-The restriction $\pi_0^*\gCSs{L}\vert_{\bG^x}$ is the constant sheaf $(\gCSs{L}_x)_{\bG^x}$ so the isomorphism $\brho\vert_{\bG^x} : (\gCSs{L}_x)_{\bG^x} \to (\EE)_{\bG^x}$ determines an isomorphism $\brho_x : \gCSs{L}_x \to (\EE)_x$. The collection $\{ \brho_x \tq x\in \pi_0(\bG) \}$ determines an isomorphism $\CSs{L} \to (\EE)_{\pi_0(G)}$  in $\CS(\pi_0(G))$.
+The restriction $\pi_0^*\gcs{L}\vert_{\bG^x}$ is the constant sheaf $(\gcs{L}_x)_{\bG^x}$ so the isomorphism $\brho\vert_{\bG^x} : (\gcs{L}_x)_{\bG^x} \to (\EE)_{\bG^x}$ determines an isomorphism $\brho_x : \gcs{L}_x \to (\EE)_x$. The collection $\{ \brho_x \tq x\in \pi_0(\bG) \}$ determines an isomorphism $\cs{L} \to (\EE)_{\pi_0(G)}$  in $\CS(\pi_0(G))$.
 \end{proof}
 
 
@@ -1243,63 +1232,63 @@ Exactness at $\CSiso{G^0}$ follows from Proposition~\ref{prop:restriction},
 and at $\CSiso{\pi_0(G)}$ from Lemma~\ref{lem:extension}.
 Here we show that it is also exact at $\CSiso{G}$.
 First note that $\iota_0^* \circ \pi_0^*$ is trivial by Lemma~\ref{lem:pullback}.
-So it suffices to show that if $\CSs{L} = (\gCSs{L},\mu,\phi)$ is a character sheaf on $G$
-with $\CSs{L}\vert_{G^0} = (\EE)_{G^0}$ then $\CSs{L}$ is in the essential image of $\pi_0^*$.
+So it suffices to show that if $\cs{L} = (\gcs{L},\mu,\phi)$ is a character sheaf on $G$
+with $\cs{L}\vert_{G^0} = (\EE)_{G^0}$ then $\cs{L}$ is in the essential image of $\pi_0^*$.
 
 As above, set $\bG^x \ceq \pi_0^{-1}(x)$ for $x\in \pi_0(\bG)$.
 Let $g, g'$ be geometric points in the same
 geometric connected component $\bG^x$.
 Set $a = g^{-1}g'$ and note that $a$ is a geometric point in $\bG^0$.
-Let $\mu_{g,a} : \gCSs{L}_{ga} \to \gCSs{L}_g \otimes \gCSs{L}_a$
+Let $\mu_{g,a} : \gcs{L}_{ga} \to \gcs{L}_g \otimes \gcs{L}_a$
 be the isomorphism of vector spaces obtained by restriction of
-$\mu : m^*\gCSs{L} \to \gCSs{L} \boxtimes \gCSs{L}$ to the
+$\mu : m^*\gcs{L} \to \gcs{L} \boxtimes \gcs{L}$ to the
 geometric point $(g,a)$ on $\bG^x \times \bG^0$.
-Since $\CSs{L}\vert_{G^0} = (\EE)_{G^0}$,
-the stalk of $\gCSs{L}$ at $a$ is $\EE$.
+Since $\cs{L}\vert_{G^0} = (\EE)_{G^0}$,
+the stalk of $\gcs{L}$ at $a$ is $\EE$.
 In this way the pair of geometric points $g, g' \in \bG^x$
 determines an isomorphism $\varphi_{g,g'} \ceq \mu_{g,a}^{-1}$
-from $\gCSs{L}_{g}$ to $\gCSs{L}_{g'}$.
+from $\gcs{L}_{g}$ to $\gcs{L}_{g'}$.
 %
-The isomorphisms $\varphi_{g,g'}: \gCSs{L}_{g} \to \gCSs{L}_{g'}$ are canonical
+The isomorphisms $\varphi_{g,g'}: \gcs{L}_{g} \to \gcs{L}_{g'}$ are canonical
 in the following sense: if $g,g'\in \bG^x$ and $h,h'\in \bG^y$
 then it follows from \ref{CS.2} and \ref{CS.3}
 that
  \begin{equation}\label{eq:CS}
   \begin{tikzcd}[column sep=40]
-   \gCSs{L}_{gh} \arrow{r}{\varphi_{gh,g'h'}} \arrow[swap]{d}{\mu_{g,h}}
-  & \gCSs{L}_{g'h'} \arrow{d}{\mu_{g',h'}}
+   \gcs{L}_{gh} \arrow{r}{\varphi_{gh,g'h'}} \arrow[swap]{d}{\mu_{g,h}}
+  & \gcs{L}_{g'h'} \arrow{d}{\mu_{g',h'}}
   &\arrow[draw=none]{d}[pos=.4,description]{\text{\normalsize{and}}}
-  &  \gCSs{L}_{\Frob{}(g)} \arrow{r}{\varphi_{\Frob{}(g),\Frob{}(g')}} \arrow[swap]{d}{\phi_{g}} & \gCSs{L}_{\Frob{}(g')} \arrow{d}{\phi_{g'}} \\
-  \gCSs{L}_{g} \otimes \gCSs{L}_{h} \arrow{r}{\varphi_{g,g'}\otimes \varphi_{h,h'}}
-  & \gCSs{L}_{g'} \otimes \gCSs{L}_{h'}
+  &  \gcs{L}_{\Frob{}(g)} \arrow{r}{\varphi_{\Frob{}(g),\Frob{}(g')}} \arrow[swap]{d}{\phi_{g}} & \gcs{L}_{\Frob{}(g')} \arrow{d}{\phi_{g'}} \\
+  \gcs{L}_{g} \otimes \gcs{L}_{h} \arrow{r}{\varphi_{g,g'}\otimes \varphi_{h,h'}}
+  & \gcs{L}_{g'} \otimes \gcs{L}_{h'}
   & {}
-  & \gCSs{L}_{g} \arrow{r}{\varphi_{g,g'}} & \gCSs{L}_{g'}
+  & \gcs{L}_{g} \arrow{r}{\varphi_{g,g'}} & \gcs{L}_{g'}
   \end{tikzcd}
  \end{equation}
 both commute.
 
 For each $x\in \pi_0(\bG)$, pick $g(x)\in \bG^x$
-and set $\gCSs{E}_x \ceq \gCSs{L}_{g(x)}$.
-Let $\phi_x : \gCSs{E}_{\Frob{}(x)} \to \gCSs{E}_x$
+and set $\gcs{E}_x \ceq \gcs{L}_{g(x)}$.
+Let $\phi_x : \gcs{E}_{\Frob{}(x)} \to \gcs{E}_x$
 be the isomorphism of $\EE$-vector spaces obtained by composing
-$\varphi_{g(\Frob{}(x)),\Frob{}(g(x))} : \gCSs{L}_{g(\Frob{}(x))} \to \gCSs{L}_{\Frob{}(g(x))}$
-with $\phi_{g(x)} : \gCSs{L}_{\Frob{}(g(x))} \to \gCSs{L}_{g(x)}$.
+$\varphi_{g(\Frob{}(x)),\Frob{}(g(x))} : \gcs{L}_{g(\Frob{}(x))} \to \gcs{L}_{\Frob{}(g(x))}$
+with $\phi_{g(x)} : \gcs{L}_{\Frob{}(g(x))} \to \gcs{L}_{g(x)}$.
 For each pair $x,y\in \pi_0(\bG)$
-let $\mu_{x,y} : \gCSs{E}_{x+y}\to \gCSs{E}_x\otimes \gCSs{E}_y$
+let $\mu_{x,y} : \gcs{E}_{x+y}\to \gcs{E}_x\otimes \gcs{E}_y$
 be the isomorphism of $\EE$-vector spaces obtained by composing
-$\varphi_{g(x+y),g(x)g(y)} : \gCSs{L}_{g(x+y)} \to \gCSs{L}_{g(x)g(y)}$
-with $\mu_{g(x),g(y)} : \gCSs{L}_{g(x)g(y)} \to \gCSs{L}_{g(x)}\otimes \gCSs{L}_{g(y)}$.
+$\varphi_{g(x+y),g(x)g(y)} : \gcs{L}_{g(x+y)} \to \gcs{L}_{g(x)g(y)}$
+with $\mu_{g(x),g(y)} : \gcs{L}_{g(x)g(y)} \to \gcs{L}_{g(x)}\otimes \gcs{L}_{g(y)}$.
 Using \eqref{eq:CS}, it follows that \ref{CS.1}, \ref{CS.2} and \ref{CS.3} are satisfied for
-$\CSs{E} \ceq (\gCSs{E}_x, \mu_{x,y}, \phi_x)$, thus defining a character sheaf on $\pi_0(G)$.
+$\cs{E} \ceq (\gcs{E}_x, \mu_{x,y}, \phi_x)$, thus defining a character sheaf on $\pi_0(G)$.
 
-The pullback $\pi_0^*(\CSs{E})$ of $\CSs{E}$ along $\pi_0 : G \to \pi_0(G)$ is constant
+The pullback $\pi_0^*(\cs{E})$ of $\cs{E}$ along $\pi_0 : G \to \pi_0(G)$ is constant
 on geometric connected components, with stalks given by
-$(\pi_0^* \CSs{E})_g = \CSs{E}_{x}$ for all $g\in \bG^x$.  Thus both $\pi_0^*\CSs{E}$ and $\CSs{L}$
+$(\pi_0^* \cs{E})_g = \cs{E}_{x}$ for all $g\in \bG^x$.  Thus both $\pi_0^*\cs{E}$ and $\cs{L}$
 are constant on geometric connected components of $G$.
 The choices above define isomorphisms
-$\gCSs{L}\vert_{\bG^x} \to  (\gCSs{E}_{x})_{\bG^x}$ for each $x\in \pi_0(\bG)$.
-The resulting isomorphism $\gCSs{L} \to \pi_0^* \gCSs{E}$ satisfies \ref{CS.4},
-thus defining an isomorphism $\CSs{L} \to \pi_0^* \CSs{E}$ in $\CS(G)$.
+$\gcs{L}\vert_{\bG^x} \to  (\gcs{E}_{x})_{\bG^x}$ for each $x\in \pi_0(\bG)$.
+The resulting isomorphism $\gcs{L} \to \pi_0^* \gcs{E}$ satisfies \ref{CS.4},
+thus defining an isomorphism $\cs{L} \to \pi_0^* \cs{E}$ in $\CS(G)$.
 \end{proof}
 
 \subsection{The dictionary}
@@ -1375,17 +1364,17 @@ Although $\TrFrob{\pi_0(G)}$ is split and $\TrFrob{G^0}$ is an isomorphism, it d
 Let $G$ be a smooth commutative group scheme over $\Fq$.
 There is a canonical isomorphism
 \[
-\Aut(\CSs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx).
+\Aut(\cs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx).
 \]
 \end{theorem}
 \begin{proof} 
-Fix $\CSs{L} = (\gCSs{L},\mu,\phi)$ and consider the group homomorphism from $\Aut(\CSs{L})$ to $\Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
+Fix $\cs{L} = (\gcs{L},\mu,\phi)$ and consider the group homomorphism from $\Aut(\cs{L})$ to $\Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
 This homomorphism is injective because morphisms of sheaves are determined by the linear transformations induced on stalks.  
-Homomorphisms in the image of $\Aut(\CSs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ are continuous when $\bG$ is viewed as the base of the espace \'etal\'e attached to $\gCSs{L}$.
-Since $\ell$ is invertible in $\Fq$, it follows that the image of $\Aut(\CSs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
+Homomorphisms in the image of $\Aut(\cs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ are continuous when $\bG$ is viewed as the base of the espace \'etal\'e attached to $\gcs{L}$.
+Since $\ell$ is invertible in $\Fq$, it follows that the image of $\Aut(\cs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
 We also have $\pi_0(\bG_{\Weil{}})=\pi_0(\bG)_{\Weil{}}$. 
-To see that $\Aut(\CSs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, begin with $\theta\in\Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and, for each $[x] \in \pi_0(\bG)_{\Weil{}}$ define $\bar\rho^y: \gCSs{L}^y \to \gCSs{L}^y$ by scalar multiplication by $\theta([x])\in \EEx$ for each $y\in [x]$.
-This defines an isomorphism $\bar\rho : \gCSs{L}\to \gCSs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\CSs{L}\to \CSs{L}$ which maps to $\theta$ under $\Aut(\CSs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
+To see that $\Aut(\cs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, begin with $\theta\in\Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and, for each $[x] \in \pi_0(\bG)_{\Weil{}}$ define $\bar\rho^y: \gcs{L}^y \to \gcs{L}^y$ by scalar multiplication by $\theta([x])\in \EEx$ for each $y\in [x]$.
+This defines an isomorphism $\bar\rho : \gcs{L}\to \gcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\cs{L}\to \cs{L}$ which maps to $\theta$ under $\Aut(\cs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
 \end{proof}
 
 \subsection{Base change}\label{ssec:basechange}
@@ -1431,8 +1420,8 @@ In the opposite direction, let $\Nm : G(k') \to G(k)$ be the norm map and consid
 \end{align*}
 We can also interpret this operation in terms of character sheaves.
 
-If $\CSs{L} \ceq (\gCSs{L}, \mu, \phi)$ is a character sheaf on $G$, we define
-$\CSs{L}' \ceq (\gCSs{L}, \mu, \phi_{k'})$ on the base change
+If $\cs{L} \ceq (\gcs{L}, \mu, \phi)$ is a character sheaf on $G$, we define
+$\cs{L}' \ceq (\gcs{L}, \mu, \phi_{k'})$ on the base change
 $G_{k'}$ of $G$ to $k'$ by setting
 \[
 \phi_{k'} \ceq \phi \circ \Frob{G}^*(\phi) \circ \cdots \circ (\Frob{G}^{n-1})^*(\phi).
@@ -1440,12 +1429,12 @@ $G_{k'}$ of $G$ to $k'$ by setting
 The commutativity of the diagram (CS.3) for $\phi_{k'}$
 follows from the fact that $\Frob{G_{k'}} = \Frob{G}^n$.
 Note that we may also think about the construction of $\phi_{k'}$ from $\phi$
-as restricting the action $\varphi$ of $\Weil{k}$ on $\gCSs{L}$,
+as restricting the action $\varphi$ of $\Weil{k}$ on $\gcs{L}$,
 defined in Section~\ref{ssec:category}, to $\Weil{k'}$.
 
 \begin{proposition}\label{prop:basechange}
 With notation above,
-the rule $\nu_{k'/k}: (\gCSs{L}, \mu, \phi) \mapsto (\gCSs{L}, \mu, \phi_{k'})$
+the rule $\nu_{k'/k}: (\gcs{L}, \mu, \phi) \mapsto (\gcs{L}, \mu, \phi_{k'})$
  defines a monoidal functor $\CS(G) \to \CS(G_{k'})$
  such that the following diagram commutes:
 \[
@@ -1457,24 +1446,24 @@ G(k)^*  \rar{\Nm^*} & G(k')^*.
 \end{proposition}
 
 \begin{proof}
-Let $\CSs{L} \ceq (\gCSs{L}, \mu, \phi) \in \CS(G)$ and write $F$ for $\Frob{G}$.  For any $x \in G(k')$,
-we may compute the value of $\TrFrob{G_{k'}}(\nu_{k'/k}\CSs{L})(x)= t_{\nu_{k'/k}\CSs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gCSs{L}_x$,
-and the value of $\Nm^*(\TrFrob{G}(\CSs{L}))(x)$ as the trace of $\phi$ on $\gCSs{L}_{\Nm(x)}$.
-Applying \ref{CS.3} to the stalk of $\gCSs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
+Let $\cs{L} \ceq (\gcs{L}, \mu, \phi) \in \CS(G)$ and write $F$ for $\Frob{G}$.  For any $x \in G(k')$,
+we may compute the value of $\TrFrob{G_{k'}}(\nu_{k'/k}\cs{L})(x)= t_{\nu_{k'/k}\cs{L}}(x)$ as the trace of $\phi_{k'}$ on $\gcs{L}_x$,
+and the value of $\Nm^*(\TrFrob{G}(\cs{L}))(x)$ as the trace of $\phi$ on $\gcs{L}_{\Nm(x)}$.
+Applying \ref{CS.3} to the stalk of $\gcs{L}^{\boxtimes n}$ at the point $(x, \Frob{}(x), \ldots, \Frob{}^{n-1}(x))$ yields a diagram
 \[
 \begin{tikzcd}
-\gCSs{L}_{\Nm(x)} \rar \dar{\phi_{\Nm(x)}} & \gCSs{L}_{F(x)} \otimes \gCSs{L}_{F^2(x)} \otimes \cdots \otimes \gCSs{L}_x
+\gcs{L}_{\Nm(x)} \rar \dar{\phi_{\Nm(x)}} & \gcs{L}_{F(x)} \otimes \gcs{L}_{F^2(x)} \otimes \cdots \otimes \gcs{L}_x
 \dar{\phi_x \otimes (F^*\phi)_x \otimes \cdots \otimes ((F^{n-1})^*\phi)_x} \\
-\gCSs{L}_{\Nm(x)} \rar & \gCSs{L}_x \otimes \gCSs{L}_{F(x)} \otimes \cdots \otimes \gCSs{L}_{F^{n-1}(x)}.
+\gcs{L}_{\Nm(x)} \rar & \gcs{L}_x \otimes \gcs{L}_{F(x)} \otimes \cdots \otimes \gcs{L}_{F^{n-1}(x)}.
 \end{tikzcd}
 \]
-Choose a basis vector $v$ for $\gCSs{L}_{\Nm(x)}$ and write $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$ for the image of $v$ under the
+Choose a basis vector $v$ for $\gcs{L}_{\Nm(x)}$ and write $v_0 \otimes v_1 \otimes \cdots \otimes v_{n-1}$ for the image of $v$ under the
 bottom map,
-for $v_i \in \gCSs{L}_{\Frob{}^i(x)}$.  By \ref{CS.2}, $v$ maps to
+for $v_i \in \gcs{L}_{\Frob{}^i(x)}$.  By \ref{CS.2}, $v$ maps to
 $v_1 \otimes v_2 \otimes \cdots \otimes v_0$ along the top of the diagram.
 Let $\alpha_i \in \EEx$ represent $((F^i)^*\phi)_x$ with respect to these bases and let $\alpha$ be
-the trace of $\phi_{\Nm(x)}$.  We may now equate the trace $\alpha$ of $\phi$ on $\gCSs{L}_{\Nm(x)}$
-with the product $\alpha_0 \cdots \alpha_{n-1}$, which is the trace of $\phi_{k'}$ on $\gCSs{L}_x$.
+the trace of $\phi_{\Nm(x)}$.  We may now equate the trace $\alpha$ of $\phi$ on $\gcs{L}_{\Nm(x)}$
+with the product $\alpha_0 \cdots \alpha_{n-1}$, which is the trace of $\phi_{k'}$ on $\gcs{L}_x$.
 \end{proof}
 
 Finally, let $G'$ be a smooth commutative group scheme over $k'$.
@@ -1520,6 +1509,8 @@ induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on
 \]
 is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
 \end{proof}
+
+\subsection{Examples here?}
 
 
 \section{Applications to quasicharacters of $p$-adic tori and Abelian varieties}\label{sec:applications}
@@ -1621,9 +1612,9 @@ A {\it quasicharacter sheaf for $X_K$} is an object of
 the following rigid monoidal subcategory of $\CS(\Gr_R(X))$, denoted by $\QCS(X_K)$:
 \begin{enumerate}
 \item
-objects in $\QCS(X_K)$ are the $\ell$-adic sheaves $\varrho^R_n(X)^*\CSs{L}$, for $n\in \NN$ and $\CSs{L} \in \CS(\Gr^R_n(X))$; 
+objects in $\QCS(X_K)$ are the $\ell$-adic sheaves $\varrho^R_n(X)^*\cs{L}$, for $n\in \NN$ and $\cs{L} \in \CS(\Gr^R_n(X))$; 
 \item
-morphisms $\varrho^R_n(X)^*\CSs{L} \to \varrho^R_m(X)^*\CSs{L}'$ in $\QCS(X_K)$ are those morphisms in $\CS(\Gr_R(X))$ which take the form $\varrho^R_m(X)^*\rho$ for $\rho \in \Hom(\varrho^R_{n\leq m}(X)^*\CSs{L},\CSs{L}')$ when $n\leq m$, and $\varrho^R_n(X)^*\rho$ for $\rho \in \Hom(\CSs{L},\varrho^R_{m\leq n}(X)^*\CSs{L}')$ when $m\leq n$.
+morphisms $\varrho^R_n(X)^*\cs{L} \to \varrho^R_m(X)^*\cs{L}'$ in $\QCS(X_K)$ are those morphisms in $\CS(\Gr_R(X))$ which take the form $\varrho^R_m(X)^*\rho$ for $\rho \in \Hom(\varrho^R_{n\leq m}(X)^*\cs{L},\cs{L}')$ when $n\leq m$, and $\varrho^R_n(X)^*\rho$ for $\rho \in \Hom(\cs{L},\varrho^R_{m\leq n}(X)^*\cs{L}')$ when $m\leq n$.
 \end{enumerate}
 
 \end{definition}
@@ -1637,21 +1628,21 @@ If $\varrho^R_n(X)^* : \CS(\Gr^R_n(X)) \to \CS(\Gr_R(X))$ is full then the const
 We offer the following alternate construction of $\QCS(X_K)$, which does not make use of subcategories.
 For objects, one considers triples 
 \[
-\CSs{F} \ceq (n, \{\CSs{F}_i\}_{n\leq i}, \{\alpha_{i \le j}\}_{n\le i \le j}),
+\cs{F} \ceq (n, \{\cs{F}_i\}_{n\leq i}, \{\alpha_{i \le j}\}_{n\le i \le j}),
 \] where $n$
-is a non-negative integer, each $\CSs{F}_i$ is a character sheaf on $\Gr^R_i(X)$ and each 
+is a non-negative integer, each $\cs{F}_i$ is a character sheaf on $\Gr^R_i(X)$ and each 
 \[
-\alpha_{i \le j} : \CSs{L}_j \to \varrho^R_{i \le j}(X)^* \CSs{L}_i
+\alpha_{i \le j} : \cs{L}_j \to \varrho^R_{i \le j}(X)^* \cs{L}_i
 \]
  is an isomorphism; here $\alpha_{i \le i}$ is the identity and the $\alpha_{i \le j}$ are compatible with each other.  
-If $\CSs{F} \ceq (n, \{\CSs{F}_i\}, \{\alpha_{i \le j}\})$
-and $\CSs{F}' \ceq (m, \{\CSs{F}'_i\}, \{\alpha'_{i \le j}\})$ are objects then $\Hom(\CSs{F}, \CSs{F}')$ is the set
-of equivalence classes of pairs $(k, \{\beta_i\}_{k \le i})$, where $n,m \le k$ and the $\beta_i : \CSs{F}_i \to \CSs{F}'_i$ are
+If $\cs{F} \ceq (n, \{\cs{F}_i\}, \{\alpha_{i \le j}\})$
+and $\cs{F}' \ceq (m, \{\cs{F}'_i\}, \{\alpha'_{i \le j}\})$ are objects then $\Hom(\cs{F}, \cs{F}')$ is the set
+of equivalence classes of pairs $(k, \{\beta_i\}_{k \le i})$, where $n,m \le k$ and the $\beta_i : \cs{F}_i \to \cs{F}'_i$ are
 morphisms of character sheaves so that
 \[
 \begin{tikzcd}
-\CSs{F}_j \rar{\alpha_j} \dar{\beta_i} & \varrho^R_{i \le j}(X)^* \CSs{F}_i \dar{f_{i \le j}^*\beta_j} \\
-\CSs{F}'_j \rar{\alpha_j} & \varrho^R_{i \le j}(X)^* \CSs{L}'_i
+\cs{F}_j \rar{\alpha_j} \dar{\beta_i} & \varrho^R_{i \le j}(X)^* \cs{F}_i \dar{f_{i \le j}^*\beta_j} \\
+\cs{F}'_j \rar{\alpha_j} & \varrho^R_{i \le j}(X)^* \cs{L}'_i
 \end{tikzcd}
 \]
 commutes for all $k\le i\le j$; we identify two such pairs $(k, \{\beta_i\})$ and $(l, \{\gamma_i\})$ if $\beta_i = \gamma_i$
@@ -1678,10 +1669,10 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 \[
 0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X_K} \to \Hom_\text{QC}(X(K),\EEx) \to 0;
 \] 
-\labitem{(3)}{x3} for all quasicharacter sheaves $\CSs{F}$, $\CSs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\CSs{F},\CSs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
-\labitem{(4)}{x4} for all quasicharacter sheaves $\CSs{F}$ for $X_K$, there is a canonical isomorphism
+\labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
+\labitem{(4)}{x4} for all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
 \[
-\Aut(\CSs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx).
+\Aut(\cs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx).
 \]
 \end{enumerate}
 \end{theorem}
@@ -1709,9 +1700,9 @@ Accordingly, by Theorem~\ref{thm:CSXK}, isomorphism classes of quasicharacter sh
 \[
 0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \CSiso{T_K} \to \Hom_\text{CS}(T(K),\EEx) \to 0.
 \]
-Also by Theorem~\ref{thm:CSXK} and \cite{bitan:discriminant}*{Eq 3.1}, the automorphism group of every $\CSs{F} \in \CS(T_K)$ is given by 
+Also by Theorem~\ref{thm:CSXK} and \cite{bitan:discriminant}*{Eq 3.1}, the automorphism group of every $\cs{F} \in \CS(T_K)$ is given by 
 \[
-\Aut(\CSs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx),
+\Aut(\cs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx),
 \]
 where $\Weil{K}$ is the Weil group for $K$. 
 Since 
