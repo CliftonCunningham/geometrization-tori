@@ -427,19 +427,11 @@ sheaves on $\bGxG$ such that the following diagram commutes,
   $\mu$ in the sense that the following diagram commutes.
   \[
   \begin{tikzcd}[row sep=20]
-<<<<<<< Updated upstream
   \Frob{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
     && \Frob{\GxxG}^*(\LxL)\\
     \arrow[equal]{u} \bm^*  \Frob{G}^* \gcs{L} \arrow[swap]{d}{\bm^* \phi}
     && \Frob{G}^*\gcs{L}\boxtimes \Frob{G}^*\gcs{L} \dar{\phi\boxtimes \phi} \arrow[equal]{u} \\
     \bm^*\gcs{L} \arrow{rr}{\mu}
-=======
-   \arrow{d}{\iso} \Frob{\GxxG}^* \bm^* \gqcs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
-    && \arrow{d}[swap]{\iso} \Frob{\GxxG}^*(\LxL)\\
-    \bm^*  \Frob{G}^* \gqcs{L} \arrow[swap]{d}{\bm^* \phi}
-    && \Frob{G}^*\gqcs{L}\boxtimes \Frob{G}^*\gqcs{L} \dar{\phi\boxtimes \phi}  \\
-    \bm^*\gqcs{L} \arrow{rr}{\mu}
->>>>>>> Stashed changes
     && \LxL
   \end{tikzcd}
   \]
@@ -1131,42 +1123,42 @@ Before turning our attention to quasicharacter sheaves on connected commutative 
 \subsection{Descent to G}\label{ssec:descentG}
 
 In this section we consider a category of sheaves on $G$ obtained by
-replacing the Weil sheaf $(\gqcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter sheaf with an $\ell$-adic local system on $G$ itself.
+replacing the Weil sheaf $(\gcs{L}, \phi)$ on $\bG$ in the definition of a quasicharacter sheaf with an $\ell$-adic local system on $G$ itself.
 
 \begin{definition}
-Let $\bQC(G)$ be the category of pairs $(\qcs{E},\mu_\qcs{E})$
-where $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank-one,
-equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E} \boxtimes \qcs{E}$
+Let $\bCS(G)$ be the category of pairs $(\cs{E},\mu_\cs{E})$
+where $\cs{E}$ is an $\ell$-adic local system on $G$ of rank-one,
+equipped with an isomorphism $\mu_\cs{E} : m^* \cs{E} \to \cs{E} \boxtimes \cs{E}$
 satisfying the analogue of \ref{QC.2} on $G$;
-morphisms in $\bQC(G)$ are defined as in the second part of
+morphisms in $\bCS(G)$ are defined as in the second part of
 \ref{QC.4}.
 \end{definition}
 
-We put a rigid monoidal structure on $\bQC(G)$ in the same way as for $\QC(G)$.
+We put a rigid monoidal structure on $\bCS(G)$ in the same way as for $\CS(G)$.
 
 \begin{proposition}\label{prop:BG}
 Extension of scalars defines a full and faithful functor
 \[
-B_G : \bQC(G) \to \QC(G).
+B_G : \bCS(G) \to \CS(G).
 \]
 \end{proposition}
 
 \begin{proof}
- Suppose $(\qcs{E},\mu_\qcs{E})$ in an object of $\bQC(G)$.
+ Suppose $(\cs{E},\mu_\cs{E})$ in an object of $\bCS(G)$.
  Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
- Set $\gqcs{L} = b_G^* \qcs{E}$. 
+ Set $\gcs{L} = b_G^* \cs{E}$. 
  The functor $b_G^*$ takes local systems on $G$ to local systems on $\bG$.
- The local system $\gqcs{L}$ comes equipped with an isomorphism
- $\phi: \Frob{G}^* \gqcs{L} \to \gqcs{L}$.
- The resulting functor from local systems on $G$ to Weil local systems on $\bG$, given on objects by $\qcs{E} \mapsto (\gqcs{L},\phi)$, 
+ The local system $\gcs{L}$ comes equipped with an isomorphism
+ $\phi: \Frob{G}^* \gcs{L} \to \gcs{L}$.
+ The resulting functor from local systems on $G$ to Weil local systems on $\bG$, given on objects by $\cs{E} \mapsto (\gcs{L},\phi)$, 
  is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} and \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}.
- The isomorphism $\mu \ceq b_{G\times G}^*\mu_\qcs{E}$ satisfies \ref{QC.2}
- for $\gqcs{L}$ and $\phi$ is compatible with $\mu$ in the sense of \ref{QC.3}.
- This construction defines the functor $B_G : \bQC(G) \to \QC(G)$ given on objects by $(\qcs{E},\mu_\qcs{E}) \mapsto (\gqcs{L},\mu, \phi)$, as defined here. 
- Because morphisms in $\bQC(G)$ and $\QC(G)$ are morphisms of local systems on $G$ and $\bG$, respectively, satisfying condition~\ref{QC.4}, this functor is also full and faithful.
+ The isomorphism $\mu \ceq b_{G\times G}^*\mu_\cs{E}$ satisfies \ref{QC.2}
+ for $\gcs{L}$ and $\phi$ is compatible with $\mu$ in the sense of \ref{QC.3}.
+ This construction defines the functor $B_G : \bCS(G) \to \CS(G)$ given on objects by $(\cs{E},\mu_\cs{E}) \mapsto (\gcs{L},\mu, \phi)$, as defined here. 
+ Because morphisms in $\bCS(G)$ and $\CS(G)$ are morphisms of local systems on $G$ and $\bG$, respectively, satisfying condition~\ref{QC.4}, this functor is also full and faithful.
 \end{proof}
 
-We will say that a quasicharacter sheaf $\qcs{L} \in \QC(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\qcs{E}, \mu_\qcs{E})$.
+We will say that a quasicharacter sheaf $\cs{L} \in \CS(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\cs{E}, \mu_\cs{E})$.
 
 \subsection{Discrete isogenies}\label{ssec:discrete_isogenies}
 
@@ -1177,16 +1169,16 @@ Let $f: H \to G$ be a discrete isogeny and let $A$ be the kernel of $f$.
 Let $V$ be a $1$-dimensional representation of $A$ 
 equipped with an isomorphism $V\to V\otimes V$.
 Let $\psi : A \to \EEx$ be the character of $V$.
-Then $(f_! V_H)_\psi$ (the $\psi$-isotypic component of $f_!V_H$) is an object of $\bQC(G)$.
+Then $(f_! V_H)_\psi$ (the $\psi$-isotypic component of $f_!V_H$) is an object of $\bCS(G)$.
 \end{proposition}
 
 \begin{proof}
-Let $f$, $A$, $V$ and $\psi$ be as above and set $\qcs{E} = (f_! V_H)_\psi$.
-Since $A$ is abelian, $\qcs{E}$ is an $\ell$-adic local system on $G$ of rank one.
-We must show that $\qcs{E}$ comes equipped with an isomorphism $\mu_\qcs{E} : m^* \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
+Let $f$, $A$, $V$ and $\psi$ be as above and set $\cs{E} = (f_! V_H)_\psi$.
+Since $A$ is abelian, $\cs{E}$ is an $\ell$-adic local system on $G$ of rank one.
+We must show that $\cs{E}$ comes equipped with an isomorphism $\mu_\cs{E} : m^* \cs{E} \to \cs{E}\boxtimes\cs{E}$.
 To do this we use \'etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$ {\it cf.\ } \cite{bernstein-luntz:equivariant_sheaves}*{Prop 8.1.1}. 
-In particular, $f^*\qcs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
-Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$
+In particular, $f^*\cs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
+Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$
 from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
 \end{proof}
 
@@ -1194,14 +1186,14 @@ We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ i
 
 \subsection{The classical function-sheaf dictionary revisited}\label{ssec:connected}
 
-In general, $\bQC(G)$ is an essentially
-proper subcategory of $\QC(G)$. 
+In general, $\bCS(G)$ is an essentially
+proper subcategory of $\CS(G)$. 
 However, if $G$ is connected and of finite type, the categories are equivalent, as we now show.
 
 \begin{lemma}\label{lem:bounded_connected}
 If $G$ is a connected commutative algebraic group over $\Fq$ then 
 \[
-B_G : \bQC(G) \to \QC(G)
+B_G : \bCS(G) \to \CS(G)
 \]
  is an equivalence of categories.
 \end{lemma}
@@ -1223,18 +1215,18 @@ $\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
   an equivalence between the category of $\ell$-adic Weil local systems on $G$ and
   $\ell$-adic representations of $\Weil{}(G,\bg)$ \cite{deligne:80a}*{1.1.12}.
   
-  Now let $(\gqcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$
-  and let $\lambda : \Weil{}(G, \bg) \to \EEx$ be the character determined by $(\gqcs{L},\phi)$.
+  Now let $(\gcs{L},\mu,\phi)$ be a quasicharacter sheaf on $G$
+  and let $\lambda : \Weil{}(G, \bg) \to \EEx$ be the character determined by $(\gcs{L},\phi)$.
   Composing with the splitting $\Weil{} \to \Weil{}(G,\bg)$ yields an $\ell$-adic character
   $\lambda_g : \Weil{} \to \EEx$, which is the same as the Trace of Frobenius defined in Section~\ref{ssec:Frob}, for every $\Fq$ rational point $g$ on $G$:
   $
-  \lambda_g(\Frob{}) =  \trFrob{\qcs{L}}(g).
+  \lambda_g(\Frob{}) =  \trFrob{\cs{L}}(g).
   $
 %
-  On the other hand, we have already seen that $\trFrob{\qcs{L}} : G(\Fq) \to \EEx$
+  On the other hand, we have already seen that $\trFrob{\cs{L}} : G(\Fq) \to \EEx$
   is a group homomorphism. 
   Since $G$ is an algebraic group over $\Fq$, $G(\Fq)$ is finite.
-  Therefore $\trFrob{\qcs{L}}(g) = \lambda_g(\Frob{})$ is a root of unity
+  Therefore $\trFrob{\cs{L}}(g) = \lambda_g(\Frob{})$ is a root of unity
   for every $g\in G(\Fq)$.  Since $\Weil{}$ is generated by
   $\Frob{}$ and $\lambda_g : \Weil{} \to \EEx$ is
   a character, it follows that the image of $\lambda_g$ is a finite group.
@@ -1248,51 +1240,51 @@ $\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
   The $\Fq$ rational point $g$ also
   determines an equivalence between the category of $\ell$-adic
   representations of $\pi_1(G,\bg)$ and $\ell$-adic local systems on $G$. Let
-  $\qcs{E}$ be a local system on $G$ in the isomorphism class
+  $\cs{E}$ be a local system on $G$ in the isomorphism class
   determined by this $\ell$-adic character of $\pi_1(G,\bg)$.
-  Then $b_G^*\qcs{E} \iso \gqcs{L}$.
+  Then $b_G^*\cs{E} \iso \gcs{L}$.
   
   Since $b_{G\times G}^*$ is full and faithful (again, see
 \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}),
  \[
-  b_{G\times G}^* : \Hom(m^*\qcs{E},\qcs{E}\boxtimes\qcs{E}) \to \Hom({\bar m}^*\gqcs{L},\gqcs{L}\boxtimes\gqcs{L})
+  b_{G\times G}^* : \Hom(m^*\cs{E},\cs{E}\boxtimes\cs{E}) \to \Hom({\bar m}^*\gcs{L},\gcs{L}\boxtimes\gcs{L})
  \]
   is a bijection
   (hom taken in the categories on constructible $\ell$-adic sheaves on
   $G\times G$ and ${\bar G}\times {\bar G}$ respectively,
   in which $\ell$-adic local systems sit as full subcategories).
-  Let $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ be the isomorphism matching
-  $\mu : {\bar m}^*\gqcs{L} \to \gqcs{L}\boxtimes\gqcs{L}$,
-  the latter appearing in the definition of $\qcs{L}$.
-  Then, as in Section~\ref{ssec:descentG}, $(\qcs{E},\mu_\qcs{E})$ is an object of $\bQC(G)$
-  and $\qcs{L} \ceq (\gqcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\qcs{E},b_{G\times G}^*\mu_\qcs{E})$ in $\QC(G)$.
-  Thus, the full and faithful functor $B_G : \bQC(G) \to \QC(G)$ from Section~\ref{ssec:descentG}
+  Let $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ be the isomorphism matching
+  $\mu : {\bar m}^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$,
+  the latter appearing in the definition of $\cs{L}$.
+  Then, as in Section~\ref{ssec:descentG}, $(\cs{E},\mu_\cs{E})$ is an object of $\bCS(G)$
+  and $\cs{L} \ceq (\gcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\cs{E},b_{G\times G}^*\mu_\cs{E})$ in $\CS(G)$.
+  Thus, the full and faithful functor $B_G : \bCS(G) \to \CS(G)$ from Section~\ref{ssec:descentG}
   is also essentially surjective, hence an equivalence.
 \end{proof}
 
-Using this equivalence of categories, we may give a good description of $\QC(G)$ when $G$ is connected and finite type.
+Using this equivalence of categories, we may give a good description of $\CS(G)$ when $G$ is connected and finite type.
 
 \begin{proposition}\label{prop:connected}
  If $G$ is a connected, commutative algebraic group over $\Fq$ then:
  \begin{enumerate}
- \item $\TrFrob{G} : \QCiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
+ \item $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
  \item every quasicharacter sheaf on $G$ is isomorphic to one defined by a discrete isogeny;
- \item $\Aut(\qcs{L}) = 1$, for all quasicharacter sheaves $\qcs{L}$ on $G$.
+ \item $\Aut(\cs{L}) = 1$, for all quasicharacter sheaves $\cs{L}$ on $G$.
  \end{enumerate}
  \end{proposition}
 \begin{proof}
-In Lemma~\ref{lem:bounded_connected}, we saw that every quasicharacter sheaf $\qcs{L}$ on $\bG$ descends to $G$; let $\qcs{E}$ be an object of $\bQC(G)$ for which $B_G(\qcs{E}) \iso \qcs{L}$.
- Since the functor $B_G : \bQC(G) \to \QC(G)$ is full and faithful, $\Aut(\qcs{L}) = \Aut(\qcs{E})$.
+In Lemma~\ref{lem:bounded_connected}, we saw that every quasicharacter sheaf $\cs{L}$ on $\bG$ descends to $G$; let $\cs{E}$ be an object of $\bCS(G)$ for which $B_G(\cs{E}) \iso \cs{L}$.
+ Since the functor $B_G : \bCS(G) \to \CS(G)$ is full and faithful, $\Aut(\cs{L}) = \Aut(\cs{E})$.
 From here, Deligne's function-sheaf dictionary for connected commutative algebraic groups over finite fields, as in \cite{deligne:SGA4.5}*{Sommes trig.} or \cite{laumon:87a}*{1.1.3}, gives us all we need, as we briefly recall. %\todo{Fix citelist} %\citelist{\cite{deligne:SGA4.5}*{Sommes trig.},\cite{laumon:87a}*{1.1.3}}
 
 As in the proof of Proposition~\ref{prop:finite}, use \'etale descent to see that pullback by the Lang isogeny $\Lang : G\to G$ defines an equivalence of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$. 
-Under this equivalence, local systems $\qcs{E}$ on $G$ arising from objects in $\bQC(G)$ are matched with $G(\Fq)$-equivariant constant local systems of rank-one on $G$, and therefore with one-dimensional representations of $G(\Fq)$. 
-In the same way, pullback along the isogeny $\Lang\times\Lang : G\times G\to G\times G$ matches the extra structure $\mu_\qcs{E} : m^*\qcs{E} \to \qcs{E}\boxtimes\qcs{E}$ with an isomorphism $m^*V \to V\boxtimes V$ of one-dimensional representations of $G(\Fq)\times G(\Fq)$, which is exactly an isomorphism $V \to V\otimes V$ of one-dimensional representations, which is exactly the choice of an isomorphism $V\iso \EE$.
-We see that $\bQC(G)$ is equivalent to the category of characters of $G(\Fq)$.
-Let $\bg$ be a geometric point above $g \in G(\Fq)$.  If $\qcs{E}$ matches $\psi : G(\Fq)\to \EEx$ under this equivalence, a simple calculation on stalks reveals that the action of Frobenius on $\qcs{E}_{\bar g}$ is multiplication by $\psi(g)^{-1}$.
-In other words, for every $\qcs{E}$ in $\bQC(G)$, the trace of $\Lang^*\qcs{E}$ is $\trFrob{\qcs{E}}^{-1}$ as a representation of $G(\Fq)$, proving parts (i) and (ii).
+Under this equivalence, local systems $\cs{E}$ on $G$ arising from objects in $\bCS(G)$ are matched with $G(\Fq)$-equivariant constant local systems of rank-one on $G$, and therefore with one-dimensional representations of $G(\Fq)$. 
+In the same way, pullback along the isogeny $\Lang\times\Lang : G\times G\to G\times G$ matches the extra structure $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ with an isomorphism $m^*V \to V\boxtimes V$ of one-dimensional representations of $G(\Fq)\times G(\Fq)$, which is exactly an isomorphism $V \to V\otimes V$ of one-dimensional representations, which is exactly the choice of an isomorphism $V\iso \EE$.
+We see that $\bCS(G)$ is equivalent to the category of characters of $G(\Fq)$.
+Let $\bg$ be a geometric point above $g \in G(\Fq)$.  If $\cs{E}$ matches $\psi : G(\Fq)\to \EEx$ under this equivalence, a simple calculation on stalks reveals that the action of Frobenius on $\cs{E}_{\bar g}$ is multiplication by $\psi(g)^{-1}$.
+In other words, for every $\cs{E}$ in $\bCS(G)$, the trace of $\Lang^*\cs{E}$ is $\trFrob{\cs{E}}^{-1}$ as a representation of $G(\Fq)$, proving parts (i) and (ii).
 
-To finish the proof of part (iii), suppose $\Lang^*\qcs{E} = V$ with isomorphism $V \to V\otimes V$.  Observe that the equivalence above establishes a bijection between $\Aut(\qcs{E})$ and the group of automorphisms of $\rho : V\to V$ for which 
+To finish the proof of part (iii), suppose $\Lang^*\cs{E} = V$ with isomorphism $V \to V\otimes V$.  Observe that the equivalence above establishes a bijection between $\Aut(\cs{E})$ and the group of automorphisms of $\rho : V\to V$ for which 
 \[
 \begin{tikzcd}
 \arrow{d}{} V \arrow{r}{\rho} & V\arrow{d}{}\\
@@ -1300,16 +1292,16 @@ V\otimes V \arrow{r}{\rho\otimes \rho} & V\otimes V
 \end{tikzcd}
 \]
 commutes. 
-Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\qcs{E}) = 1$, completing the proof.
+Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\cs{E}) = 1$, completing the proof.
 \end{proof}
 
 We have just seen that, for a connected commutative algebraic group $G$ over $\Fq$, the category of quasicharacter sheaves on $G$ is equivalent to the category of one-dimensional representations $V$ of $G(\Fq)$ equipped with an isomorphism $V\iso \EE$, and therefore equivalent to the category of characters $\psi$ of $G(\Fq)$.
-We have also just seen that if the character of $\Lang^*\qcs{E}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu_\qcs{E} : \qcs{E} \to \qcs{E}\boxtimes\qcs{E}$.
-This fact leads to a perspective on the function-sheaf dictionary common in the literature in which one considers one-dimensional local systems $\qcs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\qcs{E} \iso \qcs{E} \boxtimes\qcs{E}$ \cite{kamgarpour:09a}*{Intro}.
-As a slight variation, one may also consider one-dimensional local systems $\gqcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gqcs{L} \iso \gqcs{L}$ and an isomorphism $\bm^*\gqcs{L} \iso \gqcs{L} \boxtimes\gqcs{L}$.
+We have also just seen that if the character of $\Lang^*\cs{E}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu_\cs{E} : \cs{E} \to \cs{E}\boxtimes\cs{E}$.
+This fact leads to a perspective on the function-sheaf dictionary common in the literature in which one considers one-dimensional local systems $\cs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\cs{E} \iso \cs{E} \boxtimes\cs{E}$ \cite{kamgarpour:09a}*{Intro}.
+As a slight variation, one may also consider one-dimensional local systems $\gcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gcs{L} \iso \gcs{L}$ and an isomorphism $\bm^*\gcs{L} \iso \gcs{L} \boxtimes\gcs{L}$.
 
 Although the category of quasicharacter sheaves on $G$ specializes to the one described above when $G$ is connected and of finite type, this description is not sufficient when extending the dictionary to smooth commutative group schemes. 
-In particular, for a given $\gqcs{L}$ and $\phi$ there may be many $\mu$ so that $(\gqcs{L},\mu,\phi)$ is a quasicharacter sheaf.  For \'etale $G$, Proposition~\ref{prop:etale-iso} shows that $\Hh^2(\bG,\EEx)^{\Weil{}}$ measures the possibilities for $\mu$.  We will see in Section~\ref{sec:main} that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ plays an analogous role for general smooth commutative group schemes $G$.
+In particular, for a given $\gcs{L}$ and $\phi$ there may be many $\mu$ so that $(\gcs{L},\mu,\phi)$ is a quasicharacter sheaf.  For \'etale $G$, Proposition~\ref{prop:etale-iso} shows that $\Hh^2(\bG,\EEx)^{\Weil{}}$ measures the possibilities for $\mu$.  We will see in Section~\ref{sec:main} that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ plays an analogous role for general smooth commutative group schemes $G$.
 >>>>>>> Stashed changes
 
 \section{The function-sheaf dictionary for smooth commutative group schemes}\label{sec:main}
@@ -2081,12 +2073,9 @@ Combining this with the paragraph above gives the following instance of the geom
 compatible with \eqref{transfer}.
 \end{proposition}
 
-<<<<<<< Updated upstream
+
 \subsection{Examples}
 
 \bibliography{bibliography/Biblio}   
-=======
-\bibliography{bibliography.bbl}   
->>>>>>> Stashed changes
 
 \end{document}
