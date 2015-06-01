@@ -286,17 +286,17 @@ If $G$ is a smooth commutative group scheme over $\Fq$ then
 \[
 \TrFrob{G} : \CSiso{G} \to G(\Fq)^*
 \]
-is surjective with kernel $\Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx))$.
+is surjective with kernel $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.
 \end{theorem*}
 \noindent
-It follows that, unless the etale group scheme $\pi_0(\bG)$ is cyclic, the category $\CS(G)$ contains non-trivial character sheaves lying in the kernel of the trace of Frobenius and therefore lost in translation to characters of $G(\Fq)$ and, moreover, that these {\it invisible character sheaves} are parametrized by $\Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx))$.
+It follows that, unless the etale group scheme $\pi_0(\bG)$ is cyclic, the category $\CS(G)$ contains non-trivial character sheaves lying in the kernel of the trace of Frobenius and therefore lost in translation to characters of $G(\Fq)$ and, moreover, that these {\it invisible character sheaves} are parametrized by $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.
 
 
 We also illuminate the nature of the category $\CS(G)$ by showing that every morphism in this category is either an isomorphism or trivial, and by showing
 \begin{theorem*}[{Thm. \ref{thm:autornaught}}]
 If $G$ is a smooth commutative group scheme over $\Fq$ then
 \[
-\Aut_{\CS{}}(\cs{L}) \iso  \Hh^0(\Weil{},\Hh^1(\pi_0(\bG), \EEx)),
+\Aut_{\CS{}}(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}
 \]
 for all quasicharacter sheaves $\cs{L}$ on $G$.
 \end{theorem*}
@@ -354,7 +354,7 @@ over algebraically closed fields with finite cyclic component groups in the seri
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves.
-The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
+%The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
 
 \medskip
 \noindent\textbf{Acknowledgements.\ } {Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
@@ -558,6 +558,9 @@ properties of pullbacks and external products will be used in the proofs of many
   statements about the pullback functor on $\ell$-adic constructible sheaves.
 \end{proof}
 
+If $G_1$ and $G_2$ are smooth commutative group schemes over $\Fq$ then characters of $(G_1 \times G_2)(\Fq)$ all take the form $\chi_1\otimes \chi_2$ for characters $\chi_1$ of $G_1(\Fq)$ and $\chi_2$ of $G_2(\Fq)$. 
+The next lemma shows that character sheaves on $G$ enjoy an analogous property.
+
 \begin{lemma}\label{lem:product}
 If $G_1$ and $G_2$ are smooth commutative group schemes over $\Fq$ then the following diagram commutes.
 \[
@@ -646,14 +649,17 @@ Before turning our attention to character sheaves on connected commutative algeb
 In this section we consider a category of sheaves on $G$ obtained by
 replacing the Weil sheaf $(\gcs{L}, \phi)$ on $\bG$ in the definition of a character sheaf with an $\ell$-adic local system on $G$ itself.
 
+
 \begin{definition}
 Let $\bCS(G)$ be the category of pairs $(\cs{E},\mu_\cs{E})$
 where $\cs{E}$ is an $\ell$-adic local system on $G$ of rank-one,
 equipped with an isomorphism $\mu_\cs{E} : m^* \cs{E} \to \cs{E} \boxtimes \cs{E}$
 satisfying the analogue of \ref{CS.2} on $G$;
 morphisms in $\bCS(G)$ are defined as in the second part of
-\ref{CS.4}.
+\ref{CS.4}. 
 \end{definition}
+
+Note that category $\bCS(G)$ 
 
 We put a rigid monoidal structure on $\bCS(G)$ in the same way as for $\CS(G)$.
 
