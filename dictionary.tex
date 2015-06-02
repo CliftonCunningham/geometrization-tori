@@ -220,19 +220,21 @@ If one wishes to make a category from this class of local systems, one is led to
 {\it A priori}, the composition $\cs{E} \to \cs{E}' \to \cs{E}''$ of two such morphisms need not be compatible with the choices of \eqref{introbox} for $\cs{E}$ and $\cs{E}''$.
  However, for connected $G$ the isomorphism \eqref{introbox} is unique, if it exists, and there is no impediment to making the dictionary categorical.
 
-If $G$ is a commutative algebraic group over $\Fq$ which is not connected, then the isomorphism \eqref{introbox} need not be unique. In order to track the choice of isomorphism, consider the category of pairs $(\cs{E},\mu_\cs{E})$ where $\cs{E}$ is a rank-one local system on $G$ and $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
-In this case, the trace of Frobenius provides an epimorphism from isomorphism classes of pairs $(\cs{E},\mu_\cs{E})$ to characters of $G(\Fq)$, but the epimomorphism need not be injective; consequently,
-every character of $G(\Fq)$ may be geometrized as a pair $(\cs{E},\mu_\cs{E})$ but perhaps not uniquely in the category of pairs. 
-While this might appear to be a defect in the dictionary for characters of commutative algebraic groups over finite fields, it is not serious: if $(\cs{E},\mu_\cs{E})$ and $(\cs{E}',\mu_\cs{E}')$ determine the same character of $G(\Fq)$ then $\cs{E}\iso \cs{E}'$ as local systems on $G$.
+If $G$ is a commutative algebraic group over $\Fq$ which is not connected, then the isomorphism \eqref{introbox} need not be unique. In order to track the choice of isomorphism, consider the category $\bCS(G)$ of pairs $(\cs{E},\mu_\cs{E})$ where $\cs{E}$ is a rank-one local system on $G$ and $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ is a chosen isomorphism of local systems on $G\times G$. 
+In this case, the trace of Frobenius provides an epimorphism from isomorphism classes of objects in $\bCS(G)$ to characters of $G(\Fq)$, but the epimomorphism need not be injective; consequently,
+every character of $G(\Fq)$ may be geometrized as a pair $(\cs{E},\mu_\cs{E})$ but perhaps not uniquely.
+Indeed, it follows from a special case of the main result of this paper that the kernel of the trace of Frobenius $T_{G} : \bCS(G) \to G(\Fq)^*$ trivial if and only if the \'etale group scheme of connected components of $G$ is finite cyclic.
+In general, the defect in the dictionary for characters of commutative algebraic groups over finite fields may be addressed with the following observation: if $(\cs{E},\mu_\cs{E})$ and $(\cs{E}',\mu_\cs{E}')$ determine the same character of $G(\Fq)$ then $\cs{E}\iso \cs{E}'$ as local systems on $G$.
+
 
 In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\Fq$,
-we simply replace the local system $\cs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\cs{E}$. 
+we replace the local system $\cs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\cs{E}$. 
 In this way we are led to the category $\CS(G)$ of {\it character sheaves} on $G$ (\S\ref{ssec:category}):
 objects in $\CS(G)$ are triples $(\gcs{L}, \mu,\phi)$, where $\gcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\Fq}} \Spec{\bFq}$
 and $\phi : \Frob{G}^* \gcs{L}\to \gcs{L}$ and $\mu : {\bar m}^* \gcs{L} \iso \gcs{L} \boxtimes \gcs{L}$ are isomorphisms of sheaves satisfying certain compatibility conditions;
 morphisms in $\CS(G)$ are then morphisms of Weil sheaves which are compatible with the extra structure.
 
-We begin the paper by returning to the case of connected commutative algebraic groups $G$ and thus revisiting Deligne's function-sheaf dictionary (\S\ref{sec:category}).
+We begin a study of the category $\CS(G)$ of character sheaves on $G$ by returning to the case when $G$ is a connected commutative algebraic group over $\Fq$ and thus by revisiting Deligne's function-sheaf dictionary (\S\ref{sec:category}).
 We consider character sheaves that arise via base change to $\bFq$ from local systems on $G$ (\S\ref{ssec:descentG}) and
 those that appear in a pushforward from a constant sheaf along a discrete isogeny $H \to G$ (\S\ref{ssec:discrete_isogenies}).  
 While these constructions make sense even for non-connected $G$, in the connected case we show that every character sheaf can be described in both of these ways (\S\ref{ssec:connected}).  
@@ -241,10 +243,11 @@ and to determine the automorphism groups of character sheaves on such $G$.
 These results are all well known.
 
 Next, we consider character sheaves on \'etale commutative group schemes $G$ over $\Fq$ (\S\ref{sec:etale}).
-\'Etale group schemes form a counterpoint to connected algebraic groups, since the component group of any smooth group scheme is an \'etale group scheme.
+\'Etale group schemes form a counterpoint to connected algebraic groups, since the component group of any smooth group scheme is an \'etale group scheme;
+etale group schemes are algebraic groups only when they are finite.
 Our key tool for understanding the trace of Frobenius in the \'etale case 
-%are a reinterpretation of $\CS(G)$ in terms of stalks (\S\ref{ssec:stalks}) and 
-is a relationship with the Hochschild-Serre spectral sequence (\S\ref{ssec:E}) for $\Weil{} \ltimes \bG$, where $\Weil{} \subset \Gal(\Fq/\Fq)$ is the Weil group for $\Fq$.
+are a reinterpretation of $\CS(G)$ in terms of stalks (\S\ref{ssec:stalks}) and 
+a relationship with the Hochschild-Serre spectral sequence (\S\ref{ssec:E}) for $\Weil{} \ltimes \bG$, where $\Weil{} \subset \Gal(\Fq/\Fq)$ is the Weil group for $\Fq$.
 We define (\S\ref{ssec:S}) an isomorphism $S_G$ from $\CSiso{G}$ to the second cohomology of the total space of the spectral sequence
 \[
 E_2^{p,q} \ceq \Hh^p(\Weil{}, \Hh^q(\bG, \EEx)) \Rightarrow \Hh^{p+q}(\Weil{} \ltimes \bG, \EEx).
@@ -259,7 +262,7 @@ the group homomorphism
 \TrFrob{G}: \CSiso{G} \to G(\Fq)^*
 \]
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
-One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic.
+One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is finite cyclic.
 %The fact that $\TrFrob{G}$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gcs{L}, \mu,\phi)$ and $(\gcs{L}', \mu',\phi')$ determine the same character of $G(\Fq)$ then $(\gcs{L},\phi)$ and $(\gcs{L}',\phi')$ are isomorphic as Weil sheaves.
 
 
@@ -373,9 +376,7 @@ We thank Joseph Bernstein for suggesting a connection between our category of qu
 
 Throughout this paper, $G$ is a smooth commutative group scheme
 over a finite field $\Fq$ and $m : G \times G\to G$ is its multiplication morphism.
-Thus, the structure morphism $G \to \Spec{\Fq}$ is locally of finite type.
-If the structure morphism $G \to \Spec{\Fq}$ is \'etale, then $G$ is an etale group scheme. 
-If the structure morphism $G \to \Spec{\Fq}$ is of finite type, then $G$ is an algebraic group.
+It follows from the smoothness of $G$ that the structure morphism $G \to \Spec{\Fq}$ is locally of finite type.
 We will make use of the short exact sequence of smooth group schemes defining the component group scheme for $G$:
 \[
 \begin{tikzcd}
@@ -383,7 +384,13 @@ We will make use of the short exact sequence of smooth group schemes defining th
 \end{tikzcd}
 \]
 Then $G^0$ is a connected algebraic group and $\pi_0(G)$ is an \'etale commutative group scheme.
-We remark that the smooth group scheme $G$ is an algebraic group if and only if the etale group scheme $\pi_0(G)$ is finite.
+Unless noted otherwise, we place absolutely no conditions on the \'etale group scheme $\pi_0(G)$, though it is finitely generated as a group scheme.
+If the structure morphism $G \to \Spec{\Fq}$ is \'etale, then $G$ is an etale group scheme; this does not imply that $\pi_0(G)$ is finite.
+If the structure morphism $G \to \Spec{\Fq}$ is of finite type, then $G$ is an algebraic group; in this case, $\pi_0(G)$ is finite. 
+Indeed, a smooth commutative group scheme $G$ is an algebraic group if and only if the etale group scheme $\pi_0(G)$ is finite.
+
+
+
  
 We fix an algebraic closure $\bFq$ of $\Fq$ and write $\bG$ for the
 smooth commutative group scheme $G \times_{\Spec{\Fq}} \Spec{\bFq}$ over $\bFq$
@@ -463,15 +470,16 @@ This rigid monoidal category structure for $\CS(G)$ gives the set $\CSiso{G}$
 of isomorphism classes in $\CS(G)$ the structure of a group.
 
 \begin{remark}
-The category of character sheaves on $G$ is not abelian since it is not closed under direct sums and thus $\CS(G)$
-is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.  We suspect that requiring that $\mu$ be injective rather than
+The category of character sheaves on $G$ is not abelian since it is not closed under direct sums; 
+thus $\CS(G)$ is not a tensor category in the sense of \cite{deligne:02a}*{0.1}.  
+We suspect that requiring that $\mu$ be injective rather than
 an isomorphism and dropping the condition that the stalks be one-dimensional would yield an abelian category.
 \end{remark}
 
 We will describe the group $\CSiso{G}$ in Theorem~\ref{thm:snake}
 and the sets $\Hom(\cs{L},\cs{L}')$ in Theorem~\ref{thm:autornaught}; in this way we provide a complete description of the category $\CS(G)$.
 %
-In the meantime, we close this section with an elementary observation about $\Hom(\cs{L},\cs{L}')$.
+In the meantime, we close this subsection with an elementary observation about $\Hom(\cs{L},\cs{L}')$.
 We call a morphism of sheaves \emph{trivial} if it is zero on every stalk.
 
 \begin{lemma}\label{lem:autornaught}
@@ -659,8 +667,6 @@ morphisms in $\bCS(G)$ are defined as in the second part of
 \ref{CS.4}. 
 \end{definition}
 
-Note that category $\bCS(G)$ 
-
 We put a rigid monoidal structure on $\bCS(G)$ in the same way as for $\CS(G)$.
 
 \begin{proposition}\label{prop:BG}
@@ -686,6 +692,7 @@ B_G : \bCS(G) \to \CS(G).
 \end{proof}
 
 We will say that a character sheaf $\cs{L} \in \CS(G)$ \emph{descends to $G$} if it is isomorphic to some $B_G(\cs{E}, \mu_\cs{E})$.
+
 
 \subsection{Discrete isogenies}\label{ssec:discrete_isogenies}
 
@@ -824,10 +831,10 @@ Since the only such isomorphism $\rho$ is $\id_V$, it follows that $\Aut(\cs{E})
 
 We have just seen that, for a connected commutative algebraic group $G$ over $\Fq$, the category of character sheaves on $G$ is equivalent to the category of one-dimensional representations $V$ of $G(\Fq)$ equipped with an isomorphism $V\iso \EE$, and therefore equivalent to the category of characters $\psi$ of $G(\Fq)$.
 We have also just seen that if the character of $\Lang^*\cs{E}$ is $\psi$ then the canonical isomorphism $m^*\psi \iso \psi \boxtimes \psi$ determines the isomorphism $\mu_\cs{E} : \cs{E} \to \cs{E}\boxtimes\cs{E}$.
-This fact leads to a perspective on the function-sheaf dictionary common in the literature in which one considers one-dimensional local systems $\cs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\cs{E} \iso \cs{E} \boxtimes\cs{E}$ \cite{kamgarpour:09a}*{Intro}.
+This fact leads (back) to a perspective on the function-sheaf dictionary common in the literature in which one considers one-dimensional local systems $\cs{E}$ on $G$ for which \emph{there exists} an isomorphism $m^*\cs{E} \iso \cs{E} \boxtimes\cs{E}$ \cite{kamgarpour:09a}*{Intro}.
 As a slight variation, one may also consider one-dimensional local systems $\gcs{L}$ on $\bG$ for which \emph{there exists} an isomorphism $\Frob{G}^*\gcs{L} \iso \gcs{L}$ and an isomorphism $\bm^*\gcs{L} \iso \gcs{L} \boxtimes\gcs{L}$.
 
-Although the category of character sheaves on $G$ specializes to the one described above when $G$ is connected and of finite type, this description is not sufficient when extending the dictionary to smooth commutative group schemes. 
+Although the category $\CS(G)$ of character sheaves on $G$ specializes to $\bCS(G)$ when $G$ is connected and of finite type, this description is \emph{not} sufficient when extending the dictionary to smooth commutative group schemes, as we will see already in Section~\ref{sec:etale}.
 In particular, for a given $\gcs{L}$ and $\phi$ there may be many $\mu$ so that $(\gcs{L},\mu,\phi)$ is a character sheaf.  For \'etale $G$, Proposition~\ref{prop:etale-iso} shows that $\Hh^2(\bG,\EEx)^{\Weil{}}$ measures the possibilities for $\mu$.  We will see in Section~\ref{sec:main} that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ plays an analogous role for general smooth commutative group schemes $G$.
 
 \subsection{Examples}
@@ -1001,8 +1008,8 @@ S_G : \CSiso{G} &\to \Hh^2(E^\bullet_G)\\
 It is also easy to see that $[\alpha_1\oplus\beta_1] + [\alpha_2\oplus\beta_2] = [\alpha_3\oplus\beta_3]$ when $\cs{L}_3 = \cs{L}_1\otimes \cs{L}_2$, so $S_G$ is a group homomorphism.
 
 \begin{remark}
-Although we will only use the group homomorphism $S_G : \CSiso{G}\to \Hh^2(E^\bullet_G)$ when $G$ is an \'etale commutative group scheme, the function is defined for all smooth commutative group schemes $G$.
-However, the next result is false in that context.
+Although we will only use the group homomorphism $S_G : \CSiso{G}\to \Hh^2(E^\bullet_G)$ when $G$ is an \'etale commutative group scheme, the function is defined for all smooth commutative group schemes $G$;
+however, the next result does not extend to all smooth commutative group schemes.
 \end{remark}
 
 \begin{proposition}\label{prop:SGiso}
@@ -1095,6 +1102,9 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 \begin{proof}
 This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
+
+Think about this: It follows from Proposition~\ref{prop:etale-iso} that, when $G$ is an \'etale commutative group scheme, a character sheaf $\cs{L} \in \CS(G)$ descends to $G$ if and only if it lies in the kernel of the trace of Frobenius. This is in stark contrast to the case of connected commutative algebraic groups over $\Fq$, when all character sheaves $\cs{L} \in \CS(G)$ descend to $G$ and the kernel of the trace of Frobenius is trivial.
+
 
 \subsection{Morphisms in the \'etale case}\label{ssec:mor-etale}
 
@@ -1539,6 +1549,9 @@ induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on
 is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
 \end{proof}
 
+\subsection{The dictionary for commutative algebraic groups over finite fields}
+
+
 \subsection{Examples}
 
 
@@ -1688,7 +1701,7 @@ The trace of Frobenius provides a natural transformation between the additive fu
 \[
 F_{\QCS}: X_K \mapsto \QCSiso{X_K}
 \qquad\text{and}\qquad
-F_{\text{QCS}}: X_K \mapsto \Hom_{\text{QC}}(X(K),\EEx)
+F_{\text{QC}}: X_K \mapsto \Hom_{\text{QC}}(X(K),\EEx)
 \]
 as functors from $\mathcal{N}_K$ to the category of abelian groups.
 \end{enumerate} 
