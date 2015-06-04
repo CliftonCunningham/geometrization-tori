@@ -684,7 +684,7 @@ B_G : \bCS(G) \to \CS(G).
  The local system $\gcs{L}$ comes equipped with an isomorphism
  $\phi: \Frob{G}^* \gcs{L} \to \gcs{L}$.
  The resulting functor from local systems on $G$ to Weil local systems on $\bG$, given on objects by $\cs{E} \mapsto (\gcs{L},\phi)$, 
- is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} and \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}.
+ is full and faithful; see \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} and \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.1.2}.
  The isomorphism $\mu \ceq b_{G\times G}^*\mu_\cs{E}$ satisfies \ref{CS.2}
  for $\gcs{L}$ and $\phi$ is compatible with $\mu$ in the sense of \ref{CS.3}.
  This construction defines the functor $B_G : \bCS(G) \to \CS(G)$ given on objects by $(\cs{E},\mu_\cs{E}) \mapsto (\gcs{L},\mu, \phi)$, as defined here. 
@@ -779,7 +779,7 @@ $\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
   Then $b_G^*\cs{E} \iso \gcs{L}$.
   
   Since $b_{G\times G}^*$ is full and faithful (again, see
-\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.2.1}),
+\cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.1.2}),
  \[
   b_{G\times G}^* : \Hom(m^*\cs{E},\cs{E}\boxtimes\cs{E}) \to \Hom({\bar m}^*\gcs{L},\gcs{L}\boxtimes\gcs{L})
  \]
@@ -1033,6 +1033,25 @@ Tracing the construction backward, we have defined a character sheaf $\cs{L}$ on
 $S_G(\cs{L}) = [\alpha\oplus\beta\oplus 0]$, showing that $S_G$ is surjective.
 \end{proof}
 
+\subsection{Descent, revisited}
+
+\begin{corollary}\label{cor:bounded-etale}
+Let $G$ be a commutative etale group scheme over $\Fq$.
+Then the image of $\bCS(G)$ under $\TrFrob{G} : \CS(G) \to G(\Fq)^*$ is $\Hom(\bG,\mathbb{\bar Z}_{\ell}^\times)$.
+\end{corollary}
+
+\begin{proof}
+Let $\cs{L}$ be a character sheaf on $G$.
+Using Proposition~\ref{prop:SGiso}, let $[\alpha \oplus \beta \oplus 0]\in \Hh^2(E^\bullet_G)$ be the corresponding class and let  $a : \bG \times \bG \to \EEx$ and $b : \bG \to \EEx$ be multiplicative versions of $\alpha$ and $\beta$, following the notation at the beginning of this section.
+Then $\trFrob{\cs{L}}(x) = b(x)$ for $x\in G(\Fq)$.
+The identity component $G^0$ of $G$ may be identified with $\Spec{\Fq}$, 
+By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.1.2},
+$\cs{L}$ descends to $G$ if and only if $b(x) \in \EEx$ is bounded, for all $x$.  
+
+ . . . 
+
+\end{proof}
+
 \subsection{Objects in the \'etale case}\label{ssec:SandT}
 
 In this section we fit the group homomorphisms $\TrFrob{G}$ and $S_G$ into a commutative diagram, determining the kernel and cokernel of the homomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$ when $G$ is an \'etale commutative group scheme over $\Fq$.
@@ -1102,9 +1121,6 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 \begin{proof}
 This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
-
-The image of 
-
 
 \subsection{Morphisms in the \'etale case}\label{ssec:mor-etale}
 
@@ -1190,7 +1206,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny, and set $A \ceq \ker \pi$.
 
   Extensions of $G^0(\bFq)$ by $A(\bFq)$ with $\Weil{}$-equivariant maps, such as $B(\bFq)$,
   correspond to classes in $\Ext^1_{\ZZ[\Weil{}]}(G^0(\bFq), A(\bFq))$.
-  Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ correspond to
+  Similarly, extensions of $G(\bFq)$ by $A(\bFq)$ with $\Weil{}$-equivariant maps correspond to
   classes in $\Ext^1_{\ZZ[\Weil{}]}(G(\bFq), A(\bFq))$.  The map
   $G^0(\bFq) \to G(\bFq)$ induces a homomorphism
   \[
@@ -1403,10 +1419,10 @@ Although $\TrFrob{\pi_0(G)}$ is split and $\TrFrob{G^0}$ is an isomorphism, it d
 
 \subsection{On the necessity of working with Weil sheaves}
 
-\begin{corollary} \label{cor:bounded}
+\begin{proposition} \label{prop:bounded}
 Let $G$ be a smooth commutative group scheme over $\Fq$. 
 Then $\cs{L}\in \CS(G)$ descends to $G$ if and only if $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ has bounded image.
-\end{corollary}
+\end{proposition}
 \begin{proof} 
 By Lemma~\ref{lem:G0alg-grp}, the identity component $G^0$ is a connected algebraic group over $\Fq$. 
 It follows from Proposition~\ref{prop:connected} that the restriction of $\cs{L}$ to $G^0$ descends to $G$. 
@@ -1417,21 +1433,11 @@ with the same restriction to $G^0(\Fq)$ since $G^0(\Fq)$ is lies inside the tors
 the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ is bounded 
 if and only if $\chi \cdot \chi_0^{-1}$ is bounded.  But $\chi \cdot \chi_0^{-1}$ descends
 to a character of $\pi_0(G)$.
-Thus, it is enough to prove Corollary~\ref{cor:bounded}
-for \'etale group schemes $G$.
-
-Now suppose $G$ is an etale group scheme over $\Fq$.
-Let $\cs{L}$ be a character sheaf on $G$.
-$[\alpha \oplus \beta \oplus 0]\in H^2(E)$.
- $b : \bG \to \EEx$ be a function 
-
-  By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.2.1},
-$\cs{L}$ descends to $G$ if and only if $b(x) \in \EEx$ is bounded, for all $x$.  
-
- . . . 
+Thus, it is enough to prove Corollary~\ref{prop:bounded}
+for \'etale group schemes $G$, which is done in Corollary~\ref{cor:bounded-etale}.
 \end{proof}
 
-Corollary~\ref{cor:bounded} shows that the full subcategory
+Proposition~\ref{prop:bounded} shows that the full subcategory
 $\bCS(G) \subset \CS(G)$ is not an equivalence, for smooth commutative group schemes $G$.
 This simple observation reveals the necessity of working with Weil sheaves in Definition~\ref{def:CS}: one cannot geometrize all characters of $G(\Fq)$ using local systems on $G$, for general smooth commutative groups schemes $G$. 
 For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
