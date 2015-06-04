@@ -1131,6 +1131,10 @@ Composition of morphisms corresponds to pointwise multiplication in this corresp
 
 \subsection{Examples}
 
+Let $G$ be the etale group scheme $\ZZ$ over $\Fq$ and consider the character $\chi : \ZZ \to \EEx$ of $G(\Fq)$ determined by $\chi(1) = 1+\ell$.
+The stalk of $\cs{L}$ at the component $1$ is defined
+by a pro-\'etale cover  . . . 
+
 \section{The function-sheaf dictionary for smooth commutative group schemes}\label{sec:main}
 
 
@@ -1397,7 +1401,47 @@ This gives the short exact sequence
 Although $\TrFrob{\pi_0(G)}$ is split and $\TrFrob{G^0}$ is an isomorphism, it does not follow that $\TrFrob{G}$ is split. 
 \end{remark}
 
-\subsection{Morphisms of characters} \label{ssec:CSmor}
+\subsection{On the necessity of working with Weil sheaves}
+
+\begin{corollary} \label{cor:bounded}
+Let $G$ be a smooth commutative group scheme over $\Fq$. 
+Then $\cs{L}\in \CS(G)$ descends to $G$ if and only if $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ has bounded image.
+\end{corollary}
+\begin{proof} 
+By Lemma~\ref{lem:G0alg-grp}, the identity component $G^0$ is a connected algebraic group over $\Fq$. 
+It follows from Proposition~\ref{prop:connected} that the restriction of $\cs{L}$ to $G^0$ descends to $G$. 
+Also, since $G^0(\Fq)$ is finite, the image of $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ is a finite subgroup and therefore bounded image.  
+%
+If $\chi \in G(\Fq)^*$ then there is some finite-image character $\chi_0$
+with the same restriction to $G^0(\Fq)$ since $G^0(\Fq)$ is lies inside the torsion part of
+the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ is bounded 
+if and only if $\chi \cdot \chi_0^{-1}$ is bounded.  But $\chi \cdot \chi_0^{-1}$ descends
+to a character of $\pi_0(G)$.
+Thus, it is enough to prove Corollary~\ref{cor:bounded}
+for \'etale group schemes $G$.
+
+Now suppose $G$ is an etale group scheme over $\Fq$.
+Let $\cs{L}$ be a character sheaf on $G$.
+$[\alpha \oplus \beta \oplus 0]\in H^2(E)$.
+ $b : \bG \to \EEx$ be a function 
+
+  By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.2.1},
+$\cs{L}$ descends to $G$ if and only if $b(x) \in \EEx$ is bounded, for all $x$.  
+
+ . . . 
+\end{proof}
+
+Corollary~\ref{cor:bounded} shows that the full subcategory
+$\bCS(G) \subset \CS(G)$ is not an equivalence, for smooth commutative group schemes $G$.
+This simple observation reveals the necessity of working with Weil sheaves in Definition~\ref{def:CS}: one cannot geometrize all characters of $G(\Fq)$ using local systems on $G$, for general smooth commutative groups schemes $G$. 
+For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
+If $\chi : \ZZ \to \EEx$ is the character of $G(\Fq)$ determined by $\chi(1) = \ell$
+and if $\cs{L}$ is a character sheaf on $G$ in the isomorphism class
+corresponding to $\chi$ under Theorem~\ref{thm:main},
+then $\cs{L}$ does not descend to $G$ since the image of $\chi$ is not
+bounded.
+
+\subsection{Morphisms of character sheaves} \label{ssec:CSmor}
 
 \begin{theorem}\label{thm:autornaught}
 Let $G$ be a smooth commutative group scheme over $\Fq$.
