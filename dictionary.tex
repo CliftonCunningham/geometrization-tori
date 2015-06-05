@@ -41,6 +41,31 @@
   +{.}{ }						{transition}
 }
 
+% We make volume bold rather than vol. #
+\BibSpec{book}{%
+    +{}  {\PrintPrimary}				{transition}
+    +{,} { }							{title}
+    +{.} { }							{part}
+    +{:} { }							{subtitle}
+    +{,} { \PrintEdition}					{edition}
+    +{}  { \PrintEditorsB}				{editor}
+    +{,} { \PrintTranslatorsC}			{translator}
+    +{,} { \PrintContributions}			{contribution}
+    +{,} { }							{series}
+    +{} { \textbf}						{volume}
+    +{,} { }							{publisher}
+    +{,} { } 							{organization}
+    +{,} { }							{address}
+    +{,} { \PrintDateB}					{date}
+    +{,} { }							{status}
+    +{}  { \parenthesize}				{language}
+    +{}  { \PrintTranslation}				{translation}
+    +{;} { \PrintReprint}				{reprint}
+    +{.} { }							{note}
+    +{.} {}							{transition}
+    +{}  {\SentenceSpace \PrintReviews}	{review}
+}
+
 % Fonts
 \usepackage{mathrsfs}
 % Enumitem
