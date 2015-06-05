@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb, amsfonts}
+\usepackage{amsthm}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Zt}{\ZZ/2}
+\newcommand{\Zf}{\ZZ/4}
+\newcommand{\Ft}{\mathbb{F}_2}
+\newcommand{\Ex}{\bar{\mathbb{Q}}_\ell^\times}
+
+\DeclareMathOperator{\Hom}{Hom}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+
+\title{Computations in Second Cohomology of Abelian 2-Groups}
+\author{David Roe}
+
+\begin{document}
+\maketitle
+
+In this note we will explicitly compute $H^2(G, A)$ when $G$ and $A$ are abelian $2$-groups.  We write $\delta_{i,j}$ for the Kronecker delta.
+
+Recall the definition of derivative of a cochain (written additively).  Here $\beta$ is a $1$-cochain and $\varphi$ is a $2$-cochain.
+\begin{align}
+(d\beta)(g_1, g_2) &= \beta(g_2) - \beta(g_1 + g_2) + \beta(g_1)\\
+(d\varphi)(g_1,g_2,g_3) &= \varphi(g_2,g_3) - \varphi(g_1 + g_2, g_3) + \varphi(g_1, g_2 + g_3) - \varphi(g_1, g_2)
+\end{align}
+Now suppose that $\varphi$ is a cocycle, so that $d\varphi = 0$.  Setting $g_2$to $0$ we get
+\[
+\varphi(0, g_3) = \varphi(g_1, 0)
+\]
+for all $g_1$ and $g_3$.  Picking a $\beta$ with $\beta(0)$ equal to this constant value and subtracting $d\beta$, we may assume that
+\[
+\varphi(0, g) = \varphi(h, 0) = 0
+\]
+for all $g, h \in G$.  In order to preserve this condition, we only adjust by coboundaries with $\beta(0) = 0$.
+
+We now assume that $G$ and $A$ are both $2$-groups.  Take $g = g_1 = g_2$ and $h = g_3$.  Then
+\[
+\varphi(g, h + g) = \varphi(g, g) + \varphi(g, h).
+\]
+Similarly, setting $g = g_2 = g_3$ and $h = g_1$,
+\[
+\varphi(h + g, g) = \varphi(h, g) + \varphi(g, g).
+\]
+Therefore $\varphi$ is bilinear.  But any bilinear function $\varphi : G \times G \to A$ will automatically satisfy $d\varphi = 0$.  We thus have the following proposition.
+
+\begin{proposition}
+Suppose $\varphi : G \times G \to A$ is a function with $\varphi(0, g) = \varphi(h, 0) = 0$ for all $g, h \in G$.  Then $\varphi$ is a $2$-cocycle if and only if $\varphi$ is bilinear.
+\end{proposition}
+
+A class in $H^2(G, A)$ determines an isomorphism class of central extensions $0 \to A \to H \to G \to 0$.  More concretely, any $2$-cocycle $\varphi$ defines a group operation on the set $G \times A$ by 
+\begin{equation} \label{eq:cocycle-action}
+(g, a) + (h, b) = (g + h, a + b + \varphi(g, h).
+\end{equation}
+Clearly, this group structure will be abelian precisely when $\varphi$ is symmetric.  Note that coboundaries are automatically symmetric.
+
+\section*{$H^2(\Zt \times \Zt, \Zt)$}
+
+We now further specialize to the case that $G = \Zt \times \Zt$ and $A = \Zt$.  Set $\alpha_1 = (1,0)$, $\alpha_2 = (0,1)$ and $\alpha_3 = (1,1)$.  Since $\varphi$ is bilinear, it is determined by its values on $(\alpha_i, \alpha_j)$ for $j = 1,2$.  This yields sixteen possible cocycles, of which two are coboundaries.  To identify these coboundaries, suppose that $\beta : G \to A$ is a function with $\beta(0) = 0$.  Then $d\beta(g,g) = 0$ and $d\beta(g,h) = d\beta(h,g)$ for all $g, h \in G$.  So the only possible nontrivial coboundary is the one with $d\beta(\alpha_i, \alpha_j) = 1 - \delta_{i,j}$, which is achieved by setting $\beta(\alpha_1) = 1$ and $\beta(\alpha_2) = \beta(\alpha_3) = 0$.
+
+In fact, we seek cohomology classes which are fixed under the involution of $G$ which exchanges the $\Zt$ factors.  At the level of cocycles, this action exchanges the value on $(\alpha_1, \alpha_1)$ with that on $(\alpha_2, \alpha_2)$, and the value on $(\alpha_1, \alpha_2)$ with $(\alpha_2, \alpha_1)$.  There are four cocycles fixed by this involution, and four more that are exchanged with the other cocycle in their class.  These later cocycles are not symmetric ($\varphi(\alpha_1, \alpha_2) \ne \varphi(\alpha_2, \alpha_1)$) and thus correspond to nonabelian extensions.
+
+The non-split abelian extension
+\[
+0 \to A \xrightarrow{\iota} H \xrightarrow{\pi} G \to 0
+\]
+is defined by the cocycle $\varphi$ with $\varphi(\alpha_i, \alpha_j) = \delta_{i,j}$.
+Here $H \cong \Zt \times \Zf$ and
+\begin{align*}
+\iota(c) &= (0,2c) \\
+\pi(a, d) &= (a, a+d).
+\end{align*}
+The isomorphism between $G \times A$ (with multiplication as in \eqref{eq:cocycle-action}) and $\Zt \times \Zf$ is given by $(a,b,c) \mapsto (a, a + b + 2c)$.  The involution on $G$ extends to an involution on $H$, namely $(a,d) \leftrightarrow (a+d,d)$.  Note that the image of $\iota$ is fixed under this involution.
+
+For the sake of completeness, we also describe the nonabelian extensions stable under the involution.  One is given by the cocycle with $\varphi(\alpha_1,\alpha_1) = \varphi(\alpha_1, \alpha_2) = \varphi(\alpha_2, \alpha_2) = 0$ and $\varphi(\alpha_2, \alpha_1) = 1$.  The corresponding extension is
+\[
+0 \to A \xrightarrow{\iota} D_4 \to G \xrightarrow{\pi} 0,
+\]
+where $D_4$ has presentation $\langle \sigma, \tau \vert \sigma^4 = \tau^2 = \sigma\tau\sigma\tau = 1 \rangle$ and
+\begin{align*}
+\iota(c) &= \sigma^{2c} \\
+\pi(\sigma) &= (1,1) \\
+\pi(\tau) &= (1,0).
+\end{align*}
+The isomorphism between $G \times A$ and $D_4$ is given by $\sigma \mapsto (1,1,0)$ and $\tau \mapsto (1,0,0)$.  The automorphism group of $D_4$ is generated by the outer automorphism $\Phi$ of order $4$ defined by
+\begin{align*}
+\Phi(\sigma) &= \sigma \\
+\Phi(\tau) &= \sigma \tau
+\end{align*}
+and the inner automorphism $\Psi$ of order $2$ defined by
+\begin{align*}
+\Psi(\sigma) &= \sigma^3 \\
+\Psi(\tau) &= \tau.
+\end{align*}
+Note that both $\Phi$ and $\Phi^3$ act trivially on the center (generated by $\sigma^2$) and induce the involution we're looking for on the quotient.  But they have order $4$, not $2$.
+
+The other class is represented by the cocycle with $\varphi(\alpha_1, \alpha_1) = \varphi(\alpha_1, \alpha_2) = \varphi(\alpha_2, \alpha_2) = 1$ and $\varphi(\alpha_2, \alpha_1) = 0$.  The corresponding extension is
+\[
+0 \to A \xrightarrow{\iota} Q \to G \xrightarrow{\pi} 0,
+\]
+where $Q$ is the quaternion group with presentation $\langle i, j | i^2 j^{-2} = ijij^{-1} = 1 \rangle$ and
+\begin{align*}
+\iota(c) &= (-1)^c \\
+\pi(i) = (1,0) \\
+\pi(j) = (0,1).
+\end{align*}
+The isomorphism between $G \times A$ and $Q$ is given by $i \mapsto (1,0,0)$ and $j \mapsto (0,1,0)$.  The automorphism group of $Q$ is isomorphic to $S_4$, and all automorphisms preserve the image of $A$ since it is the center.  There are four automorphisms inducing the involution on $G$, with $i \mapsto \pm i$ and $j \mapsto \pm j$.
+
+\section*{An automorphism of order 3}
+
+The group $G = \Zt \times \Zt$ also possesses an automorphism of order $3$, given by $e_1 \mapsto e_2$ and $e_2 \mapsto e_1 + e_2$.  Moreover, this is the induced action of Frobenius on $X_*(T)_I$ for the torus $T$ defined by the following integral Galois representation.  Let $p \ne 2$, let $\tau$ be a topological generator of tame inertia and let $F$ be a Frobenius element.  Define $T$ by the representation
+\begin{align*}
+\tau &\mapsto \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}, \\
+F &\mapsto \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix}.
+\end{align*}
+
+There are two elements of $H^2(G, A)$ fixed by this Frobenius action.  The nontrivial class is the one defining the quaternion extension of $G$ given above.
+
+\section*{Cohomology rings}
+
+We can give a more high level description of $H^*(G, A)$.  Suppose that $G = \Ft^r$ (with basis $\{e_i\}_{i=1}^r$) and $A = \Ft$.  Then the K\"unneth isomorphism gives
+\[
+H^*(G, A) \cong \Ft[x_1, \dots, x_r]
+\]
+as graded $\Ft$-algebras (each $x_i$ has degree $1$).  Here $x_i$ is the homomorphism taking value $1$ on $e_i$ and $0$ on the other $e_j$.  Similarly, $\prod_{m = 1}^k x_{i(m)}$ is the multilinear function taking value $1$ on $(e_{i(1)}, \dots, e_{i(k)})$ and $0$ on the other tuples of basis vectors.  When $r = 2$, the involution on $G$ induces the involution on polynomials given by $x_1 \leftrightarrow x_2$.  The order three automorphism above is given by $x_1 \mapsto x_2$ and $x_2 \mapsto x_1 + x_2$.
+
+\section*{$\Ex$-coefficients}
+
+We're actually interested in $H^2(G, \Ex)$.  There is a map $H^2(G, \mu_2) \to H^2(G, \Ex)$, however, this map has a kernel of order $4$, since coboundaries with values in $\Ex$ can have $d\beta(\alpha_1, \alpha_1) = \pm 1$ and $d\beta(\alpha_2, \alpha_2) = \pm 1$ and $d\beta(\alpha_1, \alpha_2) = \pm 1$ independently, and are subject only to the constraint that $d\beta(\alpha_1, \alpha_2) = d\beta(\alpha_2, \alpha_1)$.
+
+\end{document}
