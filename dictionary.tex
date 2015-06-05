@@ -357,7 +357,7 @@ over algebraically closed fields with finite cyclic component groups in the seri
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves.
-%The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
+The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
 
 \medskip
 \noindent\textbf{Acknowledgements.\ } {Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
@@ -1044,6 +1044,8 @@ Then the image of $\bCS(G)$ under $\TrFrob{G} : \CS(G) \to G(\Fq)^*$ is $\Hom(\b
 Let $\cs{L}$ be a character sheaf on $G$.
 Using Proposition~\ref{prop:SGiso}, let $[\alpha \oplus \beta \oplus 0]\in \Hh^2(E^\bullet_G)$ be the corresponding class and let  $a : \bG \times \bG \to \EEx$ and $b : \bG \to \EEx$ be multiplicative versions of $\alpha$ and $\beta$, following the notation at the beginning of this section.
 Then $\trFrob{\cs{L}}(x) = b(x)$ for $x\in G(\Fq)$.
+To prove the corollary we will show that $\cs{L}$ descends to $G$ if and only if $b(x)\in \mathbb{\bar Z}_{\ell}^\times$ for every $x\in G(\Fq)$.
+
 The identity component $G^0$ of $G$ may be identified with $\Spec{\Fq}$, 
 By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.1.2},
 $\cs{L}$ descends to $G$ if and only if $b(x) \in \EEx$ is bounded, for all $x$.  
@@ -1440,10 +1442,11 @@ for \'etale group schemes $G$, which is done in Corollary~\ref{cor:bounded-etale
 Proposition~\ref{prop:bounded} shows that the full subcategory
 $\bCS(G) \subset \CS(G)$ is not an equivalence, for smooth commutative group schemes $G$.
 This simple observation reveals the necessity of working with Weil sheaves in Definition~\ref{def:CS}: one cannot geometrize all characters of $G(\Fq)$ using local systems on $G$, for general smooth commutative groups schemes $G$. 
+
 For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
 If $\chi : \ZZ \to \EEx$ is the character of $G(\Fq)$ determined by $\chi(1) = \ell$
 and if $\cs{L}$ is a character sheaf on $G$ in the isomorphism class
-corresponding to $\chi$ under Theorem~\ref{thm:main},
+corresponding to $\chi$ under Theorem~\ref{thm:snake},
 then $\cs{L}$ does not descend to $G$ since the image of $\chi$ is not
 bounded.
 
