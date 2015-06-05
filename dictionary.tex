@@ -1134,30 +1134,54 @@ This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and 
 
 \subsection{Descent, revisited}\label{ssec:bS}
 
-\begin{corollary}\label{cor:bounded-etale}
+In this section we justify the appearance of Weil sheaves in Definition~\ref{def:CS}.
+
+\begin{proposition}\label{prop:bounded-etale}
 Let $G$ be a commutative etale group scheme over $\Fq$.
-Then the image of $\bCS(G)$ under $\TrFrob{G} : \CS(G) \to G(\Fq)^*$ is $\Hom(\bG,\mathbb{\bar Z}_{\ell}^\times)$.
-\end{corollary}
+Then the image of $\bCS(G)$ under $\TrFrob{G} : \CS(G) \to G(\Fq)^*$ is $\Hom_\text{grp}(G(\Fq),\mathbb{\bar Z}_{\ell}^\times)$.
+\end{proposition}
 
 \begin{proof}
 Objects in $\bCS(G)$ may be described by a small modification to the technique used in Sections~\ref{ssec:E} and \ref{ssec:S}. 
-First, recall that 
-
-
-Set $F^{i,j} \ceq C^i_{\text{cts}} (\Gal(\bFq/\Fq), C^j(G(\bFq), \EEx))$
-
-
-Let $\cs{L}$ be a character sheaf on $G$.
-Using Proposition~\ref{prop:SGiso}, let $[\alpha \oplus \beta \oplus 0]\in \Hh^2(E^\bullet_G)$ be the corresponding class and let  $a : \bG \times \bG \to \EEx$ and $b : \bG \to \EEx$ be multiplicative versions of $\alpha$ and $\beta$, following the notation at the beginning of this section.
-Then $\trFrob{\cs{L}}(x) = b(x)$ for $x\in G(\Fq)$.
-To prove the corollary we will show that $\cs{L}$ descends to $G$ if and only if $b(x)\in \mathbb{\bar Z}_{\ell}^\times$ for every $x\in G(\Fq)$.
-
-The identity component $G^0$ of $G$ may be identified with $\Spec{\Fq}$, 
-By \cite{beilinson-bernstein-deligne:81a}*{Rem. 5.1.2},
-$\cs{L}$ descends to $G$ if and only if $b(x) \in \EEx$ is bounded, for all $x$.  
-
- . . . 
-
+Set $F^{i,j} \ceq C^i_{\text{cts}} (\Gal(\bFq/\Fq), C^j(G(\bFq), \EEx))$.
+Then the results of Section~\ref{ssec:E} adapt to give a short exact sequence in continuous Galois cohomology
+ \[
+    0 \to
+    \Hh^0(\Fq,\Hh^2({\bar G},\EEx)) \to
+    \Hh^2(F^\bullet_G) \to
+    \Hh^1(\Fq,\Hh^1({\bar G},\EEx)) \to
+    0,
+ \]
+for which the maps are given by the analogues of Proposition~\ref{prop:ses_desc}.
+Moreover, using \cite{deligne-katz:SGA7.2}*{Expos\'e XIII, Rappel 1.1.3} we see that Proposition~\ref{prop:SGiso} adapts to provide an isomorphism $\bCSiso{G}\to \Hh^2(F^\bullet_G)$ compatible with $\bCS(G) \to \CS(G)$ and with the
+the canonical map of exact sequences 
+ \[
+\begin{tikzcd}
+    0 \arrow{r} &
+    \Hh^0(\Fq,\Hh^2({\bar G},\EEx)) \arrow{r} \arrow{d} &
+    \Hh^2(F^\bullet_G) \arrow{r} \arrow{d} &
+    \Hh^1(\Fq,\Hh^1({\bar G},\EEx)) \arrow{r} \arrow{d} &
+    0
+\\
+    0 \arrow{r} & 
+    \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \arrow{r} & 
+    \Hh^2(E^\bullet_G) \arrow{r} & 
+    \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \arrow{r} &
+    0.
+\end{tikzcd}
+ \]
+In this way, Proposition~\ref{prop:bounded-etale} is now reduced to the claim
+\[
+\Hh^1(\Fq,\Hh^1({\bar G},\EEx)) = \Hom_\text{grp}(G(\Fq),\mathbb{\bar Z}_{\ell}^\times).
+\]
+To see that, one may argue as follows. 
+Pick $i\in \pi_0(G)$ and let $G^i \hookrightarrow G$ be the corresponding connected component. 
+Pick a geometric point ${\bar x}^i$ on $G^i$ and observe that since $G^i$ is connected as a $\Fq$-scheme, $G^i(\bFq)$ is canonically identified with the $\Gal(\bFq/\Fq)$-orbit of ${\bar x}^i$. 
+We remark that while $G^i$ is defined over $\Fq$, the set $G^i(\Fq)$ is non-empty only when $G^i(\bFq) = \{ {\bar x}^i\}$.
+Since $\Hh^1({\bar G},\EEx) = \Hom_\text{grp}({\bar G},\EEx)$, evaluation $\chi \mapsto \chi({\bar x}^i)$ defines $\Hh^1(\Fq,\Hh^1({\bar G},\EEx)) \to \Hh^1(\Fq,\EEx)$. 
+By continuity, $\Hh^1(\Fq,\EEx) = \Hh^1(\Fq,\mathbb{\bar Z}_{\ell}^\times)$.
+Letting $i$ range over $\pi_0(G)$ we conclude that $\Hh^1(\Fq,\Hh^1({\bar G},\EEx)) = \Hh^1(\Fq,\Hh^1({\bar G},\mathbb{\bar Z}_{\ell}^\times))$.
+When adapted to abelian groups with continuous action of $\Gal(\bFq/\Fq)$, the strategy of the proof of Lemma~\ref{lem:dual-inv} gives $\Hh^1(\Fq,\Hh^1({\bar G},\mathbb{\bar Z}_{\ell}^\times)) =  \Hom_\text{grp}(G(\Fq),\mathbb{\bar Z}_{\ell}^\times)$, concluding the proof.
 \end{proof}
 
 \subsection{Morphisms in the \'etale case}\label{ssec:mor-etale}
@@ -1472,7 +1496,7 @@ the finitely generated abelian group $G(\Fq)$.  Therefore $\chi$ is bounded
 if and only if $\chi \cdot \chi_0^{-1}$ is bounded.  But $\chi \cdot \chi_0^{-1}$ descends
 to a character of $\pi_0(G)$.
 Thus, it is enough to prove Corollary~\ref{prop:bounded}
-for \'etale group schemes $G$, which is done in Corollary~\ref{cor:bounded-etale}.
+for \'etale group schemes $G$, which is done in Proposition~\ref{prop:bounded-etale}.
 \end{proof}
 
 Proposition~\ref{prop:bounded} shows that the full subcategory
