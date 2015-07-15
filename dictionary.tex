@@ -396,6 +396,8 @@ This paper shows that the \'etale site on $\Gr_R(X)$ is rich enough to geometriz
 It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
 Even the case $X_K = \Gm{K}$ shows that the answer is no [add internal reference].
 
+[Add reference to Takaski Suzuki's paper]
+
 \medskip
 \noindent\textbf{Acknowledgements.\ } {Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
 allowed us to hijack much of a Research in Teams meeting at the Banff International Research Station into a discussion of
@@ -1008,7 +1010,7 @@ The latter two claims follow from tracing through the definition of latter pages
 
 \subsection{From character sheaves to the total complex}\label{ssec:S}
 
-In this section we define an isomorphism
+In this section we define a group homomorphism
 \[
 S_G : \CSiso{G} \to \Hh^2(E^\bullet_G).
 \]
@@ -1217,9 +1219,9 @@ every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism. Moreov
 \begin{proof}
 We have already seen, in Lemma~\ref{lem:autornaught}, that every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism.
 Now suppose $\rho \in \Aut(\cs{L})$.
-The second diagram in \ref{CS.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{CS.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  
+The second diagram in \ref{cs.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{cs.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  
 
-Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism, then defining $\brho_x$ as multiplication by $\rho(x)$ will define a morphism $\gcs{L} \to \gcs{L}'$ satisfy the two diagrams in \ref{CS.4}.  
+Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism, then defining $\brho_x$ as multiplication by $\rho(x)$ will define a morphism $\gcs{L} \to \gcs{L}'$ satisfy the two diagrams in \ref{cs.4}.  
 
 Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
@@ -1537,7 +1539,7 @@ There is a canonical isomorphism
 \]
 \end{theorem}
 \begin{proof} 
-Fix $\cs{L} = (\gcs{L},\mu,\phi)$ and consider the group homomorphism from $\Aut(\cs{L})$ to $\Hom(\bG_{\Weil{}},\EEx)$ defined in Proposition~\ref{prop:autornaught_etale}.
+Fix $\cs{L} = (\gcs{L},\mu,\phi)$ and consider the group homomorphism from $\Aut(\cs{L})$ to $\Hom(\bG_{\Weil{}},\EEx)$ defined in the proof of Proposition~\ref{prop:autornaught_etale}.
 This homomorphism is injective because morphisms of sheaves are determined by the linear transformations induced on stalks.  
 Homomorphisms in the image of $\Aut(\cs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ are continuous when $\bG$ is viewed as the base of the espace \'etal\'e attached to $\gcs{L}$.
 Since $\ell$ is invertible in $\Fq$, it follows that the image of $\Aut(\cs{L}) \to \Hom(\bG_{\Weil{}},\EEx)$ is contained in $\Hom(\pi_0(\bG_{\Weil{}}),\EEx)$. 
@@ -1826,7 +1828,7 @@ for sufficiently large $i$.  Identities and composites are defined in the natura
 Let $K$ be a local field with residue field $\Fq$, in which $\ell$ is invertible; 
 let $R$ be the ring of integers of $K$.
 \begin{enumerate}
-\labitem{(1)}{x1}
+\labitem{(0)}{x0}
 The trace of Frobenius provides a natural transformation between the additive functors
 \[
 F_{\QCS}: X_K \mapsto \QCSiso{X}
@@ -1837,12 +1839,12 @@ as functors from $\mathcal{N}_K$ to the category of commutative groups.
 \end{enumerate} 
 Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\'eron model $X$:
 \begin{enumerate}[resume]
-\labitem{(2)}{x2} there is a canonical short exact sequence of commutative groups 
+\labitem{(1)}{x1} there is a canonical short exact sequence of commutative groups 
 \[
-0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X_K} \to \Hom_\text{QC}(X(K),\EEx) \to 0;
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X} \to \Hom_\text{QC}(X(K),\EEx) \to 0;
 \] 
-\labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
-\labitem{(4)}{x4} for all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
+\labitem{(2)}{x2} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
+\labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
 \[
 \Aut(\cs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx).
 \]
@@ -1851,37 +1853,55 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 
 \begin{proof}
 %\begin{enumerate}
-To prove \ref{x1}, use Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$, the fact that N\'eron models are unique up to isomorphism, the fact that every $\CS(\Gr^R_n(X))$ is a full subcategory of $\QCS(X)$ and the observation that every object in $\QCS(X)$ is in the essential image of $\CS(\Gr^R_n(X))$ for some $n$.
-To prove \ref{x2}, use Theorem~\ref{thm:snake} with $G = \Gr^R_n(X)$ and then argue as in part \ref{x1}.
-To prove \ref{x3}, argue as in the proof of Lemma~\ref{lem:autornaught}.
-To prove \ref{x4}, use Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, the fact that the component group of $\Gr^R_n(X)$ is independent of $n$ and then argue as in part \ref{x1}.
+To prove \ref{x0}, use Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$, the fact that N\'eron models are unique up to isomorphism, the fact that every $\CS(\Gr^R_n(X))$ is a full subcategory of $\QCS(X)$ and the observation that every object in $\QCS(X)$ is in the essential image of $\CS(\Gr^R_n(X))$ for some $n$.
+To prove \ref{x1}, use Theorem~\ref{thm:snake} with $G = \Gr^R_n(X)$ and then argue as in part \ref{x0}.
+To prove \ref{x2}, argue as in the proof of Lemma~\ref{lem:autornaught}.
+To prove \ref{x3}, use Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, the fact that the component group of $\Gr^R_n(X)$ is independent of $n$ and then argue as in part \ref{x0}.
 %\end{enumerate}
 \end{proof}
 
 \subsection{Quasicharacter sheaves for $p$-adic tori} \label{ssec:CS_tori}
 
 As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. 
-This is is now provided by specializing Theorem~\ref{thm:CSXK} to the case when $X_K= T_K\in \mathcal{N}_K$ is an algebraic torus over $K$. 
-Let $T$ be a Neron model for $T_K$.
+This is now provided by specializing Theorem~\ref{thm:CSXK} to the case when $X_K\in \mathcal{N}_K$ is an algebraic torus over $K$. 
+
+\begin{corollary}
+Let $T_K$ be an algebraic toris over $K$ and let $T$ be a Neron model for $T_K$.
+The trace of Frobenius determines a canonical short exact sequence of commutative groups 
+\[
+0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T} \to \Hom_\text{QC}(T(K),\EEx) \to 0.
+\] 
+%For all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism.
+For all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
+\[
+\Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}}.
+\]
+\end{corollary}
+
+\begin{proof}
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
 \[
  \pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K},
 \]
 where $X_*(T_K)$ is the cocharacter lattice of $T_K$ and $\mathcal{I}_K$ is the inertia group for $K$.
-Accordingly, by Theorem~\ref{thm:CSXK}, isomorphism classes of quasicharacter sheaves for $T_K$ determine quasicharacter sheaves according to the exact sequence
+Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of the trace of Frobenius is
 \[
-0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T} \to \Hom_\text{CS}(T(K),\EEx) \to 0.
-\]
-Also by Theorem~\ref{thm:CSXK} and \cite{bitan:discriminant}*{Eq 3.1}, the automorphism group of every $\cs{F} \in \CS(T_K)$ is given by 
+\Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}} = \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}.
+\] 
+Also by Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically.
+By \cite{bitan:discriminant}*{Eq 3.1} again, 
 \[
-\Aut(\cs{F}) \iso \Hom(X_*(T_K)_{\Weil{K}},\EEx),
+\Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx) \iso
+\Hom(X_*(T_K)_{\Weil{K}},\EEx),
 \]
-where $\Weil{K}$ is the Weil group for $K$. 
-Since 
+canonically.
+But $\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}$, canonically.
+So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 \[
-\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}
+\Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
-it follows that the automorphism group of every quasicharacter sheaf for $T$ is $(\check{T}_\ell)^{\Weil{K}}$, where $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
+canonically, where $\check{T}_\ell$ is the $\ell$-adic dual torus $\Hom(X_*(T_K),\EEx)$.
+\end{proof}
 
 \subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
 
