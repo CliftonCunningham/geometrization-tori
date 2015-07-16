@@ -1219,7 +1219,7 @@ every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism. Moreov
 \begin{proof}
 We have already seen, in Lemma~\ref{lem:autornaught}, that every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism.
 Now suppose $\rho \in \Aut(\cs{L})$.
-The second diagram in \ref{cs.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{cs.4} shows that it factors through $G(\bFq)_{\Weil{}}$.  
+The second diagram in \ref{cs.4} shows that the association $x \mapsto \brho_x$ is a homomorphism from $G(\bFq)$ to $\EEx$ and the first diagram in \ref{cs.4} shows that it factors through $G(\bFq) \to G(\bFq)_{\Weil{}}$.  
 
 Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism, then defining $\brho_x$ as multiplication by $\rho(x)$ will define a morphism $\gcs{L} \to \gcs{L}'$ satisfy the two diagrams in \ref{cs.4}.  
 
@@ -1779,9 +1779,10 @@ as in Lemma~\ref{lem:pullback}.
 %This functor is faithful, so we may view $\CS(\Gr^R_n(X))$ as a subcategory of $\CS(\Gr_R(X))$.
 
 We now define a category which will geometrize quasicharacters of $X(K)$.
-We begin by considering the rigid monoidal category $\CS(\Gr_R(X))$ defined in Section~\ref{ssec:category} without insisting that the commutative group scheme is smooth.
+We begin by considering the rigid monoidal category $\CS(G)$ defined in Section~\ref{ssec:category} without insisting that the commutative group $\Fq$-scheme $G$ is smooth, so that we can replace it with $\Gr_R(X)$ for smooth group $R$-scheme $X$.
 
 \begin{definition}
+Let $X$ be a smooth group scheme over $R$, with $R$ as above.
 A {\it quasicharacter sheaf for $X$} is an object of
 the following rigid monoidal subcategory of $\CS(\Gr_R(X))$, denoted by $\QCS(X)$:
 \begin{enumerate}
@@ -1853,7 +1854,7 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 
 \begin{proof}
 %\begin{enumerate}
-To prove \ref{x0}, use Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$, the fact that N\'eron models are unique up to isomorphism, the fact that every $\CS(\Gr^R_n(X))$ is a full subcategory of $\QCS(X)$ and the observation that every object in $\QCS(X)$ is in the essential image of $\CS(\Gr^R_n(X))$ for some $n$.
+To prove \ref{x0}, use: Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$; the fact that N\'eron models are unique up to isomorphism; the fact that every $\CS(\Gr^R_n(X))$ is a full subcategory of $\QCS(X)$; and the observation that every object in $\QCS(X)$ is in the essential image of $\CS(\Gr^R_n(X))$ for some $n$.
 To prove \ref{x1}, use Theorem~\ref{thm:snake} with $G = \Gr^R_n(X)$ and then argue as in part \ref{x0}.
 To prove \ref{x2}, argue as in the proof of Lemma~\ref{lem:autornaught}.
 To prove \ref{x3}, use Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, the fact that the component group of $\Gr^R_n(X)$ is independent of $n$ and then argue as in part \ref{x0}.
@@ -1877,7 +1878,6 @@ For all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorph
 \Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}}.
 \]
 \end{corollary}
-
 \begin{proof}
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
 \[
@@ -1901,6 +1901,25 @@ So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 \Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 canonically, where $\check{T}_\ell$ is the $\ell$-adic dual torus $\Hom(X_*(T_K),\EEx)$.
+\end{proof}
+
+\subsection{LLC}
+
+\begin{corollary}
+Let $T_K$ be an algebraic torus over $K$ and let $T$ be a Neron model for $T_K$.
+Then
+\[
+\QCSiso{T} \iso \Hh^1(\Weil{K}, \check{T}_\ell) 
+\qquad \text{and}\qquad
+\QCSiso{T^0} \iso \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}}.
+\]
+\end{corollary}
+\begin{proof}
+\[
+  \begin{tikzcd}
+  0 \rar & \QCSiso{X_*(T_K)_{\mathcal{I}_K}}\arrow{r}{\pi_0^*} & \QCSiso{T} \arrow{r}{\iota_0^*} & \QCSiso{T^0} \rar & 0.
+  \end{tikzcd}
+\]
 \end{proof}
 
 \subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
