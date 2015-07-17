@@ -1881,22 +1881,9 @@ after removing isomorphism groups.
     & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d}{\TrFrob{\Gr_R(T)}} & \QCSiso{T^0} \arrow{r} \arrow{d}{\TrFrob{\Gr_R(T)^0}} & 0\\
     0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
     & \arrow{d}{\iso} \Hom_\text{qc}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{qc}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\
-     0 \arrow{r}  
- & \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}}\arrow{d}
- & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} \arrow{d}
- & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}} \arrow{r}  \arrow{d}
- & 0\\
  &  0  & 0 & 0 & 
   \end{tikzcd}
  \]
-Moreover, for $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
-\[
-\Aut_{\QCS(\pi_0(T))}(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
-\quad
-\Aut_{\QCS(T)}(\cs{F})\iso (\check{T}_\ell)^{\Weil{K}},
-\quad
-\Aut_{\QCS(T^0)}(\cs{F}^0)\iso 1.
-\]
  \end{corollary}
 \begin{proof} 
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
@@ -1908,7 +1895,22 @@ Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of the trace of Frobenius is
 \[
 \Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}} = \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}.
 \] 
-Also by Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically.
+[under construction]
+\end{proof}
+
+\begin{corollary}
+For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
+\[
+\Aut_{\QCS(\pi_0(T))}(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
+\quad
+\Aut_{\QCS(T)}(\cs{F})\iso (\check{T}_\ell)^{\Weil{K}},
+\quad
+\Aut_{\QCS(T^0)}(\cs{F}^0)\iso 1.
+\]
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically.
 By \cite{bitan:discriminant}*{Eq 3.1} again, 
 \[
 \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx) \iso
@@ -1923,6 +1925,23 @@ So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 canonically, where $\check{T}_\ell$ is the $\ell$-adic dual torus $\Hom(X_*(T_K),\EEx)$.
 [under construction]
 \end{proof}
+
+\subsection{Geometric perspective on the Langlands correspondence for $p$-adic tori}
+
+\[
+\begin{tikzcd}
+   0 \rar & \arrow[bend right=70]{dd} \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \dar{\TrFrob{\pi_0(T)}}
+    & \QCSiso{T} \arrow{r}{\iota_0^*} \arrow[dotted, bend right=50]{dd}  \arrow{d}{\TrFrob{\Gr_R(T)}} & \QCSiso{T^0} \arrow[dotted, bend right=50]{dd}  \arrow{r} \arrow{d}{\TrFrob{\Gr_R(T)^0}} & 0\\
+   0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
+    & \arrow{d}{\iso} \Hom_\text{qc}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{qc}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\    
+    0 \arrow{r}  
+ & \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}}
+ & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} 
+ & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}} \arrow{r}  
+ & 0
+\end{tikzcd}
+\] 
+
 
 [insert discussion of Takashi Suzuki's work]
 
