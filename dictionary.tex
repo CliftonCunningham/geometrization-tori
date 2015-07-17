@@ -2,8 +2,8 @@
 %% This file should be the main file of your article.   %%
 
 \documentclass[10pt]{amsart}
-\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
-\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[a4paper]{geometry} % see geometry.pdf n how to lay out the page. There's lots.
+%\geometry{a4paper} % or letter or a5paper or ... etc
 % \geometry{landscape} % rotated page geometry
 
 % See the ``Article customise'' template for come common customisations
@@ -358,15 +358,15 @@ with different characteristic.
 Specializing to the case that $X = T$ is the N\'eron model of an algebraic torus over $K$ (\S\ref{ssec:CS_tori}), 
 we give a canonical short exact sequence 
 \[
-0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T_K} \to \Hom_\text{QC}(T(K),\EEx) \to 0,
+0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
 \]
-where $X_*(T_K)_{\mathcal{I}_K}$ is the group of coinvariants of the cocharacter lattice $X_*(T_K)$ of the algebraic torus $T_K$ by the action of the inertia group $\mathcal{I}_K$ of $K$, and where $\Hom_\text{QC}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
+where $X_*(T_K)_{\mathcal{I}_K}$ is the group of coinvariants of the cocharacter lattice $X_*(T_K)$ of the algebraic torus $T_K$ by the action of the inertia group $\mathcal{I}_K$ of $K$, and where $\Hom_\text{qc}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
 We further show that automorphism groups in $\CS(T)$ are given, for every quasicharacter sheaf $\cs{F}$ for $T$, by
 \[
 \Aut_{\QCS{}}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
-The appearance of the dual torus here is quite striking. 
+%The appearance of the dual torus here is quite striking. 
 
 By any measure, there are more quasicharacter sheaves for $T$ than quasicharacters of $T(K)$.  
 In this regard, we are reminded of the work of David Vogan \cite{vogan:93a}, in which he finds a geometrization of complete Langlands parameters for $p$-adic groups 
@@ -850,7 +850,7 @@ Using this equivalence of categories, we may give a good description of $\CS(G)$
  \begin{enumerate}
  \labitem{(1)}{c1} $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
  \labitem{(2)}{c2} every character sheaf on $G$ is isomorphic to one defined by a discrete isogeny;
- \labitem{(3)}{c3} $\Aut(\cs{L}) = 1$, for all character sheaves $\cs{L}$ on $G$.
+ \labitem{(3)}{c3} $\Aut_\CS{}(\cs{L}) = 1$, for all character sheaves $\cs{L}$ on $G$.
  \end{enumerate}
  \end{proposition}
 \begin{proof}
@@ -950,6 +950,7 @@ is a group homomorphism $S_G: \CSiso{G} \to \Hh^2(E^\bullet_G)$ defined in Secti
 
 \subsection{A spectral sequence}\label{ssec:E}
 
+Let $G$ be a smooth commutative group scheme over $\Fq$.
 The zeroth page of the Hochschild-Serre spectral sequence
 is a double complex $E^{\bullet, \bullet}$ defined by
 \[
@@ -1010,10 +1011,11 @@ The latter two claims follow from tracing through the definition of latter pages
 
 \subsection{From character sheaves to the total complex}\label{ssec:S}
 
+Let $G$ be a smooth commutative group scheme over $\Fq$.
 In this section we define a group homomorphism
 \[
 S_G : \CSiso{G} \to \Hh^2(E^\bullet_G).
-\]
+\] 
 Let $\cs{L} = (\gcs{L},\mu,\phi)$ be a character sheaf on $G$.
 For each geometric point $x\in {\bar G}$, choose a basis $\{ v_x \}$ for $\gcs{L}_x$.
 Through this choice, $\cs{L}$ determines functions
@@ -1054,13 +1056,13 @@ S_G : \CSiso{G} &\to \Hh^2(E^\bullet_G)\\
 \end{align*}
 It is also easy to see that $[\alpha_1\oplus\beta_1] + [\alpha_2\oplus\beta_2] = [\alpha_3\oplus\beta_3]$ when $\cs{L}_3 = \cs{L}_1\otimes \cs{L}_2$, so $S_G$ is a group homomorphism.
 
-\begin{remark}
-Although we will only use the group homomorphism $S_G : \CSiso{G}\to \Hh^2(E^\bullet_G)$ when $G$ is an \'etale commutative group scheme, the function is defined for all smooth commutative group schemes $G$;
-however, the next result does not extend to all smooth commutative group schemes.
-\end{remark}
+%\begin{remark}
+%Although we will mainly use the group homomorphism $S_G : \CSiso{G}\to \Hh^2(E^\bullet_G)$ when $G$ is an \'etale commutative group scheme, the function is defined for all smooth commutative group schemes $G$;
+%however, the next result does not extend to all smooth commutative group schemes.
+%\end{remark}
 
 \begin{proposition}\label{prop:SGiso}
-If $G$ is \'etale then $S_G$ is an isomorphism.
+If $G$ is \'etale then $S_G:  \CSiso{G} \to \Hh^2(E^\bullet_G)$ is an isomorphism.
 \end{proposition}
 \begin{proof}
 Suppose $[\cs{L}] \in \CSiso{G}$ with $S_G([\cs{L}]) = [\alpha \oplus \beta] = 0$,
@@ -1212,7 +1214,7 @@ Let $G$ be an \'etale commutative group scheme over $\Fq$.
 If $\cs{L}$ and $\cs{L}'$ are character sheaves on $G$ then
 every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
 \[
-\Aut(\cs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
+\Aut_\CS{}(\cs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
 \]
 \end{proposition}
 
@@ -1474,7 +1476,7 @@ is surjective with kernel canonically isomorphic to $\Hh^2(\pi_0({\bar G}),\EEx)
   while Proposition~\ref{prop:etale-iso} gives $\ker \TrFrob{\pi_0(G)} \iso \Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$
   and $\coker \TrFrob{\pi_0(G)}=0$.
 It now follows from the snake lemma
- \[
+ \begin{equation}\label{eq:snake}
   \begin{tikzcd}[row sep=20, column sep=15]
     0 \arrow[dotted]{r} & \ker \TrFrob{\pi_0(G)} \arrow[dotted]{r} \dar & \arrow{d} \ker \TrFrob{G} \arrow[dotted]{r} & \ker \TrFrob{G^0} =0 \arrow[dotted, out=-10, in=170]{dddll} \dar & \\
     0 \rar & \CSiso{\pi_0(G)} \rar \dar{\TrFrob{\pi_0(G)}}
@@ -1483,7 +1485,7 @@ It now follows from the snake lemma
     & \arrow{d} G(\Fq)^* \rar & G^0(\Fq)^* \rar \dar & 0\\
    &  \coker \TrFrob{\pi_0(G)} =0 \arrow[dotted]{r} & \coker \TrFrob{G} \arrow[dotted]{r} & \coker \TrFrob{G^0} =0 & 
   \end{tikzcd}
-  \]
+  \end{equation}
 that $\coker \TrFrob{G} =0$
 and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
 This gives the short exact sequence
@@ -1497,6 +1499,7 @@ This gives the short exact sequence
 \begin{remark}
 Although $\TrFrob{\pi_0(G)}$ is split and $\TrFrob{G^0}$ is an isomorphism, it does not follow that $\TrFrob{G}$ is split. 
 \end{remark}
+
 
 \subsection{On the necessity of working with Weil sheaves}
 
@@ -1535,7 +1538,7 @@ bounded.
 Let $G$ be a smooth commutative group scheme over $\Fq$.
 There is a canonical isomorphism
 \[
-\Aut(\cs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx).
+\Aut_\CS{}(\cs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx).
 \]
 \end{theorem}
 \begin{proof} 
@@ -1705,7 +1708,7 @@ A \emph{quasicharacter of $X(K)$} is a group homomorphism $X(K) \to \EEx$ that f
 We note that this definition is compatible with \cite{cassels-frohlich:AlgebraicNumberTheory}*{Ch XV, \S 2.3}.
 The group of quasicharacters of $X(K)$ will be denoted by 
 \[
-\Hom_\text{QC}(X(K),\EEx)
+\Hom_\text{qc}(X(K),\EEx)
 \]
  and the subgroup of those that factor through $X(R_n)$ will be denoted by 
  \[
@@ -1834,7 +1837,7 @@ The trace of Frobenius provides a natural transformation between the additive fu
 \[
 F_{\QCS}: X_K \mapsto \QCSiso{X}
 \qquad\text{and}\qquad
-F_{\text{QC}}: X_K \mapsto \Hom_{\text{QC}}(X(K),\EEx)
+F_{\text{qc}}: X_K \mapsto \Hom_{\text{qc}}(X(K),\EEx)
 \]
 as functors from $\mathcal{N}_K$ to the category of commutative groups.
 \end{enumerate} 
@@ -1842,7 +1845,7 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 \begin{enumerate}[resume]
 \labitem{(1)}{x1} there is a canonical short exact sequence of commutative groups 
 \[
-0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X} \to \Hom_\text{QC}(X(K),\EEx) \to 0;
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X} \to \Hom_\text{qc}(X(K),\EEx) \to 0;
 \] 
 \labitem{(2)}{x2} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
 \labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
@@ -1868,17 +1871,34 @@ This is now provided by specializing Theorem~\ref{thm:CSXK} to the case when $X_
 
 \begin{corollary}
 Let $T_K$ be an algebraic toris over $K$ and let $T$ be a Neron model for $T_K$.
-The trace of Frobenius determines a canonical short exact sequence of commutative groups 
+The following is a commutative diagram of exact sequences,
+after removing isomorphism groups.
 \[
-0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T} \to \Hom_\text{QC}(T(K),\EEx) \to 0.
-\] 
-%For all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism.
-For all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
+  \begin{tikzcd}[row sep=20, column sep=18]
+{}  & 0 \arrow{d} & 0 \arrow{d} &  & \\ 
+   & \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}  \arrow{d} & \arrow{d} \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} & 0 \arrow{d} & \\
+    0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \dar{\TrFrob{\pi_0(T)}}
+    & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d}{\TrFrob{\Gr_R(T)}} & \QCSiso{T^0} \arrow{r} \arrow{d}{\TrFrob{\Gr_R(T)^0}} & 0\\
+    0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
+    & \arrow{d}{\iso} \Hom_\text{qc}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{qc}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\
+     0 \arrow{r}  
+ & \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}}\arrow{d}
+ & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} \arrow{d}
+ & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}} \arrow{r}  \arrow{d}
+ & 0\\
+ &  0  & 0 & 0 & 
+  \end{tikzcd}
+ \]
+Moreover, for $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
 \[
-\Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}}.
+\Aut_{\QCS(\pi_0(T))}(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
+\quad
+\Aut_{\QCS(T)}(\cs{F})\iso (\check{T}_\ell)^{\Weil{K}},
+\quad
+\Aut_{\QCS(T^0)}(\cs{F}^0)\iso 1.
 \]
-\end{corollary}
-\begin{proof}
+ \end{corollary}
+\begin{proof} 
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
 \[
  \pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K},
@@ -1898,29 +1918,13 @@ canonically.
 But $\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}$, canonically.
 So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 \[
-\Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
+\Aut_\QCS{}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 canonically, where $\check{T}_\ell$ is the $\ell$-adic dual torus $\Hom(X_*(T_K),\EEx)$.
+[under construction]
 \end{proof}
 
-\subsection{LLC}
-
-\begin{corollary}
-Let $T_K$ be an algebraic torus over $K$ and let $T$ be a Neron model for $T_K$.
-Then
-\[
-\QCSiso{T} \iso \Hh^1(\Weil{K}, \check{T}_\ell) 
-\qquad \text{and}\qquad
-\QCSiso{T^0} \iso \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}}.
-\]
-\end{corollary}
-\begin{proof}
-\[
-  \begin{tikzcd}
-  0 \rar & \QCSiso{X_*(T_K)_{\mathcal{I}_K}}\arrow{r}{\pi_0^*} & \QCSiso{T} \arrow{r}{\iota_0^*} & \QCSiso{T^0} \rar & 0.
-  \end{tikzcd}
-\]
-\end{proof}
+[insert discussion of Takashi Suzuki's work]
 
 \subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
 
@@ -1943,7 +1947,7 @@ f : \Gr_R(X) \to \Res_{k'/k} \Gr_{R'}(X')
 which, through quasicharacter sheaves, induces
 \[
 \begin{tikzcd}[column sep=60]
-\Hom_{\text{QC}}(X_K(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X(K)}} &\Hom_{\text{QC}}(X_K(K), \EEx).
+\Hom_{\text{qc}}(X_K(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X(K)}} &\Hom_{\text{qc}}(X_K(K), \EEx).
 \end{tikzcd}
 \]
 \end{proposition}
