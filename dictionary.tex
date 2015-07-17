@@ -1895,7 +1895,6 @@ Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of the trace of Frobenius is
 \[
 \Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}} = \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}.
 \] 
-[under construction]
 \end{proof}
 
 \begin{corollary}
@@ -1910,10 +1909,12 @@ For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0
 \end{corollary}
 
 \begin{proof}
-By Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically.
+We already know $\Aut_{\QCS(T^0)}(\cs{E}) =1$ from Proposition~\ref{prop:connected}, part \ref{x3}.
+By Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case is already treated).
+In case $X = T^0$, it is clear that $\Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$ is trivial, so $\Aut_{\QCS(T^0)}(\cs{E}) =1$; in fact, we alre
 By \cite{bitan:discriminant}*{Eq 3.1} again, 
 \[
-\Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx) \iso
+\Hom((\pi_0(T)_{\bFq})_{\Weil{}},\EEx) \iso
 \Hom(X_*(T_K)_{\Weil{K}},\EEx),
 \]
 canonically.
@@ -1923,7 +1924,7 @@ So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 \Aut_\QCS{}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 canonically, where $\check{T}_\ell$ is the $\ell$-adic dual torus $\Hom(X_*(T_K),\EEx)$.
-[under construction]
+The other two cases are 
 \end{proof}
 
 \subsection{Geometric perspective on the Langlands correspondence for $p$-adic tori}
