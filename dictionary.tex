@@ -1692,8 +1692,8 @@ is given by permuting coordinates, composition with the norm map yields the iden
 
 \section{Applications to quasicharacters of $p$-adic tori and Abelian varieties}\label{sec:applications}
 
-Let $K$ be a local field with finite residue field $\Fq$;
- we continue to assume that $\ell$ is invertible in $\Fq$.
+Let $K$ be a local field with finite residue field $\Fq$; we will now denote the group $\Weil{}$ by $\Weil{\Fq}$.
+We continue to assume that $\ell$ is invertible in $\Fq$. 
 In this section we consider connected commutative algebraic groups over $K$ that admit a N\'eron model, by which we mean a locally finite type N\'eron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup isomorphic to $\mathbb{G}_\text{a}$.
 Write $\mathcal{N}_K$ for the full subcategory of the category of algebraic groups consisting of such objects.  This category is additive, and includes all algebraic tori over $K$, abelian varieties over $K$ and unipotent $K$-wound groups.
@@ -1840,12 +1840,12 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 \begin{enumerate}[resume]
 \labitem{(1)}{x1} there is a canonical short exact sequence of commutative groups 
 \[
-0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X} \to \Hom_\text{}(X(K),\EEx) \to 0;
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{\Fq}} \to \QCSiso{X} \to \Hom_\text{}(X(K),\EEx) \to 0;
 \] 
 \labitem{(2)}{x2} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
 \labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
 \[
-\Aut(\cs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx).
+\Aut(\cs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{\Fq}},\EEx).
 \]
 \end{enumerate}
 \end{theorem}
@@ -1870,7 +1870,7 @@ The following is a commutative diagram of exact sequences.
 \[
   \begin{tikzcd}[row sep=20, column sep=18]
 {}  & 0 \arrow{d} & 0 \arrow{d} &  & \\ 
-   & \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}  \arrow{d} & \arrow{d} \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} & 0 \arrow{d} & \\
+   & \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}}  \arrow{d} & \arrow{d} \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}} & 0 \arrow{d} & \\
     0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \dar{\TrFrob{\pi_0(T)}}
     & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d}{\TrFrob{\Gr_R(T)}} & \QCSiso{T^0} \arrow{r} \arrow{d}{\TrFrob{\Gr_R(T)^0}} & 0\\
     0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
@@ -1891,7 +1891,7 @@ By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group 
 where $X_*(T_K)$ is the cocharacter lattice of $T_K$ and $\mathcal{I}_K$ is the inertia group for $K$.
 Thus,
 \[
-\Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}} = \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}.
+\Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{\Fq}} = \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}}.
 \] 
 which coincides with the kernel of $\TrFrob{\pi_0(T)}$ since $\pi_0(\pi_0(T))_{\bFq} = \pi_0(T)_{\bFq}$.
 \end{proof}
@@ -1936,9 +1936,9 @@ The following diagram commutes.
    0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
     & \arrow{d}{\iso} \Hom_\text{}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\    
     0 \arrow{r}  
- & \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}}
+ & \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}}
  & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} 
- & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}} \arrow{r}  
+ & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}} \arrow{r}  
  & 0
 \end{tikzcd}
 \] 
@@ -1946,14 +1946,14 @@ The following diagram commutes.
 \begin{proof}
 Since $\pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K}$ by \cite{bitan:discriminant}*{Eq 3.1}, the isomorphism on the left can be seen directly:
 \[\Hom(\pi_0(T)(\Fq), \EEx)
-= \Hom((X_*(T)_{\mathcal{I}_K})^{\Weil{}}, \EEx)
-= \Hom(X_*(T)_{\mathcal{I}_K}, \EEx)_{\Weil{}} 
+= \Hom((X_*(T)_{\mathcal{I}_K})^{\Weil{\Fq}}, \EEx)
+= \Hom(X_*(T)_{\mathcal{I}_K}, \EEx)_{\Weil{\Fq}} 
 %= \Hh^1(\Weil{}, \Hom(X_*(T), \EEx)^{\mathcal{I}_K}) 
-= \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}).
+= \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}).
 \]
 The middle isomorphism is the Langlands correspondence for $p$-adic tori, itself a fairly direct consequence of local class field theory; see \cite{yu:09a}, for example. The isomorphism 
 \[
-\Hom_\text{}(T^0(R),\EEx) \iso \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}}
+\Hom_\text{}(T^0(R),\EEx) \iso \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}}
 \] 
 and the commutativity of the diagram is then a consequence of the inflation-restriction exact sequence and the fact that $\Weil{}$ has cohomological dimension $1$.
 \end{proof}
@@ -1962,6 +1962,7 @@ Combining Corollary~\ref{cor:CS_tori} with Lemma~\ref{lem:LLCT} now produces the
 \begin{equation}\label{eq:GLCT}
   \begin{tikzcd}[row sep=20, column sep=15]
 {}  & 0 \arrow{d} & 0 \arrow{d} &  & \\ 
+<<<<<<< Updated upstream
    & \Hh^0(\Weil{}, \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx))  \arrow{d} & \arrow{d} \Hh^0(\Weil{}, \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)) & 0 \arrow{d} & \\
     0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \arrow{d}
     & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d} & \QCSiso{T^0} \arrow{r} \arrow{d} & 0\\
@@ -1969,6 +1970,14 @@ Combining Corollary~\ref{cor:CS_tori} with Lemma~\ref{lem:LLCT} now produces the
  & \Hh^1(\Weil{}, \Hh^0(\mathcal{I}_K, \check{T}_\ell)) \arrow{r}{\text{infl'n}} \arrow{d}
  & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} \arrow{d}
  & \Hh^0(\Weil{}, \Hh^1(\mathcal{I}_K, \check{T}_\ell)) \arrow{r} \arrow{d}  
+=======
+   & \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}}  \arrow{d} & \arrow{d} \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}} & 0 \arrow{d} & \\
+    0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \arrow{d}
+    & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d} & \QCSiso{T^0} \arrow{r} \arrow{d} & 0\\
+   0 \arrow{r}  
+ & \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}} \arrow{d}
+ & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} \arrow{d}
+ & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}} \arrow{r} \arrow{d}  
  & 0\\
  &  0  & 0 & 0 & 
   \end{tikzcd}
@@ -1984,6 +1993,39 @@ As in \cite{yu:09a}, the general case can be built up from the case $T_K = \Gm{K
 or by a small part of Proposition~\ref{prop:etale-iso}
 
 [insert discussion of Takashi Suzuki's work]
+=======
+The case $T_K = \Gm{K}$ is already very interesting, in which case \eqref{eq:GLCT} becomes
+\begin{equation}\label{eq:Gm}
+\begin{tikzcd}
+    0 \rar & \QCSiso{\ZZ} \arrow{r}{\pi_0^*} \arrow{d}{\iso}
+    & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d}{\iso} & \QCSiso{\Gm{R}} \arrow{r} \arrow{d}{\iso} & 0\\
+    0 \arrow{r}  
+ & \Hom(\Weil{\Fq}, \EEx) \arrow{r}{\text{infl'n}}
+ & \Hom(\Weil{K}, \EEx) \arrow{r}{\text{rest'n}} 
+ & \Hom(\mathcal{I}_K, \EEx) \arrow{r}  
+ & 0
+\end{tikzcd}
+\end{equation}
+We have seen that the isomorphism $\QCS(\ZZ)\iso \Hom(\Weil{\Fq}, \EEx)$ is elementary. 
+The isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ may be deduced directly from the class field theory of Serre and Hezewinkel. The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is canonically equivalent to the category of $\ell$-adic characters of the equivariant etale fundamental group $\pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq)$.
+%and, using the Lang isogeny, that there is a canonical isomorphism 
+%\[\pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq) \iso \Gr^R_n(\Gm{R})(\Fq) = R_n^*.\]
+Accordingly, quasicharacter sheaves on $\Gm{R}$ may be apprehended as $\ell$-adic characters of
+the inverse limit of the groups $\pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq)$, as $n$ ranges over $\NN$.
+By \cite{serre:isogenies}, there is a canonical isomorphism 
+\[
+\varprojlim_{n\in \NN} \pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq) \iso \mathcal{I}_K^\text{ab};
+\]
+this isomorphism is {\it not} restricted to the case when $K$ and $\Fq$ have equal characteristic.
+This last isomorphism now provides the isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ in \eqref{eq:Gm}. 
+Since the sequences are split, this gives \eqref{eq:Gm}, geometrically. 
+We have been glib here because all this is treated carefully and beautifully in \cite{suzuki-yoshida:12a}. 
+Indeed, in that paper, an isomorphism is constructed directly between the equivariant fundamental group of $\Gr_R(T)$ (with respect to a site defined in \cite{suzuki-yoshida:12a}) when $T$ is a Neron model of $\Gm{K}$, and $\Weil{K}^\text{ab}$, improving greatly on the arguments of this paragraph.
+
+We expect that the general case of \eqref{eq:GLCT}, where $K$ is any local field and $T_K$ is any torus over $K$, may be deduced from the case \eqref{eq:Gm}, by an adaptation of arguments from \cite{yu:09a}. 
+In anticipation of work in that direction, Section~\ref{ssec:wrK} provides a key tool for that argument.
+
+We close this section with some further remarks on sites.
 
 \subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
 
