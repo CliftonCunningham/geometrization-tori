@@ -358,9 +358,9 @@ with different characteristic.
 Specializing to the case that $X = T$ is the N\'eron model of an algebraic torus over $K$ (\S\ref{ssec:CS_tori}), 
 we give a canonical short exact sequence 
 \[
-0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T_K} \to \Hom_\text{qc}(T(K),\EEx) \to 0,
+0 \to \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} \to \QCSiso{T_K} \to \Hom_\text{}(T(K),\EEx) \to 0,
 \]
-where $X_*(T_K)_{\mathcal{I}_K}$ is the group of coinvariants of the cocharacter lattice $X_*(T_K)$ of the algebraic torus $T_K$ by the action of the inertia group $\mathcal{I}_K$ of $K$, and where $\Hom_\text{qc}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
+where $X_*(T_K)_{\mathcal{I}_K}$ is the group of coinvariants of the cocharacter lattice $X_*(T_K)$ of the algebraic torus $T_K$ by the action of the inertia group $\mathcal{I}_K$ of $K$, and where $\Hom_\text{}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
 We further show that automorphism groups in $\CS(T)$ are given, for every quasicharacter sheaf $\cs{F}$ for $T$, by
 \[
 \Aut_{\QCS{}}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
@@ -1707,13 +1707,8 @@ Note that $X(K) = X(R)$.
 A \emph{quasicharacter of $X(K)$} is a group homomorphism $X(K) \to \EEx$ that factors through $X(R) \to X(R_n)$ for some non-negative integer $n$.
 We note that this definition is compatible with \cite{cassels-frohlich:AlgebraicNumberTheory}*{Ch XV, \S 2.3}.
 The group of quasicharacters of $X(K)$ will be denoted by 
-\[
-\Hom_\text{qc}(X(K),\EEx)
-\]
- and the subgroup of those that factor through $X(R_n)$ will be denoted by 
- \[
- \Hom_n(X(K),\EEx).
-\]
+$\Hom_\text{}(X(K),\EEx)$
+ and the subgroup of those that factor through $X(R_n)$ will be denoted by $\Hom_n(X(K),\EEx)$.
 In this section we will see how to geometrize and categorify quasicharacters of $X(K)$ using character sheaves.
 
 \subsection{Review of the Greenberg transform} \label{ssec:rev_Greenberg}
@@ -1837,7 +1832,7 @@ The trace of Frobenius provides a natural transformation between the additive fu
 \[
 F_{\QCS}: X_K \mapsto \QCSiso{X}
 \qquad\text{and}\qquad
-F_{\text{qc}}: X_K \mapsto \Hom_{\text{qc}}(X(K),\EEx)
+F_{\text{}}: X_K \mapsto \Hom_{\text{}}(X(K),\EEx)
 \]
 as functors from $\mathcal{N}_K$ to the category of commutative groups.
 \end{enumerate} 
@@ -1845,7 +1840,7 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 \begin{enumerate}[resume]
 \labitem{(1)}{x1} there is a canonical short exact sequence of commutative groups 
 \[
-0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X} \to \Hom_\text{qc}(X(K),\EEx) \to 0;
+0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{}} \to \QCSiso{X} \to \Hom_\text{}(X(K),\EEx) \to 0;
 \] 
 \labitem{(2)}{x2} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
 \labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
@@ -1869,10 +1864,9 @@ To prove \ref{x3}, use Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, the 
 As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. 
 This is now provided by specializing Theorem~\ref{thm:CSXK} to the case when $X_K\in \mathcal{N}_K$ is an algebraic torus over $K$. 
 
-\begin{corollary}
+\begin{corollary}\label{cor:CS_tori}
 Let $T_K$ be an algebraic toris over $K$ and let $T$ be a Neron model for $T_K$.
-The following is a commutative diagram of exact sequences,
-after removing isomorphism groups.
+The following is a commutative diagram of exact sequences.
 \[
   \begin{tikzcd}[row sep=20, column sep=18]
 {}  & 0 \arrow{d} & 0 \arrow{d} &  & \\ 
@@ -1880,21 +1874,26 @@ after removing isomorphism groups.
     0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \dar{\TrFrob{\pi_0(T)}}
     & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d}{\TrFrob{\Gr_R(T)}} & \QCSiso{T^0} \arrow{r} \arrow{d}{\TrFrob{\Gr_R(T)^0}} & 0\\
     0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
-    & \arrow{d}{\iso} \Hom_\text{qc}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{qc}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\
+    & \arrow{d}{\iso} \Hom_\text{}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\
  &  0  & 0 & 0 & 
   \end{tikzcd}
  \]
  \end{corollary}
 \begin{proof} 
+The horizontal sequence of groups coming from categories of quasicharacter sheaves is exact by Proposition~\ref{prop:middleexact}, together with the observation that the functors $\pi_0^*$ and $\iota^*$ perverse limits.
+It is elementary that the horizontal sequence of quasicharacters is exact.
+The diagram commutes by Lemma~\ref{lem:pullback}.
+Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of $\TrFrob{T}$ is $\Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}}$. 
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
 \[
  \pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K},
 \]
 where $X_*(T_K)$ is the cocharacter lattice of $T_K$ and $\mathcal{I}_K$ is the inertia group for $K$.
-Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of the trace of Frobenius is
+Thus,
 \[
 \Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}} = \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}.
 \] 
+which coincides with the kernel of $\TrFrob{\pi_0(T)}$ since $\pi_0(\pi_0(T))_{\bFq} = \pi_0(T)_{\bFq}$.
 \end{proof}
 
 \begin{corollary}
@@ -1910,8 +1909,7 @@ For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0
 
 \begin{proof}
 We already know $\Aut_{\QCS(T^0)}(\cs{E}) =1$ from Proposition~\ref{prop:connected}, part \ref{x3}.
-By Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case is already treated).
-In case $X = T^0$, it is clear that $\Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$ is trivial, so $\Aut_{\QCS(T^0)}(\cs{E}) =1$; in fact, we alre
+By Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case has already been treated by a different argument, above).
 By \cite{bitan:discriminant}*{Eq 3.1} again, 
 \[
 \Hom((\pi_0(T)_{\bFq})_{\Weil{}},\EEx) \iso
@@ -1921,20 +1919,20 @@ canonically.
 But $\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}$, canonically.
 So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 \[
-\Aut_\QCS{}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
+\Aut_\QCS{T}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 canonically, where $\check{T}_\ell$ is the $\ell$-adic dual torus $\Hom(X_*(T_K),\EEx)$.
-The other two cases are 
+The case $X= \pi_0(T)$ is treated recovers the same automorphism group since $\pi_0(\pi_0(T))_{\bFq} = \pi_0(T)_{\bFq}$.
 \end{proof}
 
-\subsection{Geometric perspective on the Langlands correspondence for $p$-adic tori}
+\subsection{Geometric perspective on the Langlands correspondence for $p$-adic tori}\label{ssec:LLCT}
 
+\begin{lemma}\label{lem:LLCT}
+The following diagram commutes. 
 \[
 \begin{tikzcd}
-   0 \rar & \arrow[bend right=70]{dd} \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \dar{\TrFrob{\pi_0(T)}}
-    & \QCSiso{T} \arrow{r}{\iota_0^*} \arrow[dotted, bend right=50]{dd}  \arrow{d}{\TrFrob{\Gr_R(T)}} & \QCSiso{T^0} \arrow[dotted, bend right=50]{dd}  \arrow{r} \arrow{d}{\TrFrob{\Gr_R(T)^0}} & 0\\
    0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
-    & \arrow{d}{\iso} \Hom_\text{qc}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{qc}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\    
+    & \arrow{d}{\iso} \Hom_\text{}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\    
     0 \arrow{r}  
  & \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}}
  & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} 
@@ -1942,7 +1940,46 @@ The other two cases are
  & 0
 \end{tikzcd}
 \] 
+\end{lemma}
+\begin{proof}
+Since $\pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K}$ by \cite{bitan:discriminant}*{Eq 3.1}, the isomorphism on the left can be seen directly:
+\[\Hom(\pi_0(T)(\Fq), \EEx)
+= \Hom((X_*(T)_{\mathcal{I}_K})^{\Weil{}}, \EEx)
+= \Hom(X_*(T)_{\mathcal{I}_K}, \EEx)_{\Weil{}} 
+%= \Hh^1(\Weil{}, \Hom(X_*(T), \EEx)^{\mathcal{I}_K}) 
+= \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}).
+\]
+The middle isomorphism is the Langlands correspondence for $p$-adic tori, itself a fairly direct consequence of local class field theory; see \cite{yu:09a}, for example. The isomorphism 
+\[
+\Hom_\text{}(T^0(R),\EEx) \iso \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}}
+\] 
+and the commutativity of the diagram is then a consequence of the inflation-restriction exact sequence and the fact that $\Weil{}$ has cohomological dimension $1$.
+\end{proof}
 
+Combining Corollary~\ref{cor:CS_tori} with Lemma~\ref{lem:LLCT} now produces the following commutative diagram of exact sequences:
+\begin{equation}\label{eq:GLCT}
+  \begin{tikzcd}[row sep=20, column sep=18]
+{}  & 0 \arrow{d} & 0 \arrow{d} &  & \\ 
+   & \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}}  \arrow{d} & \arrow{d} \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{}} & 0 \arrow{d} & \\
+    0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \arrow{d}
+    & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d} & \QCSiso{T^0} \arrow{r} \arrow{d} & 0\\
+   0 \arrow{r}  
+ & \Hh^1(\Weil{}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}} \arrow{d}
+ & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} \arrow{d}
+ & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{}} \arrow{r} \arrow{d}  
+ & 0\\
+ &  0  & 0 & 0 & 
+  \end{tikzcd}
+ \end{equation}
+It is natural to ask if the vertical surjections can be defined directly, without making use of local class field theory.  
+Even the case $T_K = \Gm{K}$ is remarkable, in which case \eqref{eq:GLCT} becomes
+
+In fact, the answer is yes; as such, these maps provide a geometric perspective on the Langlands correspondence for $p$-adic tori.
+
+As in \cite{Yu:09a}, the general case can be built up from the case $T_K = \Gm{K}$.
+
+
+or by a small part of Proposition~\ref{prop:etale-iso}
 
 [insert discussion of Takashi Suzuki's work]
 
@@ -1967,7 +2004,7 @@ f : \Gr_R(X) \to \Res_{k'/k} \Gr_{R'}(X')
 which, through quasicharacter sheaves, induces
 \[
 \begin{tikzcd}[column sep=60]
-\Hom_{\text{qc}}(X_K(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X(K)}} &\Hom_{\text{qc}}(X_K(K), \EEx).
+\Hom_{\text{}}(X_K(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{X(K)}} &\Hom_{\text{}}(X_K(K), \EEx).
 \end{tikzcd}
 \]
 \end{proposition}
