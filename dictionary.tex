@@ -401,13 +401,15 @@ allowed us to hijack much of a Research in Teams meeting at the Banff Internatio
 character sheaves.  We thank them for their kindness, knowledge and invaluable help.
 We thank Takashi Suzuki for some very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
 We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and drawing our attention to their result on Weil restriction and the Greenberg transform.
-We thank Joseph Bernstein for suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.}
+We thank Joseph Bernstein for very helpful comments. 
+%suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
+}
 
 {Finally, we gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences and the National Science and Engineering Research Council (Canada), as well the hospitality of the Banff International Research Station during a Research in Teams program.}
 
 \tableofcontents
 
-\section{Character Sheaves on commutative group schemes and recollections for connected algebraic groups} \label{sec:category}
+\section{Character Sheaves on commutative group schemes} \label{sec:category}
 
  
 \subsection{Notations}\label{ssec:notation}
@@ -762,7 +764,9 @@ from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\oti
 
 We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 
-\subsection{The function-sheaf dictionary for connected algebraic groups over finite fields}\label{ssec:connected}
+\section{Recollections for connected algebraic groups}\label{ssec:connected}
+
+%\subsection{The function-sheaf dictionary for connected algebraic groups over finite fields}\label{ssec:connected}
 
 In general, $\bCS(G)$ is an essentially
 proper subcategory of $\CS(G)$. 
@@ -880,8 +884,6 @@ As a slight variation, one may also consider one-dimensional local systems $\gcs
 
 Although the category $\CS(G)$ of character sheaves on $G$ specializes to $\bCS(G)$ when $G$ is connected and of finite type, this description is \emph{not} sufficient when extending the dictionary to smooth commutative group schemes, as we will see already in Section~\ref{sec:etale}.
 In particular, for a given $\gcs{L}$ and $\phi$ there may be many $\mu$ so that $(\gcs{L},\mu,\phi)$ is a character sheaf.  For \'etale $G$, Proposition~\ref{prop:etale-iso} shows that $\Hh^2(\bG,\EEx)^{\Weil{}}$ measures the possibilities for $\mu$.  We will see in Section~\ref{sec:main} that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ plays an analogous role for general smooth commutative group schemes $G$.
-
-\subsection{Examples}
 
 \section{Character sheaves on \'etale commutative group schemes} \label{sec:etale}
 
@@ -1681,10 +1683,8 @@ induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on
 is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
 \end{proof}
 
-\subsection{The dictionary for commutative algebraic groups over finite fields}
+\section{The dictionary for commutative algebraic groups over finite fields}
 
-
-\subsection{Examples}
 
 
 \section{Applications to quasicharacters of $p$-adic tori and Abelian varieties}\label{sec:applications}
@@ -1779,7 +1779,7 @@ as in Lemma~\ref{lem:pullback}.
 We now define a category which will geometrize quasicharacters of $X(K)$.
 We begin by considering the rigid monoidal category $\CS(G)$ defined in Section~\ref{ssec:category} without insisting that the commutative group $\Fq$-scheme $G$ is smooth, so that we can replace it with $\Gr_R(X)$ for smooth group $R$-scheme $X$.
 
-\begin{definition}
+\begin{definition}\label{def:QCS}
 Let $X$ be a smooth group scheme over $R$, with $R$ as above.
 A {\it quasicharacter sheaf for $X$} is an object of
 the following rigid monoidal subcategory of $\CS(\Gr_R(X))$, denoted by $\QCS(X)$:
@@ -1826,7 +1826,7 @@ for sufficiently large $i$.  Identities and composites are defined in the natura
 \begin{theorem}\label{thm:CSXK}
 Let $K$ be a local field with residue field $\Fq$, in which $\ell$ is invertible; 
 let $R$ be the ring of integers of $K$.
-Fix a separable closure ${\bar K}$ of $K$ and let $\tilde{K}$ be the maximal unramified extension of $K$ in ${\bar K}$; write $\tilde{R}$ for the ring of integers of $\tilde{K}$ and set $\tilde{S} = \Spec{\tilde{R}}$.
+%Fix a separable closure ${\bar K}$ of $K$ and let $\tilde{K}$ be the maximal unramified extension of $K$ in ${\bar K}$; write $\tilde{R}$ for the ring of integers of $\tilde{K}$ and set $\tilde{S} = \Spec{\tilde{R}}$.
 \begin{enumerate}
 \labitem{(0)}{x0}
 The trace of Frobenius provides a natural transformation between the additive functors
@@ -1848,7 +1848,7 @@ Regarding this natural transformation, for every $X \in \mathcal{N}$:
 \labitem{(2)}{x2} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
 \labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$ for $X$, there is a canonical isomorphism
 \[
-\Aut(\cs{F}) \iso \Hom(\pi_0(X \times_S \tilde{S})_{\Weil{\Fq}},\EEx)
+\Aut(\cs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{\Fq}},\EEx)
 \]
 \end{enumerate}
 \end{theorem}
@@ -1858,7 +1858,7 @@ Regarding this natural transformation, for every $X \in \mathcal{N}$:
 To prove \ref{x0}, use: Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$; the fact that N\'eron models are unique up to isomorphism; the fact that every $\CS(\Gr^R_n(X))$ is a full subcategory of $\QCS(X)$; and the observation that every object in $\QCS(X)$ is in the essential image of $\CS(\Gr^R_n(X))$ for some $n$.
 To prove \ref{x1}, use Theorem~\ref{thm:snake} with $G = \Gr^R_n(X)$ and then argue as in part \ref{x0}.
 To prove \ref{x2}, argue as in the proof of Lemma~\ref{lem:autornaught}.
-To prove \ref{x3}, use: the fact that the component group of $\Gr^R_n(X)$ is independent of $n$; Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, in which case $\pi_0(G) = \pi_0(X \times_S S_0)$ and $\pi_0(\bG) = \pi_0(X \times_S \tilde{S})$; and then argue as in part \ref{x0}.
+To prove \ref{x3}, use: the fact that the component group of $\Gr^R_n(X)$ is independent of $n$; Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, in which case $\pi_0(G) = \pi_0(X \times_S S_0)$ and $\pi_0(\bG) = \pi_0(X)_{\bFq}$; then argue as in part \ref{x0}.
 %\end{enumerate}
 \end{proof}
 
@@ -1883,9 +1883,8 @@ The following is a commutative diagram of exact sequences.
  \]
  \end{corollary}
 \begin{proof} 
-The horizontal sequence of groups coming from categories of quasicharacter sheaves is exact by Proposition~\ref{prop:middleexact}, together with the observation that the functors $\pi_0^*$ and $\iota^*$ perverse limits.
+The horizontal sequence of groups coming from categories of quasicharacter sheaves is exact by Proposition~\ref{prop:middleexact}, together with the observation that the functors $\pi_0^*$ and $\iota^*$ preserve limits.
 It is elementary that the horizontal sequence of quasicharacters is exact.
-The diagram commutes by Lemma~\ref{lem:pullback}.
 Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of $\TrFrob{T}$ is $\Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}}$. 
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
 \[
@@ -1896,7 +1895,11 @@ Thus,
 \[
 \Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{\Fq}} = \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}}.
 \] 
-which coincides with the kernel of $\TrFrob{\pi_0(T)}$ since $\pi_0(\pi_0(T))_{\bFq} = \pi_0(T)_{\bFq}$.
+Thus, the middle vertical sequence is exact.
+Since $T^0$ and $\pi_0(T)$ do not lie in $\mathcal{N}$, we cannot use Theorem~\ref{thm:CSXK} to determine the image and trace of Frobenius for these schemes. 
+Instead, we observe that $T^0$ and $\pi_0(T)$ are smooth commutative group schemes over $R$, so Definition~\ref{def:QCS} gives meaning to categories $\QCS(T^0)$ and $\QCS(\pi_0(T))$, and, moreover, that $\pi_0(\Gr^R_n(T^0))= \pi_0(T^0)_{\Fq} = 1$ and $\pi_0(\Gr^R_n(\pi_0(T)) = \pi_0(T)_{\Fq}$ are both independent of $n$.
+It follows that the vertical sequences through $\QCSiso{T^0}$ and $\QCSiso{\pi_0(T)}$ are exact by Theorem~\ref{thm:snake} and Definition~\ref{def:QCS}.
+The diagram commutes by Lemma~\ref{lem:pullback}.
 \end{proof}
 
 \begin{corollary}
@@ -1915,20 +1918,21 @@ For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0
 \begin{proof}
 We already know $\Aut(\cs{E}) =1$ from Proposition~\ref{prop:connected}, part \ref{x3}.
 By Theorem~\ref{thm:CSXK}, 
-\[\Aut(\cs{F})  \iso \Hom((\pi_0(X \times_S \tilde{S})_{\Weil{\Fq}},\EEx),\] canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case has already been treated by a different argument, above).
+\[
+\Aut(\cs{F})  \iso \Hom((\pi_0(T)_{\bFq})_{\Weil{\Fq}},\EEx).
+\]
 By \cite{bitan:discriminant}*{Eq 3.1} again, 
 \[
-\Hom((\pi_0(T)_{\bFq})_{\Weil{}},\EEx) \iso
-\Hom(X_*(T_K)_{\Weil{K}},\EEx),
+\Hom((\pi_0(T)_{\bFq})_{\Weil{\Fq}},\EEx) \iso
+\Hom(X_*(T_K)_{\Weil{K}},\EEx).
 \]
-canonically.
-But $\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}$, canonically.
+But $\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}$.
 So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 \[
 \Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 canonically.
-The case $X= \pi_0(T)$ recovers the same automorphism group since $\pi_0(\pi_0(T))_{\bFq} = \pi_0(T)_{\bFq}$.
+The case $X= \pi_0(T)$ is handled by the same argument, replacing Theorem~\ref{thm:CSXK} with Theorem~\ref{thm:snake} and Definition~\ref{def:QCS}, as in the proof of Corollary~\ref{cor:CS_tori}, after observing that $\pi_0(\pi_0(T)_{\bFq}) = \pi_0(T)_{\bFq}$.
 \end{proof}
 
 \subsection{Geometric Langlands correspondence for $p$-adic tori}\label{ssec:LLCT}
