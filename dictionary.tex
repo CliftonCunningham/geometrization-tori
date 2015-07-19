@@ -326,7 +326,7 @@ We also illuminate the nature of the category $\CS(G)$ by showing that every mor
 \begin{theorem*}[{Thm. \ref{thm:autornaught}}]
 If $G$ is a smooth commutative group scheme over $\Fq$ then
 \[
-\Aut_{\CS{}}(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}
+\Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}
 \]
 for all quasicharacter sheaves $\cs{L}$ on $G$.
 \end{theorem*}
@@ -363,7 +363,7 @@ we give a canonical short exact sequence
 where $X_*(T_K)_{\mathcal{I}_K}$ is the group of coinvariants of the cocharacter lattice $X_*(T_K)$ of the algebraic torus $T_K$ by the action of the inertia group $\mathcal{I}_K$ of $K$, and where $\Hom_\text{}(T(K),\EEx)$ denotes the group of quasicharacters of $T(K)$.
 We further show that automorphism groups in $\CS(T)$ are given, for every quasicharacter sheaf $\cs{F}$ for $T$, by
 \[
-\Aut_{\QCS{}}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
+\Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 %The appearance of the dual torus here is quite striking. 
@@ -392,11 +392,7 @@ When commutative, such groups are extensions of finite cyclic groups by algebrai
 in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves.
 The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
 
-This paper shows that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an algebraic torus or an abelian variety over a local field $K$. 
-It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
-Even the case $X_K = \Gm{K}$ shows that the answer is no [add internal reference].
-
-[Add reference to Takaski Suzuki's paper]
+Also mention: \cite{suzuki-yoshida:12a},\cite{Suzuki:Neron} and \cite{Cunningham-Kamgarpour}.
 
 \medskip
 \noindent\textbf{Acknowledgements.\ } {Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
@@ -1900,18 +1896,19 @@ which coincides with the kernel of $\TrFrob{\pi_0(T)}$ since $\pi_0(\pi_0(T))_{\
 Let $T_K$ be an algebraic toris over $K$ and let $T$ be a Neron model for $T_K$.
 For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
 \[
-\Aut_{\QCS(\pi_0(T))}(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
+\Aut(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
 \quad
-\Aut_{\QCS(T)}(\cs{F})\iso (\check{T}_\ell)^{\Weil{K}},
+\Aut(\cs{F})\iso (\check{T}_\ell)^{\Weil{K}},
 \quad
-\Aut_{\QCS(T^0)}(\cs{F}^0)\iso 1,
+\Aut(\cs{F}^0)\iso 1,
 \]
  where $\check{T}_\ell \ceq \Hom(X_*(T_K),\EEx)$, the $\ell$-adic dual torus to $T_K$.
 \end{corollary}
 
 \begin{proof}
-We already know $\Aut_{\QCS(T^0)}(\cs{E}) =1$ from Proposition~\ref{prop:connected}, part \ref{x3}.
-By Theorem~\ref{thm:CSXK}, $\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx)$, canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case has already been treated by a different argument, above).
+We already know $\Aut(\cs{E}) =1$ from Proposition~\ref{prop:connected}, part \ref{x3}.
+By Theorem~\ref{thm:CSXK}, 
+\[\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx),\] canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case has already been treated by a different argument, above).
 By \cite{bitan:discriminant}*{Eq 3.1} again, 
 \[
 \Hom((\pi_0(T)_{\bFq})_{\Weil{}},\EEx) \iso
@@ -1921,7 +1918,7 @@ canonically.
 But $\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}$, canonically.
 So, for any quasicharacter sheaf $\cs{F}$ for $T$,
 \[
-\Aut_{\QCS(T)}(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
+\Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
 \]
 canonically.
 The case $X= \pi_0(T)$ recovers the same automorphism group since $\pi_0(\pi_0(T))_{\bFq} = \pi_0(T)_{\bFq}$.
@@ -1958,6 +1955,7 @@ The middle isomorphism is the Langlands correspondence for $p$-adic tori, itself
 and the commutativity of the diagram is then a consequence of the inflation-restriction exact sequence and the fact that $\Weil{}$ has cohomological dimension $1$.
 \end{proof}
 
+\begin{remark}
 Combining Corollary~\ref{cor:CS_tori} with Lemma~\ref{lem:LLCT} now produces the following commutative diagram of exact sequences:
 \begin{equation}\label{eq:GLCT}
   \begin{tikzcd}[row sep=20, column sep=15]
@@ -1987,27 +1985,27 @@ The case $T_K = \Gm{K}$ is already very interesting, in which case \eqref{eq:GLC
 \end{tikzcd}
 \end{equation}
 We have seen that the isomorphism $\QCS(\ZZ)\iso \Hom(\Weil{\Fq}, \EEx)$ is elementary. 
-The isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ may be deduced directly from the class field theory of Serre and Hezewinkel. The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is canonically equivalent to the category of $\ell$-adic characters of the equivariant etale fundamental group $\pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq)$.
-%and, using the Lang isogeny, that there is a canonical isomorphism 
-%\[\pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq) \iso \Gr^R_n(\Gm{R})(\Fq) = R_n^*.\]
+The isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ may be deduced directly from the class field theory of Serre and Hezewinkel as revisited beautifully in \cite{suzuki-yoshida:12a}; see also \cite{Suzuki:Neron}.
+The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is canonically equivalent to the category of $\ell$-adic characters of the quotient of the etale fundamental group $\pi_1(\Gr^R_n(\Gm{R}),\bFq)$ determined by the Lang isogeny for $\Gr^R_n(\Gm{R})$.
 Accordingly, quasicharacter sheaves on $\Gm{R}$ may be apprehended as $\ell$-adic characters of
-the inverse limit of the groups $\pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq)$, as $n$ ranges over $\NN$.
-By \cite{serre:isogenies}, there is a canonical isomorphism 
-\[
-\varprojlim_{n\in \NN} \pi_1^\text{eq}(\Gr^R_n(\Gm{R}),\bFq) \iso \mathcal{I}_K^\text{ab};
-\]
+the inverse limit of these quotients, as $n$ ranges over $\NN$.
+By \cite{serre:isogenies}, there is a canonical isomorphism between this inverse limit and $\mathcal{I}_K^\text{ab}$;
 this isomorphism is {\it not} restricted to the case when $K$ and $\Fq$ have equal characteristic.
-This last isomorphism now provides the isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ in \eqref{eq:Gm}. 
-Since the sequences are split, this gives \eqref{eq:Gm}, geometrically. 
-We have been glib here because all this is treated carefully and beautifully in \cite{suzuki-yoshida:12a}. 
-Indeed, in that paper, an isomorphism is constructed directly between the equivariant fundamental group of $\Gr_R(T)$ (with respect to a site defined in \cite{suzuki-yoshida:12a}) when $T$ is a Neron model of $\Gm{K}$, and $\Weil{K}^\text{ab}$, improving greatly on the arguments of this paragraph.
+This provides the isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ in \eqref{eq:Gm}. 
+Since the sequences are split, this gives $\QCSiso{T}\iso \Hom(\Weil{K}, \EEx)$.
+\end{remark}
 
-We expect that the general case of \eqref{eq:GLCT}, where $K$ is any local field and $T_K$ is any torus over $K$, may be deduced from the case \eqref{eq:Gm}, by an adaptation of arguments from \cite{yu:09a}. 
-In anticipation of work in that direction, Section~\ref{ssec:wrK} provides a key tool for that argument.
-
-We close this section with some further remarks on sites.
+\begin{remark}
+This paper shows that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an algebraic torus or an abelian variety over a local field $K$. 
+It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
+This seems unlikely, since the geometric etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$, though limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
+\end{remark}
 
 \subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
+
+We expect that the general case of \eqref{eq:GLCT}, where $K$ is any local field and $T_K$ is any torus over $K$, may be deduced from the case \eqref{eq:Gm}.
+Some work in this direction appears in \cite{Suzuki:Neron}.
+In this section we develop a tool for further work in that direction.
 
 Let $K'/K$ be a finite Galois extension of local fields and
 let $k'/k$ be the corresponding extension of residue fields.
@@ -2071,7 +2069,7 @@ Since $X'$ is a N\'eron model for $X_{K'}$ and $X$ is a N\'eron model for $X_K$,
 \]
 Passing to limits now defines
 \[ 
-\Hom_\text{CS}(X_K(K'),\EEx) \to \Hom_\text{CS}(X_K(K)),\EEx)
+\Hom_\text{}(X_K(K'),\EEx) \to \Hom_\text{}(X_K(K),\EEx)
 \]
 Argue as in Proposition~\ref{prop:csbe} to see that this is indeed restriction of characters.
 \end{proof}
