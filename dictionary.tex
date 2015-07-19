@@ -846,7 +846,7 @@ Using this equivalence of categories, we may give a good description of $\CS(G)$
  \begin{enumerate}
  \labitem{(1)}{c1} $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ is an isomorphism of groups;
  \labitem{(2)}{c2} every character sheaf on $G$ is isomorphic to one defined by a discrete isogeny;
- \labitem{(3)}{c3} $\Aut_\CS{}(\cs{L}) = 1$, for all character sheaves $\cs{L}$ on $G$.
+ \labitem{(3)}{c3} $\Aut(\cs{L}) = 1$, for all character sheaves $\cs{L}$ on $G$.
  \end{enumerate}
  \end{proposition}
 \begin{proof}
@@ -1534,7 +1534,7 @@ bounded.
 Let $G$ be a smooth commutative group scheme over $\Fq$.
 There is a canonical isomorphism
 \[
-\Aut_\CS{}(\cs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx).
+\Aut(\cs{L}) \iso \Hom(\pi_0(\bG)_{\Weil{}},\EEx).
 \]
 \end{theorem}
 \begin{proof} 
@@ -1693,6 +1693,7 @@ We continue to assume that $\ell$ is invertible in $\Fq$.
 In this section we consider connected commutative algebraic groups over $K$ that admit a N\'eron model, by which we mean a locally finite type N\'eron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup isomorphic to $\mathbb{G}_\text{a}$.
 Write $\mathcal{N}_K$ for the full subcategory of the category of algebraic groups consisting of such objects.  This category is additive, and includes all algebraic tori over $K$, abelian varieties over $K$ and unipotent $K$-wound groups.
+We write $\mathcal{N}$ for the category of Neron models that arise in this way; in particular, $\mathcal{N}$ is a full subcategory of the category of smooth commutative group schemes over $R$.
 
 \subsection{Quasicharacters}\label{ssec:quasicharacters}
 
@@ -1751,9 +1752,11 @@ By construction, the $\Fq$-scheme $\Gr_R(X)$ comes equipped with morphisms
 \varrho^R_n(X) : \Gr^R(X) \to \Gr^R_n(X),\qquad \forall n\in \NN.
 \]
 
-\subsection{Character sheaves on the Greenberg transform of a N\'eron model} \label{ssec:CS_on_GN}
+\subsection{Quasicharacter sheaves}
+%{Character sheaves on the Greenberg transform of a N\'eron model} 
+\label{ssec:CS_on_GN}
  
-Let $X_K \in \mathcal{N}_K$ and $X$ be as above.
+Let $X \in \mathcal{N}$ be as above.
 Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$;
 note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
 
@@ -1822,26 +1825,29 @@ for sufficiently large $i$.  Identities and composites are defined in the natura
 \begin{theorem}\label{thm:CSXK}
 Let $K$ be a local field with residue field $\Fq$, in which $\ell$ is invertible; 
 let $R$ be the ring of integers of $K$.
+Fix a separable closure ${\bar K}$ of $K$ and let $\tilde{K}$ be the maximal unramified extension of $K$ in ${\bar K}$; write $\tilde{R}$ for the ring of integers of $\tilde{K}$ and set $\tilde{S} = \Spec{\tilde{R}}$.
 \begin{enumerate}
 \labitem{(0)}{x0}
 The trace of Frobenius provides a natural transformation between the additive functors
 \[
-F_{\QCS}: X_K \mapsto \QCSiso{X}
+%F_{\QCS}: 
+X \mapsto \QCSiso{X}
 \qquad\text{and}\qquad
-F_{\text{}}: X_K \mapsto \Hom_{\text{}}(X(K),\EEx)
+%F_{\text{}}: 
+X \mapsto \Hom_{\text{}}(X(K),\EEx)
 \]
-as functors from $\mathcal{N}_K$ to the category of commutative groups.
+as functors from $\mathcal{N}$ to the category of commutative groups.
 \end{enumerate} 
-Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\'eron model $X$:
+Regarding this natural transformation, for every $X \in \mathcal{N}$:
 \begin{enumerate}[resume]
 \labitem{(1)}{x1} there is a canonical short exact sequence of commutative groups 
 \[
 0 \to \Hh^2(\pi_0(X)_{\bFq},\EEx)^{\Weil{\Fq}} \to \QCSiso{X} \to \Hom_\text{}(X(K),\EEx) \to 0;
 \] 
 \labitem{(2)}{x2} for all quasicharacter sheaves $\cs{F}$, $\cs{F}'$ on $\Gr_R(X)$, and for every $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomorphism;
-\labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$ for $X_K$, there is a canonical isomorphism
+\labitem{(3)}{x3} for all quasicharacter sheaves $\cs{F}$ for $X$, there is a canonical isomorphism
 \[
-\Aut(\cs{F}) \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{\Fq}},\EEx).
+\Aut(\cs{F}) \iso \Hom(\pi_0(X \times_S \tilde{S})_{\Weil{\Fq}},\EEx)
 \]
 \end{enumerate}
 \end{theorem}
@@ -1851,14 +1857,14 @@ Regarding this natural transformation, for every $X_K \in \mathcal{N}_K$ with N\
 To prove \ref{x0}, use: Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$; the fact that N\'eron models are unique up to isomorphism; the fact that every $\CS(\Gr^R_n(X))$ is a full subcategory of $\QCS(X)$; and the observation that every object in $\QCS(X)$ is in the essential image of $\CS(\Gr^R_n(X))$ for some $n$.
 To prove \ref{x1}, use Theorem~\ref{thm:snake} with $G = \Gr^R_n(X)$ and then argue as in part \ref{x0}.
 To prove \ref{x2}, argue as in the proof of Lemma~\ref{lem:autornaught}.
-To prove \ref{x3}, use Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, the fact that the component group of $\Gr^R_n(X)$ is independent of $n$ and then argue as in part \ref{x0}.
+To prove \ref{x3}, use: the fact that the component group of $\Gr^R_n(X)$ is independent of $n$; Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, in which case $\pi_0(G) = \pi_0(X \times_S S_0)$ and $\pi_0(\bG) = \pi_0(X \times_S \tilde{S})$; and then argue as in part \ref{x0}.
 %\end{enumerate}
 \end{proof}
 
 \subsection{Quasicharacter sheaves for $p$-adic tori} \label{ssec:CS_tori}
 
 As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. 
-This is now provided by specializing Theorem~\ref{thm:CSXK} to the case when $X_K\in \mathcal{N}_K$ is an algebraic torus over $K$. 
+This is now provided by the following adaptation of Theorem~\ref{thm:CSXK} in the case when $T\in \mathcal{N}$ is a Neron model for an algebraic torus over $K$.
 
 \begin{corollary}\label{cor:CS_tori}
 Let $T_K$ be an algebraic toris over $K$ and let $T$ be a Neron model for $T_K$.
@@ -1908,7 +1914,7 @@ For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0
 \begin{proof}
 We already know $\Aut(\cs{E}) =1$ from Proposition~\ref{prop:connected}, part \ref{x3}.
 By Theorem~\ref{thm:CSXK}, 
-\[\Aut(\cs{F})  \iso \Hom((\pi_0(X)_{\bFq})_{\Weil{}},\EEx),\] canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case has already been treated by a different argument, above).
+\[\Aut(\cs{F})  \iso \Hom((\pi_0(X \times_S \tilde{S})_{\Weil{\Fq}},\EEx),\] canonically, for $X = T$ and $X=\pi_0(T)$ (and for $X= T^0$, though that case has already been treated by a different argument, above).
 By \cite{bitan:discriminant}*{Eq 3.1} again, 
 \[
 \Hom((\pi_0(T)_{\bFq})_{\Weil{}},\EEx) \iso
