@@ -311,11 +311,12 @@ Using pullbacks of character sheaves we obtain a diagram
 \]
 We show that the rows of this diagram are exact (\S\S\ref{ssec:restriction},\ref{ssec:component}), so we may apply the snake lemma to prove the main theorem of the paper,
 \begin{theorem*}[{Thm. \ref{thm:snake}}]
-If $G$ is a smooth commutative group scheme over $\Fq$ then
+If $G$ is a smooth commutative group scheme over $\Fq$ then the trace of Frobenius gives a short exact sequence
 \[
-\TrFrob{G} : \CSiso{G} \to G(\Fq)^*
+\begin{tikzcd}
+0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0.
+\end{tikzcd}
 \]
-is surjective with kernel $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.
 \end{theorem*}
 \noindent
 Thus, unless the component group scheme $\pi_0(\bG)$ is finite cyclic, category $\CS(G)$ contains non-trivial character sheaves lying in the kernel of the trace of Frobenius and therefore lost in translation to characters of $G(\Fq)$.
@@ -1484,10 +1485,10 @@ It now follows from the snake lemma
   \end{equation}
 that $\coker \TrFrob{G} =0$
 and $\ker \TrFrob{\pi_0(G)} \to \ker \TrFrob{G}$ is an isomorphism.
-This gives the short exact sequence
+This gives the promised short exact sequence
 \[
   \begin{tikzcd}
-0 \arrow{r} & \Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx)) \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0. 
+0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0. 
   \end{tikzcd}
 \]
 \end{proof}
@@ -1867,7 +1868,7 @@ As we explained in the Introduction, our original motivation for this paper was 
 This is now provided by the following adaptation of Theorem~\ref{thm:CSXK} in the case when $T\in \mathcal{N}$ is a Neron model for an algebraic torus over $K$.
 
 \begin{corollary}\label{cor:CS_tori}
-Let $T_K$ be an algebraic toris over $K$ and let $T$ be a Neron model for $T_K$.
+Let $T$ be a Neron model for an algebraic torus over $K$.
 The following is a commutative diagram of exact sequences.
 \[
   \begin{tikzcd}[row sep=20, column sep=18]
@@ -1899,7 +1900,7 @@ which coincides with the kernel of $\TrFrob{\pi_0(T)}$ since $\pi_0(\pi_0(T))_{\
 \end{proof}
 
 \begin{corollary}
-Let $T_K$ be an algebraic toris over $K$ and let $T$ be a Neron model for $T_K$.
+Let $T$ be a Neron model for an algebraic torus over $K$.
 For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
 \[
 \Aut(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
@@ -1930,7 +1931,7 @@ canonically.
 The case $X= \pi_0(T)$ recovers the same automorphism group since $\pi_0(\pi_0(T))_{\bFq} = \pi_0(T)_{\bFq}$.
 \end{proof}
 
-\subsection{Geometric perspective on the Langlands correspondence for $p$-adic tori}\label{ssec:LLCT}
+\subsection{Geometric Langlands correspondence for $p$-adic tori}\label{ssec:LLCT}
 
 \begin{lemma}\label{lem:LLCT}
 The following diagram commutes. 
