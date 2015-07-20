@@ -88,7 +88,7 @@
       \theoremstyle{definition}
       \newtheorem{definition}[theorem]{Definition}
 
-      \theoremstyle{remark}
+      %\theoremstyle{remark}
       \newtheorem{remark}[theorem]{Remark}
       \newtheorem{example}[theorem]{Example}
 
@@ -138,6 +138,7 @@
 \DeclareMathOperator{\image}{im}
 \DeclareMathOperator{\Loc}{Loc}
 \DeclareMathOperator{\Tot}{Tot}
+\DeclareMathOperator{\Tor}{Tor}
 \newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
 \newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
 %%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
@@ -223,7 +224,7 @@
 
 
 \begin{abstract}
-We consider the rigid monoidal category of character sheaves on smooth commutative group schemes $G$ over finite fields $k$ and expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
+We consider the rigid monoidal category of character sheaves on a smooth commutative group scheme $G$ over a finite field $k$ and expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
 We find the group of isomorphism classes of character sheaves on $G$ and show that it is an extension of the group of characters of $G(k)$ by a cohomology group determined by the component group scheme of $G$.
 We also classify all morphisms in the category character sheaves on $G$.
 As an application, we study character sheaves on the Greenberg transforms of the locally finite type N\'eron models of algebraic tori over local fields; in doing so, we introduce `quasicharacter sheaves' and find a geometrization and categorification of quasi\-characters of $p$-adic tori.
@@ -1156,7 +1157,16 @@ This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and 
 \end{proof}
 
 \begin{example} \label{eg:H2}
-Suppose that $\bG$.
+Recall the K\"unneth formula in group cohomology \cite{brown:CohomologyOfGroups}*{Prop. I.0.8}: if $A$ and $A'$ are groups and $M$ and $M'$ are abelian groups with $M$ $\ZZ$-free, then
+\[
+\Hh^n(A \times A', M \otimes M') \cong \bigoplus_{i+j=n} \Hh^i(A, M) \otimes \Hh^j(A', M') \ \ \oplus \bigoplus_{i+j=n+1} \Tor_1^{\ZZ}\left(\Hh^i(A, M), \Hh^j(A', M')\right).
+\]
+
+Now suppose $\bG = \ZZ^r \times \prod_{i = 1}^m \ZZ/N_i\ZZ$ is an arbitrary finitely generated abelian group, with $N_i \mid N_{i+1}$.  Then the K\"unneth formula implies that
+\[
+\Hh^2(\bG, \EEx) \cong \left(\EEx\right)^{r(r-1)/2} \times \prod_{i=1}^m (\ZZ/N_i\ZZ)^{m+r-i}.
+\]
+We see that $\Hh^2(\bG, \EEx)$ is trivial if and only if $\bG$ is cyclic.  Of course, $\Hh^0(\Weil{}, \Hh^2(\bG, \EEx))$ may or may not be trivial, even when $\Hh^2(\bG, \EEx)$ is nontrivial.
 \end{example}
 
 \subsection{Descent, revisited}\label{ssec:bS}
