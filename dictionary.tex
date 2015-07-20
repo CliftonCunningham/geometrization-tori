@@ -90,6 +90,7 @@
 
       \theoremstyle{remark}
       \newtheorem{remark}[theorem]{Remark}
+      \newtheorem{example}[theorem]{Example}
 
 %%%%%%%%%%%%%%%% TIKZ SETTINGS %%%%%%%%%%%%%%%%
 \tikzset{every picture/.style={>=stealth},label/.style={font=\footnotesize}}
@@ -109,6 +110,7 @@
 \newcommand{\Fq}{k}
 \newcommand{\Fqm}{k_m}
 \newcommand{\EEx}{\EE^\times}
+\newcommand{\ZEx}{\mathbb{\bar Z}_\ell^\times}
 \newcommand{\Weil}[1]{\mathcal{W}_{#1}}
 \newcommand{\m}{{\mathfrak{m}}}
 %%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
@@ -137,7 +139,7 @@
 \DeclareMathOperator{\Loc}{Loc}
 \DeclareMathOperator{\Tot}{Tot}
 \newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
-\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
 %%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
@@ -177,11 +179,12 @@
 \makeatother
 %% Shorthand for bars
 \renewcommand{\bf}{\bar{f}}
-\newcommand{\bg}{\bar{g}}
+\newcommand{\bg}{{\bar{g}}}
 \newcommand{\bm}{\bar{m}}
 \newcommand{\bG}{\bar{G}}
 \newcommand{\bH}{\bar{H}}
 \newcommand{\brho}{{\bar\rho}}
+\newcommand{\bx}{{\bar{x}}}
 %% Spacing control
 \newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
 \newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
@@ -252,8 +255,8 @@ Nevertheless, the defect in the dictionary for characters of commutative algebra
 In order to extend the dictionary from commutative algebraic groups over finite fields to smooth commutative group schemes $G$ over $\Fq$,
 we replace the local system $\cs{E}$ on $G$ with a Weil local system while retaining the extra structure $\mu_\cs{E}$. 
 In this way we are led to the category $\CS(G)$ of {\it character sheaves} on $G$ (\S\ref{ssec:category}):
-objects in $\CS(G)$ are triples $(\gcs{L}, \mu,\phi)$, where $\gcs{L}$ is a rank-one local system on ${\bar G} := G\times_{\Spec{\Fq}} \Spec{\bFq}$
-and $\phi : \Frob{G}^* \gcs{L}\to \gcs{L}$ and $\mu : {\bar m}^* \gcs{L} \iso \gcs{L} \boxtimes \gcs{L}$ are isomorphisms of sheaves satisfying certain compatibility conditions;
+objects in $\CS(G)$ are triples $(\gcs{L}, \mu,\phi)$, where $\gcs{L}$ is a rank-one local system on $\bG := G\times_{\Spec{\Fq}} \Spec{\bFq}$
+and $\phi : \Frob{G}^* \gcs{L}\to \gcs{L}$ and $\mu : \bm^* \gcs{L} \iso \gcs{L} \boxtimes \gcs{L}$ are isomorphisms of sheaves satisfying certain compatibility conditions;
 morphisms in $\CS(G)$ are then morphisms of Weil sheaves which are compatible with the extra structure.
 This paper establishes the basic properties of $\CS(G)$ by finding the relation between character sheaves on $G$ and characters of $G(\Fq)$.
 
@@ -278,7 +281,7 @@ E_2^{p,q} \ceq \Hh^p(\Weil{}, \Hh^q(\bG, \EEx)) \Rightarrow \Hh^{p+q}(\Weil{} \l
 \]
 Paired with the short exact sequence
 \[
-  0 \to \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to 0
+  0 \to \Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \to \Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1(\bG,\EEx)) \to 0
 \]
 arising from the spectral sequence, the isomorphism $S_G$ allows us to show (\S\ref{ssec:SandT}) that 
 the group homomorphism 
@@ -390,9 +393,9 @@ over algebraically closed fields with finite cyclic component groups in the seri
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
 in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves. %however, even in this case, the two notions are not quite identical.
-The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
+The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ do not arise in that context.
 
-We anticipate that future work on quasicharacter sheaves will make use of   \cite{suzuki-yoshida:12a} and \cite{Suzuki:Neron}, and will clarify the relation between this project and other attempts to geometrize admissible distributions on $p$-adic groups, such as \cite{Cunningham-Kamgarpour} (limited quasicharacters of $\ZZ_p^*$) and \cite{Aubert-Cunningham} (limited to characters of depth-zero representations). 
+We anticipate that future work on quasicharacter sheaves will make use of   \cite{suzuki-yoshida:12a} and \cite{Suzuki:Neron}, and will clarify the relation between this project and other attempts to geometrize admissible distributions on $p$-adic groups, such as \cite{Cunningham-Kamgarpour} (limited quasicharacters of $\ZZ_p^\times$) and \cite{Aubert-Cunningham} (limited to characters of depth-zero representations). 
 We are actively pursuing the question of how to extend the notion of quasicharacter sheaves to provide a geometrization of admissible distributions on connected reductive algebraic groups over $p$-adic fields, not just commutative ones.
 
 \medskip
@@ -533,11 +536,11 @@ every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism.
 
 \begin{proof}
 Suppose $\rho \in \Hom(\cs{L},\cs{L}')$.
-We prove the lemma by considering the linear transformations $\brho_{\bar g} : \gcs{L}_{\bar g} \to \gcs{L}_{\bar g}$ at the stalks above geometric points ${\bar g}$ on $G$ and showing that, either each $\brho_{\bar g}$ trivial or each $\brho_{\bar g}$ is an isomorphism.
+We prove the lemma by considering the linear transformations $\brho_{\bg} : \gcs{L}_{\bg} \to \gcs{L}_{\bg}$ at the stalks above geometric points $\bg$ on $G$ and showing that, either each $\brho_{\bg}$ trivial or each $\brho_{\bg}$ is an isomorphism.
 (This idea is expanded upon in Section~\ref{ssec:stalks}.)
 Let ${\bar e}$ be the geometric point above the identity $e$ for $G$ determined by our choice of algebraic closure $\bFq$ of $\Fq$.
-If $\brho_{\bar e} = 0$ then the second diagram in \ref{CS.4} implies that $\brho_{\bar g} = 0$ for all ${\bar g}$, in which case $\rho$ is trivial.
-On the other hand, if $\brho_{\bar e}$ is nontrivial then the second diagram in \ref{CS.4}  implies that $\brho_{\bar g}$ is nontrivial for all ${\bar g}$ and thus an isomorphism, since the stalk of character sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
+If $\brho_{\bar e} = 0$ then the second diagram in \ref{CS.4} implies that $\brho_{\bg} = 0$ for all $\bg$, in which case $\rho$ is trivial.
+On the other hand, if $\brho_{\bar e}$ is nontrivial then the second diagram in \ref{CS.4}  implies that $\brho_{\bg}$ is nontrivial for all $\bg$ and thus an isomorphism, since the stalk of character sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
 \end{proof}
 
 
@@ -721,7 +724,7 @@ B_G : \bCS(G) \to \CS(G).
 
 \begin{proof}
  Suppose $(\cs{E},\mu_\cs{E})$ in an object of $\bCS(G)$.
- Let $b_G : {\bar G} \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
+ Let $b_G : \bG \to G$ be the pullback of $\Spec{\bFq} \to \Spec{\Fq}$ along $G\to \Spec{\Fq}$.
  Set $\gcs{L} = b_G^* \cs{E}$. 
  The functor $b_G^*$ takes local systems on $G$ to local systems on $\bG$.
  The local system $\gcs{L}$ comes equipped with an isomorphism
@@ -829,14 +832,14 @@ $\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
   Since $b_{G\times G}^*$ is full and faithful (again, see
 \cite{deligne-katz:SGA7.2}*{Expos\'e XIII} or \cite{beilinson-bernstein-deligne:81a}*{Prop. 5.1.2}),
  \[
-  b_{G\times G}^* : \Hom(m^*\cs{E},\cs{E}\boxtimes\cs{E}) \to \Hom({\bar m}^*\gcs{L},\gcs{L}\boxtimes\gcs{L})
+  b_{G\times G}^* : \Hom(m^*\cs{E},\cs{E}\boxtimes\cs{E}) \to \Hom(\bm^*\gcs{L},\gcs{L}\boxtimes\gcs{L})
  \]
   is a bijection
   (hom taken in the categories on constructible $\ell$-adic sheaves on
-  $G\times G$ and ${\bar G}\times {\bar G}$ respectively,
+  $G\times G$ and $\bG\times \bG$ respectively,
   in which $\ell$-adic local systems sit as full subcategories).
   Let $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ be the isomorphism matching
-  $\mu : {\bar m}^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$,
+  $\mu : \bm^*\gcs{L} \to \gcs{L}\boxtimes\gcs{L}$,
   the latter appearing in the definition of $\cs{L}$.
   Then, as in Section~\ref{ssec:descentG}, $(\cs{E},\mu_\cs{E})$ is an object of $\bCS(G)$
   and $\cs{L} \ceq (\gcs{L},\mu,\phi)$ is isomorphic to $(b_G^*\cs{E},b_{G\times G}^*\mu_\cs{E})$ in $\CS(G)$.
@@ -863,7 +866,7 @@ As in the proof of Proposition~\ref{prop:finite}, use \'etale descent to see tha
 Under this equivalence, local systems $\cs{E}$ on $G$ arising from objects in $\bCS(G)$ are matched with $G(\Fq)$-equivariant constant local systems of rank-one on $G$, and therefore with one-dimensional representations of $G(\Fq)$. 
 In the same way, pullback along the isogeny $\Lang\times\Lang : G\times G\to G\times G$ matches the extra structure $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$ with an isomorphism $m^*V \to V\boxtimes V$ of one-dimensional representations of $G(\Fq)\times G(\Fq)$, which is exactly an isomorphism $V \to V\otimes V$ of one-dimensional representations, which is exactly the choice of an isomorphism $V\iso \EE$.
 We see that $\bCS(G)$ is equivalent to the category of characters of $G(\Fq)$.
-Let $\bg$ be a geometric point above $g \in G(\Fq)$.  If $\cs{E}$ matches $\psi : G(\Fq)\to \EEx$ under this equivalence, a simple calculation on stalks reveals that the action of Frobenius on $\cs{E}_{\bar g}$ is multiplication by $\psi(g)^{-1}$.
+Let $\bg$ be a geometric point above $g \in G(\Fq)$.  If $\cs{E}$ matches $\psi : G(\Fq)\to \EEx$ under this equivalence, a simple calculation on stalks reveals that the action of Frobenius on $\cs{E}_{\bg}$ is multiplication by $\psi(g)^{-1}$.
 In other words, for every $\cs{E}$ in $\bCS(G)$, the trace of $\Lang^*\cs{E}$ is $\trFrob{\cs{E}}^{-1}$ as a representation of $G(\Fq)$, proving parts \ref{c1} and \ref{c2}.
 
 To finish the proof of part \ref{c3}, suppose $\Lang^*\cs{E} = V$ with isomorphism $V \to V\otimes V$.  Observe that the equivalence above establishes a bijection between $\Aut(\cs{E})$ and the group of automorphisms of $\rho : V\to V$ for which 
@@ -982,9 +985,9 @@ Moreover, since $\Weil{} \cong \ZZ$ has cohomological dimension $1$, $E_2^{i,j} 
 There is a short exact sequence
  \[
     0 \to
-    \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to
+    \Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \to
     \Hh^2(E^\bullet_G) \to
-    \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \to
+    \Hh^1(\Weil{},\Hh^1(\bG,\EEx)) \to
     0.
  \]
 \end{corollary}
@@ -996,13 +999,13 @@ For this application, we need a good understanding of these maps to and from the
 Consider the short exact sequence in Corollary~\ref{cor:spectral_ses}.
 \begin{enumerate}
 \item Every class $[\alpha\oplus\beta\oplus\gamma] \in \Hh^2(E^\bullet_G)$ is cohomologous to one with $\gamma=0$.
-\item The map $\Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1({\bar G},\EEx))$ is given by $[\alpha\oplus\beta\oplus 0] \mapsto [\beta]$.
-\item Suppose $a \in Z^2({\bar G}, \EEx)$ represents a class in $\Hh^2({\bar G},\EEx)$ fixed by Frobenius.
-The map $\Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \to \Hh^2(E^\bullet_G)$ is given by $[a] \mapsto [a \oplus 0 \oplus 0]$.
+\item The map $\Hh^2(E^\bullet_G) \to \Hh^1(\Weil{},\Hh^1(\bG,\EEx))$ is given by $[\alpha\oplus\beta\oplus 0] \mapsto [\beta]$.
+\item Suppose $a \in Z^2(\bG, \EEx)$ represents a class in $\Hh^2(\bG,\EEx)$ fixed by Frobenius.
+The map $\Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \to \Hh^2(E^\bullet_G)$ is given by $[a] \mapsto [a \oplus 0 \oplus 0]$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-Since $\Hh^2(\Weil{}, C^0({\bar G}, \EEx)) = 0$, we may find a $\gamma_1 \in C^1(\Weil{}, C^0({\bar G}, \EEx))$ with $d_{\Weil{}}\gamma_1 = \gamma$.
+Since $\Hh^2(\Weil{}, C^0(\bG, \EEx)) = 0$, we may find a $\gamma_1 \in C^1(\Weil{}, C^0(\bG, \EEx))$ with $d_{\Weil{}}\gamma_1 = \gamma$.
 Subtracting $d \gamma_1$ from $\alpha\oplus\beta\oplus\gamma$, we may assume that $\gamma = 0$.
 
 The latter two claims follow from tracing through the definition of latter pages in the spectral sequence.
@@ -1016,22 +1019,22 @@ In this section we define a group homomorphism
 S_G : \CSiso{G} \to \Hh^2(E^\bullet_G).
 \] 
 Let $\cs{L} = (\gcs{L},\mu,\phi)$ be a character sheaf on $G$.
-For each geometric point $x\in {\bar G}$, choose a basis $\{ v_x \}$ for $\gcs{L}_x$.
+For each geometric point $x\in \bG$, choose a basis $\{ v_x \}$ for $\gcs{L}_x$.
 Through this choice, $\cs{L}$ determines functions
 \begin{align*}
-a : {\bar G}\times {\bar G} &\to \EEx & b : {\bar G} &\to \EEx \\
+a : \bG\times \bG &\to \EEx & b : \bG &\to \EEx \\
 \mu_{x,y}(v_{x+y}) &= a(x,y) v_x \otimes v_y & \phi_x(v_{\Frob{G}(x)}) &= b(x) v_x.
 \end{align*}
 Condition~\ref{CS.2} implies that
 \begin{equation}\label{2-cocyle}
 a(x+y,z) a(x,y) = a(x,y+z) a(y,z)
 \end{equation}
-for all $x,y,z\in {\bar G}$, so $a \in Z^2({\bar G},\EEx)$.  Similarly, condition~\ref{CS.3} gives
+for all $x,y,z\in \bG$, so $a \in Z^2(\bG,\EEx)$.  Similarly, condition~\ref{CS.3} gives
 \begin{equation}\label{nohom}
 \frac{a(\Frob{G}(x),\Frob{G}(y))}{a(x,y)} =  \frac{b(x+y)}{b(x) b(y)}
 \end{equation}
-for $x, y \in {\bar G}$.
-Let $\alpha \in C^0(\Weil{},C^2({\bar G},\EEx)$ be the $0$-cochain corresponding to $a$ and let $\beta\in C^1(\Weil{},C^1({\bar G},\EEx)$ be the cocycle such that $\beta(\Frob{})$ is $b$.  We will write both $\alpha$ and $\beta$ additively.
+for $x, y \in \bG$.
+Let $\alpha \in C^0(\Weil{},C^2(\bG,\EEx)$ be the $0$-cochain corresponding to $a$ and let $\beta\in C^1(\Weil{},C^1(\bG,\EEx)$ be the cocycle such that $\beta(\Frob{})$ is $b$.  We will write both $\alpha$ and $\beta$ additively.
 Then
 \[
 d_G\alpha =0, \qquad\qquad
@@ -1041,8 +1044,8 @@ d_{\Weil{}} \beta =0;
 in other words,
 \[\alpha\oplus \beta \in Z^2(E^\bullet_G).\]
 Although the cocycle $\alpha\oplus \beta$ is not well defined by $\cs{L}$, its class in $\Hh^2(E^\bullet_G)$ is.
-To see this, let $\{ v'_x \in \gcs{L}_x^\times \tq x \in {\bar G}\}$ be another choice and let $\alpha'\oplus \beta' \in Z^2(E^\bullet_G)$ be defined by $\cs{L}$ and this choice, as above.
-Now let $\delta \in C^0(\Weil{},C^1({\bar G},\EEx))$ correspond to the function $d : {\bar G}\to \EEx$ defined by $v'_x = d(x) v_x$.
+To see this, let $\{ v'_x \in \gcs{L}_x^\times \tq x \in \bG\}$ be another choice and let $\alpha'\oplus \beta' \in Z^2(E^\bullet_G)$ be defined by $\cs{L}$ and this choice, as above.
+Now let $\delta \in C^0(\Weil{},C^1(\bG,\EEx))$ correspond to the function $d : \bG\to \EEx$ defined by $v'_x = d(x) v_x$.
 Chasing through \ref{CS.2} and \ref{CS.3}, we find
 \[
 \alpha'\oplus\beta' = \alpha\oplus\beta + d\delta,
@@ -1065,15 +1068,15 @@ If $G$ is \'etale then $S_G:  \CSiso{G} \to \Hh^2(E^\bullet_G)$ is an isomorphis
 \end{proposition}
 \begin{proof}
 Suppose $[\cs{L}] \in \CSiso{G}$ with $S_G([\cs{L}]) = [\alpha \oplus \beta] = 0$,
-so that $\alpha \oplus \beta = d\sigma$ for some $\sigma \in C^0(\Weil{},C^1({\bar G},\EEx) = C^1({\bar G},\EEx)$.
-For each $x\in {\bar G}$, define $\sigma_x : \gcs{L}_x \to \EE$ by $\sigma_x : v_x \mapsto \sigma(x)$.
-Then the indexed set of isomorphisms $\{ \sigma_x : \gcs{L}_x \to \EE \tq x\in {\bar G}\}$
+so that $\alpha \oplus \beta = d\sigma$ for some $\sigma \in C^0(\Weil{},C^1(\bG,\EEx) = C^1(\bG,\EEx)$.
+For each $x\in \bG$, define $\sigma_x : \gcs{L}_x \to \EE$ by $\sigma_x : v_x \mapsto \sigma(x)$.
+Then the indexed set of isomorphisms $\{ \sigma_x : \gcs{L}_x \to \EE \tq x\in \bG\}$
 defines an isomorphism $\cs{L} \to (\EE)_G$.
 Since $\cs{L} = 0 \in \CSiso{G}$, $S_G$ is injective.
 
 To see that $S_G$ is surjective, begin with $\alpha\oplus\beta\oplus 0 \in Z^2(E^\bullet_G)$.
-Since $d_{\Weil{}} \beta = 0$, we may define $a = \alpha \in C^2({\bar G},\EEx)$ and
-$b = \beta(\Frob{}) \in C^1({\bar G},\EEx)$, which are related to $\alpha$ and $\beta$ as above.
+Since $d_{\Weil{}} \beta = 0$, we may define $a = \alpha \in C^2(\bG,\EEx)$ and
+$b = \beta(\Frob{}) \in C^1(\bG,\EEx)$, which are related to $\alpha$ and $\beta$ as above.
 Set $\gcs{L}_x = \EE$, define $\mu_{x,y} : \gcs{L}_{x+y} \to \gcs{L}_x\otimes\gcs{L}_y$
 by $\mu_{x,y}(1) = a(x,y) (1\otimes 1)$ and $\phi_x : \gcs{L}_{\Frob{G}(x)} \to \gcs{L}_x$ by $\phi_x(1)= b(x)$.
 Then \ref{CS.1} holds since $d_G \alpha =0$ and \ref{CS.2} holds since $d_{\Weil{}}\alpha =d_G \beta$.
@@ -1144,7 +1147,7 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 \[
 \begin{tikzcd}
  0 \arrow{r} & \ker \TrFrob{G} \arrow{d} \arrow{r} & \CSiso{G}\arrow{d}{S_G} \arrow{r}{\TrFrob{G}} \arrow{r} & G(\Fq)^* \arrow{d} \arrow{r} & 0\\
-  0 \arrow{r} & \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \arrow{r} & \Hh^2(E^\bullet_G) \arrow{r} & \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \arrow{r} & 0.
+  0 \arrow{r} & \Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \arrow{r} & \Hh^2(E^\bullet_G) \arrow{r} & \Hh^1(\Weil{},\Hh^1(\bG,\EEx)) \arrow{r} & 0.
  \end{tikzcd}
  \]
 \end{proposition}
@@ -1152,13 +1155,17 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
 
+\begin{example} \label{eg:H2}
+Suppose that $\bG$.
+\end{example}
+
 \subsection{Descent, revisited}\label{ssec:bS}
 
 In this section we justify the appearance of Weil sheaves in Definition~\ref{def:CS}.
 
 \begin{proposition}\label{prop:bounded-etale}
 Let $G$ be a commutative etale group scheme over $\Fq$.
-Then the image of $\bCS(G)$ under $\TrFrob{G} : \CS(G) \to G(\Fq)^*$ is $\Hom_\text{grp}(G(\Fq),\mathbb{\bar Z}_{\ell}^\times)$.
+Then the image of $\bCS(G)$ under $\TrFrob{G} : \CS(G) \to G(\Fq)^*$ is $\Hom_\text{grp}(G(\Fq),\ZEx)$.
 \end{proposition}
 
 \begin{proof}
@@ -1167,9 +1174,9 @@ Set $F^{i,j} \ceq C^i_{\text{cts}} (\Gal(\bFq/\Fq), C^j(G(\bFq), \EEx))$.
 Then the results of Section~\ref{ssec:E} adapt to give a short exact sequence in continuous Galois cohomology
  \[
     0 \to
-    \Hh^0(\Fq,\Hh^2({\bar G},\EEx)) \to
+    \Hh^0(\Fq,\Hh^2(\bG,\EEx)) \to
     \Hh^2(F^\bullet_G) \to
-    \Hh^1(\Fq,\Hh^1({\bar G},\EEx)) \to
+    \Hh^1(\Fq,\Hh^1(\bG,\EEx)) \to
     0,
  \]
 for which the maps are given by the analogues of Proposition~\ref{prop:ses_desc}.
@@ -1178,30 +1185,30 @@ the canonical map of exact sequences
  \[
 \begin{tikzcd}
     0 \arrow{r} &
-    \Hh^0(\Fq,\Hh^2({\bar G},\EEx)) \arrow{r} \arrow{d} &
+    \Hh^0(\Fq,\Hh^2(\bG,\EEx)) \arrow{r} \arrow{d} &
     \Hh^2(F^\bullet_G) \arrow{r} \arrow{d} &
-    \Hh^1(\Fq,\Hh^1({\bar G},\EEx)) \arrow{r} \arrow{d} &
+    \Hh^1(\Fq,\Hh^1(\bG,\EEx)) \arrow{r} \arrow{d} &
     0
 \\
     0 \arrow{r} & 
-    \Hh^0(\Weil{},\Hh^2({\bar G},\EEx)) \arrow{r} & 
+    \Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \arrow{r} & 
     \Hh^2(E^\bullet_G) \arrow{r} & 
-    \Hh^1(\Weil{},\Hh^1({\bar G},\EEx)) \arrow{r} &
+    \Hh^1(\Weil{},\Hh^1(\bG,\EEx)) \arrow{r} &
     0.
 \end{tikzcd}
  \]
 In this way, Proposition~\ref{prop:bounded-etale} is now reduced to the claim
 \[
-\Hh^1(\Fq,\Hh^1({\bar G},\EEx)) = \Hom_\text{grp}(G(\Fq),\mathbb{\bar Z}_{\ell}^\times).
+\Hh^1(\Fq,\Hh^1(\bG,\EEx)) = \Hom_\text{grp}(G(\Fq),\ZEx).
 \]
 To see that, one may argue as follows. 
 Pick $i\in \pi_0(G)$ and let $G^i \hookrightarrow G$ be the corresponding connected component. 
 Pick a geometric point ${\bar x}^i$ on $G^i$ and observe that since $G^i$ is connected as a $\Fq$-scheme, $G^i(\bFq)$ is canonically identified with the $\Gal(\bFq/\Fq)$-orbit of ${\bar x}^i$. 
 We remark that while $G^i$ is defined over $\Fq$, the set $G^i(\Fq)$ is non-empty only when $G^i(\bFq) = \{ {\bar x}^i\}$.
-Since $\Hh^1({\bar G},\EEx) = \Hom_\text{grp}({\bar G},\EEx)$, evaluation $\chi \mapsto \chi({\bar x}^i)$ defines $\Hh^1(\Fq,\Hh^1({\bar G},\EEx)) \to \Hh^1(\Fq,\EEx)$. 
-By continuity, $\Hh^1(\Fq,\EEx) = \Hh^1(\Fq,\mathbb{\bar Z}_{\ell}^\times)$.
-Letting $i$ range over $\pi_0(G)$ we conclude that $\Hh^1(\Fq,\Hh^1({\bar G},\EEx)) = \Hh^1(\Fq,\Hh^1({\bar G},\mathbb{\bar Z}_{\ell}^\times))$.
-When adapted to abelian groups with continuous action of $\Gal(\bFq/\Fq)$, the strategy of the proof of Lemma~\ref{lem:dual-inv} gives $\Hh^1(\Fq,\Hh^1({\bar G},\mathbb{\bar Z}_{\ell}^\times)) =  \Hom_\text{grp}(G(\Fq),\mathbb{\bar Z}_{\ell}^\times)$, concluding the proof.
+Since $\Hh^1(\bG,\EEx) = \Hom_\text{grp}(\bG,\EEx)$, evaluation $\chi \mapsto \chi({\bar x}^i)$ defines $\Hh^1(\Fq,\Hh^1(\bG,\EEx)) \to \Hh^1(\Fq,\EEx)$. 
+By continuity, $\Hh^1(\Fq,\EEx) = \Hh^1(\Fq,\ZEx)$.
+Letting $i$ range over $\pi_0(G)$ we conclude that $\Hh^1(\Fq,\Hh^1(\bG,\EEx)) = \Hh^1(\Fq,\Hh^1(\bG,\ZEx))$.
+When adapted to abelian groups with continuous action of $\Gal(\bFq/\Fq)$, the strategy of the proof of Lemma~\ref{lem:dual-inv} gives $\Hh^1(\Fq,\Hh^1(\bG,\ZEx)) =  \Hom_\text{grp}(G(\Fq),\ZEx)$, concluding the proof.
 \end{proof}
 
 \subsection{Morphisms in the \'etale case}\label{ssec:mor-etale}
@@ -1443,7 +1450,7 @@ In this section we find the image and kernel of $\TrFrob{G}$.
   \[
   \TrFrob{G} : \CSiso{G} \to G(\Fq)^*
   \]
-is surjective with kernel canonically isomorphic to $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$.
+is surjective with kernel canonically isomorphic to $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.
 \end{theorem}
 
 \begin{proof}
@@ -1472,7 +1479,7 @@ is surjective with kernel canonically isomorphic to $\Hh^2(\pi_0({\bar G}),\EEx)
   The upper row in \eqref{eq:pre-snake} is exact by Proposition~\ref{prop:middleexact}.
   Now Lemma~\ref{lem:G0alg-grp} and Proposition~\ref{prop:connected}
   imply that $\ker \TrFrob{G^0} =0$ and $\coker \TrFrob{G^0}=0$,
-  while Proposition~\ref{prop:etale-iso} gives $\ker \TrFrob{\pi_0(G)} \iso \Hh^0(\Weil{},\Hh^2(\pi_0({\bar G}),\EEx))$
+  while Proposition~\ref{prop:etale-iso} gives $\ker \TrFrob{\pi_0(G)} \iso \Hh^0(\Weil{},\Hh^2(\pi_0(\bG),\EEx))$
   and $\coker \TrFrob{\pi_0(G)}=0$.
 It now follows from the snake lemma
  \begin{equation}\label{eq:snake}
