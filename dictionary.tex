@@ -290,7 +290,7 @@ the group homomorphism
 \]
 provided by the trace of Frobenius is surjective with kernel $\Hh^2(\bG,\EEx)^{\Weil{}}$.
 The necessity of using Weil local systems on $G$ in the definition of $\CS(G)$ already appears here:  if one were to use local systems on $G$ instead, the group homomorphism $\TrFrob{G}$ would not then be surjective (\S \ref{ssec:bS}). 
-One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is finite cyclic, so the kernel of $\TrFrob{G}$ is non-trivial in general.
+One can show, using the K\"unneth formula, that $\Hh^2(\bG,\EEx)$ is non-trivial unless $\bG$ is cyclic, so the kernel of $\TrFrob{G}$ is non-trivial in general.
 %The fact that $\TrFrob{G}$ may not be an isomorphism should not be too troubling: if quasicharacter sheaves $(\gcs{L}, \mu,\phi)$ and $(\gcs{L}', \mu',\phi')$ determine the same character of $G(\Fq)$ then $(\gcs{L},\phi)$ and $(\gcs{L}',\phi')$ are isomorphic as Weil sheaves.
 
 
@@ -321,7 +321,7 @@ If $G$ is a smooth commutative group scheme over $\Fq$ then the trace of Frobeni
 \]
 \end{theorem*}
 \noindent
-Thus, unless the component group scheme $\pi_0(\bG)$ is finite cyclic, category $\CS(G)$ contains non-trivial character sheaves lying in the kernel of the trace of Frobenius and therefore lost in translation to characters of $G(\Fq)$.
+Thus, unless the component group scheme $\pi_0(\bG)$ is cyclic, category $\CS(G)$ contains non-trivial character sheaves lying in the kernel of the trace of Frobenius and therefore lost in translation to characters of $G(\Fq)$.
 %These {\it invisible character sheaves} are parametrized by $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$.
 
 
@@ -1581,6 +1581,8 @@ Since $G(\Fq)$ is finite, the first statement follows from Propositions~\ref{pro
  The third statement is justified by Example~\ref{eg:H2}.
  \end{proof}
 
+Add comment relating to Lusztig . . . . 
+
 \subsection{Base change}\label{ssec:basechange}
 
 When using character sheaves to study characters, it is useful to understand
@@ -1785,6 +1787,13 @@ By construction, the $\Fq$-scheme $\Gr_R(X)$ comes equipped with morphisms
 %{Character sheaves on the Greenberg transform of a N\'eron model} 
 \label{ssec:CS_on_GN}
  
+ \begin{remark}
+This paper shows that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an algebraic torus or an abelian variety over a local field $K$. 
+It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
+This seems unlikely, since the geometric etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$, though limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
+\end{remark}
+
+
 Let $X \in \mathcal{N}$ be as above.
 Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$;
 note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
@@ -1808,7 +1817,7 @@ We now define a category which will geometrize quasicharacters of $X(K)$.
 We begin by considering the rigid monoidal category $\CS(G)$ defined in Section~\ref{ssec:category} without insisting that the commutative group $\Fq$-scheme $G$ is smooth, so that we can replace it with $\Gr_R(X)$ for smooth group $R$-scheme $X$.
 
 \begin{definition}\label{def:QCS}
-Let $X$ be a smooth group scheme over $R$, with $R$ as above.
+Let $X$ be a smooth commutative group scheme over $R$, with $R$ as above.
 A {\it quasicharacter sheaf for $X$} is an object of
 the following rigid monoidal subcategory of $\CS(\Gr_R(X))$, denoted by $\QCS(X)$:
 \begin{enumerate}
@@ -1904,8 +1913,8 @@ The following is a commutative diagram of exact sequences.
    & \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}}  \arrow{d} & \arrow{d} \Hh^2(X_*(T_K)_{\mathcal{I}_K},\EEx)^{\Weil{\Fq}} & 0 \arrow{d} & \\
     0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \dar{\TrFrob{\pi_0(T)}}
     & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d}{\TrFrob{\Gr_R(T)}} & \QCSiso{T^0} \arrow{r} \arrow{d}{\TrFrob{\Gr_R(T)^0}} & 0\\
-    0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
-    & \arrow{d}{\iso} \Hom_\text{}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\
+    0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{inf}} \arrow{d}{\iso}
+    & \arrow{d}{\iso} \Hom_\text{}(T(K),\EEx) \arrow{r}{\text{res}} & \Hom_\text{}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\
  &  0  & 0 & 0 & 
   \end{tikzcd}
  \]
@@ -1963,39 +1972,34 @@ canonically.
 The case $X= \pi_0(T)$ is handled by the same argument, replacing Theorem~\ref{thm:CSXK} with Theorem~\ref{thm:snake} and Definition~\ref{def:QCS}, as in the proof of Corollary~\ref{cor:CS_tori}, after observing that $\pi_0(\pi_0(T)_{\bFq}) = \pi_0(T)_{\bFq}$.
 \end{proof}
 
-\subsection{Geometric Langlands correspondence for $p$-adic tori}\label{ssec:LLCT}
-
-\begin{lemma}\label{lem:LLCT}
-The following diagram commutes. 
-\[
-\begin{tikzcd}
-   0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{infl'n}} \arrow{d}{\iso}
-    & \arrow{d}{\iso} \Hom_\text{}(T(K),\EEx) \arrow{r}{\text{rest'n}} & \Hom_\text{}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\    
-    0 \arrow{r}  
- & \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}}
- & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} 
- & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}} \arrow{r}  
- & 0
-\end{tikzcd}
-\] 
-\end{lemma}
-\begin{proof}
-Since $\pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K}$ by \cite{bitan:discriminant}*{Eq 3.1}, the isomorphism on the left can be seen directly:
+\begin{remark}
+Since $\pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K}$ by \cite{bitan:discriminant}*{Eq 3.1}, we have
 \[\Hom(\pi_0(T)(\Fq), \EEx)
 = \Hom((X_*(T)_{\mathcal{I}_K})^{\Weil{\Fq}}, \EEx)
 = \Hom(X_*(T)_{\mathcal{I}_K}, \EEx)_{\Weil{\Fq}} 
 %= \Hh^1(\Weil{}, \Hom(X_*(T), \EEx)^{\mathcal{I}_K}) 
 = \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}).
 \]
-The middle isomorphism is the Langlands correspondence for $p$-adic tori, itself a fairly direct consequence of local class field theory; see \cite{yu:09a}, for example. The isomorphism 
+By the Langlands correspondence for $p$-adic tori \cite{yu:09a}, 
 \[
-\Hom_\text{}(T^0(R),\EEx) \iso \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}}
+\Hom(T(K), \EEx) 
+\iso 
+\Hh^1(\Weil{K}, \check{T}_\ell),
+\]
+where we refer to continuous cohomology, since $\Hom(T(K), \EEx)$ refers to continuous homomorphisms $T(K)\to \EEx$.
+It now follows from the inflation-restriction exact sequence that the following diagram commutes.
+\[
+\begin{tikzcd}
+   0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{inf}} \arrow{d}{\iso}
+    & \arrow{d}{\iso} \Hom_\text{}(T(K),\EEx) \arrow{r}{\text{res}} & \Hom_\text{}(T^0(R),\EEx) \arrow{r} \arrow{d}{\iso} & 0\\    
+    0 \arrow{r}  
+ & \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{inf}}
+ & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{res}} 
+ & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}} \arrow{r}  
+ & 0
+\end{tikzcd}
 \] 
-and the commutativity of the diagram is then a consequence of the inflation-restriction exact sequence and the fact that $\Weil{}$ has cohomological dimension $1$.
-\end{proof}
-
-\begin{remark}
-Combining Corollary~\ref{cor:CS_tori} with Lemma~\ref{lem:LLCT} now produces the following commutative diagram of exact sequences:
+Combining this with Corollary~\ref{cor:CS_tori}  produces the following commutative diagram of exact sequences:
 \begin{equation}\label{eq:GLCT}
   \begin{tikzcd}[row sep=20, column sep=15]
 {}  & 0 \arrow{d} & 0 \arrow{d} &  & \\ 
@@ -2003,48 +2007,33 @@ Combining Corollary~\ref{cor:CS_tori} with Lemma~\ref{lem:LLCT} now produces the
     0 \rar & \QCSiso{\pi_0(T)} \arrow{r}{\pi_0^*} \arrow{d}
     & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d} & \QCSiso{T^0} \arrow{r} \arrow{d} & 0\\
    0 \arrow{r}  
- & \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{infl'n}} \arrow{d}
- & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{rest'n}} \arrow{d}
+ & \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{inf}} \arrow{d}
+ & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{res}} \arrow{d}
  & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}} \arrow{r} \arrow{d}  
  & 0\\
  &  0  & 0 & 0 & 
   \end{tikzcd}
  \end{equation}
-It is natural to ask if the vertical surjections can be defined directly, without making use of local class field theory.  
+It is natural to ask if the vertical surjections can be defined directly, without making use of local class field theory, for which the results of \cite{suzuki-yoshida:12a}  and \cite{Suzuki:Neron} may be helpful.
 The case $T_K = \Gm{K}$ is already very interesting, in which case \eqref{eq:GLCT} becomes
 \begin{equation}\label{eq:Gm}
 \begin{tikzcd}
     0 \rar & \QCSiso{\ZZ} \arrow{r}{\pi_0^*} \arrow{d}{\iso}
-    & \QCSiso{T} \arrow{r}{\iota_0^*}  \arrow{d}{\iso} & \QCSiso{\Gm{R}} \arrow{r} \arrow{d}{\iso} & 0\\
+    & \QCSiso{\Gm{K}^\text{Neron}} \arrow{r}{\iota_0^*}  \arrow{d}{\iso} & \QCSiso{\Gm{R}} \arrow{r} \arrow{d}{\iso} & 0\\
     0 \arrow{r}  
- & \Hom(\Weil{\Fq}, \EEx) \arrow{r}{\text{infl'n}}
- & \Hom(\Weil{K}, \EEx) \arrow{r}{\text{rest'n}} 
+ & \Hom(\Weil{\Fq}, \EEx) \arrow{r}{\text{inf}}
+ & \Hom(\Weil{K}, \EEx) \arrow{r}{\text{res}} 
  & \Hom(\mathcal{I}_K, \EEx) \arrow{r}  
  & 0
 \end{tikzcd}
 \end{equation}
-We have seen that the isomorphism $\QCS(\ZZ)\iso \Hom(\Weil{\Fq}, \EEx)$ is elementary. 
-The isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ may be deduced directly from the class field theory of Serre and Hezewinkel as revisited beautifully in \cite{suzuki-yoshida:12a}; see also \cite{Suzuki:Neron}.
-The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is canonically equivalent to the category of $\ell$-adic characters of the quotient of the etale fundamental group $\pi_1(\Gr^R_n(\Gm{R}),\bFq)$ determined by the Lang isogeny for $\Gr^R_n(\Gm{R})$.
-Accordingly, quasicharacter sheaves on $\Gm{R}$ may be apprehended as $\ell$-adic characters of
-the inverse limit of these quotients, as $n$ ranges over $\NN$.
-By \cite{serre:isogenies}, there is a canonical isomorphism between this inverse limit and $\mathcal{I}_K^\text{ab}$;
-this isomorphism is {\it not} restricted to the case when $K$ and $\Fq$ have equal characteristic.
-This provides the isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ in \eqref{eq:Gm}. 
-Since the sequences are split, this gives $\QCSiso{T}\iso \Hom(\Weil{K}, \EEx)$.
+%We have seen that the isomorphism $\QCS(\ZZ)\iso \Hom(\Weil{\Fq}, \EEx)$ is elementary. The isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ may be deduced directly from the class field theory of Serre and Hezewinkel as revisited beautifully in \cite{suzuki-yoshida:12a}; see also \cite{Suzuki:Neron}. The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is canonically equivalent to the category of $\ell$-adic characters of the quotient of the etale fundamental group $\pi_1(\Gr^R_n(\Gm{R}),\bFq)$ determined by the Lang isogeny for $\Gr^R_n(\Gm{R})$. Accordingly, quasicharacter sheaves on $\Gm{R}$ may be apprehended as $\ell$-adic characters of the inverse limit of these quotients, as $n$ ranges over $\NN$. By \cite{serre:isogenies}, there is a canonical isomorphism between this inverse limit and $\mathcal{I}_K^\text{ab}$; this isomorphism is {\it not} restricted to the case when $K$ and $\Fq$ have equal characteristic. This provides the isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ in \eqref{eq:Gm}. Since the sequences are split, this gives $\QCSiso{T}\iso \Hom(\Weil{K}, \EEx)$.
+We suspect that the general case of \eqref{eq:GLCT}, where $K$ is any local field and $T_K$ is any torus over $K$, may be deduced from \eqref{eq:Gm}.
+In Section~\ref{ssec:wrK} we develop a tool for further work in that direction.
 \end{remark}
 
-\begin{remark}
-This paper shows that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an algebraic torus or an abelian variety over a local field $K$. 
-It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
-This seems unlikely, since the geometric etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$, though limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
-\end{remark}
 
 \subsection{Weil restriction and quasicharacter sheaves}\label{ssec:wrK}
-
-We expect that the general case of \eqref{eq:GLCT}, where $K$ is any local field and $T_K$ is any torus over $K$, may be deduced from the case \eqref{eq:Gm}.
-Some work in this direction appears in \cite{Suzuki:Neron}.
-In this section we develop a tool for further work in that direction.
 
 Let $K'/K$ be a finite Galois extension of local fields and
 let $k'/k$ be the corresponding extension of residue fields.
