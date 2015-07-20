@@ -220,11 +220,10 @@
 
 
 \begin{abstract}
-We consider the category of character sheaves on smooth commutative group schemes $G$ over finite fields $k$ and expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
-We show that the group of isomorphism classes of character sheaves is an extension of the group of characters of $G(k)$ by a cohomology group determined by the component group scheme of $G$.
-As an application, we find a category of sheaves for which isomorphism classes correspond to quasi\-characters of algebraic tori, abelian varieties and unipotent wound groups over non-Archimedean local fields. 
-In this geometrization of quasicharacters, our sheaves are local systems on
-Greenberg transforms of locally finite type N\'eron models.
+We consider the rigid monoidal category of character sheaves on smooth commutative group schemes $G$ over finite fields $k$ and expand the scope of the function-sheaf dictionary from connected commutative algebraic groups to this setting.
+We find the group of isomorphism classes of character sheaves on $G$ and show that it is an extension of the group of characters of $G(k)$ by a cohomology group determined by the component group scheme of $G$.
+We also classify all morphisms in the category character sheaves on $G$.
+As an application, we study character sheaves on the Greenberg transforms of the locally finite type N\'eron models of algebraic tori over local fields; in doing so, we introduce `quasicharacter sheaves' and find a geometrization and categorification of quasi\-characters of $p$-adic tori.
 \end{abstract}
 
 \maketitle
@@ -390,18 +389,19 @@ It is applied to certain perverse sheaves on connected reductive algebraic group
 over algebraically closed fields with finite cyclic component groups in the series of papers
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
-in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves.
+in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves. %however, even in this case, the two notions are not quite identical.
 The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0({\bar G}),\EEx)^{\Weil{}}$ do not arise in that context.
 
-Also mention: \cite{suzuki-yoshida:12a},\cite{Suzuki:Neron} and \cite{Cunningham-Kamgarpour}.
+We anticipate that future work on quasicharacter sheaves will make use of   \cite{suzuki-yoshida:12a} and \cite{Suzuki:Neron}, and will clarify the relation between this project and other attempts to geometrize admissible distributions on $p$-adic groups, such as \cite{Cunningham-Kamgarpour} (limited quasicharacters of $\ZZ_p^*$) and \cite{Aubert-Cunningham} (limited to characters of depth-zero representations). 
+We are actively pursuing the question of how to extend the notion of quasicharacter sheaves to provide a geometrization of admissible distributions on connected reductive algebraic groups over $p$-adic fields, not just commutative ones.
 
 \medskip
-\noindent\textbf{Acknowledgements.\ } {Pramod Achar, Masoud Kamgarpour and Hadi Salmasian
-allowed us to hijack much of a Research in Teams meeting at the Banff International Research Station into a discussion of
-character sheaves.  We thank them for their kindness, knowledge and invaluable help.
-We thank Takashi Suzuki for some very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
-We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and drawing our attention to their result on Weil restriction and the Greenberg transform.
-We thank Joseph Bernstein for very helpful comments. 
+\noindent\textbf{Acknowledgements.\ } {We thank Pramod Achar, Masoud Kamgarpour and Hadi Salmasian for 
+allowing us to hijack much of a Research in Teams meeting at the Banff International Research Station into a discussion of
+quasicharacter sheaves.  We also thank them for their kindness, knowledge and invaluable help.
+We thank Takashi Suzuki for clarifying the relation between this project and his recent work and for very helpful observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
+We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for drawing our attention to their result on Weil restriction and the Greenberg transform.
+Finally, we thank Joseph Bernstein for very helpful comments. 
 %suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
 }
 
@@ -1531,6 +1531,7 @@ corresponding to $\chi$ under Theorem~\ref{thm:snake},
 then $\cs{L}$ does not descend to $G$ since the image of $\chi$ is not
 bounded.
 
+
 \subsection{Morphisms of character sheaves} \label{ssec:CSmor}
 
 \begin{theorem}\label{thm:autornaught}
@@ -1549,6 +1550,29 @@ We also have $\pi_0(\bG_{\Weil{}})=\pi_0(\bG)_{\Weil{}}$.
 To see that $\Aut(\cs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, begin with $\theta\in\Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ and, for each $[x] \in \pi_0(\bG)_{\Weil{}}$ define $\bar\rho^y: \gcs{L}^y \to \gcs{L}^y$ by scalar multiplication by $\theta([x])\in \EEx$ for each $y\in [x]$.
 This defines an isomorphism $\bar\rho : \gcs{L}\to \gcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\cs{L}\to \cs{L}$ which maps to $\theta$ under $\Aut(\cs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
 \end{proof}
+
+\subsection{The dictionary for commutative algebraic groups over finite fields}
+
+Having extended the function--sheaf dictionary from connected commutative algebraic groups over $\Fq$ to smooth commutative group schemes $G$ over $\Fq$, we briefly look back to the case when $G$ is a commutative algebraic group. 
+Although Weil sheaves are not necessary in that case, the dictionary is still not perfect, generally.
+
+\begin{corollary}\label{cor:alg_groups}
+Let $G$ be a commutative algebraic group over $\Fq$.
+All character sheaves on $G$ descend to $G$: $\CS(G)$ is equivalent to $\bCS(G)$ (\ref{ssec:bS}).
+The trace of Frobenius determines a short exact sequence
+\[
+\begin{tikzcd}
+0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \bCSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0.
+\end{tikzcd}
+\]
+The group $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ need not be trivial.
+\end{corollary}
+
+\begin{proof}
+Since $G(\Fq)$ is finite, the first statement follows from Propositions~\ref{prop:BG}
+ and \ref{prop:bounded}. The second statement is then a consequence of Theorem~\ref{thm:snake}. 
+ The third statement is justified by Example~\ref{eg:H2}.
+ \end{proof}
 
 \subsection{Base change}\label{ssec:basechange}
 
@@ -1682,9 +1706,6 @@ induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on
 \]
 is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
 \end{proof}
-
-\section{The dictionary for commutative algebraic groups over finite fields}
-
 
 
 \section{Applications to quasicharacters of $p$-adic tori and Abelian varieties}\label{sec:applications}
