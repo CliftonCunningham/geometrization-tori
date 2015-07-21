@@ -393,8 +393,7 @@ It is applied to certain perverse sheaves on connected reductive algebraic group
 over algebraically closed fields with finite cyclic component groups in the series of papers
 beginning with \cite{lusztig:disconnected1}.
 When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
-in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves. %however, even in this case, the two notions are not quite identical.
-The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ do not arise in that context.
+in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves (\S \ref{ssec:alg_groups}). The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ do not arise in that context.
 
 We anticipate that future work on quasicharacter sheaves will make use of   \cite{suzuki-yoshida:12a} and \cite{Suzuki:Neron}, and will clarify the relation between this project and other attempts to geometrize admissible distributions on $p$-adic groups, such as \cite{Cunningham-Kamgarpour} (limited quasicharacters of $\ZZ_p^\times$) and \cite{Aubert-Cunningham} (limited to characters of depth-zero representations). 
 We are actively pursuing the question of how to extend the notion of quasicharacter sheaves to provide a geometrization of admissible distributions on connected reductive algebraic groups over $p$-adic fields, not just commutative ones.
@@ -1244,12 +1243,6 @@ Conversely, if $\rho : G(\bFq)_{\Weil{}} \to \EEx$ is any homomorphism, then def
 Composition of morphisms corresponds to pointwise multiplication in this correspondence, showing that the resulting bijection is actually a group isomorphism.
 \end{proof}
 
-\subsection{Examples}
-
-Let $G$ be the etale group scheme $\ZZ$ over $\Fq$ and consider the character $\chi : \ZZ \to \EEx$ of $G(\Fq)$ determined by $\chi(1) = 1+\ell$.
-The stalk of $\cs{L}$ at the component $1$ is defined
-by a pro-\'etale cover  . . . 
-
 \section{The function-sheaf dictionary for smooth commutative group schemes}\label{sec:main}
 
 
@@ -1541,13 +1534,17 @@ Proposition~\ref{prop:bounded} shows that the full subcategory
 $\bCS(G) \subset \CS(G)$ is not an equivalence, for smooth commutative group schemes $G$.
 This simple observation reveals the necessity of working with Weil sheaves in Definition~\ref{def:CS}: one cannot geometrize all characters of $G(\Fq)$ using local systems on $G$, for general smooth commutative groups schemes $G$. 
 
-For example, consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
+\begin{example}
+Consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
 If $\chi : \ZZ \to \EEx$ is the character of $G(\Fq)$ determined by $\chi(1) = \ell$
 and if $\cs{L}$ is a character sheaf on $G$ in the isomorphism class
 corresponding to $\chi$ under Theorem~\ref{thm:snake},
 then $\cs{L}$ does not descend to $G$ since the image of $\chi$ is not
 bounded.
-
+On the other hand, if  the character $\chi : \ZZ \to \EEx$ of $G(\Fq)$ determined by $\chi(1) = 1+\ell$.
+The stalk of $\cs{L}$ at the component $1$ is defined
+by a pro-\'etale cover  . . . 
+\end{example}
 
 \subsection{Morphisms of character sheaves} \label{ssec:CSmor}
 
@@ -1568,7 +1565,7 @@ To see that $\Aut(\cs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$ is surjective, be
 This defines an isomorphism $\bar\rho : \gcs{L}\to \gcs{L}$ of local systems on $\bG$ compatible with $\mu$ and $\phi$, and thus an isomorphism $\rho :\cs{L}\to \cs{L}$ which maps to $\theta$ under $\Aut(\cs{L}) \to \Hom(\pi_0(\bG)_{\Weil{}},\EEx)$.
 \end{proof}
 
-\subsection{The dictionary for commutative algebraic groups over finite fields}
+\subsection{The dictionary for commutative algebraic groups over finite fields}\label{ssec:alg_groups}
 
 Having extended the function--sheaf dictionary from connected commutative algebraic groups over $\Fq$ to smooth commutative group schemes $G$ over $\Fq$, we briefly look back to the case when $G$ is a commutative algebraic group. 
 Although Weil sheaves are not necessary in that case, the dictionary is still not perfect, generally.
