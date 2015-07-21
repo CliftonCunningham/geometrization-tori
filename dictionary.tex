@@ -1240,8 +1240,8 @@ We see that $\Hh^2(\bG, \EEx)$ is trivial if and only if $\bG$ is cyclic.  Of co
 may or may not be trivial, even when $\Hh^2(\bG, \EEx)$ is non-trivial.
 \end{remark}
 
-\begin{example}\ref{eg:H2}
-Consider the simplest non-trivial case, where $\bG = \{1, i, j, k\} \cong \ZZ/2\ZZ \times \ZZ/2\ZZ.$  Using eqref{eq:H2comp},
+\begin{example}\label{eg:H2}
+Consider the simplest non-trivial case, where $\bG = \{1, i, j, k\} \cong \ZZ/2\ZZ \times \ZZ/2\ZZ.$  Using \eqref{eq:H2comp},
 we have $\Hh^2(\bG, \EEx) \cong \ZZ/2\ZZ$, on which $\Weil{}$ must act trivially, regardless of its action on $\bG$ itself.
 The non-trivial element corresponds to the extension
 \begin{equation} \label{eq:Qdef}
@@ -1851,7 +1851,7 @@ We write $\mathcal{N}$ for the category of Neron models that arise in this way; 
 
 Let $R$ be the ring of integers of $K$.
 Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$ for every non-negative integer $n$.
-Suppose $X_K \in \mathcal{N}_K$ has N\'eron model $X$ over $R$.
+Suppose $X \in \mathcal{N}$.
 Note that $X(K) = X(R)$.
 A \emph{quasicharacter of $X(K)$} is a group homomorphism $X(K) \to \EEx$ that factors through $X(R) \to X(R_n)$ for some non-negative integer $n$.
 We note that this definition is compatible with \cite{cassels-frohlich:AlgebraicNumberTheory}*{Ch XV, \S 2.3}.
@@ -1895,7 +1895,7 @@ This observation is key to the proof that, for any scheme $X$ over $R$, the proj
 taken with respect to the surjective morphisms $\varrho^R_{n\leq m}(X) : \Gr^R_{m}(X) \to \Gr^R_n(X)$,
 exists in the category of group schemes over $\Fq$;
 see \cite{EGAIV3}*{\S 8.2}.
-This leads to the definition of what we shall call the {\it Greenberg transform}:
+This leads to the definition of the {\it Greenberg transform}:
 \[
 \Gr_R : \Sch{R} \to \Sch{\Fq}.
 \]
@@ -1913,7 +1913,7 @@ Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$;
 note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
 Let $X$ be a smooth commutative group scheme over $S$.
 %We now define a category which will geometrize quasicharacters of $X(K)$.
-For every non-negative integer $n$, the Greenberg transform $\Gr^R_n(X)$ is a {\it smooth} commutative group scheme over $S_0$
+For every non-negative integer $n$, the Greenberg transform $\Gr^R_n(X)$ is a {\it smooth} commutative group scheme over $S_0$.
 %with component group scheme $\pi_0(X)_{\Fq} \ceq \pi_0(X) \times_S S_0$ and $\Fq$-rational points $X(R_n).$
 %
 The Greenberg transform $\Gr_R(X)$ of $X$ is a commutative group scheme over $\Fq$
@@ -1963,7 +1963,7 @@ If $\varrho^R_n(X)^* : \CS(\Gr^R_n(X)) \to \CS(\Gr_R(X))$ is full then the const
 We offer the following alternate construction of $\QCS(X)$.
 As above, let $X$ be a smooth group scheme over $R$.
 Although $\Gr_R(X)$ is not locally of finite type and therefore not smooth,
-let us consider the rigid monoidal category $\CS(\Gr_R(X))$ as defined in Section~\ref{ssec:category} without insisting that the commutative group $\Fq$-scheme $G$ is smooth.
+let us consider the rigid monoidal category $\CS(\Gr_R(X))$ as defined in Section~\ref{ssec:category}, though without insisting that the commutative group $\Fq$-scheme $G$ is smooth.
 %Let $X$ be a smooth commutative group scheme over $R$, with $R$ as above.
 A quasicharacter sheaf for $X$ is an object of
 the following rigid monoidal subcategory of $\CS(\Gr_R(X))$, denoted by $\QCS(X)$:
@@ -2018,7 +2018,7 @@ To prove \ref{x3}, use: the fact that the component group of $\Gr^R_n(X)$ is ind
  \begin{remark}
 In Section~\ref{ssec:CS_tori} we see that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an algebraic torus or an abelian variety over a local field $K$. 
 It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
-This seems unlikely, since the geometric \'etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$, though limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
+This seems unlikely, since the geometric \'etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$; however, limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
 \end{remark}
 
 
@@ -2109,8 +2109,8 @@ By the Langlands correspondence for $p$-adic tori \cite{yu:09a},
 \iso 
 \Hh^1(\Weil{K}, \check{T}_\ell),
 \]
-where we refer to continuous cohomology, since $\Hom(T(K), \EEx)$ refers to continuous homomorphisms $T(K)\to \EEx$.
-It now follows from the inflation-restriction exact sequence that the following diagram commutes.
+where we refer to continuous cohomology, since $\Hom(T(K), \EEx)$ refers to continuous group homomorphisms $T(K)\to \EEx$.
+It now follows from the inflation-restriction exact sequence that the following diagram commutes:
 \[
 \begin{tikzcd}
    0 \arrow{r} & \Hom(\pi_0(T)(\Fq), \EEx) \arrow{r}{\text{inf}} \arrow{d}{\iso}
@@ -2119,7 +2119,7 @@ It now follows from the inflation-restriction exact sequence that the following 
  & \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}) \arrow{r}{\text{inf}}
  & \Hh^1(\Weil{K}, \check{T}_\ell) \arrow{r}{\text{res}} 
  & \Hh^1(\mathcal{I}_K, \check{T}_\ell)^{\Weil{\Fq}} \arrow{r}  
- & 0
+ & 0.
 \end{tikzcd}
 \] 
 Combining this with Corollary~\ref{cor:CS_tori}  produces the following commutative diagram of exact sequences:
@@ -2161,7 +2161,7 @@ In Section~\ref{ssec:wrK} we develop a tool for further work in that direction.
 Let $K'/K$ be a finite Galois extension of local fields and
 let $k'/k$ be the corresponding extension of residue fields.
 Let $R$ and $R'$ be the rings of integers of $K$ and $K'$, respectively.
-Let $X_K \in \mathcal{N}$ have N\'eron model $X$, set $X_{K'} \ceq X_K \times_\Spec{K} \Spec{K'}$
+Suppose $X \in \mathcal{N}$ and set $X_{K'} \ceq X_K \times_\Spec{K} \Spec{K'}$
 and let $X'$ be a N\'eron model for $X_{K'}$.
 
 \begin{proposition}\label{prop:wrK}
