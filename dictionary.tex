@@ -372,11 +372,13 @@ We further show that automorphism groups in $\QCS(T)$ are given, for every quasi
 where $\Weil{K}$ is the Weil group for $K$ and $\check{T}_\ell$ is the $\ell$-adic dual torus to $T$.
 %The appearance of the dual torus here is quite striking. 
 
+\iffalse
 By any measure, there are more quasicharacter sheaves for $T$ than quasicharacters of $T(K)$.  
 In this regard, we are reminded of the work of David Vogan \cite{vogan:93a}, in which he finds a geometrization of complete Langlands parameters for $p$-adic groups 
 and, in the process, is led to study the representations of all the pure rational forms of the $p$-adic group, simultaneously.
 A similar phenomenon appears in recent work by Joseph Bernstein in which his geometric Ansatz leads to the study of certain sheaves on the stacky classifying space of the $p$-adic group, resulting in a category which appears to be tied to the representations of all the pure rational forms of the $p$-adic group \cite{bernstein:vogan_conference}.
 Indeed, Bernstein has suggested to us that our category of quasicharacters for $T$ may be tied to quasicharacters of all the pure rational forms of $T$; we do not pursue that suggestion in this paper.
+\fi
 
 \medskip
 \noindent\textbf{Relation to other work.\ }
@@ -384,7 +386,7 @@ The main use of the term character sheaf is of course due to Lusztig.
 It is applied to certain perverse sheaves on connected reductive algebraic groups over algebraically closed fields in
 \cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on certain reductive groups over algebraically closed fields in the series of papers
 beginning with \cite{lusztig:disconnected1}.
-When commutative, it is not difficult to relate Frobenius-stable character sheaves to our character sheaves (Remark~\ref{rem:Lusztig}). The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ do not arise in that context.
+When commutative, it is not difficult to relate Frobenius-stable character sheaves to our character sheaves (Remark~\ref{rem:Lusztig}). The new features that we have found pertaining to Weil sheaves and $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ do not arise in that context because, for such groups, Weil sheaves are unnecessary (\S \ref{ssec:alg_groups} and $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}=0$ (Remark \ref{rem:H2}).
 
 
 %We also want to situate our terminology in a historical context.
@@ -1164,12 +1166,12 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
 
-\begin{remark} \label{eg:H2}
+\begin{remark}
 Recall the K\"unneth formula in group cohomology \cite{brown:CohomologyOfGroups}*{Prop. I.0.8}: if $A$ and $A'$ are groups and $M$ and $M'$ are abelian groups with $M$ $\ZZ$-free, then
 \[
 \Hh^n(A \times A', M \otimes M') \cong \bigoplus_{i+j=n} \Hh^i(A, M) \otimes \Hh^j(A', M') \ \ \oplus \bigoplus_{i+j=n+1} \Tor_1^{\ZZ}\left(\Hh^i(A, M), \Hh^j(A', M')\right).
 \]
-
+%
 Now suppose $\bG = \ZZ^r \times \prod_{i = 1}^m \ZZ/N_i\ZZ$ is an arbitrary finitely generated abelian group,
 with $N_i \mid N_{i+1}$.  Then the K\"unneth formula implies that
 \begin{equation} \label{eq:H2comp}
@@ -1177,7 +1179,9 @@ with $N_i \mid N_{i+1}$.  Then the K\"unneth formula implies that
 \end{equation}
 We see that $\Hh^2(\bG, \EEx)$ is trivial if and only if $\bG$ is cyclic.  Of course, $\Hh^0(\Weil{}, \Hh^2(\bG, \EEx))$
 may or may not be trivial, even when $\Hh^2(\bG, \EEx)$ is non-trivial.
+\end{remark}
 
+\begin{example}\ref{eg:H2}
 Consider the simplest non-trivial case, where $\bG = \{1, i, j, k\} \cong \ZZ/2\ZZ \times \ZZ/2\ZZ.$  Using eqref{eq:H2comp},
 we have $\Hh^2(\bG, \EEx) \cong \ZZ/2\ZZ$, on which $\Weil{}$ must act trivially, regardless of its action on $\bG$ itself.
 The non-trivial element corresponds to the extension
@@ -1200,7 +1204,7 @@ The sequence \eqref{eq:Qdef} is the pushforward of
 \]
 along the inclusion $\{\pm 1\} \hookrightarrow \EEx$.  Note that these character sheaves arise from a non-commutative cover of $\bG$,
 justifying the inclusion of such covers in the definition of a discrete isogeny.
-\end{remark}
+\end{example}
 
 \subsection{On the necessity of working with Weil sheaves}\label{ssec:bS}
 
