@@ -749,7 +749,7 @@ In fact, it is not difficult to recognize character sheaves that descend to $G$:
 
 Here we consider character sheaves on $G$ that are defined by discrete isogenies onto $G$ (\S \ref{ssec:discrete_isogenies}); these will play a role in Section~\ref{ssec:restriction}.
 
-A finite, \'etale, surjective morphism $H\to G$ of smooth group schemes over $\Fq$ for which the action of $\Gal(\bFq/\Fq)$ on the kernel is trivial is called a {\it discrete isogeny}, following \cite{kamgarpour:09a}*{\S 2.2}.
+A finite, \'etale, surjective morphism $H\to G$ of smooth group schemes over $\Fq$ for which the action of $\Gal(\bFq/\Fq)$ on the kernel is trivial is called a {\it discrete isogeny}, inspired by \cite{kamgarpour:09a}*{\S 2.2}.
 
 \begin{proposition}\label{prop:finite}
 Let $f: H \to G$ be a discrete isogeny and let $A$ be the kernel of $f$.
@@ -766,10 +766,16 @@ We must show that $\cs{E}$ comes equipped with an isomorphism $\mu_\cs{E} : m^* 
 To do this we use \'etale descent to see that pullback along $f$ gives an equivalence between $\ell$-adic local systems on $G$ and $A$-equivariant local systems on $H$ {\it cf.\ } \cite{bernstein-luntz:equivariant_sheaves}*{Prop 8.1.1}. 
 In particular, $f^*\cs{E}$ is the $A$-equivariant constant sheaf $V$ on $H$ with character $\psi$.
 Since $f$ is a morphism of group schemes, the functor $f^*$ defines $\mu_\cs{E} : m^*\cs{E} \to \cs{E}\boxtimes\cs{E}$
-from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$.
+from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\otimes V$. 
 \end{proof}
 
-We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
+\begin{remark}
+Since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
+\end{remark}
+
+\begin{remark}
+A descent argument similar to the one employed in the proof of Lemma~\ref{prop:finite} is used in \cite{Drinfeld:math/0609769}*{Lemma~1.10}, though in the more restrictive case of connected algebraic groups.
+\end{remark}
 
 \subsection{Recollections on character sheaves for connected algebraic groups}\label{ssec:connected}
 
@@ -1226,15 +1232,15 @@ In this way, Proposition~\ref{prop:bounded-etale} is now reduced to the claim
 \]
 To see that, one may argue as follows. 
 Pick $i\in \pi_0(G)$ and let $G^i \hookrightarrow G$ be the corresponding connected component. 
-Pick a geometric point ${\bar x}^i$ on $G^i$ and observe that since $G^i$ is connected as a $\Fq$-scheme, $G^i(\bFq)$ is canonically identified with the $\Gal(\bFq/\Fq)$-orbit of ${\bar x}^i$. 
-We remark that while $G^i$ is defined over $\Fq$, the set $G^i(\Fq)$ is non-empty only when $G^i(\bFq) = \{ {\bar x}^i\}$.
-Since $\Hh^1(\bG,\EEx) = \Hom(\bG,\EEx)$, evaluation $\chi \mapsto \chi({\bar x}^i)$ defines $\Hh^1(\Fq,\Hh^1(\bG,\EEx)) \to \Hh^1(\Fq,\EEx)$. 
+Pick a geometric point $x$ on $G^i$ and observe that since $G^i$ is connected as a $\Fq$-scheme, $G^i(\bFq)$ is canonically identified with the $\Gal(\bFq/\Fq)$-orbit of $x$. 
+We remark that while $G^i$ is defined over $\Fq$, the set $G^i(\Fq)$ is non-empty only when $G^i(\bFq) = \{ x\}$.
+Since $\Hh^1(\bG,\EEx) = \Hom(\bG,\EEx)$, evaluation $\chi \mapsto \chi(x)$ defines $\Hh^1(\Fq,\Hh^1(\bG,\EEx)) \to \Hh^1(\Fq,\EEx)$. 
 By continuity, $\Hh^1(\Fq,\EEx) = \Hh^1(\Fq,\ZEx)$.
 Letting $i$ range over $\pi_0(G)$ we conclude that $\Hh^1(\Fq,\Hh^1(\bG,\EEx)) = \Hh^1(\Fq,\Hh^1(\bG,\ZEx))$.
 When adapted to abelian groups with continuous action of $\Gal(\bFq/\Fq)$, the strategy of the proof of Lemma~\ref{lem:dual-inv} gives $\Hh^1(\Fq,\Hh^1(\bG,\ZEx)) =  \Hom(G(\Fq),\ZEx)$, concluding the proof.
 \end{proof}
 
-This simple observation reveals the necessity of working with Weil sheaves in Definition~\ref{def:CS}: one cannot geometrize all characters of $G(\Fq)$ using local systems on $G$, for general smooth commutative groups schemes $G$.
+Proposition~\ref{prop:bounded-etale} reveals the necessity of working with Weil sheaves in Definition~\ref{def:CS}: one cannot geometrize all characters of $G(\Fq)$ using local systems on $G$, for general smooth commutative groups schemes $G$.
 Proposition~\ref{prop:bounded-etale} is extended to all smooth commutative groups schemes in Section~\ref{ssec:revisited}.
 
 \begin{example}\label{eg:}
@@ -1254,7 +1260,8 @@ then $\cs{L}''$ is defined by a discrete isogeny.
 
 \subsection{Morphisms in the \'etale case}\label{ssec:mor-etale}
 
-While most of this paper focuses on the question of determining the isomorphism classes of objects, a complete understanding of the morphisms in $\CS(G)$ also requires a description of the automorphisms of an arbitrary character sheaf $\cs{L}$.
+%While most of this paper focuses on the question of determining the isomorphism classes of objects, 
+A complete understanding of the morphisms in $\CS(G)$ also requires a description of the automorphisms of an arbitrary character sheaf $\cs{L}$.
 
 \begin{proposition}\label{prop:autornaught_etale}
 Let $G$ be an \'etale commutative group scheme over $\Fq$.
@@ -1356,7 +1363,7 @@ Let $\pi: B \to G^0$ be a discrete isogeny, and set $A \ceq \ker \pi$.
   morphisms are $\Gal(\bFq/\Fq)$-equivariant.
 \end{proof}
 
-We now wish to apply the results of Section~\ref{ssec:connected} to the identity component of $G$; to do so, we must know that the identity component of $G$ is actually an algebraic group over $\Fq$.
+We now wish to apply the results of Section~\ref{ssec:connected} to the identity component of $G$, for which we must confirm that the identity component of $G$ is actually an algebraic group over $\Fq$.
 
 \begin{lemma} \label{lem:G0alg-grp}
 If $G$ is a commutative smooth group scheme over $\Fq$ then its identity component, $G^0$, is a connected algebraic group over $\Fq$.
@@ -1482,13 +1489,13 @@ In this section we find the image and kernel of $\TrFrob{G}$.
 
 \begin{theorem}\label{thm:snake}
   If $G$ is a smooth commutative group scheme over $\Fq$ then
-  $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ is surjective, admits a section, and has kernel canonically isomorphic to $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$:
+  $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ is surjective and has kernel canonically isomorphic to $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$:
     \[
   \begin{tikzcd}
 0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0. 
   \end{tikzcd}
 \]
-is a split exact sequence.
+is an exact sequence.
 \end{theorem}
 
 \begin{proof}
@@ -1540,8 +1547,8 @@ This gives the promised short exact sequence
 \]
 \end{proof}
 
-\begin{remark}
-Although $\TrFrob{\pi_0(G)}$ is split and $\TrFrob{G^0}$ is an isomorphism, it does not follow that $\TrFrob{G}$ is split. 
+\begin{remark}\label{rem:rats}
+Although $\TrFrob{\pi_0(G)}$ is split and $\TrFrob{G^0}$ is an isomorphism, we do not know if $\TrFrob{G}$ is split, in general. Surjectively of $\TrFrob{G}$ shows that every $\ell$-adic character of $G(\Fq)$ admits a geometrization, but without a splitting for $\TrFrob{G}$ we do not know how to make this geometrization canonical.
 \end{remark}
 
 
@@ -1556,7 +1563,7 @@ Then $\cs{L}\in \CS(G)$ descends to $G$ if and only if $\trFrob{\cs{L}} : G(\Fq)
 \begin{proof} 
 By Lemma~\ref{lem:G0alg-grp}, the identity component $G^0$ is a connected algebraic group over $\Fq$. 
 It follows from Proposition~\ref{prop:connected} that the restriction of $\cs{L}$ to $G^0$ descends to $G$. 
-Also, since $G^0(\Fq)$ is finite, the image of $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ is a finite subgroup and therefore bounded image.  
+Also, since $G^0(\Fq)$ is finite, the image of $\trFrob{\cs{L}} : G(\Fq) \to \EEx$ is a finite subgroup and therefore has bounded image.  
 %
 If $\chi \in G(\Fq)^*$ then there is some finite-image character $\chi_0$
 with the same restriction to $G^0(\Fq)$ since $G^0(\Fq)$ is lies inside the torsion part of
@@ -1568,7 +1575,7 @@ for \'etale group schemes $G$, which is done in Proposition~\ref{prop:bounded-et
 \end{proof}
 
 Proposition~\ref{prop:bounded} shows that the full subcategory
-$\bCS(G) \subset \CS(G)$ is not an equivalence, for smooth commutative group schemes $G$.
+$\bCS(G) \subset \CS(G)$ is not an equivalence, for general smooth commutative group schemes $G$. Again we see the necessity of working with Weil sheaves in Definition~\ref{def:CS}.
 
 \subsection{Morphisms of character sheaves} \label{ssec:CSmor}
 
@@ -1591,7 +1598,7 @@ This defines an isomorphism $\bar\rho : \gcs{L}\to \gcs{L}$ of local systems on 
 
 \subsection{The dictionary for commutative algebraic groups over finite fields}\label{ssec:alg_groups}
 
-Having extended the function--sheaf dictionary from connected commutative algebraic groups over $\Fq$ to smooth commutative group schemes $G$ over $\Fq$, we briefly look back to the case when $G$ is a commutative algebraic group. 
+Having extended the function--sheaf dictionary from connected commutative algebraic groups over $\Fq$ to smooth commutative group schemes $G$ over $\Fq$, we look back briefly to the case when $G$ is a commutative algebraic group. 
 Although Weil sheaves are not necessary in that case, the dictionary is still not perfect, generally.
 
 \begin{corollary}\label{cor:alg_groups}
