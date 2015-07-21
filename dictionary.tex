@@ -1726,7 +1726,7 @@ is given by permuting coordinates, composition with the norm map yields the iden
 
 \section{Applications to quasicharacters of $p$-adic tori and Abelian varieties}\label{sec:applications}
 
-Let $K$ be a local field with finite residue field $\Fq$; we will now denote the group $\Weil{}$ by $\Weil{\Fq}$.
+Let $K$ be a local field with finite residue field $\Fq$; in this section we denote the group $\Weil{}$ by $\Weil{\Fq}$.
 We continue to assume that $\ell$ is invertible in $\Fq$. 
 In this section we consider connected commutative algebraic groups over $K$ that admit a N\'eron model, by which we mean a locally finite type N\'eron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected commutative algebraic groups over $K$ that contain no subgroup isomorphic to $\mathbb{G}_\text{a}$.
@@ -1794,24 +1794,17 @@ By construction, the $\Fq$-scheme $\Gr_R(X)$ comes equipped with morphisms
 %{Character sheaves on the Greenberg transform of a N\'eron model} 
 \label{ssec:CS_on_GN}
  
- \begin{remark}
-This paper shows that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an algebraic torus or an abelian variety over a local field $K$. 
-It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
-This seems unlikely, since the geometric etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$, though limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
-\end{remark}
-
-
-Let $X \in \mathcal{N}$ be as above.
+%Let $X \in \mathcal{N}$ be as above.
 Set $S = \Spec{R}$ and $S_n = \Spec{R_n}$;
 note that $S_0 = \Spec{\Fq}$ is the special fibre of $S$.
-
-For every non-negative integer $n$, $\Gr^R_n(X)$ is a {\it smooth} commutative group scheme over $S_0$
-with component group scheme $\pi_0(X)_{\Fq} \ceq \pi_0(X) \times_S S_0$ and $\Fq$-rational points $X(R_n).$
+Let $X$ be a smooth commutative group scheme over $S$.
+%We now define a category which will geometrize quasicharacters of $X(K)$.
+For every non-negative integer $n$, the Greenberg transform $\Gr^R_n(X)$ is a {\it smooth} commutative group scheme over $S_0$
+%with component group scheme $\pi_0(X)_{\Fq} \ceq \pi_0(X) \times_S S_0$ and $\Fq$-rational points $X(R_n).$
 %
 The Greenberg transform $\Gr_R(X)$ of $X$ is a commutative group scheme over $\Fq$
-with component group scheme $\pi_0(X)_{\Fq}$
-and $\Fq$-rational points $X(K).$
-However, $\Gr_R(X)$ is not locally of finite type and therefore not smooth.
+%with component group scheme $\pi_0(X)_{\Fq}$
+with $\Fq$-rational points $X(R)$.
 %
 The morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(X)$ induces a functor
 \[
@@ -1820,33 +1813,13 @@ The morphism of $\Fq$-schemes $\varrho^R_n(X) : \Gr_R(X) \to \Gr^R_n(X)$ induces
 as in Lemma~\ref{lem:pullback}.
 %This functor is faithful, so we may view $\CS(\Gr^R_n(X))$ as a subcategory of $\CS(\Gr_R(X))$.
 
-We now define a category which will geometrize quasicharacters of $X(K)$.
-We begin by considering the rigid monoidal category $\CS(G)$ defined in Section~\ref{ssec:category} without insisting that the commutative group $\Fq$-scheme $G$ is smooth, so that we can replace it with $\Gr_R(X)$ for smooth group $R$-scheme $X$.
-
 \begin{definition}\label{def:QCS}
-Let $X$ be a smooth commutative group scheme over $R$, with $R$ as above.
-A {\it quasicharacter sheaf for $X$} is an object of
-the following rigid monoidal subcategory of $\CS(\Gr_R(X))$, denoted by $\QCS(X)$:
-\begin{enumerate}
-\item
-objects in $\QCS(X)$ are the $\ell$-adic sheaves $\varrho^R_n(X)^*\cs{L}$, for $n\in \NN$ and $\cs{L} \in \CS(\Gr^R_n(X))$; 
-\item
-morphisms $\varrho^R_n(X)^*\cs{L} \to \varrho^R_m(X)^*\cs{L}'$ in $\QCS(X)$ are those morphisms in $\CS(\Gr_R(X))$ which take the form $\varrho^R_m(X)^*\rho$ for $\rho \in \Hom(\varrho^R_{n\leq m}(X)^*\cs{L},\cs{L}')$ when $n\leq m$, and $\varrho^R_n(X)^*\rho$ for $\rho \in \Hom(\cs{L},\varrho^R_{m\leq n}(X)^*\cs{L}')$ when $m\leq n$.
-\end{enumerate}
-
-\end{definition}
-
-
-\begin{remark}
-If $\varrho^R_n(X)^* : \CS(\Gr^R_n(X)) \to \CS(\Gr_R(X))$ is full then the construction above can be improved by forming $\QCS(X)$ from the essential images of the functors $\varrho^R_n(X)^*$; however, we do not know if $\varrho^R_n(X)^*$ is full.
-\end{remark}
-
-\begin{remark}
-We offer the following alternate construction of $\QCS(X)$, which does not make use of subcategories.
-For objects, one considers triples 
+Let $X$ be a smooth group scheme over $R$.
+A {\it quasicharacter sheaf} of $X$ is a triple 
 \[
 \cs{F} \ceq (n, \{\cs{F}_i\}_{n\leq i}, \{\alpha_{i \le j}\}_{n\le i \le j}),
-\] where $n$
+\] 
+where $n$
 is a non-negative integer, each $\cs{F}_i$ is a character sheaf on $\Gr^R_i(X)$ and each 
 \[
 \alpha_{i \le j} : \cs{L}_j \to \varrho^R_{i \le j}(X)^* \cs{L}_i
@@ -1864,6 +1837,28 @@ morphisms of character sheaves so that
 \]
 commutes for all $k\le i\le j$; we identify two such pairs $(k, \{\beta_i\})$ and $(l, \{\gamma_i\})$ if $\beta_i = \gamma_i$
 for sufficiently large $i$.  Identities and composites are defined in the natural way.
+Let $\QCS(X)$ denote the category of quasicharacter sheaves for $X$.
+\end{definition}
+
+
+\begin{remark}
+If $\varrho^R_n(X)^* : \CS(\Gr^R_n(X)) \to \CS(\Gr_R(X))$ is full then the construction above can be improved by forming $\QCS(X)$ from the essential images of the functors $\varrho^R_n(X)^*$; however, we do not know if $\varrho^R_n(X)^*$ is full.
+\end{remark}
+
+\begin{remark}
+We offer the following alternate construction of $\QCS(X)$.
+As above, let $X$ be a smooth group scheme over $R$.
+Although $\Gr_R(X)$ is not locally of finite type and therefore not smooth,
+let us consider the rigid monoidal category $\CS(\Gr_R(X))$ as defined in Section~\ref{ssec:category} without insisting that the commutative group $\Fq$-scheme $G$ is smooth.
+%Let $X$ be a smooth commutative group scheme over $R$, with $R$ as above.
+A quasicharacter sheaf for $X$ is an object of
+the following rigid monoidal subcategory of $\CS(\Gr_R(X))$, denoted by $\QCS(X)$:
+\begin{enumerate}
+\item
+objects in $\QCS(X)$ are the $\ell$-adic sheaves $\varrho^R_n(X)^*\cs{L}$, for $n\in \NN$ and $\cs{L} \in \CS(\Gr^R_n(X))$; 
+\item
+morphisms $\varrho^R_n(X)^*\cs{L} \to \varrho^R_m(X)^*\cs{L}'$ in $\QCS(X)$ are those morphisms in $\CS(\Gr_R(X))$ which take the form $\varrho^R_m(X)^*\rho$ for $\rho \in \Hom(\varrho^R_{n\leq m}(X)^*\cs{L},\cs{L}')$ when $n\leq m$, and $\varrho^R_n(X)^*\rho$ for $\rho \in \Hom(\cs{L},\varrho^R_{m\leq n}(X)^*\cs{L}')$ when $m\leq n$.
+\end{enumerate}
 \end{remark}
 
 
@@ -1906,6 +1901,13 @@ To prove \ref{x3}, use: the fact that the component group of $\Gr^R_n(X)$ is ind
 %\end{enumerate}
 \end{proof}
 
+ \begin{remark}
+In Section~\ref{ssec:CS_tori} we see that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an algebraic torus or an abelian variety over a local field $K$. 
+It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed. 
+This seems unlikely, since the geometric etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$, though limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
+\end{remark}
+
+
 \subsection{Quasicharacter sheaves for $p$-adic tori} \label{ssec:CS_tori}
 
 As we explained in the Introduction, our original motivation for this paper was to find a geometrization and categorification of quasicharacters of $p$-adic tori. 
@@ -1929,7 +1931,7 @@ The following is a commutative diagram of exact sequences.
 \begin{proof} 
 The horizontal sequence of groups coming from categories of quasicharacter sheaves is exact by Proposition~\ref{prop:middleexact}, together with the observation that the functors $\pi_0^*$ and $\iota^*$ preserve limits.
 It is elementary that the horizontal sequence of quasicharacters is exact.
-Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of $\TrFrob{T}$ is $\Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}}$. 
+Accordingly, by Theorem~\ref{thm:CSXK}, the kernel of the  is $\Hh^2(\pi_0(T)_{\bFq},\EEx)^{\Weil{}}$. 
 By \cite{bitan:discriminant}*{Eq 3.1}, the special fibre of the component group scheme for $T$ is given by
 \[
  \pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K},
