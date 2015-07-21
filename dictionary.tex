@@ -1030,7 +1030,7 @@ Condition~\ref{CS.2} implies that
 a(x+y,z) a(x,y) = a(x,y+z) a(y,z)
 \end{equation}
 for all $x,y,z\in \bG$, so $a \in Z^2(\bG,\EEx)$.  Similarly, condition~\ref{CS.3} gives
-\begin{equation}\label{nohom}
+\begin{equation}\label{eq:nohom}
 \frac{a(\Frob{G}(x),\Frob{G}(y))}{a(x,y)} =  \frac{b(x+y)}{b(x) b(y)}
 \end{equation}
 for $x, y \in \bG$.
@@ -1126,7 +1126,7 @@ Set $\gcs{L}_x = \EE$ for every $x\in G(\bFq)$.
 Define $\mu_{x,y} : \gcs{L}_{x+y} \to \gcs{L}_x\otimes \gcs{L}_y$ by $\mu_{x,y}(1) = 1 \otimes 1$ and
 $\phi_{x} : \gcs{L}_{\Frob{}(x)} \to \gcs{L}_x$ by $\phi_{x}(1) = \beta(\Frob{})(x)$.
 Since $\beta(\Frob{}) : G(\bFq) \to \EEx$ is a group homomorphism,
-condition \eqref{nohom} is satisfied with $a =1$.
+condition \eqref{eq:nohom} is satisfied with $a =1$.
 So $\cs{L} = (\gcs{L}, \mu, \phi)$
 is a character sheaf with $\trFrob{\cs{L}} = \chi$.
 This shows that $\TrFrob{G}$ is surjective.
@@ -1155,7 +1155,7 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
 
-\begin{example} \label{eg:H2}
+\begin{remark} \label{eg:H2}
 Recall the K\"unneth formula in group cohomology \cite{brown:CohomologyOfGroups}*{Prop. I.0.8}: if $A$ and $A'$ are groups and $M$ and $M'$ are abelian groups with $M$ $\ZZ$-free, then
 \[
 \Hh^n(A \times A', M \otimes M') \cong \bigoplus_{i+j=n} \Hh^i(A, M) \otimes \Hh^j(A', M') \ \ \oplus \bigoplus_{i+j=n+1} \Tor_1^{\ZZ}\left(\Hh^i(A, M), \Hh^j(A', M')\right).
@@ -1166,7 +1166,18 @@ Now suppose $\bG = \ZZ^r \times \prod_{i = 1}^m \ZZ/N_i\ZZ$ is an arbitrary fini
 \Hh^2(\bG, \EEx) \cong \left(\EEx\right)^{r(r-1)/2} \times \prod_{i=1}^m (\ZZ/N_i\ZZ)^{m+r-i}.
 \]
 We see that $\Hh^2(\bG, \EEx)$ is trivial if and only if $\bG$ is cyclic.  Of course, $\Hh^0(\Weil{}, \Hh^2(\bG, \EEx))$ may or may not be trivial, even when $\Hh^2(\bG, \EEx)$ is nontrivial.
-\end{example}
+
+Consider the simplest nontrivial case, where $\bG = \{1, i, j, k\} \cong \ZZ/2\ZZ \times \ZZ/2\ZZ.$  Then $\Hh^2(\bG, \EEx) \cong \ZZ/2\ZZ$, on which $\Weil{}$ must act trivially, regardless of its action on $\bG$ itself.  The nontrivial element corresponds to the extension
+\[
+1 \to \EEx \to Q \to \bG \to 1,
+\]
+where $Q = \{c + c_ii + c_jj + c_kk : c,c_i,c_j,c_k \in \EE \mbox{ with exactly one nonzero}\}$ is a subgroup of the quaternion algebra over $\EE$.
+Let $a$ be a $2$-cocycle corresponding to this extension, with values in $\{\pm 1\}$. When $\Frob{}$ acts trivially on $\bG$,
+any homomorphism $b : \bG \to \EEx$ will satisfy \eqref{eq:nohom}, and the corresponding $\alpha \oplus \beta$ are noncohomologous in $\Hh^2(E_G^\bullet)$.
+When $\Frob{}$ exchanges $i$ and $j$, then we may take $b(1) = 1, b(i) = -1$ and $b(j) = b(k) = \pm 1$, up to coboundaries.
+Finally, when $\Frob{}$ cycles $i$, $j$ and $k$, any homomorphism $b : \bG \to \EEx$ will satisfy \eqref{eq:nohom},
+but now the corresponding $\alpha \oplus \beta$ are all cohomologous in $\Hh^2(E_G^\bullet)$.
+\end{remark}
 
 \subsection{Descent, revisited}\label{ssec:bS}
 
@@ -1946,38 +1957,9 @@ It follows that the vertical sequences through $\QCSiso{T^0}$ and $\QCSiso{\pi_0
 The diagram commutes by Lemma~\ref{lem:pullback}.
 \end{proof}
 
-\begin{corollary}
-Let $T$ be a Neron model for an algebraic torus over $K$.
-For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
-\[
-\Aut(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
-\quad
-\Aut(\cs{F})\iso (\check{T}_\ell)^{\Weil{K}},
-\quad
-\Aut(\cs{F}^0)\iso 1,
-\]
- where $\check{T}_\ell \ceq \Hom(X_*(T_K),\EEx)$, the $\ell$-adic dual torus to $T_K$.
-\end{corollary}
+\begin{example}
 
-\begin{proof}
-We already know $\Aut(\cs{E}) =1$ from Proposition~\ref{prop:connected}, part \ref{x3}.
-By Theorem~\ref{thm:CSXK}, 
-\[
-\Aut(\cs{F})  \iso \Hom((\pi_0(T)_{\bFq})_{\Weil{\Fq}},\EEx).
-\]
-By \cite{bitan:discriminant}*{Eq 3.1} again, 
-\[
-\Hom((\pi_0(T)_{\bFq})_{\Weil{\Fq}},\EEx) \iso
-\Hom(X_*(T_K)_{\Weil{K}},\EEx).
-\]
-But $\Hom(X_*(T_K)_{\Weil{K}},\EEx) \iso \Hom(X_*(T_K),\EEx)^{\Weil{K}}$.
-So, for any quasicharacter sheaf $\cs{F}$ for $T$,
-\[
-\Aut(\cs{F}) \iso (\check{T}_\ell)^{\Weil{K}},
-\]
-canonically.
-The case $X= \pi_0(T)$ is handled by the same argument, replacing Theorem~\ref{thm:CSXK} with Theorem~\ref{thm:snake} and Definition~\ref{def:QCS}, as in the proof of Corollary~\ref{cor:CS_tori}, after observing that $\pi_0(\pi_0(T)_{\bFq}) = \pi_0(T)_{\bFq}$.
-\end{proof}
+\end{example}
 
 \begin{remark}
 Since $\pi_0(T)_{\bFq} = X_*(T_K)_{\mathcal{I}_K}$ by \cite{bitan:discriminant}*{Eq 3.1}, we have
