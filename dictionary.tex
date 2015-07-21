@@ -389,11 +389,9 @@ with an eye toward quasicharacters of $p$-adic groups.
 
 The main use of the term character sheaf is of course due to Lusztig.
 It is applied to certain perverse sheaves on connected reductive algebraic groups over algebraically closed fields in
-\cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on reductive groups
-over algebraically closed fields with finite cyclic component groups in the series of papers
+\cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on certain reductive groups over algebraically closed fields in the series of papers
 beginning with \cite{lusztig:disconnected1}.
-When commutative, such groups are extensions of finite cyclic groups by algebraic tori,
-in which case it is not difficult to relate Frobenius-stable character sheaves to our character sheaves (\S \ref{ssec:alg_groups}). The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ do not arise in that context.
+When commutative, it is not difficult to relate Frobenius-stable character sheaves to our character sheaves (Remark~\ref{rem:Lusztig}). The new features that we have found pertaining to Weil sheaves and the non-triviality of $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ do not arise in that context.
 
 We anticipate that future work on quasicharacter sheaves will make use of   \cite{suzuki-yoshida:12a} and \cite{Suzuki:Neron}, and will clarify the relation between this project and other attempts to geometrize admissible distributions on $p$-adic groups, such as \cite{Cunningham-Kamgarpour} (limited quasicharacters of $\ZZ_p^\times$) and \cite{Aubert-Cunningham} (limited to characters of depth-zero representations). 
 We are actively pursuing the question of how to extend the notion of quasicharacter sheaves to provide a geometrization of admissible distributions on connected reductive algebraic groups over $p$-adic fields, not just commutative ones.
@@ -767,7 +765,7 @@ from the isomorphism $m^*\psi \iso \psi \boxtimes\psi$ determined by $V\to V\oti
 
 We remark that, since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the choice of an isomorphism $V\iso \EE$.
 
-\section{Recollections for connected algebraic groups}\label{ssec:connected}
+\section{Recollections on character sheaves for connected algebraic groups}\label{ssec:connected}
 
 %\subsection{The function-sheaf dictionary for connected algebraic groups over finite fields}\label{ssec:connected}
 
@@ -1143,7 +1141,7 @@ Now suppose $\chi_1, \chi_2 \in G(\Fq)^*$. Pick cocycles $\beta_1,\beta_2\in Z^1
 \end{proof}
 
 \begin{proposition} \label{prop:etale-iso}
- If $G$ is \'etale then the map $S_G : \CSiso{G}\to \Hh^2(E^\bullet_G)$ induces an isomorphism of split short exact sequences
+ If $G$ is \'etale then the map $S_G : \CSiso{G}\to \Hh^2(E^\bullet_G)$ induces an isomorphism of short exact sequences
 \[
 \begin{tikzcd}
  0 \arrow{r} & \ker \TrFrob{G} \arrow{d} \arrow{r} & \CSiso{G}\arrow{d}{S_G} \arrow{r}{\TrFrob{G}} \arrow{r} & G(\Fq)^* \arrow{d} \arrow{r} & 0\\
@@ -1229,7 +1227,7 @@ Let $G$ be an \'etale commutative group scheme over $\Fq$.
 If $\cs{L}$ and $\cs{L}'$ are character sheaves on $G$ then
 every $\rho\in \Hom(\cs{L},\cs{L}')$ is either trivial or an isomorphism. Moreover, the trace map induces an isomorphism of groups
 \[
-\Aut_\CS{}(\cs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
+\Aut(\cs{L}) \to \Hom(G(\bFq)_{\Weil{}}, \EEx).
 \]
 \end{proposition}
 
@@ -1539,11 +1537,14 @@ Consider the case when $G$ is the discrete \'etale group scheme $\ZZ$.
 If $\chi : \ZZ \to \EEx$ is the character of $G(\Fq)$ determined by $\chi(1) = \ell$
 and if $\cs{L}$ is a character sheaf on $G$ in the isomorphism class
 corresponding to $\chi$ under Theorem~\ref{thm:snake},
-then $\cs{L}$ does not descend to $G$ since the image of $\chi$ is not
+then $\cs{L}$ does not descend to $G$, since the image of $\chi$ is not
 bounded.
-On the other hand, if  the character $\chi : \ZZ \to \EEx$ of $G(\Fq)$ determined by $\chi(1) = 1+\ell$.
-The stalk of $\cs{L}$ at the component $1$ is defined
-by a pro-\'etale cover  . . . 
+If $\chi' : \ZZ \to \EEx$ is the character of $G(\Fq)$ determined by $\chi'(1) = 1+\ell$ and if $\cs{L}'$ corresponds to $\chi'$ under Theorem~\ref{thm:snake},
+then $\cs{L}'$ does descend to $G$, since the image of $\chi'$ is
+bounded.
+However, $\cs{L}'$ is not defined by a discrete isogeny (\S \ref{ssec:discrete_isogenies}). 
+If $\chi'' : \ZZ \to \EEx$ is the character of $G(\Fq)$ determined by $\chi''(1) = \zeta$, a root of unity in $\EEx$, and if $\cs{L}''$ corresponds to $\chi''$ under Theorem~\ref{thm:snake},
+then $\cs{L}''$ is defined by a discrete isogeny. 
 \end{example}
 
 \subsection{Morphisms of character sheaves} \label{ssec:CSmor}
@@ -1572,7 +1573,7 @@ Although Weil sheaves are not necessary in that case, the dictionary is still no
 
 \begin{corollary}\label{cor:alg_groups}
 Let $G$ be a commutative algebraic group over $\Fq$.
-All character sheaves on $G$ descend to $G$: $\CS(G)$ is equivalent to $\bCS(G)$ (\ref{ssec:bS}).
+All character sheaves on $G$ descend to $G$: $\CS(G)$ is equivalent to $\bCS(G)$ (\S \ref{ssec:bS}).
 The trace of Frobenius determines a short exact sequence
 \[
 \begin{tikzcd}
@@ -1588,7 +1589,13 @@ Since $G(\Fq)$ is finite, the first statement follows from Propositions~\ref{pro
  The third statement is justified by Example~\ref{eg:H2}.
  \end{proof}
 
-Add comment relating to Lusztig . . . . 
+\begin{remark}\label{rem:Lusztig}
+Suppose $G$ is a commutative algebraic group over $\Fq$ appearing in the series of papers starting with \cite{lusztig:disconnected1}.
+Then $G$ is a commutative reductive algebraic group over $\Fq$ with cyclic component group scheme; such groups are extensions of finite cyclic groups by algebraic tori.
+Every Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:disconnected1}, is a character sheaf on $G$, in our sense,
+and vice versa.
+Moreover, since $\Hh^2(\pi_0(\bG),\EEx)=0$ by Remark~\ref{eg:H2}, it follows that each Frobenius-stable character sheaf on $G$ as in \cite{lusztig:disconnected1}, is determined by its trace of Frobenius, up to isomorphism. 
+\end{remark}
 
 \subsection{Base change}\label{ssec:basechange}
 
