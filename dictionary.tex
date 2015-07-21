@@ -537,7 +537,7 @@ We prove the lemma by considering the linear transformations $\brho_{\bg} : \gcs
 (This idea is expanded upon in Section~\ref{ssec:stalks}.)
 Let ${\bar e}$ be the geometric point above the identity $e$ for $G$ determined by our choice of algebraic closure $\bFq$ of $\Fq$.
 If $\brho_{\bar e} = 0$ then the second diagram in \ref{CS.4} implies that $\brho_{\bg} = 0$ for all $\bg$, in which case $\rho$ is trivial.
-On the other hand, if $\brho_{\bar e}$ is nontrivial then the second diagram in \ref{CS.4}  implies that $\brho_{\bg}$ is nontrivial for all $\bg$ and thus an isomorphism, since the stalks of character sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
+On the other hand, if $\brho_{\bar e}$ is non-trivial then the second diagram in \ref{CS.4}  implies that $\brho_{\bg}$ is non-trivial for all $\bg$ and thus an isomorphism, since the stalks of character sheaves are one-dimensional; in this case $\rho$ is an isomorphism.
 \end{proof}
 \fi
 
@@ -1164,22 +1164,36 @@ Recall the K\"unneth formula in group cohomology \cite{brown:CohomologyOfGroups}
 \Hh^n(A \times A', M \otimes M') \cong \bigoplus_{i+j=n} \Hh^i(A, M) \otimes \Hh^j(A', M') \ \ \oplus \bigoplus_{i+j=n+1} \Tor_1^{\ZZ}\left(\Hh^i(A, M), \Hh^j(A', M')\right).
 \]
 
-Now suppose $\bG = \ZZ^r \times \prod_{i = 1}^m \ZZ/N_i\ZZ$ is an arbitrary finitely generated abelian group, with $N_i \mid N_{i+1}$.  Then the K\"unneth formula implies that
-\[
+Now suppose $\bG = \ZZ^r \times \prod_{i = 1}^m \ZZ/N_i\ZZ$ is an arbitrary finitely generated abelian group,
+with $N_i \mid N_{i+1}$.  Then the K\"unneth formula implies that
+\begin{equation} \label{eq:H2comp}
 \Hh^2(\bG, \EEx) \cong \left(\EEx\right)^{r(r-1)/2} \times \prod_{i=1}^m (\ZZ/N_i\ZZ)^{m+r-i}.
-\]
-We see that $\Hh^2(\bG, \EEx)$ is trivial if and only if $\bG$ is cyclic.  Of course, $\Hh^0(\Weil{}, \Hh^2(\bG, \EEx))$ may or may not be trivial, even when $\Hh^2(\bG, \EEx)$ is nontrivial.
+\end{equation}
+We see that $\Hh^2(\bG, \EEx)$ is trivial if and only if $\bG$ is cyclic.  Of course, $\Hh^0(\Weil{}, \Hh^2(\bG, \EEx))$
+may or may not be trivial, even when $\Hh^2(\bG, \EEx)$ is non-trivial.
 
-Consider the simplest nontrivial case, where $\bG = \{1, i, j, k\} \cong \ZZ/2\ZZ \times \ZZ/2\ZZ.$  Then $\Hh^2(\bG, \EEx) \cong \ZZ/2\ZZ$, on which $\Weil{}$ must act trivially, regardless of its action on $\bG$ itself.  The nontrivial element corresponds to the extension
-\[
+Consider the simplest non-trivial case, where $\bG = \{1, i, j, k\} \cong \ZZ/2\ZZ \times \ZZ/2\ZZ.$  Using eqref{eq:H2comp},
+we have $\Hh^2(\bG, \EEx) \cong \ZZ/2\ZZ$, on which $\Weil{}$ must act trivially, regardless of its action on $\bG$ itself.
+The non-trivial element corresponds to the extension
+\begin{equation} \label{eq:Qdef}
 1 \to \EEx \to Q \to \bG \to 1,
+\end{equation}
+where $Q = \{c + c_ii + c_jj + c_kk \tq c,c_i,c_j,c_k \in \EE \mbox{ with exactly one nonzero}\}$ is a subgroup of the quaternion algebra over $\EE$.
+Let $a$ be a $2$-cocycle corresponding to this extension, with values in $\{\pm 1\}$. When $\Frob{G}$ acts trivially on $\bG$,
+any homomorphism $b : \bG \to \EEx$ will satisfy \eqref{eq:nohom}, and the corresponding $\alpha \oplus \beta$ are non-cohomologous in $\Hh^2(E_G^\bullet)$.
+When $\Frob{G}$ exchanges $i$ and $j$, then we may take $b(1) = 1, b(i) = -1$ and $b(j) = b(k) = \pm 1$, up to coboundaries.
+Finally, when $\Frob{G}$ cycles $i$, $j$ and $k$, any homomorphism $b : \bG \to \EEx$ will satisfy \eqref{eq:nohom},
+but now the corresponding $\alpha \oplus \beta$ are all cohomologous in $\Hh^2(E_G^\bullet)$.  In each case, we may produce
+an explicit character sheaf from the listed $a$ and $b$.
+
+Note that these character sheaves arise from discrete isogenies, as in Section \ref{ssec:discrete_isogenies}.
+Let $\bH$ be the quaternion group of order $8$: the subgroup of $Q$ with $c, c_i, c_j, c_k \in \{\pm 1\}$.
+The sequence \eqref{eq:Qdef} is the pushforward of
+\[
+1 \to \{\pm 1\} \to \bH \to \bG \to 1
 \]
-where $Q = \{c + c_ii + c_jj + c_kk : c,c_i,c_j,c_k \in \EE \mbox{ with exactly one nonzero}\}$ is a subgroup of the quaternion algebra over $\EE$.
-Let $a$ be a $2$-cocycle corresponding to this extension, with values in $\{\pm 1\}$. When $\Frob{}$ acts trivially on $\bG$,
-any homomorphism $b : \bG \to \EEx$ will satisfy \eqref{eq:nohom}, and the corresponding $\alpha \oplus \beta$ are noncohomologous in $\Hh^2(E_G^\bullet)$.
-When $\Frob{}$ exchanges $i$ and $j$, then we may take $b(1) = 1, b(i) = -1$ and $b(j) = b(k) = \pm 1$, up to coboundaries.
-Finally, when $\Frob{}$ cycles $i$, $j$ and $k$, any homomorphism $b : \bG \to \EEx$ will satisfy \eqref{eq:nohom},
-but now the corresponding $\alpha \oplus \beta$ are all cohomologous in $\Hh^2(E_G^\bullet)$.
+along the inclusion $\{\pm 1\} \hookrightarrow \EEx$.  Note that these character sheaves arise from a non-commutative cover of $\bG$,
+justifying the inclusion of such covers in the definition of a discrete isogeny.
 \end{remark}
 
 \subsection{On the necessity of working with Weil sheaves}\label{ssec:bS}
