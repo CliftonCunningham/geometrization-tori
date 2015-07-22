@@ -20,17 +20,15 @@
 
 \subjclass[2010]{14F05 (primary), 14L15 (secondary), 22E50 (tertiary)}
 
-\keywords{function-sheaf dictionary, trace of Frobenius, geometrization, categorification, character sheaves,smooth commutative group schemes,
-finite fields, local fields, algebraic tori, N\'eron models, Greenberg functor, quasicharacters, quasicharacter sheaves.}
-
-
+\keywords{character sheaves, p-adic tori, N\'eron models, Greenberg functor, geometrization, quasicharacter sheaves}
 
 %%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
 %\usepackage{todonotes}
 % crellerefs is a custom version of amsrefs complying with the Crelle style guidelines
 %\usepackage{crellerefs}
 
-\usepackage{amssymb,amsrefs}
+\usepackage{amssymb}
+\usepackage[initials]{amsrefs}
 
 \BibSpec{lecture}{%
   +{} {\PrintAuthors}				{author}
@@ -58,6 +56,34 @@ finite fields, local fields, algebraic tori, N\'eron models, Greenberg functor, 
     +{,} { }							{address}
     +{,} { \PrintDateB}					{date}
     +{,} { }							{status}
+    +{}  { \parenthesize}				{language}
+    +{}  { \PrintTranslation}				{translation}
+    +{;} { \PrintReprint}				{reprint}
+    +{.} { }							{note}
+    +{.} {}							{transition}
+    +{}  {\SentenceSpace \PrintReviews}	{review}
+}
+
+% The publisher wasn't appearing.
+\BibSpec{collection.article}{%
+    +{}  {\PrintAuthors}				{author}
+    +{,} { \textit}						{title}
+    +{.} { }							{part}
+    +{:} { \textit}						{subtitle}
+    +{,} { \PrintContributions}			{contribution}
+    +{,} { \PrintConference}				{conference}
+    +{}  {\PrintBook}					{book}
+    +{,} { }							{booktitle}
+    +{}  { \PrintEditorsB}				{editor}
+    +{,} { }							{series}
+    +{} { \textbf}						{volume}
+    +{,} { }							{publisher}
+    +{,} { }							{address}
+    +{,} { \PrintDateB}					{date}
+    +{,} { }							{pages}
+    +{,} { }							{status}
+    +{,} { \PrintDOI}					{doi}
+    +{,} { available at \eprint}			{eprint}
     +{}  { \parenthesize}				{language}
     +{}  { \PrintTranslation}				{translation}
     +{;} { \PrintReprint}				{reprint}
@@ -857,7 +883,7 @@ Since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the ch
 
 \begin{remark}
 A descent argument similar to the one employed in the proof of Lemma~\ref{prop:finite} is used in
-\cite{boyarchenko-drinfeld:06a}*{Lemma~1.10}, though in the more restrictive case of connected algebraic groups.
+\cite{boyarchenko-drinfeld:10a}*{Lemma~1.10}, though in the more restrictive case of connected algebraic groups.
 \end{remark}
 
 \subsection{Recollections on character sheaves for connected algebraic groups}\label{ssec:connected}
@@ -1284,6 +1310,12 @@ $\trFrob{\cs{L}_1\otimes \cs{L}_2} = \trFrob{\cs{L}_1}\cdot \trFrob{\cs{L}_2}$, 
 \begin{proof}
 This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and \ref{prop:sur_etale}.
 \end{proof}
+
+\begin{definition}
+We call a character sheaf $\cs{L}$ on $G$ \emph{invisible} if it is nontrivial and $\TrFrob{G}(\cs{L}) = 1$.
+\end{definition}
+
+The proposition gives a method for determining whether a given $G$ admits invisible character sheaves.
 
 \begin{remark} \label{rem:H2}
 Recall the K\"unneth formula in group cohomology \cite{brown:CohomologyGrps}*{Prop. I.0.8}:
