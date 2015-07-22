@@ -21,7 +21,7 @@
 \subjclass[2010]{14F05 (primary), 14L15 (secondary), 22E50 (tertiary)}
 
 \keywords{function-sheaf dictionary, trace of Frobenius, geometrization, categorification, character sheaves,smooth commutative group schemes,
-finite fields, local fields, algebraic tori, Neron models, Greenberg functor, quasicharacters, quasicharacter sheaves.}
+finite fields, local fields, algebraic tori, N\'eron models, Greenberg functor, quasicharacters, quasicharacter sheaves.}
 
 
 
@@ -390,7 +390,7 @@ finite fields to construct (\S\ref{ssec:CS_on_GN}) a category $\QCS(X)$
 of {\it quasicharacter sheaves} for $X$, which are certain sheaves on $\Gr_R(X)\times_{\Spec{\Fq}} \Spec{\bFq}$, with extra structure.
 The ability to generalize the function-sheaf dictionary to non-connected group schemes plays a crucial role in this application.
 
-Having defined quasicharacter sheaves on Neron models of commutative algebraic groups over $K$
+Having defined quasicharacter sheaves on N\'eron models of commutative algebraic groups over $K$
 and character sheaves on commutative group schemes over $\Fq$, we consider how
 these categories are related as $K$ and $\Fq$ vary.  We describe (\S\ref{ssec:basechange}) functors between categories
 of quasicharacter sheaves that model restriction and norm homomorphisms of character groups $G(k')^* \to G(k)^*$ and $G(k)^* \to G(k')^*$,
@@ -472,9 +472,8 @@ Banff International Research Station during a Research in Teams program.}
 
 \tableofcontents
 
-\section{Character Sheaves on commutative group schemes} \label{sec:category}
+\section{Definitions and recollections} \label{sec:category}
 
- 
 \subsection{Notations}\label{ssec:notation}
 
 Throughout this paper, $G$ is a smooth commutative group scheme
@@ -865,9 +864,8 @@ A descent argument similar to the one employed in the proof of Lemma~\ref{prop:f
 
 %\subsection{The function-sheaf dictionary for connected algebraic groups over finite fields}\label{ssec:connected}
 
-If the smooth commutative group scheme $G$ is of finite type, every character sheaf descends to $G$;
+If the smooth commutative group scheme $G$ is of finite type, then every character sheaf descends to $G$;
 we will see that they are not equivalent, in general, however.
-For now, we treat the connected case.
 
 \begin{lemma}\label{lem:bounded_connected}
 If $G$ is a connected commutative algebraic group over $\Fq$ then 
@@ -877,6 +875,7 @@ B_G : \bCS(G) \to \CS(G)
  is an equivalence of categories.
 \end{lemma}
 
+\iffalse
 \begin{proof}
 Choose any $\Fq$-rational point $g$ on $G$ and let $\bg$ be the geometric point on $G$ lying above $g$.
 Recall that the \emph{Weil group} of $G$, which we will denote by $\Weil{}(G,\bg)$, is a subgroup of the \'etale
@@ -940,6 +939,7 @@ $\Weil{}\to \Weil{}(G,\bg)$ of $\Weil{}(G,\bg)\to \Weil{}$.
   Thus, the full and faithful functor $B_G : \bCS(G) \to \CS(G)$ from Section~\ref{ssec:descentG}
   is also essentially surjective, hence an equivalence.
 \end{proof}
+\fi
 
 Using this equivalence of categories, we may give a good description of $\CS(G)$ when $G$ is connected and finite type.
 
@@ -952,13 +952,14 @@ Using this equivalence of categories, we may give a good description of $\CS(G)$
  \end{enumerate}
  \end{proposition}
 \begin{proof}
-In Lemma~\ref{lem:bounded_connected}, we saw that every character sheaf $\cs{L}$ on $\bG$ descends to $G$;
+By Lemma~\ref{lem:bounded_connected}, we know that every character sheaf $\cs{L}$ on $\bG$ descends to $G$;
 let $\cs{E}$ be an object of $\bCS(G)$ for which $B_G(\cs{E}) \iso \cs{L}$.
  Since the functor $B_G : \bCS(G) \to \CS(G)$ is full and faithful, $\Aut(\cs{L}) = \Aut(\cs{E})$.
 From here, Deligne's function-sheaf dictionary for connected commutative algebraic groups over finite fields,
-as in \cite{deligne:SGA4.5}*{Sommes trig.} or \cite{laumon:87a}*{1.1.3}, gives us all we need, as we briefly recall.
+as in \cite{deligne:SGA4.5}*{Sommes trig.} or \cite{laumon:87a}*{1.1.3}, gives us all we need for points \ref{c1} and \ref{c2}.
+% as we briefly recall.
 %\todo{Fix citelist} %\citelist{\cite{deligne:SGA4.5}*{Sommes trig.},\cite{laumon:87a}*{1.1.3}}
-
+\iffalse
 As in the proof of Proposition~\ref{prop:finite}, use \'etale descent to see that pullback by the Lang isogeny $\Lang : G\to G$
 defines an equivalence of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$. 
 Under this equivalence, local systems $\cs{E}$ on $G$ arising from objects in $\bCS(G)$ are matched with $G(\Fq)$-equivariant
@@ -972,8 +973,8 @@ Let $\bg$ be a geometric point above $g \in G(\Fq)$.  If $\cs{E}$ matches $\psi 
 a simple calculation on stalks reveals that the action of Frobenius on $\cs{E}_{\bg}$ is multiplication by $\psi(g)^{-1}$.
 In other words, for every $\cs{E}$ in $\bCS(G)$, the trace of $\Lang^*\cs{E}$ is $\trFrob{\cs{E}}^{-1}$ as a
 representation of $G(\Fq)$, proving parts \ref{c1} and \ref{c2}.
-
-To finish the proof of part \ref{c3}, suppose $\Lang^*\cs{E} = V$ with isomorphism $V \to V\otimes V$.
+\fi
+For part \ref{c3}, suppose $\Lang^*\cs{E} = V$ with isomorphism $V \to V\otimes V$.
 Observe that the equivalence above establishes a bijection between $\Aut(\cs{E})$ and the group of automorphisms of $\rho : V\to V$ for which 
 \[
 \begin{tikzcd}
@@ -1004,7 +1005,7 @@ For \'etale $G$, Proposition~\ref{prop:etale-iso} shows that $\Hh^2(\bG,\EEx)^{\
 We will see in Section~\ref{sec:main} that $\Hh^2(\pi_0(\bG),\EEx)^{\Weil{}}$ plays an analogous role for general
 smooth commutative group schemes $G$.
 
-\section{Character sheaves on \'etale commutative group schemes} \label{sec:etale}
+\section{Character sheaves on \'etale commutative group schemes over finite fields} \label{sec:etale}
 
 In this section we give a complete characterization of the category of character sheaves on \'etale commutative group schemes over finite fields.
 
@@ -1431,8 +1432,7 @@ Composition of morphisms corresponds to pointwise multiplication in this corresp
 resulting bijection is actually a group isomorphism.
 \end{proof}
 
-\section{The function-sheaf dictionary for smooth commutative group schemes}\label{sec:main}
-
+\section{Character sheaves on smooth commutative group schemes over finite fields}\label{sec:main}
 
 \subsection{Restriction to the identity component} \label{ssec:restriction}
 
@@ -1924,8 +1924,7 @@ induced by $g \mapsto (g, 1, \ldots, 1)$.  Since the action of $\Gal(k'/k)$ on
 is given by permuting coordinates, composition with the norm map yields the identity on $G'(k')$.
 \end{proof}
 
-
-\section{Applications to quasicharacters of \texorpdfstring{$p$}{p}-adic tori and Abelian varieties}\label{sec:applications}
+\section{Quasicharacter sheaves for \texorpdfstring{$p$}{p}-adic tori}\label{sec:applications}
 
 Let $K$ be a local field with ring of integers $R$ and finite residue field $\Fq$; in this section we denote the group $\Weil{}$ by $\Weil{\Fq}$.
 We continue to assume that $\ell$ is invertible in $\Fq$.
@@ -1937,7 +1936,7 @@ By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are pre
 commutative algebraic groups over $K$ that contain no subgroup isomorphic to $\mathbb{G}_\text{a}$.
 Write $\mathcal{N}_K$ for the full subcategory of the category of algebraic groups consisting of such objects.
 This category is additive, and includes all algebraic tori over $K$, abelian varieties over $K$ and unipotent $K$-wound groups.
-We write $\mathcal{N}$ for the category of Neron models that arise in this way; in particular, $\mathcal{N}$
+We write $\mathcal{N}$ for the category of N\'eron models that arise in this way; in particular, $\mathcal{N}$
 is a full subcategory of the category of smooth commutative group schemes over $R$.
 
 \begin{example}
@@ -1951,11 +1950,11 @@ $\sigma \in \Gal(K'/K)$ mapping $(x, n)$ to $(\sigma(x), -n)$ for $x \in R'^\tim
 This example illustrates the compatibility between N\'eron models and unramified base change
 \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.1, Prop. 3}.
 
-On the other hand, if $K' = K(\sqrt{\pi})$ is totally ramified over $K$ then the N'eron model of $U_1(K'/K)$ is affine, namely
+On the other hand, if $K' = K(\sqrt{\pi})$ is totally ramified over $K$ then the N\'eron model of $U_1(K'/K)$ is affine, namely
 $\Spec{R[x,y] / (x^2 - \pi y^2 - 1)}$.  The special fiber is the the disjoint union of two affine lines.
 
 Finally, we remark that if $K'/K$ is any finite extension of local fields and $X'$ is a N\'eron model for $X_{K'}$ then
-$\Res_{R'/R}(X')$ is a N\'eron model for $\Res_{K'/K}(X_{K'}$ \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop. 6}.
+$\Res_{R'/R}(X')$ is a N\'eron model for $\Res_{K'/K}(X_{K'})$ \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop. 6}.
 \end{example}
 
 \subsection{Quasicharacters}\label{ssec:quasicharacters}
@@ -2141,7 +2140,7 @@ and $\pi_0(\bG) = \pi_0(X)_{\bFq}$; then argue as in part \ref{x0}.
 
  \begin{remark}
 In Section~\ref{ssec:CS_tori} we see that the \'etale site on $\Gr_R(X)$ is rich enough to geometrize all
-quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a Neron model for an
+quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ is a N\'eron model for an
 algebraic torus or an abelian variety over a local field $K$. 
 It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed.
 This seems unlikely, since the geometric \'etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$;
@@ -2154,10 +2153,10 @@ however, limited results in this direction were established in \cite{cunningham-
 As we explained in the Introduction, our original motivation for this paper was to find a
 geometrization and categorification of quasicharacters of $p$-adic tori. 
 This is now provided by the following adaptation of Theorem~\ref{thm:CSXK} in the case when
-$T\in \mathcal{N}$ is a Neron model for an algebraic torus over $K$.
+$T\in \mathcal{N}$ is a N\'eron model for an algebraic torus over $K$.
 
 \begin{corollary}\label{cor:CS_tori}
-Let $T$ be a Neron model for an algebraic torus over $K$.
+Let $T$ be a N\'eron model for an algebraic torus over $K$.
 The following is a commutative diagram of exact sequences.
 \[
   \begin{tikzcd}[row sep=20, column sep=18]
@@ -2216,7 +2215,7 @@ with Frobenius of order $3$.  Each of these tori will have one invisible quasich
 We may also extract information about the automorphism groups of quasicharacter sheaves from Theorem \ref{thm:CSXK}.
 
 \begin{corollary}
-Let $T$ be a Neron model for an algebraic torus over $K$.
+Let $T$ be a N\'eron model for an algebraic torus over $K$.
 For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
 \[
 \Aut(\cs{E})\iso (\check{T}_\ell)^{\Weil{K}},
