@@ -447,9 +447,9 @@ with an eye toward quasicharacters of $p$-adic groups.
 The process of creating a category from the group of quasicharacters of a $p$-adic torus informs our choice of the
 term quasicharacter sheaf in this paper.
 
-We anticipate that future work on quasicharacter sheaves will make use of   \cite{suzuki-yoshida:12a} and \cite{Suzuki:Neron},
+We anticipate that future work on quasicharacter sheaves will make use of   \cite{suzuki-yoshida:12a} and \cite{suzuki:14a},
 and will clarify the relation between this project and other attempts to geometrize admissible distributions on $p$-adic groups,
-such as \cite{Cunningham-Kamgarpour} (limited to quasicharacters of $\ZZ_p^\times$) and \cite{Aubert-Cunningham}
+such as \cite{cunningham-kamgarpour:13a} (limited to quasicharacters of $\ZZ_p^\times$) and \cite{aubert-cunningham:02a}
 (limited to characters of depth-zero representations). 
 We are actively pursuing the question of how to extend the notion of quasicharacter sheaves to provide a geometrization
 of admissible distributions on connected reductive algebraic groups over $p$-adic fields, not just commutative ones.
@@ -858,7 +858,7 @@ Since $V$ is $1$-dimensional, the choice of $V \to V\otimes V$ is exactly the ch
 
 \begin{remark}
 A descent argument similar to the one employed in the proof of Lemma~\ref{prop:finite} is used in
-\cite{Drinfeld:math/0609769}*{Lemma~1.10}, though in the more restrictive case of connected algebraic groups.
+\cite{boyarchenko-drinfeld:06a}*{Lemma~1.10}, though in the more restrictive case of connected algebraic groups.
 \end{remark}
 
 \subsection{Recollections on character sheaves for connected algebraic groups}\label{ssec:connected}
@@ -1285,7 +1285,7 @@ This result follows from Propositions~\ref{prop:ses_desc}, \ref{prop:SGiso} and 
 \end{proof}
 
 \begin{remark} \label{rem:H2}
-Recall the K\"unneth formula in group cohomology \cite{brown:CohomologyOfGroups}*{Prop. I.0.8}:
+Recall the K\"unneth formula in group cohomology \cite{brown:CohomologyGrps}*{Prop. I.0.8}:
 if $A$ and $A'$ are groups and $M$ and $M'$ are abelian groups with $M$ $\ZZ$-free, then
 \[
 \Hh^n(A \times A', M \otimes M') \cong \bigoplus_{i+j=n} \Hh^i(A, M) \otimes \Hh^j(A', M') \ \ \oplus
@@ -1571,7 +1571,7 @@ The collection $\{ \brho_x \tq x\in \pi_0(\bG) \}$ determines an isomorphism $\c
 
 \begin{proof}
 Exactness at $\CSiso{G^0}$ follows from Proposition~\ref{prop:restriction},
-and at $\CSiso{\pi_0(G)}$ from Lemma~\ref{lem:extension}.
+and exactness at $\CSiso{\pi_0(G)}$ from Lemma~\ref{lem:extension}.
 Here we show that it is also exact at $\CSiso{G}$.
 First note that $\iota_0^* \circ \pi_0^*$ is trivial by Lemma~\ref{lem:pullback}.
 So it suffices to show that if $\cs{L} = (\gcs{L},\mu,\phi)$ is a character sheaf on $G$
@@ -1709,7 +1709,7 @@ but without a splitting for $\TrFrob{G}$ we do not know how to make this geometr
 
 \subsection{Descent, revisited}\label{ssec:revisited}
 
-We now extend Proposition~\ref{prop:bounded-etale} to smooth commutative group schemes over $\Fq$.
+We now extend Proposition~\ref{prop:bounded-etale} to all smooth commutative group schemes over $\Fq$.
 
 \begin{proposition} \label{prop:bounded}
 Let $G$ be a smooth commutative group scheme over $\Fq$. 
@@ -1925,7 +1925,7 @@ is given by permuting coordinates, composition with the norm map yields the iden
 \end{proof}
 
 
-\section{Applications to quasicharacters of $p$-adic tori and Abelian varieties}\label{sec:applications}
+\section{Applications to quasicharacters of \texorpdfstring{$p$}{p}-adic tori and Abelian varieties}\label{sec:applications}
 
 Let $K$ be a local field with ring of integers $R$ and finite residue field $\Fq$; in this section we denote the group $\Weil{}$ by $\Weil{\Fq}$.
 We continue to assume that $\ell$ is invertible in $\Fq$.
@@ -2145,11 +2145,11 @@ quasicharacters of $X(K)$ as $\ell$-adic local systems on $\Gr_R(X)$, where $X$ 
 algebraic torus or an abelian variety over a local field $K$. 
 It is natural to ask if the \'etale site on the generic fibre $X_K$ would have sufficed.
 This seems unlikely, since the geometric \'etale fundamental group of $\Gm{K}$ is ${\hat \ZZ}$;
-however, limited results in this direction were established in \cite{Cunningham-Kamgarpour} when $K = \mathbb{Q}_p$.
+however, limited results in this direction were established in \cite{cunningham-kamgarpour:13a} when $K = \mathbb{Q}_p$.
 \end{remark}
 
 
-\subsection{Quasicharacter sheaves for $p$-adic tori} \label{ssec:CS_tori}
+\subsection{Quasicharacter sheaves for \texorpdfstring{$p$}{p}-adic tori} \label{ssec:CS_tori}
 
 As we explained in the Introduction, our original motivation for this paper was to find a
 geometrization and categorification of quasicharacters of $p$-adic tori. 
@@ -2197,8 +2197,23 @@ The diagram commutes by Lemma~\ref{lem:pullback}.
 \end{proof}
 
 \begin{example}
-We give 
+When $T_K = \Gm{K}$ or $T_K = U_1(K'/K)$, the geometric component group $\pi_0(T)_{\bar{k}}$ is cyclic,
+so $\TrFrob{\Gr_R(T)}$ is an isomorphism.  Conversely, when $T_K = \Gm{K}^2$ then
+\[
+\Hh^0(\Weil{\Fq}, \Hh^2(\pi_0(T), \EEx)) = \EEx,
+\]
+and there are uncountably many invisible quasicharacter sheaves for $T$.
+
+We may also give examples of tori whose N\'eron models have component groups appearing in Example \ref{eg:H2}.
+Let $L = K'(\sqrt{\pi})$ be a quadratic ramified extension of $K'$.  When $K = K'$ and $T_K = U_1(L/K) \times U_1(L/K)$,
+the component group $\pi_0(T)_{\bar{k}}$ is $\ZZ/2\ZZ \times \ZZ/2\ZZ$ with trivial Frobenius action.  When $K'/K$ is an unramified
+quadratic extension and $T_K = \Res_{K'/K} U_1(L/K')$, then $\pi_0(T)_{\bar{k}}$ is $\ZZ/2\ZZ \times \ZZ/2\ZZ$ with Frobenius
+exchanging the direct factors.  Finally, let $K'/K$ be a cubic unramified extension and $S_K = \Res_{K'/K} U_1(L/K')$.  If
+$T_K$ is the subtorus with character lattice $X^*(S_K) / \langle (1,1,1) \rangle$, then $\pi_0(T)_{\bar{k}}$ is $\ZZ/2\ZZ \times \ZZ/2\ZZ$
+with Frobenius of order $3$.  Each of these tori will have one invisible quasicharacter sheaf.
 \end{example}
+
+We may also extract information about the automorphism groups of quasicharacter sheaves from Theorem \ref{thm:CSXK}.
 
 \begin{corollary}
 Let $T$ be a Neron model for an algebraic torus over $K$.
@@ -2278,7 +2293,7 @@ Combining this with Corollary~\ref{cor:CS_tori}  produces the following commutat
   \end{tikzcd}
  \end{equation}
 It is natural to ask if the vertical surjections can be defined directly, without making use of local class field theory,
-for which the results of \cite{suzuki-yoshida:12a}  and \cite{Suzuki:Neron} may be helpful.
+for which the results of \cite{suzuki-yoshida:12a}  and \cite{suzuki:14a} may be helpful.
 The case $T_K = \Gm{K}$ is already very interesting, in which case \eqref{eq:GLCT} becomes
 \begin{equation}\label{eq:Gm}
 \begin{tikzcd}
@@ -2294,7 +2309,7 @@ The case $T_K = \Gm{K}$ is already very interesting, in which case \eqref{eq:GLC
 %We have seen that the isomorphism $\QCS(\ZZ)\iso \Hom(\Weil{\Fq}, \EEx)$ is elementary.
 %The isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ may be deduced directly
 %from the class field theory of Serre and Hezewinkel as revisited beautifully in \cite{suzuki-yoshida:12a};
-%see also \cite{Suzuki:Neron}. The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is
+%see also \cite{suzuki:14a}. The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is
 %canonically equivalent to the category of $\ell$-adic characters of the quotient of the \'etale fundamental
 %group $\pi_1(\Gr^R_n(\Gm{R}),\bFq)$ determined by the Lang isogeny for $\Gr^R_n(\Gm{R})$. Accordingly,
 %quasicharacter sheaves on $\Gm{R}$ may be apprehended as $\ell$-adic characters of the inverse limit
