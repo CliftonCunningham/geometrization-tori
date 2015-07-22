@@ -1,0 +1,422 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4, 10pt]{amsart}
+%\usepackage{showlabels}
+\renewcommand{\baselinestretch}{1.1}
+%\newif\ifdraft\draftfalse
+%\ifdraft\usepackage{showlabels}\fi
+\usepackage{showlabels}
+\usepackage{hyperref}
+%\usepackage[math]{\KKurier}
+%\usepackage{mathptmx}
+%\usepackage{newcent}
+%\usepackage{mathpazo}
+%\usepackage{xspace}
+%\usepackage[british]{babel}
+%\usepackage{datetime}
+%\usepackage{color}
+%\usepackage[pdftex]{graphicx}
+\usepackage{geometry}
+%\usepackage[adobe-utopia]{mathdesign}
+%\usepackage{fouriernc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage[shortalphabetic]{amsrefs}
+\usepackage[alphabetic]{amsrefs}
+%\usepackage[alpha]{amsrefs}
+%\usepackage[apalike]{amsrefs}
+%\usepackage[numeric]{amsrefs}
+%\renewcommand\MR{\relax}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
+
+
+\usepackage{xypic}
+
+\usepackage{yfonts}
+
+\newtheorem{theorem}{Th\'eor\`eme}%[equation]
+% \newtheorem{thm}{Theorem}[section]
+\newtheorem{proposition}{Proposition}%[equation]
+\newtheorem{proposition-definition}{Proposition-Definition}%[equation]
+\newtheorem{corollary}{Corollaire}%[equation]
+\newtheorem{lemma}{Lemme}%[equation]
+\newtheorem{conjecture}{Conjecture}%[equation]
+\newtheorem{question}{Question}%[equation]
+\newtheorem{Claim}{Claim}%[equation]
+\newtheorem{exercise}{Exercise}%[equation]
+\newtheorem{construction}{Construction}%[equation]
+
+\theoremstyle{definition}
+\newtheorem{definition}{D\'{e}finition}%[equation]
+\newtheorem{notation}{Notation}%[equation]
+\newtheorem{example}{Exemple}%[equation]
+\newtheorem{examples}{Exemples}%[equation]
+\newenvironment{solution}[1]{\noindent\textbf{Solution to #1.} }{\ \rule{0.5em}{0.5em}}
+\newtheorem{remark}{Remarque}%[equation]
+%\newtheorem{question}[equation]{Question}
+\newtheorem{note}{Note}%[equation]
+\newtheorem{para}{\indent}%[equation]
+\newtheorem{Para}{\relax}%[equation]
+
+\theoremstyle{remark}
+\newtheorem*{claim}{Claim}
+
+%%%% Some Named Categories
+
+%%%% Functors
+\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt\left( #1 \right)}}
+\newcommand{\weil}[1]{{\operatorname{W}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\WeilDeligne}{\operatorname{W\hskip-1pt D}}
+
+\newcommand{\FF}{{\mathbb{F}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\QQ}{{\mathbb{Q}}}
+\newcommand{\bQQ}{{\mathbb{\bar Q}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\EE}{\mathbb{\bar Q}_\ell}
+\newcommand{\K}{{\mathbb{K}}}
+\newcommand{\OK}{{\mathcal{O}_\K}}
+\newcommand{\PK}{\mathfrak{p}_\K}
+\newcommand{\bK}{{\mathbb{\bar K}}}
+\newcommand{\Knr}{{\tilde \K}}
+\renewcommand{\k}{{\Bbbk}}
+\newcommand{\bk}{{\bar \Bbbk}}
+\newcommand{\Zp}{\mathbb{Z}_p}
+\newcommand{\Qp}{\mathbb{Q}_p}
+\newcommand{\Qpp}{\mathbb{Q}_{p^2}}
+\newcommand{\bQp}{{\mathbb{\bar Q}_p}}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\bFp}{{\mathbb{\bar F}_p}}
+\newcommand{\Fq}{{\mathbb{F}_q}}
+\newcommand{\bFq}{{\mathbb{\bar F}_q}}
+\newcommand{\nr}{^\text{nr}}
+%\newcommand{\ceq}{{\, :=\, }}
+\newcommand{\Gal}{{\operatorname{Gal}}}
+\newcommand{\Weil}{{\operatorname{W}}}
+\newcommand{\Frob}{{\operatorname{Fr}}}
+\newcommand{\Aut}{{\operatorname{Aut}}}
+\newcommand{\Hom}{{\operatorname{Hom}}}
+
+\newcommand{\p}{{\mathfrak{p}}}
+
+\newcommand{\ceq}{{\, :=\, }}
+\newcommand{\tq}{{\ \vert\ }}
+\newcommand{\proj}{{\operatorname{pr}}}
+\newcommand{\iso}{{\ \cong\ }}
+\newcommand{\catM}{{\mathcal{M}}}
+\newcommand{\coker}{{\operatorname{coker}}}
+\newcommand{\obj}{{\text{obj}}}
+
+\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-2pt\textbf{m},#1}}
+%\newcommand{\bGm}{\mathbb{\bar G}_\text{m}}
+
+\newcommand{\bs}{{\bf s}}
+\newcommand{\RPsi}{{R^\bullet\Psi}}
+\newcommand{\IC}{{\operatorname{IC}^\bullet}}
+\newcommand{\Var}{{\operatorname{Var}}}
+
+\newcommand{\id}{{\operatorname{id}}}
+\newcommand{\ind}{{\operatorname{ind}}}
+\newcommand{\rss}{^\text{r.ss}}
+\renewcommand{\ss}{^\text{ss}}
+\newcommand{\unip}{^\text{unip}}
+\newcommand{\nilp}{^\text{nilp}}
+\newcommand{\ru}{^\text{r.u}}
+\newcommand{\reg}{^\text{reg}}
+\newcommand{\Greg}{^\text{G-reg}}
+\newcommand{\sgn}{{\operatorname{sign}}}
+\newcommand{\Lgroup}[1]{{\,^L\hskip-1pt{#1}}}
+\newcommand{\dual}[1]{{\check{#1}}}
+\DeclareMathOperator\Inn{Inn}
+\DeclareMathOperator\Ad{Ad}
+\DeclareMathOperator\Out{Out}
+\DeclareMathOperator\GL{GL}
+\DeclareMathOperator\PGL{PGL}
+\DeclareMathOperator\SL{SL}
+\DeclareMathOperator\Sp{Sp}
+\DeclareMathOperator\SU{SU}
+\DeclareMathOperator\SO{SO}
+\DeclareMathOperator\GO{GO}
+\DeclareMathOperator\GSp{GSp}
+\DeclareMathOperator\PGSp{PGSp}
+\DeclareMathOperator\PSp{PSp}
+\DeclareMathOperator\GSpin{GSpin}
+\DeclareMathOperator\Spin{Spin}
+\DeclareMathOperator\supp{supp}
+\DeclareMathOperator\Iso{Iso}
+\newcommand{\sheafHom}{{\mathcal{H}\hskip-3pt om}\,}
+\DeclareMathOperator\Irrep{Irrep}
+\DeclareMathOperator\Ind{Ind}
+\DeclareMathOperator\st{st}
+\DeclareMathOperator\disc{disc}
+\DeclareMathOperator\trace{trace}
+\DeclareMathOperator\Loc{Loc}
+
+\newcommand{\W}{\mathbb{W}}
+
+\newcommand{\Lang}{\textbf{Lang}}
+\newcommand{\Serre}{\textbf{Serre}}
+\newcommand{\Green}[2]{\underline{#1}_{#2}^\text{Gr}}
+\newcommand{\green}[3]{\underline{#1}_{#2}^{(#3)}}
+\DeclareMathOperator\GR{Gr}
+\newcommand{\Perv}{\operatorname{Perv}}
+\newcommand{\MFO}{\operatorname{MFO}}
+\newcommand{\swabGm}[1]{\textswab{G}_{{\hskip-2pt \textswab{m}},#1}}
+\newcommand{\GC}{\textswab{C}}
+\newcommand{\FC}{\operatorname{F\hskip-2pt C}}
+\newcommand{\fc}{\operatorname{f\hskip-2pt c}}
+\newcommand{\GP}{\textswab{P}}
+\newcommand{\Res}{\operatorname{Res}}
+
+\newcommand{\abs}[1]{\vert #1 \vert}
+
+\makeatletter
+\def\Ddots{\mathinner{\mkern1mu\raise\p@
+\vbox{\kern7\p@\hbox{.}}\mkern2mu
+\raise4\p@\hbox{.}\mkern2mu\raise7\p@\hbox{.}\mkern1mu}}
+\makeatother
+
+\newcommand\todo[1]{\ \vspace{5mm}\par \noindent\framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
+
+%%%%%%%%%%%%%%% RINGS AND GROUPS %%%%%%%%%%%%%%%
+
+\newcommand{\EEx}{\EE^\times}
+
+%%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
+\DeclareMathOperator{\Hh}{H}
+
+%%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
+
+\newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
+\newcommand{\lCS}{{\CS_\text{flb}}}
+\newcommand{\lCSiso}[1]{\lCS(#1)_{/\text{iso}}}
+\newcommand{\bCS}{{\CS_0}}
+\newcommand{\CSiso}[1]{\CS(#1)_{/\text{iso}}}
+\newcommand{\bCSiso}[1]{\bCS(#1)_{/\text{iso}}}
+\newcommand{\catname}[1]{\normalfont{\textsf{#1}}}
+\newcommand{\Sch}[1]{{\catname{Sch}_{/#1}}}
+\newcommand{\QCS}{{\mathcal{QC\hskip-0.8pt S}}}
+\newcommand{\QCSiso}[1]{\QCS(#1)_{/\text{iso}}}
+
+\usepackage[british]{babel}
+\usepackage{datetime}%[yyyymmdd]
+%\renewcommand{\dateseparator}{.}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\begin{document}
+%\vskip-1cm
+\rightline{\today}
+\rightline{Vancouver}
+\medskip
+
+\noindent{Dear Professor Loeser (Dear Fran\c cois!),}
+\medskip
+
+We are grateful for such helpful comments from our reviewer. 
+We have now completed our revisions and are ready to re-submit the paper. 
+In this letter we explain the changes we made, motivated by the comments we received.
+
+\begin{enumerate}
+\item[(0)]
+We reorganised the Introduction to reflect the changes discussed below. 
+This included making a subsection called {\it Relation to other work}, following a recommendation.
+We were also obliged to make small changes to the Abstract, to fit the changes.
+\item
+We removed Berstein's suggestion from the Introduction, since at the moment we are not able to pursue it. 
+We continue to thank him in the Acknowledgements, as we intend to return to this issue, elsewhere.
+\item
+We added a Table of Contents, as suggested.
+\item 
+We added a paragraph in the Notations section (\S 1.1) explaining what we mean by an algebraic group, and also explaining how to detect when a smooth group scheme $G$ is an algebraic group, through its component group scheme $\pi_0(G)$.
+We also explained how to determine when a smooth group scheme is an etale group scheme.
+Hopefully this will clear up any possible confusion regarding our use of these terms.
+% and addresses a suggestion from our reviewer.
+\item
+We changed nomenclature so that the paper now discusses two notions: {\it character sheaves} and {\it quasicharacter sheaves}. Character sheaves are based on a familiar concept: they are local systems on a smooth group scheme $G$ over a finite field $k$, equipped with some additional structure, and they provide a geometrization of characters of $G(k)$.  Quasicharacter sheaves provide a geometrization of quasicharacters of $p$-adic tori $T(K)$; they are local systems equipped with some additional structure, on the Greenberg transform of a Neron model. 
+We are particularly grateful to our reviewer for suggesting this change.
+Although we changed nomenclature, the actual definitions themselves did not change.
+\item
+The reviewer suggested we use the following section headings.
+\begin{enumerate}
+\item[– 1.] Recollections on character sheaves for commutative algebraic groups 
+\item[– 2.] Character sheaves on etale group schemes
+\item[– 3.] Character sheaves on commutative group schemes
+\item[– 4.] Quasi-character sheaves on commutative p-adic groups
+\end{enumerate}
+We got very close to that. Our section headings are now:
+\begin{enumerate}
+\item[– 1.] Definitions and Recollections 
+\item[– 2.] Character sheaves on \'etale group schemes over finite fields
+\item[– 3.] Character sheaves on smooth commutative group schemes over finite fields
+\item[– 4.] Quasicharacter sheaves for $p$-adic tori
+\end{enumerate}
+While we do treat quasicharacter sheaves for $p$-adic tori and abelian varieties in Section 4, we do not treat all commutative $p$-adic groups, so we opted for the less ambitious title. Otherwise, we hope the section headings are close enough; they do reflect a significant restructuring of the paper.
+\item
+We removed the proofs of many of the more obvious results in the section now called Definitions and Recollections. 
+This included removing the proof of Lemma 1.5, which our reviewer found suspicious. We added a remark before Lemma 1.5 which we believe addresses the misgivings. We will happily reinstate the proof of Lemma 1.5 if it would be helpful.
+\item
+In Section 2 (Character sheaves on \'etale group schemes over finite fields) we extended the definition of $S_G : \CSiso{G} \to \Hh^2(E^\bullet_G)$ to include the general case when $G$ is a smooth commutative group scheme, rather than restricting the definition to etale commutative group schemes. We are careful to restrict to the etale case in the lemmas and proposition in this section, however.
+\item
+In Section 2.4 we added the language {\it invisible character sheaves} to refer to non-trivial character sheaves $\mathcal{L}$ on $G$ for which the trace of Frobenius function $t_\mathcal{L} : G(k) \to \EEx$ is trivial; see Definition 2.8.
+\item
+In Section 2 we added Remark 2.9, which recalls the Kunneth formula and derives a result which helps to compute $\Hh^2({\bar G}, \EEx)$.
+\item 
+We added Example 2.10, which exhibits three very interesting examples of character sheaves on etale group schemes and identifies each with its class in $\Hh^2(E_G^\bullet)$ under $S_G : \CSiso{G} \to \Hh^2(E^\bullet_G)$.
+\item
+Again following a suggestion from our reviewer, we added Section 2.5: {\it On the necessity of working with Weil sheaves}.
+\item
+All classical results were removed from Section 3 and moved to Section 1, then abbreviated, as suggested. Otherwise, Section 3 is largely unchanged in this revision.
+\item
+In Section 4 we focused attention on Neron models themselves, as opposed to their generic fibres, by replacing category $\mathcal{N}_K$ with category $\mathcal{N}$; see Section 4.1.
+\item 
+We added Example 4.1, giving Neron models for some $p$-adic tori.
+\item
+We made a declared definition of {\it quasicharacter sheaves}, Definition 4.2. The material itself was in the original submission of this paper.
+\item
+The discussion that was in Section 5.4 has become Corollaries 4.7 and 4.9.
+\item
+We added Example 4.8, which provides tori whose Neron models have the component groups appearing in Example 2.10.
+\item
+Finally, we added Remark 4.1 on quasicharacter sheaves and the Langlands correspondence for $p$-adic tori. 
+\end{enumerate}
+
+We believe these changes address the recommendations made by our reviewer and hope that this revised version will meet the approval of JIMJ.
+
+\vskip0.3cm
+\rightline{Best Regards,\hskip10cm}
+\vskip0.4cm
+%\centerline{\includegraphics[height=2cm,width=5cm]
+%{/Users/Cunningham/MATHEMATICS/Latex/signature.pdf}}
+%{/Users/cliftoncunningham/ownCloud/MATHEMATICS/Latex/signature.pdf}}
+%\centerline{\textswab{ \hskip-0cm Clifton}}
+%\centerline{\hskip+5cm Paris}
+\centerline{Clifton Cunningham and David Roe}
+
+\end{document}
+
+\vskip3cm
+
+\begin{bibdiv}
+\begin{biblist}
+
+\bib{Arthur}{article}{
+   author={Arthur, James},
+   title={A note on $L$-packets},
+   journal={Pure Appl. Math. Q.},
+   volume={2},
+   date={2006},
+   number={1, Special Issue: In honour of John H. Coates.},
+   pages={199--217},
+%   issn={1558-8599},
+%   review={\MR{2217572 (2006k:22014)}},
+}
+
+
+
+\bib{Bernstein-Lunts}{book}{
+   author={Bernstein, Joseph},
+   author={Lunts, Valery},
+   title={Equivariant sheaves and functors},
+   series={Lecture Notes in Mathematics},
+   volume={1578},
+   publisher={Springer-Verlag},
+   place={Berlin},
+   date={1994},
+   pages={iv+139},
+%   isbn={3-540-58071-9},
+%   review={\MR{1299527 (95k:55012)}},
+}
+
+
+
+\bib{SGA7.1}{book}{
+   title={Groupes de monodromie en g\'eom\'etrie alg\'ebrique. I},
+%   language={French},
+ author={Grothendieck, Alexandre},
+   series={Lecture Notes in Mathematics, Vol. 288},
+   note={S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1967--1969
+   (SGA 7 I);
+   Dirig\'e par A. Grothendieck. Avec la collaboration de M. Raynaud et D.
+   S. Rim},
+   publisher={Springer-Verlag},
+   place={Berlin},
+   date={1972},
+   pages={viii+523},
+%   review={\MR{0354656 (50 \#7134)}},
+}
+
+\bib{SGA7.2}{book}{
+   title={Groupes de monodromie en g\'eom\'etrie alg\'ebrique. II},
+%   language={French},
+ author={Deligne, P.},
+ author={Katz, N.},
+   series={Lecture Notes in Mathematics, Vol. 340},
+   note={S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1967--1969
+   (SGA 7 II);
+   Dirig\'e par P. Deligne et N. Katz},
+   publisher={Springer-Verlag},
+   place={Berlin},
+   date={1973},
+   pages={x+438},
+%   review={\MR{0354657 (50 \#7135)}},
+}
+
+\bib{Soergel}{article}{
+   author={Soergel, Wolfgang},
+   title={Langlands' philosophy and Koszul duality},
+   conference={
+      title={Algebra---representation theory},
+      address={Constanta},
+      date={2000},
+   },
+   book={
+      series={NATO Sci. Ser. II Math. Phys. Chem.},
+      volume={28},
+      publisher={Kluwer Acad. Publ.},
+      place={Dordrecht},
+   },
+   date={2001},
+   pages={379--414},
+%   review={\MR{1858045 (2002j:22019)}},
+%   doi={10.1007/978-94-010-0814-3_17},
+}
+
+
+
+\bib{Vogan}{article}{
+   author={Vogan, David A., Jr.},
+   title={The local Langlands conjecture},
+   conference={
+      title={Representation theory of groups and algebras},
+   },
+   book={
+      series={Contemp. Math.},
+      volume={145},
+      publisher={Amer. Math. Soc.},
+      place={Providence, RI},
+   },
+   date={1993},
+   pages={305--379},
+%   review={\MR{1216197 (94e:22031)}},
+%   doi={10.1090/conm/145/1216197},
+}
+
+
+
+\end{biblist}
+\end{bibdiv}
+
+\end{document}
