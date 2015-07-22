@@ -2122,7 +2122,6 @@ $\rho \in \Hom(\cs{F},\cs{F}')$, either $\rho$ is trivial or $\rho$ is an isomor
 \end{theorem}
 
 \begin{proof}
-%\begin{enumerate}
 To prove \ref{x0}, use: Proposition~\ref{prop:functorialG} with $G = \Gr^R_n(X)$; the fact that
 N\'eron models are unique up to isomorphism; the fact that every $\CS(\Gr^R_n(X))$ is a full subcategory
 of $\QCS(X)$; and the observation that every object in $\QCS(X)$ is in the essential image of $\CS(\Gr^R_n(X))$ for some $n$.
@@ -2131,7 +2130,6 @@ To prove \ref{x2}, argue as in the proof of Lemma~\ref{lem:autornaught}.
 To prove \ref{x3}, use: the fact that the component group of $\Gr^R_n(X)$ is independent of $n$;
 Theorem~\ref{thm:autornaught} with $G = \Gr^R_n(X)$, in which case $\pi_0(G) = \pi_0(X \times_S S_0)$
 and $\pi_0(\bG) = \pi_0(X)_{\bFq}$; then argue as in part \ref{x0}.
-%\end{enumerate}
 \end{proof}
 
  \begin{remark}
@@ -2250,7 +2248,6 @@ Since $\pi_0(T)_{\bFq} = X_*(T)_{\mathcal{I}_K}$ by \cite{bitan:discriminant}*{E
 \[\Hom(\pi_0(T)(\Fq), \EEx)
 = \Hom((X_*(T)_{\mathcal{I}_K})^{\Weil{\Fq}}, \EEx)
 = \Hom(X_*(T)_{\mathcal{I}_K}, \EEx)_{\Weil{\Fq}} 
-%= \Hh^1(\Weil{}, \Hom(X_*(T), \EEx)^{\mathcal{I}_K}) 
 = \Hh^1(\Weil{\Fq}, \check{T}_\ell^{\mathcal{I}_K}).
 \]
 By the Langlands correspondence for $p$-adic tori \cite{yu:09a}, 
@@ -2301,18 +2298,6 @@ The case $T_K = \Gm{K}$ is already very interesting, in which case \eqref{eq:GLC
  & 0
 \end{tikzcd}
 \end{equation}
-%We have seen that the isomorphism $\QCS(\ZZ)\iso \Hom(\Weil{\Fq}, \EEx)$ is elementary.
-%The isomorphism $\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ may be deduced directly
-%from the class field theory of Serre and Hezewinkel as revisited beautifully in \cite{suzuki-yoshida:12a};
-%see also \cite{suzuki:14a}. The monoidal category of character sheaves on $\Gr^R_n(\Gm{R})$ is
-%canonically equivalent to the category of $\ell$-adic characters of the quotient of the \'etale fundamental
-%group $\pi_1(\Gr^R_n(\Gm{R}),\bFq)$ determined by the Lang isogeny for $\Gr^R_n(\Gm{R})$. Accordingly,
-%quasicharacter sheaves on $\Gm{R}$ may be apprehended as $\ell$-adic characters of the inverse limit
-%of these quotients, as $n$ ranges over $\NN$. By \cite{serre:isogenies}, there is a canonical isomorphism
-%between this inverse limit and $\mathcal{I}_K^\text{ab}$; this isomorphism is {\it not} restricted to the case
-%when $K$ and $\Fq$ have equal characteristic. This provides the isomorphism
-%$\QCSiso{\Gm{R}}\iso \Hom(\mathcal{I}_K, \EEx)$ in \eqref{eq:Gm}.
-%Since the sequences are split, this gives $\QCSiso{T}\iso \Hom(\Weil{K}, \EEx)$.
 We suspect that the general case of \eqref{eq:GLCT}, where $K$ is any local field and $T_K$ is any
 torus over $K$, may be deduced from \eqref{eq:Gm}.
 In Section~\ref{ssec:wrK} we develop a tool for further work in that direction.
