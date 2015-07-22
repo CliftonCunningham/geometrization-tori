@@ -1,13 +1,5 @@
-%%------------------------------------------------------%%
-%% This file should be the main file of your article.   %%
-
 \documentclass[10pt]{amsart}
-\usepackage[a4paper]{geometry} % see geometry.pdf n how to lay out the page. There's lots.
-%\geometry{a4paper} % or letter or a5paper or ... etc
-% \geometry{landscape} % rotated page geometry
-
-% See the ``Article customise'' template for come common customisations
-
+\usepackage[a4paper]{geometry}
 \title{From the function-sheaf dictionary to quasicharacters of $p$-adic tori}
 
 \author{Clifton Cunningham}
@@ -23,13 +15,11 @@
 \keywords{character sheaves, p-adic tori, N\'eron models, Greenberg functor, geometrization, quasicharacter sheaves}
 
 %%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
-%\usepackage{todonotes}
-% crellerefs is a custom version of amsrefs complying with the Crelle style guidelines
-%\usepackage{crellerefs}
 
 \usepackage{amssymb}
 \usepackage[initials]{amsrefs}
 
+%Customizations for amsrefs
 \BibSpec{lecture}{%
   +{} {\PrintAuthors}				{author}
   +{,}{ }						{title}
@@ -227,9 +217,6 @@
 %% Hyphenation override
 \hyphenation{quasi-character}
 
-% Eliminate a font warning
-%\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
-
 % MSC footnote
 \makeatletter
 \newcommand\MSC[2][2010]{%
@@ -397,8 +384,7 @@ If $G$ is a smooth commutative group scheme over $\Fq$ then
 for all quasicharacter sheaves $\cs{L}$ on $G$.
 \end{theorem*}
 
-\medskip
-\noindent\textbf{Application to quasicharacters of $p$-adic tori and abelian varieties.\ }
+\subsection*{Application to quasicharacters of \texorpdfstring{$p$}{p}-adic tori and abelian varieties}
 As indicated above, our interest in the function-sheaf dictionary for smooth commutative group schemes
 over finite fields comes from an application to $p$-adic representation theory,
 specifically to quasicharacters (\S\ref{ssec:quasicharacters}) of $p$-adic tori.
@@ -452,8 +438,7 @@ Indeed, Bernstein has suggested to us that our category of quasicharacters for $
 quasicharacters of all the pure rational forms of $T$; we do not pursue that suggestion in this paper.
 \fi
 
-\medskip
-\noindent\textbf{Relation to other work.\ }
+\subsection*{Relation to other work.}
 The main use of the term character sheaf is of course due to Lusztig.
 It is applied to certain perverse sheaves on connected reductive algebraic groups over algebraically closed fields in
 \cite{lusztig:85a}*{Def.~2.10} and to certain perverse sheaves on certain reductive groups over algebraically closed fields in the series of papers
@@ -480,21 +465,20 @@ such as \cite{cunningham-kamgarpour:13a} (limited to quasicharacters of $\ZZ_p^\
 We are actively pursuing the question of how to extend the notion of quasicharacter sheaves to provide a geometrization
 of admissible distributions on connected reductive algebraic groups over $p$-adic fields, not just commutative ones.
 
-\medskip
-\noindent\textbf{Acknowledgements.\ } {We thank Pramod Achar, Masoud Kamgarpour and Hadi Salmasian for 
+\subsection*{Acknowledgements.}
+
+We thank Pramod Achar, Masoud Kamgarpour and Hadi Salmasian for 
 allowing us to hijack much of a Research in Teams meeting at the Banff International Research Station into a discussion of
 quasicharacter sheaves.  We also thank them for their kindness, knowledge and invaluable help.
 We thank Takashi Suzuki for clarifying the relation between this project and his recent work and for very helpful
 observations and suggestions, especially related to our use of the Hochschild-Serre spectral sequence.
 We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning
 the Greenberg realization functor and for drawing our attention to their result on Weil restriction and the Greenberg transform.
-Finally, we thank Joseph Bernstein for very helpful comments. 
-%suggesting a connection between our category of quasicharacter sheaves for $p$-adic tori and quasicharacters of its pure rational forms.
-}
+Finally, we thank Joseph Bernstein for very helpful comments.
 
-{Finally, we gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
+Finally, we gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
 and the National Science and Engineering Research Council (Canada), as well the hospitality of the
-Banff International Research Station during a Research in Teams program.}
+Banff International Research Station during a Research in Teams program.
 
 \tableofcontents
 
