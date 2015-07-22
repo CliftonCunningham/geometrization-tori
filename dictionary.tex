@@ -1929,9 +1929,11 @@ is given by permuting coordinates, composition with the norm map yields the iden
 
 \section{Applications to quasicharacters of $p$-adic tori and Abelian varieties}\label{sec:applications}
 
-Let $K$ be a local field with finite residue field $\Fq$; in this section we denote the group $\Weil{}$ by $\Weil{\Fq}$.
-We continue to assume that $\ell$ is invertible in $\Fq$. 
-In this section we consider connected commutative algebraic groups over $K$ that admit a N\'eron model,
+Let $K$ be a local field with ring of integers $R$ and finite residue field $\Fq$; in this section we denote the group $\Weil{}$ by $\Weil{\Fq}$.
+We continue to assume that $\ell$ is invertible in $\Fq$.
+
+\subsection{N\'eron models}\label{ssec:neron}
+We will consider connected commutative algebraic groups over $K$ that admit a N\'eron model,
 by which we mean a locally finite type N\'eron model.
 By \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.2, Thm 2}, these are precisely the connected
 commutative algebraic groups over $K$ that contain no subgroup isomorphic to $\mathbb{G}_\text{a}$.
@@ -1940,9 +1942,26 @@ This category is additive, and includes all algebraic tori over $K$, abelian var
 We write $\mathcal{N}$ for the category of Neron models that arise in this way; in particular, $\mathcal{N}$
 is a full subcategory of the category of smooth commutative group schemes over $R$.
 
+\begin{example}
+If $T_K = \Gm{K}$, then a N\'eron model can be obtained by gluing copies of $\Gm{R}$ (one for each $n \in \ZZ$) along their generic fibers,
+via the gluing morphisms $\Spec{\ZZ[t, t^{-1}]} \to \Spec{\ZZ[t, t^{-1}]}$ defined by $t \mapsto \pi^n t$
+\cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.1, Ex. 5}.
+
+Suppose that $K'/K$ is a quadratic extension and $T_K = U_1(K'/K)$ is the unitary group.
+When $K'/K$ is unramified, the N\'eron model of $T_K$ is a form of the N\'eron model for $\Gm{K}$, with the nontrivial automorphism
+$\sigma \in \Gal(K'/K)$ mapping $(x, n)$ to $(\sigma(x), -n)$ for $x \in R'^\times$ and $n \in \ZZ$ specifying the copy of $\Gm{R'}$.
+This example illustrates the compatibility between N\'eron models and unramified base change
+\cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 10.1, Prop. 3}.
+
+On the other hand, if $K' = K(\sqrt{\pi})$ is totally ramified over $K$ then the N'eron model of $U_1(K'/K)$ is affine, namely
+$\Spec{R[x,y] / (x^2 - \pi y^2 - 1)}$.  The special fiber is the the disjoint union of two affine lines.
+
+Finally, we remark that if $K'/K$ is any finite extension of local fields and $X'$ is a N\'eron model for $X_{K'}$ then
+$\Res_{R'/R}(X')$ is a N\'eron model for $\Res_{K'/K}(X_{K'}$ \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop. 6}.
+\end{example}
+
 \subsection{Quasicharacters}\label{ssec:quasicharacters}
 
-Let $R$ be the ring of integers of $K$.
 Write $\m$ for the maximal ideal of $R$ and set $R_n = R/\m^{n+1}$ for every non-negative integer $n$.
 Suppose $X \in \mathcal{N}$.
 Note that $X(K) = X(R)$.
@@ -2179,6 +2198,10 @@ Theorem~\ref{thm:snake} and Definition~\ref{def:QCS}.
 The diagram commutes by Lemma~\ref{lem:pullback}.
 \end{proof}
 
+\begin{example}
+We give 
+\end{example}
+
 \begin{corollary}
 Let $T$ be a Neron model for an algebraic torus over $K$.
 For $\cs{E}\in \QCS(\pi_0(T))$, $\cs{F}\in {\QCS(T)}$ and $\cs{F}^0\in {\QCS(T^0)}$, there are canonical isomorphisms
@@ -2315,9 +2338,7 @@ which, through quasicharacter sheaves, induces
 \end{proposition}
 
 \begin{proof}
-Adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} to include locally finite type N\'eron models,
-one may show that $\Res_{R'/R}(X')$ is a N\'eron model for $\Res_{K'/K}(X_{K'})$.
-Thus, by the N\'eron mapping property, the canonical closed immersion
+By the N\'eron mapping property, the canonical closed immersion
 \[
 X_K\hookrightarrow \Res_{K'/K}(X_{K'})
 \]
