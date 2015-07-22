@@ -210,20 +210,6 @@
 %% Hyphenation override
 \hyphenation{quasi-character}
 
-% MSC footnote
-\makeatletter
-\newcommand\MSC[2][2010]{%
-   \let\thefootnotetwo=\thefootnote%
-   \renewcommand{\thefootnote}{}%
-   \long\def\@makefntext##1{%
-     \parindent\CrelleIndent
-	 \hb@xt@0em{}##1}%
-   \footnotetext{\textup{#2} \textit{Mathematics Subject Classification.}\enspace  #1}
-   \let\thefootnote=\thefootnotetwo%
-   \crellefntext%
-}
-\makeatother
-
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%
 
 \begin{document}
