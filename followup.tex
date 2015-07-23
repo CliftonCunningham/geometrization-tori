@@ -20,6 +20,10 @@
 % Hyperrefs
 \usepackage{hyperref}
 
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
+
 %%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
 \theoremstyle{plain}
       \newtheorem{theorem}{Theorem}[section]
@@ -101,6 +105,7 @@
 \newcommand{\dualcs}[1]{\cs{#1}^\dagger}
 %% Categories
 \newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
+\newcommand{\CCS}{{\mathcal{CC\hskip-0.8pt S}}}
 \newcommand{\bCS}{{\CS_0}}
 \newcommand{\CSiso}[1]{\CS(#1)_{/\text{iso}}}
 \newcommand{\bCSiso}[1]{\bCS(#1)_{/\text{iso}}}
@@ -140,6 +145,57 @@
 
 \section{Commutative Character Sheaves}
 
+\begin{definition}\label{def:CS}
+With reference to \ref{Cunningham-Roe:QCS}*{Def. 1.1}, a \emph{commutative character sheaf on $G$} is a character sheaf on $G$ 
+$\CCS(G)$
+
+ is a triple
+$\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
+\begin{enumerate}
+\labitem{(CS.1)}{CS.1} $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean a constructible
+$\ell$-adic sheaf on $\bG$, {\it lisse} on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces;
+\labitem{(CS.2)}{CS.2} $\mu: \bm^* \gcs{L} \to \LxL$ is an isomorphism of
+sheaves on $\bGxG$ such that the following diagram commutes,
+  where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
+  \[
+  \begin{tikzcd}[row sep=30]
+  \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu}
+    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id} \\
+    \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
+    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL
+  \end{tikzcd}
+  \]
+\labitem{(CS.3)}{CS.3} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
+  isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with
+  $\mu$ in the sense that the following diagram commutes.
+  \[
+  \begin{tikzcd}[row sep=20]
+  \Frob{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
+    && \Frob{\GxxG}^*(\LxL)\\
+    \arrow[equal]{u} \bm^*  \Frob{G}^* \gcs{L} \arrow[swap]{d}{\bm^* \phi}
+    && \Frob{G}^*\gcs{L}\boxtimes \Frob{G}^*\gcs{L} \dar{\phi\boxtimes \phi} \arrow[equal]{u} \\
+    \bm^*\gcs{L} \arrow{rr}{\mu}
+    && \LxL
+  \end{tikzcd}
+  \]
+\end{enumerate}
+Morphisms of character sheaves are defined in the natural way:
+\begin{enumerate}
+\labitem{(CS.4)}{CS.4} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
+  $\cs{L'} = (\gcs{L'},\mu',\phi')$ are character sheaves on $G$ then
+  a morphism $\rho : \cs{L} \to \cs{L}'$ is a map $\brho : \gcs{L} \to \gcs{L'}$
+  of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
+  \[
+  \begin{tikzcd}[column sep=40]
+  \Frob{G}^* \gcs{L} \rar{\Frob{G}^* \brho} \arrow[swap]{d}{\phi} & \Frob{G}^* \gcs{L'} \dar{\phi'}
+  & & \arrow[swap]{d}{\mu} \bm^* \gcs{L} \rar{\bm^* \brho} & \bm^* \gcs{L'} \dar{\mu'} \\
+  \gcs{L} \rar{\brho} & \gcs{L'}
+  & {} & \LxL \rar{\tight{1}{\rho\boxtimes \rho}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
+  \end{tikzcd}
+  \]
+\end{enumerate}
+ The category of character sheaves on $G$ will be denoted by $\CS(G)$.
+ \end{definition}
 
 
 
