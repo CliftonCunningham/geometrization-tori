@@ -107,12 +107,13 @@
 \newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
 \newcommand{\CCS}{{\mathcal{CC\hskip-0.8pt S}}}
 \newcommand{\bCS}{{\CS_0}}
-\newcommand{\CSiso}[1]{\CS(#1)_{/\text{iso}}}
-\newcommand{\bCSiso}[1]{\bCS(#1)_{/\text{iso}}}
 \newcommand{\catname}[1]{\normalfont{\textsf{#1}}}
 \newcommand{\Sch}[1]{{\catname{Sch}_{/#1}}}
 \newcommand{\QCS}{{\mathcal{QC\hskip-0.8pt S}}}
+\newcommand{\CSiso}[1]{\CS(#1)_{/\text{iso}}}
+\newcommand{\bCSiso}[1]{\bCS(#1)_{/\text{iso}}}
 \newcommand{\QCSiso}[1]{\QCS(#1)_{/\text{iso}}}
+\newcommand{\CCSiso}[1]{\CS(#1)_{/\text{iso}}}
 %% Labeled items
 \makeatletter
 \newcommand{\labitem}[2]{
@@ -143,29 +144,30 @@
 
 \begin{document}
 
-\section{Commutative Character Sheaves}
+\maketitle
 
-\begin{definition}\label{def:CS}
-With reference to \ref{Cunningham-Roe:QCS}*{Def. 1.1}, a \emph{commutative character sheaf on $G$} is a character sheaf on $G$ 
-$\CCS(G)$
+\section{Definitions and Recollections}
 
- is a triple
+\begin{definition}\label{def:CCS}
+A \emph{commutative character sheaf on $G$} is a triple
 $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
-\labitem{(CS.1)}{CS.1} $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean a constructible
+\labitem{(CCS.1)}{CS.1} $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean a constructible
 $\ell$-adic sheaf on $\bG$, {\it lisse} on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces;
-\labitem{(CS.2)}{CS.2} $\mu: \bm^* \gcs{L} \to \LxL$ is an isomorphism of
-sheaves on $\bGxG$ such that the following diagram commutes,
-  where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$;
+\labitem{(CCS.2)}{CS.2} $\mu: \bm^* \gcs{L} \to \LxL$ is an isomorphism of
+sheaves on $\bGxG$ such that the following diagrams commute,
+  where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$,
   \[
   \begin{tikzcd}[row sep=30]
-  \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu}
-    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id} \\
+  \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu} 
+    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id}  && \gcs{L} \arrow{r}{\mu} \arrow{dr}[swap]{\mu}& \gcs{L} \boxtimes \gcs{L} \arrow{d}{\iso}\\
     \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
-    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL
+    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL && &  \gcs{L} \boxtimes \gcs{L}
   \end{tikzcd}
   \]
-\labitem{(CS.3)}{CS.3} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
+where 
+$\LxL \to \LxL$ given by $x\otimes y \mapsto y \otimes x$, by which we meant the case of the sheaf isomorphism $\cs{L}_1 \boxtimes \cs{L}_2 \to \cs{L}_2\boxtimes \cs{L}_1$ when $\cs{L}_1 = \cs{L}_2 = \cs{L}$.
+\labitem{(CCS.3)}{CS.3} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
   isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with
   $\mu$ in the sense that the following diagram commutes.
   \[
@@ -181,7 +183,7 @@ sheaves on $\bGxG$ such that the following diagram commutes,
 \end{enumerate}
 Morphisms of character sheaves are defined in the natural way:
 \begin{enumerate}
-\labitem{(CS.4)}{CS.4} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
+\labitem{(CCS.4)}{CS.4} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
   $\cs{L'} = (\gcs{L'},\mu',\phi')$ are character sheaves on $G$ then
   a morphism $\rho : \cs{L} \to \cs{L}'$ is a map $\brho : \gcs{L} \to \gcs{L'}$
   of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
@@ -194,12 +196,42 @@ Morphisms of character sheaves are defined in the natural way:
   \end{tikzcd}
   \]
 \end{enumerate}
- The category of character sheaves on $G$ will be denoted by $\CS(G)$.
+ The category of character sheaves on $G$ will be denoted by $\CCS(G)$.
  \end{definition}
 
 
+With reference to \cite{Cunningham-Roe:QCS}*{Def. 1.1}, a we see that a character sheaf $\cs{L} = (\gcs{L},\mu, \phi)$ on $G$ is commutative if it satisfies only one additional condition: that
+\[
+\begin{tikzcd}
+\gcs{L} \arrow{r}{\mu} \arrow{dr}[swap]{\mu}& \gcs{L} \boxtimes \gcs{L} \arrow{d}{\iso}\\
+&  \gcs{L} \boxtimes \gcs{L}
+\end{tikzcd}
+\]
+commutes.
+Consequently, comparing with \cite{Cunningham-Roe:QCS}*{Def. 1.1} we find conditions ({\textbf{CS}.1), ({\textbf{CS}.3) and ({\textbf{CS}.4) appearing in the definition of the category $\CS(G)$, coincide exactly with conditions ({\textbf{CCS}.1), ({\textbf{CCS}.3) and ({\textbf{CCS}.4), above.
 
-
+The additional condition distinguishing which character sheaves on $G$ are commutative, has several benefits, as we will see in this note.
+\begin{enumerate}
+\labitem{(1)}{b1}
+A character sheaf $\cs{L}$ on $G$ is invisible if and only if $\cs{L}$ is not commutative.
+Recall from \cite{Cunningham-Roe:QCS}*{Def. 2.8} that a character sheaf $\cs{L}$ in $G$ is {\it invisible} if $\cs{L}  \ncong \EE$ yet $\trFrob{\cs{L}} =1$.
+These are exactly the non-trivial character sheaves in the kernel of the surjective group homomorphism $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ given by the trace of Frobenius.
+\labitem{(2)}{b2}
+This note shows that $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ admits a canonical section, and thus a splitting of the short exact sequence 
+\[
+\begin{tikzcd}
+0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0
+\end{tikzcd}
+\]
+found in \cite{Cunningham-Roe:QCS}*{Thm. 3.6}.
+\labitem{(3)}{b3}
+Like the category $\CS(G)$ of character sheaves on $G$, $\CCS(G)$ is a rigid monoidal category, described completely in \cite{Cunningham-Roe:QCS}.
+Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Items \ref{b1} and \ref{b2} above show $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{Cunningham-Roe:QCS}*{Thm. 3.9}:
+\[
+\Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}
+\]
+in $\CCS(G)$, for every commutative character sheaf $\cs{L}$ on $G$.
+\end{enumerate}
 
 
 \section{Eliminating Invisible Character Sheaves}
