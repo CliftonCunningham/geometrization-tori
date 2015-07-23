@@ -113,7 +113,7 @@
 \newcommand{\CSiso}[1]{\CS(#1)_{/\text{iso}}}
 \newcommand{\bCSiso}[1]{\bCS(#1)_{/\text{iso}}}
 \newcommand{\QCSiso}[1]{\QCS(#1)_{/\text{iso}}}
-\newcommand{\CCSiso}[1]{\CS(#1)_{/\text{iso}}}
+\newcommand{\CCSiso}[1]{\CCS(#1)_{/\text{iso}}}
 %% Labeled items
 \makeatletter
 \newcommand{\labitem}[2]{
@@ -160,7 +160,7 @@ sheaves on $\bGxG$ such that the following diagrams commute,
   \[
   \begin{tikzcd}[row sep=30]
   \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu} 
-    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id}  && \gcs{L} \arrow{r}{\mu} \arrow{dr}[swap]{\mu}& \gcs{L} \boxtimes \gcs{L} \arrow{d}{\iso}\\
+    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id}  && \bm^*\gcs{L} \arrow{r}{\mu} \arrow{dr}[swap]{\mu}& \gcs{L} \boxtimes \gcs{L} \arrow{d}{\iso}\\
     \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
     &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL && &  \gcs{L} \boxtimes \gcs{L}
   \end{tikzcd}
@@ -200,7 +200,7 @@ Morphisms of character sheaves are defined in the natural way:
  \end{definition}
 
 
-With reference to \cite{Cunningham-Roe:QCS}*{Def. 1.1}, a we see that a character sheaf $\cs{L} = (\gcs{L},\mu, \phi)$ on $G$ is commutative if it satisfies only one additional condition: that
+With reference to \cite{cunningham-roe:13a}*{Def. 1.1}, a we see that a character sheaf $\cs{L} = (\gcs{L},\mu, \phi)$ on $G$ is commutative if it satisfies only one additional condition: that
 \[
 \begin{tikzcd}
 \gcs{L} \arrow{r}{\mu} \arrow{dr}[swap]{\mu}& \gcs{L} \boxtimes \gcs{L} \arrow{d}{\iso}\\
@@ -208,13 +208,13 @@ With reference to \cite{Cunningham-Roe:QCS}*{Def. 1.1}, a we see that a characte
 \end{tikzcd}
 \]
 commutes.
-Consequently, comparing with \cite{Cunningham-Roe:QCS}*{Def. 1.1} we find conditions ({\textbf{CS}.1), ({\textbf{CS}.3) and ({\textbf{CS}.4) appearing in the definition of the category $\CS(G)$, coincide exactly with conditions ({\textbf{CCS}.1), ({\textbf{CCS}.3) and ({\textbf{CCS}.4), above.
+Consequently, comparing with \cite{cunningham-roe:13a}*{Def. 1.1} we find conditions (\textbf{CS}.1), (\textbf{CS}.3) and (\textbf{CS}.4) appearing in the definition of the category $\CS(G)$, coincide exactly with conditions (\textbf{CCS}.1), (\textbf{CCS}.3) and (\textbf{CCS}.4), above.
 
 The additional condition distinguishing which character sheaves on $G$ are commutative, has several benefits, as we will see in this note.
 \begin{enumerate}
 \labitem{(1)}{b1}
 A character sheaf $\cs{L}$ on $G$ is invisible if and only if $\cs{L}$ is not commutative.
-Recall from \cite{Cunningham-Roe:QCS}*{Def. 2.8} that a character sheaf $\cs{L}$ in $G$ is {\it invisible} if $\cs{L}  \ncong \EE$ yet $\trFrob{\cs{L}} =1$.
+Recall from \cite{cunningham-roe:13a}*{Def. 2.8} that a character sheaf $\cs{L}$ in $G$ is {\it invisible} if $\cs{L}  \ncong \EE$ yet $\trFrob{\cs{L}} =1$.
 These are exactly the non-trivial character sheaves in the kernel of the surjective group homomorphism 
 \[
 \TrFrob{G} : \CSiso{G} \to G(\Fq)^*
@@ -227,10 +227,10 @@ This note shows that $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ admits a canonical se
 0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0
 \end{tikzcd}
 \]
-found in \cite{Cunningham-Roe:QCS}*{Thm. 3.6}.
+found in \cite{cunningham-roe:13a}*{Thm. 3.6}.
 \labitem{(3)}{b3}
-Like the category $\CS(G)$ of character sheaves on $G$, which described completely in \cite{Cunningham-Roe:QCS}, $\CCS(G)$ is a rigid monoidal category.
-Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{Cunningham-Roe:QCS}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or and isomorphism, and
+Like the category $\CS(G)$ of character sheaves on $G$, which described completely in \cite{cunningham-roe:13a}, $\CCS(G)$ is a rigid monoidal category.
+Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{cunningham-roe:13a}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or and isomorphism, and
 \[
 \Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}.
 \]
@@ -244,7 +244,7 @@ If $M$ is a $\bG$-module, then we say a cohomology class in $\Hh^2(\bG, M)$ is \
 by a symmetric $2$-cocycle.  Since every coboundary is symmetric, either all cocycles in a given class will be symmetric
 or none will.
 
-\begin{lemma}
+\begin{lemma} \label{lem:symtriv}
 Let $\bG$ be a commutative group.  Then the only symmetric class in $\Hh^2(\bG, \EEx)$ is the trivial class.
 \end{lemma}
 
@@ -271,7 +271,21 @@ If $G$ is a smooth commutative group scheme over $\Fq$ then $\TrFrob{G} : \CCSis
 \end{theorem}
 
 \begin{proof}
-
+Suppose first that $G$ is \'etale.  Consider the isomorphism of short exact sequences
+\[
+\begin{tikzcd}
+ 0 \arrow{r} & \ker \TrFrob{G} \arrow{d} \arrow{r} & \CSiso{G}\arrow{d}{S_G} \arrow{r}{\TrFrob{G}} \arrow{r} & G(\Fq)^* \arrow{d} \arrow{r} & 0\\
+  0 \arrow{r} & \Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \arrow{r} & \Hh^2(E^\bullet_G) \arrow{r} & \Hh^1(\Weil{},\Hh^1(\bG,\EEx)) \arrow{r} & 0
+ \end{tikzcd}
+ \]
+from \cite{cunningham-roe:13a}*{Prop. 2.7}.  For a character sheaf $\cs{L}$ on $G$, recall that $S_G$ maps
+$[\cs{L}]$ to $[\alpha \oplus \beta]$, where $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$ is obtained from $\mu$ and
+$\beta \in C^1(\Weil{}, C^1(\bG, \EEx))$ is obtained from $\phi$.  Suppose that $\cs{L}$ is a commutative character sheaf
+and $\TrFrob(\cs{L}) = 1$.  Then $S_G([\cs{L}])$ is in the image of $\Hh^2(\bG, \EEx)^\Weil{}$, so is cohomologous to
+$[\alpha', 0]$.  Since $\alpha$ is symmetric and coboundaries are symmetric, $\alpha'$ is symmetric as well.
+So by Lemma \ref{lem:symtriv}
 \end{proof}
+
+\bibliography{bibliography/Biblio}
 
 \end{document}
