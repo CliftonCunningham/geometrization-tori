@@ -146,12 +146,36 @@
 
 
 
-\section{No Invisible Character Sheaves}
+\section{Eliminating Invisible Character Sheaves}
 
-By the universal coefficient theorem
+If $M$ is a $\bG$-module, then we say a cohomology class in $\Hh^2(\bG, M)$ is \emph{symmetric} if it is represented
+by a symmetric $2$-cocycle.  Since every coboundary is symmetric, either all cocycles in a given class will be symmetric
+or none will.
 
-In the three examples above, we are able to compute $\Hh^0(\Weil{}, \Hh^2(\bG, \EEx))$ without reference to $\Frob{G}$ as a consequence of the structure of $\Hh^0(\Weil{}, \Hh^2(\bG, \EEx))$; this independence does not hold in general.  But the description of $\Hh^2(\bG, \EEx)$ allows us to 
+\begin{lemma}
+Let $\bG$ be a commutative group.  Then the only symmetric class in $\Hh^2(\bG, \EEx)$ is the trivial class.
+\end{lemma}
 
+\begin{proof}
+By the universal coefficient theorem,
+\[
+0 \to \Ext^1_\ZZ(\Hh_{n-1}(\bG, \ZZ), \EEx) \to \Hh^n(\bG, \EEx) \to \Hom(\Hh_n(\bG, \ZZ), \EEx) \to 0
+\]
+for all $n > 0$.  When $n = 2$, using the fact that $\bG$ is commutative, we have that $\Hh_1(\bG, \ZZ) \cong \bG$
+and that $\Hh_2(\bG, \ZZ) \cong \wedge^2 \bG$. We get
+\[
+0 \to \Ext^1_\ZZ(\bG, \EEx) \to \Hh^2(\bG, \EEx) \to \Hom(\wedge^2 \bG, \EEx) \to 0.
+\]
+The map $\Hh^2(\bG, \EEx) \to \Hom(\wedge^2 \bG, \EEx)$ maps a $2$-cocycle $f$ to the alternating function
+\[
+(x,y) \mapsto f(x,y) - f(y,x).
+\]
+Thus the cohomology classes represented by symmetric cocycles are precisely those in the image of $\Ext^1_\ZZ(\bG, \EEx)$.
+But $\Ext^1_\ZZ(-, \EEx)$ vanishes because $\EEx$ is divisible.
+\end{proof}
 
+\begin{theorem}
+Commutative.
+\end{theorem}
 
 \end{document}
