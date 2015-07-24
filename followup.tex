@@ -266,6 +266,22 @@ Thus the cohomology classes represented by symmetric cocycles are precisely thos
 But $\Ext^1_\ZZ(-, \EEx)$ vanishes because $\EEx$ is divisible.
 \end{proof}
 
+For a character sheaf $\cs{L}$ on $G$, recall from \cite{cunningham-roe:13a}*{\S 2.3} that $S_G : \CSiso{G} \to \Hh^2(E_G^\bullet)$ maps
+$[\cs{L}]$ to $[\alpha \oplus \beta]$, where $E_G^\bullet$ is the total space of the zeroth page
+of the Hochschild-Serre spectral sequence, $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$ is obtained from $\mu$ and
+$\beta \in C^1(\Weil{}, C^1(\bG, \EEx))$ is obtained from $\phi$.
+
+\begin{lemma} \label{lem:conncomm}
+If $G$ is a connected commutative algebraic group over $\Fq$ then every character sheaf on $G$ is commutative.
+\end{lemma}
+
+\begin{proof}
+We can use \'etale descent to see that pullback by the Lang isogeny defines an equivalence
+of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$.  Thus every character
+sheaf on $G$ arises through the Lang isogeny; since the covering group is $G$ itself, which is commutative,
+every character sheaf on $G$ is commutative.
+\end{proof}
+
 \begin{theorem}
 If $G$ is a smooth commutative group scheme over $\Fq$ then $\TrFrob{G} : \CCSiso{G} \to G(\Fq)^*$ is an isomorphism.
 \end{theorem}
@@ -278,13 +294,23 @@ Suppose first that $G$ is \'etale.  Consider the isomorphism of short exact sequ
   0 \arrow{r} & \Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \arrow{r} & \Hh^2(E^\bullet_G) \arrow{r} & \Hh^1(\Weil{},\Hh^1(\bG,\EEx)) \arrow{r} & 0
  \end{tikzcd}
  \]
-from \cite{cunningham-roe:13a}*{Prop. 2.7}.  For a character sheaf $\cs{L}$ on $G$, recall that $S_G$ maps
-$[\cs{L}]$ to $[\alpha \oplus \beta]$, where $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$ is obtained from $\mu$ and
-$\beta \in C^1(\Weil{}, C^1(\bG, \EEx))$ is obtained from $\phi$.  Suppose that $\cs{L}$ is a commutative character sheaf
-and $\TrFrob(\cs{L}) = 1$.  Then $S_G([\cs{L}])$ is in the image of $\Hh^2(\bG, \EEx)^\Weil{}$, so is cohomologous to
+from \cite{cunningham-roe:13a}*{Prop. 2.7}.
+
+Suppose that $\cs{L}$ is a commutative character sheaf
+with $\TrFrob(\cs{L}) = 1$.  Then $S_G([\cs{L}])$ is in the image of $\Hh^2(\bG, \EEx)^\Weil{}$, so is cohomologous to
 $[\alpha', 0]$.  Since $\alpha$ is symmetric and coboundaries are symmetric, $\alpha'$ is symmetric as well.
-So by Lemma \ref{lem:symtriv}
+So by Lemma \ref{lem:symtriv}, $\alpha'$ is cohomologically trivial, and thus $[\cs{L}]$ is trivial as well.
+
+To see that $\TrFrob{G}$ is still surjective on $\CCSiso{G}$, note that the character sheaf constructed in the proof of
+\cite{cunningham-roe:13a}*{Prop. 2.6} has trivial $\alpha$, and is thus commutative.
+
+For general smooth commutative group schemes, we use Lemma \ref{lem:conncomm} and the snake lemma.
 \end{proof}
+
+\begin{remark}
+Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningham-roe:13a}*{Ex. 2.10}, the functor
+$\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
+\end{remark}
 
 \bibliography{bibliography/Biblio}
 
