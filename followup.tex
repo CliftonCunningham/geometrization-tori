@@ -345,15 +345,40 @@ Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningh
 $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \end{remark}
 
-\section{Applications}
  
-\subsection{Geometrization of generic types supercuspidal representations}
+\section{Applications}
 
-As proved in \cite{kim:07a}, many (complex) supercuspidal representations of $p$-adic groups can be built from the generic data of \cite{yu:01a}*{\S 15} and, moreover, that the type of the resulting supercuspidal representations can be constructed directly from the generic data. Let us refer to the types arising in this manner as {\it generic types}.
-In this section we show that, after fixing an isomorphism $\CC \approx \EE$, every generic type is geometrizable, in the sense that every part of generic type admits a description as a sheaf, from which the type can be recovered.
+\subsection{Quasicharacter sheaves}
 
-Let $K$ be a $p$-adic field. Let $\G$ be a connected reductive linear algebraic group over $K$. A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0 \subsetneq \G^1 \subsetneq \cdots \G^d = \G$; $\pi_0$ is a depth-zero representation of $\G^0(F)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism). 
-In \cite{yu:03a}*{\S 10.5}, it is shown that 
+Let $K$ be a local field with residue field $\Fq$.
+Let $\underline{G}$ be a smooth group scheme over $K$.
+Set $G_n = \Gr^R_n(\underline{G})$; this is a smooth group scheme over $\Fq$.
+Set $G = \Gr^R_n(\underline{G})$; this is a group scheme over $\Fq$ equipped with $G = \varprojlim_{n\in \NN} G_n$.
+Let $\QCS(\underline{G})$ be the category of commutative character sheaves on $G$. . . .  as in \cite{cunningham-roe:13a}.
+
+\begin{corollary}\label{cor:QCS}
+$\Hom(\underline{G}(\OK),\EEx) \iso \QCSiso{\underline{G}}$.
+\end{corollary}
+
+ 
+\subsection{Geometrization of generic data for supercuspidal representations}
+
+As proved in \cite{kim:07a}, many (complex) supercuspidal representations of $p$-adic groups can be built from the generic data of \cite{yu:01a}*{\S 15} and, moreover, the type (in the sense of \cite{bushnell-kutzko:98a}) of the resulting supercuspidal representations can be constructed directly from the generic data. 
+%Let us refer to the types arising in this manner as {\it generic types}.
+In this section we show that, after fixing an isomorphism $\CC \approx \EE$, every generic type is geometrizable, in the sense that every part of generic type admits a description as a perverse sheaf on a scheme over a finite field, from which the type can be recovered using the trace of Frobenius.
+
+Let $K$ be a $p$-adic field. Let $\G$ be a connected reductive linear algebraic group over $K$. 
+A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0 \subsetneq \G^1 \subsetneq \cdots  \subsetneq \G^d = \G$; $\pi_0$ is a depth-zero representation of $\G^0(F)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism).  
+
+%The generic datum $(\vec{\G}, \pi_0, \vec{\phi})$ determines a type (in the sense of \cite{bushnell-kutzko:98a}) $(C, \rho)$ for $\G$, as explained in \cite{yu:construction}*{\S 15}, where $C \subset \G(K)$ is compact mod centre subgroup and $\rho$ is a representation of $C$. In \cite{yu:smooth} it is shown that the $C$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{C}$ over $\OK$ such that $\underline{C}(\OK) = C$.
+
+In \cite{yu:03a} it is shown that, for $0 \leq i < d$, the $p$-adic group $\G^i(K)$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{G}^i$ over $\OK$ such that $\underline{G}^i(\OK) = \G^i(K)$.
+Set $G^i_n \ceq \Gr^R_n(\underline{G}^i)$ and $G^i \ceq \Gr_R(\underline{G}^i)$.
+Then $G^i(\Fq) = \G^i(K)$ (canonical isomorphism of groups).
+It now follows from Corollary~\ref{cor:QCS} that the quasicharacter $\phi_i : G^i(\Fq) \to \EEx$ determines a quasicharacter sheaf $\cs{L}_i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered using the trace of Frobenius. 
+For each $0\leq i < d$, let $n_i$ be the smallest non-negative integer $n$ such that $\phi_i : G^i(\Fq) \to \EEx$ factors through $G^i(\Fq) \to G^i_n(\Fq)$.
+
+
 
 \subsection{Stacky abelianization}
 
