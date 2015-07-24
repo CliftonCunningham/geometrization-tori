@@ -107,7 +107,7 @@
 \newcommand{\dualcs}[1]{\cs{#1}^\dagger}
 %% Categories
 \newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
-\newcommand{\CCS}{{\mathcal{CC\hskip-0.8pt S}}}
+\newcommand{\CCS}{{\mathcal{C\hskip-.8pt C\hskip-0.8pt S}}}
 \newcommand{\bCS}{{\CS_0}}
 \newcommand{\catname}[1]{\normalfont{\textsf{#1}}}
 \newcommand{\Sch}[1]{{\catname{Sch}_{/#1}}}
@@ -188,88 +188,43 @@ Consequently, we have a complete description of category $\CCS(G)$.
 
 \section{Definitions and Recollections}
 
-Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$ for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of [include reference for this definition].
-This implies $G \to \Spec{\Fq}$ is locally of finite type; it does not imply the map is of finite type.
-We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
+Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$
+for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of [include reference for this definition].
+This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
+We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
+$\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
 
 Write $m : G \times G \to G$ for the multiplication morphism.
 Let $\theta : G\times G \to G\times G$ be given by $\theta(g,h) = (h,g)$
 and define $m\op : G \times G \to G$ by $m\op = m \circ \theta$.
-For any local system $\gcs{L}$ on $\bG \ceq G \times_{\Spec{\Fq}} \Spec{\bFq}$ there is an isomorphism $\gcs{L} \boxtimes \gcs{L} \to {\bar \theta}^*(\gcs{L} \boxtimes \gcs{L})$ given on stalks by $\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
+For any local system $\gcs{L}$ on $\bG \ceq G \times_{\Spec{\Fq}} \Spec{\bFq}$ there is an isomorphism
+$\vartheta : \LxL \to {\bar \theta}^*(\LxL)$ given on stalks by the canonical map
+$\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
+
+Recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $\cs{L} \ceq (\gcs{L}, \mu, \phi)$,
+where $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, $\mu : \bm^* \gcs{L} \to \LxL$ is an isomorphism
+of sheaves on $\bG \times \bG$, and $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an isomorphism of sheaves on $\bG$.
+In \emph{loc. cit.}, $G$ was assumed to be commutative, but the same definition makes sense for non-commutative $G$.
+We will denote the category of character sheaves on $G$ by $\CS(G)$.
 
 \begin{definition}\label{def:CCS}
-A \emph{commutative character sheaf on $G$} is a triple
-$\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
-\begin{enumerate}
-\labitem{(CCS.1)}{CS.1} $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean a constructible
-$\ell$-adic sheaf on $\bG$, {\it lisse} on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces;
-\labitem{(CCS.2)}{CS.2} $\mu: \bm^* \gcs{L} \to \gcs{L} \boxtimes \gcs{L}$ is an isomorphism of
-sheaves on $\bG \times \bG$ and there is an isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$ such that the following diagrams commute,
+A character sheaf on $G$ is \emph{commutative} if there is an isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$
+such that the following diagram commutes,
   \[
   \begin{tikzcd}[row sep=30]
-  \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu} 
-    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id}  && \bm^*\gcs{L} \arrow{d} \arrow{r}{\mu} & \gcs{L} \boxtimes \gcs{L} \arrow{d}\\
-    \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
-    &  &  \gcs{L} \boxtimes \gcs{L} \boxtimes \gcs{L} && {\bar m}\op^*\gcs{L} \arrow{r}{{\bar \theta}^*\mu} &  {\bar \theta}^*(\gcs{L} \boxtimes \gcs{L})
+   \bm^*\gcs{L} \arrow{d} \arrow{r}{\mu} & \LxL \arrow{d}{\vartheta}\\
+   \bm\op^*\gcs{L} \arrow{r}{{\bar \theta}^*\mu} &  {\bar \theta}^*(\LxL)
   \end{tikzcd}
   \]
-where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$,
- and where 
-$\gcs{L} \boxtimes \gcs{L} \to {\bar \theta}^*(\gcs{L} \boxtimes \gcs{L})$ is the isomorphism of sheaves  above;
-%given by $x\otimes y \mapsto y \otimes x$, by which we meant the case of the sheaf isomorphism $\cs{L}_1 \boxtimes \cs{L}_2 \to \cs{L}_2\boxtimes \cs{L}_1$ when $\cs{L}_1 = \cs{L}_2 = \cs{L}$.
-\labitem{(CCS.3)}{CS.3} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
-  isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with
-  $\mu$ in the sense that the following diagram commutes.
-  \[
-  \begin{tikzcd}[row sep=20]
-  \Frob{\GxxG}^* \bm^* \gcs{L} \arrow{rr}{\Frob{\GxxG}^*\mu}
-    && \Frob{\GxxG}^*(\LxL)\\
-    \arrow[equal]{u} \bm^*  \Frob{G}^* \gcs{L} \arrow[swap]{d}{\bm^* \phi}
-    && \Frob{G}^*\gcs{L}\boxtimes \Frob{G}^*\gcs{L} \dar{\phi\boxtimes \phi} \arrow[equal]{u} \\
-    \bm^*\gcs{L} \arrow{rr}{\mu}
-    && \LxL
-  \end{tikzcd}
-  \]
-\end{enumerate}
-Morphisms of character sheaves are defined in the natural way:
-\begin{enumerate}
-\labitem{(CCS.4)}{CS.4} if $\cs{L} = (\gcs{L},\mu,\phi)$ and
-  $\cs{L'} = (\gcs{L'},\mu',\phi')$ are character sheaves on $G$ then
-  a morphism $\rho : \cs{L} \to \cs{L}'$ is a map $\brho : \gcs{L} \to \gcs{L'}$
-  of constructible $\ell$-adic sheaves on $\bG$ such that the following diagrams both commute.
-  \[
-  \begin{tikzcd}[column sep=40]
-  \Frob{G}^* \gcs{L} \rar{\Frob{G}^* \brho} \arrow[swap]{d}{\phi} & \Frob{G}^* \gcs{L'} \dar{\phi'}
-  & & \arrow[swap]{d}{\mu} \bm^* \gcs{L} \rar{\bm^* \brho} & \bm^* \gcs{L'} \dar{\mu'} \\
-  \gcs{L} \rar{\brho} & \gcs{L'}
-  & {} & \LxL \rar{\tight{1}{\rho\boxtimes \rho}{1}} & \gcs{L'} \tight{0}{\boxtimes}{0} \gcs{L'}
-  \end{tikzcd}
-  \]
-\end{enumerate}
- The category of character sheaves on $G$ will be denoted by $\CCS(G)$.
  \end{definition}
+ 
+ Write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
 
 \begin{lemma}
 If the isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$ exists, then it is unique.
 \end{lemma}
 \begin{proof}
 \end{proof}
-
-\begin{lemma}
-If $G$ is also commutative, then $\CCS(G)$ is a full subcategory of $\CS(G)$, the 
-later defined in \cite{cunningham-roe:13a}.
-\end{lemma}
-
-\begin{proof}
- a we see that a character sheaf $\cs{L} = (\gcs{L},\mu, \phi)$ on $G$ is commutative if it satisfies only one additional condition:
-Consequently, comparing with \cite{cunningham-roe:13a}*{Def. 1.1} we find conditions (\textbf{CS}.1), (\textbf{CS}.3) and (\textbf{CS}.4) appearing in the definition of the category $\CS(G)$, coincide exactly with conditions (\textbf{CCS}.1), (\textbf{CCS}.3) and (\textbf{CCS}.4), above.
-\end{proof}
-
-\begin{remark}
-In fact, \cite{cunningham-roe:13a}*{Def. 1.1} makes sense even if $G$ is not commutative. Extending that definition to include smooth group schemes over $\Fq$, it is again true that $\CCS(G)$ is a full subcategory of $\CS(G)$.
-\end{remark}
-
-
 
 \section{Eliminating Invisible Character Sheaves}
 
