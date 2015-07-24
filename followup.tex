@@ -61,6 +61,7 @@
 \newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
 \DeclareMathOperator{\GL}{GL}
 \newcommand{\comp}{\Pi} % Component group
+\newcommand{\G}{\textbf{G}}
 %%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
 \newcommand{\Frob}[1]{\operatorname{Fr}_{#1}}
@@ -85,6 +86,7 @@
 \DeclareMathOperator{\Tor}{Tor}
 \newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
 \newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
+\newcommand{\op}{_{\operatorname{op}}}
 %%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
@@ -144,9 +146,56 @@
 
 \begin{document}
 
+
+\begin{abstract}
+Abstract goes here
+\end{abstract}
+
 \maketitle
 
+\section*{Introduction}
+
+Fragments: 
+The additional condition distinguishing which character sheaves on $G$ are commutative, has several benefits, as we will see in this note.
+\begin{enumerate}
+\labitem{(1)}{b1}
+A character sheaf $\cs{L}$ on $G$ is invisible if and only if $\cs{L}$ is not commutative.
+Recall from \cite{cunningham-roe:13a}*{Def. 2.8} that a character sheaf $\cs{L}$ in $G$ is {\it invisible} if $\cs{L}  \ncong \EE$ yet $\trFrob{\cs{L}} =1$.
+These are exactly the non-trivial character sheaves in the kernel of the surjective group homomorphism 
+\[
+\TrFrob{G} : \CSiso{G} \to G(\Fq)^*
+\]
+ given by the trace of Frobenius.
+\labitem{(2)}{b2}
+This note shows that $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ admits a canonical section, and thus a splitting of the short exact sequence 
+\[
+\begin{tikzcd}
+0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0
+\end{tikzcd}
+\]
+found in \cite{cunningham-roe:13a}*{Thm. 3.6}.
+\labitem{(3)}{b3}
+Like the category $\CS(G)$ of character sheaves on $G$, which described completely in \cite{cunningham-roe:13a}, $\CCS(G)$ is a rigid monoidal category.
+Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{cunningham-roe:13a}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or and isomorphism, and
+\[
+\Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}.
+\]
+Consequently, we have a complete description of category $\CCS(G)$.
+\end{enumerate}
+
+
+
+
 \section{Definitions and Recollections}
+
+Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$ for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of [include reference for this definition].
+This implies $G \to \Spec{\Fq}$ is locally of finite type; it does not imply the map is of finite type.
+We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
+
+Write $m : G \times G \to G$ for the multiplication morphism.
+Let $\theta : G\times G \to G\times G$ be given by $\theta(g,h) = (h,g)$
+and define $m\op : G \times G \to G$ by $m\op = m \circ \theta$.
+For any local system $\gcs{L}$ on $\bG \ceq G \times_{\Spec{\Fq}} \Spec{\bFq}$ there is an isomorphism $\gcs{L} \boxtimes \gcs{L} \to {\bar \theta}^*(\gcs{L} \boxtimes \gcs{L})$ given on stalks by $\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
 
 \begin{definition}\label{def:CCS}
 A \emph{commutative character sheaf on $G$} is a triple
@@ -154,19 +203,20 @@ $\cs{L}\ceq (\gcs{L},\mu,\phi)$ where:
 \begin{enumerate}
 \labitem{(CCS.1)}{CS.1} $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, by which we mean a constructible
 $\ell$-adic sheaf on $\bG$, {\it lisse} on each connected component of $\bG$, whose stalks are one-dimensional $\EE$-vector spaces;
-\labitem{(CCS.2)}{CS.2} $\mu: \bm^* \gcs{L} \to \LxL$ is an isomorphism of
-sheaves on $\bGxG$ such that the following diagrams commute,
-  where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$,
+\labitem{(CCS.2)}{CS.2} $\mu: \bm^* \gcs{L} \to \gcs{L} \boxtimes \gcs{L}$ is an isomorphism of
+sheaves on $\bG \times \bG$ and there is an isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$ such that the following diagrams commute,
   \[
   \begin{tikzcd}[row sep=30]
   \bm_3^*\gcs{L} \arrow{rr}{(\bm \tight{1}{\times}{2} \id)^*\mu} \arrow[swap]{d}{(\id \tight{2}{\times}{1} \bm)^*\mu} 
-    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id}  && \bm^*\gcs{L} \arrow{r}{\mu} \arrow{dr}[swap]{\mu}& \gcs{L} \boxtimes \gcs{L} \arrow{d}{\iso}\\
+    &&  \bm^*\gcs{L} \boxtimes \gcs{L} \dar{\mu \tight{0}{\boxtimes}{1} \id}  && \bm^*\gcs{L} \arrow{d} \arrow{r}{\mu} & \gcs{L} \boxtimes \gcs{L} \arrow{d}\\
     \gcs{L} \boxtimes \bm^* \gcs{L} \arrow{rr}{\id \boxtimes \mu}
-    &&  \gcs{L} \tight{0}{\boxtimes}{0} \LxL && &  \gcs{L} \boxtimes \gcs{L}
+    &  &  \gcs{L} \boxtimes \gcs{L} \boxtimes \gcs{L} && {\bar m}\op^*\gcs{L} \arrow{r}{{\bar \theta}^*\mu} &  {\bar \theta}^*(\gcs{L} \boxtimes \gcs{L})
   \end{tikzcd}
   \]
-where 
-$\LxL \to \LxL$ given by $x\otimes y \mapsto y \otimes x$, by which we meant the case of the sheaf isomorphism $\cs{L}_1 \boxtimes \cs{L}_2 \to \cs{L}_2\boxtimes \cs{L}_1$ when $\cs{L}_1 = \cs{L}_2 = \cs{L}$.
+where $m_3 \ceq m\circ (m\tight{1}{\times}{2}\id) = m\circ (\id\tight{2}{\times}{1} m)$,
+ and where 
+$\gcs{L} \boxtimes \gcs{L} \to {\bar \theta}^*(\gcs{L} \boxtimes \gcs{L})$ is the isomorphism of sheaves  above;
+%given by $x\otimes y \mapsto y \otimes x$, by which we meant the case of the sheaf isomorphism $\cs{L}_1 \boxtimes \cs{L}_2 \to \cs{L}_2\boxtimes \cs{L}_1$ when $\cs{L}_1 = \cs{L}_2 = \cs{L}$.
 \labitem{(CCS.3)}{CS.3} $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an
   isomorphism of constructible $\ell$-adic sheaves on $\bG$ compatible with
   $\mu$ in the sense that the following diagram commutes.
@@ -199,43 +249,26 @@ Morphisms of character sheaves are defined in the natural way:
  The category of character sheaves on $G$ will be denoted by $\CCS(G)$.
  \end{definition}
 
+\begin{lemma}
+If the isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$ exists, then it is unique.
+\end{lemma}
+\begin{proof}
+\end{proof}
 
-With reference to \cite{cunningham-roe:13a}*{Def. 1.1}, a we see that a character sheaf $\cs{L} = (\gcs{L},\mu, \phi)$ on $G$ is commutative if it satisfies only one additional condition: that
-\[
-\begin{tikzcd}
-\gcs{L} \arrow{r}{\mu} \arrow{dr}[swap]{\mu}& \gcs{L} \boxtimes \gcs{L} \arrow{d}{\iso}\\
-&  \gcs{L} \boxtimes \gcs{L}
-\end{tikzcd}
-\]
-commutes.
+\begin{lemma}
+If $G$ is also commutative, then $\CCS(G)$ is a full subcategory of $\CS(G)$, the 
+later defined in \cite{cunningham-roe:13a}.
+\end{lemma}
+
+\begin{proof}
+ a we see that a character sheaf $\cs{L} = (\gcs{L},\mu, \phi)$ on $G$ is commutative if it satisfies only one additional condition:
 Consequently, comparing with \cite{cunningham-roe:13a}*{Def. 1.1} we find conditions (\textbf{CS}.1), (\textbf{CS}.3) and (\textbf{CS}.4) appearing in the definition of the category $\CS(G)$, coincide exactly with conditions (\textbf{CCS}.1), (\textbf{CCS}.3) and (\textbf{CCS}.4), above.
+\end{proof}
 
-The additional condition distinguishing which character sheaves on $G$ are commutative, has several benefits, as we will see in this note.
-\begin{enumerate}
-\labitem{(1)}{b1}
-A character sheaf $\cs{L}$ on $G$ is invisible if and only if $\cs{L}$ is not commutative.
-Recall from \cite{cunningham-roe:13a}*{Def. 2.8} that a character sheaf $\cs{L}$ in $G$ is {\it invisible} if $\cs{L}  \ncong \EE$ yet $\trFrob{\cs{L}} =1$.
-These are exactly the non-trivial character sheaves in the kernel of the surjective group homomorphism 
-\[
-\TrFrob{G} : \CSiso{G} \to G(\Fq)^*
-\]
- given by the trace of Frobenius.
-\labitem{(2)}{b2}
-This note shows that $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ admits a canonical section, and thus a splitting of the short exact sequence 
-\[
-\begin{tikzcd}
-0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0
-\end{tikzcd}
-\]
-found in \cite{cunningham-roe:13a}*{Thm. 3.6}.
-\labitem{(3)}{b3}
-Like the category $\CS(G)$ of character sheaves on $G$, which described completely in \cite{cunningham-roe:13a}, $\CCS(G)$ is a rigid monoidal category.
-Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{cunningham-roe:13a}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or and isomorphism, and
-\[
-\Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}.
-\]
-Consequently, we have a complete description of category $\CCS(G)$.
-\end{enumerate}
+\begin{remark}
+In fact, \cite{cunningham-roe:13a}*{Def. 1.1} makes sense even if $G$ is not commutative. Extending that definition to include smooth group schemes over $\Fq$, it is again true that $\CCS(G)$ is a full subcategory of $\CS(G)$.
+\end{remark}
+
 
 
 \section{Eliminating Invisible Character Sheaves}
@@ -311,6 +344,20 @@ For general smooth commutative group schemes, we use Lemma \ref{lem:conncomm} an
 Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningham-roe:13a}*{Ex. 2.10}, the functor
 $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \end{remark}
+
+\section{Applications}
+ 
+\subsection{Geometrization of generic types supercuspidal representations}
+
+As proved in \cite{kim:exhaustion}, many (complex) supercuspidal representations of $p$-adic groups can be built from the generic data of \cite{yu:construction}*{\S 15} and, moreover, that the type of the resulting supercuspidal representations can be constructed directly from the generic data. Let us refer to the types arising in this manner as {\it generic types}.
+In this section we show that, after fixing an isomorphism $\CC \approx \EE$, every generic type is geometrizable, in the sense that every part of generic type admits a description as a sheaf, from which the type can be recovered.
+
+Let $K$ be a $p$-adic field. Let $\G$ be a connected reductive linear algebraic group over $K$. A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0 \subsetneq \G^1 \subsetneq \cdots \G^d = \G$; $\pi_0$ is a depth-zero representation of $\G^0(F)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism). 
+In \cite{yu:smooth}*{\S 10.5}, it is shown that 
+
+\subsection{Stacky abelianization}
+
+
 
 \bibliography{bibliography/Biblio}
 
