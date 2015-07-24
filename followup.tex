@@ -87,6 +87,7 @@
 \newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
 \newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
 \newcommand{\op}{_{\operatorname{op}}}
+\newcommand{\der}{_{\operatorname{der}}}
 %%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
@@ -300,6 +301,7 @@ Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningh
 $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \end{remark}
 
+\section{Passing to the abelianization}
  
 \section{Applications}
 
@@ -323,20 +325,24 @@ As proved in \cite{kim:07a}, many (complex) supercuspidal representations of $p$
 In this section we show that, after fixing an isomorphism $\CC \approx \EE$, every generic type is geometrizable, in the sense that every part of generic type admits a description as a perverse sheaf on a scheme over a finite field, from which the type can be recovered using the trace of Frobenius.
 
 Let $K$ be a $p$-adic field. Let $\G$ be a connected reductive linear algebraic group over $K$. 
-A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0 \subsetneq \G^1 \subsetneq \cdots  \subsetneq \G^d = \G$; $\pi_0$ is a depth-zero representation of $\G^0(F)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism).  
+A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0(K) \subset \G^1(K) \subset \cdots  \subset \G^d(K) = \G(K)$ (proper containment); $\pi_0$ is a depth-zero representation of $\G^0(K)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where each $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism).  
 
 %The generic datum $(\vec{\G}, \pi_0, \vec{\phi})$ determines a type (in the sense of \cite{bushnell-kutzko:98a}) $(C, \rho)$ for $\G$, as explained in \cite{yu:construction}*{\S 15}, where $C \subset \G(K)$ is compact mod centre subgroup and $\rho$ is a representation of $C$. In \cite{yu:smooth} it is shown that the $C$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{C}$ over $\OK$ such that $\underline{C}(\OK) = C$.
 
 In \cite{yu:03a} it is shown that, for $0 \leq i < d$, the $p$-adic group $\G^i(K)$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{G}^i$ over $\OK$ such that $\underline{G}^i(\OK) = \G^i(K)$.
-Set $G^i_n \ceq \Gr^R_n(\underline{G}^i)$ and $G^i \ceq \Gr_R(\underline{G}^i)$.
-Then $G^i(\Fq) = \G^i(K)$ (canonical isomorphism of groups).
-It now follows from Corollary~\ref{cor:QCS} that the quasicharacter $\phi_i : G^i(\Fq) \to \EEx$ determines a quasicharacter sheaf $\cs{L}_i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered using the trace of Frobenius. 
-For each $0\leq i < d$, let $n_i$ be the smallest non-negative integer $n$ such that $\phi_i : G^i(\Fq) \to \EEx$ factors through $G^i(\Fq) \to G^i_n(\Fq)$.
+Set $G^i_n \ceq \Gr^R_n(\underline{G}^i)$ and $G^i \ceq \Gr_R(\underline{G}^i)$; 
+then \[G^i(\Fq) = \G^i(K)\] (canonical isomorphism of groups).
+In this way, $\vec{\G}$ determines a tower $\vec{G}$ of group schemes $G^0 \subset G^1 \subset \cdots  \subset G^{d-1}$ (proper containment) over $\Fq$, from which the tower of $p$-adic groups
+$\G^0(K) \subset \G^1(K) \subset \cdots  \subset \G^{d-1}(K)$ can be recovered.
 
+Using Corollary~\ref{cor:QCS} we see that each quasicharacter $\phi_i : G^i(\Fq) \to \EEx$ determines a quasicharacter sheaf $\cs{L}^i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered using the trace of Frobenius. 
+In fact, more is true. Let $n_{\phi_i}$ be the smallest non-negative integer $n$ such that $\phi_i : G^i(\Fq) \to \EEx$ factors through $G^i(\Fq) \to G^i_n(\Fq)$.
+Then $\phi_i$ determines a commutative character sheaf $\cs{L}_{n_{\phi_i}}^i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered.
+Then $\cs{A}_i\ceq \cs{L}_{n_{\phi_i}}^i[\dim G_{n_{\phi_i}}^i]$ is a perverse sheaf on $G_{n_{\phi_i}}^i$ from which the quasicharacter $\phi_i$ can be recovered.
+In this way,  $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ determines perverse sheaves $\vec{\cs{A}} = (\cs{A}_0, \ldots , \cs{A}_{d-1})$ from which $\vec{\phi}$ can be recovered. 
 
-
-\subsection{Stacky abelianization}
-
+Finally, consider the depth-zero supercuspidal representation $\pi_0$ of $\G^0(K)$.
+Then $\pi_0$ is produced by compact induction from representation $\sigma$ of a compact mod centre subgroup $\underline{C}_0(\OK) \subset \G^0(K)$. Moreover, $C_0$ admits a smooth integral model $\underline{C}$
 
 
 \bibliography{bibliography/Biblio}
