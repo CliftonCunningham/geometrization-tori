@@ -84,6 +84,8 @@
 \DeclareMathOperator{\Loc}{Loc}
 \DeclareMathOperator{\Tot}{Tot}
 \DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
 \newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
 \newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
 \newcommand{\op}{_{\operatorname{op}}}
@@ -271,7 +273,7 @@ sheaf on $G$ arises through the Lang isogeny; since the covering group is $G$ it
 every character sheaf on $G$ is commutative.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem} \label{thm:trfrobiso}
 If $G$ is a smooth commutative group scheme over $\Fq$ then $\TrFrob{G} : \CCSiso{G} \to G(\Fq)^*$ is an isomorphism.
 \end{theorem}
 
@@ -302,6 +304,39 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \end{remark}
 
 \section{Passing to the abelianization}
+ 
+ Let $G$ be a smooth group scheme over $\Fq$ and let $C = [G, G]$ be its commutator subgroup.
+ 
+ \begin{proposition}
+ Every commutative character sheaf $\cs{L}$ on $G$ is equivariant for the left translation action of $C$ on $G$.
+ \end{proposition}
+ 
+ \begin{proof}
+ 
+ \end{proof}
+ 
+ \begin{corollary}
+ Trace of Frobenius induces an isomorphism
+ \[
+ \CCSiso{G} \to G(\Fq)^*.
+ \]
+ \end{corollary}
+ 
+ \begin{proof}
+ By \'etale descent, pullback induces an equivalence of categories between $\CCS(G)$ and $\CCS(G/C)$.
+ The result now follows from Theorem \ref{thm:trfrobiso} and the fact that all characters of $G(\Fq)$ factor through
+ $G(\Fq)/C(\Fq)$, which equals $(G/C)(\Fq)$ since $C$ is simply connected.
+ \end{proof}
+ 
+ \begin{remark}
+ Talk about relationship with \cite{kamgarpour:09a}.  In particular, explain why the character sheaf corresponding
+ to the cover
+ \[
+ 1 \to \mu_n \to \SL_n \to \PGL_n \to 1
+ \]
+ is not commutative.  Explain how our character sheaves are not just representations of a fundamental group
+ (or are they?), but instead have extra data like $\mu$ and $\phi$.
+ \end{remark}
  
 \section{Applications}
 
