@@ -146,6 +146,7 @@
 \hyphenation{quasi-character}
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%
+\usepackage{todonotes}
 
 \begin{document}
 
@@ -306,13 +307,44 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \section{Passing to the abelianization}
  
  Let $G$ be a smooth group scheme over $\Fq$ and let $C = [G, G]$ be its commutator subgroup.
- 
+
+\begin{lemma}
+If $\cs{L}$ is a commutative character sheaf on $G$ then $\cs{L}\vert_C = (\EE)_C$.
+\end{lemma}
+\begin{proof}
+ Consider the morphism $c:  G \times G \to C$ given by $c(g,h)= ghg^{-1}h^{-1}$ and let $j : C \hookrightarrow G$ be the inclusion.  
+Thus, $j\circ c = m\circ (m \times (\iota\circ m\op)) : G \times G \to G$ is $(g,h) \mapsto gh g^{-1}h^{-1}$ while $m\op\circ (m \times (\iota\circ m\op))= e : G \times G \to G$ is $(g,h) \mapsto 1_G$. Thus,
+\begin{align*}
+(j\circ c)^*\cs{L} 
+&= c^* (\cs{L}\vert_C)\\
+&= (m\circ (m \times (\iota\circ m\op)))^* \cs{L} \\
+&= (m \times (\iota\circ m\op))^* m^* \cs{L} \\
+&= (m \times (\iota\circ m\op))^* m\op^* \cs{L} \\
+&= (m\op\circ (m \times (\iota\circ m\op)))^* \cs{L} \\
+&= e^* \cs{L}\\
+&= (\EE)_{G\times G}\\
+&= c^* ((\EE)_C).
+\end{align*}
+Since $c : G \times G \to C$ is smooth with geometrically connected fibres, \todo{Must insert proof of this! \\ -CC} the functor $c^*$ is full and faithful \cite{BBD}*{Prop 4.2.5} \todo{I'll find a better reference. Big stone. Small bird. \\ -CC} so $c^* (\cs{L}\vert_C) \iso c^* ((\EE)_C)$ implies $\cs{L}\vert_C \iso (\EE)_C$. 
+\end{proof}
+
  \begin{proposition}
  Every commutative character sheaf $\cs{L}$ on $G$ is equivariant for the left translation action of $C$ on $G$.
  \end{proposition}
  
  \begin{proof}
- 
+Let $n : C \times G \to G$ be the left translation action of $C$ on $G$. 
+Then $n = m \circ (j \times \id)$, so
+\begin{align*}
+n^* \cs{L} 
+&= (m \circ (j \times \id))^* \cs{L}\\
+&= (j \times \id))^* m^*\cs{L}\\
+&\iso (j \times \id))^* (\cs{L} \boxtimes \cs{L})\\
+&= (j^*\cs{L}) \boxtimes \cs{L}\\
+&= (\cs{L}\vert_C) \boxtimes \cs{L}\\
+&= (\EE)_C \boxtimes \cs{L}\\
+&= p_2^* \cs{L}.
+\end{align*}
  \end{proof}
  
  \begin{corollary}
@@ -323,8 +355,8 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
  \end{corollary}
  
  \begin{proof}
- By \'etale descent, pullback induces an equivalence of categories between $\CCS(G)$ and $\CCS(G/C)$.
- The result now follows from Theorem \ref{thm:trfrobiso} and the fact that all characters of $G(\Fq)$ factor through
+ By \'etale descent, pullback induces an equivalence of categories between $\CCS(G)$ and $\CCS(G/C)$. \todo{I need to expand on this trick. \\ -CC}
+  The result now follows from Theorem \ref{thm:trfrobiso} and the fact that all characters of $G(\Fq)$ factor through
  $G(\Fq)/C(\Fq)$, which equals $(G/C)(\Fq)$ since $C$ is simply connected.
  \end{proof}
  
@@ -336,7 +368,28 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
  \]
  is not commutative.  Explain how our character sheaves are not just representations of a fundamental group
  (or are they?), but instead have extra data like $\mu$ and $\phi$.
+\todo{I think I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
  \end{remark}
+ 
+\begin{proposition}
+Every commutative character sheaf on $G$ is equivariant for the conjugation action of $G$ on $G$.
+\end{proposition}
+
+\begin{proof}
+Let $a : G \times G \to G$ be the conjugation action of $G$ on $G$. Then $a = m \circ (m \times (\iota \circ p_1))$ and $m\op \circ (m \times (\iota \circ p_1)) = p_2$. Thus,
+\begin{align*}
+a^* \cs{L} 
+&= (m \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
+&= (m \times (\iota \circ p_1))^* m^* \cs{L}\\
+&\iso (m \times (\iota \circ p_1))^* m\op^* \cs{L}\\
+&= (m\op \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
+&= p_2^*\cs{L}.
+\end{align*}
+\end{proof}
+ 
+\begin{remark}
+A great tragedy of nomenclature: an equivariant sheaf is not a sheaf that is equivariant. \todo{I will explain this.\\ -CC} 
+\end{remark}
  
 \section{Applications}
 
@@ -357,7 +410,7 @@ $\Hom(\underline{G}(\OK),\EEx) \iso \QCSiso{\underline{G}}$.
 
 As proved in \cite{kim:07a}, many (complex) supercuspidal representations of $p$-adic groups can be built from the generic data of \cite{yu:01a}*{\S 15} and, moreover, the type (in the sense of \cite{bushnell-kutzko:98a}) of the resulting supercuspidal representations can be constructed directly from the generic data. 
 Let us refer to the types arising in this manner as {\it generic types}.
-In this section we show that, after fixing an isomorphism $\CC \approx \EE$, every generic type is geometrizable, in the sense that every part of generic type admits a description as a perverse sheaf on a scheme over a finite field, from which the type can be recovered using the trace of Frobenius.
+In this section we show that, after fixing an isomorphism $\CC \approx \EE$, every generic type is geometrizable, in the sense that every part of generic type admits a description as a perverse sheaf, from which the type can be recovered.
 
 Let $K$ be a $p$-adic field. Let $\G$ be a connected reductive linear algebraic group over $K$. 
 A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0(K) \subset \G^1(K) \subset \cdots  \subset \G^d(K) = \G(K)$ (proper containment); $\pi_0$ is a depth-zero representation of $\G^0(K)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where each $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism).  
