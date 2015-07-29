@@ -197,6 +197,7 @@ for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of [i
 This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
 We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
+\todo{Remember to check the matching paragraph in CS for T. It may have an error. The group operations are also smooth, not just the structure map? Hm. It might be okay, actually  . . . \\ -CC}
 
 Write $m : G \times G \to G$ for the multiplication morphism.
 Let $\theta : G\times G \to G\times G$ be given by $\theta(g,h) = (h,g)$
@@ -313,11 +314,13 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 If $\cs{L}$ is a commutative character sheaf on $G$ then $\cs{L}\vert_C = (\EE)_C$.
 \end{lemma}
 \begin{proof}
- Consider the morphism $c:  G \times G \to C$ given by $c(g,h)= ghg^{-1}h^{-1}$ and let $j : C \hookrightarrow G$ be the inclusion.  
-Thus, $j\circ c = m\circ (m \times (\iota\circ m\op)) : G \times G \to G$ is $(g,h) \mapsto gh g^{-1}h^{-1}$ while $m\op\circ (m \times (\iota\circ m\op))= e : G \times G \to G$ is $(g,h) \mapsto 1_G$. Thus,
+ Consider the morphism $c:  G \times G \to C$ given by $c(g,h)= ghg^{-1}h^{-1}$.
+This surjective morphism is smooth (it is a composition of smooth maps, since $G$ is smooth) with fibres
+Let $j : C \hookrightarrow G$ be the inclusion.  
+Then $j\circ c = m\circ (m \times (\iota\circ m\op)) : G \times G \to G$ is $(g,h) \mapsto gh g^{-1}h^{-1}$ while $m\op\circ (m \times (\iota\circ m\op))= e : G \times G \to G$ is $(g,h) \mapsto 1_G$. Thus,
 \begin{align*}
-(j\circ c)^*\cs{L} 
-&= c^* (\cs{L}\vert_C)\\
+c^* (\cs{L}\vert_C)
+&=  (j\circ c)^*\cs{L} \\
 &= (m\circ (m \times (\iota\circ m\op)))^* \cs{L} \\
 &= (m \times (\iota\circ m\op))^* m^* \cs{L} \\
 &= (m \times (\iota\circ m\op))^* m\op^* \cs{L} \\
@@ -326,7 +329,9 @@ Thus, $j\circ c = m\circ (m \times (\iota\circ m\op)) : G \times G \to G$ is $(g
 &= (\EE)_{G\times G}\\
 &= c^* ((\EE)_C).
 \end{align*}
-Since $c : G \times G \to C$ is smooth with geometrically connected fibres, \todo{Must insert proof of this! \\ -CC} the functor $c^*$ is full and faithful \cite{BBD}*{Prop 4.2.5} \todo{I'll find a better reference. Big stone. Small bird. \\ -CC} so $c^* (\cs{L}\vert_C) \iso c^* ((\EE)_C)$ implies $\cs{L}\vert_C \iso (\EE)_C$. 
+Since $c : G \times G \to C$ is faithfully flat, the functor $c^*$ is conservative.
+\todo{I'm working on this   . . . \\ -CC}
+Since $\cs{L} \to (\EE)_G$ induces $c^* (\cs{L}\vert_C) \iso c^* ((\EE)_C)$, this implies $\cs{L}\vert_C \iso (\EE)_C$. 
 \end{proof}
 
  \begin{proposition}
@@ -356,7 +361,7 @@ n^* \cs{L}
  \end{corollary}
  
  \begin{proof}
- By \'etale descent, pullback induces an equivalence of categories between $\CCS(G)$ and $\CCS(G/C)$. \todo{I need to expand on this trick. \\ -CC}
+ By descent along $G \to G/C = G\der$, pullback induces an equivalence of categories between $C$-equivariant local systems on $G$ local systems on  $G\der$. \todo{I need to explain what's going on here. \\ -CC}
   The result now follows from Theorem \ref{thm:trfrobiso} and the fact that all characters of $G(\Fq)$ factor through
  $G(\Fq)/C(\Fq)$, which equals $(G/C)(\Fq)$ since $C$ is simply connected.
  \end{proof}
@@ -369,7 +374,7 @@ n^* \cs{L}
  \]
  is not commutative.  Explain how our character sheaves are not just representations of a fundamental group
  (or are they?), but instead have extra data like $\mu$ and $\phi$.
-\todo{I think I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
+\todo{I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
  \end{remark}
  
 \begin{proposition}
