@@ -90,6 +90,7 @@
 \newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
 \newcommand{\op}{_{\operatorname{op}}}
 \newcommand{\der}{_{\operatorname{der}}}
+\newcommand{\ab}{^{\operatorname{ab}}}
 %%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
 \newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
 \newcommand{\abs}[1]{{\vert #1 \vert}}
@@ -150,7 +151,6 @@
 
 \begin{document}
 
-
 \begin{abstract}
 Abstract goes here
 \end{abstract}
@@ -158,6 +158,15 @@ Abstract goes here
 \maketitle
 
 \section*{Introduction}
+We introduce and establish the basic properties of \emph{commutative character sheaves} on smooth group schemes $G$ over finite fields $\Fq$. 
+For instance, show that show that the category of commutative character sheaves on $G$ is equivalent to the category of commutative character sheaves on $G\ab$. 
+We give three applications.
+First, we use commutative character sheaves to produce a functorial geometrization of characters of $G(\Fq)$ in all cases, thus repairing a defect in the function-sheaf dictionary for algebraic groups $G$ which appears when $\Hh^2(\pi_0(\bG),\EEx)^{\Frob{}}$ is non-trivial. 
+Second, we revisit the motivations for the stacky abelianization construction, and show that, after replacing the character sheaves on $G$ with commutative character sheaves on $G$, the schematic abelianization $G \to G\ab$ is correct.
+Finally, we provide a geometrization of generic types for supercuspidal representations of connected reductive linear algebraic groups over local fields.
+
+
+
 
 Fragments: 
 The additional condition distinguishing which character sheaves on $G$ are commutative, has several benefits, as we will see in this note.
@@ -361,7 +370,7 @@ n^* \cs{L}
  \end{corollary}
  
  \begin{proof}
- By descent along $G \to G/C = G\der$, pullback induces an equivalence of categories between $C$-equivariant local systems on $G$ local systems on  $G\der$. \todo{I need to explain what's going on here. \\ -CC}
+ By descent along $G \to G/C$, pullback induces an equivalence of categories between $C$-equivariant local systems on $G$ local systems on  $G/C$. \todo{I need to explain what's going on here. See appendix.\\ -CC}
   The result now follows from Theorem \ref{thm:trfrobiso} and the fact that all characters of $G(\Fq)$ factor through
  $G(\Fq)/C(\Fq)$, which equals $(G/C)(\Fq)$ since $C$ is simply connected.
  \end{proof}
@@ -437,6 +446,13 @@ In this way,  $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ determines perverse s
 
 Finally, consider the depth-zero supercuspidal representation $\pi_0$ of $\G^0(K)$.
 Then $\pi_0$ is produced by compact induction from representation $\sigma$ of a compact mod centre subgroup $\underline{C}_0(\OK) \subset \G^0(K)$. Moreover, $C_0$ admits a smooth integral model $\underline{C}$ \todo{Under construction. \\ -CC}
+
+\appendix
+
+\section{Descent}
+
+[Since I haven't found a good reference for descent in the non-connected case, I think I should lay out the arguments here. We use descent in this paper to pass from $C$-equivariant local systems on $G$ to local systems on $G\ab$, and thence to characters of $G\ab(\Fq)$. We also used it in our last paper in a different way. It is also lurking behind Weil sheaves ..... So, I'm going to set things up in a very general context. This section will get whittled down to  something more manageable, later.]
+
 
 
 \bibliography{bibliography/Biblio}
