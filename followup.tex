@@ -206,7 +206,6 @@ for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of [i
 This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
 We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
-\todo{Remember to check the matching paragraph in CS for T. It may have an error. The group operations are also smooth, not just the structure map? Hm. It might be okay, actually  . . . \\ -CC}
 
 Write $m : G \times G \to G$ for the multiplication morphism.
 Let $\theta : G\times G \to G\times G$ be given by $\theta(g,h) = (h,g)$
@@ -315,9 +314,69 @@ Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningh
 $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \end{remark}
 
-\section{Passing to the abelianization}
+\section{Descent to the abelianization}
  
- Let $G$ be a smooth group scheme over $\Fq$ and let $C = [G, G]$ be its commutator subgroup.
+
+ \begin{theorem}\label{thm:descent}
+ Let $G$ be a smooth group scheme over $\Fq$ and let $C = [G, G]$ be its commutator subgroup. 
+The quotient $G \to G/C$ exists in the category of smooth group schemes over $\Fq$.
+The category of commutative character sheaves on $G$ is equivalent to the category of commutative character sheaves on $G/C$: 
+ \[
+ \CCS(G) \iso \CCS(G/C).
+ \]
+ \end{theorem}
+
+\begin{proof}
+Set $G\ab \ceq G/C$ and let $q : G \to G\ab$ be the quotient in the category of smooth group schemes over $\Fq$.
+Recall the functor $q^* : \CCS(G\ab)\to \CCS(G)$ from  . . . 
+The strategy of the proof is indicated by the diagram below. 
+\[
+\begin{tikzcd}
+\CCS(G)& \\
+& \CCS_C(G) \arrow{ul}[swap]{\text{forget}} \\
+\CCS(G\ab) \arrow{uu}{g^*} \arrow{ur}[swap]{\text{comparison}} & 
+\end{tikzcd}
+\]
+We will first use smooth descent to show that the comparison functor is an equivalence from $\CCS(G\ab)$ to the category $\CCS_C(G)$ of $C$-equivariant commutative character sheaves on $G\ab$, the latter defined below.
+Then we will show that the forgetful functor from $\CCS_C(G)$ to $\CCS(G)$ is also an equivalence.
+
+  Every commutative character sheaf $\cs{L}$ on $G$ is equivariant for the left translation action of $C$ on $G$.
+Let $n : C \times G \to G$ be the left translation action of $C$ on $G$
+and let $p : C \times G \to G$ be projection to the second component.
+Then $n = m \circ (j \times \id)$, so
+\begin{align*}
+n^* \cs{L} 
+&= (m \circ (j \times \id))^* \cs{L}\\
+&= (j \times \id))^* m^*\cs{L}\\
+&\iso (j \times \id))^* (\cs{L} \boxtimes \cs{L})\\
+&= (j^*\cs{L}) \boxtimes \cs{L}\\
+&= (\cs{L}\vert_C) \boxtimes \cs{L}\\
+&= (\EE)_C \boxtimes \cs{L}\\
+&= p^* \cs{L}.
+\end{align*}
+ 
+\end{proof}
+
+\begin{lemma}
+Every commutative character sheaf on $G$ is equivariant for the conjugation action of $G$ on $G$.
+\end{lemma}
+
+\begin{proof}
+Let $a : G \times G \to G$ be the conjugation action of $G$ on $G$. Then $a = m \circ (m \times (\iota \circ p_1))$ and $m\op \circ (m \times (\iota \circ p_1)) = p_2$. Thus,
+\begin{align*}
+a^* \cs{L} 
+&= (m \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
+&= (m \times (\iota \circ p_1))^* m^* \cs{L}\\
+&\iso (m \times (\iota \circ p_1))^* m\op^* \cs{L}\\
+&= (m\op \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
+&= p_2^*\cs{L}.
+\end{align*}
+\end{proof}
+ 
+\begin{remark}
+A great tragedy of nomenclature: an equivariant sheaf is not a sheaf that is equivariant. \todo{I will explain this.\\ -CC} 
+\end{remark}
+
 
 \begin{lemma}
 If $\cs{L}$ is a commutative character sheaf on $G$ then $\cs{L}\vert_C = (\EE)_C$.
@@ -343,25 +402,7 @@ Since $c : G \times G \to C$ is faithfully flat, the functor $c^*$ is conservati
 Since $\cs{L} \to (\EE)_G$ induces $c^* (\cs{L}\vert_C) \iso c^* ((\EE)_C)$, this implies $\cs{L}\vert_C \iso (\EE)_C$. 
 \end{proof}
 
- \begin{proposition}
- Every commutative character sheaf $\cs{L}$ on $G$ is equivariant for the left translation action of $C$ on $G$.
- \end{proposition}
- 
- \begin{proof}
-Let $n : C \times G \to G$ be the left translation action of $C$ on $G$. 
-Then $n = m \circ (j \times \id)$, so
-\begin{align*}
-n^* \cs{L} 
-&= (m \circ (j \times \id))^* \cs{L}\\
-&= (j \times \id))^* m^*\cs{L}\\
-&\iso (j \times \id))^* (\cs{L} \boxtimes \cs{L})\\
-&= (j^*\cs{L}) \boxtimes \cs{L}\\
-&= (\cs{L}\vert_C) \boxtimes \cs{L}\\
-&= (\EE)_C \boxtimes \cs{L}\\
-&= p_2^* \cs{L}.
-\end{align*}
- \end{proof}
- 
+
  \begin{corollary}
  Trace of Frobenius induces an isomorphism
  \[
@@ -386,25 +427,6 @@ n^* \cs{L}
 \todo{I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
  \end{remark}
  
-\begin{proposition}
-Every commutative character sheaf on $G$ is equivariant for the conjugation action of $G$ on $G$.
-\end{proposition}
-
-\begin{proof}
-Let $a : G \times G \to G$ be the conjugation action of $G$ on $G$. Then $a = m \circ (m \times (\iota \circ p_1))$ and $m\op \circ (m \times (\iota \circ p_1)) = p_2$. Thus,
-\begin{align*}
-a^* \cs{L} 
-&= (m \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
-&= (m \times (\iota \circ p_1))^* m^* \cs{L}\\
-&\iso (m \times (\iota \circ p_1))^* m\op^* \cs{L}\\
-&= (m\op \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
-&= p_2^*\cs{L}.
-\end{align*}
-\end{proof}
- 
-\begin{remark}
-A great tragedy of nomenclature: an equivariant sheaf is not a sheaf that is equivariant. \todo{I will explain this.\\ -CC} 
-\end{remark}
  
 \section{Applications}
 
@@ -446,12 +468,6 @@ In this way,  $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ determines perverse s
 
 Finally, consider the depth-zero supercuspidal representation $\pi_0$ of $\G^0(K)$.
 Then $\pi_0$ is produced by compact induction from representation $\sigma$ of a compact mod centre subgroup $\underline{C}_0(\OK) \subset \G^0(K)$. Moreover, $C_0$ admits a smooth integral model $\underline{C}$ \todo{Under construction. \\ -CC}
-
-\appendix
-
-\section{Descent}
-
-[Since I haven't found a good reference for descent in the non-connected case, I think I should lay out the arguments here. We use descent in this paper to pass from $C$-equivariant local systems on $G$ to local systems on $G\ab$, and thence to characters of $G\ab(\Fq)$. We also used it in our last paper in a different way. It is also lurking behind Weil sheaves ..... So, I'm going to set things up in a very general context. This section will get whittled down to  something more manageable, later.]
 
 
 
