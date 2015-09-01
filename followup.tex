@@ -374,22 +374,6 @@ c^* (\cs{L}\vert_{G\der})
 Since $c : G \times G \to G\der$ is schematically dense, the group homomorphism $\pi_1(G\times G, {\bar y}) \to \pi_1(G\der, {\bar x})$ is surjective, for all geometric points with $c({\bar y}) = {\bar x}$. It follows that $c^* (\cs{L}\vert_{G\der}) \iso (\EE)_{G\times G}$ implies $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$. 
 \end{proof}
 
-\begin{lemma}\label{lem:smooth_coeq}
-The quotient $q : G \to G\ab\ceq G/G\der$ is a smooth $G\der$-torsor and is the coequalizer of $n : G\der \times G \to G$ with projection $p: G\der \times G \to G$. 
-\[
-\begin{tikzcd}
-G\der\times G
- \arrow{r}[shift left]{n}
-  \arrow{r}[shift right,swap]{p}
-&
-G 
-\arrow{r}{q}
-& 
-G\ab
-\end{tikzcd}
-\]
-\end{lemma}
-
 \begin{proposition}\label{prop:Gder-equivariance}
 $\CCS_{G\der}(G) \to \CCS(G)$ is an equivalence.
 \end{proposition}
@@ -412,6 +396,23 @@ n^* \cs{L}
 Thus, $\cs{L}$ is $G\der$-equivariant.
 \end{proof}
 
+\begin{lemma}\label{lem:smooth_coeq}
+The quotient $q : G \to G\ab\ceq G/G\der$ is a smooth $G\der$-torsor and is the coequalizer of $n : G\der \times G \to G$ with projection $p: G\der \times G \to G$. 
+\[
+\begin{tikzcd}
+G\der\times G
+ \arrow{r}[shift left]{n}
+  \arrow{r}[shift right,swap]{p}
+&
+G 
+\arrow{r}{q}
+& 
+G\ab
+\end{tikzcd}
+\]
+\end{lemma}
+
+
 \begin{theorem}\label{thm:descent}
  Let $G$ be a smooth group scheme over $\Fq$ 
  and let $q : G \to G\ab$ be its abelianization. 
@@ -428,7 +429,7 @@ effective descent morphism for the fibred category of commutative character shea
 \todo{$\CCS \to \Sch{\Fq}$ is a fibred category. Is it also a stack?}
 See appendix for details.
 %
-Combining this with Proposition~\ref{prop:Gder-equivariant}, it follows that $q^* : \CCS(G\ab)\to \CCS(G)$ is an equivalence.
+Combining this with Proposition~\ref{prop:Gder-equivariance}, it follows that $q^* : \CCS(G\ab)\to \CCS(G)$ is an equivalence.
 \end{proof}
 
 \begin{remark}
