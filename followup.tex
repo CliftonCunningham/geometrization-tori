@@ -382,18 +382,6 @@ Since $c : G \times G \to G\der$ is schematically dense, the group homomorphism 
 
 Let $n : G\der \times G \to G$ be the restriction of $m: G\times G \to G$.
 
-\[
-\begin{tikzcd}
-\CCS(G\der \times G)
-& \arrow{l}[shift left,swap]{n^*}
-  \arrow{l}[shift right]{p^*}
-\CCS(G) 
-&&\arrow{ll}[swap]{f^*} 
-\CCS(G\ab) \arrow{dl}{\text{`comparison'}}\\
-& & \arrow{ul}{\text{forget}} \CCS_{G\der}(G) & 
-\end{tikzcd}
-\]
-
 
 \begin{proposition}\label{prop:Gder-equivariance}
 $\CCS_{G\der}(G) \to \CCS(G)$ is an equivalence.
@@ -417,9 +405,7 @@ n^* \cs{L}
 Thus, $\cs{L}$ is $G\der$-equivariant.
 \end{proof}
 
-\begin{lemma}\label{lem:smooth_coeq}
-The quotient $q : G \to G\ab\ceq G/G\der$ is a smooth $G\der$-torsor and is the coequalizer of $n : G\der \times G \to G$ with projection $p: G\der \times G \to G$. 
-\iffalse
+The quotient $q : G \to G\ab$ with kernel $G\der$  is the coequalizer of $n : G\der \times G \to G$ with projection $p: G\der \times G \to G$. 
 \[
 \begin{tikzcd}
 G\der\times G
@@ -432,9 +418,24 @@ G
 G\ab
 \end{tikzcd}
 \]
-\fi
+
+\begin{lemma}\label{lem:smooth_coeq}
+The quotient $q : G \to G\ab\ceq G/G\der$ is a smooth $G\der$-torsor.
 \end{lemma}
 
+[I don't have a proof of this yet.]
+
+\[
+\begin{tikzcd}
+\CCS(G\der \times G)
+& \arrow{l}[shift left,swap]{n^*}
+  \arrow{l}[shift right]{p^*}
+\CCS(G) 
+&&\arrow{ll}[swap]{f^*} 
+\CCS(G\ab) \arrow{dl}{\text{`comparison'}}\\
+& & \arrow{ul}{\text{forget}} \CCS_{G\der}(G) & 
+\end{tikzcd}
+\]
 
 
 \begin{theorem}\label{thm:descent}
@@ -485,18 +486,23 @@ A great tragedy of nomenclature: an equivariant sheaf is not a sheaf that is equ
  (or are they?), but instead have extra data like $\mu$ and $\phi$.
 \todo{I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
-\section{Geometrization of generic types for supercuspidal representations}
+
+
+\section{Application to certain supercuspidal representations of $p$-adic groups}
+
+[A basic question which I think we must answer but which we can maybe skate around for now:
+When is the Suzuki transform of a K-variety representable as a k-scheme?
 
 
 Let $K$ be a local field with residue field $\Fq$.
 Let $\underline{G}$ be a smooth group scheme over $K$.
 Set $G_n = \Gr^R_n(\underline{G})$; this is a smooth group scheme over $\Fq$.
-Set $G = \Gr^R_n(\underline{G})$; this is a group scheme over $\Fq$ equipped with $G = \varprojlim_{n\in \NN} G_n$.
-Let $\QCS(\underline{G})$ be the category of commutative character sheaves on $G$. . . .  as in \cite{cunningham-roe:13a}.
+Set $G = \Gr_R(\underline{G})$; this is a group scheme over $\Fq$ equipped with $G = \varprojlim_{n\in \NN} G_n$.
+Let $\QCS(G)$ be the category of commutative character sheaves on $G$. . . .  as in \cite{cunningham-roe:13a}.
 
-\begin{corollary}\label{cor:QCS}
-$\Hom(\underline{G}(\OK),\EEx) \iso \QCSiso{\underline{G}}$.
-\end{corollary}
+\begin{proposition}\label{prop:QCS}
+$\Hom(\underline{G}(\OK),\EEx) \iso \QCSiso{G}$.
+\end{proposition}
 
  
 
