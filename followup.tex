@@ -164,7 +164,7 @@ We introduce and establish the basic properties of  the category of \emph{commut
 Expanding on work by the same authors, we show that all character sheaves on $G\ab$ are commutative, when $G\ab$ is connected and of finite type.
 We give three applications.
 First, we use commutative character sheaves to produce a functorial geometrization of characters of $G(\Fq)$ in all cases, thus repairing a defect in the function-sheaf dictionary for algebraic groups $G$ which appears when the component group of $G$ is $\Hh^2(\pi_0(\bG),\EEx)^{\Frob{}}$ is non-trivial. 
-Second, we revisit the motivations for the stacky abelianization construction, and show that, after replacing the character sheaves on $G$ with commutative character sheaves on $G$, the schematic abelianization $G \to G\ab$ is the correct quotient.
+Second, we revisit the motivations for the stacky abelianization construction, and show that, after replacing the rank-$1$ character sheaves on $G$ with commutative character sheaves on $G$, the schematic abelianization $G \to G\ab$ is the correct quotient.
 This is an immediate consequence of the fact that the category of commutative character sheaves on $G$ is equivalent to the category of commutative character sheaves on $G\ab$. 
 Finally, we provide a geometrization of generic types for supercuspidal representations of connected reductive linear algebraic groups over local fields.
 This last application puts all the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category: perverse sheaves on group schemes over finite fields.
@@ -192,7 +192,7 @@ This note shows that $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ admits a canonical se
 \]
 found in \cite{cunningham-roe:13a}*{Thm. 3.6}.
 \labitem{(3)}{b3}
-Like the category $\CS(G)$ of character sheaves on $G$, which described completely in \cite{cunningham-roe:13a}, $\CCS(G)$ is a rigid monoidal category.
+Like the category $\CS(G)$ of character sheaves on $G$, which is described completely in \cite{cunningham-roe:13a}, $\CCS(G)$ is a rigid monoidal category.
 Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{cunningham-roe:13a}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or and isomorphism, and
 \[
 \Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}.
@@ -218,15 +218,15 @@ For any local system $\gcs{L}$ on $\bG \ceq G \times_{\Spec{\Fq}} \Spec{\bFq}$ t
 $\vartheta : \LxL \to {\bar \theta}^*(\LxL)$ given on stalks by the canonical map
 $\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
 
-Recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $\cs{L} \ceq (\gcs{L}, \mu, \phi)$,
+When $G$ is commutative, recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $\cs{L} \ceq (\gcs{L}, \mu, \phi)$,
 where $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, $\mu : \bm^* \gcs{L} \to \LxL$ is an isomorphism
 of sheaves on $\bG \times \bG$, and $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an isomorphism of sheaves on $\bG$.
-In \emph{loc. cit.}, $G$ was assumed to be commutative, but the same definition makes sense for non-commutative $G$.
-We will denote the category of character sheaves on $G$ by $\CS(G)$.
-\todo{I think we should hold the term `character sheaves for G', when $G$ is not commutative, in reserve, and not use it here for non-commutative $G$. So I might advocate going back to the full definition here. Or, we might introduce the term `rank-$1$ character sheaf, similar to what Masoud did  . . . \\ -CC}
+The same definition makes sense for non-commutative $G$.  In order to distinguish the resulting objects from
+the character sheaves of Lusztig, we will refer to them as \emph{rank-$1$ character sheaves} (following \cite{Kamgarpour})
+and write $\CS(G)$ for the resulting category, with morphisms defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
 
 \begin{definition}\label{def:CCS}
-A character sheaf on $G$ is \emph{commutative} if there is an isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$
+A rank-$1$ character sheaf on $G$ is \emph{commutative} if there is an isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$
 such that the following diagram commutes,
   \[
   \begin{tikzcd}[row sep=30]
@@ -245,7 +245,7 @@ If the isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$ exists, then i
 \end{proof}
 
 \begin{proposition}
-Every commutative character sheaf on $G$ is equivariant for the conjugation action of $G$ on $G$. Conversely, if a [rank-$1$] character sheaf on $G$ is equivariant for conjugation, then it is commutative. 
+Every commutative character sheaf on $G$ is equivariant for the conjugation action of $G$ on $G$. Conversely, if a rank-$1$ character sheaf on $G$ is equivariant for conjugation, then it is commutative. 
 \end{proposition}
 
 \begin{proof}
@@ -260,7 +260,7 @@ a^* \cs{L}
 \end{align*}
 Since the isomorphism $a^*\cs{L} \iso p_2^*\cs{L}$ is unique, $(\cs{L}, a^*\cs{L} \iso p_2^*\cs{L})$ is an equivariant commutative character sheaf.
 
-Conversely, let $(\cs{L}, a^*\cs{L} \iso p_2^*\cs{L})$ be an equivariant [rank-$1$] character sheaf.
+Conversely, let $(\cs{L}, a^*\cs{L} \iso p_2^*\cs{L})$ be an equivariant rank-$1$ character sheaf.
 Observe that $m = a \circ (p_1\times m\op)$ while $p_2 \circ (p_1\times m\op) = m\op$. Thus, 
 \begin{align*}
 m^* \cs{L} 
@@ -478,7 +478,7 @@ A great tragedy of nomenclature: an equivariant sheaf is not a sheaf that is equ
  
 \subsection{Stacky abelianization, revisited}
  
- Talk about relationship with \cite{kamgarpour:09a}.  In particular, explain why the character sheaf corresponding
+ Talk about relationship with \cite{kamgarpour:09a}.  In particular, explain why the rank-$1$ character sheaf corresponding
  to the cover
  \[
  1 \to \mu_n \to \SL_n \to \PGL_n \to 1
