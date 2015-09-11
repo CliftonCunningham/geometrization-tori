@@ -1,6 +1,7 @@
 \documentclass[10pt]{amsart}
 
-\title[Commutative Character Sheaves]{Commutative Character Sheaves, with an application to generic types for supercuspidal representations}
+\title[Commutative Character Sheaves]{Commutative Character Sheaves}
+%with an application to geometric types for supercuspidal representations
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, AB, Canada, {T2N~1N4}.}
 \email{cunning@math.ucalgary.ca}
@@ -487,13 +488,7 @@ A great tragedy of nomenclature: an equivariant sheaf is not a sheaf that is equ
  (or are they?), but instead have extra data like $\mu$ and $\phi$.
 \todo{I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
-
-
-\section{Application to certain supercuspidal representations of $p$-adic groups}
-
-[A basic question which I think we must answer but which we can maybe skate around for now:
-When is the Suzuki transform of a K-variety representable as a k-scheme?
-
+\section{Application: geometric types for supercuspidal representations}
 
 Let $K$ be a local field with residue field $\Fq$.
 Let $\underline{G}$ be a smooth group scheme over $K$.
@@ -532,27 +527,80 @@ In this way,  $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ determines perverse s
 Finally, consider the depth-zero supercuspidal representation $\pi_0$ of $\G^0(K)$.
 Then $\pi_0$ is produced by compact induction from representation $\sigma$ of a compact mod centre subgroup $\underline{C}_0(\OK) \subset \G^0(K)$. Moreover, $C_0$ admits a smooth integral model $\underline{C}$ \todo{Under construction. \\ -CC}
 
+{Application to certain supercuspidal representations of $p$-adic groups}
+
+
+
 \appendix
 
-\section{Descent along smooth fibrations}
+\section{Descent along torsors}
 
-Let $G$ be a group scheme acting on $X$ by $m : G \times X \to X$.
+Let $G$ be a group scheme acting on $X$ by $m : G \times X \to X$; let $p : G\times X \to X$ be projection.
 
-A principal $G$-bundle $f : X\to Y$ is a coequalizer of $m$ and projection $G\times X \to X$  
-which is locally trivial in the following sense.
-First, there is an open covering $\{ V_n\}$ of $Y$ such that, for each $V$ in this covering, the lower coequalizer diagram is a base change of the one above
+Recall that a morphism $f : X\to S$ is a regular epimorphism if . . . . coequalizer for the pair of morphisms $(m,p)$ if ....
+
+A morphism $f : X\to S$ is a $G$-torsor if it is equivariant for the trivial action of $G$ on $S$ and if there is a covering $\{ S_i \tq i \in I\}$ of $S$ such that, for each $i\in I$, there is an isomorphism $X\times_S S_i \to G\times S_i$ such that composition with projection $G\times S_i \to S_i$ is $X\times_S S_i \to S_i$.
+
+
+We recall the definition of the category $\Loc_G(X)$ of $G$-equivariant local systems on $X$.
+Objects in $\Loc_G(X)$ are pairs $(\cs{L}, \nu)$ where $\cs{L} \in \Loc(X)$ and $\nu : m^*\cs{L} \to p^*\cs{L}$ is an isomorphism in $\Loc(G\times X)$
+such that the following diagram commutes, where $m_0(a,b,x) = (a,m(b,x))$ and $m_1(a,b,x) = (m(ab),x)$ and $p_2(a,b,x) = (b,x)$.
 \[
 \begin{tikzcd}
-G\times X
- \arrow{rr}[shift left]{m}
-  \arrow{rr}[shift right,swap]{\text{proj'n}}
-&& X \arrow{r}{f} &  Y\\
-G\times  (G\times V) \arrow{u}
- \arrow{rr}[shift left]{\text{mult'n in $G$}}
-  \arrow{rr}[shift right,swap]{\text{proj'n}}
-&& G\times V \arrow{u}  \arrow{r} &  \arrow{u} V;
+\ &  m_0^*  m^*\, \mathcal{L} \arrow{r}{m_0^*\nu} & m_0^* p^*\, \mathcal{L} & \\
+m_1^* m^*\, \mathcal{L} \arrow{dr}[swap]{m_1^*\nu} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{p_2^*\nu} p_2^* m^*\, \mathcal{L} \\
+& m_1^* p^*\, \mathcal{L} \arrow[equal]{r} & p_2^* p^*\, \mathcal{L} & 
 \end{tikzcd}
 \]
+
+A morphism $(\cs{L},\nu) \to (\cs{L}',\nu')$ in $\Loc_G(X)$ is a morphism $\alpha: \cs{L} \to \cs{L}'$ in $\Loc(X)$ such that . . . .
+
+Let $f : X\to S$ be a regular epimorphism with kernel pair $(m,p)$. 
+If $\cs{S} \in \Loc(S)$ then $f^*\cs{S} \in \Loc(X)$ comes equipped with a canonical isomorphism $m^* (f^* \cs{S}) \to p^* (f^*\cs{S})$, since $f\circ m = f\circ p$.
+This defines $f_G^* : \Loc(S) \to \Loc_G(X)$ such that the functor $f^* : \Loc(S) \to \Loc(X)$ factors as below.
+\[
+\begin{tikzcd}
+\Loc(X) 
+&&\arrow{ll}[swap]{f^*} 
+\Loc(S) \arrow{dl}{f_G^*}\\
+& \arrow{ul}{\text{forget}} \Loc_G(X) & 
+\end{tikzcd}
+\]
+
+
+
+
+\begin{lemma}\label{lem:descent}
+If $f: X\to S$ is a $G$-torsor and a regular epimorphism for $(m,p)$, then $f_G^* : \Loc(S) \to \Loc_G(X)$ admits a left-adjoint.
+% $f^G_! : \Loc_G(X) \to \Loc(S)$
+\end{lemma}
+
+
+
+\begin{remark}
+Comparison with the comparison functor
+\end{remark}
+
+
+\begin{lemma}
+In this case, the functor $f^* : \Loc(S)\to \Loc(X)$ admits a left-adjoint 
+\end{lemma}
+\begin{proof}
+The left-adjoint $f_! : \Loc(X) \to \Loc(S)$ is defined as follows.
+Now, suppose $\cs{L}\in \Loc(X)$.
+For each $i\in I$, define $\cs{S}_i \in \Loc(S_i)$ by $\cs{S}_i\ceq t_i^* \cs{L}$.
+The sheaves $\cs{S}_i$ glue to define a sheaf $\cs{S}$ on $S$ by definition above.
+Morphisms of these sheaves are likewise defined locally . . . 
+
+
+\end{proof}
+
+
+
+
+is a coequalizer of $m$ and projection $G\times X \to X$  
+which is locally trivial in the following sense.
+First, there is an open covering $\{ V_n\}$ of $Y$ such that, for each $V$ in this covering, the lower coequalizer diagram is a base change of the one above
 
 and the following diagram commutes
 \[
@@ -570,23 +618,7 @@ and isomorphisms ${t}_n : f^{-1}{V}_n \to {G}\times {V}_n$ such that  ${f}$ is g
 
 Let $\Loc^1(X)$ be the category of rank-$1$ local systems on $X$ and let $\Loc_G^1(X)$ be the category of $G$-equivariant rank-$1$ local systems on $X$.
 
-\begin{proposition}
-Let $G$, $X$ and $Y$ be smooth.
-Let $f : X \to Y$ be a $G$-torsor.
-Then the comparison functor, pictured below,
-\[
-\begin{tikzcd}
-%\Loc^1(G \times X)
-%& \arrow{l}[shift left,swap]{m^*}
-%  \arrow{l}[shift right]{p^*}
-\Loc^1(X) 
-&&\arrow{ll}[swap]{f^*} 
-\Loc^1(Y) \arrow{dl}{\text{comparison}}\\
-& \arrow{ul}{\text{forget}} \Loc^1_G(X) & 
-\end{tikzcd}
-\]
-is an equivalence.
-\end{proposition}
+
 
 \begin{proof}
 This is well-known. We include a proof only for completeness.
@@ -657,8 +689,25 @@ Let ${u}_n : {X}_n \to {P}\times{X}_n$ be the section of ${m}_n : {P}\times{X}_n
 is an isomorphism in $D^b_c({X}_n, \EE)$. By \cite[Prop~4.2.5]{BBD} and the fact that ${\mathcal M}{X}_n$ is stable in $D^b_c({X}_n, \EE)$ under isomorphisms, it follows that $\mathcal{F}'_n \in \obj {\mathcal M}{Y}_n$. By standard glueing arguments, the collection of isomorphisms ${u}_n^* \mu_{\mathcal{F}_n} \in \mor{\mathcal M}{X}_n$, as ${X}_n$ ranges over the open cover of ${X}$ fixed above, uniquely determines an isomorphism in \[
 \Hom_{D^b_c({X}, \EE)}(\mathcal{F},{f}^*[\dim{P}] \mathcal{G}).
 \]  
-From \cite[Prop~4.2.5]{BBD}  it follows that $\mathcal{G}\in \obj{\mathcal M}{Y}$. This completes the proof of Proposition~\ref{proposition: torsor}.
+From \cite[Prop~4.2.5]{BBD}  it follows that $\mathcal{G}\in \obj{\mathcal M}{Y}$. This completes the proof of Proposition~\ref{lem:descent}.
 \end{proof}
+
+\begin{proposition}
+Let $f : X \to S$ be a morphism of smooth group schemes.
+Suppose $G$ is a smooth group scheme acting on $X$.
+Suppose $f$ is a $G$-torsor.
+Then the comparison functor, pictured below,
+\[
+\begin{tikzcd}
+\CCS(X) 
+&&\arrow{ll}[swap]{f^*} 
+\CCS(S) \arrow{dl}{\text{comparison}}\\
+& \arrow{ul}{\text{forget}} \CCS_G(X) & 
+\end{tikzcd}
+\]
+is an equivalence.
+\end{proposition}
+
 
 \begin{proposition}\label{proposition: more torsor}
 Let ${f} : {X} \to {Y}$ be a principal fibration with group ${P}$ and suppose ${P}$ is connected. Then ${f}^*[\dim{P}] : {\mathcal M}{Y} \to {\mathcal M}_{P}{X}$ is an equivalence of categories and ${\mathcal M}_{P}{X}$ is a thick subcategory of ${\mathcal M}{X}$.
