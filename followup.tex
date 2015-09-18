@@ -376,7 +376,7 @@ where $m_0(a,b,x) = (a,m(b,x))$ and $m_1(a,b,x) = (m(ab),x)$ and $p_2(a,b,x) = (
 Write $\CCS_H(G)$ for the category of $H$-equivariant commutative character sheaves on $G$.
 \subsection{Descent}
 
-We now suppose that $H$ is normal in $G$, that the fppf-quotient $G \to G'\ceq H\backslash G$ exists.
+We now suppose that $H$ is normal in $G$ and that the fppf-quotient $G \to G'\ceq H\backslash G$ exists.
 Then $q : G \to G'$ is a regular epimorphism with kernel pair $(n,p)$ in the category of schemes.
 In particular, $G \times_{G'} G \iso H\times_S G'$, so $G \to G'$ is a $G$-torsor in the fppf topology.
 
@@ -468,7 +468,7 @@ It now follows from Lemma~\ref{lem:Lder} that the forgetful functor $\CCS_{G\der
 \subsection{Abelianization}
 
 By definition, the abelianization $G\ab$ of $G$ is the fppf-quotient $q : G \to G\ab$ of $G$ by $G\der$. 
-This exists in schemes since  . . . 
+This exists in schemes since  . . . \todo{I hope smoothness does the trick here.}
 %\todo{Proof needed}
 %  is the coequalizer of $n : G\der \times G \to G$ with projection $p: G\der \times G \to G$. 
 \[
@@ -495,7 +495,7 @@ is an equivalence of categories.
 \end{proposition}
 
 \begin{proof}
-The quotient $G \to G\ab$ is a $G\der$-torsor in the etale topology, \todo{Either true or it becomes a condition on $G$.} so the result follows from Lemma~\ref{lem:descent}.
+The quotient $G \to G\ab$ is a $G\der$-torsor in the etale topology, \todo{Either true or it becomes a condition on $G$. Again, I hope smoothness does the trick.} so the result follows from Lemma~\ref{lem:descent}.
 \end{proof}
 
 \begin{theorem}\label{thm:Gab-descent}
@@ -525,7 +525,7 @@ The following is a commuting diagram of isomorphisms:
  \begin{proof}
  By Theorem \ref{thm:trfrobiso}, $\CCSiso{G}\to G(\Fq)^*$ and $\CCSiso{G\ab}\to G\ab(\Fq)^*$ are isomorphisms.
 By Theorem~\ref{thm:Gab-descent}, $\CCSiso{G} \iso \CCSiso{G\ab}$.
-Since $G\der$ is simply connected,\todo{Proof needed}, $G\ab(\Fq) = G(\Fq)/G\der(\Fq)$.
+Since $G\der$ is simply connected, \todo{Proof needed} $G\ab(\Fq) = G(\Fq)/G\der(\Fq)$.
 Thus, all characters of $G(\Fq)$ factor through
  $G\ab(\Fq)$. . . . 
  The isomorphisms are compatible because  . . . 
