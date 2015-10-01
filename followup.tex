@@ -215,38 +215,60 @@ We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$,
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
 
 
+In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$ and writing $\alpha : \cs{L} \to \cs{L}'$ for a morphism $\alpha : \gcs{L} \to \gcs{L}$ such that 
+\[
+\begin{tikzcd}
+\Frob{}^* \gcs{L} \arrow{d}{\phi} \arrow{r}{\Frob{}^*\alpha} &  \Frob{}^* \gcs{L} \arrow{d}{\phi'}\\
+\gcs{L} \arrow{r}{\alpha} & \gcs{L}
+\end{tikzcd}
+\]
+commutes, where $\cs{L}'$ refers to $(\gcs{L}',\phi')$.
+While this simplifies notation considerably, it is, unfortunately, not consistent with our earlier paper.
+
+
+
 \subsection{Main definition}
 
 Let $\theta : G\times G \to G\times G$ be given by $\theta(g,h) = (h,g)$.
 Write $m : G \times G \to G$ for the multiplication morphism
 and define $m\op : G \times G \to G$ by $m\op = m \circ \theta$.
-For any local system $\gcs{L}$ on $\bG \ceq G \times_{\Spec{\Fq}} \Spec{\bFq}$ there is an isomorphism
-$\vartheta : \LxL \to {\bar \theta}^*(\LxL)$ given on stalks by the canonical map
+For any Weil local system $\cs{L}$ on $G$ there is an isomorphism
+$\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ given on stalks by the canonical map
 $\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
 
-When $G$ is commutative, recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $\cs{L} \ceq (\gcs{L}, \mu, \phi)$,
-where $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, $\mu : \bm^* \gcs{L} \to \LxL$ is an isomorphism
-of sheaves on $\bG \times \bG$, and $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an isomorphism of sheaves on $\bG$.
-The same definition makes sense for non-commutative $G$.  In order to distinguish the resulting objects from
-the character sheaves of Lusztig, we will refer to them as \emph{rank-$1$ character sheaves} (following \cite{Kamgarpour})
-and write $\CS(G)$ for the resulting category, with morphisms defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
+
+When $G$ is commutative, recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $(\gcs{L}, \mu, \phi)$,
+where $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, 
+$\mu : \bm^* \gcs{L} \to \LxL$ is an isomorphism
+of sheaves on $\bG \times \bG$, 
+and $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an isomorphism of sheaves on $\bG$;
+the triple $(\gcs{L}, \mu, \phi)$ must also satisfy compatibility conditions specified in \cite{cunningham-roe:13a}*{Def. 1.1}.
+Writing $\cs{L}$ for the Weil local system $(\gcs{L}, \mu, \phi)$, these compatibility conditions are simply this: $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is an isomorphism of Weil local systems.
+The category of character sheaves on $G$ is denoted by $\CS(G)$.
+
+The definition of $\CS(G)$ also makes sense for non-commutative $G$.  
+In order to distinguish the resulting objects from
+the character sheaves of Lusztig, we will refer to the former as \emph{linear character sheaves} (to evoke the one-dimensional character sheaves of \cite{Kamgarpour})
+and again write $\CS(G)$ for the resulting category, with morphisms defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
 
 \begin{definition}\label{def:CCS}
-A rank-$1$ character sheaf on $G$ is a\emph{commutative character sheaf} if there is an isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$ such that the following diagram commutes,
+A linear character sheaf on $G$ is a \emph{commutative character sheaf} if there is an isomorphism $m^* \cs{L} \to m\op^* \cs{L}$ of local systems on $G\times G$ such that the following diagram commutes.
   \[
   \begin{tikzcd}[row sep=30]
-   \bm^*\gcs{L} \arrow{d} \arrow{r}{\mu} & \LxL \arrow{d}{\vartheta}\\
-   \bm\op^*\gcs{L} \arrow{r}{{\bar \theta}^*\mu} &  {\bar \theta}^*(\LxL).
+   m^*\cs{L} \arrow{d} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   m\op^*\cs{L} \arrow{r}{{\theta}^*\mu} &  {\bar \theta}^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
   \]
- Write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
+We write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
  \end{definition}
 
 
 \begin{lemma}
-If the isomorphism ${\bar m}^* \gcs{L} \to {\bar m}\op^* \gcs{L}$ exists and satisfies the condition of Definition~\ref{def:CCS}, then it is unique.
+If the isomorphism $m^* \cs{L} \to m\op^* \cs{L}$ exists and satisfies the condition of Definition~\ref{def:CCS}, then it is unique.
 \end{lemma}
+
 \begin{proof}
+Why is this true?
 \end{proof}
 
 \section{Eliminating Invisible Character Sheaves}\label{sec:defect}
@@ -329,29 +351,30 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \subsection{Derived subgroup}
 
 Let $G$ be a smooth group scheme.
-Let $G\der \hookrightarrow G$ denote the closed subgroup generated by the smooth morphism $G\times G \to G$ given by $(x,y)\mapsto xyx^{-1}y^{-1}$. Then $G \times G \to G\der$ is a dominant morphism; see \cite{SGA3}*{{VI}$_B$, 7.2}.
-\[
-\begin{tikzcd}
-{} & G\times G \arrow{d}{} &&&\\
-1 \arrow{r} & G\der \arrow{r}{} & G \arrow{r}{q} & G\ab \arrow{r} & 1
-\end{tikzcd}
-\]
-Then $G$ is commutative if and only if $G\der$ is
+Let $G\der \hookrightarrow G$ denote the closed subgroup generated by the smooth morphism $G\times G \to G$ given by $(x,y)\mapsto xyx^{-1}y^{-1}$. Then $G \times G \to G\der$ is a dominant morphism \cite{SGA3}*{{VI}$_B$, 7.2}
+and $G$ is commutative if and only if $G\der$ is trivial.
 
-While the subgroup $G\der$ is smooth, it need not be connected. The restriction of $G\times G\to G\der$ to identity components gives a dominant morphism $G^0\times G^0 \to G^0\der$ by [SGA6B, Ex. 7, Prop 7.8]
+While the subgroup $G\der$ is smooth, it need not be connected. The restriction of $G\times G\to G\der$ to identity components gives a dominant morphism $G^0\times G^0 \to G^0\der$ by [SGA3, Tome 6B, Expos\'e 7, Prop 7.8]
 
 \subsection{Abelianization}
 
 Let $q: G \to G\ab$ be the fppf-quotient  . . . 
 We suppose $G\ab$ exists in group schemes over $\Fq$. \todo{This is a condition on $G$. Does it follow from smoothness? I've written to Masoud for help on this.}
 If $G$ is of finite type (and so, an algebraic group) then $G\ab$ exists in group schemes by \cite{GM}*{Thm 4.39}: $G$ smooth implies $G$ flat; $G\der$ is also smooth (!) so also flat; $\dim \Spec{\Fq} \leq 1$.
+
+\[
+\begin{tikzcd}
+{} & G\times G \arrow{d}{} &&&\\
+1 \arrow{r} & G\der \arrow{r}{} & G \arrow{r}{q} & G\ab \arrow{r} & 1
+\end{tikzcd}
+\]
  
  \subsection{Statement of the main result}
 
 
 As in [CS], every morphism of group schemes $G \to G'$ induces . .  
  
-Another hypothesis: suppose the smooth morphism $G\times G\to G\der$ is of relative dimension on each connected component of $G\der$.
+Another hypothesis: suppose the smooth morphism $G\times G\to G\der$ is of relative dimension on each connected component of its image in $G\der$.\todo{This is another condition on $G$. Does it come from smoothness of $G$?}
 
 \begin{theorem}\label{thm:Gab}
 Under these hypotheses, pull-back along the abelianization $q : G \to G\ab$
@@ -381,49 +404,64 @@ By contrast, $\CS(G)$ and $\CS(G\ab)$ are generally not isomorphic categories, n
 We wish to consider the categories $\CCS_G(G)$ (resp $\CS_G(G)$) of $G$-equivariant commutative character sheaves (linear character sheaves) on $G$. To that end, in this section we introduce that notion in its general context.
 
 Let $G$ and $H$ be group schemes; let $n : H \times G\to G$ be a group action and write $p : H\times G \to G$ for projection. 
-An $H$-equivariant linear character sheaf on $G$ is a linear character sheaf $\cs{L} = (\gcs{L},\phi,\mu)$ on $G$ together with an isomorphism  $\nu : {\bar n}^*\gcs{L} \to {\bar p}^*\gcs{L}$ such that the following diagrams commute, expressing compatibility with $\phi$ and $\mu$:
-\begin{enumerate}
-\item
+An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  $\nu : n^*\cs{L} \to p^*\cs{L}$ of Weil local systems on $G\times G$ such that the following diagram commutes,
 \[
 \begin{tikzcd}
 \ &  n_0^*  n^*\, \mathcal{L} \arrow{r}{n_0^*\nu} & n_0^* p^*\, \mathcal{L} & \\
 n_1^* n^*\, \mathcal{L} \arrow{dr}[swap]{n_1^*\nu} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{p_2^*\nu} p_2^* n^*\, \mathcal{L} \\
-& n_1^* p^*\, \mathcal{L} \arrow[equal]{r} & p_2^* p^*\, \mathcal{L} & 
+& n_1^* p^*\, \mathcal{L} \arrow[equal]{r} & p_2^* p^*\, \mathcal{L}, & 
 \end{tikzcd}
 \]
-where $n_0(a,b,x) = (a,n(b,x))$ and $n_1(a,b,x) = (n(ab),x)$ and $p_2(a,b,x) = (b,x)$;
-\item
-\end{enumerate}
-Write $\CCS_H(G)$ for the category of $H$-equivariant commutative character sheaves on $G$.
+where $n_0(a,b,x) = (a,n(b,x))$ and $n_1(a,b,x) = (n(ab),x)$ and $p_2(a,b,x) = (b,x)$.
+Morphisms of $H$-equivariant Weil local systems are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which . . .
+
+An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ with no condition tying $\mu$ and $\nu$ together.
+Write $\CS_H(G)$ for the category of $H$-equivariant linear character sheaves on $G$.\todo{Under construction}
+
+Finally, an $H$-equivariant commutative character sheaf on $G$ is an $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ for whuch 
 
 \begin{lemma}\label{lem:equivariant}
-$\CCS(G)$ and $\CCS_G(G)$ are equivalent.
-[Every commutative character sheaf on $G$ is equivariant for the conjugation action of $G$ on $G$; conversely, if a linear character sheaf on $G$ is equivariant for conjugation, then it is commutative?]
+Categories $\CCS(G)$ and $\CCS_G(G)$ are equivalent.
 \end{lemma}
 
 \begin{proof}
-Let $a : G \times G \to G$ be the conjugation action of $G$ on $G$. Then $a = m \circ (m \times (\iota \circ p_1))$ while $m\op \circ (m \times (\iota \circ p_1)) = p_2$. Thus, if $m^*\cs{L} \iso m\op^*\cs{L}$ then
+Let $a : G \times G \to G$ be the conjugation action of $G$ on $G$ and let $p : G \times G \to G$ be projection to the second factor.
+Then $a = m \circ (m \times (\iota \circ p_1))$ while $m\op \circ (m \times (\iota \circ p_1)) = p$;
+likewise, $m = a \circ (p_1\times m\op)$ while $p \circ (p_1\times m\op) = m\op$.
+
+Let $(\cs{L},\mu)$ be a commutative character sheaf on $G$.
+Let $c: m^*\cs{L} \to m\op^*\cs{L}$ be an isomorphism satisfying the condition of Definition~\ref{def:CCS}. Then
 \begin{align*}
 a^* \cs{L} 
 &= (m \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
 &= (m \times (\iota \circ p_1))^* m^* \cs{L}\\
 &\iso (m \times (\iota \circ p_1))^* m\op^* \cs{L}\\
 &= (m\op \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
-&= p_2^*\cs{L}.
+&= p^*\cs{L}.
 \end{align*}
-Since the isomorphism $a^*\cs{L} \iso p_2^*\cs{L}$ is unique, $(\cs{L}, a^*\cs{L} \iso p_2^*\cs{L})$ is an equivariant commutative character sheaf.
+The isomorphism above is 
+\[
+(m \times (\iota \circ p_1))^* c: a^*\cs{L} \to p^*\cs{L},
+\]
+ so $(\cs{L}, (m \times (\iota \circ p_1))^* c)$ is a $G$-equivariant commutative character sheaf.
 
-Conversely, let $(\cs{L}, a^*\cs{L} \iso p_2^*\cs{L})$ be an equivariant rank-$1$ character sheaf.
-Observe that $m = a \circ (p_1\times m\op)$ while $p_2 \circ (p_1\times m\op) = m\op$. Thus, 
+ 
+Let $(\cs{L}, \nu)$ be an equivariant linear character sheaf.
+Then
 \begin{align*}
 m^* \cs{L} 
 &= (a \circ (p_1 \times m\op))^* \cs{L}\\
 &= (p_1 \times m\op)^* a^* \cs{L}\\
-&\iso (p_1 \times m\op)^* p_2^* \cs{L}\\
-&= (p_2\circ (p_1 \times m\op))^* \cs{L}\\
+&\iso (p_1 \times m\op)^* p^* \cs{L}\\
+&= (p\circ (p_1 \times m\op))^* \cs{L}\\
 &= m\op^* \cs{L}.
 \end{align*}
-Thus, $\cs{L}$ is a commutative character sheaf.
+The isomorphism above is
+\[
+(p_1 \times m\op)^* \nu : m^* \cs{L}  \to m\op^* \cs{L},
+\]
+so $(\cs{L},\mu)$ is a commutative character sheaf.
+\todo{This proof is under construction.}
 \end{proof}
 
 
@@ -506,7 +544,7 @@ The canonical functor
 \[
 \CS_{G_2}(G) \to \CS_{G_1}(G)
 \]
-is an equivalence if $f$ is smooth of relative dimension on connected components.
+is an equivalence if $f$ is dominant and  smooth of relative dimension on the connected components in its image.
 \end{lemma}
 \begin{proof}
 \end{proof}
