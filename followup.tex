@@ -196,7 +196,7 @@ This note shows that $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ admits a canonical se
 found in \cite{cunningham-roe:13a}*{Thm. 3.6}.
 \labitem{(3)}{b3}
 Like the category $\CS(G)$ of character sheaves on $G$, which is described completely in \cite{cunningham-roe:13a}, $\CCS(G)$ is a rigid monoidal category.
-Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{cunningham-roe:13a}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or and isomorphism, and
+Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{cunningham-roe:13a}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or an isomorphism, and
 \[
 \Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}.
 \]
@@ -227,7 +227,7 @@ While this simplifies notation considerably, it is, unfortunately, not consisten
 
 
 
-\subsection{Main definition}
+\subsection{Commutative character sheaves on commutative groups}
 
 Let $\theta : G\times G \to G\times G$ be given by $\theta(g,h) = (h,g)$.
 Write $m : G \times G \to G$ for the multiplication morphism
@@ -246,10 +246,6 @@ the triple $(\gcs{L}, \mu, \phi)$ must also satisfy compatibility conditions spe
 Writing $\cs{L}$ for the Weil local system $(\gcs{L}, \mu, \phi)$, these compatibility conditions are simply this: $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is an isomorphism of Weil local systems.
 The category of character sheaves on $G$ is denoted by $\CS(G)$.
 
-The definition of $\CS(G)$ also makes sense for non-commutative $G$.  
-In order to distinguish the resulting objects from
-the character sheaves of Lusztig, we will refer to the former as \emph{linear character sheaves} (to evoke the one-dimensional character sheaves of \cite{Kamgarpour})
-and again write $\CS(G)$ for the resulting category, with morphisms defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
 
 \begin{definition}\label{def:CCS}
 A linear character sheaf on $G$ is a \emph{commutative character sheaf} if there is an isomorphism $m^* \cs{L} \to m\op^* \cs{L}$ of local systems on $G\times G$ such that the following diagram commutes.
@@ -270,6 +266,15 @@ If the isomorphism $m^* \cs{L} \to m\op^* \cs{L}$ exists and satisfies the condi
 \begin{proof}
 Why is this true?
 \end{proof}
+
+\subsection{Commutative character sheaves on non-commutative groups}
+
+We now drop the assumption that $G$ is commutative, and assume only that it is smooth.
+The category $\CS(G)$ still makes sense in this context, defined as in 
+In order to distinguish the resulting objects from
+the character sheaves of Lusztig, we will refer to the former as \emph{linear character sheaves} (to evoke the one-dimensional character sheaves of \cite{Kamgarpour})
+and again write $\CS(G)$ for the resulting category, with morphisms defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
+
 
 \section{Eliminating Invisible Character Sheaves}\label{sec:defect}
 
@@ -581,7 +586,7 @@ c^* (\cs{L}\vert_{G\der})
 &= e^* \cs{L}\\
 &= (\EE)_{G\times G}.
 \end{align*}
-Since $c : G \times G \to G\der$ is schematically dense, $c^* (\cs{L}\vert_{G\der}) \iso (\EE)_{G\times G}$ implies $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ by Lemma~\ref{lem:dominant}.
+Since $c : G \times G \to G\der$ is schematically dense, $c^* (\cs{L}\vert_{G\der}) \iso (\EE)_{G\times G}$ implies $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ by Lemma~\ref{lem:dominant}. \todo{broken reference}
 
 %Now, suppose $Z(G) =1$. Pick $\cs{L}\in \CS(G)$ and suppose $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
 \end{proof}
@@ -647,16 +652,16 @@ A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is
 
 %The generic datum $(\vec{\G}, \pi_0, \vec{\phi})$ determines a type (in the sense of \cite{bushnell-kutzko:98a}) $(C, \rho)$ for $\G$, as explained in \cite{yu:construction}*{\S 15}, where $C \subset \G(K)$ is compact mod centre subgroup and $\rho$ is a representation of $C$. In \cite{yu:smooth} it is shown that the $C$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{C}$ over $\OK$ such that $\underline{C}(\OK) = C$.
 
-In \cite{yu:03a} it is shown that, for $0 \leq i < d$, the $p$-adic group $\G^i(K)$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{G}^i$ over $\OK$ such that $\underline{G}^i(\OK) = \G^i(K)$.
+In \cite{yu:03a} it is shown that, for $0 \leq i < d$, the $p$-adic group $\G^i(K)$ admits a smooth integral model, in the sense that there is \todo{is $\underline{G}^i$ canonically determined?} a smooth group scheme $\underline{G}^i$ over $\OK$ such that $\underline{G}^i(\OK) = \G^i(K)$.
 Set $G^i_n \ceq \Gr^R_n(\underline{G}^i)$ and $G^i \ceq \Gr_R(\underline{G}^i)$; 
 then \[G^i(\Fq) = \G^i(K)\] (canonical isomorphism of groups).
 In this way, $\vec{\G}$ determines a tower $\vec{G}$ of group schemes $G^0 \subset G^1 \subset \cdots  \subset G^{d-1}$ (proper containment) over $\Fq$, from which the tower of $p$-adic groups
 $\G^0(K) \subset \G^1(K) \subset \cdots  \subset \G^{d-1}(K)$ can be recovered.
 
-Using Corollary~\ref{cor:QCS} we see that each quasicharacter $\phi_i : G^i(\Fq) \to \EEx$ determines a quasicharacter sheaf $\cs{L}^i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered using the trace of Frobenius. 
-In fact, more is true. Let $n_{\phi_i}$ be the smallest non-negative integer $n$ such that $\phi_i : G^i(\Fq) \to \EEx$ factors through $G^i(\Fq) \to G^i_n(\Fq)$.
-Then $\phi_i$ determines a commutative character sheaf $\cs{L}_{n_{\phi_i}}^i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered.
-Then $\cs{A}_i\ceq \cs{L}_{n_{\phi_i}}^i[\dim G_{n_{\phi_i}}^i]$ is a perverse sheaf on $G_{n_{\phi_i}}^i$ from which the quasicharacter $\phi_i$ can be recovered.
+Using Corollary~\ref{cor:QCS} \todo{broken reference} we see that each quasicharacter $\phi_i : G^i(\Fq) \to \EEx$ determines a quasicharacter sheaf $\cs{L}^i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered using the trace of Frobenius. 
+In fact, more is true. Let $n_i$ be the smallest non-negative integer $n$ such that $\phi_i : G^i(\Fq) \to \EEx$ factors through $G^i(\Fq) \to G^i_n(\Fq)$.
+Then $\phi_i$ determines a commutative character sheaf $\cs{L}_{n_i}^i$, unique up to isomorphism, from which the quasicharacter $\phi_i$ can be recovered.
+Then $\cs{A}_i\ceq \cs{L}_{n_i}^i[\dim G_{n_i}^i]$ is a perverse sheaf on $G_{n_i}^i$ from which the quasicharacter $\phi_i$ can be recovered.
 In this way,  $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ determines perverse sheaves $\vec{\cs{A}} = (\cs{A}_0, \ldots , \cs{A}_{d-1})$ from which $\vec{\phi}$ can be recovered. 
 
 Finally, consider the depth-zero supercuspidal representation $\pi_0$ of $\G^0(K)$.
