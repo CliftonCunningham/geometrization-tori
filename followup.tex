@@ -209,11 +209,10 @@ Consequently, we have a complete description of category $\CCS(G)$.
 \section{Recollections and definitions}
 
 Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$
-for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of [include reference for this definition].
+for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of \todo{include reference for this definition}.
 This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
 We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
-
 
 In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$ and writing $\alpha : \cs{L} \to \cs{L}'$ for a morphism $\alpha : \gcs{L} \to \gcs{L}$ such that 
 \[
@@ -225,57 +224,111 @@ In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for t
 commutes, where $\cs{L}'$ refers to $(\gcs{L}',\phi')$.
 While this simplifies notation considerably, it is, unfortunately, not consistent with our earlier paper.
 
-
+We write $m : G \times G \to G$ for the multiplication morphism, and $G(k)^*$ for $\Hom(G(k), \EEx)$.
+Define $\theta : G\times G \to G\times G$ by $\theta(g,h) = (h,g)$.
 
 \subsection{Commutative character sheaves on commutative groups}
 
-Let $\theta : G\times G \to G\times G$ be given by $\theta(g,h) = (h,g)$.
-Write $m : G \times G \to G$ for the multiplication morphism
-and define $m\op : G \times G \to G$ by $m\op = m \circ \theta$.
-For any Weil local system $\cs{L}$ on $G$ there is an isomorphism
-$\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ given on stalks by the canonical map
-$\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
-
-
-When $G$ is commutative, recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $(\gcs{L}, \mu, \phi)$,
+Suppose now that $G$ is commutative.
+Recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $(\gcs{L}, \mu, \phi)$,
 where $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, 
 $\mu : \bm^* \gcs{L} \to \LxL$ is an isomorphism
 of sheaves on $\bG \times \bG$, 
 and $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an isomorphism of sheaves on $\bG$;
-the triple $(\gcs{L}, \mu, \phi)$ must also satisfy compatibility conditions specified in \cite{cunningham-roe:13a}*{Def. 1.1}.
-Writing $\cs{L}$ for the Weil local system $(\gcs{L}, \mu, \phi)$, these compatibility conditions are simply this: $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is an isomorphism of Weil local systems.
+the triple $(\gcs{L}, \mu, \phi)$ must also satisfy compatibility conditions specified in \emph{loc. cite}.
 The category of character sheaves on $G$ is denoted by $\CS(G)$.
 
+Let $\cs{L}$ be a character sheaf on $G$.  Since $m = m \circ \theta$ in the commutative case,
+there is a canonical isomorphism $\xi : m^* \cs{L} \to \theta^* m^* \cs{L}$.
+There is also an isomorphism $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$
+given on stalks by the canonical map $\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
 
-\begin{definition}\label{def:CCS}
-A linear character sheaf on $G$ is a \emph{commutative character sheaf} if there is an isomorphism $\xi: m^* \cs{L} \to m\op^* \cs{L}$ of [linear character sheaves?] on $G\times G$ such that the following diagram commutes.
+\begin{definition}\label{def:CCScom}
+A character sheaf $(\cs{L}, \mu)$ on a smooth commutative group scheme $G$ is \emph{commutative}
+if the following diagram of Weil sheaves on $G \times G$ commutes.
   \[
   \begin{tikzcd}[row sep=30]
    m^*\cs{L} \arrow{d}{\xi} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
-   m\op^*\cs{L} \arrow{r}{{\theta}^*\mu} &  {\bar \theta}^*(\cs{L}\boxtimes\cs{L})
+   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
   \]
 We write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
  \end{definition}
 
-We will see that this condition is not trivial: even on commutative group schemes over $\Fq$, not every linear character sheaf is commutative; even on connected reductive algebraic groups over $\Fq$, not every linear character sheaf is commutative.
-
-\begin{lemma}\label{lem:symmetry}
-If the isomorphism $\xi: m^* \cs{L} \to m\op^* \cs{L}$ exists and satisfies the condition of Definition~\ref{def:CCS}, then it is unique.
-\end{lemma}
-
-\begin{proof}
-Why is this true?
-\end{proof}
-
 \subsection{Commutative character sheaves on non-commutative groups}
 
 We now drop the assumption that $G$ is commutative, and assume only that it is smooth.
-The category $\CS(G)$ still makes sense in this context, defined as in 
+The category $\CS(G)$ still makes sense in this context, defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
 In order to distinguish the resulting objects from
-the character sheaves of Lusztig, we will refer to the former as \emph{linear character sheaves} (to evoke the one-dimensional character sheaves of \cite{Kamgarpour})
-and again write $\CS(G)$ for the resulting category, with morphisms defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
+the character sheaves of Lusztig, we will refer to the former as \emph{linear character sheaves}
+(to evoke the one-dimensional character sheaves of \cite{Kamgarpour})
+and again write $\CS(G)$ for the resulting category, with morphisms defined as in \emph{loc. cite}.
 
+We recall some facts about the abelianization of a smooth group scheme $G$.
+Let $G\der \hookrightarrow G$ denote the closed subgroup generated by the smooth morphism
+$G\times G \to G$ given by $c: (x,y)\mapsto xyx^{-1}y^{-1}$. Then
+$G \times G \to G\der$ is a dominant morphism \cite{SGA3}*{Expos\'e {VI}$_B$, \S 7.2}.
+Moreover, $G$ is commutative if and only if $G\der$ is trivial.
+When $G$ is not connected, $G\der$ need not be connected, though it is smooth.
+The restriction of $G\times G\to G\der$ to identity components gives a dominant
+morphism $G^0\times G^0 \to G^0\der$ \cite{SGA3}*{Expos\'e {VI}$_B$, Prop. 7.8}.
+
+The quotient $G\ab\ceq G/G\der$ exists in schemes over $\Fq$, and the quotient $q : G \to G\ab$
+is faithfully flat and a $G\der$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
+We summarize the setup in a diagram.
+\[
+\begin{tikzcd}
+{} & G\times G \arrow{d}{c} &&&\\
+1 \arrow{r} & G\der \arrow{r}{} & G \arrow{r}{q} & G\ab \arrow{r} & 1
+\end{tikzcd}
+\]
+
+If $\chi \in G(k)^*$ is a character, it must vanish on the derived subgroup $G\der(k)$.
+Kamgarpour gives an example \cite{kamgarpour:09a}*{(1.1)} of a character sheaf
+that does not vanish on $G\der$, defined by the extension
+\[
+1 \to \mu_n \to \SL_n \to \PGL_n \to 1.
+\]
+In order to obtain a relationship between character sheaves on $G$ and characters of $G(k)$,
+he opts to give a different definition of commutator.  Since we already need to adapt our
+notion of character sheaf, even in the commutative case, we instead add restrictions
+to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged.
+
+The first step in this process is to rule out character sheaves as above.
+The following proposition will be proven in Section \ref{sec:descent}.
+\begin{proposition}
+Suppose $G$ is a smooth group scheme and $\cs{L} \in \CS(G)$ is a linear character sheaf on $G$.
+Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $\cs{L} \cong q^*(\cs{L}\ab)$ for some
+character sheaf $\cs{L}\ab$ on $G\ab$.
+\end{proposition}
+
+We may then define commutative character sheaves on $G$.
+
+\begin{definition}\label{def:CCS}
+A linear character sheaf $\cs{L}$ on a smooth group scheme $G$ is \emph{commutative} if
+\[
+\cs{L} \cong q^* \cs{L}\ab
+\]
+for a commutative character sheaf $\cs{L}\ab$ on $G\ab$.  As in the commutative case,
+we write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
+\end{definition}
+
+Note that we may also pull back the map $\xi\ab : m\ab^* \cs{L}\ab \to \theta\ab^*(m\ab^* \cs{L})$ from Definition \ref{def:CCScom}.
+The following proposition will be proven in Section \ref{sec:descent}.
+
+\begin{proposition}
+A linear character sheaf $(\cs{L}, \mu)$ on a smooth group scheme $G$ is commutative if and only if
+\begin{enumerate}
+\item $\cs{L} \cong q^* \cs{L}\ab$ for some character sheaf $\cs{L}\ab$ on $G\ab$,
+\item the following diagram of Weil sheaves on $G \times G$ commutes.
+  \[
+  \begin{tikzcd}[row sep=30]
+   m^*\cs{L} \arrow{d}[swap]{(q\times q)^*\xi\ab} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
+  \end{tikzcd}
+  \]
+\end{enumerate}
+\end{proposition}
 
 \section{Eliminating Invisible Character Sheaves}\label{sec:defect}
 
@@ -352,26 +405,8 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \end{remark}
 
 
-\section{Descent to the Abelianization}
+\section{Descent to the Abelianization} \label{sec:descent}
 
-\subsection{Derived subgroup and abelianization}
-
-Let $G$ be a smooth group scheme.
-Let $G\der \hookrightarrow G$ denote the closed subgroup generated by the smooth morphism $G\times G \to G$ given by $(x,y)\mapsto xyx^{-1}y^{-1}$. Then $G \times G \to G\der$ is a dominant morphism \cite{SGA3}*{{VI}$_B$, 7.2}.
-Moreover, $G$ is commutative if and only if $G\der$ is trivial.
-%
-While the subgroup $G\der$ is smooth, it need not be connected. 
-The restriction of $G\times G\to G\der$ to identity components gives a dominant morphism $G^0\times G^0 \to G^0\der$ by [SGA3, Tome 6B, Expos\'e 7, Prop 7.8]
-
-
-The quotient $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ by SGA3, Expos\'e VI, Tome A, Th\'eor\`eme 3.2, which also shows that the quotient $G \to G\ab$ is a faithfully flat and a $G\der$-torsor in the fppf topology.
-\[
-\begin{tikzcd}
-{} & G\times G \arrow{d}{} &&&\\
-1 \arrow{r} & G\der \arrow{r}{} & G \arrow{r}{q} & G\ab \arrow{r} & 1
-\end{tikzcd}
-\]
- 
  \subsection{Statement of the main result}
 
 
