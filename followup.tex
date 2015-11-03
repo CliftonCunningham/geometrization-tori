@@ -417,6 +417,7 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 \section{Descent to the Abelianization} \label{sec:descent}
 
 In this section we use descent along the abelianization $q : G \to G\ab$ to prove Propositions~1.2 and 1.4, and Theorem~\ref{thm:Gab}.
+This approach requires introducing equivariant linear character sheaves, as defined in Section~[].
 
 \subsection{Equivariant Weil local systems}
 
@@ -486,16 +487,16 @@ c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_i\circ c_1 = a\circ p_i\circ c_0} & c_
 \end{tikzcd}
 \]
 %In this diagram, the arrows not labeled are derived from canonical isomorphisms.
-\iffalse
+%\iffalse
 On stalks, this condition is
 \[
 \begin{tikzcd}
-\ &  \cs{L}_{h\cdot (xy)} \arrow{r}{} & \cs{L}_{xy} & \\
-\cs{L}_{(h\cdot x)(h\cdot y)} \arrow{dr}[swap]{} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{} \cs{L}_{xy} \\
-& \cs{L}_{h\cdot x}\otimes \cs{L}_{h\cdot y} \arrow{r} & \cs{L}_x\otimes \cs{L}_y & 
+\arrow{d}[swap]{\mu_{(h\cdot g_1, h\cdot g_2)}} \cs{L}_{(h\cdot g_1)(h\cdot g_2)} & \arrow[equal]{l}  \cs{L}_{h\cdot(g_1 g_2)} \arrow{r}{\nu_{(h, g_2 g_2)}} & \cs{L}_{g_1 g_2} \arrow[equal]{r} & \cs{L}_{g_1 g_2} \arrow{d}{\mu_{(g_1,g_2)}} \\
+\cs{L}_{h\cdot g_1}\otimes \cs{L}_{h\cdot g_2} \arrow[equal]{r} & \cs{L}_{h\cdot g_1}\otimes \cs{L}_{h\cdot g_2} \arrow{r}{\nu_{(h,g_1)}\otimes \nu_{(h,g_2)}} & \cs{L}_{g_1}\otimes \cs{L}_{g_2} & \arrow[equal]{l} \cs{L}_{g_1} \otimes \cs{L}_{g_2},
 \end{tikzcd}
 \]
-\fi
+for all $(h,g_1,g_2)\in H\times G\times G$.
+%\fi
 %
 A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves, so
 \[
