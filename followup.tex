@@ -206,7 +206,7 @@ Consequently, we have a complete description of category $\CCS(G)$.
 
 
 
-\section{Recollections and definitions}
+\section{Recollections and definitions} \label{sec:defs}
 
 Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$
 for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of \todo{include reference for this definition}.
@@ -296,7 +296,7 @@ to the definition of commutative character sheaf and leave the definition of $G\
 
 The first step in this process is to rule out character sheaves as above.
 The following proposition will be proven in Section \ref{sec:descent}.
-\begin{proposition}
+\begin{proposition} \label{prop:Gder_triv}
 Suppose $G$ is a smooth group scheme and $\cs{L} \in \CS(G)$ is a linear character sheaf on $G$.
 Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $\cs{L} \cong q^*(\cs{L}\ab)$ for some
 character sheaf $\cs{L}\ab$ on $G\ab$.
@@ -316,7 +316,7 @@ we write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutativ
 Note that we may also pull back the map $\xi\ab : m\ab^* \cs{L}\ab \to \theta\ab^*(m\ab^* \cs{L})$ from Definition \ref{def:CCScom}.
 The following proposition will be proven in Section \ref{sec:descent}.
 
-\begin{proposition}
+\begin{proposition} \label{prop:Gdiagram}
 A linear character sheaf $(\cs{L}, \mu)$ on a smooth group scheme $G$ is commutative if and only if
 \begin{enumerate}
 \item $\cs{L} \cong q^* \cs{L}\ab$ for some character sheaf $\cs{L}\ab$ on $G\ab$,
@@ -329,6 +329,14 @@ A linear character sheaf $(\cs{L}, \mu)$ on a smooth group scheme $G$ is commuta
   \]
 \end{enumerate}
 \end{proposition}
+
+\begin{theorem}\label{thm:Gab}
+Pull-back along the abelianization $q : G \to G\ab$
+\[
+q^* : \CCS(G\ab) \to \CCS(G)
+\]
+is an equivalence of categories.
+\end{theorem}
 
 %\todo{I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
@@ -420,9 +428,9 @@ Consider the morphisms
 \[
 \begin{tikzcd}
 H \times H \times G 
-\arrow[shift left=4]{r}{b_1} 
-\arrow{r}{b_2} 
-\arrow[shift right=4]{r}{b_3} 
+\arrow[shift left=4]{r}{b_1, b_2, b_3} 
+\arrow{r}{}
+\arrow[shift right=4]{r}{} 
 & H \times G 
 \arrow[shift left=4]{r}{a}
 \arrow[shift right=4]{r}[swap]{p}
@@ -572,8 +580,11 @@ The forgetful functor $\CS_H(G) \to \CS(G)$ is full and faithful with essential 
 \begin{proof}
 \end{proof}
 
-\subsection{Proof of Proposition~1.2}
+\subsection{Proofs}
 
+We can now give the missing proofs from Section \ref{sec:defs}.
+
+\begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}]
 We now consider a special case of the lemmas above. 
 Suppose $H = G\der$ and the action $a$ is the restriction of $m$ to $G\der\times G$.
 Then $f : G\der \times G\to G\times G$ is simply the inclusion and $f_1: G\der\times G \to G$ is projection to the first coordinate followed by inclusion $G\der \hookrightarrow G$. 
@@ -583,27 +594,17 @@ As we have seen above, the fppf quotient $q : G\to G\ab = G/G\der$ exists in sch
 It follows from Lemma~[] that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
 On the other hand, by Lemma~[], the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ defines an equivalence $\CS_{G\der}(G)\to \CS'(G)$, where $\CS'(G)$ is the category of $(\cs{L},\mu,\nu)\in \CS_{G\der}(G)$ such that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
 It now follows that $q^* : \CS(G\ab) \to \CS(G)$ is fll and faithful with essential image $\CS'(G)$.
-This concludes the proof of Proposition~1.2.
+\end{proof}
 
-\subsection{Commutative character sheaves}
+\begin{proof}[Proof of Proposition~\ref{prop:Gdiagram}]
 
-Move this statement to Section 1?
+\end{proof}
 
-\begin{theorem}\label{thm:Gab}
-Pull-back along the abelianization $q : G \to G\ab$
-\[
-q^* : \CCS(G\ab) \to \CCS(G)
-\]
-is an equivalence of categories.
-\end{theorem}
-
-\begin{proof}
+\begin{proof}[Proof of Theorem~\ref{thm:Gab}]
 Combining Lemmas~[] and [] we see that $q^* : \CS(G\ab) \to \CS(G)$ is full and faithful.
 % with essential image $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$. 
 By Definition~[], this induces an equivalence between $\CCS(G\ab)$ and $\CCS(G)$. 
 \end{proof}
-
-\subsection{Proof of Proposition~1.4}
 
 \iffalse
 
