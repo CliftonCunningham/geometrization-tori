@@ -154,7 +154,7 @@
 \begin{document}
 
 \begin{abstract}
-We introduce and establish the basic properties of  the category of \emph{commutative character sheaves} on smooth group schemes $G$ over finite fields $\Fq$. 
+We introduce and establish the basic properties of  the category of \emph{commutative character sheaves} on smooth group schemes $G$ over finite fields $\Fq$, building on earlier work by the same authors.
 We use this category to geometrize types for supercuspidal representations of $p$-adic groups. 
 \end{abstract}
 
@@ -409,50 +409,43 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 
 \section{Descent to the Abelianization} \label{sec:descent}
 
- \subsection{Statement of the main result}
+In this section we use descent along the abelianization $q : G \to G\ab$ to prove Propositions~1.2 and 1.4, and Theorem~\ref{thm:Gab}.
 
+\subsection{Equivariant Weil local systems}
 
-As in [CS], every morphism of group schemes $G \to G'$ induces . .  
- 
-Provisional hypothesis: suppose the smooth morphism $G\times G\to G\der$ is of relative dimension on each connected component of its image in $G\der$...\todo{This is another condition on $G$. Does it come from smoothness of $G$?}
-
-\begin{theorem}\label{thm:Gab}
-Under this hypothesis, pull-back along the abelianization $q : G \to G\ab$
-\[
-q^* : \CCS(G\ab) \to \CCS(G)
-\]
-is an equivalence of categories.
-\end{theorem}
-
-
-Theorem~\ref{thm:Gab} will be proved by factoring $\CCS(G\ab) \to \CCS(G\ab)$ according to the following diagram, which will be explained below, 
-and by showing that each functor is an equivalence.
+Let $G$ be as above.
+Let $H$ be a group scheme and write $n : H \times H \to H$ for the multiplication morphism.
+Let $a : H \times G\to G$ be a group action compatible with the group structure on $G$ and write $p : H\times G \to G$ for projection. 
+Consider the morphisms
 \[
 \begin{tikzcd}
- \CCS(G)  &&& \arrow{lll}[swap]{q^*}  \CCS(G\ab) \arrow{d}{\text{Descent along torsor}} \\
-\CCS_G(G)  \arrow{u}{\text{Equivariance}} &&& \arrow{lll}{\text{Change of Action}} \CCS_{G\der}(G) 
+H \times H \times G 
+\arrow[shift left=4]{r}{b_1} 
+\arrow{r}{b_2} 
+\arrow[shift right=4]{r}{b_3} 
+& H \times G 
+\arrow[shift left]{r}{a}
+\arrow[shift right]{r}[swap]{p}
+ & G 
 \end{tikzcd}
 \]
-
-\begin{remark}
-Theorem~\ref{thm:Gab} provides an indication that $\CCS(G)$ is the correct category in which to geometrize characters of $G(\Fq)$. 
-By contrast, $\CS(G)$ and $\CS(G\ab)$ are generally not isomorphic categories, not even when $G$ is a connected reductive algebraic group and $\Hh^1(\Fq,G\der)=0$, as we will see in Section~\ref{sec:stacky}.
-\end{remark}
-
-\subsection{Equivariance}
-
-We wish to consider the categories $\CCS_G(G)$ (resp $\CS_G(G)$) of $G$-equivariant commutative character sheaves (linear character sheaves) on $G$. To that end, in this section we introduce that notion in its general context.
-
-Let $G$ and $H$ be group schemes; let $a : H \times G\to G$ be a group action and write $p : H\times G \to G$ for projection. 
-An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  $\nu : a^*\cs{L} \to p^*\cs{L}$ of Weil local systems on $G\times G$ such that the following diagram of local systems on $H\times H\times G$ commutes,
+defined by $b_1(h_1,h_2,g) = (n(h_1,h_2),g)$,  $b_2(h_1,h_2,g) = (h_1,a(h_2,g))$ and $b_3(h_1,h_2,g) = (h_2,g)$.
+Then, $a\circ b_1 = a\circ b_2$ and $a\circ b_3 = p\circ b_2$ and $p\circ b_1 = p\circ b_3$.
+An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  
+\[
+\nu : a^*\cs{L} \to p^*\cs{L}
+\] 
+of Weil local systems on $H\times G$ such that the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes,
 \[
 \begin{tikzcd}
-\ &  a_0^*  a^*\, \mathcal{L} \arrow{r}{a_0^*\nu} & a_0^* p^*\, \mathcal{L} & \\
-a_1^* a^*\, \mathcal{L} \arrow{dr}[swap]{a_1^*\nu} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{p_2^*\nu} p_3^* a^*\, \mathcal{L} \\
-& a_1^* p^*\, \mathcal{L} \arrow[equal]{r} & p_3^* p^*\, \mathcal{L}, & 
+\ &  \arrow{dl}[swap]{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}{p\circ b_2 = a\circ b_3} & \\
+b_1^* a^*\, \mathcal{L} \arrow{dr}[swap]{b_1^*(\nu)} &&&&   \arrow{dl}{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
+& b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L}, & 
 \end{tikzcd}
 \]
-where $a_0(x,y,z) = (x,a(y,z))$ and $a_1(x,y,z) = (a(x,y),z)$ and $p_3(x,y,z) = (y,z)$.
+and $s^*(\nu) = \id_{\cs{L}}$.
+In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations above; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
+\iffalse
 We remark that, on stalks, this condition is ...
 \[
 \begin{tikzcd}
@@ -461,10 +454,31 @@ We remark that, on stalks, this condition is ...
 & \cs{L}_z \arrow[equal]{r} & \cs{L}_z & 
 \end{tikzcd}
 \]
+\fi
+%
+Morphisms of $H$-equivariant Weil local systems $(\cs{L},\nu)\to (\cs{L}',\nu')$ are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which the diagram
+\[
+\begin{tikzcd}
+\arrow{d}[swap]{\nu} a^*\cs{L} \arrow{r}{a^*(\alpha)} & a^*\cs{L}' \arrow{d}{\nu'} \\
+p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
+\end{tikzcd}
+\]
+commutes.
+This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on $G$.
 
-Morphisms of $H$-equivariant Weil local systems are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which . . .
+\subsection{Equivariant linear character sheaves}
 
-An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $\nu$ is compatible with $\mu$ in the sense that the following diagram of local systems on $H \times G\times G$ commutes ....
+An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $\nu$ is compatible with $\mu$ in the sense. 
+Consider the morphisms $c_1 : H \times G\times G \to G\times G$, $c_2 : H \times G\times G \to H\times G$ and $c_3 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,g_1),a(h,g_2))$ and $c_2(h,g_1,g_2) \ceq (h, m(g_1,g_2))$ and $c_3(h, g_1, g_2) = (g_1, g_2)$. 
+Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $(\cs{L},\mu)$ is a linear character sheaf on $G$ and the following diagram of Weil local systems on $H \times G\times G$ commutes.
+\[
+\begin{tikzcd}
+\arrow{d}[swap]{c_1^*(\mu)} c_1^* m^* \cs{L} & \arrow{l}[swap]{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{r}{p\circ c_2 = m\circ c_3}  & c_3^* m^*\cs{L} \arrow{d}{c_3^*(\mu)} \\
+c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{r} & (p^*\cs{L}) \boxtimes (p^*\cs{L}) & \arrow{l}[swap]{\nu\boxtimes \nu}  (a^*\cs{L}) \boxtimes (a^*\cs{L}) & \arrow{l} c_3^*(\cs{L}\boxtimes \cs{L})
+\end{tikzcd}
+\]
+In this diagram, the arrows not labeled are derived from canonical isomorphisms.
+\iffalse
 On stalks, this condition is
 \[
 \begin{tikzcd}
@@ -473,95 +487,29 @@ On stalks, this condition is
 & \cs{L}_{h\cdot x}\otimes \cs{L}_{h\cdot y} \arrow{r} & \cs{L}_x\otimes \cs{L}_y & 
 \end{tikzcd}
 \]
-
-
-
-Write $\CS_H(G)$ for the category of $H$-equivariant linear character sheaves on $G$.
-%\todo{Under construction}
+\fi
 %
-Finally, an $H$-equivariant commutative character sheaf on $G$ is an $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ for whuch 
-
-\begin{lemma}
-If $(\cs{L},\mu,\nu)$ is an equivariant linear character sheaf for the conjugation action of $G$ on $G$, then $(\cs{L},\mu)$ is a commutative character sheaf.
-\end{lemma}
-
-\begin{proof}
-Let $a : G \times G \to G$ be the conjugation action $(g,h) \mapsto ghg^{-1}$ and let $p : G \times G \to G$ be projection to the second factor.
-Let $\iota : G\to G$ be inversion for the group operation $m : G\times G\to G$.
-Then $m = a \circ (p_1\times m\op)$ while $p \circ (p_1\times m\op) = m\op$.
-Now, let $(\cs{L}, \mu, \nu)$ be an equivariant linear character sheaf.
-Then
-\begin{align*}
-m^* \cs{L} 
-&= (a \circ (p_1 \times m\op))^* \cs{L}\\
-&= (p_1 \times m\op)^* a^* \cs{L}\\
-&\iso (p_1 \times m\op)^* p^* \cs{L}\\
-&= (p\circ (p_1 \times m\op))^* \cs{L}\\
-&= m\op^* \cs{L}.
-\end{align*}
-The isomorphism above is
+A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves, so
 \[
-\xi \ceq (p_1 \times m\op)^* \nu : m^* \cs{L}  \to m\op^* \cs{L}
+\begin{tikzcd}
+\arrow{d}{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
+\cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
+\end{tikzcd}
 \]
-Observe that $p_1 \times m\op : G\times G \to G\times G$ is an isomorphism of varieties . . . 
-The isomorphism $\xi$ satisfies the condition of Definition~\ref{def:CCS}. \todo{Checking this.}
+commutes.
+%
+Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G$.
 
-Thus, $(\cs{L},\mu)$ is a commutative character sheaf.
-\end{proof}
+Is $\CS_H(G)$ a rigid monoidal category?
 
-\begin{remark}
-By Lemma~\ref{lem:symmetry}, the isomorphism $\xi_\nu$ is uniquely determined by $\mu$.
-%This is the first hint that the forgetful functor may be an equivalence.
-\end{remark}
+\subsection{Descent along a torsor}
 
-\begin{lemma}\label{lem:equivariant}
-The forgetful functor $\CCS_G(G)\to \CCS(G)$, given by $(\cs{L},\mu,\nu) \mapsto (\cs{L},\mu)$, is an equivalence.
-\end{lemma}
-
-\begin{proof}
-Now, let $(\cs{L},\mu)$ be a commutative character sheaf.
-Let $\xi: m^*\cs{L} \to m\op^*\cs{L}$ be an isomorphism satisfying the condition of Definition~\ref{def:CCS}.
-Observe that $a = m \circ (m \times (\iota \circ p_1))$ while $m\op \circ (m \times (\iota \circ p_1)) = p$.
-Then
-\begin{align*}
-a^* \cs{L} 
-&= (m \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
-&= (m \times (\iota \circ p_1))^* m^* \cs{L}\\
-&\iso (m \times (\iota \circ p_1))^* m\op^* \cs{L}\\
-&= (m\op \circ (m \times (\iota \circ p_1)))^* \cs{L}\\
-&= p^*\cs{L}.
-\end{align*}
-The isomorphism above is 
-\[
-\nu_\xi \ceq (m \times (\iota \circ p_1))^* \xi: a^*\cs{L} \to p^*\cs{L},
-\]
- so $(\cs{L}, \mu, \nu_\xi)$ is a $G$-equivariant commutative character sheaf.
-
- 
-
- forgetful  rule $(\cs{L},\mu)\to (\cs{L},\mu,\nu_\xi)$ and 
-To define the promised adjunction, I need to modify the functors slighlty . . . 
-\todo{This proof is under construction.}
-\end{proof}
-
-
-
-\begin{remark}
-Lemma~\ref{lem:equivariant} shows that the `canonical functor' $\CCS(G) \to \CS(G)$ is a forgetful functor and also provides an alternate characterization of commutative character sheaves as linear (rank-$1$), multiplicative ($\mu$) and conjugation-equivariant ($\nu$) Weil local systems ($\phi$) on $\bG$. [Is this correct?]
-\end{remark}
-
-
-\subsection{Descent along torsors}
-
-Let $G$ be a $k$-group scheme and let $H \to G$ be a closed subgroup scheme over $S$.
-
-We now suppose that $H$ is normal in $G$ and that the fppf-quotient $G \to G'\ceq H\backslash G$ exists in group schemes over $\Fq$.
-Then $q : G \to G'$ is a regular epimorphism with kernel pair $(n,p)$ in the category of schemes.
+Now suppose $q : G \to G'$ is a regular epimorphism with kernel pair $(a,p)$ in the category of schemes
 \[
 \begin{tikzcd}
 H\times G
- \arrow{r}[shift left]{n}
-  \arrow{r}[shift right,swap]{p}
+ \arrow[shift left]{r}{a}
+  \arrow[shift right,swap]{r}{p}
 &
 G 
 \arrow{r}{q}
@@ -569,113 +517,135 @@ G
 G'
 \end{tikzcd}
 \]
-
-Let $j : H \hookrightarrow G$ be the kernel of $q : G \to G'$ and let $m : G\times G \to G$ be multiplication for $G$. 
-Write $n : H \times_S G \to G$ for the left action of $H$ on $G$; this is obtained by restricting the action $m : G\times G\to G$ to the subgroup $H\times G$. 
-Let $n : H \times G \to G$ be the restriction of $m: G\times G \to G$.
-Then $n = m \circ (j \times \id)$, so
-
-
- let $p : H\times_S G \to G$ be projection.
-
-
-
-%In particular, $G \times_{G'} G \iso H\times_S G'$, so $G \to G'$ is a $G$-torsor in the fppf topology.
-In this case we may factor the functor $\CCS(G') \to \CCS(G)$  . . . 
+Let $\cs{L}'$ be a linear character sheaf on $G'$.
+Consider the functor
+\[
+q^* : \CS(G') \to \CS(G)
+\]
+given on objects by $(\cs{L}',\mu') \mapsto (q^*\cs{L}', (q\times q)^* \mu', \nu_{\cs{L}'})$; cf [Dictionary].
+Then $q^*\cs{L}'$ is an $H$-equivariant linear character sheaf on $G$ when equipped with the canonical isomorphism
+\[
+\nu_{\cs{L}'} : a^* q^* \cs{L}' \mathop{\longrightarrow}\limits^{\iso} (q\circ a)^* \cs{L}' = (q\circ p)^*\cs{L}' \mathop{\longrightarrow}\limits^{\iso} p^* q^*\cs{L}.
+\]
+This simple observation shows that the functor $q^* : \CS(G') \to \CS(G)$  factors according to the following commuting diagram of functors
 \[
 \begin{tikzcd}
-\CCS(G) &&\arrow{ll}[swap]{q^*} 
-\CCS(G') \arrow{dl}{\text{`comparison'}}\\
-& \arrow{ul}{\text{forget}} \CCS_{H}(G) & 
+\CS(G) &&\arrow{ll}[swap]{q^*} 
+\CS(G') \arrow{dl}{\text{`comparison'}}\\
+& \arrow{ul}{\text{forget}} \CS_{H}(G). & 
 \end{tikzcd}
 \]
 
-\begin{lemma}\label{lem:descent}
-The comparison functor $\CCS(G') \to \CCS_{H}(G)$ is an equivalence.
-\end{lemma}  
-  
-\begin{proof}
-By descent theory, the functor $\Loc(G') \to \Loc_H(G)$ induced by $q: G \to G'$ is an equivalence of categories. Expand . . . 
-\todo{Need to study the extra structure coming with character sheaves.}
+\begin{lemma}
+If $q : G \to G'$ is an $H$-torsor in the fppf topology then the comparison functor $\CS(G') \to \CS_H(G)$ is an equivalence.
+\end{lemma}
 
-%Let $j : C \hookrightarrow G$ be the kernel of $q : G \to G\ab$ and let $m : G\times G \to G$ be multiplication for $G$. 
-Let $n : H \times G \to G$ be the restriction of $m: G\times G \to G$.
-Then $n = m \circ (j \times \id)$, so
-\begin{align*}
-n^* \cs{L} 
-&= (m \circ (j \times \id))^* \cs{L}\\
-&= (j \times \id))^* m^*\cs{L}\\
-&\iso (j \times \id))^* (\cs{L} \boxtimes \cs{L})\\
-&= (j^*\cs{L}) \boxtimes \cs{L}\\
-&= (\cs{L}\vert_C) \boxtimes \cs{L}\\
-&= (\EE)_C \boxtimes \cs{L}\\
-&= p^* \cs{L};
-\end{align*}
-the isomorphism above is 
-\[
-\nu_\mu \ceq(j \times \id))^* \mu: n^*\cs{L} \to p^*\cs{L}.
-\]
-Thus, every commutative character sheaf $\cs{L}$ on $G$ is $H$-equivariant.
-It now follows from Lemma~\ref{lem:Lder} that the forgetful functor $\CCS_{G\der}(G) \to \CCS(G)$ is an equivalence. 
+\begin{proof}
+. . . 
+So the lemma reduces to the claim: the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence. 
+To see this, observe first that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
+Moreover, if $Y \to X$ is a flat surjective morphism of affine schemes over $\Fq$, then the comparison functor $\Loc(X) \to \Loc(Y\to X)$ is an equivalence, with $\Loc(Y\to X)$ defined as in [].
+It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology.
+(This is a small variation on the proof of the fact that quasicoherent sheaves form a stack on sheaves in the fppf topology.)
+Since $q : G\to G'$ is an $H$-torsor in the fppf topology, is now follows immediately that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence.
 \end{proof}
 
+\subsection{Forget}
+
+In this section we find a subcategory $\CS'(G)$ of $\CS(G)$ such that the forgetful functor $\CS_H(G) \to \CS(G)$ induces an equivalence $\CS_H(G) \to \CS'(G)$, in the case required to prove Proposition~1.2.
+
+Suppose there is some $f : H\times G\to G\times G$ such that the following diagram commutes.
+\[
+\begin{tikzcd}
+&  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+G & & G \\
+& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p} & 
+\end{tikzcd}
+\]
+Then $f(h,g) = (f_1(h,g),p)$ for $f_1 : H\times G \to G$.
+Let $\CS'(G)$ be the full subcategory of $\CS(G)$ consisting of those $(\cs{L},\mu,\nu) \in \CS_H(G)$ such that $f_1^*\cs{L} \iso (\EE)_{H\times G}$. 
+
+\begin{lemma}
+The forgetful functor $\CS_H(G) \to \CS(G)$ is full and faithful with essential image $\CS'(G)$.\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+\subsection{Proof of Proposition~1.2}
+
+We now consider a special case of the lemmas above. 
+Suppose $H = G\der$ and the action $a$ is the restriction of $m$ to $G\der\times G$.
+Then $f : G\der \times G\to G\times G$ is simply the inclusion and $f_1: G\der\times G \to G$ is projection to the first coordinate followed by inclusion $G\der \hookrightarrow G$. 
+
+As we have seen above, the fppf quotient $q : G\to G\ab = G/G\der$ exists in schemes and is a $G\der$-torsor in the fppf topology. 
+%(In fact, it's a trivial torsor in that topology.)
+It follows from Lemma~[] that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
+On the other hand, by Lemma~[], the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ defines an equivalence $\CS_{G\der}(G)\to \CS'(G)$, where $\CS'(G)$ is the category of $(\cs{L},\mu,\nu)\in \CS_{G\der}(G)$ such that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
+It now follows that $q^* : \CS(G\ab) \to \CS(G)$ is fll and faithful with essential image $\CS'(G)$.
+This concludes the proof of Proposition~1.2.
+
+\subsection{Commutative character sheaves}
+
+Move this statement to Section 1?
+
+\begin{theorem}\label{thm:Gab}
+Pull-back along the abelianization $q : G \to G\ab$
+\[
+q^* : \CCS(G\ab) \to \CCS(G)
+\]
+is an equivalence of categories.
+\end{theorem}
+
+\begin{proof}
+Combining Lemmas~[] and [] we see that $q^* : \CS(G\ab) \to \CS(G)$ is full and faithful.
+% with essential image $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$. 
+By Definition~[], this induces an equivalence between $\CCS(G\ab)$ and $\CCS(G)$. 
+\end{proof}
+
+\subsection{Proof of Proposition~1.4}
+
+\iffalse
 
 \subsection{Change of action}
 
+Now, let $a' : H'\times G \to G$ be another group action on $G$ and suppose $f: H \times G \to H'\times G$ makes the following diagram commute.
 \[
 \begin{tikzcd}
-\arrow{dd}[swap]{f} G_1 \times G \arrow{dr}[swap]{a_1}{p} & \\
-& G \\
-G_2 \times G \arrow{ur}{a_2}[swap]{p} & 
+&  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+G & & G \\
+& \arrow{ul}{a'} H' \times G \arrow{ur}[swap]{p} & 
 \end{tikzcd}
 \]
+Then pull-back along $f: H\times G \to H'\times G$ defines a monoidal functor 
+\[
+\CS_{H'}(G) \to \CS_{H}(G).
+\]
+
+
+Then $f : H\times G \to H'\times G$ is given by $f(h,g) = (k(h,g),g)$ for some $k : H\times G\to H'$. 
+Define $d : H\to H'$ by $d(h) = k(h,1)$.
+
+
+
 
 \begin{lemma}\label{lem:action}
 The canonical functor
 \[
-\CS_{G_2}(G) \to \CS_{G_1}(G)
+\CS_{H}(G) \to \CS_{H'}(G)
 \]
-is an equivalence if $f$ is dominant and  smooth of relative dimension on the connected components in its image.
+is an equivalence if ...
 \end{lemma}
 \begin{proof}
 \end{proof}
 
-\subsection{Proof of the main result}
+\subsection{Conjugation}
 
-\begin{proof}[Proof of Theorem~\ref{thm:Gab}]
-First we must see that $q^*$ factors according to . . . 
-\[
-\begin{tikzcd}
- \CCS(G)  &&& \arrow{lll}[swap]{q^*}  \CCS(G\ab) \arrow{d}{\text{Lem~\ref{lem:descent}}} \\
-\CCS_G(G)  \arrow{u}{\text{Lem~\ref{lem:equivariant}}} &&& \arrow{lll}{\text{Lem~\ref{lem:action}}} \CCS_{G\der}(G) 
-\end{tikzcd}
-\]
-\end{proof}
+We close this section with an alternate characterization of $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
+Recall that $\CS'(G)$ is a full subcategory of $\CS(G)$ and that $\CCS(G)$ is a full subcategory of $\CS'(G)$.
 
-\begin{lemma}\label{lem:Lder}
-If $\cs{L}\in \CCS(G)$ then $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
-% Suppose Z(G) = 1$. If $\cs{L}\in \CS(G)$ and $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ then $\cs{L}\in \CCS(G)$. 
-\end{lemma}
+Consider the following case of Section~\ref{ssec:action}.
 
-\begin{proof}
-By construction, $c : G \times G \to G\der$ is dominant. 
-Note that $j\circ c = m\circ (m \times (\iota\circ m\op)) : G \times G \to G$ is $(g,h) \mapsto gh g^{-1}h^{-1}$ while $m\op\circ (m \times (\iota\circ m\op))= e : G \times G \to G$ is $(g,h) \mapsto 1_G$. 
-Pick $\cs{L}\in \CCS(G)$. 
-Then
-\begin{align*}
-c^* (\cs{L}\vert_{G\der})
-&=  (j\circ c)^*\cs{L} \\
-&= (m\circ (m \times (\iota\circ m\op)))^* \cs{L} \\
-&= (m \times (\iota\circ m\op))^* m^* \cs{L} \\
-&\iso (m \times (\iota\circ m\op))^* m\op^* \cs{L} \\
-&= (m\op\circ (m \times (\iota\circ m\op)))^* \cs{L} \\
-&= e^* \cs{L}\\
-&= (\EE)_{G\times G}.
-\end{align*}
-Since $c : G \times G \to G\der$ is schematically dense, $c^* (\cs{L}\vert_{G\der}) \iso (\EE)_{G\times G}$ implies $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ by Lemma~\ref{lem:dominant}. \todo{broken reference}
-
-%Now, suppose $Z(G) =1$. Pick $\cs{L}\in \CS(G)$ and suppose $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
-\end{proof}
+\fi
 
 \section{Applications to supercuspidal representations}
 
