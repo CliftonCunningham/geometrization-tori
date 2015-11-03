@@ -330,6 +330,8 @@ A linear character sheaf $(\cs{L}, \mu)$ on a smooth group scheme $G$ is commuta
 \end{enumerate}
 \end{proposition}
 
+%\todo{I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
+
 \section{Eliminating Invisible Character Sheaves}\label{sec:defect}
 
 If $M$ is a $\bG$-module, then we say a cohomology class in $\Hh^2(\bG, M)$ is \emph{symmetric} if it is represented
@@ -675,42 +677,53 @@ Since $c : G \times G \to G\der$ is schematically dense, $c^* (\cs{L}\vert_{G\de
 %Now, suppose $Z(G) =1$. Pick $\cs{L}\in \CS(G)$ and suppose $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
 \end{proof}
 
-\section{Geometrization of linear characters}
-
-
- \begin{corollary}
- If $\Hh^1(\Fq,G\der)=0$ then
-the following diagram of isomorphisms commutes.
-\[
-\begin{tikzcd}
-\CCSiso{G} \arrow{r} & G(\Fq)^*\\
-\arrow{u}{q^*} \CCSiso{G\ab} \arrow{r} & \arrow{u} G\ab(\Fq)^* 
-\end{tikzcd}
-\]
- \end{corollary}
- 
- \begin{proof}
- By Theorem \ref{thm:trfrobiso}, $\CCSiso{G}\to G(\Fq)^*$ and $\CCSiso{G\ab}\to G\ab(\Fq)^*$ are isomorphisms.
-By Theorem~\ref{thm:Gab}, $\CCSiso{G} \iso \CCSiso{G\ab}$.
-Since $\Hh^1(\Fq,G\der)=0$, we have  $G\ab(\Fq) = G(\Fq)/G\der(\Fq)$.
-Thus, all characters of $G(\Fq)$ factor through
- $G\ab(\Fq)$. . . . 
- The isomorphisms are compatible because  . . . 
- \end{proof}
-
-
-\section{Stacky abelianization, revisited}\label{sec:stacky}
- 
- Talk about relationship with \cite{kamgarpour:09a}.  In particular, explain why the rank-$1$ character sheaf corresponding
- to the cover
- \[
- 1 \to \mu_n \to \SL_n \to \PGL_n \to 1
- \]
- is not commutative.  
- %Explain how our character sheaves are not just representations of a fundamental group (or are they?), but instead have extra data like $\mu$ and $\phi$.
-%\todo{I got this wrong. I think our sheaves are not extra information in the commutative case. Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
-
 \section{Applications to supercuspidal representations}
+
+\subsection{Linear Characters}
+
+For non-commutative $G$, we aim to model homomorphisms from $G(k)$ to $\EEx$ using the category $\CCS(G)$.
+The precise nature of the relationship between $G(k)^*$ and $\CCSiso{G}$ is described by Galois cohomology.
+Let $\Delta$ be the image of the boundary homomorphism $\delta$ in the sequence
+\[
+1 \to G\der(k) \to G(k) \to G\ab(k) \xrightarrow{\delta} \Hh^1(k, G\der),
+\]
+yielding a short exact sequence
+\[
+1 \to G(k) / G\der(k) \to G\ab(k) \to \Delta \to 1.
+\]
+Applying $\Hom(-, \EEx)$ and using the fact that every homomorphism $G(k) \to \EEx$ vanishes on $G\der(k)$, we get
+\[
+1 \to \Delta^* \to G\ab(k)^* \to G(k)^* \to 1.
+\]
+
+Combining Theorems \ref{thm:trfrobiso} and \ref{thm:Gab} gives an isomorphism $\CCSiso{G} \to G\ab(k)^*$.
+We may thus ask for a condition on a commutative character sheaf on $G$ that corresponds to having trivial
+trace of Frobenius, with the expectation that the isomorphism classes of such commutative character sheaves
+should be in natural bijection with $\Delta^*$.
+
+Note that when $\Hh^1(k,G\der) = 0$, as is the case when $G\der(\bFq)$ ``is simply connected,'' then
+we succeed in geometrizing characters of $G(k)$ on the nose.
+
+% \begin{corollary}
+% If $\Hh^1(\Fq,G\der)=0$ then
+%the following diagram of isomorphisms commutes.
+%\[
+%\begin{tikzcd}
+%\CCSiso{G} \arrow{r} & G(\Fq)^*\\
+%\arrow{u}{q^*} \CCSiso{G\ab} \arrow{r} & \arrow{u} G\ab(\Fq)^* 
+%\end{tikzcd}
+%\]
+% \end{corollary}
+% 
+% \begin{proof}
+% By Theorem \ref{thm:trfrobiso}, $\CCSiso{G}\to G(\Fq)^*$ and $\CCSiso{G\ab}\to G\ab(\Fq)^*$ are isomorphisms.
+%By Theorem~\ref{thm:Gab}, $\CCSiso{G} \iso \CCSiso{G\ab}$.
+%Since $\Hh^1(\Fq,G\der)=0$, we have  $G\ab(\Fq) = G(\Fq)/G\der(\Fq)$.
+%Thus, all characters of $G(\Fq)$ factor through
+% $G\ab(\Fq)$. . . . 
+% The isomorphisms are compatible because  . . . 
+% \end{proof}
+
 
 \subsection{Commutative quasicharacter sheaves}
 
