@@ -511,6 +511,8 @@ Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G
 
 Is $\CS_H(G)$ a rigid monoidal category?
 
+If $(\cs{L},\mu,\nu)$ and $(\cs{L},\mu,\nu')$ in $\CS_H(G)$, then $\nu = \nu'$?
+
 \subsection{Descent along a torsor}
 
 Now suppose $q : G \to G'$ is a regular epimorphism with kernel pair $(a,p)$ in the category of schemes
@@ -561,7 +563,7 @@ Since $q : G\to G'$ is an $H$-torsor in the fppf topology, is now follows from d
 
 \subsection{Forget}
 
-In this section we find a subcategory $\CS'(G)$ of $\CS(G)$ such that the forgetful functor $\CS_H(G) \to \CS(G)$ induces an equivalence $\CS_H(G) \to \CS'(G)$, in the case required to prove Proposition~1.2.
+In this section we consider a different perspective on $\CS_H(G)$ of $\CS(G)$ which will help us understand how the forgetful functor $\CS_H(G) \to \CS(G)$ induces an equivalence $\CS_H(G) \to \CS'(G)$, in the case required to prove Proposition~1.2.
 
 Suppose there is some $f : H\times G\to G\times G$ such that the following diagram commutes.
 %%%%%%%% FIX!!!! %%%%%%%%%%
@@ -572,7 +574,17 @@ G & & G \\
 & \arrow{ul}{m} G \times G \arrow{ur}[swap]{p} & 
 \end{tikzcd}
 \]
-Then $f(h,g) = (f_1(h,g),p)$ for $f_1 : H\times G \to G$.
+Then $f(h,g) = (a(h,g) g^{-1}, g)$.
+Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq a(h,g) g^{-1}$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
+
+Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ defines an isomorphism $\beta : f_1^*\cs{L} \to (\EE)_{H\times G}$ by $\beta \boxtimes \id = \nu \circ f^*(\mu)^{-1}$ from which $\nu$ may be recovered. 
+In this way we see we may replace $(\cs{L},\mu,\nu)$ with another triple, $(\cs{L},\mu,\beta)$.
+What are the defining properties of $\beta$?
+
+Now, 
+
+
+
 Let $\CS'(G)$ be the full subcategory of $\CS(G)$ consisting of those $(\cs{L},\mu,\nu) \in \CS_H(G)$ such that $f_1^*\cs{L} \iso (\EE)_{H\times G}$. 
 
 \begin{lemma}
