@@ -454,16 +454,15 @@ b_1^* a^*\, \mathcal{L} \arrow{dr}[swap]{b_1^*(\nu)} &&&&   \arrow{dl}{b_3^*(\nu
 and $s^*(\nu) = \id_{\cs{L}}$.
 In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations above; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
 \iffalse
-We remark that, on stalks, this condition is ...
+On stalks, this condition is ...
 \[
 \begin{tikzcd}
-\ &  \cs{L}_{x\cdot(y\cdot z)} \arrow{r}{\nu_{x,y\cdot z}} & \cs{L}_{y\cdot z} & \\
-\cs{L}_{(x\cdot y)\cdot z} \arrow{dr}[swap]{\nu_{x\cdot y,z}} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{\nu_{y,z}} \cs{L}_{y\cdot z} \\
-& \cs{L}_z \arrow[equal]{r} & \cs{L}_z & 
+\ &  \cs{L}_{h_1\cdot(h_2\cdot g)} \arrow{r}{\nu_{h_1,h_2\cdot g}} & \cs{L}_{h_2\cdot g} & \\
+\cs{L}_{(h_1 h_2) \cdot g} \arrow{dr}[swap]{\nu_{(h_1h_2),g}} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{\nu_{h_2,g}} \cs{L}_{h_2\cdot g} \\
+& \cs{L}_g \arrow[equal]{r} & \cs{L}_g & 
 \end{tikzcd}
 \]
 \fi
-%
 Morphisms of $H$-equivariant Weil local systems $(\cs{L},\nu)\to (\cs{L}',\nu')$ are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which the diagram
 \[
 \begin{tikzcd}
@@ -478,7 +477,7 @@ This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on 
 
 An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $\nu$ is compatible with $\mu$ in the sense. 
 Consider the following morphisms: $c_0 : H\times G \times G\to H\times G \times H \times G$ defined by $c_0(h,g_1,g_2)\ceq(h,g_1,h,g_2)$;
-$c_1 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,g_1),a(h,g_2))$;  $c_2 : H \times G\times G \to H\times G$ defined by $c_2(h,g_1,g_2) \ceq (h, m(g_1,g_2))$; and $c_3 : H \times G\times G \to G\times G$ defined by $c_3(h, g_1, g_2) = (g_1, g_2)$. 
+$c_1 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,g_1),g_2)$;  $c_2 : H \times G\times G \to H\times G$ defined by $c_2(h,g_1,g_2) \ceq (h, m(g_1,g_2))$; and $c_3 : H \times G\times G \to G\times G$ defined by $c_3(h, g_1, g_2) = (g_1, g_2)$. 
 Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $(\cs{L},\mu)$ is a linear character sheaf on $G$ and the following diagram of Weil local systems on $H \times G\times G$ commutes.
 \[
 \begin{tikzcd}
@@ -486,8 +485,9 @@ Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $
 c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_i\circ c_1 = a\circ p_i\circ c_0} & c_0^*(a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{c_0^*(\nu\boxtimes \nu)} & c_0^*(p^*\cs{L} \boxtimes p^*\cs{L}) & \arrow{l}[swap]{p\circ p_i\circ c_0 = p_i \circ c_3}c_3^*(\cs{L}\boxtimes \cs{L})
 \end{tikzcd}
 \]
+\todo{Check this.}
 %In this diagram, the arrows not labeled are derived from canonical isomorphisms.
-%\iffalse
+\iffalse
 On stalks, this condition is
 \[
 \begin{tikzcd}
@@ -496,8 +496,8 @@ On stalks, this condition is
 \end{tikzcd}
 \]
 for all $(h,g_1,g_2)\in H\times G\times G$.
-%\fi
-%
+\fi
+
 A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves, so
 \[
 \begin{tikzcd}
@@ -561,9 +561,7 @@ It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology.
 Since $q : G\to G'$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence.
 \end{proof}
 
-\subsection{Forget}
-
-In this section we consider a different perspective on $\CS_H(G)$ of $\CS(G)$ which will help us understand how the forgetful functor $\CS_H(G) \to \CS(G)$ induces an equivalence $\CS_H(G) \to \CS'(G)$, in the case required to prove Proposition~1.2.
+\subsection{Change of action/perspective}
 
 Suppose there is some $f : H\times G\to G\times G$ such that the following diagram commutes.
 %%%%%%%% FIX!!!! %%%%%%%%%%
@@ -571,21 +569,38 @@ Suppose there is some $f : H\times G\to G\times G$ such that the following diagr
 \begin{tikzcd}
 \ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
 G & & G \\
-& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p} & 
+& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
 \end{tikzcd}
 \]
 Then $f(h,g) = (a(h,g) g^{-1}, g)$.
 Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq a(h,g) g^{-1}$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
 
-Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ defines an isomorphism $\beta : f_1^*\cs{L} \to (\EE)_{H\times G}$ by $\beta \boxtimes \id = \nu \circ f^*(\mu)^{-1}$ from which $\nu$ may be recovered. 
-In this way we see we may replace $(\cs{L},\mu,\nu)$ with another triple, $(\cs{L},\mu,\beta)$.
-What are the defining properties of $\beta$?
+Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
+\[
+\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}
+\]
+by $\beta \otimes \id_{p^*\cs{L}} = \nu \circ f^*(\mu)^{-1}$, or more precisely, by the following diagram of isomorphisms,
+\[
+\begin{tikzcd}
+a^*\cs{L} \arrow{d}{m\circ f = a} \arrow{rrr}{\nu}
+&&& p^*\cs{L}\\
+f^* m^*\cs{L} \arrow{r}{f^*\mu} & 
+f^*(\cs{L}\boxtimes \cs{L}) \arrow{d} & 
+f_1^*\cs{L} \otimes p^*\cs{L} \arrow{r}{\beta\otimes \id_{p^*\cs{L}}} & 
+(\EE)_{H\times G} \otimes p^*\cs{L} \arrow{u} \\
+& f^*(p_1^*\cs{L}\otimes p_2^*\cs{L}) \arrow{r} & f^*p_1^*\cs{L}\otimes f^* p_2^*\cs{L} \arrow{u}{f_1 = p_1\circ f}[swap]{p = p_2\circ f} &
+\end{tikzcd}
+\]
+In this way we see we may replace $(\cs{L},\mu,\nu)$ with an alternate triple, $(\cs{L},\mu,\beta_1)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
+The isomorphism $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
 
-Now, 
+\subsection{Forget}
 
+Let us know specialize Section [] to the following case: $H = G\der$ and the action $a$ is the restriction of $m$ to $G\der\times G$.
+Then $f : G\der \times G\to G\times G$ is simply the inclusion and $f_1: G\der\times G \to G$ is projection to the first coordinate followed by inclusion $G\der \hookrightarrow G$, so $f_1^*\cs{L} = \cs{L}\vert_{G\der} \boxtimes (\EE)_G$. 
+Then $\beta : f_1^*\cs{L} \to (\EE)_{H\times G}$ determines an isomorphism $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$, and vice versa.
 
-
-Let $\CS'(G)$ be the full subcategory of $\CS(G)$ consisting of those $(\cs{L},\mu,\nu) \in \CS_H(G)$ such that $f_1^*\cs{L} \iso (\EE)_{H\times G}$. 
+\todo{Under construction}
 
 \begin{lemma}
 The forgetful functor $\CS_H(G) \to \CS(G)$ is full and faithful with essential image $\CS'(G)$.\end{lemma}
