@@ -577,7 +577,7 @@ Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determ
 \[
 \beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}
 \]
-by $\beta \otimes \id_{p^*\cs{L}} = \nu \circ f^*(\mu)^{-1}$, or more precisely, by the following diagram of isomorphisms,
+by $\beta \otimes \id_{p^*\cs{L}} = \nu \circ f^*\mu^{-1}$, or more precisely, by the following diagram of isomorphisms,
 \[
 \begin{tikzcd}
 a^*\cs{L} \arrow{d}{m\circ f = a} \arrow{rrr}{\nu}
@@ -605,7 +605,8 @@ We now combine the material of the last two sections, by specializing to the fol
 \]
 
 \begin{lemma}
-$\CS(G/H)$ is equivalent to the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$.
+$\CS(G/H)$ is equivalent to the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
+$\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta = \beta' \circ \alpha\vert_{H}$.
 \end{lemma}
 
 In this case, the action $a$ is the restriction of $m$ to $H\times G$ and $f : H \times G\to G\times G$ is simply the inclusion and $f_1: H\times G \to G$ is projection to the first coordinate followed by inclusion $H \hookrightarrow G$, so $f_1^*\cs{L} = \cs{L}\vert_{H} \boxtimes (\EE)_G$. 
