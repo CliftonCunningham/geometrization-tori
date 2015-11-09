@@ -477,7 +477,7 @@ This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on 
 
 An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $\nu$ is compatible with $\mu$ in the sense. 
 Consider the following morphisms: $c_0 : H\times G \times G\to H\times G \times H \times G$ defined by $c_0(h,g_1,g_2)\ceq(h,g_1,h,g_2)$;
-$c_1 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,g_1),g_2)$;  $c_2 : H \times G\times G \to H\times G$ defined by $c_2(h,g_1,g_2) \ceq (h, m(g_1,g_2))$; and $c_3 : H \times G\times G \to G\times G$ defined by $c_3(h, g_1, g_2) = (g_1, g_2)$. 
+$c_1 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,g_1),a(h,g_2))$;  $c_2 : H \times G\times G \to H\times G$ defined by $c_2(h,g_1,g_2) \ceq (h, m(g_1,g_2))$; and $c_3 : H \times G\times G \to G\times G$ defined by $c_3(h, g_1, g_2) = (g_1, g_2)$. 
 Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $(\cs{L},\mu)$ is a linear character sheaf on $G$ and the following diagram of Weil local systems on $H \times G\times G$ commutes.
 \[
 \begin{tikzcd}
@@ -485,8 +485,6 @@ Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $
 c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_i\circ c_1 = a\circ p_i\circ c_0} & c_0^*(a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{c_0^*(\nu\boxtimes \nu)} & c_0^*(p^*\cs{L} \boxtimes p^*\cs{L}) & \arrow{l}[swap]{p\circ p_i\circ c_0 = p_i \circ c_3}c_3^*(\cs{L}\boxtimes \cs{L})
 \end{tikzcd}
 \]
-\todo{Check this.}
-%In this diagram, the arrows not labeled are derived from canonical isomorphisms.
 \iffalse
 On stalks, this condition is
 \[
@@ -541,9 +539,9 @@ Then $q^*\cs{L}'$ is an $H$-equivariant linear character sheaf on $G$ when equip
 This simple observation shows that the functor $q^* : \CS(G') \to \CS(G)$  factors according to the following commuting diagram of functors
 \[
 \begin{tikzcd}
-\CS(G) &&\arrow{ll}[swap]{q^*} 
+\CS(G) &\arrow{l}[swap]{q^*} 
 \CS(G') \arrow{dl}{\text{`comparison'}}\\
-& \arrow{ul}{\text{forget}} \CS_{H}(G). & 
+\arrow{u}{\text{forget}} \CS_{H}(G). & 
 \end{tikzcd}
 \]
 
@@ -594,19 +592,26 @@ f_1^*\cs{L} \otimes p^*\cs{L} \arrow{r}{\beta\otimes \id_{p^*\cs{L}}} &
 In this way we see we may replace $(\cs{L},\mu,\nu)$ with an alternate triple, $(\cs{L},\mu,\beta_1)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
 The isomorphism $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
 
-\subsection{Forget}
+\subsection{Quotient and restriction}
 
-Let us know specialize Section [] to the following case: $H = G\der$ and the action $a$ is the restriction of $m$ to $G\der\times G$.
-Then $f : G\der \times G\to G\times G$ is simply the inclusion and $f_1: G\der\times G \to G$ is projection to the first coordinate followed by inclusion $G\der \hookrightarrow G$, so $f_1^*\cs{L} = \cs{L}\vert_{G\der} \boxtimes (\EE)_G$. 
-Then $\beta : f_1^*\cs{L} \to (\EE)_{H\times G}$ determines an isomorphism $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$, and vice versa.
+We now combine the material of the last two sections, by specializing to the following case: $H$ is a closed subgroup of $G$ and $q : G \to G/H$ is the fppf quotient.
 
-\todo{Under construction}
+\[
+\begin{tikzcd}
+\CS(H) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G/H) \arrow{dl}{\text{`comparison'}} \\
+ & \CS_{H}(G) \arrow{u}{\text{forget}}  & 
+\end{tikzcd}
+\]
 
 \begin{lemma}
-The forgetful functor $\CS_H(G) \to \CS(G)$ is full and faithful with essential image $\CS'(G)$.\end{lemma}
+$\CS(G/H)$ is equivalent to the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$.
+\end{lemma}
 
-\begin{proof}
-\end{proof}
+In this case, the action $a$ is the restriction of $m$ to $H\times G$ and $f : H \times G\to G\times G$ is simply the inclusion and $f_1: H\times G \to G$ is projection to the first coordinate followed by inclusion $H \hookrightarrow G$, so $f_1^*\cs{L} = \cs{L}\vert_{H} \boxtimes (\EE)_G$. 
+Then $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ determines an isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$, and vice versa.
+Moreover, in this case, the constraint on $\beta$ is only this: $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is an isomorphism in $\CS(H)$. 
+%Let $\CS^H(G)$ denote the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$.
 
 \subsection{Proofs}
 
@@ -621,18 +626,14 @@ As we have seen above, the fppf quotient $q : G\to G\ab = G/G\der$ exists in sch
 Moreover, the quotient $q : G \to G\ab$ is faithfully flat and a $G\der$-torsor in the fppf topology, by\cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}
 %(In fact, it's a trivial torsor in that topology.)
 It now follows from Lemma~[] that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
-On the other hand, by Lemma~[], the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ defines an equivalence $\CS_{G\der}(G)\to \CS'(G)$, where $\CS'(G)$ is the category of $(\cs{L},\mu,\nu)\in \CS_{G\der}(G)$ such that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
-It now follows that $q^* : \CS(G\ab) \to \CS(G)$ is fll and faithful with essential image $\CS'(G)$.
+On the other hand, by Lemma~[], the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ defines an equivalence $\CS_{G\der}(G)\to \CS'(G)$, where $\CS'(G)$ is the category of $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:Gdiagram}]
 
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:Gab}]
-Combining Lemmas~[] and [] we see that $q^* : \CS(G\ab) \to \CS(G)$ is full and faithful.
-% with essential image $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$. 
-By Definition~[], this induces an equivalence between $\CCS(G\ab)$ and $\CCS(G)$. 
+\begin{proof}[Proof of Theorem~\ref{thm:Gab}] 
 \end{proof}
 
 \iffalse
