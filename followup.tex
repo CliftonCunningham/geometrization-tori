@@ -321,8 +321,6 @@ The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subca
 
 We will see that, when $\beta$ exists for $(\cs{L},\mu)\in \CS(G)$, it is essentially unique.
 
-The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$, and the quotient $q : G \to G\ab$ is faithfully flat and a $G\der$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
-
 \begin{theorem}\label{thm:Gab}
 Pull-back along the abelianization $q : G \to G\ab$
 \[
@@ -333,15 +331,6 @@ defines an equivalence of categories.
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
-\iffalse
-We summarize the setup in a diagram.
-\[
-\begin{tikzcd}
-{} & G\times G \arrow{d}{c} &&&\\
-1 \arrow{r} & G\der \arrow{r}{} & G \arrow{r}{q} & G\ab \arrow{r} & 1
-\end{tikzcd}
-\]
-\fi
 
 \iffalse
 \begin{definition}
@@ -593,10 +582,10 @@ It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology.
 Since $q : G\to G'$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence.
 \end{proof}
 
-\subsection{Change of action/perspective}
+\subsection{Change of perspective}
 
-Suppose there is some $f : H\times G\to G\times G$ such that the following diagram commutes.
-%%%%%%%% FIX!!!! %%%%%%%%%%
+We now suppose that $H$ is a subgroup of $G$ and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
+Then we have the diagram
 \[
 \begin{tikzcd}
 \ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
@@ -604,72 +593,84 @@ G & & G \\
 & \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
 \end{tikzcd}
 \]
-Then $f(h,g) = (a(h,g) g^{-1}, g)$.
-Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq a(h,g) g^{-1}$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
-
-Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
+where $f(h,g) = (a(h,g) g^{-1}, g) = (h,g)$.
+%Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq (i\circ p_1)$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
+Then every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
 \[
-\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}
+\beta : \cs{L}\vert_H \to (\EE)_{H}
 \]
-by $\beta \otimes \id_{p^*\cs{L}} = \nu \circ f^*\mu^{-1}$, or more precisely, by the following diagram of isomorphisms,
+by 
+\[
+\nu = (\beta \boxtimes \id_{\cs{L}}) \circ  f^*\mu,
+\] 
+or more precisely, by the following diagram of isomorphisms.
 \[
 \begin{tikzcd}
 a^*\cs{L} \arrow{d}{m\circ f = a} \arrow{rrr}{\nu}
 &&& p^*\cs{L}\\
 f^* m^*\cs{L} \arrow{r}{f^*\mu} & 
-f^*(\cs{L}\boxtimes \cs{L}) \arrow{d} & 
-f_1^*\cs{L} \otimes p^*\cs{L} \arrow{r}{\beta\otimes \id_{p^*\cs{L}}} & 
-(\EE)_{H\times G} \otimes p^*\cs{L} \arrow{u} \\
-& f^*(p_1^*\cs{L}\otimes p_2^*\cs{L}) \arrow{r} & f^*p_1^*\cs{L}\otimes f^* p_2^*\cs{L} \arrow{u}{f_1 = p_1\circ f}[swap]{p = p_2\circ f} &
+f^*(\cs{L}\boxtimes \cs{L}) \arrow{r} & 
+\cs{L}\vert_{H} \boxtimes \cs{L} \arrow{r}{\beta\boxtimes \id_{\cs{L}}} & 
+(\EE)_{H} \boxtimes \cs{L} \arrow{u} 
 \end{tikzcd}
 \]
-In this way we see we may replace $(\cs{L},\mu,\nu)$ with an alternate triple, $(\cs{L},\mu,\beta_1)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
-The isomorphism $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
+In this way we see we may replace $(\cs{L},\mu,\nu)$ with a triple, $(\cs{L},\mu,\beta)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
+The isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
 
-\subsection{Quotient and restriction}
-
-We now combine the material of the last two sections, by specializing to the following case: $H$ is a closed subgroup of $G$ and $q : G \to G/H$ is the fppf quotient.
-
-\[
-\begin{tikzcd}
-\CS(H) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G/H) \arrow{dl}{\text{`comparison'}} \\
- & \CS_{H}(G) \arrow{u}{\text{forget}}  & 
-\end{tikzcd}
-\]
 
 \begin{lemma}
-$\CS(G/H)$ is equivalent to the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
+$\CS_H(G)$ is equivalent to the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
 $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta = \beta' \circ \alpha\vert_{H}$.
 \end{lemma}
 
-In this case, the action $a$ is the restriction of $m$ to $H\times G$ and $f : H \times G\to G\times G$ is simply the inclusion and $f_1: H\times G \to G$ is projection to the first coordinate followed by inclusion $H \hookrightarrow G$, so $f_1^*\cs{L} = \cs{L}\vert_{H} \boxtimes (\EE)_G$. 
-Then $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ determines an isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$, and vice versa.
-Moreover, in this case, the constraint on $\beta$ is only this: $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is an isomorphism in $\CS(H)$. 
-%Let $\CS^H(G)$ denote the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$.
+\begin{proof}
+\end{proof}
 
 \subsection{Proofs}
 
 We can now give the missing proofs from Section \ref{sec:defs}.
 
 \begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}]
-We now consider a special case of the lemmas above. 
-Suppose $H = G\der$ and the action $a$ is the restriction of $m$ to $G\der\times G$.
-Then $f : G\der \times G\to G\times G$ is simply the inclusion and $f_1: G\der\times G \to G$ is projection to the first coordinate followed by inclusion $G\der \hookrightarrow G$. 
-
-As we have seen above, the fppf quotient $q : G\to G\ab = G/G\der$ exists in schemes.
-Moreover, the quotient $q : G \to G\ab$ is faithfully flat and a $G\der$-torsor in the fppf topology, by\cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}
-%(In fact, it's a trivial torsor in that topology.)
+The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$
+and the quotient $q : G \to G\ab$ is faithfully flat and a $G\der$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
+Then
+\[
+\begin{tikzcd}
+%{} & G\times G \arrow{d}{c} &&&\\
+1 \arrow{r}{i} & G\der \arrow{r}{} & G \arrow{r}{q} & G\ab \arrow{r} & 1
+\end{tikzcd}
+\]
+gives
+\[
+\begin{tikzcd}
+\CS(H) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G/H) \arrow{dl}{\text{`comparison'}} \\
+\arrow{u}{\text{forget}} \CS'(G) \arrow{r}{\beta \mapsto \nu_\beta} & \CS_{H}(G) \arrow{u}{\text{forget}}  & 
+\end{tikzcd}
+\]
+%
 It now follows from Lemma~[] that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
-On the other hand, by Lemma~[], the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ defines an equivalence $\CS_{G\der}(G)\to \CS'(G)$, where $\CS'(G)$ is the category of $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
-\end{proof}
-
-\begin{proof}[Proof of Proposition~\ref{prop:Gdiagram}]
-
+On the other hand, by Lemma~[], $\CS_{G\der}(G)\to \CS'(G)$, defined by $(\cs{L},\mu,\nu)\mapsto (\cs{L},\mu, \beta_\nu)$, is an equivalence.
+Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precisely the category of $(\cs{L},\mu)\in \CS(G)$ such that $\cs{L}\vert_H \iso (\EE)_H$, this completes the proof of 
+Proposition~\ref{prop:Gder_triv}.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:Gab}] 
+\[
+\begin{tikzcd}
+\CS'(G) &\arrow{l}[swap]{q^*} 
+\CS(G\ab) \arrow{l}{\text{`comparison'}} \\
+\CCS(G) \arrow{u}{\text{forget}}  & \CCS(G\ab) \arrow{u} 
+\end{tikzcd}
+\]
+
+
 \end{proof}
+
+
+%\begin{proof}[Proof of Proposition~\ref{prop:Gdiagram}]
+%\end{proof}
+
 
 \iffalse
 
@@ -808,3 +809,37 @@ Then $\pi_0$ is produced by compact induction from representation $\sigma$ of a 
 \bibliography{bibliography/Biblio}
 
 \end{document}
+
+Suppose there is some $f : H\times G\to G\times G$ such that the following diagram commutes.
+\[
+\begin{tikzcd}
+\ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+G & & G \\
+& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
+\end{tikzcd}
+\]
+Then $f(h,g) = (a(h,g) g^{-1}, g)$.
+Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq a(h,g) g^{-1}$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
+
+Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
+\[
+\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}
+\]
+by $\beta \otimes \id_{p^*\cs{L}} = \nu \circ f^*\mu^{-1}$, or more precisely, by the following diagram of isomorphisms,
+\[
+\begin{tikzcd}
+a^*\cs{L} \arrow{d}{m\circ f = a} \arrow{rrr}{\nu}
+&&& p^*\cs{L}\\
+f^* m^*\cs{L} \arrow{r}{f^*\mu} & 
+f^*(\cs{L}\boxtimes \cs{L}) \arrow{d} & 
+f_1^*\cs{L} \otimes p^*\cs{L} \arrow{r}{\beta\otimes \id_{p^*\cs{L}}} & 
+(\EE)_{H\times G} \otimes p^*\cs{L} \arrow{u} \\
+& f^*(p_1^*\cs{L}\otimes p_2^*\cs{L}) \arrow{r} & f^*p_1^*\cs{L}\otimes f^* p_2^*\cs{L} \arrow{u}{f_1 = p_1\circ f}[swap]{p = p_2\circ f} &
+\end{tikzcd}
+\]
+In this way we see we may replace $(\cs{L},\mu,\nu)$ with an alternate triple, $(\cs{L},\mu,\beta_1)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
+The isomorphism $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
+
+\subsection{Quotient and restriction}
+
+We now combine the material of the last two sections, by specializing to the following case: $H$ is a closed subgroup of $G$ and $q : G \to G/H$ is the fppf quotient, which exists in schemes by  . . .
