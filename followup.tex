@@ -559,6 +559,13 @@ Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G
 
 
 
+\begin{lemma}\label{lem:HH}
+If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of $H\times H$-equivariant linear character sheaves on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
 \subsection{Descent along a torsor}
 
 Now suppose $q : G \to Q$ is a regular epimorphism with kernel pair $(a,p)$ in the category of schemes
@@ -574,28 +581,32 @@ G
 Q
 \end{tikzcd}
 \]
-Let $\cs{L}'$ be a linear character sheaf on $Q$.
+Let $\cs{L}$ be a linear character sheaf on $Q$.
 Consider the functor
 \[
 q^* : \CS(Q) \to \CS(G)
 \]
-given on objects by $(\cs{L}',\mu') \mapsto (q^*\cs{L}', (q\times q)^* \mu', \nu_{\cs{L}'})$; cf [Dictionary].
-Then $q^*\cs{L}'$ is an $H$-equivariant linear character sheaf on $G$ when equipped with the canonical isomorphism
+given on objects by $(\cs{L},\mu) \mapsto (q^*\cs{L}, (q\times q)^* \mu)$; cf [Dictionary].
+Then $q^*\cs{L}$ is an $H$-equivariant linear character sheaf on $G$ when equipped with the canonical isomorphism
 \[
-\nu_{\cs{L}'} : a^* q^* \cs{L}' \mathop{\longrightarrow}\limits^{\iso} (q\circ a)^* \cs{L}' = (q\circ p)^*\cs{L}' \mathop{\longrightarrow}\limits^{\iso} p^* q^*\cs{L}.
+\nu : a^* q^* \cs{L} \mathop{\longrightarrow}\limits^{\iso} (q\circ a)^* \cs{L} = (q\circ p)^*\cs{L} \mathop{\longrightarrow}\limits^{\iso} p^* q^*\cs{L}.
 \]
-This simple observation shows that the functor $q^* : \CS(Q) \to \CS(G)$  factors according to the following commuting diagram of functors
+This simple observation defines the comparison functor
+\[
+q_H^* : \CS(Q) \to CS_H(G)
+\]
+and shows that the functor $q^* : \CS(Q) \to \CS(G)$ factors according to the following commuting diagram of functors
 \[
 \begin{tikzcd}
 \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(Q) \arrow{dl}{\text{comparison}}\\
+\CS(Q) \arrow{dl}{q_H^*}\\
 \arrow{u}{\text{forget}} \CS_{H}(G). & 
 \end{tikzcd}
 \]
 
 \begin{lemma}\label{lem:torsor}
 If $q : G \to Q$ is an $H$-torsor in the fppf topology 
-then the comparison functor $\CS(Q) \to \CS_H(G)$ is an equivalence.
+then $q_H^*: \CS(Q) \to \CS_H(G)$ is an equivalence.
 \end{lemma}
 
 \begin{proof}
@@ -615,13 +626,6 @@ $\CS(Q)\to \CS_H(G)$ is also an equivalence.
 
 \end{proof}
 
-
-\begin{lemma}\label{lem:HH}
-If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ may be apprehended as a morphism of $H\times H$-equivariant linear character sheaves on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
-\end{lemma}
-
-\begin{proof}
-\end{proof}
 
 \subsection{Closed subgroups}
 
@@ -691,7 +695,7 @@ gives
 \[
 \begin{tikzcd}
 \CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G\ab) \arrow{dl}{\text{comparison}} \\
+\CS(G\ab) \arrow{dl}{q_{G\der}^*} \\
 \arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu} &  \CS_{G\der}(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
 \]
@@ -709,7 +713,7 @@ Since the comparison functor $\CS(G\ab) \to \CS_{G\der}(G)$ is an equivalence, i
 \[
 \begin{tikzcd}
 \CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G\ab) \arrow{dl}{} \\
+\CS(G\ab) \arrow{dl}{q_{G\der}^*} \\
 \arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu} &  \CS_{G\der}(G) \arrow{u}{\text{forget}}  & \CCS(G\ab) \arrow{u} \arrow{dl} \\
 \CCS(G) \arrow{u} \arrow{r}{\beta \mapsto \nu} & \arrow{u}  \CCS_{G\der}(G) & 
 \end{tikzcd}
