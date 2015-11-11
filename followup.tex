@@ -217,7 +217,7 @@ $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth ove
 In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$ and writing $\alpha : \cs{L} \to \cs{L}'$ for a morphism $\alpha : \gcs{L} \to \gcs{L}$ such that 
 \[
 \begin{tikzcd}
-\Frob{}^* \gcs{L} \arrow{d}{\phi} \arrow{r}{\Frob{}^*\alpha} &  \Frob{}^* \gcs{L} \arrow{d}{\phi'}\\
+\Frob{}^* \gcs{L} \arrow{d}[swap]{\phi} \arrow{r}{\Frob{}^*\alpha} &  \Frob{}^* \gcs{L} \arrow{d}{\phi'}\\
 \gcs{L} \arrow{r}{\alpha} & \gcs{L}
 \end{tikzcd}
 \]
@@ -248,7 +248,7 @@ A character sheaf $(\cs{L}, \mu)$ on a smooth commutative group scheme $G$ is \e
 if the following diagram of Weil sheaves on $G \times G$ commutes.
   \[
   \begin{tikzcd}[row sep=30]
-   m^*\cs{L} \arrow{d}{\xi} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   m^*\cs{L} \arrow{d}[swap]{\xi} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
    \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
   \]
@@ -310,16 +310,17 @@ Let $\CS'(G)$ be the category of such triples, $(\cs{L},\mu,\beta)$, in which a 
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
 Let $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Then $c$ is a smooth morphism of $\Fq$ schemes and $c = m \circ (m \times (i \circ m \circ \theta))$.
-Thus, $\beta : \cs{L}\vert_{G/\der} \to (\EE)_{G\der}$ determines
+Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines
 \[
 \begin{tikzcd}
-m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \arrow{r} & c^* \cs{L}\vert_{G\der} \arrow{r} &  (\EE)_{G\times G} \arrow{r} & (\EE)_G\otimes (\EE)_G.
+m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \arrow{r}{c = m \circ (m \times (i \circ m \circ \theta))} & c^* \cs{L}\vert_{G\der} \arrow{r}{c^*(\beta)} &  c^*(\EE)_{G\der} \arrow{r} & (\EE)_G\otimes (\EE)_G.
 \end{tikzcd}
 \]
-Using the monadic structure of the category of Weil local systems on $G\times G$, this isomorphism, in turn, defines the isomorphism
+Using the monadic structure of the category of Weil local systems on $G\times G$, this isomorphism, in turn, defines an isomorphism
 \[
 \begin{tikzcd}
-m^*\cs{L} \arrow{r}  & (\theta^* m^* i^*\cs{L})^\vee.\end{tikzcd}
+m^*\cs{L} \arrow{r}  & (\theta^* m^* i^*\cs{L})^\vee.
+\end{tikzcd}
 \] 
 Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $\cs{L}^\vee \iso i^*\cs{L}$, canonically, this defines the promised isomorphism
 \[
@@ -332,7 +333,7 @@ Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canoni
 The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subcategory of $\CS'(G)$ consisting of triples $(\cs{L},\mu,\beta)$ such that the following diagram of Weil sheaves on $G \times G$ commutes,
   \[
   \begin{tikzcd}[row sep=30]
-   m^*\cs{L} \arrow{d}{\gamma} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   m^*\cs{L} \arrow{d}[swap]{\gamma} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
    \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
   \]
@@ -524,8 +525,10 @@ $c_1 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,
 Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $(\cs{L},\mu)$ is a linear character sheaf on $G$ and the following diagram of Weil local systems on $H \times G\times G$ commutes.
 \[
 \begin{tikzcd}
-\arrow{d}[swap]{c_1^*(\mu)} c_1^* m^* \cs{L} & \arrow{l}[swap]{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{r}{p\circ c_2 = m\circ c_3}  & c_3^* m^*\cs{L} \arrow{d}{c_3^*(\mu)} \\
-c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_i\circ c_1 = a\circ p_i\circ c_0} & c_0^*(a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{c_0^*(\nu\boxtimes \nu)} & c_0^*(p^*\cs{L} \boxtimes p^*\cs{L}) & \arrow{l}[swap]{p\circ p_i\circ c_0 = p_i \circ c_3}c_3^*(\cs{L}\boxtimes \cs{L})
+\ & \arrow{dl}{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{dr}[swap]{p\circ c_2 = m\circ c_3}  &  \\
+\arrow{d}[swap]{c_1^*(\mu)} c_1^* m^* \cs{L} &&& c_3^* m^*\cs{L} \arrow{d}{c_3^*(\mu)} \\
+c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{dr}{p_i\circ c_1 = a\circ p_i\circ c_0} &&& \arrow{dl}[swap]{p\circ p_i\circ c_0 = p_i \circ c_3} c_3^*(\cs{L}\boxtimes \cs{L}) \\
+ & c_0^*(a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{c_0^*(\nu\boxtimes \nu)} & c_0^*(p^*\cs{L} \boxtimes p^*\cs{L}) & 
 \end{tikzcd}
 \]
 \iffalse
@@ -542,7 +545,7 @@ for all $(h,g_1,g_2)\in H\times G\times G$.
 A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves, so
 \[
 \begin{tikzcd}
-\arrow{d}{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
+\arrow{d}[swap]{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
 \cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
 \end{tikzcd}
 \]
@@ -550,9 +553,9 @@ commutes.
 %
 Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G$.
 
-Is $\CS_H(G)$ a rigid monoidal category?
+%Is $\CS_H(G)$ a rigid monoidal category?
 
-If $(\cs{L},\mu,\nu)$ and $(\cs{L},\mu,\nu')$ in $\CS_H(G)$, then $\nu = \nu'$?
+%If $(\cs{L},\mu,\nu)$ and $(\cs{L},\mu,\nu')$ in $\CS_H(G)$, then $\nu = \nu'$?
 
 \subsection{Descent along a torsor}
 
@@ -593,13 +596,15 @@ If $q : G \to G'$ is an $H$-torsor in the fppf topology then the comparison func
 \end{lemma}
 
 \begin{proof}
-. . . 
-So the lemma reduces to the claim: the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence. 
+First we show that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence. 
 To see this, observe first that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
 Moreover, if $Y \to X$ is a flat surjective morphism of affine schemes over $\Fq$, then the comparison functor $\Loc(X) \to \Loc(Y\to X)$ is an equivalence, with $\Loc(Y\to X)$ defined as in [].
 It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology.
 (This is a small variation on the proof that quasicoherent sheaves form a stack on sheaves in the fppf topology.)
 Since $q : G\to G'$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence.
+The same argument shows that pull-back along $q\times q$ determines an equivalence $\Loc(G'\times G') \to \Loc_{H\times H}(G\times G)$.
+
+
 \end{proof}
 
 \subsection{Change of perspective}
