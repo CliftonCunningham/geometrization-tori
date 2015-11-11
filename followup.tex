@@ -227,7 +227,7 @@ While this simplifies notation considerably, it is, unfortunately, not consisten
 We write $m : G \times G \to G$ for the multiplication morphism, and $G(k)^*$ for $\Hom(G(k), \EEx)$.
 Define $\theta : G\times G \to G\times G$ by $\theta(g,h) = (h,g)$.
 
-\subsection{Commutative character sheaves on commutative groups}
+\subsection{Commutative character sheaves on commutative groups}\label{ssec:comcom}
 
 Suppose now that $G$ is commutative.
 Recall \cite{cunningham-roe:13a}*{Def. 1.1} that a character sheaf on $G$ is a triple $(\gcs{L}, \mu, \phi)$,
@@ -307,19 +307,39 @@ let $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ be an isomorphism in $\CS(G\
 Let $\CS'(G)$ be the category of such triples, $(\cs{L},\mu,\beta)$, in which a morphism $(\cs{L},\mu,\beta)\to (\cs{L}',\mu',\beta')$ is a morphism $\alpha : (\cs{L},\mu)\to (\cs{L}',\mu')$ in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{G\der}$.
 %
 
-Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma_\beta : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows...
+Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
+Let $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
+Then $c$ is a smooth morphism of $\Fq$ schemes and $c = m \circ (m \times (i \circ m \circ \theta))$.
+Thus, $\beta : \cs{L}\vert_{G/\der} \to (\EE)_{G\der}$ determines
+\[
+\begin{tikzcd}
+m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \arrow{r} & c^* \cs{L}\vert_{G\der} \arrow{r} &  (\EE)_{G\times G} \arrow{r} & (\EE)_G\otimes (\EE)_G.
+\end{tikzcd}
+\]
+Using the monadic structure of the category of Weil local systems on $G\times G$, this isomorphism, in turn, defines the isomorphism
+\[
+\begin{tikzcd}
+m^*\cs{L} \arrow{r}  & (\theta^* m^* i^*\cs{L})^\vee.\end{tikzcd}
+\] 
+Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $\cs{L}^\vee \iso i^*\cs{L}$, canonically, this defines the promised isomorphism
+\[
+\begin{tikzcd}
+\gamma : m^*\cs{L} \arrow{r} & \theta^* m^* \cs{L}.
+\end{tikzcd}
+\]
 
 \begin{definition}\label{def:CCS}
-The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subcategory of $\CS'(G)$ consisting of triples $(\cs{L},\mu,\beta)$ such that the following diagram of Weil sheaves on $G \times G$ commutes.
+The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subcategory of $\CS'(G)$ consisting of triples $(\cs{L},\mu,\beta)$ such that the following diagram of Weil sheaves on $G \times G$ commutes,
   \[
   \begin{tikzcd}[row sep=30]
-   m^*\cs{L} \arrow{d}{\gamma_\beta} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   m^*\cs{L} \arrow{d}{\gamma} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
    \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
   \]
+where $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$, above.
 \end{definition}
 
-We will see that, when $\beta$ exists for $(\cs{L},\mu)\in \CS(G)$, it is essentially unique.
+%We will see that, when $\beta$ exists for $(\cs{L},\mu)\in \CS(G)$, it is essentially unique.
 
 \begin{theorem}\label{thm:Gab}
 Pull-back along the abelianization $q : G \to G\ab$
@@ -469,8 +489,8 @@ An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G
 of Weil local systems on $H\times G$ such that the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes,
 \[
 \begin{tikzcd}
-\ &  \arrow{dl}[swap]{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}{p\circ b_2 = a\circ b_3} & \\
-b_1^* a^*\, \mathcal{L} \arrow{dr}[swap]{b_1^*(\nu)} &&&&   \arrow{dl}{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
+\ &  \arrow{dl}{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
+b_1^* a^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
 & b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L}, & 
 \end{tikzcd}
 \]
@@ -563,7 +583,7 @@ This simple observation shows that the functor $q^* : \CS(G') \to \CS(G)$  facto
 \[
 \begin{tikzcd}
 \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G') \arrow{dl}{\text{`comparison'}}\\
+\CS(G') \arrow{dl}{\text{comparison}}\\
 \arrow{u}{\text{forget}} \CS_{H}(G). & 
 \end{tikzcd}
 \]
@@ -578,13 +598,13 @@ So the lemma reduces to the claim: the comparison functor $\Loc(G') \to \Loc_H(G
 To see this, observe first that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
 Moreover, if $Y \to X$ is a flat surjective morphism of affine schemes over $\Fq$, then the comparison functor $\Loc(X) \to \Loc(Y\to X)$ is an equivalence, with $\Loc(Y\to X)$ defined as in [].
 It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology.
-(This is a small variation on the proof of the fact that quasicoherent sheaves form a stack on sheaves in the fppf topology.)
+(This is a small variation on the proof that quasicoherent sheaves form a stack on sheaves in the fppf topology.)
 Since $q : G\to G'$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence.
 \end{proof}
 
 \subsection{Change of perspective}
 
-We now suppose that $H$ is a subgroup of $G$ and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
+We now suppose that $i : H \hookrightarrow G$ is a closed subgroup and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
 Then we have the diagram
 \[
 \begin{tikzcd}
@@ -593,7 +613,8 @@ G & & G \\
 & \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
 \end{tikzcd}
 \]
-where $f(h,g) = (a(h,g) g^{-1}, g) = (h,g)$.
+where $f(h,g) = (i(h),g)$.
+% (a(h,g) g^{-1}, g) = (h,g)$.
 %Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq (i\circ p_1)$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
 Then every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
 \[
@@ -601,25 +622,23 @@ Then every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely d
 \]
 by 
 \[
-\nu = (\beta \boxtimes \id_{\cs{L}}) \circ  f^*\mu,
+\nu = (\beta \boxtimes \id) \circ  f^*\mu,
 \] 
 or more precisely, by the following diagram of isomorphisms.
 \[
 \begin{tikzcd}
-a^*\cs{L} \arrow{d}{m\circ f = a} \arrow{rrr}{\nu}
-&&& p^*\cs{L}\\
-f^* m^*\cs{L} \arrow{r}{f^*\mu} & 
-f^*(\cs{L}\boxtimes \cs{L}) \arrow{r} & 
-\cs{L}\vert_{H} \boxtimes \cs{L} \arrow{r}{\beta\boxtimes \id_{\cs{L}}} & 
-(\EE)_{H} \boxtimes \cs{L} \arrow{u} 
+\ & a^*\cs{L} \arrow{dl}{m\circ f = a} \arrow{r}{\nu} & p^*\cs{L} & \\
+f^* m^*\cs{L} \arrow{dr}{f^*\mu} &&& (\EE)_{H} \boxtimes \cs{L} \arrow{ul}{p= p_1} \\ 
+& f^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_\circ f = i}[swap]{p_2\circ f = \id}  & 
+\cs{L}\vert_{H} \boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id} & 
 \end{tikzcd}
 \]
 In this way we see we may replace $(\cs{L},\mu,\nu)$ with a triple, $(\cs{L},\mu,\beta)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
-The isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
+The isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is constrained conditions from Sections [] and [].
 
 
 \begin{lemma}
-$\CS_H(G)$ is equivalent to the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
+$\CS_H(G)$ is equivalent to the category $\CS'(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
 $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta = \beta' \circ \alpha\vert_{H}$.
 \end{lemma}
 
@@ -631,40 +650,46 @@ $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta 
 We can now give the missing proofs from Section \ref{sec:defs}.
 
 \begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}]
-The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$
-and the quotient $q : G \to G\ab$ is faithfully flat and a $G\der$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
-Then
+The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
+Now,
 \[
 \begin{tikzcd}
 %{} & G\times G \arrow{d}{c} &&&\\
-1 \arrow{r}{i} & G\der \arrow{r}{} & G \arrow{r}{q} & G\ab \arrow{r} & 1
+1 \arrow{r} & G\der \arrow{r}{i} & G \arrow{r}{q} & G\ab \arrow{r} & 1
 \end{tikzcd}
 \]
 gives
 \[
 \begin{tikzcd}
-\CS(H) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G/H) \arrow{dl}{\text{`comparison'}} \\
-\arrow{u}{\text{forget}} \CS'(G) \arrow{r}{\beta \mapsto \nu_\beta} & \CS_{H}(G) \arrow{u}{\text{forget}}  & 
+\CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\ab) \arrow{dl}{\text{comparison}} \\
+\arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu} &  \CS_{G\der}(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
 \]
 %
-It now follows from Lemma~[] that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
-On the other hand, by Lemma~[], $\CS_{G\der}(G)\to \CS'(G)$, defined by $(\cs{L},\mu,\nu)\mapsto (\cs{L},\mu, \beta_\nu)$, is an equivalence.
-Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precisely the category of $(\cs{L},\mu)\in \CS(G)$ such that $\cs{L}\vert_H \iso (\EE)_H$, this completes the proof of 
-Proposition~\ref{prop:Gder_triv}.
+Since the quotient $q : G \to G\ab$ is a trivial $G\der$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}, 
+it now follows from Lemma~[] that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
+On the other hand, by Lemma~[], $\CS'(G) \to \CS_{G\der}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
+Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precisely the category of $(\cs{L},\mu)\in \CS(G)$ such that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$, this completes the proof of Proposition~\ref{prop:Gder_triv}.
+%that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ if and only if $\cs{L} = q^*\cs{L}\ab$ for some $\cs{L}\ab \in \CS(G\ab)$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:Gab}] 
+By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory.
+Since the comparison functor $\CS(G\ab) \to \CS_{G\der}(G)$ is an equivalence, it determines a full subcategory $\CCS_{G\der}(G)$ which is equivalent to $\CCS(G\ab)$. 
 \[
 \begin{tikzcd}
-\CS'(G) &\arrow{l}[swap]{q^*} 
-\CS(G\ab) \arrow{l}{\text{`comparison'}} \\
-\CCS(G) \arrow{u}{\text{forget}}  & \CCS(G\ab) \arrow{u} 
+\CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\ab) \arrow{dl}{} \\
+\arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu} &  \CS_{G\der}(G) \arrow{u}{\text{forget}}  & \CCS(G\ab) \arrow{u} \arrow{dl} \\
+\CCS(G) \arrow{u} \arrow{r}{\beta \mapsto \nu} & \arrow{u}  \CCS_{G\der}(G) & 
 \end{tikzcd}
 \]
-
-
+The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of the equivalence $\CS_{G\der}(G) \to \CS'(G)$ is $\CCS(G)$.
+To that end, suppose $(\cs{L},\mu,\beta)\in \CS'(G)$ and $(\cs{L},\mu,\nu) = q^*(\cs{L}\ab,\mu\ab)$;
+we must show that $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G\ab)$.
+Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ in Section~\ref{ssec:comcom}.
+This determines a rigidification $r : \cs{L}_1 \to \EE$ by ....\todo{I've sorted this out, but have also run out of steam for the day. I'll write it up tomorrow.}
 \end{proof}
 
 
