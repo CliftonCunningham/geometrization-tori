@@ -463,7 +463,7 @@ $\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
 In this section we use descent along the abelianization $q : G \to G\ab$ to prove Propositions~1.2 and 1.4, and Theorem~\ref{thm:Gab}.
 This approach requires introducing equivariant linear character sheaves, as defined in Section~[].
 
-\subsection{Equivariant Weil local systems}
+\subsection{Equivariant Weil local systems}\label{ssec:equivariant1}
 
 Let $G$ be as above.
 Let $H$ be a group scheme and write $n : H \times H \to H$ for the multiplication morphism.
@@ -517,7 +517,7 @@ p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
 commutes.
 This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on $G$.
 
-\subsection{Equivariant linear character sheaves}
+\subsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
 
 An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $\nu$ is compatible with $\mu$ in the sense. 
 Consider the following morphisms: $c_0 : H\times G \times G\to H\times G \times H \times G$ defined by $c_0(h,g_1,g_2)\ceq(h,g_1,h,g_2)$;
@@ -593,7 +593,7 @@ This simple observation shows that the functor $q^* : \CS(Q) \to \CS(G)$  factor
 \end{tikzcd}
 \]
 
-\begin{lemma}
+\begin{lemma}\label{lem:torsor}
 If $q : G \to Q$ is an $H$-torsor in the fppf topology 
 then the comparison functor $\CS(Q) \to \CS_H(G)$ is an equivalence.
 \end{lemma}
@@ -615,7 +615,15 @@ $\CS(Q)\to \CS_H(G)$ is also an equivalence.
 
 \end{proof}
 
-\subsection{Change of perspective}
+
+\begin{lemma}\label{lem:HH}
+If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ may be apprehended as a morphism of $H\times H$-equivariant linear character sheaves on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+\subsection{Closed subgroups}
 
 We now suppose that $i : H \hookrightarrow G$ is a closed subgroup and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
 Then we have the diagram
@@ -647,10 +655,10 @@ f^* m^*\cs{L} \arrow{dr}{f^*\mu} &&& (\EE)_{H} \boxtimes \cs{L} \arrow{ul}{p= p_
 \end{tikzcd}
 \]
 In this way we see we may replace $(\cs{L},\mu,\nu)$ with a triple, $(\cs{L},\mu,\beta)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
-The isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is constrained conditions from Sections [] and [].
+The isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is constrained conditions from Sections~\ref{ssec:equivariant1} and \ref{ssec:equivariant2}.
 
 
-\begin{lemma}
+\begin{lemma}\label{lem:beta}
 $\CS_H(G)$ is equivalent to the category $\CS'(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
 $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta = \beta' \circ \alpha\vert_{H}$.
 \end{lemma}
@@ -658,15 +666,9 @@ $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta 
 \begin{proof}
 \end{proof}
 
-\begin{lemma}
-If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ may be apprehended as a morphism of $H\times H$-equivariant linear character sheaves on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
-\end{lemma}
 
-\begin{proof}
-\end{proof}
-
-\begin{lemma}
-If $(\cs{L},\mu,\beta)$ is a commutative character sheaf on $G$ then $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is a morphism of commutative character sheaves on $G\times G$.
+\begin{lemma}\label{lem:GderGder}
+If $(\cs{L},\mu,\beta)$ is a commutative character sheaf on $G$ then $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is a morphism of $G\der\times G\der$-equivariant linear character sheaves on $G\times G$.
 \end{lemma}
 
 \begin{proof}
@@ -695,8 +697,8 @@ gives
 \]
 %
 Since the quotient $q : G \to G\ab$ is a trivial $G\der$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}, 
-it now follows from Lemma~[] that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
-On the other hand, by Lemma~[], $\CS'(G) \to \CS_{G\der}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
+it now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
+On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{G\der}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
 Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precisely the category of $(\cs{L},\mu)\in \CS(G)$ such that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$, this completes the proof of Proposition~\ref{prop:Gder_triv}.
 %that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ if and only if $\cs{L} = q^*\cs{L}\ab$ for some $\cs{L}\ab \in \CS(G\ab)$.
 \end{proof}
@@ -720,11 +722,11 @@ Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $
 Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}; 
 in particular $\gamma = (q\times q)^* \xi$.
 
-Using Lemma [], we may interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\CS_{G\der\times G\der}(G\times G)$.
-By Lemma [], this corresponds uniquely to a diagram in $\CS(G\ab\times G\ab)$, necessarily the diagram in Definition~\ref{def:CCScom}.
+Using Lemmas~\ref{lem:HH} and \ref{lem:GderGder}, we may interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\CS_{G\der\times G\der}(G\times G)$.
+By Lemma~\ref{lem:beta}, this corresponds uniquely to a diagram in $\CS(G\ab\times G\ab)$, necessarily the diagram in Definition~\ref{def:CCScom}.
 It now follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
 In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
-if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$.
+if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$, completing the proof of Theorem~\ref{thm:Gab}.
 \end{proof}
 
 \iffalse
