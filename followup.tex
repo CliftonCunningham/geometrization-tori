@@ -260,7 +260,7 @@ I'm wondering about the structure of the paper.
 Would it make sense to really explore the Abelian case, before moving to the non-Abelian case?
 That would mean moving the material from Section~Invisible up to here. 
 
-\subsection{Commutative character sheaves on non-commutative groups}
+\subsection{Commutative character sheaves on non-commutative groups}\label{ssec:noncom}
 
 We now drop the assumption that $G$ is commutative, and assume only that it is smooth.
 The category $\CS(G)$ still makes sense in this context, defined as in \cite{cunningham-roe:13a}*{Def. 1.1}.
@@ -557,9 +557,11 @@ Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G
 
 %If $(\cs{L},\mu,\nu)$ and $(\cs{L},\mu,\nu')$ in $\CS_H(G)$, then $\nu = \nu'$?
 
+
+
 \subsection{Descent along a torsor}
 
-Now suppose $q : G \to G'$ is a regular epimorphism with kernel pair $(a,p)$ in the category of schemes
+Now suppose $q : G \to Q$ is a regular epimorphism with kernel pair $(a,p)$ in the category of schemes
 \[
 \begin{tikzcd}
 H\times G
@@ -569,40 +571,46 @@ H\times G
 G 
 \arrow{r}{q}
 & 
-G'
+Q
 \end{tikzcd}
 \]
-Let $\cs{L}'$ be a linear character sheaf on $G'$.
+Let $\cs{L}'$ be a linear character sheaf on $Q$.
 Consider the functor
 \[
-q^* : \CS(G') \to \CS(G)
+q^* : \CS(Q) \to \CS(G)
 \]
 given on objects by $(\cs{L}',\mu') \mapsto (q^*\cs{L}', (q\times q)^* \mu', \nu_{\cs{L}'})$; cf [Dictionary].
 Then $q^*\cs{L}'$ is an $H$-equivariant linear character sheaf on $G$ when equipped with the canonical isomorphism
 \[
 \nu_{\cs{L}'} : a^* q^* \cs{L}' \mathop{\longrightarrow}\limits^{\iso} (q\circ a)^* \cs{L}' = (q\circ p)^*\cs{L}' \mathop{\longrightarrow}\limits^{\iso} p^* q^*\cs{L}.
 \]
-This simple observation shows that the functor $q^* : \CS(G') \to \CS(G)$  factors according to the following commuting diagram of functors
+This simple observation shows that the functor $q^* : \CS(Q) \to \CS(G)$  factors according to the following commuting diagram of functors
 \[
 \begin{tikzcd}
 \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G') \arrow{dl}{\text{comparison}}\\
+\CS(Q) \arrow{dl}{\text{comparison}}\\
 \arrow{u}{\text{forget}} \CS_{H}(G). & 
 \end{tikzcd}
 \]
 
 \begin{lemma}
-If $q : G \to G'$ is an $H$-torsor in the fppf topology then the comparison functor $\CS(G') \to \CS_H(G)$ is an equivalence.
+If $q : G \to Q$ is an $H$-torsor in the fppf topology 
+then the comparison functor $\CS(Q) \to \CS_H(G)$ is an equivalence.
 \end{lemma}
 
 \begin{proof}
-First we show that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence. 
+First we recall that the comparison functor 
+$\Loc(Q) \to \Loc_H(G)$ is an equivalence. 
 To see this, observe first that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
 Moreover, if $Y \to X$ is a flat surjective morphism of affine schemes over $\Fq$, then the comparison functor $\Loc(X) \to \Loc(Y\to X)$ is an equivalence, with $\Loc(Y\to X)$ defined as in [].
 It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology.
 (This is a small variation on the proof that quasicoherent sheaves form a stack on sheaves in the fppf topology.)
-Since $q : G\to G'$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(G') \to \Loc_H(G)$ is an equivalence.
-The same argument shows that pull-back along $q\times q$ determines an equivalence $\Loc(G'\times G') \to \Loc_{H\times H}(G\times G)$.
+Since $q : G\to Q$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(Q) \to \Loc_H(G)$ is an equivalence.
+
+The same argument shows that pull-back along $q\times q$ determines an equivalence $\Loc(Q\times Q) \to \Loc_{H\times H}(G\times G)$.
+
+Now we claim that the comparison functor 
+$\CS(Q)\to \CS_H(G)$ is also an equivalence. 
 
 
 \end{proof}
@@ -650,7 +658,21 @@ $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta 
 \begin{proof}
 \end{proof}
 
-\subsection{Proofs}
+\begin{lemma}
+If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ may be apprehended as a morphism of $H\times H$-equivariant linear character sheaves on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+If $(\cs{L},\mu,\beta)$ is a commutative character sheaf on $G$ then $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is a morphism of commutative character sheaves on $G\times G$.
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+\subsection{Proofs for results from Section \ref{sec:defs}}
 
 We can now give the missing proofs from Section \ref{sec:defs}.
 
@@ -693,14 +715,17 @@ Since the comparison functor $\CS(G\ab) \to \CS_{G\der}(G)$ is an equivalence, i
 The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of the equivalence $\CS_{G\der}(G) \to \CS'(G)$ is $\CCS(G)$.
 To that end, suppose $(\cs{L},\mu,\beta)\in \CS'(G)$ and $(\cs{L},\mu,\nu) = q^*(\cs{L}\ab,\mu\ab)$;
 we must show that $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G\ab)$.
-Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ in Section~\ref{ssec:comcom}.
-This determines a rigidification $r : \cs{L}_1 \to \EE$ by ....\todo{I've sorted this out, but have also run out of steam for the day. I'll write it up tomorrow.}
+Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ as in Section~\ref{ssec:comcom}.
+Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ as in Section~\ref{ssec:noncom}.
+Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}; 
+in particular $\gamma = (q\times q)^* \xi$.
+
+Using Lemma [], we may interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\CS_{G\der\times G\der}(G\times G)$.
+By Lemma [], this corresponds uniquely to a diagram in $\CS(G\ab\times G\ab)$, necessarily the diagram in Definition~\ref{def:CCScom}.
+It now follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
+In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
+if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$.
 \end{proof}
-
-
-%\begin{proof}[Proof of Proposition~\ref{prop:Gdiagram}]
-%\end{proof}
-
 
 \iffalse
 
