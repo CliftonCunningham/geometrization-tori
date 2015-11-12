@@ -308,11 +308,9 @@ c^* \cs{L}\vert_{G\der} \arrow{r}{c^*(\beta)} &  c^*(\EE)_{G\der}, \arrow{u}
 \]
 where the arrow labeled with the equation is the canonical isomorphism coming from the isomorphism of functors defined by the equation.
 Using the monoidal structure of the category of Weil local systems on $G\times G$, this isomorphism, in turn, defines an isomorphism
-\[
-\begin{tikzcd}
-m^*\cs{L} \arrow{r}  & (\theta^* m^* i^*\cs{L})^\vee.
-\end{tikzcd}
-\] 
+$
+m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
+$
 Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $\cs{L}^\vee \iso i^*\cs{L}$, canonically, this defines the promised isomorphism
 \[
 \begin{tikzcd}
@@ -476,19 +474,23 @@ H \times H \times G
 \]
 defined by $b_1(h_1,h_2,g) = (n(h_1,h_2),g)$,  $b_2(h_1,h_2,g) = (h_1,a(h_2,g))$ and $b_3(h_1,h_2,g) = (h_2,g)$.
 Then, $a\circ b_1 = a\circ b_2$ and $a\circ b_3 = p\circ b_2$ and $p\circ b_1 = p\circ b_3$.
+Define $s : G\to H\times G$ by $s(g) = (1,g)$.
 An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  
 \[
 \nu : a^*\cs{L} \to p^*\cs{L}
 \] 
-of Weil local systems on $H\times G$ such that the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes,
-\begin{equation}\label{eq:nu}
+of Weil local systems on $H\times G$ such that 
+\begin{equation}\label{E1}
+s^*(\nu) = \id_{\cs{L}}
+\end{equation}
+and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes,
+\begin{equation}\label{E2}
 \begin{tikzcd}
 \ &  \arrow{dl}{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
 b_1^* a^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
 & b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L}, & 
 \end{tikzcd}
 \end{equation}
-and $s^*(\nu) = \id_{\cs{L}}$, where $s : G\to H\times G$ is given by $s(g) = (1,g)$.
 In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations above; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
 \iffalse
 On stalks, this condition is ...
@@ -501,7 +503,7 @@ On stalks, this condition is ...
 \]
 \fi
 Morphisms of $H$-equivariant Weil local systems $(\cs{L},\nu)\to (\cs{L}',\nu')$ are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which the diagram
-\begin{equation}\label{eq:alphanu}
+\begin{equation}\label{E3}
 \begin{tikzcd}
 \arrow{d}[swap]{\nu} a^*\cs{L} \arrow{r}{a^*(\alpha)} & a^*\cs{L}' \arrow{d}{\nu'} \\
 p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
@@ -516,7 +518,7 @@ An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$
 Consider the following morphisms: $c_0 : H\times G \times G\to H\times G \times H \times G$ defined by $c_0(h,g_1,g_2)\ceq(h,g_1,h,g_2)$;
 $c_1 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,g_1),a(h,g_2))$;  $c_2 : H \times G\times G \to H\times G$ defined by $c_2(h,g_1,g_2) \ceq (h, m(g_1,g_2))$; and $c_3 : H \times G\times G \to G\times G$ defined by $c_3(h, g_1, g_2) = (g_1, g_2)$. 
 Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $(\cs{L},\mu)$ is a linear character sheaf on $G$ and the following diagram of Weil local systems on $H \times G\times G$ commutes.
-\begin{equation}\label{eq:munu}
+\begin{equation}\label{ECS1}
 \begin{tikzcd}
 \ & \arrow{dl}{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{dr}[swap]{p\circ c_2 = m\circ c_3}  &  \\
 \arrow{d}[swap]{c_1^*(\mu)} c_1^* m^* \cs{L} &&& c_3^* m^*\cs{L} \arrow{d}{c_3^*(\mu)} \\
@@ -535,14 +537,15 @@ On stalks, this condition is
 for all $(h,g_1,g_2)\in H\times G\times G$.
 \fi
 
-A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves, so
-\begin{equation}\label{eq:alphamu}
-\begin{tikzcd}
-\arrow{d}[swap]{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
-\cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
-\end{tikzcd}
-\end{equation}
-commutes; see also [Dictionary, CS.4].
+A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves.
+%so
+%\begin{equation}\label{CS4}
+%\begin{tikzcd}
+%\arrow{d}[swap]{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
+%\cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
+%\end{tikzcd}
+%\end{equation}
+%commutes; see also [Dictionary, CS.4].
 %
 Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G$.
 
@@ -556,12 +559,12 @@ Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G
 If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of $H\times H$-equivariant linear character sheaves on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
 \end{lemma}
 
-\begin{proof}
+\begin{proof} 
 Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(m^*\cs{L}, m_2^*(\mu))$, where $m_2 : G\times G\times G\times G\to G\times G$ is defined by $m_2(x_1,y_1,x_2,y_2) = (m(x_1,x_2), m(y_1,y_2)$;
 this can be seen by following the argument of [Dictionary].
 Set $\cs{L}_2\ceq m^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
-The linear character sheaf $(\cs{L}_2,\mu_2)$ comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ where $a_2 : H\times H\times G\times G\to G\times G$ is given by $a_2(h_1,g_1,h_2,g_2) = (a(h_1,g_1), a(h_2,g_2)$ and $p_2 : H\times H\times G\times G\to G\times G$ is given by $p_2(h_1,g_1,h_2,g_2)= ( g_1,g_2)$.  
-This isomorphism satisfies \eqref{eq:nu} and \eqref{eq:munu}.
+The linear character sheaf $(\cs{L}_2,\mu_2)$ comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ where $a_2 : H\times H\times G\times G\to G\times G$ is given by $a_2(h_1,g_1,h_2,g_2) = (a(h_1,g_1), a(h_2,g_2)$ and $p_2 : H\times H\times G\times G\to G\times G$ is given by $p_2(h_1,g_1,h_2,g_2)= ( g_1,g_2)$. 
+The  isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ satisfies the appropriate version of \cite{ECS1}, so  $(\cs{L}_2,\mu_2,nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
 Likewise $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character sheaf with isomorphism $\nu \boxtimes\nu$, as indicated in the diagram below.
 \[
 \begin{tikzcd}
@@ -569,8 +572,9 @@ Likewise $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character
 p_2^*(m^*\cs{L}) \arrow{r}{p_2^*(\mu)} & p_2^*(\cs{L}\boxtimes\cs{L}) \arrow{r} & (p^*\cs{L})\boxtimes (p^*\cs{L}) 
 \end{tikzcd}
 \]
-Since this diagram commutes, and since the appropriate version of \eqref{eq:alphamu} also commutes, it follows that $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism of equivariant linear character sheaves.
-The argument that $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ is also straightforward.
+Since this diagram commutes, $(\cs{L}\boxtimes \cs{L},\mu\boxtimes \mu,\nu\boxtimes\nu)$ is also an $H\times H$-equivariant linear character sheaf on $G\times G$.
+The appropriate version of \eqref{E3} also commutes, so $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism of equivariant linear character sheaves.
+The argument that $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ is morphism of $H\times H$-equivariant linear character sheaves on $G\times G$ is also straightforward.
 \end{proof}
 
 
@@ -595,8 +599,8 @@ Consider the functor
 \[
 q^* : \CS(G_0) \to \CS(G)
 \]
-given on objects by $(\cs{L}_0,\mu_0) \mapsto (q^*\cs{L}_0, (q\times q)^* \mu_0)$.
-To see that $(q^*\cs{L}_0, (q\times q)^* \mu_0)$ is indeed a linear character sheaf on $G$, verify [Dictionary, CS.3], arguing as in [Dictionary].
+given on objects by $(\cs{L}_0,\mu_0) \mapsto (q^*\cs{L}_0, (q\times q)^* \mu_0)$; see [Dictionary, ].
+%To see that $(q^*\cs{L}_0, (q\times q)^* \mu_0)$ is indeed a linear character sheaf on $G$, verify [Dictionary, CS.3], arguing as in [Dictionary].
 This linear character sheaf $(\cs{L},\mu)\ceq (q^*\cs{L}_0, (q\times q)^* \mu_0)$ on $G$ comes equipped with the canonical isomorphism $\nu : a^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of canonical isomorphisms.
 \[
 \begin{tikzcd}
@@ -607,62 +611,71 @@ a^* ( q^*\cs{L}_0) \arrow{r}
 & p^* q^*\cs{L}_0
 \end{tikzcd}
 \]
-Since this isomorphism satisfies \eqref{eq:munu}, it follows that $(\cs{L}, \mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$.
+Since this isomorphism satisfies \eqref{ECS1}, it follows that $(\cs{L}, \mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$.
 If $\alpha_0 : (\cs{L}_0,\mu_0) \to (\cs{L}_0',\mu_0')$ is a morphism in $\CS(G_0)$, 
-then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \eqref{eq:alphamu} [Dictionary, CS.4], arguing as in [Dictionary], so $\alpha$ is a morphism in $\CS(G)$.
-\todo{
-I find myself having to make many references to [Dictionary] and promising that the results there adapt to the noncommutative group case. 
-It makes me uneasy, but the alternative is to actually repeat the proofs here, with the weaker hypothesis on $G$, which would be ugly. 
-I'm just agonizing out loud, I guess.
-} 
+then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies [Dictionary, CS.4], arguing as in [Dictionary], so $\alpha$ is a morphism in $\CS(G)$.
+%\todo{I find myself having to make many references to [Dictionary] and promising that the results there adapt to the noncommutative group case. It makes me uneasy, but the alternative is to actually repeat the proofs here, with the weaker hypothesis on $G$, which would be ugly. I'm just agonizing out loud, I guess.} 
 These simple observations define the comparison functor
 \[
-q_H^* : \CS(Q) \to CS_H(G)
+q_H^* : \CS(G_0) \to CS_H(G)
 \]
-and show that the functor $q^* : \CS(Q) \to \CS(G)$ factors according to the following commuting diagram of functors
+and show that the functor $q^* : \CS(G_0) \to \CS(G)$ factors according to the following commuting diagram of functors
 \[
 \begin{tikzcd}
 \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(Q) \arrow{dl}{q_H^*}\\
+\CS(G_0) \arrow{dl}{q_H^*}\\
 \arrow{u}{\text{forget}} \CS_{H}(G). & 
 \end{tikzcd}
 \]
+The definition of $q_H^* : \CS(G_0)\to \CS_H(G)$ will be revisited in the proof of the following result.
 
 \begin{lemma}\label{lem:torsor}
-If $q : G \to Q$ is an $H$-torsor in the fppf topology 
-then $q_H^*: \CS(Q) \to \CS_H(G)$ is an equivalence.
+If $q : G \to G_0$ is an $H$-torsor in the fppf topology 
+then $q_H^*: \CS(G_0) \to \CS_H(G)$ is an equivalence.
 \end{lemma}
 
 \begin{proof}
 First we recall that the comparison functor 
-$\Loc(Q) \to \Loc_H(G)$ is an equivalence. 
+$\Loc(G_0) \to \Loc_H(G)$ is an equivalence.
 To see this, observe first that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
-Then, observe that the comparison functor for Weil local systems is an equivalence for flat surjective morphisms $Y \to X$ of affine schemes over $\Fq$.
-It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology [Vistoli]
-Since $q : G\to Q$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(Q) \to \Loc_H(G)$ is an equivalence [Vistoli]
+Then, observe that the comparison functor for Weil local systems is an equivalence for flat surjective morphisms of affine schemes over $\Fq$.
+It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology [Vistoli].
+(This is a slight variation on the argument showing that quasicoherent sheaves are a stack over schemes in the fppf topology.)
+Since $q : G\to G_0$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(G_0) \to \Loc_H(G)$ is an equivalence [Vistoli].
 
-The same argument shows that pull-back along $q\times q$ determines an equivalence $\Loc(Q\times Q) \to \Loc_{H\times H}(G\times G)$.
+For use below, we write $L_1 : \Loc(G_0) \to \Loc_H(G)$ for the comparison functor, $R_1 : \Loc_H(G) \to Loc(G_0)$ for its adjoint, and $(\epsilon_1, \eta_1)$ for the counit and unit of the adjunction.
+%
+Arguing as above, we also see that pull-back along $q\times q$ determines an equivalence $L_2 : \Loc(G_0\times G_0) \to \Loc_{H\times H}(G\times G)$.
+For use below, we write $L_2 : \Loc_{H\times H}(G\times G) \to \Loc(G_0\times G_0)$ for its adjoint and $(\epsilon_2, \eta_2)$ for the counit and unit of the adjunction.
 
-Now we claim that the comparison functor 
-$\CS(Q)\to \CS_H(G)$ is also an equivalence. 
-Since a linear character sheaf on $Q$ is a triple $(\cs{L}_0,\mu_0)$, where $\cs{L}_0$ is an object in $\Loc(Q)$ and $\mu_0$ is a map in $\Loc(Q\times Q)$, satisfying the condition in [CS.2 from Dictionary].
+We may now revisit the definition of the functor $q_H^*: \CS(Q)\to \CS_H(G)$.
+By (a small part of) Lemma~\ref{lem:HH}, $\mu_0$ is a morphism of linear character sheaves on $G_0\times G_0$.
+Thus, on objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$. 
+To verify that $(L_1(\cs{L}_0), L_2(\mu_0))$ is an object of $\CS_H(G)$, one must confirm [Definition, CS1, CS2, CS3], \eqref{E1}, \eqref{E2} and \eqref{ECS1}. 
+Conditions [Definition, CS1, CS2, CS3] follow from an adaptation of [Dictionary, ...] while conditions \eqref{E1}, \eqref{E2} are a consequence of the work above. 
+Condition \eqref{ECS1} is confirmed by brute force.
+On maps, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\alpha_0) = L_1(\alpha_0)$.
+To verify that $L_1(\alpha_0)$ is a map in $\CS_H(G)$ we must confirm conditions [Definition, CS4] and \eqref{E3}.
+Condition [Definition, CS4] follows from an adaptation of [Dictionary, ...] while condition \eqref{E3} is a consequence of the work above.
 
-
+With this description of $q_H^*: \CS(Q)\to \CS_H(G)$ is is easy to see that it is an equivalence.
+Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (L_1(\cs{L},\nu), L_2(\nu))$, again making use of Lemma~\ref{lem:HH}, and on objects by $\alpha \mapsto L_1(\alpha)$.
+The adjunction is built from the adjunctions for $(L_1,R_1)$ and $(L_2, R_2)$.
 \end{proof}
 
 
 \subsection{Closed subgroups}\label{ssec:closed}
 
 We now suppose that $i : H \hookrightarrow G$ is a closed subgroup and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
-Then we have the diagram
-\[
-\begin{tikzcd}
-\ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
-G & & G \\
-& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
-\end{tikzcd}
-\]
-where $f(h,g) = (i(h),g)$.
+%Then we have the diagram
+%\[
+%\begin{tikzcd}
+%\ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+%G & & G \\
+%& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
+%\end{tikzcd}
+%\]
+Define $f : H\times G \to G\times G$ by $f(h,g) = (i(h),g)$ and note that $a = m\circ f$ and $p = p_2\circ f$.
 % (a(h,g) g^{-1}, g) = (h,g)$.
 %Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq (i\circ p_1)$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
 Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
@@ -670,9 +683,9 @@ Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determ
 \beta : \cs{L}\vert_H \to (\EE)_{H}
 \]
 by 
-\[
+\begin{equation}\label{betanu}
 \nu = (\beta \boxtimes \id) \circ  f^*\mu,
-\] 
+\end{equation}
 or more precisely, by the following diagram of isomorphisms.
 \[
 \begin{tikzcd}
