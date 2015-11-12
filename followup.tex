@@ -545,7 +545,7 @@ A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\c
 %\cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
 %\end{tikzcd}
 %\end{equation}
-%commutes; see also [Dictionary, CS.4].
+%commutes; see also \cite{cunningham-roe:13a}, CS.4].
 %
 Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G$.
 
@@ -561,10 +561,10 @@ If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $
 
 \begin{proof} 
 Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(m^*\cs{L}, m_2^*(\mu))$, where $m_2 : G\times G\times G\times G\to G\times G$ is defined by $m_2(x_1,y_1,x_2,y_2) = (m(x_1,x_2), m(y_1,y_2)$;
-this can be seen by following the argument of [Dictionary].
+this can be seen by following the argument of \cite{cunningham-roe:13a}].
 Set $\cs{L}_2\ceq m^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
 The linear character sheaf $(\cs{L}_2,\mu_2)$ comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ where $a_2 : H\times H\times G\times G\to G\times G$ is given by $a_2(h_1,g_1,h_2,g_2) = (a(h_1,g_1), a(h_2,g_2)$ and $p_2 : H\times H\times G\times G\to G\times G$ is given by $p_2(h_1,g_1,h_2,g_2)= ( g_1,g_2)$. 
-The  isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ satisfies the appropriate version of \cite{ECS1}, so  $(\cs{L}_2,\mu_2,nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
+The  isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ satisfies the appropriate version of \eqref{ECS1}, so  $(\cs{L}_2,\mu_2,nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
 Likewise $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character sheaf with isomorphism $\nu \boxtimes\nu$, as indicated in the diagram below.
 \[
 \begin{tikzcd}
@@ -599,8 +599,8 @@ Consider the functor
 \[
 q^* : \CS(G_0) \to \CS(G)
 \]
-given on objects by $(\cs{L}_0,\mu_0) \mapsto (q^*\cs{L}_0, (q\times q)^* \mu_0)$; see [Dictionary, ].
-%To see that $(q^*\cs{L}_0, (q\times q)^* \mu_0)$ is indeed a linear character sheaf on $G$, verify [Dictionary, CS.3], arguing as in [Dictionary].
+given on objects by $(\cs{L}_0,\mu_0) \mapsto (q^*\cs{L}_0, (q\times q)^* \mu_0)$; see \cite{cunningham-roe:13a}*{}.
+%To see that $(q^*\cs{L}_0, (q\times q)^* \mu_0)$ is indeed a linear character sheaf on $G$, verify \cite{cunningham-roe:13a}, CS.3], arguing as in \cite{cunningham-roe:13a}].
 This linear character sheaf $(\cs{L},\mu)\ceq (q^*\cs{L}_0, (q\times q)^* \mu_0)$ on $G$ comes equipped with the canonical isomorphism $\nu : a^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of canonical isomorphisms.
 \[
 \begin{tikzcd}
@@ -613,8 +613,8 @@ a^* ( q^*\cs{L}_0) \arrow{r}
 \]
 Since this isomorphism satisfies \eqref{ECS1}, it follows that $(\cs{L}, \mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$.
 If $\alpha_0 : (\cs{L}_0,\mu_0) \to (\cs{L}_0',\mu_0')$ is a morphism in $\CS(G_0)$, 
-then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies [Dictionary, CS.4], arguing as in [Dictionary], so $\alpha$ is a morphism in $\CS(G)$.
-%\todo{I find myself having to make many references to [Dictionary] and promising that the results there adapt to the noncommutative group case. It makes me uneasy, but the alternative is to actually repeat the proofs here, with the weaker hypothesis on $G$, which would be ugly. I'm just agonizing out loud, I guess.} 
+then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, arguing as in \cite{cunningham-roe:13a} so $\alpha$ is a morphism in $\CS(G)$.
+%\todo{I find myself having to make many references to \cite{cunningham-roe:13a}] and promising that the results there adapt to the noncommutative group case. It makes me uneasy, but the alternative is to actually repeat the proofs here, with the weaker hypothesis on $G$, which would be ugly. I'm just agonizing out loud, I guess.} 
 These simple observations define the comparison functor
 \[
 q_H^* : \CS(G_0) \to CS_H(G)
@@ -651,12 +651,12 @@ For use below, we write $L_2 : \Loc_{H\times H}(G\times G) \to \Loc(G_0\times G_
 We may now revisit the definition of the functor $q_H^*: \CS(Q)\to \CS_H(G)$.
 By (a small part of) Lemma~\ref{lem:HH}, $\mu_0$ is a morphism of linear character sheaves on $G_0\times G_0$.
 Thus, on objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$. 
-To verify that $(L_1(\cs{L}_0), L_2(\mu_0))$ is an object of $\CS_H(G)$, one must confirm [Definition, CS1, CS2, CS3], \eqref{E1}, \eqref{E2} and \eqref{ECS1}. 
-Conditions [Definition, CS1, CS2, CS3] follow from an adaptation of [Dictionary, ...] while conditions \eqref{E1}, \eqref{E2} are a consequence of the work above. 
+To verify that $(L_1(\cs{L}_0), L_2(\mu_0))$ is an object of $\CS_H(G)$, one must confirm \cite{cunningham-roe:13a}*{CS1, CS2, CS3}, \eqref{E1}, \eqref{E2} and \eqref{ECS1}. 
+Conditions \cite{cunningham-roe:13a}*{CS1, CS2, CS3} follow from an adaptation of \cite{cunningham-roe:13a}*{} while conditions \eqref{E1}, \eqref{E2} are a consequence of the work above. 
 Condition \eqref{ECS1} is confirmed by brute force.
 On maps, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\alpha_0) = L_1(\alpha_0)$.
-To verify that $L_1(\alpha_0)$ is a map in $\CS_H(G)$ we must confirm conditions [Definition, CS4] and \eqref{E3}.
-Condition [Definition, CS4] follows from an adaptation of [Dictionary, ...] while condition \eqref{E3} is a consequence of the work above.
+To verify that $L_1(\alpha_0)$ is a map in $\CS_H(G)$ we must confirm conditions \cite{cunningham-roe:13a}*{CS4} and \eqref{E3}.
+Condition \cite{cunningham-roe:13a}*{CS4} follows from an adaptation of \cite{cunningham-roe:13a}*{} while condition \eqref{E3} is a consequence of the work above.
 
 With this description of $q_H^*: \CS(Q)\to \CS_H(G)$ is is easy to see that it is an equivalence.
 Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (L_1(\cs{L},\nu), L_2(\nu))$, again making use of Lemma~\ref{lem:HH}, and on objects by $\alpha \mapsto L_1(\alpha)$.
@@ -871,11 +871,14 @@ Let $K$ be a local field with residue field $\Fq$.
 Let $\underline{G}$ be a smooth group scheme over $K$.
 Set $G_n = \Gr^R_n(\underline{G})$; this is a smooth group scheme over $\Fq$.
 Set $G = \Gr_R(\underline{G})$; this is a group scheme over $\Fq$ equipped with $G = \varprojlim_{n\in \NN} G_n$.
-Let $\QCS(G)$ be the category of commutative character sheaves on $G$. . . .  as in \cite{cunningham-roe:13a}.
+Let $\QCS(G)$ be the category of commutative quasicharacter sheaves on $G$. . . .  as in \cite{cunningham-roe:13a}.
 
 \begin{proposition}\label{prop:QCS}
-$\Hom(\underline{G}(\OK),\EEx) \iso \QCSiso{G}$.
+$\Hom_\text{cts}(\underline{G}(\OK),\EEx) \iso \QCSiso{G}$.
 \end{proposition}
+
+\begin{proof}
+\end{proof}
 
  \subsection{Geometric types for supercuspidal representations}
 
