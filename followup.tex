@@ -293,7 +293,7 @@ notion of character sheaf, even in the commutative case, we instead add restrict
 to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged.
 
 The first step in this process is to rule out character sheaves as above.
-The following proposition will be proven in Section \ref{sec:descent}.
+The following proposition will be proven in Section \ref{ssec:proofs}.
 \begin{proposition} \label{prop:Gder_triv}
 Suppose $G$ is a smooth group scheme and $\cs{L} \in \CS(G)$ is a linear character sheaf on $G$.
 Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $\cs{L} \cong q^*(\cs{L}\ab)$ for some
@@ -316,7 +316,7 @@ Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines
 m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \arrow{r}{c = m \circ (m \times (i \circ m \circ \theta))} & c^* \cs{L}\vert_{G\der} \arrow{r}{c^*(\beta)} &  c^*(\EE)_{G\der} \arrow{r} & (\EE)_G\otimes (\EE)_G.
 \end{tikzcd}
 \]
-Using the monadic structure of the category of Weil local systems on $G\times G$, this isomorphism, in turn, defines an isomorphism
+Using the monoidal structure of the category of Weil local systems on $G\times G$, this isomorphism, in turn, defines an isomorphism
 \[
 \begin{tikzcd}
 m^*\cs{L} \arrow{r}  & (\theta^* m^* i^*\cs{L})^\vee.
@@ -349,6 +349,8 @@ defines an equivalence of categories
 \CCS(G\ab) \to \CCS(G).
 \]
 \end{theorem}
+
+The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given in Section~\ref{ssec:proofs}, with the proof of Theorem~\ref{thm:Gab}.
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
@@ -476,8 +478,8 @@ H \times H \times G
 \arrow{r}{}
 \arrow[shift right=4]{r}{} 
 & H \times G 
-\arrow[shift left=2]{r}{a}
-\arrow[shift right=2]{r}[swap]{p}
+\arrow[shift left=1]{r}{a}
+\arrow[shift right=1]{r}[swap]{p}
  & G 
 \end{tikzcd}
 \]
@@ -495,7 +497,7 @@ b_1^* a^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu
 & b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L}, & 
 \end{tikzcd}
 \end{equation}
-and $s^*(\nu) = \id_{\cs{L}}$.
+and $s^*(\nu) = \id_{\cs{L}}$, where $s : G\to H\times G$ is given by $s(g) = (1,g)$.
 In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations above; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
 \iffalse
 On stalks, this condition is ...
@@ -543,7 +545,7 @@ for all $(h,g_1,g_2)\in H\times G\times G$.
 \fi
 
 A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves, so
-\begin{equation}\label{eq:alphanu}
+\begin{equation}\label{eq:alphamu}
 \begin{tikzcd}
 \arrow{d}[swap]{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
 \cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
@@ -581,12 +583,6 @@ The argument that $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtime
 \end{proof}
 
 
-\begin{lemma}\label{lem:GderGder}
-If $(\cs{L},\mu,\beta)$ is a commutative character sheaf on $G$ then $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is a morphism of $G\der\times G\der$-equivariant linear character sheaves on $G\times G$.
-\end{lemma}
-
-\begin{proof}
-\end{proof}
 
 \subsection{Descent along a torsor}
 
@@ -594,8 +590,8 @@ Now suppose $q : G \to Q$ is a regular epimorphism with kernel pair $(a,p)$ in t
 \[
 \begin{tikzcd}
 H\times G
- \arrow[shift left=2]{r}{a}
-  \arrow[shift right=2,swap]{r}{p}
+ \arrow[shift left=1]{r}{a}
+  \arrow[shift right=1,swap]{r}{p}
 &
 G 
 \arrow{r}{q}
@@ -649,7 +645,7 @@ $\CS(Q)\to \CS_H(G)$ is also an equivalence.
 \end{proof}
 
 
-\subsection{Closed subgroups}
+\subsection{Closed subgroups}\label{ssec:closed}
 
 We now suppose that $i : H \hookrightarrow G$ is a closed subgroup and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
 Then we have the diagram
@@ -663,7 +659,7 @@ G & & G \\
 where $f(h,g) = (i(h),g)$.
 % (a(h,g) g^{-1}, g) = (h,g)$.
 %Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq (i\circ p_1)$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
-Then every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
+Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
 \[
 \beta : \cs{L}\vert_H \to (\EE)_{H}
 \]
@@ -681,19 +677,22 @@ f^* m^*\cs{L} \arrow{dr}{f^*\mu} &&& (\EE)_{H} \boxtimes \cs{L} \arrow{ul}{p= p_
 \end{tikzcd}
 \]
 In this way we see we may replace $(\cs{L},\mu,\nu)$ with a triple, $(\cs{L},\mu,\beta)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
-The isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is constrained conditions from Sections~\ref{ssec:equivariant1} and \ref{ssec:equivariant2}.
+The next lemma makes that statement more precise.
 
 
 \begin{lemma}\label{lem:beta}
-$\CS_H(G)$ is equivalent to the category $\CS'(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
+$\CS_H(G)$ is equivalent to the category $\CS^H(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
 $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta = \beta' \circ \alpha\vert_{H}$.
 \end{lemma}
 
 \begin{proof}
+We have seen how every $(\cs{L},\mu,\nu)\in \CS_H(G)$ determines an isomorphism of Weil local systems $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$.
+This isomorphism is constrained conditions from Sections~\ref{ssec:equivariant1} and \ref{ssec:equivariant2} as they apply to $\nu : a^*\cs{L}\to p^*\cs{L}$. 
+It is straightforward but quite unpleasant matter to show that those conditions are exactly equivalent to the condition that the isomorphism Weil local systems $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is an isomorphism in the category of of linear character sheaves on $H$.
 \end{proof}
 
 
-\subsection{Proofs for results from Section \ref{sec:defs}}
+\subsection{Proofs for results from Section \ref{sec:defs}}\label{ssec:proofs}
 
 We can now give the missing proofs from Section \ref{sec:defs}.
 
@@ -709,12 +708,13 @@ Now,
 gives
 \[
 \begin{tikzcd}
-\CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
+& \CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
 \CS(G\ab) \arrow{dl}{q_{G\der}^*} \\
-\arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu} &  \CS_{G\der}(G) \arrow{u}{\text{forget}}  & 
+\CS^{G\der}(G) & \arrow[equal]{l} \CS'(G) \arrow{u}{\text{forget}}  \arrow{r}{\beta \mapsto \nu} &  \CS_{G\der}(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
 \]
 %
+Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncom} and the observation that it is precisely the category $\CS^{G\der}(G)$, taking the case $H=G\der$ in Section~\ref{ssec:closed}.
 Since the quotient $q : G \to G\ab$ is a trivial $G\der$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}, 
 it now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{G\der}(G)$ is an equivalence.
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{G\der}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
@@ -724,28 +724,35 @@ Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precis
 
 \begin{proof}[Proof of Theorem~\ref{thm:Gab}] 
 By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory.
-Since the comparison functor $\CS(G\ab) \to \CS_{G\der}(G)$ is an equivalence, it determines a full subcategory $\CCS_{G\der}(G)$ which is equivalent to $\CCS(G\ab)$. 
+Since the comparison functor $\CS(G\ab) \to \CS_{G\der}(G)$ is an equivalence, it determines a full subcategory $\CCS_{G\der}(G)$ which is equivalent to $\CCS(G\ab)$, as pictured below.
+The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of the equivalence $\CS_{G\der}(G) \to \CS'(G)$ is $\CCS(G)$.
 \[
 \begin{tikzcd}
-\CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\der) 
+& \arrow{l}[swap]{i^*} \CS(G) 
+&\arrow{l}[swap]{q^*} 
 \CS(G\ab) \arrow{dl}{q_{G\der}^*} \\
-\arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu} &  \CS_{G\der}(G) \arrow{u}{\text{forget}}  & \CCS(G\ab) \arrow{u} \arrow{dl} \\
-\CCS(G) \arrow{u} \arrow{r}{\beta \mapsto \nu} & \arrow{u}  \CCS_{G\der}(G) & 
+\arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu} 
+&  \CS_{G\der}(G) \arrow{u}{\text{forget}}  
+&  \arrow[bend left=35pt, dashed]{dll} \CCS(G\ab) \arrow{u} \arrow{dl} \\
+\CCS(G) \arrow{u} \arrow{r}{\beta \mapsto \nu} 
+& \arrow{u}  \CCS_{G\der}(G) 
+& 
 \end{tikzcd}
 \]
-The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of the equivalence $\CS_{G\der}(G) \to \CS'(G)$ is $\CCS(G)$.
-To that end, suppose $(\cs{L},\mu,\beta)\in \CS'(G)$ and $(\cs{L},\mu,\nu) = q^*(\cs{L}\ab,\mu\ab)$;
+
+Suppose $(\cs{L},\mu,\beta)\in \CS'(G)$ and $(\cs{L},\mu,\nu) = q^*(\cs{L}\ab,\mu\ab)$;
 we must show that $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G\ab)$.
 Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ as in Section~\ref{ssec:comcom}.
 Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ as in Section~\ref{ssec:noncom}.
 Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}; 
 in particular $\gamma = (q\times q)^* \xi$.
-
-Using Lemmas~\ref{lem:HH} and \ref{lem:GderGder}, we may interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\CS_{G\der\times G\der}(G\times G)$.
+Together with Lemma~\ref{lem:HH}, we may now interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\CS_{G\der\times G\der}(G\times G)$.
 By Lemma~\ref{lem:beta}, this corresponds uniquely to a diagram in $\CS(G\ab\times G\ab)$, necessarily the diagram in Definition~\ref{def:CCScom}.
-It now follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
+It follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
 In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
 if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$, completing the proof of Theorem~\ref{thm:Gab}.
+This also defines the functor $\CCS(G\ab) \to \CCS(G)$ by the dashed arrow in the diagram above.
 \end{proof}
 
 \iffalse
