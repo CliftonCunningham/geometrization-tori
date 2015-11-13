@@ -452,7 +452,12 @@ H \times H \times G
  & G 
 \end{tikzcd}
 \]
-defined by $b_1(h_1,h_2,g) = (n(h_1,h_2),g)$,  $b_2(h_1,h_2,g) = (h_1,a(h_2,g))$ and $b_3(h_1,h_2,g) = (h_2,g)$.
+defined by 
+\begin{align*}
+b_1(h_1,h_2,g) &= (h_1h_2,g) \\
+b_2(h_1,h_2,g) &= (h_1,h_2g) \\
+b_3(h_1,h_2,g) &= (h_2,g).
+\end{align*}
 Then, $a\circ b_1 = a\circ b_2$ and $a\circ b_3 = p\circ b_2$ and $p\circ b_1 = p\circ b_3$.
 Define $s : G\to H\times G$ by $s(g) = (1,g)$.
 An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  
