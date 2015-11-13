@@ -553,8 +553,7 @@ If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $
 \end{lemma}
 
 \begin{proof} 
-Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(m^*\cs{L}, m_2^*(\mu))$, where $m_2 : G\times G\times G\times G\to G\times G$ is defined by $m_2(x_1,y_1,x_2,y_2) = (m(x_1,x_2), m(y_1,y_2)$;
-this can be seen by following the argument of \cite{cunningham-roe:13a} \todo{which part of [2]?}.
+Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(m^*\cs{L}, m_2^*(\mu))$, where $m_2 : G\times G\times G\times G\to G\times G$ is defined by $m_2(x_1,y_1,x_2,y_2) = (m(x_1,x_2), m(y_1,y_2)$; compare with \cite{cunningham-roe:13a}*{Lemma 1.4}.
 Set $\cs{L}_2\ceq m_2^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
 The linear character sheaf $(\cs{L}_2,\mu_2)$ comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ where $a_2 : H\times H\times G\times G\to G\times G$ is given by $a_2(h_1,g_1,h_2,g_2) = (a(h_1,g_1), a(h_2,g_2)$ and $p_2 : H\times H\times G\times G\to G\times G$ is given by $p_2(h_1,g_1,h_2,g_2)= ( g_1,g_2)$. 
 The  isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ satisfies the appropriate version of \eqref{ECS1}, so  $(\cs{L}_2,\mu_2,\nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
@@ -641,7 +640,7 @@ For use below, we write $L_1 : \Loc(G_0) \to \Loc_H(G)$ for the comparison funct
 Arguing as above, we also see that pull-back along $q\times q$ determines an equivalence $L_2 : \Loc(G_0\times G_0) \to \Loc_{H\times H}(G\times G)$.
 For use below, we write $R_2 : \Loc_{H\times H}(G\times G) \to \Loc(G_0\times G_0)$ for its adjoint and $(\epsilon_2, \eta_2)$ for the counit and unit of the adjunction.
 
-We may now revisit the definition of the functor $q_H^*: \CS(Q)\to \CS_H(G)$.  \todo{Change of notation $G_0$ to $Q$}
+We may now revisit the definition of the functor $q_H^*: \CS(G_0)\to \CS_H(G)$. 
 By (a small part of) Lemma~\ref{lem:HH}, $\mu_0$ is a morphism of linear character sheaves on $G_0\times G_0$.
 Thus, on objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$. 
 To verify that $(L_1(\cs{L}_0), L_2(\mu_0))$ is an object of $\CS_H(G)$, one must confirm \cite{cunningham-roe:13a}*{CS1, CS2, CS3}, \eqref{E1}, \eqref{E2} and \eqref{ECS1}. 
@@ -697,8 +696,9 @@ $\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta 
 
 \begin{proof}
 We have seen how every $(\cs{L},\mu,\nu)\in \CS_H(G)$ determines an isomorphism of Weil local systems $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$.
-This isomorphism is constrained conditions from Sections~\ref{ssec:equivariant1} and \ref{ssec:equivariant2} as they apply to $\nu : a^*\cs{L}\to p^*\cs{L}$.  \todo{We seem to be missing a preposition}
-It is straightforward, tedious exercise to show that those conditions are exactly equivalent to the condition
+This isomorphism is constrained by the conditions 
+appearing in \eqref{E1}, \eqref{E2} and \eqref{ECS1}.
+It is a straightforward, tedious exercise to show that those conditions are exactly equivalent to the condition
 that the isomorphism of Weil local systems $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is an isomorphism in the category of of linear character sheaves on $H$.
 \end{proof}
 
