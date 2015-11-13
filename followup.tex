@@ -555,31 +555,46 @@ If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $
 \begin{proof} 
 Define
 \begin{align*}
-m_2 : G\times G\times G\times G &\to G\times G \\
-(x_1,y_1,x_2,y_2) &\mapsto (x_1x_2, y_1y_2) \\
+d : H\times H\times G\times G &\to H\times G\times H\times G \\
+(h_1,h_2,g_1,g_2) &\mapsto (h_1, g_1, h_2, g_2)\\
 a_2 : H\times G\times H\times G &\to G\times G \\
 (h_1,g_1,h_2,g_2) &\mapsto (h_1g_1, h_2g_2) \\
 p_2 : H\times G\times H\times G &\to G\times G \\
-(h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2)
+(h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2).
 \end{align*}
-and set $\cs{L}_2\ceq m_2^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
-The Weil local system $\cs{L}_2$ on $G \times G$ comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2 \to p_2^*\cs{L}_2$ defined by ...\todo{Working here.}
-This isomorphism satisfies \eqref{E1} and \eqref{E2} as they apply here.
-%
-Likewise, $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character sheaf with isomorphism $\nu \boxtimes\nu$, as indicated in the diagram below.
+The following diagram defines the isomorphisms needed to see that both $m^*\cs{L}$ and $\cs{L}\boxtimes\cs{L}$ are $H\times H$-equivariant Weil local systems.
 \[
-\begin{tikzcd}
-\arrow{d}[swap]{\nu_2} a_2^*(m^*\cs{L}) \arrow{r}{a_2^*(\mu)} & a_2^*(\cs{L}\boxtimes\cs{L})  \arrow{r} & (a^*\cs{L})\boxtimes (a^*\cs{L}) \arrow{d}{\nu\boxtimes\nu} \\
-p_2^*(m^*\cs{L}) \arrow{r}{p_2^*(\mu)} & p_2^*(\cs{L}\boxtimes\cs{L}) \arrow{r} & (p^*\cs{L})\boxtimes (p^*\cs{L}) 
+\begin{tikzcd}[column sep=40]
+\arrow{d}[swap]{a_2(\mu)} a_2^* (m^*\cs{L}) \arrow[dashed]{r} 
+	& \arrow{d}{p_2^*(\mu)} p_2^*(m^*\cs{L})\\
+\arrow{d}[swap]{a_2= (a\times a)\circ d} a_2^*(\cs{L}\boxtimes\cs{L}) \arrow[dashed]{r} 
+	& \arrow{d}{p_2= (p\times p)\circ d} p_2^*(\cs{L}\boxtimes\cs{L}) \\
+%d^* (a\times a)^* (\cs{L}\boxtimes\cs{L}) & d^* (p\times p)^* (\cs{L}\boxtimes\cs{L}) \\
+d^* (a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{d^*(\nu\boxtimes \nu)}& d^*(p^*\cs{L}\boxtimes p^*\cs{L}) 
 \end{tikzcd}
 \]
-By abuse of notation, we will also refer to the missing vertical map down the center of this diagram as $\nu \boxtimes \nu$.  Since this diagram commutes, $(\cs{L}\boxtimes \cs{L},\mu\boxtimes \mu,\nu\boxtimes\nu)$ is also an $H\times H$-equivariant linear character sheaf on $G\times G$.
-The appropriate version of \eqref{E3} also commutes, so we can reinterpret
+The dashed arrows both satisfy \eqref{E1} and \eqref{E2} as they apply here.
+This diagram also shows that $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of equivariant sheaves, since it satisfies \eqref{E3} as it applies here.
+The proof that $\theta^*(\cs{L}\boxtimes\cs{L})$ is also straightforward, since $a_2\circ \theta = \theta_2 \circ a_2$ and $p_2\circ \theta = \theta_2 \circ p_2$ for the obvious $\theta_2$.
+Let $\nu_2 : a_2^*(\cs{L}\boxtimes\cs{L}) \to p_2^*(\cs{L}\boxtimes\cs{L})$ be the middle horizontal isomorphism of Weil local systems, above. 
+Then, to see that
 \[
-\mu : (\cs{L}_2, \mu_2, \nu_2) \to (\cs{L}\boxtimes\cs{L}, \mu \boxtimes \mu, \nu \boxtimes \nu)
+\begin{tikzcd}
+a_2^*(\cs{L}\boxtimes\cs{L}) \arrow{r}{a_2^*(\vartheta)} \arrow{d}[swap]{\nu_2} 
+	& a_2^*\theta^*(\cs{L}\boxtimes\cs{L}) \arrow{d}{\theta^*(\nu_2)} \\
+p_2^*(\cs{L}\boxtimes\cs{L}) \arrow{r}{p_2^*(\vartheta)} 
+	& p_2^*\theta^*(\cs{L}\boxtimes\cs{L})
+\end{tikzcd}
 \]
-as a morphism of equivariant linear character sheaves.
-The argument that $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ is morphism of $H\times H$-equivariant linear character sheaves on $G\times G$ is also straightforward.\todo{Add detail here.}
+commutes, consider the commuting diagram of stalks, below.
+\[
+\begin{tikzcd}
+\cs{L}_{h_1g_1}\otimes\cs{L}_{h_2g_2} \arrow{r}{\vartheta}  \arrow{d}[swap]{\nu_2} 
+	& \cs{L}_{h_2g_2} \otimes\cs{L}_{h_1g_1}  \arrow{d}{\nu_2} \\
+\cs{L}_{g_1}\otimes\cs{L}_{g_2} \arrow{r}{\vartheta}  
+	& \cs{L}_{g_2} \otimes\cs{L}_{g_1}
+\end{tikzcd}
+\]
 \end{proof}
 
 
@@ -663,7 +678,7 @@ To verify that $L_1(\alpha_0)$ is a map in $\CS_H(G)$ we must confirm conditions
 Condition \cite{cunningham-roe:13a}*{CS4} follows from an adaptation of \cite{cunningham-roe:13a}*{} while condition \eqref{E3} is a consequence of the work above.
 
 With this description of $q_H^*: \CS(Q)\to \CS_H(G)$ is is easy to see that it is an equivalence.
-Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (R_1(\cs{L},\nu), R_2(\nu))$, again making use of Lemma~\ref{lem:HH}, and on morphisms by $\alpha \mapsto R_1(\alpha)$.
+Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (R_1(\cs{L},\nu), R_2(\nu))$, making use of Lemma~\ref{lem:HH}, and on morphisms by $\alpha \mapsto R_1(\alpha)$.
 The adjunction is built from the adjunctions for $(L_1,R_1)$ and $(L_2, R_2)$.
 \end{proof}
 
@@ -738,7 +753,7 @@ gives
 \end{tikzcd}
 \]
 %
-Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the observation that it is precisely the category $\CS^{H}(G)$ from Section~\ref{ssec:closed} for $H=G\der$.
+Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the observation that $\CS'(G)$ is precisely the category $\CS^{H}(G)$ from Section~\ref{ssec:closed} for $H=G\der$.
 Since the quotient $q : G \to G\ab$ is a trivial $H$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}, 
 it now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
@@ -752,16 +767,17 @@ By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory
 Since the comparison functor $\CS(G\ab) \to \CS_{H}(G)$ is an equivalence, it determines a full subcategory $\CCS_{H}(G)$ which is equivalent to $\CCS(G\ab)$, as pictured below.
 The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of the equivalence $\CS_{H}(G) \to \CS'(G)$ is $\CCS(G)$.
 \[
-\begin{tikzcd}
+\begin{tikzcd}[row sep=30]
 \CS(H) 
 & \arrow{l}[swap]{i^*} \CS(G) 
 &\arrow{l}[swap]{q^*} 
 \CS(G\ab) \arrow{dl}{q_{H}^*}[swap]{\iso} \\
 \arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu}[swap]{\iso} 
 &  \CS_{H}(G) \arrow{u}{\text{forget}}  
-&  \arrow[bend left=35pt, dashed]{dll} \CCS(G\ab) \arrow{u} \arrow{dl}[swap]{\iso} \\
-\CCS(G) \arrow{u} \arrow{r}{\beta \mapsto \nu}[swap]{\iso}
-& \arrow{u}  \CCS_{H}(G) 
+&  %\arrow[bend left=35pt, dashed]{dll} 
+\CCS(G\ab) \arrow{u}[swap]{\text{full sub}} \arrow{dl}[swap]{\iso} \\
+\CCS(G) \arrow{u}{\text{full sub}} \arrow{r}{\beta \mapsto \nu}[swap]{\iso}
+& \arrow{u}{\text{full sub}}  \CCS_{H}(G) 
 & 
 \end{tikzcd}
 \]
@@ -770,10 +786,23 @@ Suppose $(\cs{L},\mu,\beta)\in \CS'(G)$ and $(\cs{L},\mu,\nu) = q^*(\cs{L}\ab,\m
 we must show that $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G\ab)$.
 Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ as in Section~\ref{sec:comcom}.
 Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ as in Section~\ref{ssec:noncomdef}.
-Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}; 
+Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}, as pictured below; 
 in particular $\gamma = (q\times q)^* \xi$.
-Together with Lemma~\ref{lem:HH}, we may now interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\Loc_{H\times H}(G\times G)$.
-By Lemma~\ref{lem:torsor}, this corresponds uniquely to a diagram in $\Loc(G\ab\times G\ab)$, necessarily the diagram in Definition~\ref{def:CCScom}.
+  \[
+  \begin{tikzcd}[row sep=10, column sep = 15]
+   m_0^*\cs{L}_0 \arrow{dd}[swap]{\xi} \arrow{r}{\mu_0} 
+   & \cs{L}_0\boxtimes\cs{L}_0 \arrow{dd}{\vartheta}
+&&&   m^*\cs{L} \arrow{dd}[swap]{\gamma} \arrow{r}{\mu} 
+ & \cs{L}\boxtimes\cs{L} \arrow{dd}{\vartheta}\\
+ && \arrow{r}{(q\times q)^*}  &\ & & &\\ 
+   \theta^*(m_0^*\cs{L}_0) \arrow{r}{{\theta}^*\mu_0} 
+ &  \theta^*(\cs{L}_0\boxtimes\cs{L}_0)
+&&&   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} 
+&  \theta^*(\cs{L}\boxtimes\cs{L})
+  \end{tikzcd}
+\]
+By Lemma~\ref{lem:HH}, we may interpret the diagram on the right, above, as a diagram in $\Loc_{H\times H}(G\times G)$.
+By Lemma~\ref{lem:torsor}, this corresponds uniquely to a diagram in $\Loc(G\ab\times G\ab)$, necessarily the diagram on the left, above.
 It follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
 In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
 if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$, completing the proof of Theorem~\ref{thm:Gab}.
