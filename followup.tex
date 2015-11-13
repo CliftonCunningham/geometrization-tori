@@ -379,7 +379,7 @@ Let $\CS'(G)$ be the category of such triples, $(\cs{L},\mu,\beta)$, in which a 
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
 Let $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Then $c$ is a smooth morphism of $\Fq$ schemes and $c = m \circ (m \times (i \circ m \circ \theta))$.
-Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_G\otimes (\EE)_G$ by the diagram
+Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_G\otimes (\EE)_G$ by the diagram \todo{Fix this diagram.}
 \[
 \begin{tikzcd}
 m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \arrow{d}{c = m \circ (m \times (i \circ m \circ \theta))}  \arrow[dashed]{r} & (\EE)_G\otimes (\EE)_G\\
@@ -563,7 +563,7 @@ p_2 : H\times G\times H\times G &\to G\times G \\
 (h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2)
 \end{align*}
 and set $\cs{L}_2\ceq m_2^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
-Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(\cs{L}_2, \mu_2)$ on $G \times G$ (see \cite{cunningham-roe:13a}*{Lemma 1.4}),
+Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(\cs{L}_2, \mu_2)$ on $G \times G$ (see \cite{cunningham-roe:13a}*{Lemma 1.4}), \todo{False, because $m$ is not a group homorphism.}
 which comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2 \to p_2^*\cs{L}_2$. 
 This isomorphism satisfies the appropriate version of \eqref{ECS1}, so  $(\cs{L}_2,\mu_2,\nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
 Likewise, $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character sheaf with isomorphism $\nu \boxtimes\nu$, as indicated in the diagram below.
