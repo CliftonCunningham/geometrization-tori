@@ -379,18 +379,19 @@ Let $\CS'(G)$ be the category of such triples, $(\cs{L},\mu,\beta)$, in which a 
 
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
 Let $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
-Then $c$ is a smooth morphism of $\Fq$ schemes and $j\circ c = m \circ (m \times (i \circ m \circ \theta))$.
-Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the commuting diagram of isomorphisms, below.
+Then $c$ is a smooth morphism of $\Fq$ schemes.
+Set $m' = i \circ m \circ \theta$; then $j\circ c = m \circ (m \times m')$.
+Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms, below.
 \[
 \begin{tikzcd}
-\arrow{d} c^* \cs{L}\vert_{G\der} \arrow{r}{c^*(\beta)} 
-	&  c^*(\EE)_{G\der}\\
-\arrow{d}{j\circ c = m \circ (m \times (i \circ m \circ \theta))} (j\circ c)^*\cs{L} 
-	&  m^*\cs{L} \otimes (i \circ m \circ \theta)^*\cs{L} \arrow[dashed]{u}  \\
-\arrow{d} (m \circ (m \times (i \circ m \circ \theta)))^*\cs{L} 
-	& (m \times (i \circ m \circ \theta))^* (p_1^*\cs{L} \otimes p_2^*\cs{L}) \arrow{u} \\
-(m \times (i \circ m \circ \theta))^* m^* \cs{L} \arrow{r}{(m \times (i \circ m \circ \theta))^*(\mu)} 
-	& (m \times (i \circ m \circ \theta))^* (\cs{L} \boxtimes \cs{L}) \arrow{u}
+\arrow[equal]{d} c^* \cs{L}\vert_{G\der} \arrow{r}{c^*(\beta)} 
+	&  c^*(\EE)_{G\der} \arrow[equal]{d} \\
+\arrow{d}[swap]{j\circ c = m \circ (m \times m')} c^* j^* \cs{L} 
+	&   (\EE)_{G\times G} \\
+(m \times m')^* m^* \cs{L} \arrow{d}[swap]{(m \times m')^*(\mu)} 
+	&  m^*\cs{L} \otimes \theta^* m^* i^* \cs{L}  \arrow[dashed]{u} \\
+(m \times m')^* (\cs{L} \boxtimes \cs{L}) \arrow[equal]{r} 
+	& m^*\cs{L} \otimes (m')^*\cs{L} \arrow{u}[swap]{m' = i\circ m\circ \theta} 
 \end{tikzcd}
 \]
 %where the arrow labeled with the equation is the canonical isomorphism coming from the isomorphism of functors defined by the equation.
