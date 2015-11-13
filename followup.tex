@@ -145,6 +145,7 @@
 \newcommand{\GxxG}{\text{$G \tight{1}{\times}{1} G$}}
 \newcommand{\LxL}{\text{$\gcs{L} \tight{0}{\boxtimes}{0} \gcs{L}$}}
 
+
 %% Hyphenation override
 \hyphenation{quasi-character}
 %% Number one equation of many
@@ -420,7 +421,8 @@ where $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from
 Suppose $G$ is commutative, so $G\der = 1$. 
 Suppose $(\cs{L},\mu,\beta)$ is an object in $\CS'(G)$.
 Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, and unique by \cite{cunningham-roe:13a}*{Thm 3.9}.
-Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find that $\gamma$ is the canonical isomorphism $\xi : m^*\cs{L} \to \theta^*m^*\cs{L}$ coming from the equation $m = m \circ \theta$. 
+Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find that $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ is the canonical isomorphism coming from the equation $m = m \circ \theta$. 
+ \todo{I'm having some trouble seeing this.}  
 Thus, when $G$ is commutative, Definition~\ref{def:CCS} recovers Definition~\ref{def:CCScom}.
 The next result generalizes this observation.
 
@@ -433,6 +435,8 @@ defines an equivalence of categories
 \end{theorem}
 
 The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given in Section~\ref{ssec:proofs}, with the proof of Theorem~\ref{thm:Gab}.
+%
+Sections~\ref{ssec:equivariant1}, \ref{ssec:equivariant2}, \ref{ssec:descent} and \ref{ssec:closed} set up machinery needed to prove Theorem~\ref{thm:Gab}.
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
@@ -524,7 +528,7 @@ c_3 : H \times G\times G &\to G\times G \\
 \end{align*}
 We require that the following diagram of Weil local systems on $H \times G\times G$ commutes:
 \begin{equation}\label{ECS1}
-\begin{tikzcd}
+\begin{tikzcd}[column sep=30]
 \ & \arrow{dl}{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{dr}[swap]{p\circ c_2 = m\circ c_3}  &  \\
 \arrow{d}[swap]{c_1^*(\mu)} c_1^* m^* \cs{L} &&& c_3^* m^*\cs{L} \arrow{d}{c_3^*(\mu)} \\
 c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{dr}{p_i\circ c_1 = a\circ p_i\circ c_0} &&& \arrow{dl}[swap]{p\circ p_i\circ c_0 = p_i \circ c_3} c_3^*(\cs{L}\boxtimes \cs{L}) \\
@@ -610,9 +614,9 @@ commutes, consider the commuting diagram of stalks, below.
 
 
 
-\subsection{Descent along a torsor}
+\subsection{Descent along a torsor}\label{ssec:descent}
 
-Now suppose $q : G \to G_0$ is a regular epimorphism with kernel pair $(a,p)$ in the category of schemes
+Now suppose $q : G \to G_0$ is a regular epimorphism of smooth group schemes with kernel pair $(a,p)$
 \[
 \begin{tikzcd}
 H\times G
@@ -630,15 +634,13 @@ Consider the functor
 \[
 q^* : \CS(G_0) \to \CS(G)
 \]
-given on objects by $(\cs{L}_0,\mu_0) \mapsto (q^*\cs{L}_0, (q\times q)^* \mu_0)$; see \cite{cunningham-roe:13a}*{}.
+given on objects by $(\cs{L}_0,\mu_0) \mapsto (q^*\cs{L}_0, (q\times q)^* \mu_0)$; see \cite{cunningham-roe:13a}*{Lem 1.4}.
 %To see that $(q^*\cs{L}_0, (q\times q)^* \mu_0)$ is indeed a linear character sheaf on $G$, verify \cite{cunningham-roe:13a}, CS.3], arguing as in \cite{cunningham-roe:13a}].
 This linear character sheaf $(\cs{L},\mu)\ceq (q^*\cs{L}_0, (q\times q)^* \mu_0)$ on $G$ comes equipped with the canonical isomorphism $\nu : a^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of canonical isomorphisms.
 \[
-\begin{tikzcd}
-a^*\cs{L} \arrow[equal]{d} \arrow[dashed]{rrr}{\nu} & & &  \arrow[equal]{d} p^*\cs{L} \\
-a^* ( q^*\cs{L}_0) \arrow{r} 
-& (q\circ a)^* \cs{L}_0 \arrow[equal]{r} 
-& (q\circ p)^*\cs{L}_0 \arrow{r} 
+\begin{tikzcd}[column sep=40]
+a^*\cs{L} \arrow[equal]{d} \arrow[dashed]{r}{\nu} &  \arrow[equal]{d} p^*\cs{L} \\
+a^* ( q^*\cs{L}_0) \arrow{r}{q\circ a = q\circ p}
 & p^* (q^*\cs{L}_0)
 \end{tikzcd}
 \]
@@ -716,7 +718,7 @@ by
 \end{equation}
 or more precisely, by the following diagram of isomorphisms, where we write $p_1: G\times G\to G$ for projection to the first component and $p_2 : G\times G \to G$ for projection to the second.
 \[
-\begin{tikzcd}
+\begin{tikzcd}[column sep=30]
 \ & a^*\cs{L} \arrow{dl}{m\circ f = a} \arrow{r}{\nu} & p^*\cs{L} & \\
 f^* m^*\cs{L} \arrow{dr}{f^*\mu} &&& (\EE)_{H} \boxtimes \cs{L} \arrow{ul} \\ 
 & f^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_1 \circ f = j}[swap]{p_2\circ f = \id}  & 
@@ -778,7 +780,7 @@ By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory
 Since the comparison functor $\CS(G\ab) \to \CS_{H}(G)$ is an equivalence, it determines a full subcategory $\CCS_{H}(G)$ which is equivalent to $\CCS(G\ab)$, as pictured below.
 The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of the equivalence $\CS_{H}(G) \to \CS'(G)$ is $\CCS(G)$.
 \[
-\begin{tikzcd}[row sep=30]
+\begin{tikzcd}[row sep=30, column sep=40]
 \CS(H) 
 & \arrow{l}[swap]{j^*} \CS(G) 
 &\arrow{l}[swap]{q^*} 
@@ -800,7 +802,7 @@ Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $
 Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}, as pictured below; 
 in particular $\gamma = (q\times q)^* \xi$.
   \[
-  \begin{tikzcd}[row sep=10, column sep = 15]
+  \begin{tikzcd}[row sep=10, column sep = 20]
    m_0^*\cs{L}_0 \arrow{dd}[swap]{\xi} \arrow{r}{\mu_0} 
    & \cs{L}_0\boxtimes\cs{L}_0 \arrow{dd}{\vartheta}
 &&&   m^*\cs{L} \arrow{dd}[swap]{\gamma} \arrow{r}{\mu} 
@@ -863,7 +865,7 @@ Consider the following case of Section~\ref{ssec:action}.
 
 \fi
 
-\section{Applications to supercuspidal representations}
+\section{Applications}
 
 \subsection{Linear Characters}
 
@@ -882,7 +884,7 @@ Applying $\Hom(-, \EEx)$ and using the fact that every homomorphism $G(k) \to \E
 1 \to \Delta^* \to G\ab(k)^* \to G(k)^* \to 1.
 \]
 
-Combining Theorems \ref{thm:trfrobiso} and \ref{thm:Gab} gives an isomorphism $\CCSiso{G} \to G\ab(k)^*$.
+Combining Theorems \ref{thm:trfrobiso} and \ref{thm:Gab} gives an isomorphism $\CCSiso{G} \to G\ab(k)^*$. \todo{Could we turn this into a declared corollary/theorem? It's a nice result.}
 We may thus ask for a condition on a commutative character sheaf on $G$ that corresponds to having trivial
 trace of Frobenius, with the expectation that the isomorphism classes of such commutative character sheaves
 should be in natural bijection with $\Delta^*$.
@@ -917,17 +919,35 @@ Let $K$ be a local field with residue field $\Fq$.
 Let $\underline{G}$ be a smooth group scheme over $K$.
 Set $G_n = \Gr^R_n(\underline{G})$; this is a smooth group scheme over $\Fq$.
 Set $G = \Gr_R(\underline{G})$; this is a group scheme over $\Fq$ equipped with $G = \varprojlim_{n\in \NN} G_n$.
-Let $\QCS(G)$ be the category of commutative quasicharacter sheaves on $G$. . . .  as in \cite{cunningham-roe:13a}.
+Let $\CCS(\underline{G})$ be the category of commutative quasicharacter sheaves on $G$. . . .  as in \cite{cunningham-roe:13a}.
 
 \begin{proposition}\label{prop:QCS}
-$\Hom_\text{cts}(\underline{G}(\OK),\EEx) \iso \QCSiso{G}$.
+$\underline{G}(\OK)^* \iso \CCSiso{\underline{G}}$.
 \end{proposition}
 
 \begin{proof}
+That's not correct; it should be 
+\[
+\CCSiso{\underline{G}} \iso (\Gr(\underline{G})\ab(\Fq))^*.
+\]
+Is $\Gr(\underline{G})\ab = \Gr(\underline{G}\ab)?$ If so, then at least we get 
+\[
+\CCSiso{\underline{G}} \iso (\underline{G}\ab(\OK))^*.
+\]
 \end{proof}
+
+
+
 
  \subsection{Geometric types for supercuspidal representations}
 
+\begin{proposition}
+Let $(\underline{G}(\OK),\rho)$ be a type such that  . . . 
+Set $G = \Gr(\underline{G})$.
+There is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) \iso \underline{G}(\OK)$.
+\end{proposition}
+
+It is not unique.
 
 As proved in \cite{kim:07a}, many (complex) supercuspidal representations of $p$-adic groups can be built from the generic data of \cite{yu:01a}*{\S 15} and, moreover, the type (in the sense of \cite{bushnell-kutzko:98a}) of the resulting supercuspidal representations can be constructed directly from the generic data. 
 Let us refer to the types arising in this manner as {\it generic types}.
