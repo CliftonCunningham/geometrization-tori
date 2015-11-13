@@ -147,6 +147,8 @@
 
 %% Hyphenation override
 \hyphenation{quasi-character}
+%% Number one equation of many
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%
 \usepackage{todonotes}
@@ -453,7 +455,12 @@ b_1(h_1,h_2,g) &= (h_1h_2,g) \\
 b_2(h_1,h_2,g) &= (h_1,h_2g) \\
 b_3(h_1,h_2,g) &= (h_2,g).
 \end{align*}
-Then, $a\circ b_1 = a\circ b_2$ and $a\circ b_3 = p\circ b_2$ and $p\circ b_1 = p\circ b_3$.
+Note that
+\begin{align*}
+a\circ b_1 &= a\circ b_2 \\
+a\circ b_3 &= p\circ b_2 \numberthis \label{eqn:bap}\\
+p\circ b_1 &= p\circ b_3.
+\end{align*}
 Define $s : G\to H\times G$ by $s(g) = (1,g)$.
 An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  
 \[
@@ -471,17 +478,15 @@ b_1^* a^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu
 & b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L}, & 
 \end{tikzcd}
 \end{equation}
-In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations above; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
-\iffalse
-On stalks, this condition is ...
-\[
-\begin{tikzcd}
-\ &  \cs{L}_{h_1\cdot(h_2\cdot g)} \arrow{r}{\nu_{h_1,h_2\cdot g}} & \cs{L}_{h_2\cdot g} & \\
-\cs{L}_{(h_1 h_2) \cdot g} \arrow{dr}[swap]{\nu_{(h_1h_2),g}} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{\nu_{h_2,g}} \cs{L}_{h_2\cdot g} \\
-& \cs{L}_g \arrow[equal]{r} & \cs{L}_g & 
-\end{tikzcd}
-\]
-\fi
+In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from equations \eqref{eqn:bap}; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
+%On stalks, this condition is ...
+%\[
+%\begin{tikzcd}
+%\ &  \cs{L}_{h_1\cdot(h_2\cdot g)} \arrow{r}{\nu_{h_1,h_2\cdot g}} & \cs{L}_{h_2\cdot g} & \\
+%\cs{L}_{(h_1 h_2) \cdot g} \arrow{dr}[swap]{\nu_{(h_1h_2),g}} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{\nu_{h_2,g}} \cs{L}_{h_2\cdot g} \\
+%& \cs{L}_g \arrow[equal]{r} & \cs{L}_g & 
+%\end{tikzcd}
+%\]
 Morphisms of $H$-equivariant Weil local systems $(\cs{L},\nu)\to (\cs{L}',\nu')$ are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which the diagram
 \begin{equation}\label{E3}
 \begin{tikzcd}
