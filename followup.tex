@@ -381,20 +381,20 @@ Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism 
 Let $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Then $c$ is a smooth morphism of $\Fq$ schemes.
 Set $m' = i \circ m \circ \theta$; then $j\circ c = m \circ (m \times m')$.
-Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms, below.
-\[
+Thus, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms, below.
+\begin{equation}
 \begin{tikzcd}
-\arrow[equal]{d} c^* \cs{L}\vert_{G\der} \arrow{r}{c^*(\beta)} 
-	&  c^*(\EE)_{G\der} \arrow[equal]{d} \\
+\arrow[equal]{d} c^* (\cs{L}\vert_{G\der}) \arrow{r}{c^*(\beta)} 
+	&  c^*((\EE)_{G\der}) \arrow[equal]{d} \\
 \arrow{d}[swap]{j\circ c = m \circ (m \times m')} c^* j^* \cs{L} 
 	&   (\EE)_{G\times G} \\
 (m \times m')^* m^* \cs{L} \arrow{d}[swap]{(m \times m')^*(\mu)} 
-	&  m^*\cs{L} \otimes \theta^* m^* i^* \cs{L}  \arrow[dashed]{u} \\
+	&  m^*\cs{L} \otimes \theta^* m^* i^* \cs{L}  \arrow[dashed]{u}[swap]{\gamma'} \\
 (m \times m')^* (\cs{L} \boxtimes \cs{L}) \arrow[equal]{r} 
 	& m^*\cs{L} \otimes (m')^*\cs{L} \arrow{u}[swap]{m' = i\circ m\circ \theta} 
 \end{tikzcd}
-\]
-%where the arrow labeled with the equation is the canonical isomorphism coming from the isomorphism of functors defined by the equation.
+\end{equation}
+In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations; so, for example, the middle left isomorphism comes from $(m\times m')^* m^* \iso c^* j^*$ since $j\circ c = m \circ (m \times m')$.
 Using the monoidal structure of the category of Weil local systems on $G\times G$, this isomorphism, in turn, defines an isomorphism
 $
 m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
@@ -417,9 +417,12 @@ The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subca
 where $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$, above.
 \end{definition}
 
-\todo{Should remark that it reduces to the other definition in the commutative case}
-
-%We will see that, when $\beta$ exists for $(\cs{L},\mu)\in \CS(G)$, it is essentially unique.
+Suppose $G$ is commutative, so $G\der = 1$. 
+Suppose $(\cs{L},\mu,\beta)$ is an object in $\CS'(G)$.
+Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, and unique by \cite{cunningham-roe:13a}*{Thm 3.9}.
+Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find that $\gamma$ is the canonical isomorphism $\xi : m^*\cs{L} \to \theta^*m^*\cs{L}$ coming from the equation $m = m \circ \theta$. 
+Thus, when $G$ is commutative, Definition~\ref{def:CCS} recovers Definition~\ref{def:CCScom}.
+The next result generalizes this observation.
 
 \begin{theorem}\label{thm:Gab}
 Pull-back along the abelianization $q : G \to G\ab$
@@ -478,15 +481,15 @@ of Weil local systems on $H\times G$ such that
 \begin{equation}\label{E1}
 s^*(\nu) = \id_{\cs{L}}
 \end{equation}
-and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes,
+and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes.
 \begin{equation}\label{E2}
 \begin{tikzcd}
 \ &  \arrow{dl}{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
 b_1^* a^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
-& b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L}, & 
+& b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L} & 
 \end{tikzcd}
 \end{equation}
-In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from equations \eqref{eqn:bap}; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
+%In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from equations \eqref{eqn:bap}; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
 %On stalks, this condition is ...
 %\[
 %\begin{tikzcd}
