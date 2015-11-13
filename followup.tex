@@ -553,19 +553,32 @@ If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $
 \end{lemma}
 
 \begin{proof} 
-Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(m^*\cs{L}, m_2^*(\mu))$, where $m_2 : G\times G\times G\times G\to G\times G$ is defined by $m_2(x_1,y_1,x_2,y_2) = (m(x_1,x_2), m(y_1,y_2)$; compare with \cite{cunningham-roe:13a}*{Lemma 1.4}.
-Set $\cs{L}_2\ceq m_2^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
-The linear character sheaf $(\cs{L}_2,\mu_2)$ comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ where $a_2 : H\times H\times G\times G\to G\times G$ is given by $a_2(h_1,g_1,h_2,g_2) = (a(h_1,g_1), a(h_2,g_2)$ and $p_2 : H\times H\times G\times G\to G\times G$ is given by $p_2(h_1,g_1,h_2,g_2)= ( g_1,g_2)$. 
-The  isomorphism $\nu_2 : a_2^*\cs{L}_2\to p_2^*\cs{L}_2$ satisfies the appropriate version of \eqref{ECS1}, so  $(\cs{L}_2,\mu_2,\nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
-Likewise $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character sheaf with isomorphism $\nu \boxtimes\nu$, as indicated in the diagram below.
+Define
+\begin{align*}
+m_2 : G\times G\times G\times G &\to G\times G \\
+(x_1,y_1,x_2,y_2) &\mapsto (x_1x_2, y_1y_2) \\
+a_2 : H\times G\times H\times G &\to G\times G \\
+(h_1,g_1,h_2,g_2) &\mapsto (h_1g_1, h_2g_2) \\
+p_2 : H\times G\times H\times G &\to G\times G \\
+(h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2)
+\end{align*}
+and set $\cs{L}_2\ceq m_2^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
+Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(\cs{L}_2, \mu_2)$ on $G \times G$ (see \cite{cunningham-roe:13a}*{Lemma 1.4}),
+which comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2 \to p_2^*\cs{L}_2$. 
+This isomorphism satisfies the appropriate version of \eqref{ECS1}, so  $(\cs{L}_2,\mu_2,\nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
+Likewise, $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character sheaf with isomorphism $\nu \boxtimes\nu$, as indicated in the diagram below.
 \[
 \begin{tikzcd}
 \arrow{d}[swap]{\nu_2} a_2^*(m^*\cs{L}) \arrow{r}{a_2^*(\mu)} & a_2^*(\cs{L}\boxtimes\cs{L})  \arrow{r} & (a^*\cs{L})\boxtimes (a^*\cs{L}) \arrow{d}{\nu\boxtimes\nu} \\
 p_2^*(m^*\cs{L}) \arrow{r}{p_2^*(\mu)} & p_2^*(\cs{L}\boxtimes\cs{L}) \arrow{r} & (p^*\cs{L})\boxtimes (p^*\cs{L}) 
 \end{tikzcd}
 \]
-Since this diagram commutes, $(\cs{L}\boxtimes \cs{L},\mu\boxtimes \mu,\nu\boxtimes\nu)$ is also an $H\times H$-equivariant linear character sheaf on $G\times G$.
-The appropriate version of \eqref{E3} also commutes, so $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism of equivariant linear character sheaves.
+By abuse of notation, we will also refer to the missing vertical map down the center of this diagram as $\nu \boxtimes \nu$.  Since this diagram commutes, $(\cs{L}\boxtimes \cs{L},\mu\boxtimes \mu,\nu\boxtimes\nu)$ is also an $H\times H$-equivariant linear character sheaf on $G\times G$.
+The appropriate version of \eqref{E3} also commutes, so we can reinterpret
+\[
+\mu : (\cs{L}_2, \mu_2, \nu_2) \to (\cs{L}\boxtimes\cs{L}, \mu \boxtimes \mu, \nu \boxtimes \nu)
+\]
+as a morphism of equivariant linear character sheaves.
 The argument that $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ is morphism of $H\times H$-equivariant linear character sheaves on $G\times G$ is also straightforward.
 \end{proof}
 
