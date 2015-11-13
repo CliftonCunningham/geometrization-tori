@@ -549,7 +549,7 @@ Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G
 
 
 \begin{lemma}\label{lem:HH}
-If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of $H\times H$-equivariant linear character sheaves on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
+If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of $H\times H$-equivariant Weil local systems on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
 \end{lemma}
 
 \begin{proof} 
@@ -563,9 +563,9 @@ p_2 : H\times G\times H\times G &\to G\times G \\
 (h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2)
 \end{align*}
 and set $\cs{L}_2\ceq m_2^*\cs{L}$ and $\mu_2 \ceq m_2^*(\mu)$.
-Pulling back $\cs{L}$ along $m : G\times G \to G$ produces the linear character sheaf $(\cs{L}_2, \mu_2)$ on $G \times G$ (see \cite{cunningham-roe:13a}*{Lemma 1.4}), \todo{False, because $m$ is not a group homorphism.}
-which comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2 \to p_2^*\cs{L}_2$. 
-This isomorphism satisfies the appropriate version of \eqref{ECS1}, so  $(\cs{L}_2,\mu_2,\nu_2)$ is indeed an $H\times H$-equivariant linear character sheaf on $G\times G$.
+The Weil local system $\cs{L}_2$ on $G \times G$ comes equipped with the isomorphism $\nu_2 : a_2^*\cs{L}_2 \to p_2^*\cs{L}_2$ defined by ...\todo{Working here.}
+This isomorphism satisfies \eqref{E1} and \eqref{E2} as they apply here.
+%
 Likewise, $\cs{L}\boxtimes \cs{L}$ is an $H\times H$-equivariant linear character sheaf with isomorphism $\nu \boxtimes\nu$, as indicated in the diagram below.
 \[
 \begin{tikzcd}
@@ -579,7 +579,7 @@ The appropriate version of \eqref{E3} also commutes, so we can reinterpret
 \mu : (\cs{L}_2, \mu_2, \nu_2) \to (\cs{L}\boxtimes\cs{L}, \mu \boxtimes \mu, \nu \boxtimes \nu)
 \]
 as a morphism of equivariant linear character sheaves.
-The argument that $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ is morphism of $H\times H$-equivariant linear character sheaves on $G\times G$ is also straightforward.
+The argument that $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$ is morphism of $H\times H$-equivariant linear character sheaves on $G\times G$ is also straightforward.\todo{Add detail here.}
 \end{proof}
 
 
@@ -654,8 +654,7 @@ Arguing as above, we also see that pull-back along $q\times q$ determines an equ
 For use below, we write $R_2 : \Loc_{H\times H}(G\times G) \to \Loc(G_0\times G_0)$ for its adjoint and $(\epsilon_2, \eta_2)$ for the counit and unit of the adjunction.
 
 We may now revisit the definition of the functor $q_H^*: \CS(G_0)\to \CS_H(G)$. 
-By (a small part of) Lemma~\ref{lem:HH}, $\mu_0$ is a morphism of linear character sheaves on $G_0\times G_0$.
-Thus, on objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$. 
+On objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$. 
 To verify that $(L_1(\cs{L}_0), L_2(\mu_0))$ is an object of $\CS_H(G)$, one must confirm \cite{cunningham-roe:13a}*{CS1, CS2, CS3}, \eqref{E1}, \eqref{E2} and \eqref{ECS1}. 
 Conditions \cite{cunningham-roe:13a}*{CS1, CS2, CS3} follow from an adaptation of \cite{cunningham-roe:13a}*{} while conditions \eqref{E1}, \eqref{E2} are a consequence of the work above. 
 Condition \eqref{ECS1} is confirmed by brute force.
@@ -773,8 +772,8 @@ Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}$ be the isomorphism attache
 Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ as in Section~\ref{ssec:noncomdef}.
 Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}; 
 in particular $\gamma = (q\times q)^* \xi$.
-Together with Lemma~\ref{lem:HH}, we may now interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\CS_{H\times H}(G\times G)$.
-By Lemma~\ref{lem:beta}, this corresponds uniquely to a diagram in $\CS(G\ab\times G\ab)$, necessarily the diagram in Definition~\ref{def:CCScom}.
+Together with Lemma~\ref{lem:HH}, we may now interpret the diagram in Definition~\ref{def:CCS} as a diagram in $\Loc_{H\times H}(G\times G)$.
+By Lemma~\ref{lem:torsor}, this corresponds uniquely to a diagram in $\Loc(G\ab\times G\ab)$, necessarily the diagram in Definition~\ref{def:CCScom}.
 It follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
 In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
 if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$, completing the proof of Theorem~\ref{thm:Gab}.
