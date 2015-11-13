@@ -495,8 +495,17 @@ This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on 
 \subsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
 
 An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $\nu$ is compatible with $\mu$ in the sense \todo{of...}. 
-Consider the following morphisms: $c_0 : H\times G \times G\to H\times G \times H \times G$ defined by $c_0(h,g_1,g_2)\ceq(h,g_1,h,g_2)$;
-$c_1 : H \times G\times G \to G\times G$ defined by $c_1(h, g_1, g_2) \ceq (a(h,g_1),a(h,g_2))$;  $c_2 : H \times G\times G \to H\times G$ defined by $c_2(h,g_1,g_2) \ceq (h, m(g_1,g_2))$; and $c_3 : H \times G\times G \to G\times G$ defined by $c_3(h, g_1, g_2) = (g_1, g_2)$. 
+Consider the following morphisms:
+\begin{align*}
+c_0 : H\times G \times G &\to H\times G \times H \times G \\
+(h,g_1,g_2) &\mapsto (h,g_1,h,g_2); \\
+c_1 : H \times G\times G &\to G\times G \\
+(h, g_1, g_2) &\mapsto (a(h,g_1),a(h,g_2)); \\
+c_2 : H \times G\times G &\to H\times G \\
+(h,g_1,g_2) &\mapsto (h, m(g_1,g_2)) \\
+c_3 : H \times G\times G &\to G\times G \\
+(h, g_1, g_2) &\mapsto (g_1, g_2).
+\end{align*}
 Then $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ if $(\cs{L},\mu)$ is a linear character sheaf on $G$ and the following diagram of Weil local systems on $H \times G\times G$ commutes.
 \begin{equation}\label{ECS1}
 \begin{tikzcd}
