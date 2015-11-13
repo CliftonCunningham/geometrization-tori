@@ -652,7 +652,7 @@ To verify that $L_1(\alpha_0)$ is a map in $\CS_H(G)$ we must confirm conditions
 Condition \cite{cunningham-roe:13a}*{CS4} follows from an adaptation of \cite{cunningham-roe:13a}*{} while condition \eqref{E3} is a consequence of the work above.
 
 With this description of $q_H^*: \CS(Q)\to \CS_H(G)$ is is easy to see that it is an equivalence.
-Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (L_1(\cs{L},\nu), L_2(\nu))$, \todo{Shouldn't these be Rs?} again making use of Lemma~\ref{lem:HH}, and on morphisms by $\alpha \mapsto L_1(\alpha)$ \todo{Again, R?}.
+Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (R_1(\cs{L},\nu), R_2(\nu))$, again making use of Lemma~\ref{lem:HH}, and on morphisms by $\alpha \mapsto R_1(\alpha)$.
 The adjunction is built from the adjunctions for $(L_1,R_1)$ and $(L_2, R_2)$.
 \end{proof}
 
@@ -668,9 +668,7 @@ We now suppose that $i : H \hookrightarrow G$ is a closed subgroup and that the 
 %& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
 %\end{tikzcd}
 %\]
-Define $f : H\times G \to G\times G$ by $f(h,g) = (i(h),g)$ and note that $a = m\circ f$ and $p = p_2\circ f$.
-% (a(h,g) g^{-1}, g) = (h,g)$.
-%Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq (i\circ p_1)$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
+Define $f : H\times G \to G\times G$ by $f(h,g) = (i(h),g)$ and note that $a = m\circ f$.
 Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
 \[
 \beta : \cs{L}\vert_H \to (\EE)_{H}
@@ -679,12 +677,12 @@ by
 \begin{equation}\label{betanu}
 \nu = (\beta \boxtimes \id) \circ  f^*\mu,
 \end{equation}
-or more precisely, by the following diagram of isomorphisms. \todo{What is $p_1$? And $p_\circ f$?}
+or more precisely, by the following diagram of isomorphisms, where we write $p_1: G\times G\to G$ for projection to the first component and $p_2 : G\times G \to G$ for projection to the second.
 \[
 \begin{tikzcd}
 \ & a^*\cs{L} \arrow{dl}{m\circ f = a} \arrow{r}{\nu} & p^*\cs{L} & \\
-f^* m^*\cs{L} \arrow{dr}{f^*\mu} &&& (\EE)_{H} \boxtimes \cs{L} \arrow{ul}{p= p_1} \\ 
-& f^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_\circ f = i}[swap]{p_2\circ f = \id}  & 
+f^* m^*\cs{L} \arrow{dr}{f^*\mu} &&& (\EE)_{H} \boxtimes \cs{L} \arrow{ul} \\ 
+& f^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_1 \circ f = i}[swap]{p_2\circ f = \id}  & 
 \cs{L}\vert_{H} \boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id} & 
 \end{tikzcd}
 \]
