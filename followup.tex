@@ -441,7 +441,11 @@ defines an equivalence of categories
 Sections~\ref{ssec:equivariant1}, \ref{ssec:equivariant2}, \ref{ssec:descent} and \ref{ssec:closed} set up machinery needed to prove Theorem~\ref{thm:Gab}.
 The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given with the proof of Theorem~\ref{thm:Gab}, in Section~\ref{ssec:proofs}.
 
+
 \todo{We should give the relationship between $\CCSiso{G}$ and $G(k)^*$ here as a corollary.  Also, include the automorphism group of a commutative character sheaf.}
+
+\todo{Comment here on Masoud's work.}
+
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
@@ -658,13 +662,13 @@ These simple observations define the comparison functor
 q_H^* : \CS(G_0) \to CS_H(G)
 \]
 and show that the functor $q^* : \CS(G_0) \to \CS(G)$ factors according to the following commuting diagram of functors
-\[
+\begin{equation}\label{qH}
 \begin{tikzcd}
 \CS(G) &\arrow{l}[swap]{q^*} 
 \CS(G_0) \arrow{dl}{q_H^*}\\
 \arrow{u}{\text{forget}} \CS_{H}(G). & 
 \end{tikzcd}
-\]
+\end{equation}
 The definition of $q_H^* : \CS(G_0)\to \CS_H(G)$ will be revisited in the proof of the following result.
 
 \begin{lemma}\label{lem:torsor}
@@ -687,7 +691,7 @@ Arguing as above, we also see that pull-back along $q\times q$ determines an equ
 For use below, we write $R_2 : \Loc_{H\times H}(G\times G) \to \Loc(G_0\times G_0)$ for its adjoint and $(\epsilon_2, \eta_2)$ for the counit and unit of the adjunction.
 
 We may now revisit the definition of the functor $q_H^*: \CS(G_0)\to \CS_H(G)$. 
-On objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$. 
+On objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$. \todo{Shorten this, actually, and combine with the next paragraph.}
 To verify that $(L_1(\cs{L}_0), L_2(\mu_0))$ is an object of $\CS_H(G)$, one must confirm \cite{cunningham-roe:13a}*{CS1, CS2, CS3}, \eqref{E1}, \eqref{E2} and \eqref{ECS1}. 
 Conditions \cite{cunningham-roe:13a}*{CS1, CS2, CS3} follow from an adaptation of \cite{cunningham-roe:13a}*{} while conditions \eqref{E1}, \eqref{E2} are a consequence of the work above. 
 Condition \eqref{ECS1} is confirmed by brute force.
@@ -736,7 +740,7 @@ The next lemma makes that statement more precise.
 
 \begin{lemma}\label{lem:beta}
 If $H\hookrightarrow G$ is a closed subgroup scheme over $\Fq$ then
-$\CS_H(G)$ is equivalent to the category $\CS^H(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$; morphisms $(\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ in $\CS^H(G)$ are morphisms $\alpha: \cs{L} \cs{L}'$ in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{H}$.
+$\CS_H(G)$ is equivalent to the category $\CS^H(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$; a morphism $(\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ in $\CS^H(G)$ is a morphism $\alpha: \cs{L} \to \cs{L}'$ in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{H}$.
 \end{lemma}
 
 \begin{proof}
@@ -755,23 +759,25 @@ We can now give the missing proofs from Section \ref{ssec:noncomdef}.
 \begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}]
 The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
 Set $H=G\der$.
-Now,
-\[
-\begin{tikzcd}
+Let $j : H\hookrightarrow G$ be the inclusion and let $q : G \to G\ab$ be the quotient. 
+With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the following diagram.
+%\[
+%\begin{tikzcd}
 %{} & G\times G \arrow{d}{c} &&&\\
-1 \arrow{r} & H \arrow{r}{j} & G \arrow{r}{q} & G\ab \arrow{r} & 1
-\end{tikzcd}
-\]
-gives
+%1 \arrow{r} & H \arrow{r}{j} & G \arrow{r}{q} & G\ab \arrow{r} & 1
+%\end{tikzcd}
+%\]
+%gives
 \[
 \begin{tikzcd}
 \CS(H) & \arrow{l}[swap]{j^*} \CS(G) &\arrow{l}[swap]{q^*} 
 \CS(G\ab) \arrow{dl}{\text{equiv}}[swap]{q_{H}^*} \\
- \CS'(G) \arrow{u}{\text{forget}}  \arrow{r}{\beta \mapsto \nu}[swap]{\text{equiv}} &  \CS_{H}(G) \arrow{u}{\text{forget}}  & 
+ \CS'(G)  \arrow{r}{\beta \mapsto \nu}[swap]{\text{equiv}} &  \CS_{H}(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
 \]
 %
 Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the observation that $\CS'(G)$ is precisely the category $\CS^{H}(G)$ from Section~\ref{ssec:closed} for $H=G\der$.
+The forget
 Since the quotient $q : G \to G\ab$ is a trivial $H$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}, 
 it now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
@@ -790,7 +796,7 @@ The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essen
 & \arrow{l}[swap]{j^*} \CS(G) 
 &\arrow{l}[swap]{q^*} 
 \CS(G\ab) \arrow{dl}{\text{equiv}}[swap]{q_{H}^*} \\
-\arrow{u}{\text{forget}} \CS'(G)  \arrow{r}{\beta \mapsto \nu}[swap]{\text{equiv}} 
+\CS'(G)  \arrow{r}{\beta \mapsto \nu}[swap]{\text{equiv}} 
 &  \CS_{H}(G) \arrow{u}{\text{forget}}  
 &  %\arrow[bend left=35pt, dashed]{dll} 
 \CCS(G\ab) \arrow{u}[swap]{\text{full sub}} \arrow{dl}{\text{equiv}} \\
@@ -889,7 +895,7 @@ Applying $\Hom(-, \EEx)$ and using the fact that every homomorphism $G(k) \to \E
 1 \to \Delta^* \to G\ab(k)^* \to G(k)^* \to 1.
 \]
 
-Combining Theorems \ref{thm:trfrobiso} and \ref{thm:Gab} gives an isomorphism $\CCSiso{G} \to G\ab(k)^*$. \todo{Could we turn this into a declared corollary/theorem? It's a nice result.}
+Combining Theorems \ref{thm:trfrobiso} and \ref{thm:Gab} gives an isomorphism $\CCSiso{G} \to G\ab(k)^*$. \todo{Could we turn this into a declared proposition? It's a nice result.}
 We may thus ask for a condition on a commutative character sheaf on $G$ that corresponds to having trivial
 trace of Frobenius, with the expectation that the isomorphism classes of such commutative character sheaves
 should be in natural bijection with $\Delta^*$.
