@@ -562,7 +562,7 @@ Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G
 
 
 \begin{lemma}\label{lem:HH}
-If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of $H\times H$-equivariant Weil local systems on $G\times G$; likewise $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$. 
+If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ and $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms of $H\times H$-equivariant Weil local systems on $G\times G$. 
 \end{lemma}
 
 \begin{proof} 
@@ -644,7 +644,7 @@ a^* ( q^*\cs{L}_0) \arrow{r}{q\circ a = q\circ p}
 \]
 Since this isomorphism satisfies \eqref{ECS1}, it follows that $(\cs{L}, \mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$.
 If $\alpha_0 : (\cs{L}_0,\mu_0) \to (\cs{L}_0',\mu_0')$ is a morphism in $\CS(G_0)$, 
-then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, arguing as in \cite{cunningham-roe:13a} so $\alpha$ is a morphism in $\CS(G)$.
+then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha$ is a morphism in $\CS(G)$.
 %\todo{I find myself having to make many references to \cite{cunningham-roe:13a}] and promising that the results there adapt to the noncommutative group case. It makes me uneasy, but the alternative is to actually repeat the proofs here, with the weaker hypothesis on $G$, which would be ugly. I'm just agonizing out loud, I guess.} 
 These simple observations define the comparison functor
 \[
@@ -690,13 +690,13 @@ Condition \cite{cunningham-roe:13a}*{CS4} follows from an adaptation of \cite{cu
 
 With this description of $q_H^*: \CS(Q)\to \CS_H(G)$ is is easy to see that it is an equivalence.
 Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (R_1(\cs{L},\nu), R_2(\nu))$, making use of Lemma~\ref{lem:HH}, and on morphisms by $\alpha \mapsto R_1(\alpha)$.
-The adjunction is built from the adjunctions for $(L_1,R_1)$ and $(L_2, R_2)$.
+The adjunction is built from the adjunctions $(\epsilon_1, \eta_1)$ and $(\epsilon_2, \eta_2)$ for $(L_1,R_1)$ and $(L_2, R_2)$.
 \end{proof}
 
 
-\subsection{Closed subgroups}\label{ssec:closed}
+\subsection{Quotient by a closed subgroup}\label{ssec:closed}
 
-We now suppose that $j : H \hookrightarrow G$ is a closed subgroup and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
+We now suppose that $j : H \hookrightarrow G$ is a closed subgroup scheme over $\Fq$ and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
 %Then we have the diagram
 %\[
 %\begin{tikzcd}
@@ -728,8 +728,8 @@ The next lemma makes that statement more precise.
 
 
 \begin{lemma}\label{lem:beta}
-$\CS_H(G)$ is equivalent to the category $\CS^H(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$, with morphisms $\alpha : (\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ defined by the condition
-$\alpha : (\cs{L},\mu) \to (\cs{L}',\mu')$ is a morphism in $\CS(G)$ and $\beta = \beta' \circ \alpha\vert_{H}$.
+If $H\hookrightarrow G$ is a closed subgroup scheme over $\Fq$ then
+$\CS_H(G)$ is equivalent to the category $\CS^H(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$; morphisms $(\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ in $\CS^H(G)$ are morphisms $\alpha: \cs{L} \cs{L}'$ in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{H}$.
 \end{lemma}
 
 \begin{proof}
