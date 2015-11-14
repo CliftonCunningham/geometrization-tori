@@ -166,48 +166,39 @@ We use this category to geometrize types for supercuspidal representations of $p
 \tableofcontents
 
 \section*{Introduction}
-We introduce and establish the basic properties of  the category of \emph{commutative character sheaves} on smooth group schemes $G$ over finite fields $\Fq$. 
-Expanding on work by the same authors, we show that all character sheaves on $G\ab$ are commutative, when $G\ab$ is connected and of finite type.
-We give three applications.
-First, we use commutative character sheaves to produce a functorial geometrization of characters of $G(\Fq)$ in all cases, thus repairing a defect in the function-sheaf dictionary for algebraic groups $G$ which appears when the component group of $G$ is $\Hh^2(\pi_0(\bG),\EEx)^{\Frob{}}$ is non-trivial. 
-Second, we revisit the motivations for the stacky abelianization construction, and show that, after replacing the rank-$1$ character sheaves on $G$ with commutative character sheaves on $G$, the schematic abelianization $G \to G\ab$ is the correct quotient.
-This is an immediate consequence of the fact that the category of commutative character sheaves on $G$ is equivalent to the category of commutative character sheaves on $G\ab$. 
-Finally, we provide a geometrization of generic types for supercuspidal representations of connected reductive linear algebraic groups over local fields.
-This last application puts all the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category: perverse sheaves on group schemes over finite fields.
 
+In \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary from connected commutative algebraic groups
+over a finite field $k$ to smooth commutative group schemes $G$ over $k$.  We described a category $\CS(G)$ of
+\emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to \Hom(G(k), \EEx)$.
+In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel; we gave an explicit description of
+its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
 
+The first aim of this paper is to repair this defect in the function-sheaf dictionary by describing a full subcategory
+$\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to \Hom(G(k), \EEx)$.
+We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$
+to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$
+(see Definition \ref{def:CCScom}).  When $G$ is connected, all character sheaves on $G$ are commutative.
+This category clarifies several questions about character sheaves on $G$: invisible character sheaves
+\cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and the inverse map
+$\Hom(G(k), \EEx) \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G}$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
+Next, we broaden our scope further to encompass smooth group schemes $G$ that are not necessarily commutative.
+In this paper, we do not consider Lusztig's geometrization of arbitrary characters of the non-abelian group $G(k)$
+using character sheaves \cite{lusztig:85a}*{Def.~2.10}, but focus only on the case of $1$-dimensional characters
+$\Hom(G(k), \EEx)$.  The category $\CS(G)$ has a straightforward generalization to this case, but again
+there are more linear character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
+We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to \Hom(G\ab(k), \EEx)$
+is an isomorphism.  In fact, pullback along the quotient $q : G \to G\ab$ defines an equivalence of categories
+$\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not essentially surjective, missing
+the kinds of linear character sheaves highlighted by Kamgarpour.  Moreover, $\Hom(G\ab(k), \EEx)$ surjects
+onto $\Hom(G(k), \EEx)$, with a kernel described by Galois cohomology.
 
-Fragments: 
-The additional condition distinguishing which character sheaves on $G$ are commutative, has several benefits, as we will see in this note.
-\begin{enumerate}
-\labitem{(1)}{b1}
-A character sheaf $\cs{L}$ on $G$ is invisible if and only if $\cs{L}$ is not commutative.
-Recall from \cite{cunningham-roe:13a}*{Def. 2.8} that a character sheaf $\cs{L}$ in $G$ is {\it invisible} if $\cs{L}  \ncong \EE$ yet $\trFrob{\cs{L}} =1$.
-These are exactly the non-trivial character sheaves in the kernel of the surjective group homomorphism 
-\[
-\TrFrob{G} : \CSiso{G} \to G(\Fq)^*
-\]
- given by the trace of Frobenius.
-\labitem{(2)}{b2}
-This note shows that $\TrFrob{G} : \CSiso{G} \to G(\Fq)^*$ admits a canonical section, and thus a splitting of the short exact sequence 
-\[
-\begin{tikzcd}
-0 \arrow{r} & \Hh^2(\pi_0(\bG),\EEx)^{\Weil{}} \arrow{r} & \CSiso{G} \arrow{r}{\TrFrob{G}} & G(\Fq)^* \arrow{r} & 0
-\end{tikzcd}
-\]
-found in \cite{cunningham-roe:13a}*{Thm. 3.6}.
-\labitem{(3)}{b3}
-Like the category $\CS(G)$ of character sheaves on $G$, which is described completely in \cite{cunningham-roe:13a}, $\CCS(G)$ is a rigid monoidal category.
-Since $\CCS(G)$ is a full subcategory of $\CS(G)$, and since Item \ref{b2} above shows $\CCSiso{G} \iso G(\Fq)^*$, canonically, the category $\CCS(G)$ is now completely described by the following consequence of \cite{cunningham-roe:13a}*{Thm. 3.9}: in $\CCS(G)$, every morphism $\cs{L} \to \cs{L}'$ is either trivial (zero on stalks) or an isomorphism, and
-\[
-\Aut(\cs{L}) \iso  \Hh^1(\pi_0(\bG), \EEx)^{\Weil{}}.
-\]
-Consequently, we have a complete description of category $\CCS(G)$.
-\end{enumerate}
+Finally, we use the category $\CCS(G)$ to give a geometric description of generic types for supercuspidal representations
+of connected reductive linear algebraic groups over local fields.  In this way, we provide all of the ingredients
+needed to parametrize supercuspidal representations of arbitrary depth in the same category:
+perverse sheaves on group schemes over finite fields.
 
-
-
+\todo{Add summary of sections}
 
 \section{Recollections and definitions} \label{sec:defs}
 
@@ -241,7 +232,7 @@ Write $\CS(G)$ for the category of character sheaves on $G$.
 Even when $G$ is not commutative, the category $\CS(G)$, defined as in \cite{cunningham-roe:13a}*{Def. 1.1},
 still makes sense.  In order to distinguish the resulting objects from
 the character sheaves of Lusztig, we will refer to the former as \emph{linear character sheaves}
-(to evoke the one-dimensional character sheaves of \cite{Kamgarpour}).
+(to evoke the one-dimensional character sheaves of \cite{kamgarpour:09a}).
 
 \section{Commutative character sheaves on commutative groups}\label{sec:comcom}
 
@@ -449,6 +440,8 @@ defines an equivalence of categories
 %
 Sections~\ref{ssec:equivariant1}, \ref{ssec:equivariant2}, \ref{ssec:descent} and \ref{ssec:closed} set up machinery needed to prove Theorem~\ref{thm:Gab}.
 The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given with the proof of Theorem~\ref{thm:Gab}, in Section~\ref{ssec:proofs}.
+
+\todo{We should give the relationship between $\CCSiso{G}$ and $G(k)^*$ here as a corollary.  Also, include the automorphism group of a commutative character sheaf.}
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
 
