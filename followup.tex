@@ -479,19 +479,25 @@ Applying $\Hom(-, \EEx)$ and using the fact that every homomorphism $G(k) \to \E
 \[
 1 \to \Delta^* \to G\ab(k)^* \to G(k)^* \to 1.
 \]
-By Theorem~\ref{thm:Gab}, the trace of Frobenius map 
+By Theorem~\ref{thm:Gab}, the trace of Frobenius map  . . . .\todo{Finish this.}
 \end{proof}
+
+\begin{remark}
+Note that when $\Hh^1(k,G\der) = 0$, as is the case when $G\der(\bFq)$ ``is simply connected,'' then $\CCSiso{G} \iso G(\Fq)^*$, so
+we succeed in geometrizing characters of $G(k)$ on the nose.
+\end{remark}
 
 \begin{proposition}
 Every map in $\CCS(G)$ is either trivial or an isomorphism. 
 For every commutative character sheaf on $G$, its automorphism group is
 $
-\Hh^1(\pi_0(G\ab),\EEx)^{\Frob{}}.
+((\pi_0(G\ab))^*)^{\Frob{}}.
 $
 \end{proposition}
 
 \begin{proof}
-$= \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) =$
+By Theorem~\ref{thm:Gab}, $\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab)$. 
+By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = ((\pi_0(G\ab))^*)^{\Frob{}}$.
 \end{proof}
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
@@ -876,51 +882,10 @@ This completes the proof of Theorem~\ref{thm:Gab}.
 %This also defines the functor $\CCS(G\ab) \to \CCS(G)$ by the dashed arrow in the diagram above.
 \end{proof}
 
+
+\section{Application to type theory for $p$-adic groups}
+
 \iffalse
-
-\subsection{Change of action}
-
-Now, let $a' : H'\times G \to G$ be another group action on $G$ and suppose $f: H \times G \to H'\times G$ makes the following diagram commute.
-\[
-\begin{tikzcd}
-&  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
-G & & G \\
-& \arrow{ul}{a'} H' \times G \arrow{ur}[swap]{p} & 
-\end{tikzcd}
-\]
-Then pull-back along $f: H\times G \to H'\times G$ defines a monoidal functor 
-\[
-\CS_{H'}(G) \to \CS_{H}(G).
-\]
-
-
-Then $f : H\times G \to H'\times G$ is given by $f(h,g) = (k(h,g),g)$ for some $k : H\times G\to H'$. 
-Define $d : H\to H'$ by $d(h) = k(h,1)$.
-
-
-
-
-\begin{lemma}\label{lem:action}
-The canonical functor
-\[
-\CS_{H}(G) \to \CS_{H'}(G)
-\]
-is an equivalence if ...
-\end{lemma}
-\begin{proof}
-\end{proof}
-
-\subsection{Conjugation}
-
-We close this section with an alternate characterization of $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
-Recall that $\CS'(G)$ is a full subcategory of $\CS(G)$ and that $\CCS(G)$ is a full subcategory of $\CS'(G)$.
-
-Consider the following case of Section~\ref{ssec:action}.
-
-\fi
-
-\section{Applications}
-
 \subsection{Linear Characters}
 
 For non-commutative $G$, we aim to model homomorphisms from $G(k)$ to $\EEx$ using the category $\CCS(G)$.
@@ -990,22 +955,87 @@ Is $\Gr(\underline{G})\ab = \Gr(\underline{G}\ab)?$ If so, then at least we get
 \]
 \end{proof}
 
-
-
+\fi
 
  \subsection{Geometric types for supercuspidal representations}
 
-\begin{proposition}
-Let $(\underline{G}(\OK),\rho)$ be a type such that  . . . 
-Set $G = \Gr(\underline{G})$.
-There is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) \iso \underline{G}(\OK)$.
-\end{proposition}
-
-It is not unique.
+\newcommand{\red}{^{\operatorname{red}}}
 
 As proved in \cite{kim:07a}, many (complex) supercuspidal representations of $p$-adic groups can be built from the generic data of \cite{yu:01a}*{\S 15} and, moreover, the type (in the sense of \cite{bushnell-kutzko:98a}) of the resulting supercuspidal representations can be constructed directly from the generic data. 
 Let us refer to the types arising in this manner as {\it generic types}.
-In this section we show that, after fixing an isomorphism $\CC \approx \EE$, every generic type is geometrizable, in the sense that every part of generic type admits a description as a perverse sheaf, from which the type can be recovered.
+In this section we show that every generic type is geometrizable, in a sense which will be made clear below.
+
+
+
+\subsection{Review of Yu's types}
+
+\begin{quotation}
+Therefore, up to some linear characters, all the ingredient representations are on groups of
+ the form $H(\mathcal{O})$, where $H$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated $H(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+  from $H$
+important role in the representation theory of p-adic groups.
+\end{quotation}
+
+\subsection{Smooth group schemes for types}
+
+Let $\underline{G}$ be an affine smooth group scheme of finite type over $\OK$ arising in the work of Yu on types for supercuspidal groups.
+We suppose the component group $\pi_0(\underline{G}_s\red)$ of the reductive quotient of the special fibre $\underline{G}_s$ of $\underline{G}$ is cyclic.
+
+The group scheme $\underline{G}$ comes equipped with affine smooth group schemes of finite type over $\OK$
+\[
+\underline{J}^i \to \underline{G},
+\]
+for $j=0, 1, \ldots , d-1,d$, such that
+\[
+\underline{G}(\OK) = \prod_{i=0}^{d} \underline{J}^i(\OK).
+\]
+Let $\underline{G}^{j-1}$ be the canonical smooth model . . 
+We suppose the component group $\pi_0((\underline{G}^{j-1}_s)\red)$ of the reductive quotient of the special fibre $\underline{G}^{j-1}_s$ of $\underline{G}^{j-1}$ is cyclic, for every $j=1, \ldots, d-1$. 
+
+\subsection{Geometrization of types}
+
+\begin{proposition}
+Let $(\underline{G}(\OK),\tau)$ be a type such that  . . . 
+Set $G = \Gr(\underline{G})$.
+There is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \tau$ under the canonical isomorphism $G(\Fq) \iso \underline{G}(\OK)$.
+\end{proposition}
+
+\begin{proof}
+Now, let $(A,\varphi)$ be a Frobenius-stable character sheaf on $\underline{G}_s\red$.
+Let $(A,\varphi)$ be the Frobenius-stable constructible sheaf on $\underline{G}_s$ obtained by pull-back.
+For each $j=1,\ldots, d-1$, 
+let $(A^j, \varphi^j)$ be a character sheaf on $(\underline{G}^{j-1}_s)\red$, in the sense of [Lusztig, CSDG].
+Let $(C_1^j, \phi^j)$ be the Frobenius-stable constructible sheaf on $\underline{G}^{j-1}_s$ obtained by pull-back..
+
+For each $j=1,\ldots, d-1$,
+let $H^j$ be a unipotent group appearing as a quotient $\underline{J}^j_s \to H^j$.
+Let $B^j$ be a character sheaf on $H^j$, in the sense of [Boyarchenko].
+Let $(D_1^j,\varphi^j)$ be the Frobenius-stable constructible sheaf on $\underline{J}^{j}_s$ obtained by pull-back.
+
+Let $n$ be a positive integer and
+for each $j=1,\ldots, d-1$, let $\cs{L}_n^{j-1}$ be a commutative quasicharacter sheaf on $G_n^{j-1}\ceq \Gr_n(\underline{G}^{j-1})$.
+
+Observe that $\underline{G}^{j-1}_s = \Gr_1(\underline{G}^{j-1})$ 
+and $\underline{J}^{j}_s = \Gr_1(\underline{G}^{j-1})$. 
+Let $(\cs{C}_n^j,\phi^j)$ be the admissible sheaf on $G_n^{j-1} \ceq \Gr_n(\underline{G}^{j-1})$ obtained by pulling-back $C_1$ along $G_n^{j-1} \to \underline{G}^{j-1}_s$.
+Let $(\cs{D}_n^j,\phi^j)$ be the admissible sheaf on $J_n^{j-1} \ceq \Gr_n(\underline{J}^{j-1})$ obtained by pull-back along $J_n^{j-1} \to \underline{J}^{j-1}_s$.
+
+
+Set $\underline{N}^j = \prod_{i=j}^d \underline{J}^i$ and let $\underline{G} \to \underline{M}^j$ be the morphism . . . .
+Then $\underline{M}^j = \underline{G}^{j-1} \underline{J}^j$ . . . 
+%
+Now, consider the following sheaf on $M_n^j \ceq \Gr_n(\underline{M}^j)$:
+\[
+\cs{E}_n^j \ceq (\cs{L}_n^{j-1}\otimes \cs{C}_n^j) \boxtimes \cs{D}_n^{j}
+\]
+Let $\cs{F}_n^j$ be the pullback along $G_n :=\Gr_n(\underline{G}) \to \Gr_n(\underline{M}^j):= M_n^j$.
+Finally, set $\cs{F}_n = \otimes_i \cs{F}^i_n$.
+
+
+\end{proof}
+
+
+\iffalse
 
 Let $K$ be a $p$-adic field. Let $\G$ be a connected reductive linear algebraic group over $K$. 
 A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0(K) \subset \G^1(K) \subset \cdots  \subset \G^d(K) = \G(K)$ (proper containment); $\pi_0$ is a depth-zero representation of $\G^0(K)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where each $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism).  
@@ -1029,7 +1059,7 @@ Then $\pi_0$ is produced by compact induction from representation $\sigma$ of a 
 
 %\subsection{Toral supercuspidal representations of $p$-adic groups}
 
-
+\fi
 
 \bibliography{bibliography/Biblio}
 
@@ -1068,3 +1098,46 @@ The isomorphism $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ is constrained by 
 \subsection{Quotient and restriction}
 
 We now combine the material of the last two sections, by specializing to the following case: $H$ is a closed subgroup of $G$ and $q : G \to G/H$ is the fppf quotient, which exists in schemes by  . . .
+
+\iffalse
+
+\subsection{Change of action}
+
+Now, let $a' : H'\times G \to G$ be another group action on $G$ and suppose $f: H \times G \to H'\times G$ makes the following diagram commute.
+\[
+\begin{tikzcd}
+&  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+G & & G \\
+& \arrow{ul}{a'} H' \times G \arrow{ur}[swap]{p} & 
+\end{tikzcd}
+\]
+Then pull-back along $f: H\times G \to H'\times G$ defines a monoidal functor 
+\[
+\CS_{H'}(G) \to \CS_{H}(G).
+\]
+
+
+Then $f : H\times G \to H'\times G$ is given by $f(h,g) = (k(h,g),g)$ for some $k : H\times G\to H'$. 
+Define $d : H\to H'$ by $d(h) = k(h,1)$.
+
+
+
+
+\begin{lemma}\label{lem:action}
+The canonical functor
+\[
+\CS_{H}(G) \to \CS_{H'}(G)
+\]
+is an equivalence if ...
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\subsection{Conjugation}
+
+We close this section with an alternate characterization of $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
+Recall that $\CS'(G)$ is a full subcategory of $\CS(G)$ and that $\CCS(G)$ is a full subcategory of $\CS'(G)$.
+
+Consider the following case of Section~\ref{ssec:action}.
+
+\fi
