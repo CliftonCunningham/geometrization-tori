@@ -368,7 +368,7 @@ to the definition of commutative character sheaf and leave the definition of $G\
 
 In order to get character sheaves that correspond to characters in $G(k)^*$, we must discard those
 character sheaves whose restriction to the derived subgroup is nontrivial.
-The following proposition will be proven in Section \ref{ssec:proofs}.
+The following proposition will be proven in Section \ref{ssec:proof1}.
 \begin{proposition} \label{prop:Gder_triv}
 Suppose $G$ is a smooth group scheme and $\cs{L} \in \CS(G)$ is a linear character sheaf on $G$.
 Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $\cs{L} \cong q^*(\cs{L}\ab)$ for some
@@ -440,7 +440,7 @@ defines an equivalence of categories
 \end{theorem}
 %
 Sections~\ref{ssec:equivariant1}, \ref{ssec:equivariant2}, \ref{ssec:descent} and \ref{ssec:closed} set up machinery needed to prove Theorem~\ref{thm:Gab}.
-The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given with the proof of Theorem~\ref{thm:Gab}, in Section~\ref{ssec:proofs}.
+The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given with the proof of Theorem~\ref{thm:Gab}, in Section~\ref{ssec:proof2}.
 
 
 
@@ -508,7 +508,9 @@ By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = 
 %In this section we use descent along the abelianization $q : G \to G\ab$ to prove Propositions~1.2 and 1.4, and Theorem~\ref{thm:Gab}.
 %This approach requires introducing equivariant linear character sheaves, as defined in Section~[].
 
-\subsection{Equivariant Weil local systems}\label{ssec:equivariant1}
+\subsection{Proofs for results from Section \ref{ssec:noncomdef}} \label{ssec:proofs}
+
+\subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
 
 Let $G$ be a smooth group scheme over $k$, as above.
 Let $H$ be a group scheme and write $n : H \times H \to H$ for the multiplication morphism.
@@ -574,7 +576,7 @@ p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
 commutes.
 This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on $G$.
 
-\subsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
+\subsubsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
 
 An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $(\cs{L},\nu)$ is an $H$-equivariant local system.  We require that $\mu$ be compatible with $\nu$ in the following sense.
 We define morphisms:
@@ -676,7 +678,7 @@ commutes, consider the commuting diagram of stalks, below.
 
 
 
-\subsection{Descent along a torsor}\label{ssec:descent}
+\subsubsection{Descent along a torsor}\label{ssec:descent}
 
 Now suppose $q : G \to G_0$ is a regular epimorphism of smooth group schemes with kernel pair $(a,p)$
 \[
@@ -754,7 +756,7 @@ The adjunction is built from the adjunctions $(\epsilon_1, \eta_1)$ and $(\epsil
 \end{proof}
 
 
-\subsection{Quotient by a closed subgroup}\label{ssec:closed}
+\subsubsection{Quotient by a closed subgroup}\label{ssec:closed}
 
 We now suppose that $j : H \hookrightarrow G$ is a closed subgroup scheme over $\Fq$ and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
 %Then we have the diagram
@@ -801,11 +803,11 @@ that the isomorphism of Weil local systems $\beta : \cs{L}\vert_{H} \to (\EE)_{H
 \end{proof}
 
 
-\subsection{Proofs for results from Section \ref{ssec:noncomdef}}\label{ssec:proofs}
-
 We can now give the missing proofs from Section \ref{ssec:noncomdef}.
 
-\begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}]
+\subsubsection{Proof of Proposition~\ref{prop:Gder_triv}}\label{ssec:proof1}
+
+%\begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}] 
 The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
 Set $H=G\der$.
 Let $j : H\hookrightarrow G$ be the inclusion and let $q : G \to G\ab$ be the quotient. 
@@ -831,9 +833,11 @@ Since the quotient $q : G \to G\ab$ is a trivial $H$-torsor in the fppf topology
 it now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
 Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precisely the category of $(\cs{L},\mu)\in \CS(G)$ such that $\cs{L}\vert_{H} \iso (\EE)_{H}$, this completes the proof of Proposition~\ref{prop:Gder_triv}.
-\end{proof}
+%\end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:Gab}] 
+\subsubsection{Proof of Theorem~\ref{thm:Gab}}\label{ssec:proof2}
+
+%\begin{proof}[Proof of Theorem~\ref{thm:Gab}] 
 Here we use notation from the proof of Proposition~\ref{prop:Gder_triv};
 in particular, $H = G\der$.
 By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory.
@@ -880,7 +884,7 @@ In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
 if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$.
 This completes the proof of Theorem~\ref{thm:Gab}.
 %This also defines the functor $\CCS(G\ab) \to \CCS(G)$ by the dashed arrow in the diagram above.
-\end{proof}
+%\end{proof}
 
 
 \section{Application to type theory for $p$-adic groups}
