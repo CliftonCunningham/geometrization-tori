@@ -961,61 +961,85 @@ Is $\Gr(\underline{G})\ab = \Gr(\underline{G}\ab)?$ If so, then at least we get
 
 \fi
 
- \subsection{Geometric types for supercuspidal representations}
+%\subsection{Geometric types for supercuspidal representations}
 
 \newcommand{\red}{^{\operatorname{red}}}
 
-As proved in \cite{kim:07a}, many (complex) supercuspidal representations of $p$-adic groups can be built from the generic data of \cite{yu:01a}*{\S 15} and, moreover, the type (in the sense of \cite{bushnell-kutzko:98a}) of the resulting supercuspidal representations can be constructed directly from the generic data. 
+
+As proved in \cite{kim:07a}, all supercuspidal representations of unramified $p$-adic groups can be built from the generic data of \cite{yu:01a}*{\S 15}.
+The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from the generic data. 
 Let us refer to the types arising in this manner as {\it generic types}.
 In this section we show that every generic type is geometrizable, in a sense which will be made clear below.
 
 
-
 \subsection{Review of Yu's types}
 
-A \emph{Yu-type} is a pair $(J, \rho)$, where $J$ is a compact group and $\rho$ is a representation of $J$ built in the following way:
+As explained in \cite{yu:models}, a generic type may be apprehended as a pair $(\underline{G}(\OK), \rho)$, where $\underline{G}$ is an affine smooth group scheme of finite type over $\OK$ and where $\rho$ is a representation of $\underline{G}(\OK)$.
+The group scheme $\underline{G}$ comes with the following auxillary data:
 \begin{enumerate}
-\item $\underline{G}$
-\item $\rho = \tau_0 \otimes \cdots \tau_d$ 
-for certain representations $\tau_i$ of $J$.
-\item $\tau_0$ is the pull-back of a representation $\sigma_0$ along $J \to J/J_0$, where $J_0$ is the pro-$p$ unipotent radical of $J$.
-\item $J = J^0 \cdots J^d$ for certain compact groups $J^i$.
-
+\item
+	affine smooth group schemes $\underline{J}^i$, for $i=0, 1, \ldots, d$, together with morphisms $\underline{J}^i \to \underline{G}$ such that \[\prod_{i=0}^d \underline{J}^i(\OK) = \underline{G}(\OK),\] where we identify $\underline{J}^i(\OK)$ with its image under $\underline{J}^i \to \underline{G}$, and such that $\prod_{i=j+1}^{d} \underline{J}^i(\OK)$ is normal in $\underline{G}(\OK)$, for $j=1, \ldots, d$;
+\item affine smooth group schemes $\underline{G}^{j}$, for $j=1, \ldots, d$, together with morphisms $\underline{G}^{j}\to \underline{G}$ such that 
+\[
+\underline{G}^{j}(\OK) = \prod_{i=0}^{j} \underline{J}^i(\OK),
+\] 
+where we identify $\underline{J}^i(\OK)$ with its image under $\underline{J}^i \to \underline{G}$ and $\underline{G}^{j}(\OK)$ with its image under $\underline{G}^j \to \underline{G}$.
+\end{enumerate}
+The representation $\rho$ of $\underline{G}(\OK)$ is build from the following data:
+\begin{enumerate}
+\item
+	a representation $\sigma_0$ of $\underline{G}_s\red(\Fq)$;
+\item
+	a representation $\epsilon_j$ of $(\underline{G}^{j-1})_s\red(\Fq)$, for each $j=1,\ldots, d$;
+\item
+	a representation $\eta_j$ of $H^j(\Fq)$, where $H^j$ is Heisenberg group arising as a quotient $(\underline{J}^{j})_s \to H^i$, for each $j=1,\ldots, d$;
+\item
+	a linear quasicharacter $\phi_{j-1}$ of $\underline{G}^{j-1}(\OK)$, for $j=1,\ldots, d$;
+\item
+	a linear quasicharacter $\tau_d$ of $\underline{G}(\OK)$.
+\end{enumerate}
+From this data, the representation $\rho$ is built as follows.
+\begin{enumerate}
+\item 
+	Let $\tau_0$ be the representation of $\underline{G}(\OK)$ obtained by pulling back $\sigma_0$ along 
+\[\underline{G}(\OK) \to \underline{G}_s(\Fq) \to \underline{G}_s\red(\Fq).\]
+\item 
+	Let $\dot{\epsilon}_j$ be the representation of $\underline{G}^{j-1}(\OK)$ obtained by pulling back $\epsilon_j$ along 
+\[\underline{G}^{j-1}(\OK) \to \underline{G}^{j-1}_s(\Fq) \to (\underline{G}^{j-1})_s\red(\Fq),\]
+for $j=1,\ldots, d-1$.
+\item
+	Let $\dot{\eta}_j$ be the representation of $\underline{J}^j(\OK)$ obtained by pulling back $\eta_j$ along 
+\[\underline{J}^{j}(\OK) \to \underline{J}^{j}_s(\Fq) \to H^j(\Fq),\]
+for $j=1,\ldots, d-1$.
+\item
+	Using the decomposition $\underline{G}^j(\OK) = \underline{G}^{j-1}(\OK) \times \underline{J}^j(\OK)$, consider the representation $(\phi_{j-1}\otimes \dot{\epsilon}_j)\times \dot{\eta}_j$ of $\underline{G}^{j}(\OK)$, for $j=1,\ldots, d-1$. 
+	Since $\prod_{i=j+1}^{d} \underline{J}^i(\OK)$ is normal in $\underline{G}(\OK)$, this determines a representation $\tau_j$ of $\underline{G}(\OK)$, for $j=1,\ldots, d-1$. 
+\item
+	Then $\rho = \tau_0 \otimes \cdots \tau_d$.
 \end{enumerate}
 
-
+Regarding this construction of the type $(\underline{G}(\OK),\rho)$, Yu points out that,
 \begin{quotation}
-Therefore, up to some linear characters, all the ingredient representations are on groups of
- the form $H(\mathcal{O})$, where $H$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated $H(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
-  from $H$
-important role in the representation theory of p-adic groups.
+{\it Therefore, up to some linear characters, all the ingredient representations are on groups of
+ the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+important role in the representation theory of $p$-adic groups.} \cite{yu:models}
 \end{quotation}
-
-\subsection{Smooth group schemes for types}
-
-Let $\underline{G}$ be an affine smooth group scheme of finite type over $\OK$ arising in the work of Yu on types for supercuspidal groups.
-We suppose the component group $\pi_0(\underline{G}_s\red)$ of the reductive quotient of the special fibre $\underline{G}_s$ of $\underline{G}$ is cyclic.
-
-The group scheme $\underline{G}$ comes equipped with affine smooth group schemes of finite type over $\OK$
-\[
-\underline{J}^i \to \underline{G},
-\]
-for $j=0, 1, \ldots , d-1,d$, such that
-\[
-\underline{G}(\OK) = \prod_{i=0}^{d} \underline{J}^i(\OK).
-\]
-Let $\underline{G}^{j-1}$ be the canonical smooth model . . 
-We suppose the component group $\pi_0((\underline{G}^{j-1}_s)\red)$ of the reductive quotient of the special fibre $\underline{G}^{j-1}_s$ of $\underline{G}^{j-1}$ is cyclic, for every $j=1, \ldots, d-1$. 
+%
 
 \subsection{Geometrization of types}
 
-\begin{proposition}
-Let $(\underline{G}(\OK),\tau)$ be a type such that  . . . 
-Set $G = \Gr(\underline{G})$.
-There is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \tau$ under the canonical isomorphism $G(\Fq) \iso \underline{G}(\OK)$.
+The objective of this section is to push Yu's observation further to prove the following result.
+
+\begin{proposition}\label{prop:types}
+Let $(\underline{G}(\OK),\rho)$ be a generic type.
+Set $G = \Gr(\underline{G})$, the Greenberg transform of $\underline{G}$; recall that this is a group scheme over $\Fq$.
+There is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) = \underline{G}(\OK)$.
 \end{proposition}
 
 \begin{proof}
+First, we make some observations concerning the auxillary data for $\underline{G}$. 
+
+
 Now, let $(A,\varphi)$ be a Frobenius-stable character sheaf on $\underline{G}_s\red$.
 Let $(A,\varphi)$ be the Frobenius-stable constructible sheaf on $\underline{G}_s$ obtained by pull-back.
 For each $j=1,\ldots, d-1$, 
