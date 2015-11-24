@@ -908,6 +908,194 @@ This completes the proof of Theorem~\ref{thm:Gab}.
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}
 
+\newcommand{\red}{^{\operatorname{red}}}
+\newcommand{\Sp}{{\operatorname{Sp}}}
+
+As proved in \cite{kim:07a}, all supercuspidal representations of unramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}.
+The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from the data. 
+Let us refer to the types arising in this manner as {\it Yu types}.
+In this section we show that every Yu type is geometrizable, in a sense which will be made clear below.
+
+A Yu type is a pair $(\,^\circ K,\,^\circ \rho)$, where $\,^\circ K$ is a compact group and $\,^\circ \rho$ is a representation of $\,^\circ K$, with certain properties. 
+In Section~\ref{ssec:review} we recall properties of $(\,^\circ K,\,^\circ \rho)$ which we allow us, in Section~\ref{ssec:geometrization}, to find a pair $(G, \mathcal{F})$ where $G$ is a smooth group scheme over $\Fq$ and $\mathcal{F}$ is a virtual constructible sheaf $\ell$-adic sheaf on $G$ from which the character of $\,^\circ \rho$ can be recovered using the trace of Frobenius.
+
+
+\subsection{Review of Yu's types}\label{ssec:review}
+
+Every Yu type $(\,^\circ K,\,^\circ \rho)$ may be constructed directly from the following information, derived from a Yu datum:
+\begin{enumerate}
+\item compact open subgroups $J^i\subset \,^\circ K$, for $i=0, \ldots d$, such that \[\,^\circ K = J^0\cdots J^d;\]
+\item a continuous representation $\sigma_0$ of $J^0$;
+\item a quasicharacter $\varphi_i : J^i \to \CC^\times$, for $i=0, \ldots d$.
+\end{enumerate}
+These representations $(\sigma_0, \varphi_0, \ldots , \varphi_d)$ enjoy certain properties, which allow Yu to construct, for $i=0, \ldots, d-1$, further:
+\begin{enumerate}
+\item a quotient $J^{i+1} \to V_{i+1}$ to a finite abelian group, and the structure of a $\Fq$-vector space on $V_{i+1}$, compatible with the abelian group structure above;
+\item a symplectic pairing $\langle\ ,\ \rangle_{i+1} : V_{i+1}\times V_{i+1} \to C_{i+1}$, where $C_{i+1}$ is a one-dimensional vector space over $\Fq$;
+\item an additive character $\psi_{i+1} : C_{i+1} \to \EEx$;
+\item a group homomorphism $\,^\circ f_i : J^0 \cdots J^i \to \Sp(V_{i+1})$;
+\item a quotient $J^{i+1} \to H^{i+1}$, where $H^{i+1}$ is a Heisenberg $p$-group, together with an isomorphism $j_{i+1} : H^{i+1} \to V_{i+1}^\sharp$, where $V_{i+1}^\sharp$ is the Heisenberg group determined by $(V_{i+1}, \langle\ ,\ \rangle_{i+1}, C_{i+1}, \psi_{i+1})$.
+\end{enumerate}
+The pair $(f_i, j_{i+1})$ is a symplectic action of $J^0\cdots J^i$ on $H^{i+1}$, so it defines a group homomorphism 
+\begin{equation}\label{eq:symaction}
+\begin{tikzcd}
+h_{i+1} : (J^0\cdots J^i)\ltimes J^{i+1} \arrow{r} & (J^0\cdots J^i)\ltimes H^{i+1} \arrow{r} & \Sp(V_{i+1})\ltimes V_{i+1}^\sharp.
+\end{tikzcd}
+\end{equation}
+%
+
+From this information, Yu constructs a representation $\,^\circ \rho_i$ of $J^0\cdots J^i$, for each $i=0, \ldots, d$, such that $\,^\circ \rho_d = \,^\circ \rho$. We will need some detail about this construction, so we will review it here.
+%Let $\varpi_1$ be the Heisenberg representation of the Heisenberg group $V_1^\sharp$, with central character $\psi_1$.
+%Let $\varrho_1$ be the Weil representation of $\Sp(V_1)$ with the same representation space as $\omega_1$.
+Let $\omega_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, with the same representation space as the Heisenberg representation of the Heisenberg group $V_{i+1}^\sharp$.
+\[
+\begin{tikzcd}
+\  & J^{i+1} \arrow{d} & \\
+Sp(V_{i+1}) \ltimes V_{i+1}^\sharp & \arrow{l}[swap]{h_1} (J^0 \cdots J^i) \ltimes J^{i+1} \arrow{r} \arrow{d} & J^0 \cdots J^i J^{i+1}\\
+& (J^0 \cdots J^i) & 
+\end{tikzcd}
+\]
+Then $h_1^*(\omega_1)$ is a representation of $J^0\ltimes J^1$, determined by the quasicharacter $\varphi_1$ of $J^1$. 
+Write $\inf(\sigma_0\otimes \varphi_0)$ for the representation of $J^0 \ltimes J^1$ obtained by pulling back $\sigma_0\otimes \varphi_0$ along $J^0 \ltimes J^1 \to J^0$. 
+By \cite{yu:01a}*{}, the representation 
+$h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 \ltimes 1) \cap (1 \ltimes J^1)$, so $h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ descends to a representation $\,^\circ \rho_1$ of $J^0 J^1$.  
+%
+As above, the representation 
+$h_{2}^*(\omega_{2}) \otimes \inf(\,^\circ \rho_1)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 J^1 \ltimes 1) \cap (1 \ltimes J^2)$, so $h_2^*(\omega_2) \otimes \inf(\,^\circ \rho_1)$ descends to a representation $\,^\circ \rho_2$ of $J^0 J^1 J^2$.  
+Continuing in this way, one constructs the representation $\,^\circ \rho_d$ of $J^0\cdots J^d$. 
+
+The character of $\,^\circ \rho_d$ on $J^0\cdots J^d$ satisfies
+\[
+\trace(\,^\circ \rho_d)(k_0 \cdots k_d) = \sigma_0(k_0) \left( \varphi_0(k_0) \cdots \varphi_d(k_d) \right) ,
+\]
+with ...
+
+\subsection{Smooth models}\label{ssec:models}
+
+The first step in the geometrization of the type $(\,^\circ K,\,^\circ \rho)$ is to replace $\,^\circ K$ with a group scheme $G$ over $\Fq$ so that $G(\Fq) = \,^\circ K$, canonically. 
+By \cite{yu:03a}*{Prop 10.2} there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that \[\underline{G}(\OK)= \,^\circ K\] 
+For every positive integer $n$, let $G_n$ be the Greenberg transform of $\underline{G} \times_{\Spec{\OK}} \Spec{\OK/\mathfrak{m}_K^n}$, where $\mathfrak{m}_K$ is the maximal ideal in $\OK$.
+Then $G_n$ is a smooth group scheme over $\Fq$ and $G_n(\Fq) = \underline{G}(\OK/\mathfrak{m}_K^n)$, canonically.
+Let $G$ be the Greenberg transform of $\underline{G}$.
+Then $G$ is a group scheme over $\Fq$ and $G(\Fq) = \underline{G}(\OK) = \,^\circ K$, canonically.
+
+In order to complete the geometrization of the type $(\,^\circ K,\,^\circ \rho)$, we will need more smooth models.
+Fortunately, as above, Yu has already done the heavy work.
+%
+As explained in \cite{yu:03a}*{\S 10.4}, the
+the group scheme $\underline{G}$ comes with the following auxillary data:
+\begin{enumerate}
+\item[(Ji)]
+	affine smooth group schemes $\underline{J}^i$, for $i=0, 1, \ldots, d$, together with morphisms $\underline{J}^i \to \underline{G}$ such that \[\underline{J}^i(\OK) = J^i,\]
+\item[(Gj)] affine smooth group schemes $\underline{G}^{j}$, for $j=0, \ldots, d$, together with morphisms $\underline{G}^{j}\to \underline{G}$ such that 
+\[
+\underline{G}^{j}(\OK) = J^0\cdots J^i.
+\] 
+\end{enumerate}
+
+Moreover, the quotient
+
+
+Regarding this construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:03a} concludes with the following provocative observation.
+\begin{quotation}
+{\it Therefore, up to some linear characters, all the ingredient representations are on groups of
+ the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
+\end{quotation}
+%
+The objective of this section is to push this observation further by geometrizing the representation $\,^\circ \rho$ of $\underline{G}$.
+
+\subsection{Geometrization}\label{ssec:geometrization}
+
+
+\begin{proposition}\label{prop:types}
+Let $(\,^\circ K,\,^\circ \rho)$ be a Yu type.
+With notation as above, suppose $\pi_0(\underline{G}_s\red)$ is cyclic and that $\pi_0((\underline{G}^{j-1})_s\red)$ is cyclic for $j=1,\ldots, d-1$.
+Then there is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) = \underline{G}(\OK)$.
+\end{proposition}
+
+
+\bibliography{bibliography/Biblio}
+
+\end{document}
+
+Suppose there is some $f : H\times G\to G\times G$ such that the following diagram commutes.
+\[
+\begin{tikzcd}
+\ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+G & & G \\
+& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
+\end{tikzcd}
+\]
+Then $f(h,g) = (a(h,g) g^{-1}, g)$.
+Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq a(h,g) g^{-1}$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
+
+Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
+\[
+\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}
+\]
+by $\beta \otimes \id_{p^*\cs{L}} = \nu \circ f^*\mu^{-1}$, or more precisely, by the following diagram of isomorphisms,
+\[
+\begin{tikzcd}
+a^*\cs{L} \arrow{d}{m\circ f = a} \arrow{rrr}{\nu}
+&&& p^*\cs{L}\\
+f^* m^*\cs{L} \arrow{r}{f^*\mu} & 
+f^*(\cs{L}\boxtimes \cs{L}) \arrow{d} & 
+f_1^*\cs{L} \otimes p^*\cs{L} \arrow{r}{\beta\otimes \id_{p^*\cs{L}}} & 
+(\EE)_{H\times G} \otimes p^*\cs{L} \arrow{u} \\
+& f^*(p_1^*\cs{L}\otimes p_2^*\cs{L}) \arrow{r} & f^*p_1^*\cs{L}\otimes f^* p_2^*\cs{L} \arrow{u}{f_1 = p_1\circ f}[swap]{p = p_2\circ f} &
+\end{tikzcd}
+\]
+In this way we see we may replace $(\cs{L},\mu,\nu)$ with an alternate triple, $(\cs{L},\mu,\beta_1)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
+The isomorphism $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
+
+\subsection{Quotient and restriction}
+
+We now combine the material of the last two sections, by specializing to the following case: $H$ is a closed subgroup of $G$ and $q : G \to G/H$ is the fppf quotient, which exists in schemes by  . . .
+
+\iffalse
+
+\subsection{Change of action}
+
+Now, let $a' : H'\times G \to G$ be another group action on $G$ and suppose $f: H \times G \to H'\times G$ makes the following diagram commute.
+\[
+\begin{tikzcd}
+&  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+G & & G \\
+& \arrow{ul}{a'} H' \times G \arrow{ur}[swap]{p} & 
+\end{tikzcd}
+\]
+Then pull-back along $f: H\times G \to H'\times G$ defines a monoidal functor 
+\[
+\CS_{H'}(G) \to \CS_{H}(G).
+\]
+
+
+Then $f : H\times G \to H'\times G$ is given by $f(h,g) = (k(h,g),g)$ for some $k : H\times G\to H'$. 
+Define $d : H\to H'$ by $d(h) = k(h,1)$.
+
+
+
+
+\begin{lemma}\label{lem:action}
+The canonical functor
+\[
+\CS_{H}(G) \to \CS_{H'}(G)
+\]
+is an equivalence if ...
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\subsection{Conjugation}
+
+We close this section with an alternate characterization of $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
+Recall that $\CS'(G)$ is a full subcategory of $\CS(G)$ and that $\CCS(G)$ is a full subcategory of $\CS'(G)$.
+
+Consider the following case of Section~\ref{ssec:action}.
+
+\fi
+
 \iffalse
 \subsection{Linear Characters}
 
@@ -979,96 +1167,6 @@ Is $\Gr(\underline{G})\ab = \Gr(\underline{G}\ab)?$ If so, then at least we get
 \end{proof}
 
 \fi
-
-%\subsection{Geometric types for supercuspidal representations}
-
-\newcommand{\red}{^{\operatorname{red}}}
-
-
-As proved in \cite{kim:07a}, all supercuspidal representations of unramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}.
-The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from the data. 
-Let us refer to the types arising in this manner as {\it Yu types}.
-In this section we show that every Yu type is geometrizable, in a sense which will be made clear below.
-
-
-\subsection{Review of Yu's types}
-
-A Yu type is a pair $(\,^\circ K,\,^\circ \rho)$, where $\,^\circ K$ is a compact group and $\,^\circ \rho$ is a representation of $\,^\circ K$, with certain properties. 
-One of the main results of \cite{yu:03a} is that there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that $\,^\circ K = \underline{G}(\OK)$ \cite{yu:03a}*{Prop 10.2}.
-As explained in \cite{yu:03a}*{\S 10.4}, the
-the group scheme $\underline{G}$ comes with the following auxillary data:
-\begin{enumerate}
-\item[(Ji)]
-	affine smooth group schemes $\underline{J}^i$, for $i=0, 1, \ldots, d$, together with morphisms $\underline{J}^i \to \underline{G}$ such that \[\prod_{i=0}^d \underline{J}^i(\OK) = \underline{G}(\OK),\] where we identify $\underline{J}^i(\OK)$ with its image under $\underline{J}^i \to \underline{G}$, and such that $\prod_{i=j+1}^{d} \underline{J}^i(\OK)$ is normal in $\underline{G}(\OK)$, for $j=1, \ldots, d$;
-\item[(Gj)] affine smooth group schemes $\underline{G}^{j}$, for $j=1, \ldots, d$, together with morphisms $\underline{G}^{j}\to \underline{G}$ such that 
-\[
-\underline{G}^{j}(\OK) = \prod_{i=0}^{j} \underline{J}^i(\OK),
-\] 
-where we identify $\underline{J}^i(\OK)$ with its image under $\underline{J}^i \to \underline{G}$ and $\underline{G}^{j}(\OK)$ with its image under $\underline{G}^j \to \underline{G}$.
-\end{enumerate}
-
-The representation $\,^\circ \rho$ of $\underline{G}(\OK)$ is build from the following data:
-\begin{enumerate}
-\item
-	a representation $\sigma$ of $\underline{G}_s\red(\Fq)$;
-\item
-if $d \geq 2$, for $j=1,\ldots, d-1$, 
-\begin{enumerate}
-\item
-a representation $\beta_j$ of $H^j(\Fq)$, where $H^j$ is Heisenberg group arising as a quotient $(\underline{J}^{j})_s \to H^j$,
-\item
-a representation $\kappa_j$ of $(\underline{G}^{j-1})_s\red(\Fq)$
-\item
-a linear quasicharacter $\phi_{j-1}$ of $\underline{G}^{j-1}(\OK)$;
-\end{enumerate}
-\item
-	a linear quasicharacter $\phi$ of $\underline{G}(\OK)$.
-\end{enumerate}
-From this data, the representation $\,^\circ \rho$ is built as follows, as explained in \cite{yu:03a}*{\S 10.5}.
-\begin{enumerate}
-\item 
-	Let $\dot{\sigma}$ be the representation of $\underline{G}_s(\Fq)$ obtained by pulling back $\sigma$ along $\underline{G}_s(\Fq) \to \underline{G}_s\red(\Fq)$. 	
-	Let $\ddot{\sigma}$ be the representation of $\underline{G}(\OK)$ obtained by pullback along $\underline{G}(\OK) \to \underline{G}_s(\Fq)$.
-\item For $j=1,\ldots, d-1$, 
-\begin{enumerate}
-\item
-	let $\dot{\beta}_j$ be the representation of $\underline{J}^{j}_s(\Fq)$ obtained by pulling back $\beta_j$ along $\underline{J}^{j}_s(\Fq) \to H^j(\Fq)$ and let $\ddot{\beta}_j$ be . . . 
-;
-\item 
-	let $\dot{\kappa}_j$ be the representation of $\underline{G}^{j-1}_s(\Fq)$ obtained by pulling back $\kappa_j$ along $\underline{G}^{j-1}_s(\Fq) \to (\underline{G}^{j-1})_s\red(\Fq)$ and let $\ddot{\kappa}_j$ . . ;
-\item
-	let $\phi_{j-1}$ be the linear quasicharacter of $\underline{G}^{j-1}(\OK)$ as above. 
-\end{enumerate}
-\item Let $\phi$ be the linear quasicharacter of $\underline{G}(\OK)$, as above.
-\end{enumerate}
-Using the decomposition $\underline{G}^j(\OK) = \underline{G}^{j-1}(\OK) \times \underline{J}^j(\OK)$, combine $\ddot{\beta}_j$, $\ddot{\kappa}_j$  and $\phi_j$ to form the representation $(\phi_{j-1}\otimes \ddot{\kappa}_j)\times \ddot{\beta}_j$ of $\underline{G}^{j}(\OK)$, for $j=1,\ldots, d-1$. 
-	Since $\prod_{i=j+1}^{d} \underline{J}^i(\OK)$ is normal in $\underline{G}(\OK)$, this determines a representation $\delta_j$ of $\underline{G}(\OK)$, for $j=1,\ldots, d-1$.
-Then 
-\[
-\,^\circ \rho = \ddot{\sigma} \otimes \delta_1 \cdots \otimes \delta_{d-1} \otimes \phi.
-\]
-
-Regarding this construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:03a} concludes with the following provocative observation.
-\begin{quotation}
-{\it Therefore, up to some linear characters, all the ingredient representations are on groups of
- the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
-important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
-\end{quotation}
-%
-The objective of this section is to push this observation further by geometrizing the representation $\,^\circ \rho$ of $\underline{G}$.
-
-\subsection{Geometrization of types}
-
-Let $(\underline{G}(\OK),\,^\circ \rho)$ be a Yu type.
-Set $G = \Gr(\underline{G})$, the Greenberg transform of $\underline{G}$.
-Recall that $G$ is a group scheme over $\Fq$ and comes equipped with 
-
-
-\begin{proposition}\label{prop:types}
-Let $(\underline{G}(\OK),\rho)$ be a Yu type.
-With notation as above, suppose $\pi_0(\underline{G}_s\red)$ is cyclic and that $\pi_0((\underline{G}^{j-1})_s\red)$ is cyclic for $j=1,\ldots, d-1$.
-Then there is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) = \underline{G}(\OK)$.
-\end{proposition}
 
 \begin{proof}
 First, we make some observations concerning the auxillary data for $\underline{G}$. 
@@ -1181,7 +1279,7 @@ for $j=1,\ldots, d-1$.
 Let $K$ be a $p$-adic field. Let $\G$ be a connected reductive linear algebraic group over $K$. 
 A generic datum is a triple $(\vec{\G}, \pi_0, \vec{\phi})$ where: $\vec{\G}$ is a tower of $p$-adic groups $\G^0(K) \subset \G^1(K) \subset \cdots  \subset \G^d(K) = \G(K)$ (proper containment); $\pi_0$ is a depth-zero representation of $\G^0(K)$, and $\vec{\phi} = (\phi_0, \ldots , \phi_{d-1})$ where each $\phi_i : \G^i(K) \to \EEx$ is a quasicharacter (continuous group homomorphism).  
 
-%The generic datum $(\vec{\G}, \pi_0, \vec{\phi})$ determines a type (in the sense of \cite{bushnell-kutzko:98a}) $(C, \rho)$ for $\G$, as explained in \cite{yu:construction}*{\S 15}, where $C \subset \G(K)$ is compact mod centre subgroup and $\rho$ is a representation of $C$. In \cite{yu:smooth} it is shown that the $C$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{C}$ over $\OK$ such that $\underline{C}(\OK) = C$.
+%The generic datum $(\vec{\G}, \pi_0, \vec{\phi})$ determines a type (in the sense of \cite{bushnell-kutzko:98a}) $(C, \rho)$ for $\G$, as explained in \cite{yu:01a}*{\S 15}, where $C \subset \G(K)$ is compact mod centre subgroup and $\rho$ is a representation of $C$. In \cite{yu:03a} it is shown that the $C$ admits a smooth integral model, in the sense that there is a smooth group scheme $\underline{C}$ over $\OK$ such that $\underline{C}(\OK) = C$.
 
 In \cite{yu:03a} it is shown that, for $0 \leq i < d$, the $p$-adic group $\G^i(K)$ admits a smooth integral model, in the sense that there is \todo{is $\underline{G}^i$ canonically determined?} a smooth group scheme $\underline{G}^i$ over $\OK$ such that $\underline{G}^i(\OK) = \G^i(K)$.
 Set $G^i_n \ceq \Gr^R_n(\underline{G}^i)$ and $G^i \ceq \Gr_R(\underline{G}^i)$; 
@@ -1199,86 +1297,5 @@ Finally, consider the depth-zero supercuspidal representation $\pi_0$ of $\G^0(K
 Then $\pi_0$ is produced by compact induction from representation $\sigma$ of a compact mod centre subgroup $\underline{C}_0(\OK) \subset \G^0(K)$. Moreover, $C_0$ admits a smooth integral model $\underline{C}$ ...
 
 %\subsection{Toral supercuspidal representations of $p$-adic groups}
-
-\fi
-
-\bibliography{bibliography/Biblio}
-
-\end{document}
-
-Suppose there is some $f : H\times G\to G\times G$ such that the following diagram commutes.
-\[
-\begin{tikzcd}
-\ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
-G & & G \\
-& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
-\end{tikzcd}
-\]
-Then $f(h,g) = (a(h,g) g^{-1}, g)$.
-Define $f_1: H\times G \to G$ by $f_1(h,g)\ceq a(h,g) g^{-1}$; then $f(h,g) = (f_1(h,g),g)$ and $f_1(h_1 h_2,g) = f_1(h_1, h_2\cdot g) f_1(h_2,g)$.
-
-Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
-\[
-\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}
-\]
-by $\beta \otimes \id_{p^*\cs{L}} = \nu \circ f^*\mu^{-1}$, or more precisely, by the following diagram of isomorphisms,
-\[
-\begin{tikzcd}
-a^*\cs{L} \arrow{d}{m\circ f = a} \arrow{rrr}{\nu}
-&&& p^*\cs{L}\\
-f^* m^*\cs{L} \arrow{r}{f^*\mu} & 
-f^*(\cs{L}\boxtimes \cs{L}) \arrow{d} & 
-f_1^*\cs{L} \otimes p^*\cs{L} \arrow{r}{\beta\otimes \id_{p^*\cs{L}}} & 
-(\EE)_{H\times G} \otimes p^*\cs{L} \arrow{u} \\
-& f^*(p_1^*\cs{L}\otimes p_2^*\cs{L}) \arrow{r} & f^*p_1^*\cs{L}\otimes f^* p_2^*\cs{L} \arrow{u}{f_1 = p_1\circ f}[swap]{p = p_2\circ f} &
-\end{tikzcd}
-\]
-In this way we see we may replace $(\cs{L},\mu,\nu)$ with an alternate triple, $(\cs{L},\mu,\beta_1)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
-The isomorphism $\beta_1 : f_1^*\cs{L} \to (\EE)_{H\times G}$ is constrained by two properties, corresponding to the diagrams in Sections [] and [].
-
-\subsection{Quotient and restriction}
-
-We now combine the material of the last two sections, by specializing to the following case: $H$ is a closed subgroup of $G$ and $q : G \to G/H$ is the fppf quotient, which exists in schemes by  . . .
-
-\iffalse
-
-\subsection{Change of action}
-
-Now, let $a' : H'\times G \to G$ be another group action on $G$ and suppose $f: H \times G \to H'\times G$ makes the following diagram commute.
-\[
-\begin{tikzcd}
-&  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
-G & & G \\
-& \arrow{ul}{a'} H' \times G \arrow{ur}[swap]{p} & 
-\end{tikzcd}
-\]
-Then pull-back along $f: H\times G \to H'\times G$ defines a monoidal functor 
-\[
-\CS_{H'}(G) \to \CS_{H}(G).
-\]
-
-
-Then $f : H\times G \to H'\times G$ is given by $f(h,g) = (k(h,g),g)$ for some $k : H\times G\to H'$. 
-Define $d : H\to H'$ by $d(h) = k(h,1)$.
-
-
-
-
-\begin{lemma}\label{lem:action}
-The canonical functor
-\[
-\CS_{H}(G) \to \CS_{H'}(G)
-\]
-is an equivalence if ...
-\end{lemma}
-\begin{proof}
-\end{proof}
-
-\subsection{Conjugation}
-
-We close this section with an alternate characterization of $\CS'(G)$, the category of linear character sheaves $\cs{L}$ on $G$ for which $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
-Recall that $\CS'(G)$ is a full subcategory of $\CS(G)$ and that $\CCS(G)$ is a full subcategory of $\CS'(G)$.
-
-Consider the following case of Section~\ref{ssec:action}.
 
 \fi
