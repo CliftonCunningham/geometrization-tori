@@ -9,7 +9,7 @@
 \address{Department of Mathematics, University of Pittsburgh, 301 Thackeray Hall, Pittsburgh, PA , United States, 15260.}
 \email{roed.math@gmail.com}
 
-\subjclass[2010]{14F05 (primary), 14L15 (secondary), 22E50 (tertiary)}
+\subjclass[2010]{14F05 (primary), 14L15, 22E50}
 \keywords{character sheaves}
 
 \usepackage{amssymb}
@@ -157,12 +157,12 @@
 \begin{document}
 
 \begin{abstract}
-We generalize the function-sheaf dictionary to arbitrary smooth group schemes over finite fields.  In previous work,
-we considered the case of smooth commutative group schemes and found that the standard definition of
-character sheaves produced a dictionary with a nontrivial kernel.  In this paper, we give a modification of
-the category of character sheaves that remedies this defect, and is also extensible to non-commutative groups.
-We use these \emph{commutative character sheaves} to geometrize types for supercuspidal representations of
-$p$-adic groups. 
+We describe a function-sheaf dictionary for one-dimensional characters of arbitrary smooth group schemes
+over finite fields.  In previous work, we considered the case of smooth commutative group schemes and found
+that the standard definition of character sheaves produced a dictionary with a nontrivial kernel.  In this paper,
+we give a modification of the category of character sheaves that remedies this defect, and is also extensible to
+non-commutative groups.  We use these \emph{commutative character sheaves} to geometrize types for
+supercuspidal representations of $p$-adic groups. 
 \end{abstract}
 
 \maketitle
@@ -171,39 +171,56 @@ $p$-adic groups.
 
 \section*{Introduction}
 
-In \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary from connected commutative algebraic groups
-over a finite field $k$ to smooth commutative group schemes $G$ over $k$.  We described a category $\CS(G)$ of
-\emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to \Hom(G(k), \EEx)$.
+In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary from connected, commutative, algebraic groups
+over a finite field $k$ to smooth commutative group schemes $G$ over $k$.  Writing $G(k)^*$ for $\Hom(G(k), \EEx)$, we described a category $\CS(G)$ of
+\emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
 In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel; we gave an explicit description of
 its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
 
 The first aim of this paper is to repair this defect in the function-sheaf dictionary by describing a full subcategory
-$\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to \Hom(G(k), \EEx)$.
+$\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
 We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$
 to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$
 (see Definition \ref{def:CCScom}).  When $G$ is connected, all character sheaves on $G$ are commutative.
 This category clarifies several questions about character sheaves on $G$: invisible character sheaves
-\cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and the inverse map
-$\Hom(G(k), \EEx) \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G}$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
+\cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and 
+$\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of
+$\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
 Next, we broaden our scope further to encompass smooth group schemes $G$ that are not necessarily commutative.
-In this paper, we do not consider Lusztig's geometrization of arbitrary characters of the non-abelian group $G(k)$, where $G$ is reductive,
+In this paper, we do not consider Lusztig's geometrization of arbitrary characters of connected, reductive groups $G(k)$
 using character sheaves \cite{lusztig:85a}*{Def.~2.10}, but focus on the case of $1$-dimensional characters
-$\Hom(G(k), \EEx)$ assuming only that $G$ is smooth. The category $\CS(G)$ has a straightforward generalization to this case, but again
+$G(k)^*$ assuming only that $G$ is smooth. The category $\CS(G)$ has a straightforward generalization to this case, but again
 there are more linear character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
-We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to \Hom(G\ab(k), \EEx)$
-is an isomorphism.  In fact, pullback along the quotient $q : G \to G\ab$ defines an equivalence of categories
-$\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not essentially surjective, missing
-the kinds of linear character sheaves highlighted by Kamgarpour.  
-Since $\Hom(G\ab(k), \EEx)$ surjects
-onto $\Hom(G(k), \EEx)$, with a kernel described by Galois cohomology, this paper shows that, for every linear character $\chi : G(k) \to \EEx$ there is a commutative character sheaf $\cs{L}$ on $G$ such that $\TrFrob{G}(\cs{L})\circ q = \chi$.
+We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
+is an isomorphism.  Since $G\ab(k)^*$ surjects onto $G(k)^*$, for each character $\chi \in G(k)^*$ there is a commutative
+character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, pullback along the quotient $q : G \to G\ab$
+defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not
+essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
 
 Finally, we use the category $\CCS(G)$ to give a geometric description of generic types for supercuspidal representations
-of connected reductive linear algebraic groups over local fields.  In this way, we provide all of the ingredients
+of connected reductive groups over local fields.  In this way, we provide all of the ingredients
 needed to parametrize supercuspidal representations of arbitrary depth in the same category:
-perverse sheaves on group schemes over finite fields.
+perverse sheaves on group schemes over finite fields. \todo{Update based on any changes in Section 4}
 
-\todo{Add summary of sections}
+In Section \ref{sec:defs}, we recall the category $\CS(G)$ from \cite{cunningham-roe:13a} and note that it still makes
+sense when $G$ is not commutative.  We focus on the case of commutative $G$ in Section \ref{sec:comcom},
+giving the definition of a commutative character sheaf and proving our first main theorem, that
+$\TrFrob{G} : \CSiso{G} \to G(k)^*$ induces an isomorphism on $\CCSiso{G}$.
+
+Passing to the case that $G$ is
+non-commutative, we give the definition of and main results about commutative character sheaves in
+Section \ref{sec:noncom}.  We note that we should only consider character sheaves
+that arise via pullback from $G\ab$ in order to eliminate those that have nontrivial restriction
+to the derived subgroup.  This observation underlies the definition of commutative character sheaves for
+non-commutative $G$.  We state our second main theorem, that pullback along the abelianization map
+defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
+In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$
+and $G\ab(k)^*$.  We also compute the automorphism groups in $\CCS(G)$.
+Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which
+require a development of equivariant linear character sheaves.
+
+\todo{Add summary of Section 4 once it has stabilized}
 
 \section{Recollections and definitions} \label{sec:defs}
 
@@ -449,7 +466,7 @@ The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given wit
 
 
 
-\subsection{Objects and maps in commutative character sheaves}
+\subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
 
 Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}; at the same time, it is the categorical solution to the problem, discussed in Section~\ref{ssec:defect}, that the dictionary between linear character sheaves on $G\ab$ and characters of $G\ab$, need not be perfect.
 %
@@ -499,7 +516,7 @@ $
 
 \begin{proof}
 By Theorem~\ref{thm:Gab}, $\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab)$. 
-By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = ((\pi_0(G\ab))^*)^{\Frob{}}$.
+By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = ((\pi_0(G\ab))^*)^{\Frob{}}$. \todo{Shouldn't it be coinvariants?}
 \end{proof}
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
@@ -580,7 +597,7 @@ This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on 
 
 \subsubsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
 
-An $H$-equivariant linear character sheaf on $G$ is a triple $(\cs{L},\mu, \nu)$ where $(\cs{L},\mu)$ is a linear character sheaf and $(\cs{L},\nu)$ is an $H$-equivariant local system.  We require that $\mu$ be compatible with $\nu$ in the following sense.
+We define an $H$-equivariant linear character sheaf on $G$ to be a triple $(\cs{L},\mu, \nu)$, where $(\cs{L},\mu)$ is a linear character sheaf and $(\cs{L},\nu)$ is an $H$-equivariant local system.  We require that $\mu$ be compatible with $\nu$ in the following sense.
 We define morphisms:
 \begin{align*}
 c_0 : H\times G \times G &\to H\times G \times H \times G \\
@@ -810,7 +827,7 @@ We can now give the missing proofs from Section \ref{ssec:noncomdef}.
 \subsubsection{Proof of Proposition~\ref{prop:Gder_triv}}\label{ssec:proof1}
 
 %\begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}] 
-The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}.
+The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ \cite{demazure:SGA3-VIA}*{Thm. 3.2}.
 Set $H=G\der$.
 Let $j : H\hookrightarrow G$ be the inclusion and let $q : G \to G\ab$ be the quotient. 
 With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the following diagram.
@@ -831,7 +848,7 @@ With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the followi
 %
 Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the observation that $\CS'(G)$ is precisely the category $\CS^{H}(G)$ from Section~\ref{ssec:closed} for $H=G\der$.
 The forget
-Since the quotient $q : G \to G\ab$ is a trivial $H$-torsor in the fppf topology \cite{SGA3}*{Expos\'e {VI}$_A$, Thm. 3.2}, 
+Since the quotient $q : G \to G\ab$ is a trivial $H$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, 
 it now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
 Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precisely the category of $(\cs{L},\mu)\in \CS(G)$ such that $\cs{L}\vert_{H} \iso (\EE)_{H}$, this completes the proof of Proposition~\ref{prop:Gder_triv}.
@@ -889,7 +906,7 @@ This completes the proof of Theorem~\ref{thm:Gab}.
 %\end{proof}
 
 
-\section{Application to type theory for $p$-adic groups}
+\section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}
 
 \iffalse
 \subsection{Linear Characters}
@@ -977,8 +994,8 @@ In this section we show that every Yu type is geometrizable, in a sense which wi
 \subsection{Review of Yu's types}
 
 A Yu type is a pair $(\,^\circ K,\,^\circ \rho)$, where $\,^\circ K$ is a compact group and $\,^\circ \rho$ is a representation of $\,^\circ K$, with certain properties. 
-One of the main results of \cite{yu:models} is that there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that $\,^\circ K = \underline{G}(\OK)$ \cite{yu:models}*{Prop 10.2}.
-As explained in \cite{yu:models}*{\S 10.4}, the
+One of the main results of \cite{yu:03a} is that there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that $\,^\circ K = \underline{G}(\OK)$ \cite{yu:03a}*{Prop 10.2}.
+As explained in \cite{yu:03a}*{\S 10.4}, the
 the group scheme $\underline{G}$ comes with the following auxillary data:
 \begin{enumerate}
 \item[(Ji)]
@@ -1007,7 +1024,7 @@ a linear quasicharacter $\phi_{j-1}$ of $\underline{G}^{j-1}(\OK)$;
 \item
 	a linear quasicharacter $\phi$ of $\underline{G}(\OK)$.
 \end{enumerate}
-From this data, the representation $\,^\circ \rho$ is built as follows, as explained in \cite{yu:models}*{\S 10.5}.
+From this data, the representation $\,^\circ \rho$ is built as follows, as explained in \cite{yu:03a}*{\S 10.5}.
 \begin{enumerate}
 \item 
 	Let $\dot{\sigma}$ be the representation of $\underline{G}_s(\Fq)$ obtained by pulling back $\sigma$ along $\underline{G}_s(\Fq) \to \underline{G}_s\red(\Fq)$. 	
@@ -1031,11 +1048,11 @@ Then
 \,^\circ \rho = \ddot{\sigma} \otimes \delta_1 \cdots \otimes \delta_{d-1} \otimes \phi.
 \]
 
-Regarding this construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:models} concludes with the following provocative observation.
+Regarding this construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:03a} concludes with the following provocative observation.
 \begin{quotation}
 {\it Therefore, up to some linear characters, all the ingredient representations are on groups of
  the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
-important role in the representation theory of $p$-adic groups.} \cite{yu:models}
+important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
 \end{quotation}
 %
 The objective of this section is to push this observation further by geometrizing the representation $\,^\circ \rho$ of $\underline{G}$.
