@@ -936,10 +936,12 @@ These representations $(\sigma_0, \varphi_0, \ldots , \varphi_d)$ enjoy certain 
 \item a group homomorphism $\,^\circ f_i : J^0 \cdots J^i \to \Sp(V_{i+1})$;
 \item a quotient $J^{i+1} \to H^{i+1}$, where $H^{i+1}$ is a Heisenberg $p$-group, together with an isomorphism $j_{i+1} : H^{i+1} \to V_{i+1}^\sharp$, where $V_{i+1}^\sharp$ is the Heisenberg group determined by $(V_{i+1}, \langle\ ,\ \rangle_{i+1}, C_{i+1}, \psi_{i+1})$.
 \end{enumerate}
-The pair $(f_i, j_{i+1})$ is a symplectic action of $J^0\cdots J^i$ on $H^{i+1}$, so it defines a group homomorphism 
+The pair $(f_i, j_{i+1})$ is a symplectic action of $J^0\cdots J^i$ on $H^{i+1}$ in the sense of \cite{yu:construction}, so, together with the quotient $J^{i+1} \to H^{i+1}$, it defines a group homomorphism 
 \begin{equation}\label{eq:symaction}
 \begin{tikzcd}
-h_{i+1} : (J^0\cdots J^i)\ltimes J^{i+1} \arrow{r} & (J^0\cdots J^i)\ltimes H^{i+1} \arrow{r} & \Sp(V_{i+1})\ltimes V_{i+1}^\sharp.
+h_{i+1} : (J^0\cdots J^i)\ltimes J^{i+1} \arrow{r} 
+%& (J^0\cdots J^i)\ltimes H^{i+1} \arrow{r} 
+& \Sp(V_{i+1})\ltimes V_{i+1}^\sharp.
 \end{tikzcd}
 \end{equation}
 %
@@ -955,32 +957,44 @@ Sp(V_{i+1}) \ltimes V_{i+1}^\sharp & \arrow{l}[swap]{h_1} (J^0 \cdots J^i) \ltim
 & (J^0 \cdots J^i) & 
 \end{tikzcd}
 \]
-Then $h_1^*(\omega_1)$ is a representation of $J^0\ltimes J^1$, determined by the quasicharacter $\varphi_1$ of $J^1$. 
+
+Now $h_1^*(\omega_1)$ is a representation of $J^0\ltimes J^1$, determined by the quasicharacter $\varphi_1$ of $J^1$. 
 Write $\inf(\sigma_0\otimes \varphi_0)$ for the representation of $J^0 \ltimes J^1$ obtained by pulling back $\sigma_0\otimes \varphi_0$ along $J^0 \ltimes J^1 \to J^0$. 
 By \cite{yu:01a}*{}, the representation 
 $h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 \ltimes 1) \cap (1 \ltimes J^1)$, so $h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ descends to a representation $\,^\circ \rho_1$ of $J^0 J^1$.  
-%
-As above, the representation 
-$h_{2}^*(\omega_{2}) \otimes \inf(\,^\circ \rho_1)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 J^1 \ltimes 1) \cap (1 \ltimes J^2)$, so $h_2^*(\omega_2) \otimes \inf(\,^\circ \rho_1)$ descends to a representation $\,^\circ \rho_2$ of $J^0 J^1 J^2$.  
-Continuing in this way, one constructs the representation $\,^\circ \rho_d$ of $J^0\cdots J^d$. 
 
-The character of $\,^\circ \rho_d$ on $J^0\cdots J^d$ satisfies
+Likewise, the representation 
+$h_{2}^*(\omega_{2}) \otimes \inf(\,^\circ \rho_1)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 J^1 \ltimes 1) \cap (1 \ltimes J^2)$, so $h_2^*(\omega_2) \otimes \inf(\,^\circ \rho_1)$ descends to a representation $\,^\circ \rho_2$ of $J^0 J^1 J^2$.  
+
+Continuing in this way, one constructs the representation $\,^\circ \rho_d$ of $J^0\cdots J^d$. 
+%
+The character of $\,^\circ \rho_d$ on $\,^\circ K = J^0\cdots J^d$ satisfies
 \[
 \trace(\,^\circ \rho_d)(k_0 \cdots k_d) = \sigma_0(k_0) \left( \varphi_0(k_0) \cdots \varphi_d(k_d) \right) ,
 \]
-with ...
+for $k_i\in J^i$.
 
 \subsection{Smooth models}\label{ssec:models}
 
 The first step in the geometrization of the type $(\,^\circ K,\,^\circ \rho)$ is to replace $\,^\circ K$ with a group scheme $G$ over $\Fq$ so that $G(\Fq) = \,^\circ K$, canonically. 
-By \cite{yu:03a}*{Prop 10.2} there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that \[\underline{G}(\OK)= \,^\circ K\] 
-For every positive integer $n$, let $G_n$ be the Greenberg transform of $\underline{G} \times_{\Spec{\OK}} \Spec{\OK/\mathfrak{m}_K^n}$, where $\mathfrak{m}_K$ is the maximal ideal in $\OK$.
-Then $G_n$ is a smooth group scheme over $\Fq$ and $G_n(\Fq) = \underline{G}(\OK/\mathfrak{m}_K^n)$, canonically.
+By \cite{yu:models}*{Prop 10.2} there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that \[ 
+\underline{G}(\OK)= \,^\circ K.
+\] 
+Set $S = \Spec{\OK}$ and $S_n = \Spec{\OK/\mathfrak{m}^n}$, where $\mathfrak{m}_K$ is the maximal ideal in $\OK$, and $n$ is a positive integer $n$.
+Let $G_n$ be the Greenberg transform of $\underline{G} \times_{S} S_n$.
+Then $G_n$ is a smooth group scheme over $\Fq$ and 
+\[
+G_n(\Fq) = \underline{G}(\OK/\mathfrak{m}_K^n),
+\]
+canonically.
+%
 Let $G$ be the Greenberg transform of $\underline{G}$.
-Then $G$ is a group scheme over $\Fq$ and $G(\Fq) = \underline{G}(\OK) = \,^\circ K$, canonically.
+Then $G$ is a group scheme over $\Fq$ and 
+\[
+G(\Fq) = \,^\circ K,
+\]
+canonically.
 
-In order to complete the geometrization of the type $(\,^\circ K,\,^\circ \rho)$, we will need more smooth models.
-Fortunately, as above, Yu has already done the heavy work.
 %
 As explained in \cite{yu:03a}*{\S 10.4}, the
 the group scheme $\underline{G}$ comes with the following auxillary data:
@@ -993,10 +1007,26 @@ the group scheme $\underline{G}$ comes with the following auxillary data:
 \] 
 \end{enumerate}
 
-Moreover, the quotient
+\newcommand{\reductive}{{\operatorname{red}}}
+
+With these group schemes, the other groups appearing in Section~\ref{ssec:review} may also be put into the framework needed for geoemtrization. 
+
+Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S S_1$ of $\underline{J}^{i+1}$. The Heisenberg p-group $H^{i+1}$ group may be realized as $H^{i+1} = H^{i+1}_{\Fq}(\Fq)$, where $H^{i+1}_{\Fq}$ a quotient of $\underline{J}^{i+1}_{\Fq}$ as an algebraic group. Then the quotient $J^{i+1}\to H^{i+1}$ is realized as the composition 
+\[
+\underline{J}^{i+1}(\OK) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq).
+\]
+
+The quotient  $J^{i+1} \to V_{i+1}$ admits a similar description, realizing $V_{i+1}$ as a quotient of the special fibre of $\underline{J}^{i+1}$
 
 
-Regarding this construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:03a} concludes with the following provocative observation.
+ and $\underline{J}^{i+1, \reductive}_\Fq$ for the reductive quotient of $\underline{J}^{i+1}_\Fq$. 
+
+
+In order to complete the geometrization of the type $(\,^\circ K,\,^\circ \rho)$, we will need more smooth models.
+Fortunately, as above, Yu has already done the heavy work.
+
+Regarding this construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:models} concludes with the following provocative observation.
+
 \begin{quotation}
 {\it Therefore, up to some linear characters, all the ingredient representations are on groups of
  the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
