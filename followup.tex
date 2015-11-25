@@ -954,6 +954,7 @@ constructed as follows.
 %\end{enumerate}
 %We will need some more detail about the construction of the representations $\,^\circ \rho^i$, so we review it below.
 %
+ We will need some detail about this construction, so we will review it here.
 %Let $\varpi_1$ be the Heisenberg representation of the Heisenberg group $V_1^\sharp$, with central character $\psi_1$.
 %Let $\varrho_1$ be the Weil representation of $\Sp(V_1)$ with the same representation space as $\omega_1$.
 Let $\omega_{i+1}$ be the Heisenberg representation of the Heisenberg group $V_{i+1}^\sharp$.
@@ -1003,17 +1004,21 @@ As explained in \cite{yu:03a}*{\S 10.4}, the group scheme $\underline{G}$ comes 
 
 \newcommand{\reductive}{{\operatorname{red}}}
 
-With these group schemes, the other groups appearing in Section~\ref{ssec:review} may also be put into the framework needed for geoemtrization. 
+With these group schemes, the other groups and group homomorphisms appearing in Section~\ref{ssec:review} may be put into the framework needed for geometrization. 
 
-Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S S_1$ of $\underline{J}^{i+1}$. The Heisenberg p-group $H^{i+1}$ group may be realized as $H^{i+1} = H^{i+1}_{\Fq}(\Fq)$, where $H^{i+1}_{\Fq}$ a quotient of $\underline{J}^{i+1}_{\Fq}$ as an algebraic group. Then the quotient $J^{i+1}\to H^{i+1}$ is realized as the composition 
+Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S S_1$ of $\underline{J}^{i+1}$. 
+The vector space $V_{i+1}$ may realized as the $\Fq$-points on a variety $U^{i+1}_\Fq$, where $U^{i+1}_\Fq$, appears as a quotient $J^{i+1}_\Fq \to U^{i+1}_\Fq$ of algebraic groups. Then the quotient $J^{i+1} \to V_{i+1}$ is realized as the composition
 \[
-\underline{J}^{i+1}(\OK) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq).
+\underline{J}^{i+1}(\OK) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to U^{i+1}_{\Fq}(\Fq) = V_{i+1}.
 \]
-
-The quotient  $J^{i+1} \to V_{i+1}$ admits a similar description, realizing $V_{i+1}$ as a quotient of the special fibre of $\underline{J}^{i+1}$
-
-
- and $\underline{J}^{i+1, \reductive}_\Fq$ for the reductive quotient of $\underline{J}^{i+1}_\Fq$. 
+Likewise, the Heisenberg p-group $H^{i+1}$ group may be realized as a quotient of algebraic groups, and $J^{i+1}\to H^{i+1}$ as the composition 
+\[
+\underline{J}^{i+1}(\OK) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq) = H^{i+1}.
+\]
+Finally, the group homomorphism $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ may be made geometric in much the same way. Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S S_1$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ is realized as the composition
+\[
+\underline{G}^{i}(\OK) \to \underline{G}^{i}(\Fq) = \underline{G}^{i}_\Fq(\Fq) \to  \underline{G}^{i,\reductive}_\Fq(\Fq) \to W^{i+1}_{\Fq}(\Fq) = \Sp(V_{i+1}).
+\]
 
 Let us return to the list of Section~\ref{ssec:review} and consider how we have recast each part.
 \begin{enumerate}
