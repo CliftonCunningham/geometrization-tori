@@ -1,6 +1,6 @@
 \documentclass[10pt]{amsart}
 
-\title[Commutative Character Sheaves]{Commutative Character Sheaves}
+\title[Commutative Character Sheaves]{Commutative Character Sheaves on smooth group schemes over finite fields}
 %with an application to geometric types for supercuspidal representations
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, AB, Canada, {T2N~1N4}.}
@@ -914,10 +914,11 @@ This completes the proof of Theorem~\ref{thm:Gab}.
 As proved in \cite{kim:07a}, all supercuspidal representations of unramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}.
 The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from the data. 
 Let us refer to the types arising in this manner as {\it Yu types}.
-In this section we show that every Yu type is geometrizable, in a sense which will be made clear below.
+In this section we show that every Yu type is geometrizable.
+% in a sense which will be made clear below.
 
 A Yu type is a pair $(\,^\circ K,\,^\circ \rho)$, where $\,^\circ K$ is a compact group and $\,^\circ \rho$ is a representation of $\,^\circ K$, with certain properties. 
-In Section~\ref{ssec:review} we recall properties of $(\,^\circ K,\,^\circ \rho)$ which we allow us, in Section~\ref{ssec:geometrization}, to find a pair $(G, \mathcal{F})$ where $G$ is a smooth group scheme over $\Fq$ and $\mathcal{F}$ is a virtual constructible sheaf $\ell$-adic sheaf on $G$ from which the character of $\,^\circ \rho$ can be recovered using the trace of Frobenius.
+In Section~\ref{ssec:review} we recall properties of $(\,^\circ K,\,^\circ \rho)$ which we allow us, in Section~\ref{ssec:geometrization}, to find a pair $(G, \mathcal{F})$ where $G$ is a group scheme over $\Fq$ and $\mathcal{F}$ is a virtual constructible sheaf $\ell$-adic sheaf on $G$ from which the character of $\,^\circ \rho$ can be recovered using the trace of Frobenius.
 
 
 \subsection{Review of Yu's types}\label{ssec:review}
@@ -927,7 +928,7 @@ Every Yu type $(\,^\circ K,\,^\circ \rho)$ may be constructed directly from the 
 \item[(0)] a compact group $\,^\circ K$;
 \item[(1)] compact open subgroups $J^i\subset \,^\circ K$, for $i=0, \ldots d$, such that \[\,^\circ K = J^0\cdots J^d;\]
 \item[(2)] a continuous representation $\varpi_0$ of $J^0$, inflated from ...
-\item[(3)] a quasicharacter $\varphi_i : J^i \to \CC^\times$, for $i=0, \ldots d$.
+\item[(3)] a quasicharacter $\varphi_i : J^0\cdots J^i \to \CC^\times$, for $i=0, \ldots d$.
 \end{enumerate}
 These representations $(\sigma_0, \varphi_0, \ldots , \varphi_d)$ enjoy certain properties, which allow Yu to construct, for $i=0, \ldots, d-1$, further:
 \begin{enumerate}
@@ -946,15 +947,16 @@ h_{i+1} : (J^0\cdots J^i)\ltimes J^{i+1} \arrow{r}
 & \Sp(V_{i+1})\ltimes V_{i+1}^\sharp.
 \end{tikzcd}
 \end{equation}
-%
+\end{enumerate}
+
 From this information, Yu constructs 
-%\begin{enumerate}
-\item[(11)] a representation $\,^\circ \rho_i$ of $J^0\cdots J^i$, for each $i=0, \ldots, d$, such that $\,^\circ \rho_d = \,^\circ \rho$,
+a representation $\,^\circ \rho_i$ of $J^0\cdots J^i$, for each $i=0, \ldots, d$, such that $\,^\circ \rho_d = \,^\circ \rho$,
 constructed as follows.
 %\end{enumerate}
 %We will need some more detail about the construction of the representations $\,^\circ \rho^i$, so we review it below.
 %
- We will need some detail about this construction, so we will review it here.
+We will need some detail about this construction,   so we review it here.
+
 %Let $\varpi_1$ be the Heisenberg representation of the Heisenberg group $V_1^\sharp$, with central character $\psi_1$.
 %Let $\varrho_1$ be the Weil representation of $\Sp(V_1)$ with the same representation space as $\omega_1$.
 Let $\omega_{i+1}$ be the Heisenberg representation of the Heisenberg group $V_{i+1}^\sharp$.
@@ -964,14 +966,16 @@ Let $W_{i+1} \ltimes \omega_{i+1}$ be the Heisenberg-Weil representation of the 
 \begin{tikzcd}
 \  & J^{i+1} \arrow{d} & \\
 \Sp(V_{i+1}) \ltimes V_{i+1}^\sharp & \arrow{l}[swap]{h_{i+1}} (J^0 \cdots J^i) \ltimes J^{i+1} \arrow{r} \arrow{d} & J^0 \cdots J^i J^{i+1}\\
-& (J^0 \cdots J^i) & 
+& J^0 \cdots J^i & 
 \end{tikzcd}
 \]
-%
-Now $h_1^*(\omega_1)$ is a representation of $J^0\ltimes J^1$, determined by the quasicharacter $\varphi_1$ of $J^1$. 
-Write $\inf(\sigma_0\otimes \varphi_0)$ for the representation of $J^0 \ltimes J^1$ obtained by pulling back $\sigma_0\otimes \varphi_0$ along $J^0 \ltimes J^1 \to J^0$. 
+
+
+
+Now $h_1^*(W_1\ltimes \omega_1)$ is a representation of $J^0\ltimes J^1$, determined by the quasicharacter $\varphi_1$ of $J^1$. 
+Write $\inf(\sigma_0)$ for the representation of $J^0 \ltimes J^1$ obtained by pulling back $\sigma_0$ along $J^0 \ltimes J^1 \to J^0$. 
 By \cite{yu:01a}*{}, the representation 
-$h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 \ltimes 1) \cap (1 \ltimes J^1)$, so $h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ descends to a representation $\,^\circ \rho_1$ of $J^0 J^1$.  
+$h_1^*(\omega_1) \otimes \varphi_1 \otimes \inf(\sigma_0)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 \ltimes 1) \cap (1 \ltimes J^1)$, so $h_1^*(\omega_1) \otimes \varphi_2 \otimes\inf(\sigma_0\otimes)$ descends to a representation $\,^\circ \rho_1$ of $J^0 J^1$.  
 %
 Likewise, the representation 
 $h_{2}^*(\omega_{2}) \otimes \inf(\,^\circ \rho_1)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 J^1 \ltimes 1) \cap (1 \ltimes J^2)$, so $h_2^*(\omega_2) \otimes \inf(\,^\circ \rho_1)$ descends to a representation $\,^\circ \rho_2$ of $J^0 J^1 J^2$.  
@@ -983,7 +987,6 @@ The character of $\,^\circ \rho_d$ on $\,^\circ K = J^0\cdots J^d$ satisfies
 \trace(\,^\circ \rho_d)(k_0 \cdots k_d) = \sigma_0(k_0) \left( \varphi_0(k_0) \cdots \varphi_d(k_d) \right) ,
 \]
 for $k_i\in J^i$.
-\end{enumerate}
 
 \subsection{Smooth models}\label{ssec:models}
 
