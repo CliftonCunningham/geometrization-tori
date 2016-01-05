@@ -1001,7 +1001,7 @@ The vector space $V_{i+1}$ is then equipped with a symplectic pairing $\langle\ 
 \end{enumerate}
 In fact, the quotient $J^{i+1} \to V_{i+1}^\sharp$ factors through a quotient $J^{i+1} \to H^{i+1}$ and an isomorphism $j_{i+1} : H^{i+1} \to V_{i+1}^\sharp$, where $H^{i+1}$ is a Heisenberg $p$-group in the sense of \cite{yu:construction}*{}.
 \begin{enumerate}
-\item[(Q.3)] A quotient $\,^\circ f_i : \,^\circ K^i \to \Sp(V_{i+1})$, such that the pair $(f_i, j_{i+1})$ is a symplectic action of $\,^\circ K^i$ on $H^{i+1}$ in the sense of \cite{yu:construction}.
+\item[(Q.3)] A quotient $\,^\circ f_{i+1} : \,^\circ K^i \to \Sp(V_{i+1})$, such that the pair $(f_{i+1}, j_{i+1})$ is a symplectic action of $\,^\circ K^i$ on $H^{i+1}$ in the sense of \cite{yu:construction}.
 \end{enumerate}
 Taken together, these quotients define another quotient:
 \begin{enumerate}
@@ -1024,10 +1024,8 @@ The key to defining the representation $\,^\circ\rho_{i+1}$ from $\,^\circ \rho_
 && \,^\circ K^{i+1} &&
 \end{tikzcd}
 \]
-Let $\omega_{i+1}$ be the Heisenberg representation of the Heisenberg group $V_{i+1}^\sharp$.
-This determines a Weil representation on the same representation space as $\omega_{i+1}$.
-Let $W_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$.
-Then $h_{i+1}^*(W_{i+1})$ is a representation of $\,^\circ K^i \ltimes J^{i+1}$.
+Let $W_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, whose restriction to $V_{i+1}^\sharp$ has central character $\psi_{i+1}$.
+Pull-back along $h_{i+1}$ to form $h_{i+1}^*(W_{i+1})$, a representation of $\,^\circ K^i \ltimes J^{i+1}$.
 Write $\inf(\,^\circ\rho_i \otimes \varphi_i)$ for the representation of $\,^\circ K^i \ltimes J^{i+1}$ obtained by pulling back $\,^\circ\rho_i$ along $\,^\circ K^i \ltimes J^{i+1} \to \,^\circ K^i$. 
 By \cite{yu:01a}*{}, the representation 
 \[
@@ -1043,10 +1041,19 @@ of $\,^\circ K^i \ltimes J^{i+1}$ is trivial on $\,^\circ K^{i}\cap J^{i+1}$, so
 
 \subsection{Smooth models}\label{ssec:models}
 
-
-By \cite{yu:models}*{Prop 10.2} there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that \[ 
-\underline{G}(\OK)= \,^\circ K.
+By \cite{yu:models}*{Prop 10.2} there is a sequence of morphisms of affine smooth group schemes of finite type over $\OK$
+\[
+\underline{G}^0 \to \underline{G}^1 \to \cdots \to \underline{G}^d = \underline{G}
+\]
+such that $\underline{G}^i(\OK) = \,^\circ K^i$ for $i=0,\ldots d$.
+Also, for each $i=0,\ldots d$, there is morphism of affine smooth group schemes of finite type over $\OK$ 
+\[
+\underline{J}^i \to \underline{G}
 \] 
+such that $\underline{J}^i(\OK) = J^i$ as a subgroup of $\,^\circ K$.
+
+
+
 %
 As explained in \cite{yu:03a}*{\S 10.4}, the group scheme $\underline{G}$ comes with the following auxilliary data:
 \begin{enumerate}
