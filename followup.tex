@@ -289,11 +289,10 @@ $[\cs{L}]$ to $[\alpha \oplus \beta]$, where $E_G^\bullet$ is the total space of
 of the Hochschild-Serre spectral sequence, $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$ is obtained from $\mu$ and
 $\beta \in C^1(\Weil{}, C^1(\bG, \EEx))$ is obtained from $\phi$.
 
-If $M$ is a $\bG$-module, then we say a class in the Galois cohomology group $\Hh^2(\bG, M)$
-is \emph{symmetric} if it is represented by a symmetric $2$-cocycle.  Since every coboundary is symmetric,
-either all cocycles in a given class will be symmetric or none will.  The connection between
-commutative character sheaves and symmetric classes is given in the following lemma.
-\todo{Define symmetric for element of $\Hh^2(E_G^\bullet)$.}
+Let $a \in Z^2(\bG, \EEx)$ correspond to $\alpha$.  We say that $[\alpha \oplus \beta] \in \Hh^2(E_G^\bullet)$
+is \emph{symmetric} if $a(x,y) = a(y,x)$ for all $x,y \in \bG$.  This condition is well defined, since every
+coboundary in $B^2(\bG, \EEx)$ is symmetric.  The connection between commutative character sheaves
+and symmetric classes is given in the following lemma.
 
 \begin{lemma} \label{lem:symccslink}
 Suppose $G$ is a smooth commutative group scheme, and let $\cs{L}$ be a character sheaf on $G$.
@@ -303,6 +302,9 @@ Then $\cs{L}$ is commutative if and only if $S_G(\cs{L})$ is symmetric.
 The symmetry of $S_G(\cs{L})$ is a direct consequence of the commutativity of the diagram in Definition \ref{def:CCScom}
 after choosing bases for each stalk.
 \end{proof}
+
+We may similarly define a symmetric class in $\Hh^2(\bG, \EEx)$ to be one represented by a symmetric $2$-cocycle.
+The following lemma will allow us to show that there are no invisible commutative character sheaves.
 
 \begin{lemma} \label{lem:symtriv}
 Let $\bG$ be a commutative group.  Then the only symmetric class in $\Hh^2(\bG, \EEx)$ is the trivial class.
@@ -325,8 +327,6 @@ The map $\Hh^2(\bG, \EEx) \to \Hom(\wedge^2 \bG, \EEx)$ maps a $2$-cocycle $f$ t
 Thus the cohomology classes represented by symmetric cocycles are precisely those in the image of $\Ext^1_\ZZ(\bG, \EEx)$.
 But $\Ext^1_\ZZ(-, \EEx)$ vanishes because $\EEx$ is divisible.
 \end{proof}
-
-
 
 \begin{lemma} \label{lem:conncomm}
 If $G$ is a connected commutative algebraic group over $\Fq$ then every character sheaf on $G$ is commutative.
@@ -353,8 +353,8 @@ Suppose first that $G$ is \'etale.  Consider the isomorphism of short exact sequ
  \]
 from \cite{cunningham-roe:13a}*{Prop. 2.7}.
 
-Suppose that $\cs{L}$ is a commutative character sheaf
-with $\trFrob{\cs{L}} = 1$.  Then $S_G([\cs{L}])$ is in the image of $\Hh^2(\bG, \EEx)^\Weil{}$, so is cohomologous to
+Suppose that $\cs{L}$ is a commutative character sheaf with $\trFrob{\cs{L}} = 1$, and set $[\alpha, \beta] = S_G([\cs{L}])$.
+Then $S_G([\cs{L}])$ is in the image of $\Hh^2(\bG, \EEx)^\Weil{}$, so is cohomologous to
 $[\alpha', 0]$.  Since $\alpha$ is symmetric and coboundaries are symmetric, $\alpha'$ is symmetric as well.
 So by Lemma \ref{lem:symtriv}, $\alpha'$ is cohomologically trivial, and thus $[\cs{L}]$ is trivial as well.
 
