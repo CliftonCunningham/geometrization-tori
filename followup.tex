@@ -1,6 +1,6 @@
 \documentclass[10pt]{amsart}
 
-\title[Commutative Character Sheaves]{Commutative Character Sheaves}
+\title[Commutative Character Sheaves]{Commutative Character Sheaves on smooth group schemes over finite fields}
 %with an application to geometric types for supercuspidal representations
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, AB, Canada, {T2N~1N4}.}
@@ -158,10 +158,11 @@
 
 \begin{abstract}
 We describe a function-sheaf dictionary for one-dimensional characters of arbitrary smooth group schemes
-over finite fields.  In previous work, we considered the case of smooth commutative group schemes and found
+over finite fields.  In previous work, we considered the case of commutative smooth group schemes and found
 that the standard definition of character sheaves produced a dictionary with a nontrivial kernel.  In this paper,
 we give a modification of the category of character sheaves that remedies this defect, and is also extensible to
-non-commutative groups.  We use these \emph{commutative character sheaves} to geometrize types for
+non-commutative groups.  
+As an application, we use these \emph{commutative character sheaves} to geometrize types for
 supercuspidal representations of $p$-adic groups. 
 \end{abstract}
 
@@ -190,11 +191,13 @@ $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 Next, we broaden our scope further to encompass smooth group schemes $G$ that are not necessarily commutative.
 In this paper, we do not consider Lusztig's geometrization of arbitrary characters of connected, reductive groups $G(k)$
 using character sheaves \cite{lusztig:85a}*{Def.~2.10}, but focus on the case of $1$-dimensional characters
-$G(k)^*$ assuming only that $G$ is smooth. The category $\CS(G)$ has a straightforward generalization to this case, but again
+$G(k)^*$ assuming only that $G$ is smooth, allowing for the possibility that $G$ is not connected and not reductive.
+The category $\CS(G)$ has a straightforward generalization to this case, but again
 there are more linear character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
 We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
-is an isomorphism.  Since $G\ab(k)^*$ surjects onto $G(k)^*$, for each character $\chi \in G(k)^*$ there is a commutative
-character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, pullback along the quotient $q : G \to G\ab$
+is an isomorphism.  
+Since $G\ab(k)^*$ surjects onto $G(k)^*$, it follows that for each character $\chi \in G(k)^*$ there is a commutative
+character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, we find that pullback along the quotient $q : G \to G\ab$
 defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not
 essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
 
@@ -445,15 +448,20 @@ The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subca
 where $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$, above.
 \end{definition}
 
+\subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
+
 Suppose $G$ is commutative, so $G\der = 1$. 
 Suppose $(\cs{L},\mu,\beta)$ is an object in $\CS'(G)$.
 Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, and unique by \cite{cunningham-roe:13a}*{Thm 3.9}.
-Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find \todo{I'm having some trouble seeing this.} that $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ is the canonical isomorphism coming from the equation $m = m \circ \theta$. 
+Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find 
+%\todo{I'm having some trouble seeing this.} 
+that $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ is the canonical isomorphism coming from the equation $m = m \circ \theta$. 
 Thus, when $G$ is commutative, Definition~\ref{def:CCS} recovers Definition~\ref{def:CCScom}.
 The next result generalizes this observation.
 
 
 \begin{theorem}\label{thm:Gab}
+%Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
 Pull-back along the abelianization $q : G \to G\ab$
 defines an equivalence of categories
 \[
@@ -464,26 +472,30 @@ defines an equivalence of categories
 Sections~\ref{ssec:equivariant1}, \ref{ssec:equivariant2}, \ref{ssec:descent} and \ref{ssec:closed} set up machinery needed to prove Theorem~\ref{thm:Gab}.
 The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given with the proof of Theorem~\ref{thm:Gab}, in Section~\ref{ssec:proof2}.
 
-
-
-\subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
-
 Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}; at the same time, it is the categorical solution to the problem, discussed in Section~\ref{ssec:defect}, that the dictionary between linear character sheaves on $G\ab$ and characters of $G\ab$, need not be perfect.
 %
 But a description of $\CCS(G)$ requires, at the very least, a description of isomorphism classes of objects, and maps. 
-%
 
-\begin{proposition}
+\begin{corollary}\label{cor:Gab}
+%Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
+Category $\CCS(G)$ is monoidal and $\CCSiso{G} \iso \Hom(G\ab(\Fq),\EEx)$, canonically.
+Every map in $\CCS(G)$ is either trivial or an isomorphism, and the automorphism group of any object in $\CCS(G)$ is $\Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$, canonically.
+\end{corollary}
+
+\subsection{Geometrization of characters} \label{ssec:geo}
+
+\begin{theorem}\label{thm:geo}
+%Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
 The trace of Frobenius $\TrFrob{} : \CCSiso{G}\to G(\Fq)^*$ fits into the following diagram,
 \[
 \begin{tikzcd}
 \ & & \CCSiso{G\ab} \arrow{d}{\TrFrob{}}[swap]{\iso} \arrow{r}{\iso} & \CCSiso{G} \arrow{d}{\TrFrob{}}& \\
-1 \arrow{r} & \Delta^* \arrow{r} & G\ab(k)^* \arrow{r} & G(k)^* \arrow{r} & 1,
+1 \arrow{r} & \Delta_G^* \arrow{r} & G\ab(k)^* \arrow{r} & G(k)^* \arrow{r} & 1,
 \end{tikzcd}
 \]
-where $\Delta$ denotes the image of the connecting homomorphism $G\ab(\Fq) \to \Hh^1(\Fq, G\der)$.
-In particular, isomorphism classes of objects in $\CCS(G)$ are canonically identified with the group $G\ab(\Fq)^*$.
-\end{proposition}
+where $\Delta_G$ denotes the image of the connecting homomorphism $G\ab(\Fq) \to \Hh^1(\Fq, G\der)$. 
+Thus, category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. The geometrization of $\chi : G(\Fq) \to \EEx$ is not unique, but the group of isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
+\end{theorem}
 
 \begin{proof}
 Let $\Delta$ be the image of the boundary homomorphism $\delta$ in the sequence
@@ -506,26 +518,17 @@ Note that when $\Hh^1(k,G\der) = 0$, as is the case when $G\der(\bFq)$ ``is simp
 we succeed in geometrizing characters of $G(k)$ on the nose.
 \end{remark}
 
-\begin{proposition}
-Every map in $\CCS(G)$ is either trivial or an isomorphism. 
-For every commutative character sheaf on $G$, its automorphism group is
-$
-((\pi_0(G\ab))^*)^{\Frob{}}.
-$
-\end{proposition}
 
-\begin{proof}
-By Theorem~\ref{thm:Gab}, $\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab)$. 
-By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = ((\pi_0(G\ab))^*)^{\Frob{}}$. \todo{Shouldn't it be coinvariants?}
-\end{proof}
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
-
 
 %\section{Descent to the Abelianization} \label{sec:descent}
 
 %In this section we use descent along the abelianization $q : G \to G\ab$ to prove Propositions~1.2 and 1.4, and Theorem~\ref{thm:Gab}.
 %This approach requires introducing equivariant linear character sheaves, as defined in Section~[].
+
+%We close this section by gathering together the main result of this paper in one place.
+
 
 \subsection{Proofs for results from Section \ref{ssec:noncomdef}} \label{ssec:proofs}
 
@@ -746,18 +749,19 @@ and show that the functor $q^* : \CS(G_0) \to \CS(G)$ factors according to the f
 The definition of $q_H^* : \CS(G_0)\to \CS_H(G)$ will be revisited in the proof of the following result.
 
 \begin{lemma}\label{lem:torsor}
-If $q : G \to G_0$ is an $H$-torsor in the fppf topology 
+If $q : G \to G_0$ is an $H$-torsor in the fpqc topology 
 then $q_H^*: \CS(G_0) \to \CS_H(G)$ is an equivalence.
 \end{lemma}
 
 \begin{proof}
-First we recall that the comparison functor 
+First we observe that the comparison functor 
 $\Loc(G_0) \to \Loc_H(G)$ is an equivalence.
-To see this, observe first that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
+To see this, first recall that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
 Then, observe that the comparison functor for Weil local systems is an equivalence for flat surjective morphisms of affine schemes over $\Fq$.
-It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fppf topology [Vistoli].
-(This is a slight variation on the argument showing that quasicoherent sheaves are a stack over schemes in the fppf topology.)
-Since $q : G\to G_0$ is an $H$-torsor in the fppf topology, is now follows from descent theory that the comparison functor $\Loc(G_0) \to \Loc_H(G)$ is an equivalence [Vistoli]. \todo{Need more specific references}
+It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fpqc topology; see \cite{Vistoli:notes}*{Lem 4.25} for example.
+(This is a slight variation on the argument showing that quasicoherent sheaves are a stack over schemes in the fpqc topology; see \cite{Vistoli:notes}*{Thm 4.23} for example.)
+Since $q : G\to G_0$ is an $H$-torsor in the fpqc topology, is now follows from descent theory that the comparison functor $\Loc(G_0) \to \Loc_H(G)$ is an equivalence; see \cite{Vistoli:notes}*{Thm 4.46} for example.)
+%\todo{Need more specific references}
 
 For use below, we write $L_1 : \Loc(G_0) \to \Loc_H(G)$ for the comparison functor, $R_1 : \Loc_H(G) \to \Loc(G_0)$ for its adjoint, and $(\epsilon_1, \eta_1)$ for the counit and unit of the adjunction.
 %
@@ -827,9 +831,10 @@ We can now give the missing proofs from Section \ref{ssec:noncomdef}.
 \subsubsection{Proof of Proposition~\ref{prop:Gder_triv}}\label{ssec:proof1}
 
 %\begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}] 
-The abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ \cite{demazure:SGA3-VIA}*{Thm. 3.2}.
-Set $H=G\der$.
-Let $j : H\hookrightarrow G$ be the inclusion and let $q : G \to G\ab$ be the quotient. 
+By \cite{demazure:SGA3-VIA}*{Thm. 3.2}, the abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ and the quotient $q: G \to G\ab$ is a $G\der$-torsor in the fppf topology.
+%
+To simplify notation below, set $H=G\der$
+and let $j : H\hookrightarrow G$ be the inclusion. 
 With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the following diagram.
 %\[
 %\begin{tikzcd}
@@ -847,11 +852,13 @@ With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the followi
 \]
 %
 Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the observation that $\CS'(G)$ is precisely the category $\CS^{H}(G)$ from Section~\ref{ssec:closed} for $H=G\der$.
-The forget
-Since the quotient $q : G \to G\ab$ is a trivial $H$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, 
-it now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
+%
+Since the quotient $q : G \to G\ab$ is an $H$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, 
+it is also an $H$-torsor in the fpqc topology.
+It now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
+%
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
-Since the essential image of the forgetful functor $\CS'(G)\to \CS(G)$ is precisely the category of $(\cs{L},\mu)\in \CS(G)$ such that $\cs{L}\vert_{H} \iso (\EE)_{H}$, this completes the proof of Proposition~\ref{prop:Gder_triv}.
+This completes the proof of Proposition~\ref{prop:Gder_triv}.
 %\end{proof}
 
 \subsubsection{Proof of Theorem~\ref{thm:Gab}}\label{ssec:proof2}
@@ -905,85 +912,150 @@ This completes the proof of Theorem~\ref{thm:Gab}.
 %This also defines the functor $\CCS(G\ab) \to \CCS(G)$ by the dashed arrow in the diagram above.
 %\end{proof}
 
+\subsubsection{Proof of Corollary~\ref{cor:Gab}}\label{ssec:proof3}
 
-\section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}
+Let us write $(\cs{L},\mu,\beta) \mapsto (\cs{L}\ab,\mu\ab)$ to indicate the equivalence appearing in Theorem~\ref{thm:Gab};
+then \[\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab).\] 
+By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = \Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$.
+
+\section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
 \newcommand{\red}{^{\operatorname{red}}}
 \newcommand{\Sp}{{\operatorname{Sp}}}
 
 As proved in \cite{kim:07a}, all supercuspidal representations of unramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}.
-The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from the data. 
+The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from Yu's data. 
 Let us refer to the types arising in this manner as {\it Yu types}.
-In this section we show that every Yu type is geometrizable, in a sense which will be made clear below.
+%In this section we show that every Yu type is geometrizable.
+% in a sense which will be made clear below.
+%
+A Yu type is then a pair $(\,^\circ K,\,^\circ \rho)$, where $\,^\circ K$ is a compact group and $\,^\circ \rho$ is a representation of $\,^\circ K$, constructed in a certain way. 
+%
+Regarding the construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:models} concludes with the following provocative observation.
 
-A Yu type is a pair $(\,^\circ K,\,^\circ \rho)$, where $\,^\circ K$ is a compact group and $\,^\circ \rho$ is a representation of $\,^\circ K$, with certain properties. 
-In Section~\ref{ssec:review} we recall properties of $(\,^\circ K,\,^\circ \rho)$ which we allow us, in Section~\ref{ssec:geometrization}, to find a pair $(G, \mathcal{F})$ where $G$ is a smooth group scheme over $\Fq$ and $\mathcal{F}$ is a virtual constructible sheaf $\ell$-adic sheaf on $G$ from which the character of $\,^\circ \rho$ can be recovered using the trace of Frobenius.
+\begin{quotation}
+{\it Therefore, up to some linear characters, all the ingredient representations are on groups of
+ the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
+\end{quotation}
 
+In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to results push this observation further by geometrizing the representation $\,^\circ \rho$ of $\,^\circ K$: we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = \,^\circ K$ and a virtual Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\,^\circ \rho)$.
+%from which the character of $\,^\circ \rho$ can be recovered using the trace of Frobenius. 
+
+\subsection{Review of Jacobi theory over finite fields}
+
+For use below, we recall some basic facts about the Heisenberg-Weil representation.
+
+Let $V$ be a finite-dimensional vector space over a finite field $\Fq$ equipped with a symplectic paring $\langle\ ,\ \rangle : V\times V \to C$, where $C$ is a one-dimensional vector space over $\Fq$.
+Then $V$ is even-dimensional and we may pick a `Lagrangian splitting' $V = U \oplus W$ such that $\langle v,v' \rangle = (u,w') - (u',w)$ for $v=(u,w)$ and $v'=(u',w')$.
+Let $V^\sharp$ be the Heisenberg group determined by $(C, \langle\ ,\ \rangle)$.
+Then $V^\sharp$ is a split extension of $V$ by $C$.
+\[
+\begin{tikzcd}
+\ &&& U \arrow{d} &\\
+1 \arrow{r} & C \arrow{r} & V^\sharp \arrow{r} & \arrow[bend right]{l} V \arrow[bend right]{u} \arrow[bend left]{d} \arrow{r} & 1\\
+1 \arrow{r} & \arrow[equals]{u} C \arrow{r} & \arrow[bend right]{l}  A \arrow{u} \arrow{r} & \arrow[bend right]{l}  W \arrow{u} \arrow{r} & 1 
+\end{tikzcd}
+\]
+
+
+Let $\psi : C \to \EEx$ be an additive character and let $\omega$ be the Heisenberg representation on $V^\sharp$ with central character $\psi : C \to \EEx$. 
+Let $\Sp(V)$ be the symplectic group determined by the symplectic pairing $\langle\ ,\ \rangle$;
+this group acts on $V^\sharp$.
+Extend $\psi$ to $\psi_A : A \to \EEx$ in the obvious way. 
+Then $\omega \ceq \operatorname{Ind}_A^{V^\sharp}(\psi_A)$ is called the Heisenberg representation of $V^\sharp$.
+
+Observe that $\Sp(V)$ acts on $V^\sharp$.
+The Heisenberg representation determines a representation $\pi_{\omega}$ of $\Sp(V)$ with the same representation space as $\omega$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\omega(g)$ determines an isomorphism of representations $\omega^g \to \omega$, through the Egorov identity \cite{Gurevich-Hadani:geometric_Weil}*{(1.3.1)}.
+Let $W = \pi_\omega \ltimes \omega$ be the representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega$ and $\pi_\omega$.
 
 \subsection{Review of Yu's types}\label{ssec:review}
 
 Every Yu type $(\,^\circ K,\,^\circ \rho)$ may be constructed directly from the following information, derived from a Yu datum:
 \begin{enumerate}
-\item compact open subgroups $J^i\subset \,^\circ K$, for $i=0, \ldots d$, such that \[\,^\circ K = J^0\cdots J^d;\]
-\item a continuous representation $\sigma_0$ of $J^0$;
-\item a quasicharacter $\varphi_i : J^i \to \CC^\times$, for $i=0, \ldots d$.
+\item[(0)] a sequence of compact groups 
+\[
+\,^\circ K^0 \subseteq \,^\circ K^1 \subseteq \cdots \subseteq \,^\circ K^d= \,^\circ K;
+\]
+\item[(1)] a continuous representation $\varrho$ of $\,^\circ K^0$;
+\item[(2)] a quasicharacter $\varphi_i : \,^\circ K^i \to \CC^\times$, for $i=0, \ldots d$.
 \end{enumerate}
-These representations $(\sigma_0, \varphi_0, \ldots , \varphi_d)$ enjoy certain properties, which allow Yu to construct, for $i=0, \ldots, d-1$, further:
+The representations $(\varrho, \varphi_0, \ldots , \varphi_d)$ enjoy certain properties which allow Yu to construct representations $\,^\circ\rho_i$ of $\,^\circ K^i$, for $i=0, \ldots, d-1$, such that $\,^\circ\rho_0 = \varrho$ and $\,^\circ\rho_d = \,^\circ\rho$.
+
+Since we will need some facts about this construction, we review some further detail here.
+First, Yu introduces compact groups $J^i\subset \,^\circ K$, for $i=0, \ldots d$, such that 
+\[
+\,^\circ K^i = J^0\cdots J^{i}
+\]
+and a natural action of $\,^\circ K^i$ on $J^{i+1}$, for $i=0, \ldots d-1$, defining the groups
+\[
+\,^\circ K^i \ltimes J^{i+1}.
+\]
+He then introduces the following quotients of $J^{i+1}$ and $\,^\circ K^i$, for $i=0, \ldots d-1$.
 \begin{enumerate}
-\item a quotient $J^{i+1} \to V_{i+1}$ to a finite abelian group, and the structure of a $\Fq$-vector space on $V_{i+1}$, compatible with the abelian group structure above;
-\item a symplectic pairing $\langle\ ,\ \rangle_{i+1} : V_{i+1}\times V_{i+1} \to C_{i+1}$, where $C_{i+1}$ is a one-dimensional vector space over $\Fq$;
-\item an additive character $\psi_{i+1} : C_{i+1} \to \EEx$;
-\item a group homomorphism $\,^\circ f_i : J^0 \cdots J^i \to \Sp(V_{i+1})$;
-\item a quotient $J^{i+1} \to H^{i+1}$, where $H^{i+1}$ is a Heisenberg $p$-group, together with an isomorphism $j_{i+1} : H^{i+1} \to V_{i+1}^\sharp$, where $V_{i+1}^\sharp$ is the Heisenberg group determined by $(V_{i+1}, \langle\ ,\ \rangle_{i+1}, C_{i+1}, \psi_{i+1})$.
+\item[(Q.1)] A quotient $J^{i+1} \to V_{i+1}$ to a finite abelian group, the latter also given the structure of a $\Fq$-vector space.
 \end{enumerate}
-The pair $(f_i, j_{i+1})$ is a symplectic action of $J^0\cdots J^i$ on $H^{i+1}$, so it defines a group homomorphism 
-\begin{equation}\label{eq:symaction}
-\begin{tikzcd}
-h_{i+1} : (J^0\cdots J^i)\ltimes J^{i+1} \arrow{r} & (J^0\cdots J^i)\ltimes H^{i+1} \arrow{r} & \Sp(V_{i+1})\ltimes V_{i+1}^\sharp.
-\end{tikzcd}
-\end{equation}
-%
-
-From this information, Yu constructs a representation $\,^\circ \rho_i$ of $J^0\cdots J^i$, for each $i=0, \ldots, d$, such that $\,^\circ \rho_d = \,^\circ \rho$. We will need some detail about this construction, so we will review it here.
-%Let $\varpi_1$ be the Heisenberg representation of the Heisenberg group $V_1^\sharp$, with central character $\psi_1$.
-%Let $\varrho_1$ be the Weil representation of $\Sp(V_1)$ with the same representation space as $\omega_1$.
-Let $\omega_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, with the same representation space as the Heisenberg representation of the Heisenberg group $V_{i+1}^\sharp$.
+The vector space $V_{i+1}$ is then equipped with a symplectic pairing $\langle\ ,\ \rangle_{i+1} : V_{i+1}\times V_{i+1} \to C_{i+1}$, where $C_{i+1}$ is a one-dimensional vector space over $\Fq$, itself equipped with an additive character $\psi_{i+1} : C_{i+1} \to \EEx$.
+\begin{enumerate}
+\item[(Q.2)] A quotient $J^{i+1} \to V_{i+1}^\sharp$, where $V_{i+1}^\sharp$ is the Heisenberg group determined by $V_{i+1}$, $C_{i+1}$, $\langle\ ,\ \rangle_{i+1}$ and $\psi_{i+1}$.
+\end{enumerate}
+In fact, the quotient $J^{i+1} \to V_{i+1}^\sharp$ factors through a quotient $J^{i+1} \to H^{i+1}$ and an isomorphism $j_{i+1} : H^{i+1} \to V_{i+1}^\sharp$, where $H^{i+1}$ is a Heisenberg $p$-group in the sense of \cite{yu:construction}*{}.
+\begin{enumerate}
+\item[(Q.3)] A quotient $\,^\circ f_{i+1} : \,^\circ K^i \to \Sp(V_{i+1})$, such that the pair $(f_{i+1}, j_{i+1})$ is a symplectic action of $\,^\circ K^i$ on $H^{i+1}$ in the sense of \cite{yu:construction}.
+\end{enumerate}
+Taken together, these quotients define another quotient:
+\begin{enumerate}
+\item[(Q)] A quotient $h_{i+1} : \,^\circ K^i \ltimes J^{i+1} \to  \Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ making the following diagram commute.
 \[
 \begin{tikzcd}
-\  & J^{i+1} \arrow{d} & \\
-Sp(V_{i+1}) \ltimes V_{i+1}^\sharp & \arrow{l}[swap]{h_1} (J^0 \cdots J^i) \ltimes J^{i+1} \arrow{r} \arrow{d} & J^0 \cdots J^i J^{i+1}\\
-& (J^0 \cdots J^i) & 
+1 \arrow{r} & J^{i+1} \arrow{d} \arrow{r} & \,^\circ K^i \ltimes J^{i+1} \arrow{d}{h_{i+1}} \arrow{r} & \,^\circ K^i \arrow{r} \arrow{d}{\,^\circ f_i} & 1\\ 
+1 \arrow{r} & V_{i+1}^\sharp \arrow{r} & \Sp(V_{i+1}) \ltimes V_{i+1}^\sharp \arrow{r} & \Sp(V_{i+1}) \arrow{r} & 1
 \end{tikzcd}
 \]
-Then $h_1^*(\omega_1)$ is a representation of $J^0\ltimes J^1$, determined by the quasicharacter $\varphi_1$ of $J^1$. 
-Write $\inf(\sigma_0\otimes \varphi_0)$ for the representation of $J^0 \ltimes J^1$ obtained by pulling back $\sigma_0\otimes \varphi_0$ along $J^0 \ltimes J^1 \to J^0$. 
+\end{enumerate}
+
+The representations $\,^\circ \rho_i$ are defined recursively. Set $\,^\circ \rho_0 = \varrho$.
+Suppose $i=0, \ldots, d-1$.
+The key to defining the representation $\,^\circ\rho_{i+1}$ from $\,^\circ \rho_i$ is the following diagram.
+\[
+\begin{tikzcd}
+\ && \,^\circ K^{i}\cap J^{i+1}\arrow{d} && \\
+1 \arrow{r} & J^{i+1} \arrow{r} & \,^\circ K^i \ltimes J^{i+1} \arrow{d} \arrow{r} & \,^\circ K^i \arrow{r} & 1\\
+&& \,^\circ K^{i+1} &&
+\end{tikzcd}
+\]
+Let $W_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, whose restriction to $V_{i+1}^\sharp$ has central character $\psi_{i+1}$.
+Pull-back along $h_{i+1}$ to form $h_{i+1}^*(W_{i+1})$, a representation of $\,^\circ K^i \ltimes J^{i+1}$.
+Write $\inf(\,^\circ\rho_i \otimes \varphi_i)$ for the representation of $\,^\circ K^i \ltimes J^{i+1}$ obtained by pulling back $\,^\circ\rho_i$ along $\,^\circ K^i \ltimes J^{i+1} \to \,^\circ K^i$. 
 By \cite{yu:01a}*{}, the representation 
-$h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 \ltimes 1) \cap (1 \ltimes J^1)$, so $h_1^*(\omega_1) \otimes \inf(\sigma_0\otimes \varphi_0)$ descends to a representation $\,^\circ \rho_1$ of $J^0 J^1$.  
-%
-As above, the representation 
-$h_{2}^*(\omega_{2}) \otimes \inf(\,^\circ \rho_1)$ of $J^0 \ltimes J^1$ is trivial on $(J^0 J^1 \ltimes 1) \cap (1 \ltimes J^2)$, so $h_2^*(\omega_2) \otimes \inf(\,^\circ \rho_1)$ descends to a representation $\,^\circ \rho_2$ of $J^0 J^1 J^2$.  
-Continuing in this way, one constructs the representation $\,^\circ \rho_d$ of $J^0\cdots J^d$. 
-
-The character of $\,^\circ \rho_d$ on $J^0\cdots J^d$ satisfies
 \[
-\trace(\,^\circ \rho_d)(k_0 \cdots k_d) = \sigma_0(k_0) \left( \varphi_0(k_0) \cdots \varphi_d(k_d) \right) ,
-\]
-with ...
+h_{i+1}^*(W_{i+1}) \otimes \inf(\,^\circ\rho_i \otimes \varphi_i)
+\] 
+of $\,^\circ K^i \ltimes J^{i+1}$ is trivial on $\,^\circ K^{i}\cap J^{i+1}$, so $h_{i+1}^*(W_{i+1}) \otimes \inf(\,^\circ\rho_i \otimes \varphi_i)$ descends to $\,^\circ K^{i+1}$. This defines $\,^\circ \rho_{i+1}$.\todo{I didn't use $\varphi_d$, so this can't be quite right.}
+
+%The character of $\,^\circ \rho_d$ on $\,^\circ K^d = \,^\circ K = J^0 \cdots J^d$ satisfies
+%\[
+%\trace(\,^\circ \rho)(k_0 \cdots k_d) = \varrho(k_0)  \varphi_0(k_0) \cdots \varphi_d(k_d),
+%\]
+%for $k_i\in J^i$.
 
 \subsection{Smooth models}\label{ssec:models}
 
-The first step in the geometrization of the type $(\,^\circ K,\,^\circ \rho)$ is to replace $\,^\circ K$ with a group scheme $G$ over $\Fq$ so that $G(\Fq) = \,^\circ K$, canonically. 
-By \cite{yu:03a}*{Prop 10.2} there is a canonical affine smooth group scheme $\underline{G}$ of finite type over $\OK$ such that \[\underline{G}(\OK)= \,^\circ K\] 
-For every positive integer $n$, let $G_n$ be the Greenberg transform of $\underline{G} \times_{\Spec{\OK}} \Spec{\OK/\mathfrak{m}_K^n}$, where $\mathfrak{m}_K$ is the maximal ideal in $\OK$.
-Then $G_n$ is a smooth group scheme over $\Fq$ and $G_n(\Fq) = \underline{G}(\OK/\mathfrak{m}_K^n)$, canonically.
-Let $G$ be the Greenberg transform of $\underline{G}$.
-Then $G$ is a group scheme over $\Fq$ and $G(\Fq) = \underline{G}(\OK) = \,^\circ K$, canonically.
+By \cite{yu:models}*{Prop 10.2} there is a sequence of morphisms of affine smooth group schemes of finite type over $\OK$
+\[
+\underline{G}^0 \to \underline{G}^1 \to \cdots \to \underline{G}^d = \underline{G}
+\]
+such that $\underline{G}^i(\OK) = \,^\circ K^i$ for $i=0,\ldots d$.
+Also, for each $i=0,\ldots d$, there is morphism of affine smooth group schemes of finite type over $\OK$ 
+\[
+\underline{J}^i \to \underline{G}
+\] 
+such that $\underline{J}^i(\OK) = J^i$ as a subgroup of $\,^\circ K$.
 
-In order to complete the geometrization of the type $(\,^\circ K,\,^\circ \rho)$, we will need more smooth models.
-Fortunately, as above, Yu has already done the heavy work.
+
+
 %
-As explained in \cite{yu:03a}*{\S 10.4}, the
-the group scheme $\underline{G}$ comes with the following auxillary data:
+As explained in \cite{yu:03a}*{\S 10.4}, the group scheme $\underline{G}$ comes with the following auxilliary data:
 \begin{enumerate}
 \item[(Ji)]
 	affine smooth group schemes $\underline{J}^i$, for $i=0, 1, \ldots, d$, together with morphisms $\underline{J}^i \to \underline{G}$ such that \[\underline{J}^i(\OK) = J^i,\]
@@ -993,20 +1065,84 @@ the group scheme $\underline{G}$ comes with the following auxillary data:
 \] 
 \end{enumerate}
 
-Moreover, the quotient
+\newcommand{\reductive}{{\operatorname{red}}}
+
+With these group schemes, the other groups and group homomorphisms appearing in Section~\ref{ssec:review} may be put into the framework needed for geometrization. 
+
+Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S S_1$ of $\underline{J}^{i+1}$. 
+The vector space $V_{i+1}$ may realized as the $\Fq$-points on a variety $U^{i+1}_\Fq$, where $U^{i+1}_\Fq$, appears as a quotient $J^{i+1}_\Fq \to U^{i+1}_\Fq$ of algebraic groups. Then the quotient $J^{i+1} \to V_{i+1}$ is realized as the composition
+\[
+\underline{J}^{i+1}(\OK) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to U^{i+1}_{\Fq}(\Fq) = V_{i+1}.
+\]
+Likewise, the Heisenberg p-group $H^{i+1}$ group may be realized as a quotient of algebraic groups, and $J^{i+1}\to H^{i+1}$ as the composition 
+\[
+\underline{J}^{i+1}(\OK) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq) = H^{i+1}.
+\]
+Finally, the group homomorphism $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ may be made geometric in much the same way. Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S S_1$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ is realized as the composition
+\[
+\underline{G}^{i}(\OK) \to \underline{G}^{i}(\Fq) = \underline{G}^{i}_\Fq(\Fq) \to  \underline{G}^{i,\reductive}_\Fq(\Fq) \to W^{i+1}_{\Fq}(\Fq) = \Sp(V_{i+1}).
+\]
+
+Let us return to the list of Section~\ref{ssec:review} and consider how we have recast each part.
+\begin{enumerate}
+\item[(0)] The compact group $\,^\circ K$ is replaced by the smooth group scheme $\underline{G}$ over $\OK$.
+\item[(1)] The compact open subgroups $J^i \hookrightarrow \,^\circ K$ are replaced by the morphisms $\underline{J}^i \to \underline{G}$ of smooth group schemes over $\OK$.
+\item[(2)] The representation $\varpi_0$ is obtained by pullback from a representation $\sigma_0$ of $\underline{J}^{0,\reductive}_\Fq$, which makes use of the following morphisms of group schemes.
+\[
+\underline{J}^{0} \longleftarrow \underline{J}^{0}_\Fq \to \underline{J}^{0,\reductive}_\Fq.
+\]
+\item[(3)] The quasicharacters $\varphi_i : \underline{J}^i(\OK) \to \CC^\times$ have not yet been geometrized.
+\item[(4)] The quotient $J^{i+1}\to V_{i+1}$ has been replaced with the following morphisms of group schemes.
+\[
+\underline{J}^{i+1} \longleftarrow \underline{J}^{i+1}_\Fq \to \underline{J}^{i+1,\reductive}_\Fq \to V_{i+1,\Fq}.
+\]
+\item[(5)] The symplectic pairing $\langle\ ,\ \rangle_{i+1} : V_{i+1}\times V_{i+1} \to C_{i+1}$ is given by 
+\item[(6)]
+\item[(7)] The group homomorphism $\,^\circ f_i : J^0 \cdots J^i \to \Sp(V_{i+1})$ has been replaced by the following morphisms of group schemes.
+\[
+\underline{G}^{i} \longleftarrow \underline{G}^{i}_\Fq \to \underline{G}^{i,\reductive}_\Fq \to \Sp(V_{i,\Fq}),
+\]
+and $\Sp(V_{i,\Fq})$ is itself a reductive algebraic group over $\Fq$.
+\item[(8)] The quotient $J^{i+1} \to H^{i+1}$ has been replaced by the following morphisms of group schemes.
+\[
+\underline{J}^{i+1} \longleftarrow \underline{J}^{i+1}_\Fq \to H^{i+1}_\Fq.
+\] 
+\item[(9)]
+The Heisenberg group $V_{i+1}^\sharp$ is replaced by a unipotent algebraic group $V_{i+1,\Fq}^\sharp$ over $\Fq$, and the group isomorphism $H^{i+1} \iso V_{i+1}^\sharp$ is replaced by an isomorphism $H^{i+1}_\Fq \iso V_{i+1,\Fq}^\sharp$ of algebraic groups over $\Fq$.
+\item[(10)]
+
+\end{enumerate}
 
 
-Regarding this construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:03a} concludes with the following provocative observation.
-\begin{quotation}
-{\it Therefore, up to some linear characters, all the ingredient representations are on groups of
- the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
-important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
-\end{quotation}
-%
-The objective of this section is to push this observation further by geometrizing the representation $\,^\circ \rho$ of $\underline{G}$.
+\subsection{Geometrization of the character of the Heisenberg-Weil representation}
+
+
+\begin{lemma}[Claim, actually]
+For $V$, $C$, $\langle\, , \ \rangle$ and $\psi$ as above, there is a virtual constructible equivariant Weil sheaf $\cs{T}$ on the algebraic group $\Sp(V)\ltimes V^\sharp$ such that $\trFrob{\cs{T}} = \trace(\tau)$.
+\end{lemma}
+
+\begin{proof}
+First, find a geometrization of $\omega$ which is equivariant for the action of $\Sp(V)$ on $V^\sharp$: a virtual constructible equivariant Weil sheaf $\cs{H}$ on $V^\sharp$ equipped with an isomorphism $m^*\cs{H} \to p^* \cs{H}$ such that ... Do this by induction: $\operatorname{ind}_{A}^{V^\sharp}(\cs{L}_\psi)$, where $A$ . . . .
+\end{proof}
+
 
 \subsection{Geometrization}\label{ssec:geometrization}
 
+The first step in the geometrization of the type $(\,^\circ K,\,^\circ \rho)$ is to replace $\,^\circ K$ with a group scheme $G$ over $\Fq$ so that $G(\Fq) = \,^\circ K$, canonically. 
+Set $S = \Spec{\OK}$ and $S_n = \Spec{\OK/\mathfrak{m}^n}$, where $\mathfrak{m}_K$ is the maximal ideal in $\OK$, and $n$ is a positive integer $n$.
+Let $G_n$ be the Greenberg transform of $\underline{G} \times_{S} S_n$.
+Then $G_n$ is a smooth group scheme over $\Fq$ and 
+\[
+G_n(\Fq) = \underline{G}(\OK/\mathfrak{m}_K^n),
+\]
+canonically.
+%
+Let $G$ be the Greenberg transform of $\underline{G}$.
+Then $G$ is a group scheme over $\Fq$ and 
+\[
+G(\Fq) = \,^\circ K,
+\]
+canonically.
 
 \begin{proposition}\label{prop:types}
 Let $(\,^\circ K,\,^\circ \rho)$ be a Yu type.
