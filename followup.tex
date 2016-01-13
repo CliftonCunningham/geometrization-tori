@@ -931,15 +931,7 @@ Let us refer to the types arising in this manner as {\it Yu types}.
 %
 A Yu type is then a pair $(\,^\circ K,\,^\circ \rho)$, where $\,^\circ K$ is a compact group and $\,^\circ \rho$ is a representation of $\,^\circ K$, constructed in a certain way. 
 %
-Regarding the construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:models} concludes with the following provocative observation.
-
-\begin{quotation}
-{\it Therefore, up to some linear characters, all the ingredient representations are on groups of
- the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
-important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
-\end{quotation}
-
-In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to results push this observation further by geometrizing the representation $\,^\circ \rho$ of $\,^\circ K$: we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = \,^\circ K$ and a virtual Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\,^\circ \rho)$.
+In this section we use Theorem~\ref{thm:geo} to geometrize the representation $\,^\circ \rho$ of $\,^\circ K$: we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = \,^\circ K$ and a virtual Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\,^\circ \rho)$.
 %from which the character of $\,^\circ \rho$ can be recovered using the trace of Frobenius. 
 
 \subsection{Review of Jacobi theory over finite fields}
@@ -1041,33 +1033,31 @@ of $\,^\circ K^i \ltimes J^{i+1}$ is trivial on $\,^\circ K^{i}\cap J^{i+1}$, so
 
 \subsection{Smooth models}\label{ssec:models}
 
-By \cite{yu:models}*{Prop 10.2} there is a sequence of morphisms of affine smooth group schemes of finite type over $\OK$
+\begin{enumerate}
+\item[(K)]
+By \cite{yu:models}*{Prop 10.2} there is a sequence  
 \[
 \underline{G}^0 \to \underline{G}^1 \to \cdots \to \underline{G}^d = \underline{G}
 \]
-such that $\underline{G}^i(\OK) = \,^\circ K^i$ for $i=0,\ldots d$.
-Also, for each $i=0,\ldots d$, there is morphism of affine smooth group schemes of finite type over $\OK$ 
+of morphisms of affine smooth group schemes of finite type over $\OK$ such that, on $\OK$-points it gives the sequence $\,^\circ K^0 \subseteq \,^\circ K^1 \subseteq \cdots \subseteq \,^\circ K^d= \,^\circ K$ above.
+\item[(J)]
+As explained in \cite{yu:03a}*{\S 10.4}, for each $i=0,\ldots d$, there is morphism of affine smooth group schemes of finite type over $\OK$ 
 \[
 \underline{J}^i \to \underline{G}
 \] 
-such that $\underline{J}^i(\OK) = J^i$ as a subgroup of $\,^\circ K$.
-
-
-
-%
-As explained in \cite{yu:03a}*{\S 10.4}, the group scheme $\underline{G}$ comes with the following auxilliary data:
-\begin{enumerate}
-\item[(Ji)]
-	affine smooth group schemes $\underline{J}^i$, for $i=0, 1, \ldots, d$, together with morphisms $\underline{J}^i \to \underline{G}$ such that \[\underline{J}^i(\OK) = J^i,\]
-\item[(Gj)] affine smooth group schemes $\underline{G}^{j}$, for $j=0, \ldots, d$, together with morphisms $\underline{G}^{j}\to \underline{G}$ such that 
+such that $\underline{J}^i(\OK) = J^i$ as a subgroup of $\,^\circ K$ and such that the image of the $\OK$-points under the multiplication map $\underline{J}^0 \times \cdots \times \underline{J}^i \to \underline{G}$ is $\,^\circ K^i$, for $i=0, \ldots , d$.
+\item[(S)]
+There is a natural action of $\underline{G}^i$ on $\underline{J}^{i+1}$ in the category of smooth affine group schemes over $\OK$ so that the group
 \[
-\underline{G}^{j}(\OK) = J^0\cdots J^i.
-\] 
+\underline{G}^i \ltimes \underline{J}^{i+1}
+\]
+has $\OK$-points
+\[
+(\underline{G}^i \ltimes \underline{J}^{i+1})(\OK) = \,^\circ K^i \ltimes J^{i+1}.
+\]
 \end{enumerate}
 
 \newcommand{\reductive}{{\operatorname{red}}}
-
-With these group schemes, the other groups and group homomorphisms appearing in Section~\ref{ssec:review} may be put into the framework needed for geometrization. 
 
 Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S S_1$ of $\underline{J}^{i+1}$. 
 The vector space $V_{i+1}$ may realized as the $\Fq$-points on a variety $U^{i+1}_\Fq$, where $U^{i+1}_\Fq$, appears as a quotient $J^{i+1}_\Fq \to U^{i+1}_\Fq$ of algebraic groups. Then the quotient $J^{i+1} \to V_{i+1}$ is realized as the composition
@@ -1078,44 +1068,63 @@ Likewise, the Heisenberg p-group $H^{i+1}$ group may be realized as a quotient o
 \[
 \underline{J}^{i+1}(\OK) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq) = H^{i+1}.
 \]
-Finally, the group homomorphism $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ may be made geometric in much the same way. Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S S_1$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ is realized as the composition
+Finally, the group homomorphism $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ may be made geometric in much the same way. 
+Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S S_1$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $\,^\circ f_i : J^0\cdots J^i \to \Sp(V_{i+1})$ is realized as the composition
 \[
 \underline{G}^{i}(\OK) \to \underline{G}^{i}(\Fq) = \underline{G}^{i}_\Fq(\Fq) \to  \underline{G}^{i,\reductive}_\Fq(\Fq) \to W^{i+1}_{\Fq}(\Fq) = \Sp(V_{i+1}).
 \]
 
-Let us return to the list of Section~\ref{ssec:review} and consider how we have recast each part.
+With all this, we may revisit the quotients appearing in Section~\ref{ssec:review}:
+\[
+\begin{tikzcd}
+1 \arrow{r} & \underline{J}^{i+1}  \arrow{r} & \underline{G}^i \ltimes \underline{J}^{i+1} \arrow{r} & \underline{G}^i \arrow{r}  & 1\\
+1 \arrow{r} & \underline{J}^{i+1}_\Fq \arrow{d} \arrow{u} \arrow{r} & \underline{G}_\Fq^i \ltimes \underline{J}_\Fq^{i+1} \arrow{d} \arrow{u} \arrow{r} & \underline{G}_\Fq^i \arrow{r} \arrow{d} \arrow{u} & 1\\ 
+1 \arrow{r} & V_{i+1}^\sharp \arrow{r} & \Sp(V_{i+1}) \ltimes V_{i+1}^\sharp \arrow{r} & \Sp(V_{i+1}) \arrow{r} & 1,
+\end{tikzcd}
+\]
+where the last two rows are now understood as forming a diagram in the category of algebraic groups over $\Fq$. 
+This realizes the Jacobi group $\Sp(V_{i+1}) \ltimes V_{i+1}^\sharp$ as a quotient of the special fibre of the smooth group scheme $\underline{G}^i \ltimes \underline{J}^{i+1}$ over $\OK$. 
+
+
+We may now revisit the ingredients in the construction of the representation $\,^\circ \rho$ of $\underline{G}(\OK)$ along the lines indicated by Yu and recalled at the beginning of this section.
 \begin{enumerate}
-\item[(0)] The compact group $\,^\circ K$ is replaced by the smooth group scheme $\underline{G}$ over $\OK$.
-\item[(1)] The compact open subgroups $J^i \hookrightarrow \,^\circ K$ are replaced by the morphisms $\underline{J}^i \to \underline{G}$ of smooth group schemes over $\OK$.
-\item[(2)] The representation $\varpi_0$ is obtained by pullback from a representation $\sigma_0$ of $\underline{J}^{0,\reductive}_\Fq$, which makes use of the following morphisms of group schemes.
+\item The continuous representation $\varrho$ of $\,^\circ K^0$ is a representation of $\underline{G}^0(\OK)$ obtained by inflation along $\underline{G}^0(\OK) \to \underline{G}^0(\Fq)$. 
+Let $\sigma$ be that representation of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
+In fact, $\sigma$ is itself obtained by pulling back a representation $\sigma^0$ along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+\item Quasicharacters $\varphi_i : \underline{G}^i(\OK) \to \CC^\times$, for $i=0, \ldots d$.
+\item The representation $h_{i+1}^*(W_{i+1})$ of $(\underline{G}^i \ltimes \underline{J}^{i+1})(\OK)$ is obtained by pulling back a representation along 
 \[
-\underline{J}^{0} \longleftarrow \underline{J}^{0}_\Fq \to \underline{J}^{0,\reductive}_\Fq.
+(\underline{G}^i \ltimes \underline{J}^{i+1})(\OK) \to (\underline{G}^i \ltimes \underline{J}^{i+1})(\Fq).
 \]
-\item[(3)] The quasicharacters $\varphi_i : \underline{J}^i(\OK) \to \CC^\times$ have not yet been geometrized.
-\item[(4)] The quotient $J^{i+1}\to V_{i+1}$ has been replaced with the following morphisms of group schemes.
+Let $w_{i+1}$ be that representation of $(\underline{G}^i \ltimes \underline{J}^{i+1})(\Fq) = (\underline{G}_\Fq^i \ltimes \underline{J}^{i+1}_\Fq)(\Fq)$. 
+Then $w_{i+1}$ is itself obtained by pulling back the representation $W_{i+1}$ along the $\Fq$-points of the quotient
 \[
-\underline{J}^{i+1} \longleftarrow \underline{J}^{i+1}_\Fq \to \underline{J}^{i+1,\reductive}_\Fq \to V_{i+1,\Fq}.
+\underline{G}_\Fq^i \ltimes \underline{J}^{i+1}_\Fq \to 
+\Sp(V_{i+1}) \ltimes V_{i+1}^\sharp.
 \]
-\item[(5)] The symplectic pairing $\langle\ ,\ \rangle_{i+1} : V_{i+1}\times V_{i+1} \to C_{i+1}$ is given by 
-\item[(6)]
-\item[(7)] The group homomorphism $\,^\circ f_i : J^0 \cdots J^i \to \Sp(V_{i+1})$ has been replaced by the following morphisms of group schemes.
-\[
-\underline{G}^{i} \longleftarrow \underline{G}^{i}_\Fq \to \underline{G}^{i,\reductive}_\Fq \to \Sp(V_{i,\Fq}),
-\]
-and $\Sp(V_{i,\Fq})$ is itself a reductive algebraic group over $\Fq$.
-\item[(8)] The quotient $J^{i+1} \to H^{i+1}$ has been replaced by the following morphisms of group schemes.
-\[
-\underline{J}^{i+1} \longleftarrow \underline{J}^{i+1}_\Fq \to H^{i+1}_\Fq.
-\] 
-\item[(9)]
-The Heisenberg group $V_{i+1}^\sharp$ is replaced by a unipotent algebraic group $V_{i+1,\Fq}^\sharp$ over $\Fq$, and the group isomorphism $H^{i+1} \iso V_{i+1}^\sharp$ is replaced by an isomorphism $H^{i+1}_\Fq \iso V_{i+1,\Fq}^\sharp$ of algebraic groups over $\Fq$.
-\item[(10)]
-
 \end{enumerate}
+Regarding the construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper \cite{yu:models} concludes with the following provocative observation, which we have just revisited.
+\begin{quotation}
+{\it Therefore, up to some linear characters, all the ingredient representations are on groups of
+ the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
+\end{quotation}
 
+\subsection{Geometrization of characters of the ingredient representations}
 
-\subsection{Geometrization of the character of the Heisenberg-Weil representation}
+\todo{Everything below here is under construction}
+Recall that $\sigma^0$ is a representation of $(\underline{G}^0)_\Fq^\reductive$.
+Suppose $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
+Let $A^0$ be a Weil sheaf on $(\underline{G}^0)_\Fq^\reductive$ such that, as a sheaf on $(\underline{G}^0)_\Fq^\reductive \otimes \bFq$, it is a character sheaf.
+The existence of $A^0$ follows from \cite{Lusztig:CSDG}*{}.
+Let $A$ be the Weil sheaf on $\underline{G}^0_\Fq$ obtained by pullback along $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 
+Let $n$ be an integer greater than the supremum of the depths of $\varphi_i : \underline{G}^i(\OK)\to \CC^\times$, for $i=0,\ldots, d$.
+Then, for $i=0,\ldots, d$ we have the commuting diagram 
+\[
+\begin{tikzcd}
+\end{tikzcd}
+\]
 
 \begin{lemma}[Claim, actually]
 For $V$, $C$, $\langle\, , \ \rangle$ and $\psi$ as above, there is a virtual constructible equivariant Weil sheaf $\cs{T}$ on the algebraic group $\Sp(V)\ltimes V^\sharp$ such that $\trFrob{\cs{T}} = \trace(\tau)$.
@@ -1125,6 +1134,11 @@ For $V$, $C$, $\langle\, , \ \rangle$ and $\psi$ as above, there is a virtual co
 First, find a geometrization of $\omega$ which is equivariant for the action of $\Sp(V)$ on $V^\sharp$: a virtual constructible equivariant Weil sheaf $\cs{H}$ on $V^\sharp$ equipped with an isomorphism $m^*\cs{H} \to p^* \cs{H}$ such that ... Do this by induction: $\operatorname{ind}_{A}^{V^\sharp}(\cs{L}_\psi)$, where $A$ . . . .
 \end{proof}
 
+\begin{lemma}
+Let $\underline{G}$ be a smooth group scheme over $\OK$.
+Let $\varphi : \underline{G}(\OK) \to \CC^\times$ be a quasicharacter/continuous linear character. 
+The there is a Weil sheaf $\cs{F}$ on $\Gr(\underline{G})$ such that $\trFrob{\cs{F}} = \trace \varphi$.
+\end{lemma}
 
 \subsection{Geometrization}\label{ssec:geometrization}
 
