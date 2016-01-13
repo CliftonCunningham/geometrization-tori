@@ -936,16 +936,37 @@ In this section we use Theorem~\ref{thm:geo} to geometrize the representation $\
 
 \subsection{Geometrization of quasicharacters of smooth group schemes over $p$-adic fields}
 
-\begin{proposition}
+%We begin with the case of continuous linear characters.
+
+Set $S = \Spec{\OK}$ and $S_n = \Spec{\OK/\mathfrak{m}^n}$, where $\mathfrak{m}_K$ is the maximal ideal in $\OK$, and $n$ is a positive integer $n$.
 Let $\underline{G}$ be a smooth group scheme over $\OK$.
-Let $\varphi : \underline{G}(\OK) \to \CC^\times$ be a quasicharacter/continuous linear character. 
-The there is a Weil sheaf $\cs{F}$ on $\Gr(\underline{G})$ such that $\trFrob{\cs{F}} = \trace \varphi$.
+Let $G_n$ be the Greenberg transform of $\underline{G} \times_{S} S_n$.
+Then $G_n$ is a smooth group scheme over $\Fq$ and 
+\[
+G_n(\Fq) = \underline{G}(\OK/\mathfrak{m}_K^n),
+\]
+canonically.
+%
+Let $G$ be the Greenberg transform of $\underline{G}$.
+Then $G$ is a group scheme over $\Fq$ and 
+\[
+G(\Fq) = \underline{G}(\OK)
+\]
+canonically.
+
+\begin{proposition}\label{prop:quasicharacters}
+Let $\underline{G}$ be a smooth group scheme over $\OK$.
+Let $\chi : \underline{G}(\OK) \to \CC^\times$ be a quasicharacter/continuous linear character. 
+The there is a Weil sheaf $\cs{F}$ on $\Gr(\underline{G})$ such that $\trFrob{\cs{F}} = \trace \chi$.
 \end{proposition}
+
+\begin{proof}
+\end{proof}
 
 
 \subsection{Review of Jacobi theory over finite fields}
 
-For use below, we recall some basic facts about the Heisenberg-Weil representation.
+For use in the next section, we recall some basic facts about the Heisenberg-Weil representation.
 
 Let $V$ be a finite-dimensional vector space over a finite field $\Fq$ equipped with a symplectic paring $\langle\ ,\ \rangle : V\times V \to C$, where $C$ is a one-dimensional vector space over $\Fq$.
 Then $V$ is even-dimensional and we may pick a `Lagrangian splitting' $V = U \oplus W$ such that $\langle v,v' \rangle = (u,w') - (u',w)$ for $v=(u,w)$ and $v'=(u',w')$.
@@ -1098,8 +1119,8 @@ This realizes the Jacobi group $\Sp(V_{i+1}) \ltimes V_{i+1}^\sharp$ as a quotie
 We may now revisit the ingredients in the construction of the representation $\,^\circ \rho$ of $\underline{G}(\OK)$ along the lines indicated by Yu and recalled at the beginning of this section.
 \begin{enumerate}
 \item The continuous representation $\varrho$ of $\,^\circ K^0$ is a representation of $\underline{G}^0(\OK)$ obtained by inflation along $\underline{G}^0(\OK) \to \underline{G}^0(\Fq)$. 
-Let $\sigma$ be that representation of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
-In fact, $\sigma$ is itself obtained by pulling back a representation $\sigma^0$ along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+Let $\tau$ be that representation of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
+In fact, $\tau$ is itself obtained by pulling back a representation $\sigma$ along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 \item Quasicharacters $\varphi_i : \underline{G}^i(\OK) \to \CC^\times$, for $i=0, \ldots d$.
 \item The representation $h_{i+1}^*(W_{i+1})$ of $(\underline{G}^i \ltimes \underline{J}^{i+1})(\OK)$ is obtained by pulling back a representation along 
 \[
@@ -1119,21 +1140,39 @@ Regarding the construction of the type $(\,^\circ  K,\,^\circ \rho)$, the paper 
 important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
 \end{quotation}
 
-\subsection{Geometrization of characters of the ingredient representations}
+In fact, Yu's description of how to assemble $\,^\circ \rho$ from $(\varrho, \varphi_0, \ldots , \varphi_d)$ is slightly different, but equivalent, to what we have done here \cite{Yu:models}*{}.
+
+\subsection{Geometrization of characters of types}\label{ssec:geometrization}
 
 \todo{Everything below here is under construction}
-Recall that $\sigma^0$ is a representation of $(\underline{G}^0)_\Fq^\reductive$.
-Suppose $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
-Let $A^0$ be a Weil sheaf on $(\underline{G}^0)_\Fq^\reductive$ such that, as a sheaf on $(\underline{G}^0)_\Fq^\reductive \otimes \bFq$, it is a character sheaf.
-The existence of $A^0$ follows from \cite{Lusztig:CSDG}*{}.
-Let $A$ be the Weil sheaf on $\underline{G}^0_\Fq$ obtained by pullback along $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+Recall from Section~\ref{ssec:models} that the ingredient representations in the construction of any Yu type are:
+\begin{enumerate}
+\item A representation $\sigma$ of the $\Fq$-points of the reductive group $(\underline{G}^0)_\Fq^\reductive$ over $\Fq$. 
+Then $\tau$ is the representation of the $\Fq$-points of the special fibre of the smooth model $\underline{G}^0$ over $\OK$ and the representation $\varrho$ of $\underline{G}(\OK)$ is produced from $\tau$ by inflation.
+\item For $i=0, \ldots, d$, a quasicharacter (continuous linear character) $\varphi_i$ of $\underline{G}^i(\OK)$. 
+\item For $i=0, \ldots, d-1$, a representation $W_{i+1}$ of the the Jacobi group $\Sp(V_{i+1}) \ltimes V_{i+1}^\sharp$, viewed as the $\Fq$-points of an algebraic group over $\Fq$.
+Then $w_{i+1}$ is the representation of the $\Fq$-points of the special fibre of $\underline{G}^i \ltimes \underline{J}^{i+1}$ over $\OK$ and the representation $h^*(W_{i+1})$ is produced from $w_{i+1}$ by inflation.
+\end{enumerate}
 
-Let $n$ be an integer greater than the supremum of the depths of $\varphi_i : \underline{G}^i(\OK)\to \CC^\times$, for $i=0,\ldots, d$.
-Then, for $i=0,\ldots, d$ we have the commuting diagram 
+We now explain how to geometrize the characters of these ingredient representations.
+Suppose $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
+Let $A$ be a Weil sheaf on $(\underline{G}^0)_\Fq^\reductive$ such that, as a sheaf ${\bar A}$ on $(\underline{G}^0)_\Fq^\reductive \otimes \bFq$, it is a character sheaf, and
 \[
-\begin{tikzcd}
-\end{tikzcd}
+\trFrob{\bar A} = \trace \sigma.
 \]
+The existence of $A$ follows from \cite{Lusztig:CSDG}*{}.
+Let $B$ be the Weil sheaf on $\underline{G}^0_\Fq$ obtained by pullback along $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+Then $\trFrob{\bar B} = \trace \tau$ so
+\[
+\trace \varrho(k) = \trFrob{\bar B}(k_\Fq)
+\]
+where $k \mapsto k_\Fq$ refers to the map $\underline{G}^0(\OK) \to \underline{G}^0(\Fq)$.
+Observe that the special fibre $\underline{G}^0_\Fq$ of $\underline{G}^0$ is $\Gr_1(\underline{G}^0)$.
+Let $\cs{B}$ be the Weil sheaf on the $\Fq$-scheme $\Gr(\underline{G}^0)$ obtained by pulling back $B$ along  $\Gr(\underline{G}^0) \to \Gr_1(\underline{G}^0)$.
+
+For $i=0,\ldots, d-1$, let $\cs{F}_{i+1}$ be the Weil sheaf on the $\Fq$-scheme $\Gr(\underline{G}^i)$ obtained by applying Proposition~\ref{prop:quasicharacters} to $\varphi_i : \underline{G}^i(\OK) \to \CC^\times$.
+
+For $i=0,\ldots, d-1$, let $\cs{T}_i$ be the Weil sheaf on the $\Fq$-scheme $\Gr(\underline{G}^i \ltimes \underline{J}^{i+1})$
 
 \begin{lemma}[Claim, actually]
 For $V$, $C$, $\langle\, , \ \rangle$ and $\psi$ as above, there is a virtual constructible equivariant Weil sheaf $\cs{T}$ on the algebraic group $\Sp(V)\ltimes V^\sharp$ such that $\trFrob{\cs{T}} = \trace(\tau)$.
@@ -1143,28 +1182,11 @@ For $V$, $C$, $\langle\, , \ \rangle$ and $\psi$ as above, there is a virtual co
 First, find a geometrization of $\omega$ which is equivariant for the action of $\Sp(V)$ on $V^\sharp$: a virtual constructible equivariant Weil sheaf $\cs{H}$ on $V^\sharp$ equipped with an isomorphism $m^*\cs{H} \to p^* \cs{H}$ such that ... Do this by induction: $\operatorname{ind}_{A}^{V^\sharp}(\cs{L}_\psi)$, where $A$ . . . .
 \end{proof}
 
-\subsection{Geometrization}\label{ssec:geometrization}
-
-The first step in the geometrization of the type $(\,^\circ K,\,^\circ \rho)$ is to replace $\,^\circ K$ with a group scheme $G$ over $\Fq$ so that $G(\Fq) = \,^\circ K$, canonically. 
-Set $S = \Spec{\OK}$ and $S_n = \Spec{\OK/\mathfrak{m}^n}$, where $\mathfrak{m}_K$ is the maximal ideal in $\OK$, and $n$ is a positive integer $n$.
-Let $G_n$ be the Greenberg transform of $\underline{G} \times_{S} S_n$.
-Then $G_n$ is a smooth group scheme over $\Fq$ and 
-\[
-G_n(\Fq) = \underline{G}(\OK/\mathfrak{m}_K^n),
-\]
-canonically.
-%
-Let $G$ be the Greenberg transform of $\underline{G}$.
-Then $G$ is a group scheme over $\Fq$ and 
-\[
-G(\Fq) = \,^\circ K,
-\]
-canonically.
 
 \begin{proposition}\label{prop:types}
 Let $(\,^\circ K,\,^\circ \rho)$ be a Yu type.
-With notation as above, suppose $\pi_0(\underline{G}_s\red)$ is cyclic and that $\pi_0((\underline{G}^{j-1})_s\red)$ is cyclic for $j=1,\ldots, d-1$.
-Then there is a virtual admissible $\ell$-adic sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) = \underline{G}(\OK)$.
+With notation as above, suppose $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
+Then there is a virtual admissible Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) = \underline{G}(\OK)$.
 \end{proposition}
 
 
