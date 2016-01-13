@@ -855,7 +855,7 @@ Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the obs
 %
 Since the quotient $q : G \to G\ab$ is an $H$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, 
 it is also an $H$-torsor in the fpqc topology.
-It now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
+It now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.\todo{Did I compare these topologies correctly? fpqc is finer than fppf}
 %
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
 This completes the proof of Proposition~\ref{prop:Gder_triv}.
@@ -957,7 +957,7 @@ canonically.
 \begin{proposition}\label{prop:quasicharacters}
 Let $\underline{G}$ be a smooth group scheme over $\OK$.
 Let $\chi : \underline{G}(\OK) \to \CC^\times$ be a quasicharacter/continuous linear character. 
-The there is a Weil sheaf $\cs{F}$ on $\Gr(\underline{G})$ such that $\trFrob{\cs{F}} = \trace \chi$.
+The there is a Weil sheaf $\cs{F}$ on $\Gr(\underline{G})$ such that $\trFrob{\cs{F}} = \trace \chi$. \todo{Missing proof}
 \end{proposition}
 
 \begin{proof}
@@ -1145,16 +1145,11 @@ In fact, Yu's description of how to assemble $\,^\circ \rho$ from $(\varrho, \va
 \subsection{Geometrization of characters of types}\label{ssec:geometrization}
 
 \todo{Everything below here is under construction}
-Recall from Section~\ref{ssec:models} that the ingredient representations in the construction of any Yu type are:
+
+We begin explain how to geometrize the characters of these ingredient representations, using the discussion from Section~\ref{ssec:models}.
 \begin{enumerate}
 \item A representation $\sigma$ of the $\Fq$-points of the reductive group $(\underline{G}^0)_\Fq^\reductive$ over $\Fq$. 
 Then $\tau$ is the representation of the $\Fq$-points of the special fibre of the smooth model $\underline{G}^0$ over $\OK$ and the representation $\varrho$ of $\underline{G}(\OK)$ is produced from $\tau$ by inflation.
-\item For $i=0, \ldots, d$, a quasicharacter (continuous linear character) $\varphi_i$ of $\underline{G}^i(\OK)$. 
-\item For $i=0, \ldots, d-1$, a representation $W_{i+1}$ of the the Jacobi group $\Sp(V_{i+1}) \ltimes V_{i+1}^\sharp$, viewed as the $\Fq$-points of an algebraic group over $\Fq$.
-Then $w_{i+1}$ is the representation of the $\Fq$-points of the special fibre of $\underline{G}^i \ltimes \underline{J}^{i+1}$ over $\OK$ and the representation $h^*(W_{i+1})$ is produced from $w_{i+1}$ by inflation.
-\end{enumerate}
-
-We now explain how to geometrize the characters of these ingredient representations.
 Suppose $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
 Let $A$ be a Weil sheaf on $(\underline{G}^0)_\Fq^\reductive$ such that, as a sheaf ${\bar A}$ on $(\underline{G}^0)_\Fq^\reductive \otimes \bFq$, it is a character sheaf, and
 \[
@@ -1169,6 +1164,12 @@ Then $\trFrob{\bar B} = \trace \tau$ so
 where $k \mapsto k_\Fq$ refers to the map $\underline{G}^0(\OK) \to \underline{G}^0(\Fq)$.
 Observe that the special fibre $\underline{G}^0_\Fq$ of $\underline{G}^0$ is $\Gr_1(\underline{G}^0)$.
 Let $\cs{B}$ be the Weil sheaf on the $\Fq$-scheme $\Gr(\underline{G}^0)$ obtained by pulling back $B$ along  $\Gr(\underline{G}^0) \to \Gr_1(\underline{G}^0)$.
+
+\item For $i=0, \ldots, d$, a quasicharacter (continuous linear character) $\varphi_i$ of $\underline{G}^i(\OK)$. 
+\item For $i=0, \ldots, d-1$, a representation $W_{i+1}$ of the the Jacobi group $\Sp(V_{i+1}) \ltimes V_{i+1}^\sharp$, viewed as the $\Fq$-points of an algebraic group over $\Fq$.
+Then $w_{i+1}$ is the representation of the $\Fq$-points of the special fibre of $\underline{G}^i \ltimes \underline{J}^{i+1}$ over $\OK$ and the representation $h^*(W_{i+1})$ is produced from $w_{i+1}$ by inflation.
+\end{enumerate}
+
 
 For $i=0,\ldots, d-1$, let $\cs{F}_{i+1}$ be the Weil sheaf on the $\Fq$-scheme $\Gr(\underline{G}^i)$ obtained by applying Proposition~\ref{prop:quasicharacters} to $\varphi_i : \underline{G}^i(\OK) \to \CC^\times$.
 
