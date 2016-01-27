@@ -3,7 +3,7 @@
 \title[Commutative Character Sheaves]{Commutative Character Sheaves on smooth group schemes over finite fields}
 %with an application to geometric types for supercuspidal representations
 \author{Clifton Cunningham}
-\address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, AB, Canada, {T2N~1N4}.}
+\address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
 \email{cunning@math.ucalgary.ca}
 \author{David Roe}
 \address{Department of Mathematics, University of Pittsburgh, 301 Thackeray Hall, Pittsburgh, PA , United States, 15260.}
@@ -960,7 +960,7 @@ canonically.
 
 \begin{proposition}\label{prop:quasicharacters}
 Let $\underline{G}$ be a smooth group scheme over $\OK$.
-Let $\chi : \underline{G}(\OK) \to \CC^\times$ be a quasicharacter/continuous linear character. 
+Let $\chi : \underline{G}(\OK) \to \EEx$ be a quasicharacter/continuous linear character. 
 The there is a Weil sheaf $\cs{L}$ on $\Gr(\underline{G})$ such that $\trFrob{\cs{L}} = \trace \chi$. \todo{Missing proof}
 \end{proposition}
 
@@ -999,7 +999,6 @@ For $V$, $C$, $\langle\, , \ \rangle$, $\psi$ and $W$ as in Section~\ref{sec:Jac
 \end{conjecture}
 
 \subsection{Review of Yu's types}\label{ssec:review}
-
 
 Every Yu type $(\,^\circ K,\,^\circ \rho)$ may be constructed directly from the following information, derived from a Yu datum:
 \begin{enumerate}
@@ -1051,20 +1050,26 @@ The key to defining the representation $\,^\circ\rho_{i+1}$ from $\,^\circ \rho_
 \begin{tikzcd}
 \ && 1 \arrow{d} && \\
 \ && \,^\circ K^{i}\cap J^{i+1}\arrow{d} && \\
-1 \arrow{r} & J^{i+1} \arrow{r} & \,^\circ K^i \ltimes J^{i+1} \arrow{d} \arrow{r} & \,^\circ K^i \arrow{r} & 1\\
-&& \,^\circ K^{i+1} \arrow{d} && \\
+1 \arrow{r} & J^{i+1} \arrow{r} & \,^\circ K^i \ltimes J^{i+1} \arrow{d}{\pi_{i+1}} \arrow{r}{p_i} & \,^\circ K^i \arrow{r} & 1\\
+&& \,^\circ K^{i+1} \arrow{d}{} && \\
 && 1 &&
 \end{tikzcd}
 \end{equation}
 Let $W_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, whose restriction to $V_{i+1}^\sharp$ has central character $\psi_{i+1}$.
 Pull-back along $h_{i+1}$ to form $h_{i+1}^*(W_{i+1})$, a representation of $\,^\circ K^i \ltimes J^{i+1}$.
 Write $\inf(\,^\circ\rho_i \otimes \varphi_i)$ for the representation of $\,^\circ K^i \ltimes J^{i+1}$ obtained by pulling back $\,^\circ\rho_i$ along $\,^\circ K^i \ltimes J^{i+1} \to \,^\circ K^i$. 
-By \cite{yu:01a}*{}, the representation 
+Consider the representation
 \begin{equation}\label{eq:tensor}
-h_{i+1}^*(W_{i+1}) \otimes \inf(\,^\circ\rho_i \otimes \varphi_i)
+\,^0{\tilde\rho}_{i+1} \ceq h_{i+1}^*(W_{i+1}) \otimes \inf(\,^\circ\rho_i \otimes \varphi_i)
 \end{equation}
-of $\,^\circ K^i \ltimes J^{i+1}$ is trivial on $\,^\circ K^{i}\cap J^{i+1}$, so $h_{i+1}^*(W_{i+1}) \otimes \inf(\,^\circ\rho_i \otimes \varphi_i)$ descends to $\,^\circ K^{i+1}$. This defines $\,^\circ \rho_{i+1}$.\todo{I didn't use $\varphi_d$, so this can't be quite right.}
-
+of $\,^\circ K^i \ltimes J^{i+1}$.
+By construction, the character of this representation satisfies
+\begin{equation}\label{eq:tilderho}
+\trace(\,^0{\tilde\rho}_{i+1})(y)= \trace(h_{i+1}^*(W_{i+1})(h_{i+1}(y))\ \trace(\,^\circ\rho_i)(p_i(y))\ \varphi_i(p_i(y))
+\end{equation}
+for $y \in \,^\circ K^i \ltimes J^{i+1}$.
+By \cite{yu:01a}*{}, the representation $\,^0{\tilde\rho}_{i+1}$ of $\,^\circ K^i \ltimes J^{i+1}$ is trivial on $\,^\circ K^{i}\cap J^{i+1}$ so $\,^0{\tilde\rho}_{i+1}$ descends to $\,^\circ K^{i+1}$. 
+This defines $\,^\circ \rho_{i+1}$.\todo{I didn't use $\varphi_d$, so this can't be quite right.}
 %The character of $\,^\circ \rho_d$ on $\,^\circ K^d = \,^\circ K = J^0 \cdots J^d$ satisfies
 %\[
 %\trace(\,^\circ \rho)(k_0 \cdots k_d) = \varrho(k_0)  \varphi_0(k_0) \cdots \varphi_d(k_d),
@@ -1164,12 +1169,14 @@ In fact, Yu's description of how to assemble $\,^\circ \rho$ from $(\varrho, \va
 
 \subsection{Geometrization of characters of types}\label{ssec:geotypes}
 
+Since Yu's theory refers to complex representations, and since our geometrization uses $\ell$-adic sheaves, we fix, once and for all, an isomorphism $\CC \sim \EE$.
+
 \begin{proposition}\label{prop:geotypes}
 Let $(\,^\circ K,\,^\circ \rho)$ be a Yu type.
 Assume Conjecture~\ref{conj:Jacobi}.
 and also that $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
 Let $G$ be the Greenberg transform of the smooth group scheme $\underline{G}$.
-Then there is a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace \rho$ under the canonical isomorphism $G(\Fq) = \underline{G}(\OK)$.
+Then there is a virtual Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} = \trace(\,^\circ \rho)$ under the canonical isomorphism $G(\Fq) = \underline{G}(\OK)$.
 \end{proposition}
 
 \begin{proof}
@@ -1178,7 +1185,7 @@ Then there is a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\mathcal{F}} 
 By continuity of the quasicharacters $\varphi_i : \underline{G}^i(\OK) \to \CC^\times$, there is some $m \in \NN$ and a factorization
 \[
 \begin{tikzcd}
-\underline{G}^i(\OK) \arrow{rr}{\varphi^i} \arrow{rd} && \CC^\times\\
+\underline{G}^i(\OK) \arrow{rr}{\varphi^i} \arrow{rd} && \EEx\\
 & \underline{G}^i(\OK/\mathfrak{p}_K^{m+1}) \arrow{ru}[swap]{\phi^i_m} 
 \end{tikzcd}
 \] 
@@ -1196,10 +1203,10 @@ By \cite{lusztig:CSDG}, there is a Weil sheaf $A = ({\bar A},\phi)$ on $(\underl
 \trFrob{A} = \trace \sigma.
 \]
 (This uses the hypothesis that $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.)
-Let $A^+$ be the Weil sheaf on $(\underline{G}^0)_\Fq$ obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+Let $A^0$ be the Weil sheaf on $(\underline{G}^0)_\Fq$ obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 Then 
 \[
-\trFrob{A^+} = \trace \tau.
+\trFrob{A^0} = \trace \tau.
 \]
 The special fibre $(\underline{G}^0)_\Fq$ of the smooth group scheme $\underline{G}^0$ is itself a smooth group scheme, and may be identified with the Greenberg $\Gr^{\OK}_0(\underline{G}^0)$\cite{CR}*{\S 4.3}. 
 With $m\in \NN$ as above, let $\cs{A}_m^0$ be the pull-back of $A^0$ along the affine morphism
@@ -1207,7 +1214,7 @@ $\Gr^{\OK}_{m}(\underline{G}^0) \to \Gr^{\OK}_{0}(\underline{G}^0)$.
 Factor
 \[
 \begin{tikzcd}
-\underline{G}^0(\OK) \arrow{rr}{\trace(\varrho)} \arrow{rd} && \CC\\
+\underline{G}^0(\OK) \arrow{rr}{\trace(\varrho)} \arrow{rd} && \EE \\
 & \underline{G}^0(\OK/\mathfrak{p}_K^{m+1}) \arrow{ru}[swap]{\trace(\varrho)_m} 
 \end{tikzcd}
 \]
@@ -1229,7 +1236,16 @@ Let $\cs{W}_m^{i+1}$ be the Weil sheaf on $\Gr^{\OK}_m(\underline{G}^{i} \ltimes
 $\Gr^{\OK}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1}) \to \Gr^{\OK}_0(\underline{G}^{i} \ltimes \underline{J}^{i+1})$.
 
 We now define Weil sheaves $\cs{A}^i_m$ on $G_m^i \ceq \Gr^{\OK}_m(\underline{G}^{i})$, for $i=1,\ldots ,d$, recursively, following the construction of the representations $\,^0\rho_i$, reviewed in Section~\ref{ssec:review}.
-We have already defined $\cs{A}^0_m$.
+We have already defined $\cs{A}^0_m$ so that 
+\[
+\trFrob{\cs{A}^0_m} = \trace(\,^\circ \rho_0)_m
+\]
+where $\trace(\,^\circ \rho_0)_m : G_m^0(\Fq) \to \EE$ is defined by 
+\[
+\underline{G}^0
+\]
+and the canonical identification $G_m^0(\Fq) = \underline{G}^0(\OK/\mathfrak{p}_K^{m+1})$.
+
 Suppose $\cs{A}^i_m$ on $G_m^i$ is defined; we shall construct $\cs{A}_m^{i+1}$ on $G_m^{i+1}$.
 
 Applying the Greenberg functor $\Gr^{\OK}_m$, to \eqref{eq:pimodel} gives
@@ -1263,20 +1279,23 @@ Before continuing, let us calculate:
 \begin{eqnarray*}
 \trFrob{\cs{\tilde A}^{i+1}_m}(x)
 &=& \sum_{y\in (\pi_m^{i+1})^{-1}(x)}  \trFrob{\cs{W}_m^{i+1} \otimes (p_m^{i+1})^*(\cs{A}_m^{i}\otimes \cs{L}_m^i)}(y)\\
-&=& \sum_{y\in (\pi_m^{i+1})^{-1}(x)}  \trFrob{\cs{W}_m^{i+1}}(y) \trFrob{\cs{A}_m^{i}}(p_m^{i+1}(y) ) \trFrob{\cs{L}_m^i}(p_m^{i+1}(y)).
+&=& \sum_{y\in (\pi_m^{i+1})^{-1}(x)}  \trFrob{\cs{W}_m^{i+1}}(y)\  \trFrob{\cs{A}_m^{i}}(p_m^{i+1}(y) )\ \trFrob{\cs{L}_m^i}(p_m^{i+1}(y)).
 \end{eqnarray*}
-Now, 
+Comparing with \eqref{eq:tilderho}, we see that 
 \[
-y \mapsto \trFrob{\cs{W}_m^{i+1}}(y) \trFrob{\cs{A}_m^{i}}(p_m^{i+1}(y) ) \trFrob{\cs{L}_m^i}(p_m^{i+1}(y))
+y \mapsto \trFrob{\cs{W}_m^{i+1}}(y)\ \trFrob{\cs{A}_m^{i}}(p_m^{i+1}(y))\ \trFrob{\cs{L}_m^i}(p_m^{i+1}(y))
 \]
-is precisely 
+is precisely the function obtained by factoring the character of $\,^\circ {\tilde \rho}_{i+1}$ through $(\underline{G}^{i}\ltimes \underline{J}^{i+1})(\OK) \to (\underline{G}^{i}\ltimes \underline{J}^{i+1})(\OK/\mathfrak{p}_K^{m+1})$, using the canonical identification $(G_m^{i}\times_{G_m} J_m^{i+1})(\Fq) =  (\underline{G}^{i}\ltimes \underline{J}^{i+1})(\OK/\mathfrak{p}_K^{m+1})$. 
+In particular, this is trivial on $(G_m^{i}\times_{G_m} J_m^{i+1})(\Fq)$.
+It follows that 
 \[
-\begin{tikzcd}
-\end{tikzcd}
+\trFrob{\cs{\tilde A}^{i+1}_m} = n \trace(\,^\circ \rho_{i+1})
 \]
+on $G_m^{i+1}(\Fq)$ with $n = \# (G_m^{i}\times_{G_m} J_m^{i+1})(\Fq)$.\todo{Hmm... Homomorphism?}
+\todo{If $n$ is a power of $q$, then we can use Tate twists to avoid working with virtual sheaves! Is $G^{i}\cap J_m^{i+1}$ unipotent? Is so, then there's a chance.}
+Let $\cs{A}_m^{i+1}$ be the \emph{virtual} Weil sheaf on $G_m^i$ given by $\cs{A}_m^{i+1} = \frac{1}{n} \cs{\tilde A}_m^{i+1}$.
 
-
-
+This completes the inductive definition of 
 
 \end{proof}
 
