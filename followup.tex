@@ -938,7 +938,7 @@ In this section we use Theorem~\ref{thm:geo} to geometrize the representation $\
 %from which the character of $\,^\circ \rho$ can be recovered using the trace of Frobenius. 
 Unfortunately, the proof of this statement,  which is Proposition~\ref{prop:geotypes}, is quite technical, so the proof must be delayed to Section~\ref{ssec:geotypes}, after reviewing the types and models developed by Yu.
 
-\subsection{Geometrization of quasicharacters of smooth group schemes over $p$-adic fields}
+\subsection{Quasicharacters of smooth group schemes over $p$-adic fields}
 
 %We begin with the case of continuous linear characters.
 
@@ -1076,7 +1076,7 @@ This defines $\,^\circ \rho_{i+1}$.\todo{I didn't use $\varphi_d$, so this can't
 %\]
 %for $k_i\in J^i$.
 
-\subsection{Smooth models}\label{ssec:models}
+\subsection{Review of Yu's smooth models}\label{ssec:models}
 
 \begin{enumerate}
 \item[(K)]
@@ -1242,11 +1242,26 @@ We have already defined $\cs{A}^0_m$ so that
 \]
 where $\trace(\,^\circ \rho_0)_m : G_m^0(\Fq) \to \EE$ is defined by 
 \[
-\underline{G}^0
+\begin{tikzcd}
+G^0(\Fq) \arrow{rr}{\trace(\,^\circ \rho_0)} \arrow{rd} && \EE\\
+& G^0_m(\Fq). \arrow{ru}[swap]{\trace(\,^\circ \rho_0)_m} & 
+\end{tikzcd}
 \]
 and the canonical identification $G_m^0(\Fq) = \underline{G}^0(\OK/\mathfrak{p}_K^{m+1})$.
-
-Suppose $\cs{A}^i_m$ on $G_m^i$ is defined; we shall construct $\cs{A}_m^{i+1}$ on $G_m^{i+1}$.
+Suppose $\cs{A}^i_m$ on $G_m^i$ is defined and \[
+\begin{tikzcd}
+G^i(\Fq) \arrow{rr}{\trace(\,^\circ \rho_i)} \arrow{rd} && \EE\\
+& G_m^i(\Fq) \arrow{ru}[swap]{\trFrob{\cs{A}_m^i}} & 
+\end{tikzcd}
+\]
+commutes.
+We shall construct $\cs{A}_m^{i+1}$ on $G_m^{i+1}$ so that 
+\[
+\begin{tikzcd}
+G^{i+1}(\Fq) \arrow{rr}{\trace(\,^\circ \rho_{i+1})} \arrow{rd} && \EE\\
+& G_m^{i+1}(\Fq)\arrow{ru}[swap]{{\trFrob{\cs{A}_m^i}} } & 
+\end{tikzcd}
+\]
 
 Applying the Greenberg functor $\Gr^{\OK}_m$, to \eqref{eq:pimodel} gives
 \begin{equation}\label{eq:pi}
@@ -1275,7 +1290,7 @@ With reference to the morphism $\pi_m^{i+1} : G_m^i \ltimes J_m^{i+1} \to G_m^{i
 \cs{\tilde A}_m^{i+1} \ceq R(\pi_m^{i+1})_! (\cs{W}_m^{i+1} \otimes (p_m^{i+1})^*(\cs{A}_m^{i}\otimes \cs{L}_m^{i})).
 \]
 %Let $n = \# (G_m^{i}\times_{G_m} J_m^{i+1})(\Fq)$ and set $\cs{A}_m^{i+1} \ceq \cs{\tilde A}_m^{i+1}(-n)$ (Tate twist).
-Before continuing, let us calculate: 
+Then
 \begin{eqnarray*}
 \trFrob{\cs{\tilde A}^{i+1}_m}(x)
 &=& \sum_{y\in (\pi_m^{i+1})^{-1}(x)}  \trFrob{\cs{W}_m^{i+1} \otimes (p_m^{i+1})^*(\cs{A}_m^{i}\otimes \cs{L}_m^i)}(y)\\
@@ -1294,9 +1309,24 @@ It follows that
 on $G_m^{i+1}(\Fq)$ with $n = \# (G_m^{i}\times_{G_m} J_m^{i+1})(\Fq)$.\todo{Hmm... Homomorphism?}
 \todo{If $n$ is a power of $q$, then we can use Tate twists to avoid working with virtual sheaves! Is $G^{i}\cap J_m^{i+1}$ unipotent? Is so, then there's a chance.}
 Let $\cs{A}_m^{i+1}$ be the \emph{virtual} Weil sheaf on $G_m^i$ given by $\cs{A}_m^{i+1} = \frac{1}{n} \cs{\tilde A}_m^{i+1}$.
+%
+This completes the inductive definition of $\cs{A}_m^i$ with the desired property.
 
-This completes the inductive definition of 
-
+Now set $\cs{F}_m = \cs{A}_m^{d}$.
+Then $\cs{F}_m$ is a virtual Weil sheaf on $G_m = \Gr^{\OK}_m(\underline{G})$ such that
+\[
+\begin{tikzcd}
+G(\Fq) \arrow{rr}{\trace(\,^\circ \rho)} \arrow{rd} && \EE\\
+& G_m(\Fq) \arrow{ru}[swap]{\trFrob{\cs{A}_m}} & 
+\end{tikzcd}
+\]
+commutes.
+Let $\cs{F}$ be the virtural Weil sheaf on the group scheme $G= \Gr^{\OK}(\underline{G})$ obtained by pullback along $G \to G_m$.
+Then 
+\[
+\trFrob{\cs{F}} = \trace(\,^\circ \rho),
+\] 
+as desired.
 \end{proof}
 
 \bibliography{bibliography/Biblio}
