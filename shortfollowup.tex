@@ -162,9 +162,7 @@ We describe a function-sheaf dictionary for one-dimensional characters of arbitr
 over finite fields.  In previous work, we considered the case of commutative smooth group schemes and found
 that the standard definition of character sheaves produced a dictionary with a nontrivial kernel.  In this paper,
 we give a modification of the category of character sheaves that remedies this defect, and is also extensible to
-non-commutative groups.  
-As an application, we use these \emph{commutative character sheaves} to geometrize types for
-supercuspidal representations of $p$-adic groups. 
+non-commutative groups.   
 \end{abstract}
 
 \maketitle
@@ -205,7 +203,7 @@ essentially surjective, missing the kinds of linear character sheaves highlighte
 Finally, we use the category $\CCS(G)$ to give a geometric description of generic types for supercuspidal representations
 of connected reductive groups over local fields.  In this way, we provide all of the ingredients
 needed to parametrize supercuspidal representations of arbitrary depth in the same category:
-perverse sheaves on group schemes over finite fields. \todo{Update based on any changes in Section 4}
+perverse sheaves on group schemes over finite fields. 
 
 In Section \ref{sec:defs}, we recall the category $\CS(G)$ from \cite{cunningham-roe:13a} and note that it still makes
 sense when $G$ is not commutative.  We focus on the case of commutative $G$ in Section \ref{sec:comcom},
@@ -224,13 +222,10 @@ and $G\ab(k)^*$.  We also compute the automorphism groups in $\CCS(G)$.
 Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which
 require a development of equivariant linear character sheaves.
 
-\todo{Add summary of Section 4 once it has stabilized}
-
 \section{Recollections and definitions} \label{sec:defs}
 
 Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$
-for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of \todo{include reference for this definition}.
-This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
+for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of \cite{EGA:IV4}*{Def 17.3.1}. This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
 We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
 
@@ -858,7 +853,8 @@ Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the obs
 %
 Since the quotient $q : G \to G\ab$ is an $H$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, 
 it is also an $H$-torsor in the fpqc topology.
-It now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.\todo{Did I compare these topologies correctly? fpqc is finer than fppf}
+It now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.
+%\todo{Did I compare these topologies correctly? fpqc is finer than fppf}
 %
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
 This completes the proof of Proposition~\ref{prop:Gder_triv}.
