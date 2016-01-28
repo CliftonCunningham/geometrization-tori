@@ -1,0 +1,930 @@
+\documentclass[10pt]{amsart}
+
+\title[Commutative Character Sheaves]{Commutative Character Sheaves on smooth group schemes over finite fields}
+%with an application to geometric types for supercuspidal representations
+\author{Clifton Cunningham}
+\address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
+\email{cunning@math.ucalgary.ca}
+\author{David Roe}
+\address{Department of Mathematics, University of Pittsburgh, 301 Thackeray Hall, Pittsburgh, PA , United States, 15260.}
+\email{roed.math@gmail.com}
+
+\subjclass[2010]{14F05 (primary), 14L15, 22E50}
+\keywords{character sheaves}
+
+\usepackage{amssymb}
+\usepackage{amsrefs}
+% Fonts
+\usepackage{mathrsfs}
+% Enumitem
+\usepackage{enumitem}
+% Hyperrefs
+\usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
+
+%%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
+\theoremstyle{plain}
+      \newtheorem{theorem}{Theorem}[section]
+      \newtheorem*{theorem*}{Theorem}
+      \newtheorem{proposition}[theorem]{Proposition}
+      \newtheorem{lemma}[theorem]{Lemma}
+      \newtheorem{corollary}[theorem]{Corollary}
+
+      \theoremstyle{definition}
+      \newtheorem{definition}[theorem]{Definition}
+
+      %\theoremstyle{remark}
+      \newtheorem{remark}[theorem]{Remark}
+      \newtheorem{example}[theorem]{Example}
+      
+      \newtheorem{conjecture}[theorem]{Conjecture}
+%%%%%%%%%%%%%%% RINGS AND GROUPS %%%%%%%%%%%%%%%
+\newcommand{\FF}{{\mathbb{F}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\QQ}{{\mathbb{Q}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\EE}{\mathbb{\bar Q}_\ell}
+\newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\OL}{\mathcal{O}_L}
+\newcommand{\OO}[1]{\mathcal{O}_{#1}}
+\newcommand{\bFq}{\bar{k}}
+\newcommand{\Fq}{k}
+\newcommand{\Fqm}{k_m}
+\newcommand{\EEx}{\EE^\times}
+\newcommand{\ZEx}{\mathbb{\bar Z}_\ell^\times}
+\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
+\newcommand{\m}{{\mathfrak{m}}}
+%%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
+\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
+\DeclareMathOperator{\GL}{GL}
+\newcommand{\comp}{\Pi} % Component group
+\newcommand{\G}{\textbf{G}}
+%%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
+\DeclareMathOperator{\Gal}{Gal}
+\newcommand{\Frob}[1]{\operatorname{Fr}_{#1}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Irrep}{Irrep}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hh}{H}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Nm}{Nm}
+\DeclareMathOperator{\trace}{Tr}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\Lang}{Lang}
+\DeclareMathOperator{\image}{im}
+\DeclareMathOperator{\Loc}{Loc}
+\DeclareMathOperator{\Tot}{Tot}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
+\newcommand{\op}{_{\operatorname{op}}}
+\newcommand{\der}{_{\operatorname{der}}}
+\newcommand{\ab}{_{\operatorname{ab}}}
+
+%%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
+\newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
+\newcommand{\abs}[1]{{\vert #1 \vert}}
+\newcommand{\ceq}{{\, :=\, }}
+\newcommand{\tq}{{\ \vert\ }}
+\newcommand{\iso}{{\ \cong\ }}
+\newcommand{\trFrob}[1]{t_{#1}}
+\newcommand{\TrFrob}[1]{\operatorname{Tr}_{#1}}
+%% Limits
+\newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
+\newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
+\newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
+\newcommand{\colimit}[1]{\mathop{\textsc{colim}}\limits_{#1}}
+%% Fonts for quasicharacter sheaves
+\newcommand{\cs}[1]{{\mathcal{#1}}}
+\newcommand{\gcs}[1]{{\mathcal{\bar #1}}}
+\newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
+\newcommand{\dualcs}[1]{\cs{#1}^\dagger}
+%% Categories
+\newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
+\newcommand{\CCS}{{\mathcal{C\hskip-.8pt C\hskip-0.8pt S}}}
+\newcommand{\bCS}{{\CS_0}}
+\newcommand{\catname}[1]{\normalfont{\textsf{#1}}}
+\newcommand{\Sch}[1]{{\catname{Sch}_{/#1}}}
+\newcommand{\QCS}{{\mathcal{QC\hskip-0.8pt S}}}
+\newcommand{\CSiso}[1]{\CS(#1)_{/\text{iso}}}
+\newcommand{\bCSiso}[1]{\bCS(#1)_{/\text{iso}}}
+\newcommand{\QCSiso}[1]{\QCS(#1)_{/\text{iso}}}
+\newcommand{\CCSiso}[1]{\CCS(#1)_{/\text{iso}}}
+%% Labeled items
+\makeatletter
+\newcommand{\labitem}[2]{
+\def\@itemlabel{\textbf{#1}}
+\item
+\def\@currentlabel{#1}\label{#2}}
+\makeatother
+%% Shorthand for bars
+\renewcommand{\bf}{\bar{f}}
+\newcommand{\bg}{{\bar{g}}}
+\newcommand{\bm}{\bar{m}}
+\newcommand{\bG}{\bar{G}}
+\newcommand{\bH}{\bar{H}}
+\newcommand{\brho}{{\bar\rho}}
+\newcommand{\bx}{{\bar{x}}}
+%% Spacing control
+\newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
+\newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
+\newcommand{\bfxf}{\text{$\bar{f} \tight{1}{\times}{1} \bar{f}$}}
+\newcommand{\GxxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\LxL}{\text{$\gcs{L} \tight{0}{\boxtimes}{0} \gcs{L}$}}
+
+
+%% Hyphenation override
+\hyphenation{quasi-character}
+%% Number one equation of many
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%
+\usepackage{todonotes}
+
+\begin{document}
+
+\begin{abstract}
+We describe a function-sheaf dictionary for one-dimensional characters of arbitrary smooth group schemes
+over finite fields.  In previous work, we considered the case of commutative smooth group schemes and found
+that the standard definition of character sheaves produced a dictionary with a nontrivial kernel.  In this paper,
+we give a modification of the category of character sheaves that remedies this defect, and is also extensible to
+non-commutative groups.  
+As an application, we use these \emph{commutative character sheaves} to geometrize types for
+supercuspidal representations of $p$-adic groups. 
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section*{Introduction}
+
+In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary from connected, commutative, algebraic groups
+over a finite field $k$ to smooth commutative group schemes $G$ over $k$.  Writing $G(k)^*$ for $\Hom(G(k), \EEx)$, we described a category $\CS(G)$ of
+\emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
+In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel; we gave an explicit description of
+its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
+
+The first aim of this paper is to repair this defect in the function-sheaf dictionary by describing a full subcategory
+$\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
+We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$
+to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$
+(see Definition \ref{def:CCScom}).  When $G$ is connected, all character sheaves on $G$ are commutative.
+This category clarifies several questions about character sheaves on $G$: invisible character sheaves
+\cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and 
+$\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of
+$\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
+
+Next, we broaden our scope further to encompass smooth group schemes $G$ that are not necessarily commutative.
+In this paper, we do not consider Lusztig's geometrization of arbitrary characters of connected, reductive groups $G(k)$
+using character sheaves \cite{lusztig:85a}*{Def.~2.10}, but focus on the case of $1$-dimensional characters
+$G(k)^*$ assuming only that $G$ is smooth, allowing for the possibility that $G$ is not connected and not reductive.
+The category $\CS(G)$ has a straightforward generalization to this case, but again
+there are more linear character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
+We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
+is an isomorphism.  
+Since $G\ab(k)^*$ surjects onto $G(k)^*$, it follows that for each character $\chi \in G(k)^*$ there is a commutative
+character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, we find that pullback along the quotient $q : G \to G\ab$
+defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not
+essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
+
+Finally, we use the category $\CCS(G)$ to give a geometric description of generic types for supercuspidal representations
+of connected reductive groups over local fields.  In this way, we provide all of the ingredients
+needed to parametrize supercuspidal representations of arbitrary depth in the same category:
+perverse sheaves on group schemes over finite fields. \todo{Update based on any changes in Section 4}
+
+In Section \ref{sec:defs}, we recall the category $\CS(G)$ from \cite{cunningham-roe:13a} and note that it still makes
+sense when $G$ is not commutative.  We focus on the case of commutative $G$ in Section \ref{sec:comcom},
+giving the definition of a commutative character sheaf and proving our first main theorem, that
+$\TrFrob{G} : \CSiso{G} \to G(k)^*$ induces an isomorphism on $\CCSiso{G}$.
+
+Passing to the case that $G$ is
+non-commutative, we give the definition of and main results about commutative character sheaves in
+Section \ref{sec:noncom}.  We note that we should only consider character sheaves
+that arise via pullback from $G\ab$ in order to eliminate those that have nontrivial restriction
+to the derived subgroup.  This observation underlies the definition of commutative character sheaves for
+non-commutative $G$.  We state our second main theorem, that pullback along the abelianization map
+defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
+In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$
+and $G\ab(k)^*$.  We also compute the automorphism groups in $\CCS(G)$.
+Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which
+require a development of equivariant linear character sheaves.
+
+\todo{Add summary of Section 4 once it has stabilized}
+
+\section{Recollections and definitions} \label{sec:defs}
+
+Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$
+for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of \todo{include reference for this definition}.
+This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
+We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
+$\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
+
+In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$ where $\gcs{L}$ is an $\ell$-adic sheaf on $\bG \ceq G\otimes_{\Fq} \bFq$ and where $\phi : \Frob{}^*\gcs{L} \to \gcs{L}$ is an isomorphism of $\ell$-adic sheaves. 
+We also follow convention by referring to $\cs{L}$  as a Weil sheaf on $G$. 
+We will also write $\alpha : \cs{L} \to \cs{L}'$ for a morphism $\alpha : \gcs{L} \to \gcs{L}$ such that 
+\[
+\begin{tikzcd}
+\Frob{}^* \gcs{L} \arrow{d}[swap]{\phi} \arrow{r}{\Frob{}^*\alpha} &  \Frob{}^* \gcs{L} \arrow{d}{\phi'}\\
+\gcs{L} \arrow{r}{\alpha} & \gcs{L}
+\end{tikzcd}
+\]
+commutes, where $\cs{L}'$ refers to $(\gcs{L}',\phi')$.
+While this simplifies notation considerably, it is, unfortunately, not consistent with our earlier paper.
+
+We write $m : G \times G \to G$ for the multiplication morphism, and $G(k)^*$ for $\Hom(G(k), \EEx)$.
+Define $\theta : G\times G \to G\times G$ by $\theta(g,h) = (h,g)$.
+
+When $G$ is commutative, a \emph{character sheaf} on $G$ is a triple $(\gcs{L}, \mu, \phi)$,
+where $\gcs{L}$ is a rank-one $\ell$-adic local system on $\bG$, 
+$\mu : \bm^* \gcs{L} \to \LxL$ is an isomorphism
+of sheaves on $\bG \times \bG$, 
+and $\phi : \Frob{G}^* \gcs{L} \to \gcs{L}$ is an isomorphism of sheaves on $\bG$;
+the triple $(\gcs{L}, \mu, \phi)$ is required to satisfy certain conditions \cite{cunningham-roe:13a}*{Def. 1.1}.
+Write $\CS(G)$ for the category of character sheaves on $G$.
+
+Even when $G$ is not commutative, the category $\CS(G)$, defined as in \cite{cunningham-roe:13a}*{Def. 1.1},
+still makes sense.  In order to distinguish the resulting objects from
+the character sheaves of Lusztig, we will refer to the former as \emph{linear character sheaves}
+(to evoke the one-dimensional character sheaves of \cite{kamgarpour:09a}).
+
+\section{Commutative character sheaves on commutative groups}\label{sec:comcom}
+
+We consider first the case that $G$ is commutative, which will be used for general smooth $G$.
+Let $\cs{L}$ be a character sheaf on $G$.  Since $m = m \circ \theta$ in this case,
+there is a canonical isomorphism $\xi : m^* \cs{L} \to \theta^* m^* \cs{L}$.
+There is also an isomorphism $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$
+given on stalks by the canonical map $\gcs{L}_{g} \otimes \gcs{L}_{h} \to \gcs{L}_{h} \otimes \gcs{L}_{g}$.
+
+\begin{definition}\label{def:CCScom}
+A character sheaf $(\cs{L}, \mu)$ on a smooth commutative group scheme $G$ is \emph{commutative}
+if the following diagram of Weil sheaves on $G \times G$ commutes.
+  \[
+  \begin{tikzcd}[row sep=30]
+   m^*\cs{L} \arrow{d}[swap]{\xi}{m= m\circ\theta} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
+  \end{tikzcd}
+  \]
+We write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
+ \end{definition}
+
+\subsection{Eliminating Invisible Character Sheaves}\label{ssec:defect}
+
+In \cite{cunningham-roe:13a}*{Thm. 3.6}, we showed that $\TrFrob{G} : \CSiso{G} \to G(k)^*$ is surjective and
+explicitly computed its kernel.  In this section, we show that the corresponding map
+$\TrFrob{G} : \CCSiso{G} \to G(k)^*$ for commutative character sheaves is an isomorphism.
+We begin by reinterpreting Definition \ref{def:CCScom} in terms of cocycles.
+
+Let $G$ be a commutative \'etale group scheme over $k$. For a character sheaf $\cs{L}$ on $G$, recall
+\cite{cunningham-roe:13a}*{\S 2.3} that $S_G : \CSiso{G} \to \Hh^2(E_G^\bullet)$ is an isomorphism mapping
+$[\cs{L}]$ to $[\alpha \oplus \beta]$, where $E_G^\bullet$ is the total space of the zeroth page
+of the Hochschild-Serre spectral sequence, $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$ is obtained from $\mu$ and
+$\beta \in C^1(\Weil{}, C^1(\bG, \EEx))$ is obtained from $\phi$.
+
+Let $a \in Z^2(\bG, \EEx)$ correspond to $\alpha$.  We say that $[\alpha \oplus \beta] \in \Hh^2(E_G^\bullet)$
+is \emph{symmetric} if $a(x,y) = a(y,x)$ for all $x,y \in \bG$.  This condition is well defined, since every
+coboundary in $B^2(\bG, \EEx)$ is symmetric.  The connection between commutative character sheaves
+and symmetric classes is given in the following lemma.
+
+\begin{lemma} \label{lem:symccslink}
+Suppose $G$ is a smooth commutative group scheme, and let $\cs{L}$ be a character sheaf on $G$.
+Then $\cs{L}$ is commutative if and only if $S_G(\cs{L})$ is symmetric.
+\end{lemma}
+\begin{proof}
+The symmetry of $S_G(\cs{L})$ is a direct consequence of the commutativity of the diagram in Definition \ref{def:CCScom}
+after choosing bases for each stalk.
+\end{proof}
+
+We may similarly define a symmetric class in $\Hh^2(\bG, \EEx)$ to be one represented by a symmetric $2$-cocycle.
+The following lemma will allow us to show that there are no invisible commutative character sheaves.
+
+\begin{lemma} \label{lem:symtriv}
+Let $\bG$ be a commutative group.  Then the only symmetric class in $\Hh^2(\bG, \EEx)$ is the trivial class.
+\end{lemma}
+
+\begin{proof}
+By the universal coefficient theorem,
+\[
+0 \to \Ext^1_\ZZ(\Hh_{n-1}(\bG, \ZZ), \EEx) \to \Hh^n(\bG, \EEx) \to \Hom(\Hh_n(\bG, \ZZ), \EEx) \to 0
+\]
+is exact for all $n > 0$.  When $n = 2$, using the fact that $\bG$ is commutative, we have that $\Hh_1(\bG, \ZZ) \cong \bG$
+and that $\Hh_2(\bG, \ZZ) \cong \wedge^2 \bG$. We get
+\[
+0 \to \Ext^1_\ZZ(\bG, \EEx) \to \Hh^2(\bG, \EEx) \to \Hom(\wedge^2 \bG, \EEx) \to 0.
+\]
+The map $\Hh^2(\bG, \EEx) \to \Hom(\wedge^2 \bG, \EEx)$ maps a $2$-cocycle $f$ to the alternating function
+\[
+(x,y) \mapsto \frac{f(x,y)}{f(y,x)}.
+\]
+Thus the cohomology classes represented by symmetric cocycles are precisely those in the image of $\Ext^1_\ZZ(\bG, \EEx)$.
+But $\Ext^1_\ZZ(-, \EEx)$ vanishes because $\EEx$ is divisible.
+\end{proof}
+
+\begin{lemma} \label{lem:conncomm}
+If $G$ is a connected commutative algebraic group over $\Fq$ then every character sheaf on $G$ is commutative.
+\end{lemma}
+
+\begin{proof}
+We can use \'etale descent to see that pullback by the Lang isogeny defines an equivalence
+of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$.  Thus every character
+sheaf on $G$ arises through the Lang isogeny; since the covering group is $G$ itself, which is commutative,
+every character sheaf on $G$ is commutative.
+\end{proof}
+
+\begin{theorem} \label{thm:trfrobiso}
+If $G$ is a smooth commutative group scheme over $\Fq$ then $\TrFrob{G} : \CCSiso{G} \to G(\Fq)^*$ is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+Suppose first that $G$ is \'etale.  Consider the isomorphism of short exact sequences
+\[
+\begin{tikzcd}
+ 0 \arrow{r} & \ker \TrFrob{G} \arrow{d} \arrow{r} & \CSiso{G}\arrow{d}{S_G} \arrow{r}{\TrFrob{G}} \arrow{r} & G(\Fq)^* \arrow{d} \arrow{r} & 0\\
+  0 \arrow{r} & \Hh^0(\Weil{},\Hh^2(\bG,\EEx)) \arrow{r} & \Hh^2(E^\bullet_G) \arrow{r} & \Hh^1(\Weil{},\Hh^1(\bG,\EEx)) \arrow{r} & 0
+ \end{tikzcd}
+ \]
+from \cite{cunningham-roe:13a}*{Prop. 2.7}.
+
+Suppose that $\cs{L}$ is a commutative character sheaf with $\trFrob{\cs{L}} = 1$, and set $[\alpha, \beta] = S_G([\cs{L}])$.
+Then $S_G([\cs{L}])$ is in the image of $\Hh^2(\bG, \EEx)^\Weil{}$, so is cohomologous to
+$[\alpha', 0]$.  Since $\alpha$ is symmetric and coboundaries are symmetric, $\alpha'$ is symmetric as well.
+So by Lemma \ref{lem:symtriv}, $\alpha'$ is cohomologically trivial, and thus $[\cs{L}]$ is trivial as well.
+
+To see that $\TrFrob{G}$ is still surjective on $\CCSiso{G}$, note that the character sheaf constructed in the proof of
+\cite{cunningham-roe:13a}*{Prop. 2.6} has trivial $\alpha$, and is thus commutative.
+
+For general smooth commutative group schemes, we use Lemma \ref{lem:conncomm} and the snake lemma, as in the proof of
+\cite{cunningham-roe:13a}*{Thm. 3.6}
+\end{proof}
+
+\begin{remark}
+Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningham-roe:13a}*{Ex. 2.10}, the functor
+$\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
+\end{remark}
+
+\section{Commutative character sheaves on non-commutative groups}\label{sec:noncom}
+
+We now consider the case of a smooth group scheme without the commutativity assumption.  We start
+by relating character sheaves on $G$ to character sheaves on its abelianization.
+
+If $\chi \in G(k)^*$ is a character, it must vanish on the derived subgroup $G\der(k)$.
+Kamgarpour gives an example \cite{kamgarpour:09a}*{(1.1)} of a character sheaf
+that does not vanish on $G\der$, defined by the extension
+\[
+1 \to \mu_n \to \SL_n \to \PGL_n \to 1.
+\]
+In order to obtain a relationship between character sheaves on $G$ and characters of $G(k)$,
+he opts to give a different definition of commutator.  Since we already need to adapt our
+notion of character sheaf, even in the commutative case, we instead add restrictions
+to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged.
+
+\subsection{Definition}\label{ssec:noncomdef}
+
+In order to get character sheaves that correspond to characters in $G(k)^*$, we must discard those
+character sheaves whose restriction to the derived subgroup is nontrivial.
+The following proposition will be proven in Section \ref{ssec:proof1}.
+\begin{proposition} \label{prop:Gder_triv}
+Suppose $G$ is a smooth group scheme and $\cs{L} \in \CS(G)$ is a linear character sheaf on $G$.
+Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $\cs{L} \cong q^*(\cs{L}\ab)$ for some
+character sheaf $\cs{L}\ab$ on $G\ab$.
+\end{proposition}
+
+We may now define commutative character sheaves on $G$.
+%
+Suppose $(\cs{L},\mu)$ is a linear character sheaf on $G$ such that its pull-back along
+$j: G\der \hookrightarrow G$ is trivial;
+let $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ be an isomorphism in $\CS(G\der)$.
+Let $\CS'(G)$ be the category of such triples, $(\cs{L},\mu,\beta)$, in which a morphism $(\cs{L},\mu,\beta)\to (\cs{L}',\mu',\beta')$ is a morphism $\alpha : (\cs{L},\mu)\to (\cs{L}',\mu')$ in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{G\der}$.
+%
+
+Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
+Let $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
+Then $c$ is a smooth morphism of $\Fq$ schemes.
+Set $m' = i \circ m \circ \theta$; then $j\circ c = m \circ (m \times m')$.
+Then, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms, below.
+\begin{equation}
+\begin{tikzcd}
+\arrow[equal]{d} c^* (\cs{L}\vert_{G\der}) \arrow{r}{c^*(\beta)} 
+	&  c^*((\EE)_{G\der}) \arrow[equal]{d} \\
+\arrow{d}[swap]{j\circ c = m \circ (m \times m')} c^* j^* \cs{L} 
+	&   (\EE)_{G\times G} \\
+(m \times m')^* m^* \cs{L} \arrow{d}[swap]{(m \times m')^*(\mu)} 
+	&  m^*\cs{L} \otimes \theta^* m^* i^* \cs{L}  \arrow[dashed]{u}[swap]{\gamma'} \\
+(m \times m')^* (\cs{L} \boxtimes \cs{L}) \arrow[equal]{r} 
+	& m^*\cs{L} \otimes (m')^*\cs{L} \arrow{u}[swap]{m' = i\circ m\circ \theta} 
+\end{tikzcd}
+\end{equation}
+In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations; so, for example, the middle left isomorphism comes from $(m\times m')^* m^* \iso c^* j^*$ since $j\circ c = m \circ (m \times m')$.
+Using the monoidal structure of the category of Weil local systems on $G\times G$, the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ defines an isomorphism
+\[
+m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
+\]
+Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $\cs{L}^\vee \iso i^*\cs{L}$, canonically, this defines the promised isomorphism
+\[
+\begin{tikzcd}
+\gamma : m^*\cs{L} \arrow{r} & \theta^* m^* \cs{L}.
+\end{tikzcd}
+\]
+
+\begin{definition}\label{def:CCS}
+The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subcategory of $\CS'(G)$ consisting of triples $(\cs{L},\mu,\beta)$ such that the following diagram of Weil sheaves on $G \times G$ commutes,
+  \[
+  \begin{tikzcd}[row sep=30]
+   m^*\cs{L} \arrow{d}[swap]{\gamma} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
+  \end{tikzcd}
+  \]
+where $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$, above.
+\end{definition}
+
+\subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
+
+Suppose $G$ is commutative, so $G\der = 1$. 
+Suppose $(\cs{L},\mu,\beta)$ is an object in $\CS'(G)$.
+Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, and unique by \cite{cunningham-roe:13a}*{Thm 3.9}.
+Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find 
+%\todo{I'm having some trouble seeing this.} 
+that $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ is the canonical isomorphism coming from the equation $m = m \circ \theta$. 
+Thus, when $G$ is commutative, Definition~\ref{def:CCS} recovers Definition~\ref{def:CCScom}.
+The next result generalizes this observation.
+
+
+\begin{theorem}\label{thm:Gab}
+%Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
+Pull-back along the abelianization $q : G \to G\ab$
+defines an equivalence of categories
+\[
+\CCS(G\ab) \to \CCS(G).
+\]
+\end{theorem}
+%
+Sections~\ref{ssec:equivariant1}, \ref{ssec:equivariant2}, \ref{ssec:descent} and \ref{ssec:closed} set up machinery needed to prove Theorem~\ref{thm:Gab}.
+The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given with the proof of Theorem~\ref{thm:Gab}, in Section~\ref{ssec:proof2}.
+
+Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}; at the same time, it is the categorical solution to the problem, discussed in Section~\ref{ssec:defect}, that the dictionary between linear character sheaves on $G\ab$ and characters of $G\ab$, need not be perfect.
+%
+But a description of $\CCS(G)$ requires, at the very least, a description of isomorphism classes of objects, and maps. 
+
+\begin{corollary}\label{cor:Gab}
+%Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
+Category $\CCS(G)$ is monoidal and $\CCSiso{G} \iso \Hom(G\ab(\Fq),\EEx)$, canonically.
+Every map in $\CCS(G)$ is either trivial or an isomorphism, and the automorphism group of any object in $\CCS(G)$ is $\Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$, canonically.
+\end{corollary}
+
+\subsection{Geometrization of characters} \label{ssec:geo}
+
+\begin{theorem}\label{thm:geo}
+%Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
+The trace of Frobenius $\TrFrob{} : \CCSiso{G}\to G(\Fq)^*$ fits into the following diagram,
+\[
+\begin{tikzcd}
+\ & & \CCSiso{G\ab} \arrow{d}{\TrFrob{}}[swap]{\iso} \arrow{r}{\iso} & \CCSiso{G} \arrow{d}{\TrFrob{}}& \\
+1 \arrow{r} & \Delta_G^* \arrow{r} & G\ab(k)^* \arrow{r} & G(k)^* \arrow{r} & 1,
+\end{tikzcd}
+\]
+where $\Delta_G$ denotes the image of the connecting homomorphism $G\ab(\Fq) \to \Hh^1(\Fq, G\der)$. 
+Thus, category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. The geometrization of $\chi : G(\Fq) \to \EEx$ is not unique, but the group of isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
+\end{theorem}
+
+\begin{proof}
+Let $\Delta$ be the image of the boundary homomorphism $\delta$ in the sequence
+\[
+1 \to G\der(k) \to G(k) \to G\ab(k) \xrightarrow{\delta} \Hh^1(k, G\der),
+\]
+yielding a short exact sequence
+\[
+1 \to G(k) / G\der(k) \to G\ab(k) \to \Delta \to 1.
+\]
+Applying $\Hom(-, \EEx)$ and using the fact that every homomorphism $G(k) \to \EEx$ vanishes on $G\der(k)$, we get
+\[
+1 \to \Delta^* \to G\ab(k)^* \to G(k)^* \to 1.
+\]
+By Theorem~\ref{thm:Gab}, the trace of Frobenius map  . . . .\todo{Finish this.}
+\end{proof}
+
+\begin{remark}
+Note that when $\Hh^1(k,G\der) = 0$, as is the case when $G\der(\bFq)$ ``is simply connected,'' then $\CCSiso{G} \iso G(\Fq)^*$, so
+we succeed in geometrizing characters of $G(k)$ on the nose.
+\end{remark}
+
+
+
+%\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
+
+%\section{Descent to the Abelianization} \label{sec:descent}
+
+%In this section we use descent along the abelianization $q : G \to G\ab$ to prove Propositions~1.2 and 1.4, and Theorem~\ref{thm:Gab}.
+%This approach requires introducing equivariant linear character sheaves, as defined in Section~[].
+
+%We close this section by gathering together the main result of this paper in one place.
+
+
+\subsection{Proofs for results from Section \ref{ssec:noncomdef}} \label{ssec:proofs}
+
+\subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
+
+Let $G$ be a smooth group scheme over $k$, as above.
+Let $H$ be a group scheme and write $n : H \times H \to H$ for the multiplication morphism.
+Let $a : H \times G\to G$ be a group action compatible with the group structure on $G$ and write $p : H\times G \to G$ for projection. 
+Consider the morphisms
+\[
+\begin{tikzcd}
+H \times H \times G 
+\arrow[shift left=4]{r}{b_1, b_2, b_3} 
+\arrow{r}{}
+\arrow[shift right=4]{r}{} 
+& H \times G 
+\arrow[shift left=2]{r}{a}
+\arrow[shift right=2]{r}[swap]{p}
+ & G 
+\end{tikzcd}
+\]
+defined by 
+\begin{align*}
+b_1(h_1,h_2,g) &= (h_1h_2,g) \\
+b_2(h_1,h_2,g) &= (h_1,h_2g) \\
+b_3(h_1,h_2,g) &= (h_2,g).
+\end{align*}
+Note that
+\begin{align*}
+a\circ b_1 &= a\circ b_2 \\
+a\circ b_3 &= p\circ b_2 \numberthis \label{eqn:bap}\\
+p\circ b_1 &= p\circ b_3.
+\end{align*}
+Define $s : G\to H\times G$ by $s(g) = (1,g)$.
+An $H$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  
+\[
+\nu : a^*\cs{L} \to p^*\cs{L}
+\] 
+of Weil local systems on $H\times G$ such that 
+\begin{equation}\label{E1}
+s^*(\nu) = \id_{\cs{L}}
+\end{equation}
+and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes.
+\begin{equation}\label{E2}
+\begin{tikzcd}
+\ &  \arrow{dl}{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
+b_1^* a^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
+& b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L} & 
+\end{tikzcd}
+\end{equation}
+%In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from equations \eqref{eqn:bap}; so, for example, the top left isomorphism comes from $b_1^* a^* \iso b_2^* a^*$ since $a\circ b_1 = a\circ b_2$.
+%On stalks, this condition is ...
+%\[
+%\begin{tikzcd}
+%\ &  \cs{L}_{h_1\cdot(h_2\cdot g)} \arrow{r}{\nu_{h_1,h_2\cdot g}} & \cs{L}_{h_2\cdot g} & \\
+%\cs{L}_{(h_1 h_2) \cdot g} \arrow{dr}[swap]{\nu_{(h_1h_2),g}} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{\nu_{h_2,g}} \cs{L}_{h_2\cdot g} \\
+%& \cs{L}_g \arrow[equal]{r} & \cs{L}_g & 
+%\end{tikzcd}
+%\]
+Morphisms of $H$-equivariant Weil local systems $(\cs{L},\nu)\to (\cs{L}',\nu')$ are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which the diagram
+\begin{equation}\label{E3}
+\begin{tikzcd}
+\arrow{d}[swap]{\nu} a^*\cs{L} \arrow{r}{a^*(\alpha)} & a^*\cs{L}' \arrow{d}{\nu'} \\
+p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
+\end{tikzcd}
+\end{equation}
+commutes.
+This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on $G$.
+
+\subsubsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
+
+We define an $H$-equivariant linear character sheaf on $G$ to be a triple $(\cs{L},\mu, \nu)$, where $(\cs{L},\mu)$ is a linear character sheaf and $(\cs{L},\nu)$ is an $H$-equivariant local system.  We require that $\mu$ be compatible with $\nu$ in the following sense.
+We define morphisms:
+\begin{align*}
+c_0 : H\times G \times G &\to H\times G \times H \times G \\
+(h,g_1,g_2) &\mapsto (h,g_1,h,g_2); \\
+c_1 : H \times G\times G &\to G\times G \\
+(h, g_1, g_2) &\mapsto (hg_1,hg_2); \\
+c_2 : H \times G\times G &\to H\times G \\
+(h,g_1,g_2) &\mapsto (h, g_1g_2); \\
+c_3 : H \times G\times G &\to G\times G \\
+(h, g_1, g_2) &\mapsto (g_1, g_2).
+\end{align*}
+We require that the following diagram of Weil local systems on $H \times G\times G$ commutes:
+\begin{equation}\label{ECS1}
+\begin{tikzcd}[column sep=30]
+\ & \arrow{dl}{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{dr}[swap]{p\circ c_2 = m\circ c_3}  &  \\
+\arrow{d}[swap]{c_1^*(\mu)} c_1^* m^* \cs{L} &&& c_3^* m^*\cs{L} \arrow{d}{c_3^*(\mu)} \\
+c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{dr}{p_i\circ c_1 = a\circ p_i\circ c_0} &&& \arrow{dl}[swap]{p\circ p_i\circ c_0 = p_i \circ c_3} c_3^*(\cs{L}\boxtimes \cs{L}) \\
+ & c_0^*(a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{c_0^*(\nu\boxtimes \nu)} & c_0^*(p^*\cs{L} \boxtimes p^*\cs{L}) & 
+\end{tikzcd}
+\end{equation}
+
+%On stalks, this condition is
+%\[
+%\begin{tikzcd}
+%\arrow{d}[swap]{\mu_{(h\cdot g_1, h\cdot g_2)}} \cs{L}_{(h\cdot g_1)(h\cdot g_2)} & \arrow[equal]{l}  \cs{L}_{h\cdot(g_1 g_2)} \arrow{r}{\nu_{(h, g_2 g_2)}} & \cs{L}_{g_1 g_2} \arrow[equal]{r} & \cs{L}_{g_1 g_2} \arrow{d}{\mu_{(g_1,g_2)}} \\
+%\cs{L}_{h\cdot g_1}\otimes \cs{L}_{h\cdot g_2} \arrow[equal]{r} & \cs{L}_{h\cdot g_1}\otimes \cs{L}_{h\cdot g_2} \arrow{r}{\nu_{(h,g_1)}\otimes \nu_{(h,g_2)}} & \cs{L}_{g_1}\otimes \cs{L}_{g_2} & \arrow[equal]{l} \cs{L}_{g_1} \otimes \cs{L}_{g_2},
+%\end{tikzcd}
+%\]
+%for all $(h,g_1,g_2)\in H\times G\times G$.
+
+A morphism of $H$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $H$-equivariant Weil sheaves $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves.
+%so
+%\begin{equation}\label{CS4}
+%\begin{tikzcd}
+%\arrow{d}[swap]{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
+%\cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
+%\end{tikzcd}
+%\end{equation}
+%commutes; see also \cite{cunningham-roe:13a}, CS.4].
+%
+Let $\CS_H(G)$ be the category of $H$-equivariant linear character sheaves on $G$.
+
+%Is $\CS_H(G)$ a rigid monoidal category?
+
+%If $(\cs{L},\mu,\nu)$ and $(\cs{L},\mu,\nu')$ in $\CS_H(G)$, then $\nu = \nu'$?
+
+
+
+\begin{lemma}\label{lem:HH}
+If $(\cs{L},\mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ and $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms of $H\times H$-equivariant Weil local systems on $G\times G$. 
+\end{lemma}
+
+\begin{proof} 
+Define
+\begin{align*}
+d : H\times H\times G\times G &\to H\times G\times H\times G \\
+(h_1,h_2,g_1,g_2) &\mapsto (h_1, g_1, h_2, g_2)\\
+a_2 : H\times G\times H\times G &\to G\times G \\
+(h_1,g_1,h_2,g_2) &\mapsto (h_1g_1, h_2g_2) \\
+p_2 : H\times G\times H\times G &\to G\times G \\
+(h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2).
+\end{align*}
+The following diagram defines the isomorphisms needed to see that both $m^*\cs{L}$ and $\cs{L}\boxtimes\cs{L}$ are $H\times H$-equivariant Weil local systems.
+\[
+\begin{tikzcd}[column sep=40]
+\arrow{d}[swap]{a_2(\mu)} a_2^* (m^*\cs{L}) \arrow[dashed]{r} 
+	& \arrow{d}{p_2^*(\mu)} p_2^*(m^*\cs{L})\\
+\arrow{d}[swap]{a_2= (a\times a)\circ d} a_2^*(\cs{L}\boxtimes\cs{L}) \arrow[dashed]{r} 
+	& \arrow{d}{p_2= (p\times p)\circ d} p_2^*(\cs{L}\boxtimes\cs{L}) \\
+%d^* (a\times a)^* (\cs{L}\boxtimes\cs{L}) & d^* (p\times p)^* (\cs{L}\boxtimes\cs{L}) \\
+d^* (a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{d^*(\nu\boxtimes \nu)}& d^*(p^*\cs{L}\boxtimes p^*\cs{L}) 
+\end{tikzcd}
+\]
+The dashed arrows both satisfy \eqref{E1} and \eqref{E2} as they apply here.
+This diagram also shows that $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of equivariant sheaves, since it satisfies \eqref{E3} as it applies here.
+The proof that $\theta^*(\cs{L}\boxtimes\cs{L})$ is also straightforward, since $a_2\circ \theta = \theta_2 \circ a_2$ and $p_2\circ \theta = \theta_2 \circ p_2$ for the obvious $\theta_2$.
+Let $\nu_2 : a_2^*(\cs{L}\boxtimes\cs{L}) \to p_2^*(\cs{L}\boxtimes\cs{L})$ be the middle horizontal isomorphism of Weil local systems, above. 
+Then, to see that
+\[
+\begin{tikzcd}
+a_2^*(\cs{L}\boxtimes\cs{L}) \arrow{r}{a_2^*(\vartheta)} \arrow{d}[swap]{\nu_2} 
+	& a_2^*\theta^*(\cs{L}\boxtimes\cs{L}) \arrow{d}{\theta^*(\nu_2)} \\
+p_2^*(\cs{L}\boxtimes\cs{L}) \arrow{r}{p_2^*(\vartheta)} 
+	& p_2^*\theta^*(\cs{L}\boxtimes\cs{L})
+\end{tikzcd}
+\]
+commutes, consider the commuting diagram of stalks, below.
+\[
+\begin{tikzcd}
+\cs{L}_{h_1g_1}\otimes\cs{L}_{h_2g_2} \arrow{r}{\vartheta}  \arrow{d}[swap]{\nu_2} 
+	& \cs{L}_{h_2g_2} \otimes\cs{L}_{h_1g_1}  \arrow{d}{\nu_2} \\
+\cs{L}_{g_1}\otimes\cs{L}_{g_2} \arrow{r}{\vartheta}  
+	& \cs{L}_{g_2} \otimes\cs{L}_{g_1}
+\end{tikzcd}
+\]
+\end{proof}
+
+
+
+\subsubsection{Descent along a torsor}\label{ssec:descent}
+
+Now suppose $q : G \to G_0$ is a regular epimorphism of smooth group schemes with kernel pair $(a,p)$
+\[
+\begin{tikzcd}
+H\times G
+ \arrow[shift left=2]{r}{a}
+  \arrow[shift right=2,swap]{r}{p}
+&
+G 
+\arrow{r}{q}
+& 
+G_0.
+\end{tikzcd}
+\]
+Let $\cs{L}_0$ be a linear character sheaf on $G_0$.
+Consider the functor
+\[
+q^* : \CS(G_0) \to \CS(G)
+\]
+given on objects by $(\cs{L}_0,\mu_0) \mapsto (q^*\cs{L}_0, (q\times q)^* \mu_0)$; see \cite{cunningham-roe:13a}*{Lem 1.4}.
+%To see that $(q^*\cs{L}_0, (q\times q)^* \mu_0)$ is indeed a linear character sheaf on $G$, verify \cite{cunningham-roe:13a}, CS.3], arguing as in \cite{cunningham-roe:13a}].
+This linear character sheaf $(\cs{L},\mu)\ceq (q^*\cs{L}_0, (q\times q)^* \mu_0)$ on $G$ comes equipped with the canonical isomorphism $\nu : a^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of canonical isomorphisms.
+\[
+\begin{tikzcd}[column sep=40]
+a^*\cs{L} \arrow[equal]{d} \arrow[dashed]{r}{\nu} &  \arrow[equal]{d} p^*\cs{L} \\
+a^* ( q^*\cs{L}_0) \arrow{r}{q\circ a = q\circ p}
+& p^* (q^*\cs{L}_0)
+\end{tikzcd}
+\]
+Since this isomorphism satisfies \eqref{ECS1}, it follows that $(\cs{L}, \mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$.
+If $\alpha_0 : (\cs{L}_0,\mu_0) \to (\cs{L}_0',\mu_0')$ is a morphism in $\CS(G_0)$, 
+then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha$ is a morphism in $\CS(G)$.
+%\todo{I find myself having to make many references to \cite{cunningham-roe:13a}] and promising that the results there adapt to the noncommutative group case. It makes me uneasy, but the alternative is to actually repeat the proofs here, with the weaker hypothesis on $G$, which would be ugly. I'm just agonizing out loud, I guess.} 
+These simple observations define the comparison functor
+\[
+q_H^* : \CS(G_0) \to CS_H(G)
+\]
+and show that the functor $q^* : \CS(G_0) \to \CS(G)$ factors according to the following commuting diagram of functors
+\begin{equation}\label{qH}
+\begin{tikzcd}
+\CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G_0) \arrow{dl}{q_H^*}\\
+\arrow{u}{\text{forget}} \CS_{H}(G). & 
+\end{tikzcd}
+\end{equation}
+The definition of $q_H^* : \CS(G_0)\to \CS_H(G)$ will be revisited in the proof of the following result.
+
+\begin{lemma}\label{lem:torsor}
+If $q : G \to G_0$ is an $H$-torsor in the fpqc topology 
+then $q_H^*: \CS(G_0) \to \CS_H(G)$ is an equivalence.
+\end{lemma}
+
+\begin{proof}
+First we observe that the comparison functor 
+$\Loc(G_0) \to \Loc_H(G)$ is an equivalence.
+To see this, first recall that $\Loc$ is a stack on schemes over $\Fq$ in the Zariski topology.
+Then, observe that the comparison functor for Weil local systems is an equivalence for flat surjective morphisms of affine schemes over $\Fq$.
+It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fpqc topology; see \cite{Vistoli:notes}*{Lem 4.25} for example.
+(This is a slight variation on the argument showing that quasicoherent sheaves are a stack over schemes in the fpqc topology; see \cite{Vistoli:notes}*{Thm 4.23} for example.)
+Since $q : G\to G_0$ is an $H$-torsor in the fpqc topology, is now follows from descent theory that the comparison functor $\Loc(G_0) \to \Loc_H(G)$ is an equivalence; see \cite{Vistoli:notes}*{Thm 4.46} for example.)
+%\todo{Need more specific references}
+
+For use below, we write $L_1 : \Loc(G_0) \to \Loc_H(G)$ for the comparison functor, $R_1 : \Loc_H(G) \to \Loc(G_0)$ for its adjoint, and $(\epsilon_1, \eta_1)$ for the counit and unit of the adjunction.
+%
+Arguing as above, we also see that pull-back along $q\times q$ determines an equivalence $L_2 : \Loc(G_0\times G_0) \to \Loc_{H\times H}(G\times G)$.
+For use below, we write $R_2 : \Loc_{H\times H}(G\times G) \to \Loc(G_0\times G_0)$ for its adjoint and $(\epsilon_2, \eta_2)$ for the counit and unit of the adjunction.
+
+We may now revisit the definition of the functor $q_H^*: \CS(G_0)\to \CS_H(G)$:
+on objects, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\cs{L}_0,\mu_0) = (L_1(\cs{L}_0), L_2(\mu_0))$; on maps, $q_H^*: \CS(Q)\to \CS_H(G)$ is given by $q_H^*(\alpha_0) = L_1(\alpha_0)$.
+Direct calculation confirms \cite{cunningham-roe:13a}*{CS1, CS2, CS3}, \eqref{E1}, \eqref{E2} and \eqref{ECS1}, and therefore that $(L_1(\cs{L}_0), L_2(\mu_0))$ is an object of $\CS_H(G)$; 
+likewise, $L_1(\alpha_0)$ is a map in $\CS_H(G)$ after checking \cite{cunningham-roe:13a}*{CS4} and \eqref{E3}.
+%
+With this description of $q_H^*: \CS(Q)\to \CS_H(G)$ is is easy to see that it is an equivalence.
+Its adjoint is given on objects by $(\cs{L},\mu,\nu) \mapsto (R_1(\cs{L},\nu), R_2(\nu))$, making use of Lemma~\ref{lem:HH}, and on morphisms by $\alpha \mapsto R_1(\alpha)$.
+The adjunction is built from the adjunctions $(\epsilon_1, \eta_1)$ and $(\epsilon_2, \eta_2)$ for $(L_1,R_1)$ and $(L_2, R_2)$.
+\end{proof}
+
+
+\subsubsection{Quotient by a closed subgroup}\label{ssec:closed}
+
+We now suppose that $j : H \hookrightarrow G$ is a closed subgroup scheme over $\Fq$ and that the action $a : H\times G\to G$ is obtained by restricting the action $m : G \times G\to G$ to $H\times G$.
+%Then we have the diagram
+%\[
+%\begin{tikzcd}
+%\ &  \arrow{dl}[swap]{a} H \times G \arrow{dr}{p} \arrow{dd}[swap]{f} & \\
+%G & & G \\
+%& \arrow{ul}{m} G \times G \arrow{ur}[swap]{p_2} & 
+%\end{tikzcd}
+%\]
+Define $f : H\times G \to G\times G$ by $f(h,g) = (j(h),g)$ and note that $a = m\circ f$.
+Every $H$-equivariant linear character sheaf $(\cs{L},\mu, \nu)$ uniquely determines an isomorphism 
+$
+\beta : \cs{L}\vert_H \to (\EE)_{H}
+$
+by 
+\begin{equation}\label{betanu}
+\nu = (\beta \boxtimes \id) \circ  f^*\mu,
+\end{equation}
+or more precisely, by the following diagram of isomorphisms, where we write $p_1: G\times G\to G$ for projection to the first component and $p_2 : G\times G \to G$ for projection to the second.
+\[
+\begin{tikzcd}[column sep=30]
+\ & a^*\cs{L} \arrow{dl}{m\circ f = a} \arrow{r}{\nu} & p^*\cs{L} & \\
+f^* m^*\cs{L} \arrow{dr}{f^*\mu} &&& (\EE)_{H} \boxtimes \cs{L} \arrow{ul} \\ 
+& f^*(\cs{L}\boxtimes \cs{L}) \arrow{r}{p_1 \circ f = j}[swap]{p_2\circ f = \id}  & 
+\cs{L}\vert_{H} \boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id} & 
+\end{tikzcd}
+\]
+In this way we see we may replace $(\cs{L},\mu,\nu)$ with a triple, $(\cs{L},\mu,\beta)$, from which $(\cs{L},\mu,\nu)$ may be recovered.
+The next lemma makes that statement more precise.
+
+
+\begin{lemma}\label{lem:beta}
+If $H\hookrightarrow G$ is a closed subgroup scheme over $\Fq$ then
+$\CS_H(G)$ is equivalent to the category $\CS^H(G)$ of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu)\in \CS(G)$ and $\beta : \cs{L}\vert_H \to (\EE)_H$ is an isomorphism in $\CS(H)$; a morphism $(\cs{L},\mu,\beta) \to (\cs{L}',\mu',\beta')$ in $\CS^H(G)$ is a morphism $\alpha: \cs{L} \to \cs{L}'$ in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{H}$.
+\end{lemma}
+
+\begin{proof}
+We have seen how every $(\cs{L},\mu,\nu)\in \CS_H(G)$ determines an isomorphism of Weil local systems $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$.
+This isomorphism is constrained by the conditions 
+appearing in \eqref{E1}, \eqref{E2} and \eqref{ECS1}.
+It is a straightforward, tedious exercise to show that those conditions are exactly equivalent to the condition
+that the isomorphism of Weil local systems $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ is an isomorphism in the category of of linear character sheaves on $H$.
+\end{proof}
+
+
+We can now give the missing proofs from Section \ref{ssec:noncomdef}.
+
+\subsubsection{Proof of Proposition~\ref{prop:Gder_triv}}\label{ssec:proof1}
+
+%\begin{proof}[Proof of Proposition~\ref{prop:Gder_triv}] 
+By \cite{demazure:SGA3-VIA}*{Thm. 3.2}, the abelianization $G\ab\ceq G/G\der$ exists in schemes over $\Fq$ and the quotient $q: G \to G\ab$ is a $G\der$-torsor in the fppf topology.
+%
+To simplify notation below, set $H=G\der$
+and let $j : H\hookrightarrow G$ be the inclusion. 
+With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the following diagram.
+%\[
+%\begin{tikzcd}
+%{} & G\times G \arrow{d}{c} &&&\\
+%1 \arrow{r} & H \arrow{r}{j} & G \arrow{r}{q} & G\ab \arrow{r} & 1
+%\end{tikzcd}
+%\]
+%gives
+\[
+\begin{tikzcd}
+\CS(H) & \arrow{l}[swap]{j^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\ab) \arrow{dl}{\text{equiv}}[swap]{q_{H}^*} \\
+ \CS'(G)  \arrow{r}{\beta \mapsto \nu}[swap]{\text{equiv}} &  \CS_{H}(G) \arrow{u}{\text{forget}}  & 
+\end{tikzcd}
+\]
+%
+Here we use the notation $\CS'(G)$ from Section~\ref{ssec:noncomdef} and the observation that $\CS'(G)$ is precisely the category $\CS^{H}(G)$ from Section~\ref{ssec:closed} for $H=G\der$.
+%
+Since the quotient $q : G \to G\ab$ is an $H$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, 
+it is also an $H$-torsor in the fpqc topology.
+It now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab)\to \CS_{H}(G)$ is an equivalence.\todo{Did I compare these topologies correctly? fpqc is finer than fppf}
+%
+On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
+This completes the proof of Proposition~\ref{prop:Gder_triv}.
+%\end{proof}
+
+\subsubsection{Proof of Theorem~\ref{thm:Gab}}\label{ssec:proof2}
+
+%\begin{proof}[Proof of Theorem~\ref{thm:Gab}] 
+Here we use notation from the proof of Proposition~\ref{prop:Gder_triv};
+in particular, $H = G\der$.
+By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory.
+Since the comparison functor $\CS(G\ab) \to \CS_{H}(G)$ is an equivalence, it determines a full subcategory $\CCS_{H}(G)$ which is equivalent to $\CCS(G\ab)$, as pictured below.
+The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of the equivalence $\CS_{H}(G) \to \CS'(G)$ is $\CCS(G)$.
+\[
+\begin{tikzcd}[row sep=30, column sep=40]
+\CS(H) 
+& \arrow{l}[swap]{j^*} \CS(G) 
+&\arrow{l}[swap]{q^*} 
+\CS(G\ab) \arrow{dl}{\text{equiv}}[swap]{q_{H}^*} \\
+\CS'(G)  \arrow{r}{\beta \mapsto \nu}[swap]{\text{equiv}} 
+&  \CS_{H}(G) \arrow{u}{\text{forget}}  
+&  %\arrow[bend left=35pt, dashed]{dll} 
+\CCS(G\ab) \arrow{u}[swap]{\text{full sub}} \arrow{dl}{\text{equiv}} \\
+\CCS(G) \arrow{u}{\text{full sub}} \arrow{r}{\beta \mapsto \nu}[swap]{\text{equiv}}
+& \arrow{u}{\text{full sub}}  \CCS_{H}(G) 
+& 
+\end{tikzcd}
+\]
+
+Suppose $(\cs{L},\mu,\beta)\in \CS'(G)$ and $(\cs{L},\mu,\nu) = q^*(\cs{L}\ab,\mu\ab)$;
+we must show that $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G\ab)$.
+Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ as in Section~\ref{sec:comcom}.
+Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ as in Section~\ref{ssec:noncomdef}.
+Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}, as pictured below; 
+in particular $\gamma = (q\times q)^* \xi$.
+  \[
+  \begin{tikzcd}[row sep=10, column sep = 20]
+   m_0^*\cs{L}_0 \arrow{dd}[swap]{\xi} \arrow{r}{\mu_0} 
+   & \cs{L}_0\boxtimes\cs{L}_0 \arrow{dd}{\vartheta}
+&&&   m^*\cs{L} \arrow{dd}[swap]{\gamma} \arrow{r}{\mu} 
+ & \cs{L}\boxtimes\cs{L} \arrow{dd}{\vartheta}\\
+ && \arrow{r}{(q\times q)^*}  &\ & & &\\ 
+   \theta^*(m_0^*\cs{L}_0) \arrow{r}{{\theta}^*\mu_0} 
+ &  \theta^*(\cs{L}_0\boxtimes\cs{L}_0)
+&&&   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} 
+&  \theta^*(\cs{L}\boxtimes\cs{L})
+  \end{tikzcd}
+\]
+By Lemma~\ref{lem:HH}, we may interpret the diagram on the right, above, as a diagram in $\Loc_{H\times H}(G\times G)$.
+By Lemma~\ref{lem:torsor}, this corresponds to a diagram in $\Loc(G\ab\times G\ab)$, necessarily the diagram on the left, above, and also that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
+In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
+if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$.
+This completes the proof of Theorem~\ref{thm:Gab}.
+%This also defines the functor $\CCS(G\ab) \to \CCS(G)$ by the dashed arrow in the diagram above.
+%\end{proof}
+
+\subsubsection{Proof of Corollary~\ref{cor:Gab}}\label{ssec:proof3}
+
+Let us write $(\cs{L},\mu,\beta) \mapsto (\cs{L}\ab,\mu\ab)$ to indicate the equivalence appearing in Theorem~\ref{thm:Gab};
+then \[\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab).\] 
+By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = \Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$.
+
+
+\bibliography{bibliography/Biblio}
+
+\end{document}
+
+
+
