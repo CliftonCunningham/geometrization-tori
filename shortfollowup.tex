@@ -225,7 +225,7 @@ require a development of equivariant linear character sheaves.
 \section{Recollections and definitions} \label{sec:defs}
 
 Let $G$ be a smooth group scheme over a finite field $\Fq$; that is, let $G$ be a group scheme over $\Fq$
-for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of \cite{EGA:IV4}*{Def 17.3.1}. This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
+for which the structure morphism $G \to \Spec{\Fq}$ is smooth in the sense of \cite{EGAIV4}*{Def 17.3.1}. This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of finite type.
 We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
 
@@ -496,19 +496,18 @@ Thus, category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sen
 \end{theorem}
 
 \begin{proof}
-Let $\Delta$ be the image of the boundary homomorphism $\delta$ in the sequence
+By the definition of $\Delta_G$, we have a short exact sequence
 \[
-1 \to G\der(k) \to G(k) \to G\ab(k) \xrightarrow{\delta} \Hh^1(k, G\der),
-\]
-yielding a short exact sequence
-\[
-1 \to G(k) / G\der(k) \to G\ab(k) \to \Delta \to 1.
+1 \to G(k) / G\der(k) \to G\ab(k) \to \Delta_G \to 1.
 \]
 Applying $\Hom(-, \EEx)$ and using the fact that every homomorphism $G(k) \to \EEx$ vanishes on $G\der(k)$, we get
 \[
-1 \to \Delta^* \to G\ab(k)^* \to G(k)^* \to 1.
+1 \to \Delta_G^* \to G\ab(k)^* \to G(k)^* \to 1.
 \]
-By Theorem~\ref{thm:Gab}, the trace of Frobenius map  . . . .\todo{Finish this.}
+By Theorem~\ref{thm:Gab}, the map $\CCSiso{G\ab} \to \CCSiso{G}$ is an isomorphism.
+Moreover, since both $\CCSiso{G\ab} \to \CCSiso{G}$ and $G\ab(k)^* \to G(k)^*$ are
+defined by pullback along $q$, the square in the statement of the theorem commutes.
+Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Theorem \ref{thm:trfrobiso}.
 \end{proof}
 
 \begin{remark}
