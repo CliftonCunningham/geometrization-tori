@@ -1,7 +1,6 @@
 \documentclass[10pt]{amsart}
 
-\title[Commutative Character Sheaves]{Commutative Character Sheaves on smooth group schemes over finite fields}
-%with an application to geometric types for supercuspidal representations
+\title[Geometrization of characters of smooth group schemes over finite fields]{Geometrization of characters of smooth group schemes over finite fields with an application to types for supercuspidal representations}
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
 \email{cunning@math.ucalgary.ca}
@@ -161,13 +160,10 @@
 \begin{document}
 
 \begin{abstract}
-We describe a function-sheaf dictionary for one-dimensional characters of arbitrary smooth group schemes
-over finite fields.  In previous work, we considered the case of commutative smooth group schemes and found
-that the standard definition of character sheaves produced a dictionary with a nontrivial kernel.  In this paper,
-we give a modification of the category of character sheaves that remedies this defect, and is also extensible to
-non-commutative groups.  
-As an application, we use these \emph{commutative character sheaves} to geometrize types for
-supercuspidal representations of $p$-adic groups. 
+We describe a function-sheaf dictionary for one-dimensional characters of arbitrary smooth group schemes over finite fields.  
+In previous work, we considered the case of commutative smooth group schemes and found that the standard definition of character sheaves produced a dictionary with a nontrivial kernel.  
+In this paper we give a modification of the category of character sheaves that remedies this defect, and is also extensible to non-commutative groups.  
+As an application, we use these \emph{commutative character sheaves} to geometrize types for supercuspidal representations of $p$-adic groups, assuming the existence of the geometrization of the Heisenberg-Weil representation over finite fields.
 \end{abstract}
 
 \maketitle
@@ -176,21 +172,14 @@ supercuspidal representations of $p$-adic groups.
 
 \section*{Introduction}
 
-In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary from connected, commutative, algebraic groups
-over a finite field $k$ to smooth commutative group schemes $G$ over $k$.  Writing $G(k)^*$ for $\Hom(G(k), \EEx)$, we described a category $\CS(G)$ of
-\emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
-In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel; we gave an explicit description of
-its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
+In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary from connected, commutative, algebraic groups over a finite field $k$ to smooth commutative group schemes $G$ over $k$.  
+Writing $G(k)^*$ for $\Hom(G(k), \EEx)$, we described a category $\CS(G)$ of \emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
+In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel; we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
 
-The first aim of this paper is to repair this defect in the function-sheaf dictionary by describing a full subcategory
-$\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
-We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$
-to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$
-(see Definition \ref{def:CCScom}).  When $G$ is connected, all character sheaves on $G$ are commutative.
-This category clarifies several questions about character sheaves on $G$: invisible character sheaves
-\cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and 
-$\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of
-$\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
+The first aim of this paper is to repair this defect in the function-sheaf dictionary by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
+We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
+When $G$ is connected, all character sheaves on $G$ are commutative.
+This category clarifies several questions about character sheaves on $G$: invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and  $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
 Next, we broaden our scope further to encompass smooth group schemes $G$ that are not necessarily commutative.
 In this paper, we do not consider Lusztig's geometrization of arbitrary characters of connected, reductive groups $G(k)$
@@ -205,32 +194,27 @@ character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, we f
 defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not
 essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
 
-Finally, we use the category $\CCS(G)$ to give a geometric description of generic types for supercuspidal representations
-of connected reductive groups over local fields.  In this way, we provide all of the ingredients
-needed to parametrize supercuspidal representations of arbitrary depth in the same category:
-perverse sheaves on group schemes over finite fields. \todo{Update based on any changes in Section 4}
+Finally, we use the category $\CCS(G)$ to give a geometric description of types for supercuspidal representations of connected reductive groups over $p$-adic fields fields,
+assuming the existence of a geomtrization of the Heisenberg-Weil representations over finite fields.
+In this way, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category:
+virtual Weil perverse sheaves on smooth group schemes over finite fields. 
+%\todo{Update based on any changes in Section 4}
 
+We now summarize the sections of the paper in more detail.
 In Section \ref{sec:defs}, we recall the category $\CS(G)$ from \cite{cunningham-roe:13a} and note that it still makes
 sense when $G$ is not commutative.  We focus on the case of commutative $G$ in Section \ref{sec:comcom},
 giving the definition of a commutative character sheaf and proving our first main theorem, that
 $\TrFrob{G} : \CSiso{G} \to G(k)^*$ induces an isomorphism on $\CCSiso{G}$.
+%
+Passing to the case that $G$ is non-commutative, we give the definition of and main results about commutative character sheaves in Section \ref{sec:noncom}.  
+We note that we should only consider character sheaves that arise via pullback from $G\ab$ in order to eliminate those that have nontrivial restriction to the derived subgroup.  
+This observation underlies the definition of commutative character sheaves for non-commutative $G$.  
+We state our main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
+In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
+We also compute the automorphism groups in $\CCS(G)$.
+Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves.
 
-Passing to the case that $G$ is
-non-commutative, we give the definition of and main results about commutative character sheaves in
-Section \ref{sec:noncom}.  We note that we should only consider character sheaves
-that arise via pullback from $G\ab$ in order to eliminate those that have nontrivial restriction
-to the derived subgroup.  This observation underlies the definition of commutative character sheaves for
-non-commutative $G$.  We state our second main theorem, that pullback along the abelianization map
-defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
-In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$
-and $G\ab(k)^*$.  We also compute the automorphism groups in $\CCS(G)$.
-Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which
-require a development of equivariant linear character sheaves.
-
-\todo{Add summary of Section 4 once it has stabilized}
-
-
-In the remainder of this section we use Theorem~\ref{thm:geo} to geometrize the representation $\rho$ of $C$: subject to a hypothesis on the component group of the depth-zero part of the datum and also on a conjecture on the geometrization of the character of Heisenberg-Weil representations, we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\rho)$.
+In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize the representations of compact $p$-adic groups appearing in the types for : subject to a hypothesis on the component group of the depth-zero part of the datum and also on a conjecture on the geometrization of the character of Heisenberg-Weil representations, we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\rho)$.
 The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:types} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation in Section~\ref{ssec:Jacobi}, and also make a conjecture about the geometrization of that representation, Conjecture~\ref{conj}.
 
 
