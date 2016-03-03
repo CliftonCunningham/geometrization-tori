@@ -1,6 +1,6 @@
 \documentclass[10pt]{amsart}
 
-\title[Geometrization of characters of smooth group schemes over finite fields]{Geometrization of characters of smooth group schemes over finite fields with an application to types for supercuspidal representations}
+\title[Geometrization of characters of smooth group schemes]{Geometrization of characters of smooth group schemes over finite fields with an application to types for supercuspidal representations}
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
 \email{cunning@math.ucalgary.ca}
@@ -9,7 +9,7 @@
 \email{roed.math@gmail.com}
 
 \subjclass[2010]{14F05 (primary), 14L15, 22E50}
-\keywords{commutative character sheaves, abelianization,quasicharacters, types,supercuspidal representations}
+\keywords{character sheaves}
 
 \usepackage{amssymb}
 \usepackage{amsrefs}
@@ -147,7 +147,7 @@
 
 \newcommand{\red}{^{\operatorname{red}}}
 \newcommand{\Sp}{{\operatorname{Sp}}}
-
+\newcommand{\cay}{{\operatorname{cay}}}
 
 %% Hyphenation override
 \hyphenation{quasi-character}
@@ -163,7 +163,7 @@
 We describe a function-sheaf dictionary for one-dimensional characters of arbitrary smooth group schemes over finite fields.  
 In previous work, we considered the case of commutative smooth group schemes and found that the standard definition of character sheaves produced a dictionary with a nontrivial kernel.  
 In this paper we give a modification of the category of character sheaves that remedies this defect, and is also extensible to non-commutative groups.  
-As an application, we use these \emph{commutative character sheaves} to geometrize types for supercuspidal representations of $p$-adic groups, assuming the existence of the geometrization of the Heisenberg-Weil representation over finite fields.
+As an application, we use these \emph{commutative character sheaves} to geometrize types for supercuspidal representations of $p$-adic groups.
 \end{abstract}
 
 \maketitle
@@ -194,18 +194,22 @@ character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, we f
 defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not
 essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
 
-Finally, we use the category $\CCS(G)$ to give a geometric description of types for supercuspidal representations of connected reductive groups over $p$-adic fields fields,
-assuming the existence of a geomtrization of the Heisenberg-Weil representations over finite fields.
+Finally, we use the category $\CCS(G)$ to give a geometric description of types for supercuspidal representations of connected reductive groups over $p$-adic fields fields.
 In this way, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category:
 virtual Weil perverse sheaves on smooth group schemes over finite fields. 
-%\todo{Update based on any changes in Section 4}
 
 We now summarize the sections of the paper in more detail.
-In Section \ref{sec:defs}, we recall the category $\CS(G)$ from \cite{cunningham-roe:13a} and note that it still makes
-sense when $G$ is not commutative.  We focus on the case of commutative $G$ in Section \ref{sec:comcom},
+
+%\begin{enumerate}
+%\item
+In Section \ref{sec:defs}, we recall the category $\CS(G)$ from \cite{cunningham-roe:13a} and note that it still makes sense when $G$ is not commutative.  
+
+%\item
+We focus on the case of commutative $G$ in Section \ref{sec:comcom},
 giving the definition of a commutative character sheaf and proving our first main theorem, that
 $\TrFrob{G} : \CSiso{G} \to G(k)^*$ induces an isomorphism on $\CCSiso{G}$.
-%
+
+%\item
 Passing to the case that $G$ is non-commutative, we give the definition of and main results about commutative character sheaves in Section \ref{sec:noncom}.  
 We note that we should only consider character sheaves that arise via pullback from $G\ab$ in order to eliminate those that have nontrivial restriction to the derived subgroup.  
 This observation underlies the definition of commutative character sheaves for non-commutative $G$.  
@@ -214,9 +218,10 @@ In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationsh
 We also compute the automorphism groups in $\CCS(G)$.
 Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves.
 
-In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize the representations of compact $p$-adic groups appearing in the types for : subject to a hypothesis on the component group of the depth-zero part of the datum and also on a conjecture on the geometrization of the character of Heisenberg-Weil representations, we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\rho)$.
-The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:types} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation in Section~\ref{ssec:Jacobi}, and also make a conjecture about the geometrization of that representation, Conjecture~\ref{conj}.
-
+%\item
+In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize the representations of compact $p$-adic groups appearing in the types for: we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\rho)$.
+The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:review} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
+%\end{enumerate}
 
 \section{Recollections and definitions} \label{sec:defs}
 
@@ -931,58 +936,76 @@ canonically.
 
 \begin{proposition}\label{prop:quasicharacters}
 With notation as above, suppose $\Fq$ is a finite field.
-For every quasicharacter/continuous linear character $\chi : \underline{G}(S) \to \EEx$ there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} = \trace \chi.\] \end{proposition}
+For every quasicharacter character $\varphi : \underline{G}(S) \to \EEx$ there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} = \trace \varphi.\] \end{proposition}
 
 \begin{proof}
-Set $S = \Spec{R}$ and, for every non-negative integer, set $S_n = \Spec{R/\mathfrak{m}^{n+1}}$.
- Then $G_n \ceq \Gr_n^{R}(\underline{G})$, the Greenberg transform of $\underline{G} \times_{S} S_n$, is a smooth group scheme over $\Fq$ and 
+By continuity of $\varphi : \underline{G}(S) \to \EE^\times$, there is some $m \in \NN$ and a factorization
 \[
-G_n(\Fq) = \underline{G}(S_n),
+\begin{tikzcd}
+\underline{G}(S) \arrow{rr}{\varphi} \arrow{rd} && \EEx\\
+& \underline{G}(R/\mathfrak{p}^{m+1}) \arrow{ru}[swap]{\varphi_m} 
+\end{tikzcd}
+\] 
+Set $G_m = \Gr_m^{R}(\underline{G})$.
+Then $G_m$ is a smooth group scheme over $\Fq$ and $G_m(\Fq) = \underline{G}(R/\mathfrak{p}^{m+1})$, canonically.
+Using Theorem~\ref{thm:geo}, $\cs{L}_m$ be a geometrization of the linear character $\varphi_m: G_m \to \EEx$; so
+\[
+\trFrob{\cs{L}_m} = \varphi_m
 \]
-canonically.
+on $G_m(\Fq)$.
+
+Recall that the full Greenberg transform $\Gr^{R}(\underline{G})$ is a group scheme over $\Fq$ such that $\Gr^{R}(\underline{G})(\Fq) = \underline{G}(\Fq)$, canonically, and comes equipped with a morphism $\Gr^{R}(\underline{G}) \to \Gr^{R}_m(\underline{G})$.
+Let $\cs{L}$ be the  Weil sheaf on $\Gr^{R}(\underline{G})$ obtained from $\cs{L}_m$ by pullback along $\Gr^{R}(\underline{G}) \to \Gr^{R}_{m}(\underline{G})$. 
+Then $\cs{L}$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G})$ such that $\trFrob{\cs{L}} = \trace \varphi$.
 \end{proof}
 
+\subsection{Jacobi theory over finite fields}\label{ssec:Jacobi}
 
-\subsection{A conjecture on Jacobi theory over finite fields}\label{sec:Jacobi}
-
-For use below, we recall some basic facts about the Heisenberg-Weil representation and make a conjecture about the geometrization of these representations.
-We refer the reader to \cite{berndt-schmidt:98a} for more details.
+For use below, we recall some facts about the Heisenberg-Weil representation.
 
 Let $V$ be a finite-dimensional vector space over a finite field $\Fq$ equipped with a symplectic paring $\langle\ ,\ \rangle : V\times V \to Z$, where $Z$ is a one-dimensional vector space over $\Fq$.
 Let $V^\sharp$ be the Heisenberg group determined by $(Z, \langle\ ,\ \rangle)$.
 Then $V^\sharp$ is a split extension of $V$ by $Z$.
 Let $\Sp(V)$ be the symplectic group determined by the symplectic pairing $\langle\ ,\ \rangle$; this group acts on $V^\sharp$.
-Then  is the Jacobi group. 
-From the construction above, it is clear that $\Sp(V)\ltimes V^\sharp$ may be viewed as the $\Fq$-points of an algebraic group over $\Fq$; we will refer to that algebraic group as the Jacobi group.
+The group $\Sp(V)\ltimes V^\sharp$ is called the Jacobi group. 
+From the construction above, it is clear that the Jacobi group may be viewed as the $\Fq$-points of an algebraic group over $\Fq$; we will refer to that algebraic group as the Jacobi group.
 
-Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the Heisenberg representation on $V^\sharp$ with central character $\psi : Z \to \EEx$. 
+Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the Heisenberg representation on $V^\sharp$ with central character $\psi : Z \to CC^\times$. 
 The Heisenberg representation determines a representation $\pi_{\psi}$ of $\Sp(V)$ with the same representation space as $\omega_\psi$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\psi(g)$ determines an isomorphism of representations $\omega_\psi^g \to \omega_\psi$.
-% through the Egorov identity \cite{Gurevich-Hadani:geometric_Weil}*{(1.3.1)}.\todo{Find better reference.}
 Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$.
 
-\begin{conjecture}\label{conj:Jacobi}
-%Notation as above.
-There is an equivariant Weil sheaf $\cs{W}_\psi$ on the Jacobi group such that 
-\[
+The character $\trace(W_\psi) : \Sp(V)\ltimes V^\sharp \to \EE^\times$ of $W_\psi$ is studied in \cite{Howe:Weil}, where is it shown that $\trace(W_\psi)(g,v,z) =0$ unless $v\in \ker(g-1)$, in which case $(g,v,z)$ lies in a conjugacy class intersecting $\Sp(V) \ltimes Z$. Since $\trace(W_\psi)(g,v,z) = \psi(z) \trace(W_\psi)(g,v,0)$, it follows that $\trace(W_\psi)$ is determined by its restriction to $\Sp(V)$.
+%
+The group $\Sp(V)$ is naturally stratified into the conjugation-stable subvarieties $S_r = \{ g\in \Sp(V) \tq \dim \ker (g-1) = r \}$. 
+The big stratum, $S_0$, is dense in $\Sp(V)$. 
+From \cite{Howe:Weil} we learn that $q^{-r/2} \trace(W_\psi)(g)$ has complex norm $1$, for $0\leq r \leq \dim V$ and $g\in S_r$.
+
+It is one of the main results of \cite{Gurevich-Hadani:geometric_Weil} that there is a Weil sheaf $\cs{W}_{\psi}$ on $\Sp(V)\ltimes V^\sharp$ such that 
+\begin{equation}
 \trFrob{\cs{W}_\psi} = \trace(W_\psi).
-\]
-\end{conjecture}
+\end{equation}
+%
+Although nothing more that this statement will be needed below, the construction of $\cs{W}_\psi$ is so unbelievably gorgeous that we can't resist saying a few extra words about it here.
+The reader pressed for time is invited to skip to the next section without loosing anything needed for the arguments in the rest of Section~\ref{sec:types}.
 
-\iffalse
-Pick a Lagrangian splitting $V = U \oplus U'$. 
-%such that $\langle v,v' \rangle = (u,w') - (u',w)$ for $v=(u,w)$ and $v'=(u',w')$.
-Let $B \to V^\sharp$ be the subgroup defined by the diagram below.
+First, fix an isomorphism $\CC \approx \EE$ so that we may mix classical and geometric facts. 
+One begins by finding a local system $\cs{K}_0$ on $S_0 \times V^\sharp$ such that 
 \[
-\begin{tikzcd}
-\ &&& U' \arrow{d} &\\
-1 \arrow{r} & Z \arrow{r} & V^\sharp \arrow{r} & \arrow[bend right]{l} V \arrow[bend right]{u} \arrow[bend left]{d} \arrow{r} & 1\\
-1 \arrow{r} & \arrow[equals]{u} Z \arrow{r} & \arrow[bend right]{l}  B \arrow{u} \arrow{r} & \arrow[bend right]{l}  U \arrow{u} \arrow{r} & 1 
-\end{tikzcd}
+\trFrob{\cs{K}_0[2\dim V](\dim V)} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
 \]
-Extend $\psi$ to $\psi_B : B \to \EEx$ in the obvious way. 
-Then $\omega \ceq \operatorname{Ind}_A^{V^\sharp}(\psi_A)$ is called the Heisenberg representation of $V^\sharp$.
-\fi
-
+where $\cs{K}_0[2\dim V](\dim V)$ is the Tate twist of the shift of $\cs{K}_0$.
+This is done by observing that $S_0$ is the domain of the Cayley transform $\cay : g \mapsto (g-1)^{-1}(g+1)$ on $\Sp(V)$ and that 
+\begin{equation}\label{Cayley}
+\trace(W_\psi)(g,v,z) =  q^{-\dim V} \gamma_\psi^{\dim V} \sigma(\det(1+\cay(g))) \psi(\langle \cay(g)v,v\rangle) \psi(z),
+\end{equation}
+ for $(g,v,z) \in S_0\times V\times Z$, where $\gamma_\psi$ is the Gauss sum for $\psi$ and $\sigma : \Fq^\times \to \EE^\times$ is the quadratic character of $\Fq^\times$.
+By a simple adaptation of what in \cite{Gurevich-Hadani:geometric_Weil}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible local system $\cs{K}_0$ on $S_0 \times V^\sharp$. 
+Next, one forms $\cs{K} \ceq j_{!*} \cs{K}_0$, the perverse extension of $\cs{K}_0$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
+It follows from \cite{Gurevich-Hadani:geometric_Weil} that 
+\[
+\trFrob{\cs{K}[\dim V](\dim V)} = \trace(W_\psi).
+\]
+Then $\cs{W}_\psi = \cs{K}[\dim V](\dim V)$ is the promised Weil sheaf.
 
 \subsection{Review of Yu's types}\label{ssec:review}
 
@@ -1188,19 +1211,19 @@ important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
 \subsection{Geometrization of characters of types}\label{ssec:geotypes}
 
 Finally, we come to the main result of Section~\ref{sec:types}.
+
 Since Yu's theory refers to complex representations, and since our geometrization uses $\ell$-adic sheaves, we grit our teeth and fix an isomorphism $\CC \approx \EE$.
 
 \begin{proposition}\label{prop:geotypes}
 Let $(C,\rho)$ be a Yu type, constructed as in Section~\ref{ssec:review}.
 Let $G^i = \Gr_{R}(\underline{G}^i)$ be the Greenberg transform of the smooth group scheme $\underline{G}^i$ appearing in Section~\ref{ssec:models}.
 Assume $\pi_0(\underline{G}^0)_\Fq^\reductive)$ is cyclic.
-Assume Conjecture~\ref{conj:Jacobi}.
 Then there is a virtual Weil sheaf $\cs{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
 \end{proposition}
 
 \begin{proof}
-%Now we explain how to geometrize the characters of these ingredient representations, using the discussion from Section~\ref{ssec:models}.  
 Recall that $G^i(\Fq) = \underline{G}^i(R) = C^i$, canonically.
+We begin with an argument already employed in the proof of Proposition~\ref{prop:quasicharacters}.
 By continuity of the quasicharacters $\varphi^i : G^i(\Fq) \to \CC^\times$, there is some $m \in \NN$ and a factorization
 \[
 \begin{tikzcd}
@@ -1211,7 +1234,7 @@ G^i(\Fq) \arrow{rr}{\varphi^i} \arrow{rd} && \EEx\\
 for each $i=0, \ldots d$.
 Set $G_m^i = \Gr_m^{R}(\underline{G}^i)$.
 Then $G_m^i$ is a smooth group scheme over $\Fq$ and $G_m^i(\Fq) = \underline{G}^i(R/\mathfrak{p}^{m+1})$, canonically.
-Using Proposition~\ref{prop:quasicharacters}, let $\cs{L}^i_m$ be a geometrization of the linear character $\varphi^i_m: G_m^i \to \CC^\times$; so
+Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear character $\varphi^i_m: G_m^i \to \CC^\times$; so
 \[
 \trFrob{\cs{L}^i_m} = \trace \varphi^i_m.
 \]
@@ -1246,7 +1269,7 @@ Observe that $\trace(\rho_0)_m$ may be recovered from ${A}_m^0$:
 %Then $\cs{A}^0$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^0)$ from which the character of $\rho^0$ may be recovered.
 
 Consider the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ and the Heisenberg-Weil representation $W_{i+1}$ appearing in Section~\ref{ssec:models}.
-Let $\cs{W}_{i+1}$ be the Weil sheaf promised by Conjecture~\ref{conj:Jacobi} on the Jacobi group such that
+Let $\cs{W}_{i+1}$ be the Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi}, such that
 \[
 \trFrob{\cs{W}_{i+1}} = \trace(W_{i+1}).
 \]
@@ -1341,3 +1364,14 @@ as desired.
 \bibliography{bibliography/Biblio}
 
 \end{document}
+
+\bib{Howe}{article}{
+   author={Howe, Roger E.},
+   title={On the character of Weil's representation},
+   journal={Trans. Amer. Math. Soc.},
+   volume={177},
+   date={1973},
+   pages={287--298},
+   issn={0002-9947},
+   review={\MR{0316633}},
+}
