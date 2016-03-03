@@ -992,21 +992,21 @@ The reader pressed for time is invited to skip to the next section without loosi
 Fix an isomorphism $\CC \approx \EE$ so that we may mix classical and geometric facts. 
 One begins by finding a local system $\cs{K}_0$ on $S_0 \times V^\sharp$ such that 
 \[
-\trFrob{\cs{K}_0[2\dim V](\dim V)} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
+\trFrob{\cs{K}_0[\dim V](\frac{\dim V}{2})} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
 \]
-where $\cs{K}_0[2\dim V](\dim V)$ is the Tate twist of the shift of $\cs{K}_0$.
+where $\cs{K}_0[\dim V](\frac{\dim V}{2})$ is the Tate twist of the shift of $\cs{K}_0$.
 This is done by observing that $S_0$ is the domain of the Cayley transform $\cay : g \mapsto (g-1)^{-1}(g+1)$ on $\Sp(V)$ and that 
 \begin{equation}\label{Cayley}
-\trace(W_\psi)(g,v,z) =  q^{-\dim V} \gamma_\psi^{\dim V} \sigma(\det(1+\cay(g))) \psi(\langle \cay(g)v,v\rangle) \psi(z),
+\trace(W_\psi)(g,v,z) =  q^{-\dim V/2} \gamma_\psi^{\dim V} \sigma(\det(1+\cay(g))) \psi\left(\frac{1}{4}\langle \cay(g)v,v\rangle \right) \psi(z),
 \end{equation}
  for $(g,v,z) \in S_0\times V\times Z$, where $\gamma_\psi$ is the Gauss sum for $\psi$ and $\sigma : \Fq^\times \to \EE^\times$ is the quadratic character of $\Fq^\times$.
 By a simple adaptation of what in \cite{gurevich-hadani:07a}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ on $S_0 \times V^\sharp$. 
 Next, one forms $\cs{K} \ceq j_{!*} \cs{K}_0$, the perverse extension of $\cs{K}_0$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
 It follows from \cite{gurevich-hadani:07a} that 
 \[
-\trFrob{\cs{K}[\dim V](\dim V)} = \trace(W_\psi).
+\trFrob{\cs{K}(\frac{\dim V}{2})} = \trace(W_\psi).
 \]
-Then $\cs{W}_\psi = \cs{K}[\dim V](\dim V)$ is the promised Weil sheaf complex.
+Then $\cs{W}_\psi = \cs{K}(\frac{\dim V}{2})$ is the promised Weil sheaf complex.
 
 \subsection{Review of Yu's types}\label{ssec:review}
 
