@@ -9,7 +9,7 @@
 \email{roed.math@gmail.com}
 
 \subjclass[2010]{14F05 (primary), 14L15, 22E50}
-\keywords{character sheaves}
+\keywords{commutative character sheaves, abelianization,quasicharacters, types,supercuspidal representations}
 
 \usepackage{amssymb}
 \usepackage{amsrefs}
@@ -945,24 +945,28 @@ canonically.
 
 \subsection{A conjecture on Jacobi theory over finite fields}\label{sec:Jacobi}
 
-For use below, we recall some facts about the Heisenberg-Weil representation.
+For use below, we recall some basic facts about the Heisenberg-Weil representation and make a conjecture about the geometrization of these representations.
+We refer the reader to \cite{berndt-schmidt:98a} for more details.
 
 Let $V$ be a finite-dimensional vector space over a finite field $\Fq$ equipped with a symplectic paring $\langle\ ,\ \rangle : V\times V \to Z$, where $Z$ is a one-dimensional vector space over $\Fq$.
 Let $V^\sharp$ be the Heisenberg group determined by $(Z, \langle\ ,\ \rangle)$.
 Then $V^\sharp$ is a split extension of $V$ by $Z$.
 Let $\Sp(V)$ be the symplectic group determined by the symplectic pairing $\langle\ ,\ \rangle$; this group acts on $V^\sharp$.
-The group $\Sp(V)\ltimes V^\sharp$ is called the Jacobi group. 
-From the construction above, it is clear that the Jacobi group may be viewed as the $\Fq$-points of an algebraic group over $\Fq$; we will refer to that algebraic group as the Jacobi group.
+Then  is the Jacobi group. 
+From the construction above, it is clear that $\Sp(V)\ltimes V^\sharp$ may be viewed as the $\Fq$-points of an algebraic group over $\Fq$; we will refer to that algebraic group as the Jacobi group.
 
 Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the Heisenberg representation on $V^\sharp$ with central character $\psi : Z \to \EEx$. 
 The Heisenberg representation determines a representation $\pi_{\psi}$ of $\Sp(V)$ with the same representation space as $\omega_\psi$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\psi(g)$ determines an isomorphism of representations $\omega_\psi^g \to \omega_\psi$.
+% through the Egorov identity \cite{Gurevich-Hadani:geometric_Weil}*{(1.3.1)}.\todo{Find better reference.}
 Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$.
 
-It is one of the main results of \cite{Gurevich-Hadani:geometric_Weil}*{(1.3.1)} that there is a Weil sheaf $\cs{W}_\psi$ on the Jacobi group such that 
+\begin{conjecture}\label{conj:Jacobi}
+%Notation as above.
+There is an equivariant Weil sheaf $\cs{W}_\psi$ on the Jacobi group such that 
 \[
 \trFrob{\cs{W}_\psi} = \trace(W_\psi).
 \]
-
+\end{conjecture}
 
 \iffalse
 Pick a Lagrangian splitting $V = U \oplus U'$. 
@@ -1190,6 +1194,7 @@ Since Yu's theory refers to complex representations, and since our geometrizatio
 Let $(C,\rho)$ be a Yu type, constructed as in Section~\ref{ssec:review}.
 Let $G^i = \Gr_{R}(\underline{G}^i)$ be the Greenberg transform of the smooth group scheme $\underline{G}^i$ appearing in Section~\ref{ssec:models}.
 Assume $\pi_0(\underline{G}^0)_\Fq^\reductive)$ is cyclic.
+Assume Conjecture~\ref{conj:Jacobi}.
 Then there is a virtual Weil sheaf $\cs{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
 \end{proposition}
 
@@ -1241,7 +1246,7 @@ Observe that $\trace(\rho_0)_m$ may be recovered from ${A}_m^0$:
 %Then $\cs{A}^0$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^0)$ from which the character of $\rho^0$ may be recovered.
 
 Consider the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ and the Heisenberg-Weil representation $W_{i+1}$ appearing in Section~\ref{ssec:models}.
-Let $\cs{W}_{i+1}$ be the Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi} such that
+Let $\cs{W}_{i+1}$ be the Weil sheaf promised by Conjecture~\ref{conj:Jacobi} on the Jacobi group such that
 \[
 \trFrob{\cs{W}_{i+1}} = \trace(W_{i+1}).
 \]
