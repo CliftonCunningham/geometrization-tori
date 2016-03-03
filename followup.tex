@@ -1,6 +1,6 @@
 \documentclass[10pt]{amsart}
 
-\title[Geometrization of characters of smooth group schemes]{Geometrization of characters of smooth group schemes over finite fields\\ with an application to types for supercuspidal representations}
+\title[Commutative Character Sheaves]{The Dictionary for characters of smooth group schemes}
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
 \email{cunning@math.ucalgary.ca}
@@ -199,17 +199,13 @@ In this way, we provide all of the ingredients needed to parametrize supercuspid
 virtual Weil perverse sheaves on smooth group schemes over finite fields. 
 
 We now summarize the sections of the paper in more detail.
-
-%\begin{enumerate}
-%\item
+%
 In Section \ref{sec:defs}, we recall the category $\CS(G)$ from \cite{cunningham-roe:13a} and note that it still makes sense when $G$ is not commutative.  
-
-%\item
+%
 We focus on the case of commutative $G$ in Section \ref{sec:comcom},
 giving the definition of a commutative character sheaf and proving our first main theorem, that
 $\TrFrob{G} : \CSiso{G} \to G(k)^*$ induces an isomorphism on $\CCSiso{G}$.
-
-%\item
+%
 Passing to the case that $G$ is non-commutative, we give the definition of and main results about commutative character sheaves in Section \ref{sec:noncom}.  
 We note that we should only consider character sheaves that arise via pullback from $G\ab$ in order to eliminate those that have nontrivial restriction to the derived subgroup.  
 This observation underlies the definition of commutative character sheaves for non-commutative $G$.  
@@ -217,11 +213,10 @@ We state our main result, Theorem~\ref{thm:geo}, that pullback along the abelian
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
 Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves.
-
-%\item
+%
 In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize the representations of compact $p$-adic groups appearing in the types for: we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\rho)$.
 The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:review} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
-%\end{enumerate}
+
 
 We thank Loren Spice for explaining Yu's theory of types to us.
 
@@ -760,7 +755,7 @@ then $q_H^*: \CS(Q) \to \CS_H(G)$ is an equivalence.
 %Then, observe that the comparison functor for Weil local systems is an equivalence for flat surjective morphisms of affine schemes over $\Fq$.
 %It follows that $\Loc$ is a stack over schemes over $\Fq$ in the fpqc topology; see \cite{Vistoli:notes}*{Lem 4.25} for example.
 %(This is a slight variation on the argument showing that quasicoherent sheaves are a stack over schemes in the fpqc topology; see \cite{Vistoli:notes}*{Thm 4.23} for example.)
-Since $q : G\to Q$ is an $H$-torsor in the fpqc topology, is follows from descent theory that the comparison functor $\Loc(Q) \to \Loc_H(G)$ is an equivalence; see \cite{Vistoli:notes}*{Thm 4.46} for example.)
+Since $q : G\to Q$ is an $H$-torsor in the fpqc topology, is follows from descent theory that the comparison functor $\Loc(Q) \to \Loc_H(G)$ is an equivalence; argue as in \cite{Vistoli:notes}*{Thm 4.46}, for example.
 %
 For use below, we write $L_1 : \Loc(Q) \to \Loc_H(G)$ for the comparison functor, $R_1 : \Loc_H(G) \to \Loc(Q)$ for its adjoint, and $(\epsilon_1, \eta_1)$ for the counit and unit of the adjunction.
 %
