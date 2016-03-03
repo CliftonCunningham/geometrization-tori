@@ -950,15 +950,15 @@ By continuity of $\varphi : \underline{G}(S) \to \EE^\times$, there is some $m \
 \] 
 Set $G_m = \Gr_m^{R}(\underline{G})$.
 Then $G_m$ is a smooth group scheme over $\Fq$ and $G_m(\Fq) = \underline{G}(R/\mathfrak{p}^{m+1})$, canonically.
-Using Theorem~\ref{thm:geo}, $\cs{L}_m$ be a geometrization of the linear character $\varphi_m: G_m \to \EEx$; so
+Using Theorem~\ref{thm:geo}, let $\cs{L}_m$ be a geometrization of the linear character $\varphi_m: G_m \to \EEx$; so
 \[
 \trFrob{\cs{L}_m} = \varphi_m
 \]
 on $G_m(\Fq)$.
-
-Recall that the full Greenberg transform $\Gr^{R}(\underline{G})$ is a group scheme over $\Fq$ such that $\Gr^{R}(\underline{G})(\Fq) = \underline{G}(\Fq)$, canonically, and comes equipped with a morphism $\Gr^{R}(\underline{G}) \to \Gr^{R}_m(\underline{G})$.
-Let $\cs{L}$ be the  Weil sheaf on $\Gr^{R}(\underline{G})$ obtained from $\cs{L}_m$ by pullback along $\Gr^{R}(\underline{G}) \to \Gr^{R}_{m}(\underline{G})$. 
-Then $\cs{L}$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G})$ such that $\trFrob{\cs{L}} = \trace \varphi$.
+%
+Recall that the full Greenberg transform $G \ceq \Gr^{R}(\underline{G})$ is a group scheme over $\Fq$ such that $G(\Fq) = \underline{G}(\Fq)$, canonically, and comes equipped with a morphism $G \to G_m$.
+Let $\cs{L}$ be the  Weil sheaf on $G$ obtained from $\cs{L}_m$ by pullback along $G \to G_m$. 
+Then $\cs{L}$ is a quasicharacter sheaf on $G$, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, such that $\trFrob{\cs{L}} = \trace \varphi$.
 \end{proof}
 
 \subsection{Jacobi theory over finite fields}\label{ssec:Jacobi}
@@ -976,10 +976,11 @@ Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the He
 The Heisenberg representation determines a representation $\pi_{\psi}$ of $\Sp(V)$ with the same representation space as $\omega_\psi$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\psi(g)$ determines an isomorphism of representations $\omega_\psi^g \to \omega_\psi$.
 Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$.
 
-The character $\trace(W_\psi) : \Sp(V)\ltimes V^\sharp \to \EE^\times$ of $W_\psi$ is studied in \cite{Howe:Weil}, where is it shown that $\trace(W_\psi)(g,v,z) =0$ unless $v\in \ker(g-1)$, in which case $(g,v,z)$ lies in a conjugacy class intersecting $\Sp(V) \ltimes Z$. Since $\trace(W_\psi)(g,v,z) = \psi(z) \trace(W_\psi)(g,v,0)$, it follows that $\trace(W_\psi)$ is determined by its restriction to $\Sp(V)$.
+The character $\trace(W_\psi) : \Sp(V)\ltimes V^\sharp \to \EE^\times$ of $W_\psi$ is studied in \cite{Howe:Weil}, where is it shown that $\trace(W_\psi)$ is determined by $\psi$ and its restriction to $\Sp(V)$ and, moreover, that $\trace(W_\psi)(g,v,z) =0$ unless $v\in \ker(g-1)$, in which case $(g,v,z)$ lies in a conjugacy class intersecting $\Sp(V) \ltimes Z$. 
 %
 The group $\Sp(V)$ is naturally stratified into the conjugation-stable subvarieties $S_r = \{ g\in \Sp(V) \tq \dim \ker (g-1) = r \}$. 
-The big stratum, $S_0$, is dense in $\Sp(V)$. 
+The big stratum, $S_0$, is dense in $\Sp(V)$;
+the boundary of $S_0$ is $\cup_{0< r\leq \dim V} S_r$. 
 From \cite{Howe:Weil} we learn that $q^{-r/2} \trace(W_\psi)(g)$ has complex norm $1$, for $0\leq r \leq \dim V$ and $g\in S_r$.
 
 It is one of the main results of \cite{Gurevich-Hadani:geometric_Weil} that there is a Weil sheaf $\cs{W}_{\psi}$ on $\Sp(V)\ltimes V^\sharp$ such that 
