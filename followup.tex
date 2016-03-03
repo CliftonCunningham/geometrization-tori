@@ -974,14 +974,14 @@ Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the He
 The Heisenberg representation determines a representation $\pi_{\psi}$ of $\Sp(V)$ with the same representation space as $\omega_\psi$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\psi(g)$ determines an isomorphism of representations $\omega_\psi^g \to \omega_\psi$.
 Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$.
 
-The character $\trace(W_\psi) : \Sp(V)\ltimes V^\sharp \to \EE^\times$ of $W_\psi$ is studied in \cite{Howe:Weil}, where is it shown that $\trace(W_\psi)$ is determined by $\psi$ and its restriction to $\Sp(V)$ and, moreover, that $\trace(W_\psi)(g,v,z) =0$ unless $v\in \ker(g-1)$, in which case $(g,v,z)$ lies in a conjugacy class intersecting $\Sp(V) \ltimes Z$. 
+The character $\trace(W_\psi) : \Sp(V)\ltimes V^\sharp \to \EE^\times$ of $W_\psi$ is studied in \cite{howe:73a}, where is it shown that $\trace(W_\psi)$ is determined by $\psi$ and its restriction to $\Sp(V)$ and, moreover, that $\trace(W_\psi)(g,v,z) =0$ unless $v\in \ker(g-1)$, in which case $(g,v,z)$ lies in a conjugacy class intersecting $\Sp(V) \ltimes Z$. 
 %
 The group $\Sp(V)$ is naturally stratified into the conjugation-stable subvarieties $S_r = \{ g\in \Sp(V) \tq \dim \ker (g-1) = r \}$. 
 The big stratum, $S_0$, is dense in $\Sp(V)$;
 the boundary of $S_0$ is $\cup_{0< r\leq \dim V} S_r$. 
-From \cite{Howe:Weil} we learn that $q^{-r/2} \trace(W_\psi)(g)$ has complex norm $1$, for $0\leq r \leq \dim V$ and $g\in S_r$.
+From \cite{howe:73a}*{Prop. 2} we learn that $q^{-r/2} \trace(W_\psi)(g)$ has complex norm $1$, for $0\leq r \leq \dim V$ and $g\in S_r$.
 
-It is one of the main results of \cite{Gurevich-Hadani:geometric_Weil} that there is a Weil sheaf complex $\cs{W}_{\psi}$ on $\Sp(V)\ltimes V^\sharp$ such that 
+It is one of the main results of \cite{gurevich-hadani:07a} that there is a Weil sheaf complex $\cs{W}_{\psi}$ on $\Sp(V)\ltimes V^\sharp$ such that 
 \begin{equation}
 \trFrob{\cs{W}_\psi} = \trace(W_\psi).
 \end{equation}
@@ -1000,9 +1000,9 @@ This is done by observing that $S_0$ is the domain of the Cayley transform $\cay
 \trace(W_\psi)(g,v,z) =  q^{-\dim V} \gamma_\psi^{\dim V} \sigma(\det(1+\cay(g))) \psi(\langle \cay(g)v,v\rangle) \psi(z),
 \end{equation}
  for $(g,v,z) \in S_0\times V\times Z$, where $\gamma_\psi$ is the Gauss sum for $\psi$ and $\sigma : \Fq^\times \to \EE^\times$ is the quadratic character of $\Fq^\times$.
-By a simple adaptation of what in \cite{Gurevich-Hadani:geometric_Weil}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ on $S_0 \times V^\sharp$. 
+By a simple adaptation of what in \cite{gurevich-hadani:07a}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ on $S_0 \times V^\sharp$. 
 Next, one forms $\cs{K} \ceq j_{!*} \cs{K}_0$, the perverse extension of $\cs{K}_0$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
-It follows from \cite{Gurevich-Hadani:geometric_Weil} that 
+It follows from \cite{gurevich-hadani:07a} that 
 \[
 \trFrob{\cs{K}[\dim V](\dim V)} = \trace(W_\psi).
 \]
@@ -1363,14 +1363,3 @@ as desired.
 \bibliography{bibliography/Biblio}
 
 \end{document}
-
-\bib{Howe}{article}{
-   author={Howe, Roger E.},
-   title={On the character of Weil's representation},
-   journal={Trans. Amer. Math. Soc.},
-   volume={177},
-   date={1973},
-   pages={287--298},
-   issn={0002-9947},
-   review={\MR{0316633}},
-}
