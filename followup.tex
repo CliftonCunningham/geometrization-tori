@@ -176,17 +176,17 @@ In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf di
 Writing $G(k)^*$ for $\Hom(G(k), \EEx)$, we described a category $\CS(G)$ of \emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
 In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel; we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
 
-The first aim of this paper is to repair this defect in the function-sheaf dictionary by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
+The first aim of this paper is to repair this defect in the function-sheaf dictionary for characters of smooth commutative group schemes $G$ by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
 We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
 When $G$ is connected, all character sheaves on $G$ are commutative.
-This category clarifies several questions about character sheaves on $G$: invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and  $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
+This category clarifies several questions about character sheaves on $G$: invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
-Next, we broaden our scope further to encompass smooth group schemes $G$ that are not necessarily commutative.
-In this paper, we do not consider Lusztig's geometrization of arbitrary characters of connected, reductive groups $G(k)$
-using character sheaves \cite{lusztig:85a}*{Def.~2.10}, but focus on the case of $1$-dimensional characters
-$G(k)^*$ assuming only that $G$ is smooth, allowing for the possibility that $G$ is not connected and not reductive.
+Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
+In this paper, we do not consider Lusztig's geometrization of characters of representations of connected, reductive groups $G(k)$
+using character sheaves \cite{lusztig:85a}*{Def.~2.10}, but focus on the case of characters
+$G(k)^*$ (that is, group homomorphisms from $G(k)$ to $\EEx$), assuming only that $G$ is smooth, allowing for the possibility that $G$ is not connected and not reductive.
 The category $\CS(G)$ has a straightforward generalization to this case, but again
-there are more linear character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
+there are more character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
 We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
 is an isomorphism.  
 Since $G\ab(k)^*$ surjects onto $G(k)^*$, it follows that for each character $\chi \in G(k)^*$ there is a commutative
@@ -382,20 +382,23 @@ that does not vanish on $G\der$, defined by the extension
 1 \to \mu_n \to \SL_n \to \PGL_n \to 1.
 \]
 In order to obtain a relationship between character sheaves on $G$ and characters of $G(k)$,
-he opts to give a different definition of commutator.  Since we already need to adapt our
+he opts to give a different definition of commutator and, in doing so, introduces a `stacky abelianization' of $G$ in order to geometrize characters of $G(\Fq)$.
+ Since we has already seen the need to adapt the
 notion of character sheaf, even in the commutative case, we instead add restrictions
-to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged.
+to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged, allowing us to use the schematic abelianization of $G$ in the geometrization of characters of $G(\Fq)$; see Theorem~\ref{thm:geo}.
 
-\subsection{Definition}\label{ssec:noncomdef}
+\subsection{Main definition}\label{ssec:noncomdef}
 
 In order to get character sheaves that correspond to characters in $G(k)^*$, we must discard those
 character sheaves whose restriction to the derived subgroup is nontrivial.
-The following proposition will be proven in Section \ref{ssec:proof1}.
+Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves  when $G$ is smooth but not necessarily commutative.
+
 \begin{proposition} \label{prop:Gder_triv}
-Suppose $G$ is a smooth group scheme and $\cs{L} \in \CS(G)$ is a linear character sheaf on $G$.
-Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $\cs{L} \cong q^*(\cs{L}\ab)$ for some
-character sheaf $\cs{L}\ab$ on $G\ab$.
+Suppose $G$ is a smooth group scheme and $(\cs{L},\mu) \in \CS(G)$.
+Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \cong q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, for some $(\cs{L}\ab,\mu\ab) \in \CS(G\ab)$.
 \end{proposition}
+
+Proposition~\ref{prop:Gder_triv} will be proven in Section \ref{ssec:proof1}.
 
 We may now define commutative character sheaves on $G$.
 %
@@ -475,7 +478,11 @@ But a description of $\CCS(G)$ requires, at the very least, a description of iso
 
 \begin{corollary}\label{cor:Gab}
 %Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
-Category $\CCS(G)$ is monoidal and $\CCSiso{G} \iso \Hom(G\ab(\Fq),\EEx)$, canonically.
+Category $\CCS(G)$ is monoidal and 
+\[
+\CCSiso{G} \iso \Hom(G\ab(\Fq),\EEx),
+\]
+canonically.
 Every map in $\CCS(G)$ is either trivial or an isomorphism, and the automorphism group of any object in $\CCS(G)$ is $\Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$, canonically.
 \end{corollary}
 
@@ -853,6 +860,17 @@ It now follows from Lemma~\ref{lem:torsor} that the comparison functor $\CS(G\ab
 %\todo{Did I compare these topologies correctly? fpqc is finer than fppf}
 %
 On the other hand, by Lemma~\ref{lem:beta}, $\CS'(G) \to \CS_{H}(G)$, defined by $(\cs{L},\mu,\beta)\mapsto (\cs{L},\mu, \nu)$, is an equivalence.
+
+Now, suppose $(\cs{L},\mu)\in \CS(G)$ and there is an isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ in $\CS(H)$.
+Then $(\cs{L},\mu,\beta) \in \CS'(G)$.
+We have just seen that $\CS'(G)$, $\CS_H(G)$ and $\CS(G\ab)$ are equivalent categories.
+Let $(\cs{L},\mu,\beta) \mapsto (\cs{L},\mu,\nu)$ under the equivalence $\CS'(G) \to \CS_H(G)$ described above.
+Then $(\cs{L},\mu,\nu) \iso q_H^*(\cs{L}\ab,\mu\ab)$ in $\CS_H(G)$, for some $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$.
+Applying the forgetful functor $\CS_H(G)\to \CS(G)$ to this isomorphism, it follows that $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, as desired. 
+
+Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
+Then $j^*(\cs{L},\mu) \iso j^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(H)$. 
+Since $g\circ j = 1$, it follows that $\cs{L}\vert_{G\der} \to (\EE)_{H}$ in $\CS(H)$.
 This completes the proof of Proposition~\ref{prop:Gder_triv}.
 %\end{proof}
 
