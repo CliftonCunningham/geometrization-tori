@@ -1,6 +1,7 @@
 \documentclass[10pt]{amsart}
 
-\title[Commutative Character Sheaves]{The Dictionary for characters of smooth group schemes}
+\title[Commutative Character Sheaves]{Geometrization of characters of smooth group schemes}
+%\title[Commutative Character Sheaves]{The Dictionary for characters of smooth group schemes}
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
 \email{cunning@math.ucalgary.ca}
@@ -949,22 +950,22 @@ canonically.
 
 \begin{proposition}\label{prop:quasicharacters}
 With notation as above, suppose $\Fq$ is a finite field.
-For every quasicharacter character $\varphi : \underline{G}(S) \to \EEx$ there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} = \trace \varphi.\] \end{proposition}
+For every quasicharacter character $\varphi : \underline{G}(S) \to \EEx$ there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} =  \varphi.\] \end{proposition}
 
 \begin{proof}
 By continuity of $\varphi : \underline{G}(S) \to \EE^\times$, there is some $m \in \NN$ and a factorization
 \[
 \begin{tikzcd}
 \underline{G}(S) \arrow{rr}{\varphi} \arrow{rd} && \EEx\\
-& \underline{G}(R/\mathfrak{p}^{m+1}) \arrow{ru}[swap]{\varphi_m} 
+& \underline{G}(R/\mathfrak{p}^{m+1}) \arrow{ru}[swap]{\varphi^m} 
 \end{tikzcd}
 \] 
 Set $R_m = R/\mathfrak{p}^{m+1}$ and
 set $G_m = \Gr_m^{R}(\underline{G})$, the Greenberg transform of $\underline{G}\times_{\Spec{R}}\Spec{R_m}$.
 Then $G_m$ is a smooth group scheme over $\Fq$ and $G_m(\Fq) = \underline{G}(R_m)$, canonically.
-Using Theorem~\ref{thm:geo}, let $\cs{L}_m$ be a geometrization of the character $\varphi_m: G_m \to \EEx$; so
+Using Theorem~\ref{thm:geo}, let $\cs{L}_m$ be a geometrization of the character $\varphi^m: G_m \to \EEx$; so
 \[
-\trFrob{\cs{L}_m} = \varphi_m
+\trFrob{\cs{L}_m} = \varphi^m
 \]
 on $G_m(\Fq)$.
 %
@@ -1022,7 +1023,7 @@ It follows from \cite{gurevich-hadani:07a} that
 \[
 \trFrob{\cs{K}} = \trace(W_\psi).
 \]
-Then $\cs{K}_\psi$ is the promised Weil sheaf complex.
+Then $\cs{K}$ is the promised Weil sheaf complex.
 
 \subsection{Review of Yu's types}\label{ssec:review}
 
@@ -1037,17 +1038,15 @@ Let us refer to the types arising in this manner as {\it Yu types}.
 A Yu type is then a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$, directly from the following information, derived from a Yu datum:
 \begin{enumerate}
 \labitem{Y0}{Y0} a sequence of compact groups $C^0 \subseteq C^1 \subseteq \cdots \subseteq C^d= C$;
-\labitem{Y1}{Y1} a continuous representation $\rho^0$ of $C^0$;
-\labitem{Y2}{Y2} a quasicharacter $\varphi^i : C^i \to \CC^\times$, for $i=0, \ldots d$.
+\labitem{Y1}{Y1} a continuous representation $\rho_0$ of $C^0$;
+\labitem{Y2}{Y2} quasicharacters $\varphi^i : C^i \to \CC^\times$, for $i=0, \ldots d$.
 \end{enumerate}
-The groups $C^i$ here are the groups $\,^\circ K^i$ in \cite{yu:01a}; the representation $\rho^0$ here is the representation $\pi_0\vert_{\,^\circ K^0}$ in \cite{yu:01a}; the quasicharacters $\varphi^i$ here are the quasicharacters $\phi_i\vert_{\,^\circ K^i}$ in \cite{yu:01a}.
 %
-The representation $\rho^0$ and the quasicharacters $(\varphi^0, \ldots , \varphi^d)$ enjoy certain properties which allow Yu to construct representations $\rho^i$ of $C^i$, for $i=1, \ldots, d$ such that $\rho^d = \rho$.
+The representation $\rho_0$ and the quasicharacters $(\varphi^0, \ldots , \varphi^d)$ enjoy certain properties which allow Yu to construct representations $\rho_i$ of $C^i$, for $i=1, \ldots, d$ such that $\rho_d = \rho$ as representations of $C^d = C$.
 %
-
 Since we will need some facts about this construction, we review some further detail here.
-In Table~\ref{table:notation} we explain how to convert the rest of the constructions appearing in this section into the notation of \cite{yu:01a}.
-%
+In Table~\ref{table:notation} we explain how to convert the constructions appearing in this section into the notation of \cite{yu:01a}.
+
 First, Yu introduces 
 \begin{enumerate}
 \labitem{Y3}{Y3}
@@ -1081,18 +1080,18 @@ $
 J_{i+1} \to V_{i+1}^\sharp,
 $
 where $V_{i+1}^\sharp$ is the Heisenberg group determined by $V_{i+1}$, $Z_{i+1}$, $\langle\ ,\ \rangle_{i+1}$ and $\psi_{i+1}$.
-In fact, the quotient $J_{i+1} \to V_{i+1}^\sharp$ factors through a quotient $J_{i+1} \to H^{i+1}$ and an isomorphism 
+In fact, the quotient $J_{i+1} \to V_{i+1}^\sharp$ factors through a quotient $J_{i+1} \to H_{i+1}$ and an isomorphism 
 $
-j_{i+1} : H^{i+1} \to V_{i+1}^\sharp,
+j_{i+1} : H_{i+1} \to V_{i+1}^\sharp,
 $
-where $H^{i+1}$ is a Heisenberg $p$-group in the sense of \cite{yu:01a}*{}.
+where $H_{i+1}$ is a Heisenberg $p$-group in the sense of \cite{yu:01a}*{}.
 %\labitem{Q3}{Q3} 
 %\item
 Finally, Yu constructs 
 $
 f_{i+1} : C^i \to \Sp(V_{i+1}),
 $
-such that the pair $(f_{i+1}, j_{i+1})$ is a symplectic action of $C^i$ on $H^{i+1}$ in the sense of \cite{yu:01a}.
+such that the pair $(f_{i+1}, j_{i+1})$ is a symplectic action of $C^i$ on $H_{i+1}$ in the sense of \cite{yu:01a}.
 %
 Taken together, this defines
 %\end{enumerate}
@@ -1106,31 +1105,31 @@ Taken together, this defines
 \]
 \end{enumerate}
 
-We can now recall how Yu uses all this to construct representations $\rho^i$ of $C^i$, for $i=1, \ldots, d$ and thus the type $(C,\rho) = (C^d,\rho^d\otimes \varphi^d)$.
-The representations $\rho^i$ are defined recursively. 
-For the base case $i=0$, the representation $\rho^0$ is just $\rho_0$; see \ref{Y1} above.
+We can now recall how Yu uses all this to construct representations $\rho_i$ of $C^i$, for $i=1, \ldots, d$ and thus the type $(C,\rho) = (C^d,\rho_d\otimes \varphi^d)$.
+The representations $\rho_i$ are defined recursively. 
+For the base case $i=0$, the representation $\rho_0$ is just $\rho_0$; see \ref{Y1} above.
 Let $W_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, whose restriction to $V_{i+1}^\sharp$ has central character $\psi_{i+1}$.
 Pull-back along $h_{i+1}$ to form $h_{i+1}^*(W_{i+1})$, a representation of $C^i \ltimes J_{i+1}$.
-Write $\inf(\rho^i \otimes \varphi^i)$ for the representation of $C^i \ltimes J_{i+1}$ obtained by pulling back $\rho^i$ along $C^i \ltimes J_{i+1} \to C^i$. 
+Write $\inf(\rho_i \otimes \varphi^i)$ for the representation of $C^i \ltimes J_{i+1}$ obtained by pulling back $\rho_i$ along $C^i \ltimes J_{i+1} \to C^i$. 
 Consider the representation
 \begin{equation}\label{eq:tensor}
-\rho_{i+1} \ceq h_{i+1}^*(W_{i+1}) \otimes \inf(\rho^i \otimes \varphi^i)
+\rho_{i+1} \ceq h_{i+1}^*(W_{i+1}) \otimes \inf(\rho_i \otimes \varphi^i)
 \end{equation}
 of $C^i \ltimes J_{i+1}$.
 %By construction, the character of this representation satisfies
 %\begin{equation}\label{eq:tilderho}
-%\trace({\tilde\rho}_{i+1})(y)= \trace(h_{i+1}^*(W_{i+1})(y)\ \trace(\rho^i)(p_i(y))\ \varphi^i(p_i(y))
+%\trace({\tilde\rho}_{i+1})(y)= \trace(h_{i+1}^*(W_{i+1})(y)\ \trace(\rho_i)(p_i(y))\ \varphi^i(p_i(y))
 %\end{equation}
 %for $y \in C^i \ltimes J_{i+1}$.
 By \cite{yu:01a}*{}, the representation $\rho_{i+1}$ of $C^i \ltimes J_{i+1}$ is trivial on $C^{i}\cap J_{i+1}$ so $\rho_{i+1}$ descends to $C^{i+1}$. 
 
-This defines the representation $\rho^{i+1}$ of $C^{i+1}$. 
-This completes the recursive definition and thus determines $\rho^d$. 
-Now set $\rho \ceq \rho^d\otimes \varphi^d$. 
+This defines the representation $\rho_{i+1}$ of $C^{i+1}$. 
+This completes the recursive definition and thus determines $\rho_d$. 
+Now set $\rho \ceq \rho_d\otimes \varphi^d$. 
 This is the representation of $C^d = C$ determining the Yu type $(C,\rho)$.
-%The character of $\rho^d$ on $C^d = C = J_0 \cdots J_d$ satisfies
+%The character of $\rho_d$ on $C^d = C = J_0 \cdots J_d$ satisfies
 %\[
-%\trace(\rho)(k_0 \cdots k_d) = \rho^0(k_0)  \varphi^0(k_0) \cdots \varphi^d(k_d),
+%\trace(\rho)(k_0 \cdots k_d) = \rho_0(k_0)  \varphi^0(k_0) \cdots \varphi^d(k_d),
 %\]
 %for $k_i\in J_i$.
 
@@ -1138,18 +1137,18 @@ This is the representation of $C^d = C$ determining the Yu type $(C,\rho)$.
 \caption{Comparison with notation of \cite{yu:01a}}
 \begin{center}
 \begin{tabular}{c|l}
-$C^0$ & $\,^\circ K^0 = G^i(F)_y$, \cite{yu:01a}*{\S 15} \\
-$\rho^0$ & $\,^\circ \rho_0$ \cite{yu:01a}*{\S 15} \\
-$C^{i+1}$ & $\,^\circ K^i = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, l\dots, s_{i})}$, \cite{yu:01a}*{\S 15} \\
-$\rho^{i+1}$ & $\,^\circ \rho_{i+1}$, \cite{yu:01a}*{\S 15} \\
+$C^0$ & $C^0 = \,^\circ K^0 = G^0(F)_y$, \cite{yu:01a}*{\S 15} \\
+$\rho_0$ & $\,^\circ \rho^0$ \cite{yu:01a}*{\S 15} \\
+$C^{i+1}$ & $C^{i+1} =  \,^\circ K^i = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$, \cite{yu:01a}*{\S 15} \\
+$\rho_{i+1}$ & $\,^\circ \rho^{i+1}$, \cite{yu:01a}*{\S 15} \\
 $\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ \\
 $J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ \\
 $V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ \\ 
 $W_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
-$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
+%$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
 $Z_{i+1}$ & $C$, \cite{yu:01a}*{\S 11} \\
 $(f_{j+1}, j_{i+1})$ & $(f,j)$ \cite{yu:01a}*{\S 11} \\
-$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} \\
+$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} 
 \end{tabular}
 \end{center}
 \label{table:notation}
@@ -1164,7 +1163,7 @@ Regarding the construction of the type $(C,\rho)$, the paper \cite{yu:03a} concl
 \begin{quotation}
 {\it Therefore, up to some linear characters, all the ingredient representations are on groups of
  the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
-important role in the representation theory of $p$-adic groups.} \cite{yu:03a}
+important role in the representation theory of $p$-adic groups.} %\cite{yu:03a}
 \end{quotation}
 In this section we explain what this observation is saying, following \cite{yu:03a}.
 
@@ -1194,13 +1193,13 @@ gives $(\underline{G}^i \ltimes \underline{J}^{i+1})(R) = C^i \ltimes J_{i+1}$
 \newcommand{\reductive}{{\operatorname{red}}}
 
 Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S S_1$ of $\underline{J}^{i+1}$. 
-The vector space $V_{i+1}$ may realized as the $\Fq$-points on a variety $V^{i+1}_\Fq$, where $V^{i+1}_\Fq$, appears as a quotient $J_{i+1} \to V^{i+1}$ of algebraic groups over $\Fq$. Then the quotient $J_{i+1} \to V_{i+1}$ is realized as the composition
+The vector space $V_{i+1}$ may realized as the $\Fq$-points on a variety $V^{i+1}$ over $\Fq$, where $V^{i+1}$, appears as a quotient $\underline{J}^{i+1}_{\Fq} \to V^{i+1}$ of algebraic groups over $\Fq$. Then the quotient $J_{i+1} \to V_{i+1}$ is realized as the composition
 \[
-\underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to V^{i+1}_\Fq(\Fq) = V_{i+1}.
+\underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to V^{i+1}(\Fq) = V_{i+1}.
 \]
-Likewise, the Heisenberg $p$-group $H^{i+1}$, appearing in \ref{ssec:review}, may be realized as a quotient of algebraic groups, and $J_{i+1}\to H^{i+1}$ as the composition 
+Likewise, the Heisenberg $p$-group $H_{i+1}$, appearing in \ref{ssec:review}, may be realized as a quotient of algebraic groups, and $\underline{J}^{i+1}_{\Fq} \to H^{i+1}$ as the composition 
 \[
-\underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq) = H^{i+1}.
+\underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq) = H_{i+1}.
 \]
 Finally, the group homomorphism $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ may be made geometric in much the same way. 
 Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S S_1$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ is realized as the composition
@@ -1309,7 +1308,7 @@ Observe that $\trace(\rho_0)_m$ may be recovered from ${A}_m^0$:
 \trFrob{{A}^0_m} = \trace(\rho_0)_m
 \]
 %Let $\cs{A}^0$ be the pull-back of $\cs{A}^0_m$ along  $\Gr^{R}(\underline{G}^0) \to \Gr^{R}_{m}(\underline{G}^0)$.
-%Then $\cs{A}^0$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^0)$ from which the character of $\rho^0$ may be recovered.
+%Then $\cs{A}^0$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^0)$ from which the character of $\rho_0$ may be recovered.
 
 Consider the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ and the Heisenberg-Weil representation $W_{i+1}$ appearing in Section~\ref{ssec:models}.
 Let $\cs{K}_{i+1}$ be the Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi}, such that
@@ -1321,11 +1320,11 @@ Let $\cs{K}_0^{i+1}$ be the Weil sheaf on the special fibre of $\underline{G}^{i
 Let $\cs{K}_m^{i+1}$ be the Weil sheaf on $\Gr^{R}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1})$ obtained from $\cs{K}_0^{i+1}$ by pullback along the affine morphism
 $\Gr^{R}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1}) \to \Gr^{R}_0(\underline{G}^{i} \ltimes \underline{J}^{i+1})$.
 
-We now define Weil sheaves $\cs{A}^i_m$ on $G_m^i \ceq \Gr^{R}_m(\underline{G}^{i})$, for $i=0,\ldots ,d$, recursively, following the construction of the representations $\rho^i$, as reviewed in Section~\ref{ssec:review}.
+We now define Weil sheaves $\cs{A}^i_m$ on $G_m^i \ceq \Gr^{R}_m(\underline{G}^{i})$, for $i=0,\ldots ,d$, recursively, following the construction of the representations $\rho_i$, as reviewed in Section~\ref{ssec:review}.
 First, set $\cs{A}_m^i = A_m^0$ and note that 
 \[
 \begin{tikzcd}
-G^0(\Fq) \arrow{rr}{\trace(\rho^0)} \arrow{rd} && \EE\\
+G^0(\Fq) \arrow{rr}{\trace(\rho_0)} \arrow{rd} && \EE\\
 & G^0_m(\Fq) \arrow{ru}[swap]{\trFrob{\cs{A}_m^0}} & 
 \end{tikzcd}
 \]
@@ -1333,7 +1332,7 @@ commutes.
 Now, suppose $\cs{A}^i_m$ on $G_m^i$ is defined such that
 \[
 \begin{tikzcd}
-G^i(\Fq) \arrow{rr}{\trace(\rho^i)} \arrow{rd} && \EE\\
+G^i(\Fq) \arrow{rr}{\trace(\rho_i)} \arrow{rd} && \EE\\
 & G_m^i(\Fq) \arrow{ru}[swap]{\trFrob{\cs{A}_m^i}} & 
 \end{tikzcd}
 \]
@@ -1382,7 +1381,7 @@ Let $\cs{A}_m^{i+1}$ be the \emph{virtual} Weil sheaf on $G_m^i$ given by $\cs{A
 This completes the inductive definition of $\cs{A}_m^i$ so that the following diagram commutes.
 \[
 \begin{tikzcd}
-G^{i+1}(\Fq) \arrow{rr}{\trace(\rho^{i+1})} \arrow{rd} && \EE\\
+G^{i+1}(\Fq) \arrow{rr}{\trace(\rho_{i+1})} \arrow{rd} && \EE\\
 & G_m^{i+1}(\Fq)\arrow{ru}[swap]{{\trFrob{\cs{A}_m^{i+1}}} } & 
 \end{tikzcd}
 \]
