@@ -1,6 +1,6 @@
 \documentclass[10pt]{amsart}
 
-\title[Commutative Character Sheaves]{The function-sheaf dictionary for characters of smooth group schemes}
+\title[Commutative Character Sheaves]{The dictionary for characters of smooth group schemes}
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
 \email{cunning@math.ucalgary.ca}
@@ -196,7 +196,7 @@ essentially surjective, missing the kinds of linear character sheaves highlighte
 
 Finally, we use the category $\CCS(G)$ to give a geometric description of types for supercuspidal representations of connected reductive groups over $p$-adic fields fields.
 In this way, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category:
-virtual Weil perverse sheaves on smooth group schemes over finite fields. 
+virtual Weil perverse sheaves on group schemes over finite fields. 
 
 We now summarize the sections of the paper in more detail.
 %
@@ -218,7 +218,8 @@ In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize the repres
 The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:review} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
 
 
-We thank Loren Spice for explaining Yu's theory of types to us.
+We are extremely grateful to Loren Spice for explaining Yu's theory of types to us.
+We also thank Masoud Kamgarpour for helpful conversations.
 
 \section{Recollections and definitions} \label{sec:defs}
 
@@ -933,6 +934,13 @@ By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = 
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
+All supercuspidal representations of unramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}, as established in \cite{kim:07a}.
+The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from Yu's data. 
+Let us refer to the types arising in this manner as {\it Yu types}.
+In this section we offer an application of Theorem~\ref{thm:geo}, by showing that Yu types are geometrizable, subject to a very mild hypothesis.
+The proof that statement, made precise in Theorem~\ref{thm:geotypes}, requires: the geometrization of the character of the Heisenberg-Weil representation over finite fields in Section~\ref{ssec:Jacobi}; a review of some basic properties of Yu types in Section~\ref{ssec:review}; a review of some facts from Yu's notes on integral models in Section~\ref{ssec:models}; and the geometrization of characters of representations of reductive groups over finite fields with cyclic geometric component groups, using Lusztig's character sheaves on these groups. These pieces are assembled in Section~\ref{ssec:geotypes}. 
+
+
 \subsection{Quasicharacters of smooth group schemes over certain henselian traits}
 
 %We begin with the case of continuous linear characters.
@@ -956,15 +964,15 @@ By continuity of $\varphi : \underline{G}(S) \to \EE^\times$, there is some $m \
 \[
 \begin{tikzcd}
 \underline{G}(S) \arrow{rr}{\varphi} \arrow{rd} && \EEx\\
-& \underline{G}(R/\mathfrak{p}^{m+1}) \arrow{ru}[swap]{\varphi^m} 
+& \underline{G}(R/\mathfrak{p}^{m+1}) \arrow{ru}[swap]{\varphi_m} 
 \end{tikzcd}
 \] 
 Set $R_m = R/\mathfrak{p}^{m+1}$ and
 set $G_m = \Gr_m^{R}(\underline{G})$, the Greenberg transform of $\underline{G}\times_{\Spec{R}}\Spec{R_m}$.
 Then $G_m$ is a smooth group scheme over $\Fq$ and $G_m(\Fq) = \underline{G}(R_m)$, canonically.
-Using Theorem~\ref{thm:geo}, let $\cs{L}_m$ be a geometrization of the character $\varphi^m: G_m \to \EEx$; so
+Using Theorem~\ref{thm:geo}, let $\cs{L}_m$ be a geometrization of the character $\varphi_m: G_m \to \EEx$; so
 \[
-\trFrob{\cs{L}_m} = \varphi^m
+\trFrob{\cs{L}_m} = \varphi_m
 \]
 on $G_m(\Fq)$.
 %
@@ -1028,22 +1036,17 @@ Then $\cs{K}$ is the promised Weil sheaf complex.
 
 For the rest of Section~\ref{sec:types}, $K$ is a $p$-adic field.
 
-As proved in \cite{kim:07a}, all supercuspidal representations of unramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}.
-The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from Yu's data. 
-Let us refer to the types arising in this manner as {\it Yu types}.
-%In this section we show that every Yu type is geometrizable.
-% in a sense which will be made clear below.
-%
-A Yu type is then a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$, directly from the following information, derived from a Yu datum:
+
+A Yu type is a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$, directly from the following information, derived from a Yu datum:
 \begin{enumerate}
 \labitem{Y0}{Y0} a sequence of compact groups $C^0 \subseteq C^1 \subseteq \cdots \subseteq C^d= C$;
 \labitem{Y1}{Y1} a continuous representation $\rho_0$ of $C^0$;
 \labitem{Y2}{Y2} quasicharacters $\varphi^i : C^i \to \CC^\times$, for $i=0, \ldots d$.
 \end{enumerate}
 %
-The representation $\rho_0$ and the quasicharacters $(\varphi^0, \ldots , \varphi^d)$ enjoy certain properties which allow Yu to construct representations $\rho_i$ of $C^i$, for $i=1, \ldots, d$ such that $\rho_d = \rho$ as representations of $C^d = C$.
+The representation $\rho_0$ and the quasicharacters $(\varphi^0, \ldots , \varphi^d)$ enjoy certain properties which allow Yu to construct representations $\rho_i$ of $C^i$, for $i=1, \ldots, d$ such that $\rho_d \otimes \varphi^d = \rho$ as representations of $C^d = C$.
 %
-Since we will need some facts about this construction, we review some further detail here.
+Since we will need some facts about this construction in the proof of Theorem~\ref{thm:geotypes}, we review some further detail here.
 In Table~\ref{table:notation} we explain how to convert the constructions appearing in this section into the notation of \cite{yu:01a}.
 
 First, Yu introduces 
@@ -1066,31 +1069,23 @@ and, for $i=0, \ldots d-1$, a natural action of $C^i$ on $J_{i+1}$ defining the 
 \end{enumerate}
 %He then introduces the following quotients of $J_{i+1}$ and $C^i$, for $i=0, \ldots d-1$.
 %
-Next, Yu uses this to define a group homomorphism (in fact, a quotient) 
+Next, Yu defines a group homomorphism (in fact, a quotient) 
 $
 J_{i+1} \to V_{i+1}
 $
 where $V_{i+1}$ is a finite abelian group, the latter also given the structure of a $\Fq$-vector space.
-The vector space $V_{i+1}$ is then equipped with a symplectic pairing $\langle\ ,\ \rangle_{i+1} : V_{i+1}\times V_{i+1} \to Z_{i+1}$, where $Z_{i+1}$ is a one-dimensional vector space over $\Fq$, itself equipped with an additive character $\psi_{i+1} : Z_{i+1} \to \EEx$.
+The vector space $V_{i+1}$ is then equipped with a symplectic pairing $\langle\ ,\ \rangle_{i+1} : V_{i+1}\times V_{i+1} \to Z_{i+1}$, where $Z_{i+1}$ is a one-dimensional vector space over $\Fq$, itself equipped with an additive character $\psi_{i+1} : Z_{i+1} \to \CC^\times$.
 %\labitem{Q2}{Q2} 
 %\item 
 This, in turn, is used to define a map
 $
 J_{i+1} \to V_{i+1}^\sharp,
 $
-where $V_{i+1}^\sharp$ is the Heisenberg group determined by $V_{i+1}$, $Z_{i+1}$, $\langle\ ,\ \rangle_{i+1}$ and $\psi_{i+1}$.
-In fact, the quotient $J_{i+1} \to V_{i+1}^\sharp$ factors through a quotient $J_{i+1} \to H_{i+1}$ and an isomorphism 
-$
-j_{i+1} : H_{i+1} \to V_{i+1}^\sharp,
-$
-where $H_{i+1}$ is a Heisenberg $p$-group in the sense of \cite{yu:01a}*{}.
+where $V_{i+1}^\sharp$ is the Heisenberg group determined by $V_{i+1}$, $Z_{i+1}$, $\langle\ ,\ \rangle_{i+1}$ and $\psi_{i+1}$, as in Section~\ref{ssec:Jacobi}.
+In fact, the quotient $J_{i+1} \to V_{i+1}^\sharp$ factors through a quotient $J_{i+1} \to H_{i+1}$ and an isomorphism $j_{i+1} : H_{i+1} \to V_{i+1}^\sharp$, where $H_{i+1}$ is a Heisenberg $p$-group in the sense of \cite{yu:01a}*{}.
 %\labitem{Q3}{Q3} 
 %\item
-Finally, Yu constructs 
-$
-f_{i+1} : C^i \to \Sp(V_{i+1}),
-$
-such that the pair $(f_{i+1}, j_{i+1})$ is a symplectic action of $C^i$ on $H_{i+1}$ in the sense of \cite{yu:01a}.
+Finally, Yu constructs a group homomorphism $f_{i+1} : C^i \to \Sp(V_{i+1})$ such that the pair $(f_{i+1}, j_{i+1})$ is a symplectic action of $C^i$ on $H_{i+1}$ in the sense of \cite{yu:01a}.
 %
 Taken together, this defines
 %\end{enumerate}
@@ -1107,6 +1102,7 @@ Taken together, this defines
 We can now recall how Yu uses all this to construct representations $\rho_i$ of $C^i$, for $i=1, \ldots, d$ and thus the type $(C,\rho) = (C^d,\rho_d\otimes \varphi^d)$.
 The representations $\rho_i$ are defined recursively. 
 For the base case $i=0$, the representation $\rho_0$ is just $\rho_0$; see \ref{Y1} above.
+Now fix $i$.
 Let $W_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, whose restriction to $V_{i+1}^\sharp$ has central character $\psi_{i+1}$.
 Pull-back along $h_{i+1}$ to form $h_{i+1}^*(W_{i+1})$, a representation of $C^i \ltimes J_{i+1}$.
 Write $\inf(\rho_i \otimes \varphi^i)$ for the representation of $C^i \ltimes J_{i+1}$ obtained by pulling back $\rho_i$ along $C^i \ltimes J_{i+1} \to C^i$. 
@@ -1121,9 +1117,9 @@ of $C^i \ltimes J_{i+1}$.
 %\end{equation}
 %for $y \in C^i \ltimes J_{i+1}$.
 By \cite{yu:01a}*{}, the representation $\rho_{i+1}$ of $C^i \ltimes J_{i+1}$ is trivial on $C^{i}\cap J_{i+1}$ so $\rho_{i+1}$ descends to $C^{i+1}$. 
-
-This defines the representation $\rho_{i+1}$ of $C^{i+1}$. 
-This completes the recursive definition and thus determines $\rho_d$. 
+%
+This defines the representation $\rho_{i+1}$ of $C^{i+1}$.
+This completes the recursive definition of $\rho_d$. 
 Now set $\rho \ceq \rho_d\otimes \varphi^d$. 
 This is the representation of $C^d = C$ determining the Yu type $(C,\rho)$.
 %The character of $\rho_d$ on $C^d = C = J_0 \cdots J_d$ satisfies
@@ -1136,9 +1132,9 @@ This is the representation of $C^d = C$ determining the Yu type $(C,\rho)$.
 \caption{Comparison with notation of \cite{yu:01a}}
 \begin{center}
 \begin{tabular}{c|l}
-$C^0$ & $C^0 = \,^\circ K^0 = G^0(F)_y$, \cite{yu:01a}*{\S 15} \\
+$C^0$ & $\,^\circ K^0 = G^0(F)_y$, \cite{yu:01a}*{\S 15} \\
 $\rho_0$ & $\,^\circ \rho^0$ \cite{yu:01a}*{\S 15} \\
-$C^{i+1}$ & $C^{i+1} =  \,^\circ K^i = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$, \cite{yu:01a}*{\S 15} \\
+$C^{i+1}$ & $\,^\circ K^i = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$, \cite{yu:01a}*{\S 15} \\
 $\rho_{i+1}$ & $\,^\circ \rho^{i+1}$, \cite{yu:01a}*{\S 15} \\
 $\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ \\
 $J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ \\
@@ -1158,13 +1154,13 @@ $\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11}
 
 \subsection{Review of Yu's smooth models}\label{ssec:models}
 
-Regarding the construction of the type $(C,\rho)$, the paper \cite{yu:03a} concludes with the following provocative observation.
+Regarding the construction of the type $(C,\rho)$, the paper \cite{yu:03a} concludes with the following observation.
 \begin{quotation}
 {\it Therefore, up to some linear characters, all the ingredient representations are on groups of
  the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
 important role in the representation theory of $p$-adic groups.} %\cite{yu:03a}
 \end{quotation}
-In this section we explain what this observation is saying, following \cite{yu:03a}.
+In this section we explain the first sentence; in Section~\ref{ssec:geotypes} we follow the suggestion in the second sentence.
 
 %\begin{enumerate}
 %\labitem{M1}{M1}
@@ -1252,17 +1248,18 @@ Then $w_{i+1}$ is itself obtained by pulling back the representation $W_{i+1}$ a
 \subsection{Geometrization of characters of types}\label{ssec:geotypes}
 
 Finally, we come to the main result of Section~\ref{sec:types}.
-
+%
 Since Yu's theory refers to complex representations, and since our geometrization uses $\ell$-adic sheaves, we grit our teeth and fix an isomorphism $\CC \approx \EE$.
 
-\begin{proposition}\label{prop:geotypes}
+\begin{theorem}\label{thm:geotypes}
 Let $(C,\rho)$ be a Yu type, constructed as in Section~\ref{ssec:review}.
-Let $G^i = \Gr_{R}(\underline{G}^i)$ be the Greenberg transform of the smooth group scheme $\underline{G}^i$ appearing in Section~\ref{ssec:models}.
+Let $G^0 = \Gr_{R}(\underline{G}^0)$ be the Greenberg transform of the smooth group scheme $\underline{G}^0$ appearing in Section~\ref{ssec:models}.
 Assume $\pi_0(\underline{G}^0)_\Fq^\reductive)$ is cyclic.
-Then there is a virtual Weil sheaf complex $\cs{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
-\end{proposition}
+Then there is a virtual Weil sheaf complex $\cs{A}$ on $G = \Gr_{R}(\underline{G})$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
+\end{theorem}
 
 \begin{proof}
+For every $i=0, \ldots ,d$, set $G^i = \Gr_{R}(\underline{G}^i)$.
 Recall that $G^i(\Fq) = \underline{G}^i(R) = C^i$, canonically.
 We begin with an argument already employed in the proof of Proposition~\ref{prop:quasicharacters}.
 By continuity of the quasicharacters $\varphi^i : G^i(\Fq) \to \CC^\times$, there is some $m \in \NN$ and a factorization
@@ -1272,7 +1269,7 @@ G^i(\Fq) \arrow{rr}{\varphi^i} \arrow{rd} && \EEx\\
 & \underline{G}^i(R_m) \arrow{ru}[swap]{\varphi^i_m} 
 \end{tikzcd}
 \] 
-for each $i=0, \ldots d$.
+for all $i=0, \ldots d$.
 Set $G_m^i = \Gr_m^{R}(\underline{G}^i)$.
 Then $G_m^i$ is a smooth group scheme over $\Fq$ and $G_m^i(\Fq) = \underline{G}^i(R_m)$, canonically.
 Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear character $\varphi^i_m: G_m^i \to \CC^\times$; so
@@ -1403,5 +1400,177 @@ as desired.
 \end{proof}
 
 \bibliography{bibliography/Biblio}
+% \bib, bibdiv, biblist are defined by the amsrefs package.
+\iffalse
+
+\begin{bibdiv}
+\begin{biblist}
+
+\bib{berndt-schmidt:98a}{book}{
+      author={Berndt, Rolf},
+      author={Schmidt, Ralf},
+       title={{Elements of the representation theory of the Jacobi group}},
+   publisher={{Birkh\"auser/Springer Basel AG}},
+     address={Basel, Switzerland},
+        date={2011},
+}
+
+\bib{bertapelle-gonzales:Greenberg}{unpublished}{
+      author={Bertapelle, Alessandra},
+      author={{Gonz\'ales-Avil\'es}, Cristian~D.},
+       title={{The Greenberg functor revisited}},
+        date={2014},
+         url={http://arxiv.org/abs/1311.0051},
+        note={\href{http://arxiv.org/abs/1311.0051}{arXiv:1311.0051
+  [math.NT]}},
+}
+
+\bib{bushnell-kutzko:98a}{article}{
+      author={Bushnell, Colin},
+      author={Kutzko, Phil},
+       title={{Smooth representations of reductive $p$-adic groups: structure
+  theory via types}},
+        date={1998},
+     journal={Proc. London Math. Soc.},
+      volume={77},
+      number={3},
+       pages={{582\ndash 634}},
+}
+
+\bib{cunningham-roe:13a}{article}{
+      author={Cunningham, Clifton},
+      author={Roe, David},
+       title={From the function-sheaf dictionary to quasicharacters of $p$-adic
+  tori},
+  journal={Journal of the Institute of Mathematics of Jussieu},
+        year = {2016},
+issn = {1475-3030},
+pages = {1--37},
+numpages = {37},
+doi = {10.1017/S1474748015000286},
+URL = {http://journals.cambridge.org/article_S1474748015000286},
+}
+
+\bib{demazure:SGA3-VIA}{inproceedings}{
+      author={Gabriel, Pierre},
+       title={{Expos\'e VI$_\mathrm{A}$: G\'en\'eralit\'es sur les groupes
+  alg\'ebriques}},
+        date={1970},
+   booktitle={{Sch\'emas en groupes I: Proprietes generales des schemas en
+  groupes}},
+      editor={Demazure, Michel},
+      editor={Grothendieck, Alexander},
+      series={Lecture Notes in Math},
+      volume={151},
+   publisher={Springer-Verlag},
+     address={Berlin},
+}
+
+\bib{EGAIV4}{article}{
+      author={Grothendieck, Alexandre},
+       title={{\'El\'ements de g\'eom\'etrie alg\'ebrique IV. \'Etude locale
+  des sch\'emas et des morphismes de sch\'emas. IV}},
+        date={1967},
+     journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
+      number={32},
+}
+
+\bib{gurevich-hadani:07a}{article}{
+   author={Gurevich, Shamgar},
+   author={Hadani, Ronny},
+   title={The geometric Weil representation},
+   journal={Selecta Math. (N.S.)},
+   volume={13},
+   date={2007},
+   number={3},
+   pages={465--481},
+}
+
+\bib{gurevich-hadani:11a}{unpublished}{
+   author={Gurevich, Shamgar},
+   author={Hadani, Ronny},
+   title={The categorical Weil representation},
+	date={2011},
+        note={\href{http://arxiv.org/abs/1108.0351}{arXiv:1108.0351 [math.RT]}}
+}
+
+
+\bib{howe:73a}{article}{
+   author={Howe, Roger E.},
+   title={On the character of Weil's representation},
+   journal={Trans. Amer. Math. Soc.},
+   volume={177},
+   date={1973},
+   pages={287--298},
+}
+
+\bib{kamgarpour:09a}{article}{
+      author={Kamgarpour, Masoud},
+       title={{Stacky abelianization of algebraic groups}},
+        date={2009},
+     journal={{Transform. Groups}},
+      volume={14},
+      number={4},
+       pages={825\ndash 846},
+}
+
+\bib{kim:07a}{article}{
+      author={Kim, Ju-Lee},
+       title={Supercuspidal representations: an exhaustion theorem},
+        date={2007},
+     journal={J. Amer. Math. Soc.},
+      volume={20},
+      number={2},
+       pages={273\ndash 320},
+}
+
+\bib{lusztig:85a}{article}{
+      author={Lusztig, George},
+       title={{Character sheaves I}},
+        date={1985},
+     journal={Advances in Math.},
+      volume={56},
+       pages={193\ndash 237},
+}
+
+\bib{lusztig:disconnected1}{article}{
+      author={Lusztig, George},
+       title={{Character sheaves on disconnected groups I}},
+        date={2003},
+     journal={Representation Theory},
+      volume={7},
+       pages={374\ndash 403},
+}
+
+\bib{Vistoli:notes}{unpublished}{
+      author={Vistoli, Angelo},
+       title={{Notes on Grothendieck topologies, fibered categories and descent
+  theory}},
+        date={2007},
+        note={\href{http://arxiv.org/abs/math/0412512}{arXiv:0412512
+  [math.AG]}},
+}
+
+\bib{yu:01a}{article}{
+      author={Yu, Jiu-Kang},
+       title={Construction of tame supercuspidal representations},
+        date={2001},
+     journal={J. Amer. Math. Soc.},
+      volume={14},
+      number={3},
+       pages={{579\ndash 622}},
+}
+
+\bib{yu:03a}{unpublished}{
+      author={Yu, Jiu-Kang},
+       title={{Smooth models associated to concave functions in Bruhat-Tits
+  theory}},
+        date={2003},
+        note={Preprint},
+}
+
+\end{biblist}
+\end{bibdiv}
+\fi
 
 \end{document}
