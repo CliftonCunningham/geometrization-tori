@@ -940,6 +940,7 @@ Let us refer to the types arising in this manner as {\it Yu types}.
 In this section we offer an application of Theorem~\ref{thm:geo}, by showing that Yu types are geometrizable, subject to a very mild hypothesis.
 The proof of that statement, made precise in Theorem~\ref{thm:geotypes}, requires: the geometrization of the character of the Heisenberg-Weil representation over finite fields (Section~\ref{ssec:Jacobi}); a review of some basic properties of Yu types (Section~\ref{ssec:review}); a review of some facts from Yu's notes on smooth integral models (Section~\ref{ssec:models}); and the geometrization of characters of representations of reductive groups over finite fields with cyclic geometric component groups, using Lusztig's character sheaves on these groups. These pieces are assembled in Section~\ref{ssec:geotypes}. 
 
+
 \subsection{Quasicharacters of smooth group schemes over certain henselian traits}
 
 %We begin with the case of continuous linear characters.
@@ -1018,13 +1019,13 @@ One begins by observing that $S_0$ is the domain of the Cayley transform $\cay :
 \trace(W_\psi)(g,v,z) =  \frac{\gamma_\psi^{\dim V}}{q^{\dim V/2} } \sigma(\det(1+\cay(g)))\ \psi\left(\langle \cay(g)v,v\rangle/4 \right) \psi(z),
 \end{equation}
  where $\gamma_\psi$ is the Gauss sum for $\psi$ and $\sigma : \Fq^\times \to \EE^\times$ is the quadratic character of $\Fq^\times$.
-By a simple adaptation of what in \cite{gurevich-hadani:07a}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}$ (in fact, a Weil local system) on $S_0 \times V^\sharp$ such that 
+By a simple adaptation of what in \cite{gurevich-hadani:07a}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ (in fact, a Weil local system) on $S_0 \times V^\sharp$ such that 
 \[
-\trFrob{\cs{K}(\frac{\dim V}{2})} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
+\trFrob{\cs{K}_0(\frac{\dim V}{2})} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
 \]
-where $\cs{K}(\frac{\dim V}{2})$ is the Tate twist of $\cs{K}$.
+where $\cs{K}_0(\frac{\dim V}{2})$ is the Tate twist of $\cs{K}$.
 %
-Next, one forms $\cs{K}_\psi \ceq j_{!*} \cs{K}$, the perverse extension of $\cs{K}$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
+Next, one forms $\cs{K}_\psi \ceq j_{!*} \cs{K}_0[\dim V]$, the perverse extension of $\cs{K}_0 [\dim V]$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
 It follows from \cite{gurevich-hadani:07a} that 
 \[
 \trFrob{\cs{K}_\psi} = \trace(W_\psi).
@@ -1036,7 +1037,7 @@ Then $\cs{K}_\psi$ is the promised Weil sheaf complex.
 For the rest of Section~\ref{sec:types}, $K$ is a $p$-adic field.
 
 
-A Yu type is a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$, constructed from the following information, derived from a Yu datum:
+A Yu type is a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$,  constructed from the following information, derived from a Yu datum:
 \begin{enumerate}
 \labitem{Y0}{Y0} a sequence of compact groups $C^0 \subseteq C^1 \subseteq \cdots \subseteq C^d= C$;
 \labitem{Y1}{Y1} a continuous representation $\rho_0$ of $C^0$;
