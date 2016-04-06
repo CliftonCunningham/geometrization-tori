@@ -182,9 +182,9 @@ When $G$ is connected, all character sheaves on $G$ are commutative.
 This category clarifies several questions about character sheaves on $G$: invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those that are not commutative, and $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
 Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
-In this paper, we do not consider Lusztig's geometrization for characters of representations of connected, reductive groups $G(k)$
-using character sheaves \cite{lusztig:85a}*{Def.~2.10}.  Instead, we focus on the group of $1$-dimensional characters
-$G(k)^*$, assuming that $G$ is smooth, but not that it is connected or reductive.
+In this paper, we do not consider Lusztig's geometrization of characters of representations of connected, reductive groups $G(k)$
+using character sheaves \cite{lusztig:85a}*{Def.~2.10}, but focus on the case of characters
+$G(k)^*$ (that is, group homomorphisms from $G(k)$ to $\EEx$), assuming only that $G$ is smooth, allowing for the possibility that $G$ is not connected and not reductive.
 The category $\CS(G)$ has a straightforward generalization to this case, but again
 there are more character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
 We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
@@ -209,13 +209,13 @@ $\TrFrob{G} : \CSiso{G} \to G(k)^*$ induces an isomorphism on $\CCSiso{G}$.
 Passing to the case that $G$ is non-commutative, we give the definition of and main results about commutative character sheaves in Section \ref{sec:noncom}.  
 We note that we should only consider character sheaves that arise via pullback from $G\ab$ in order to eliminate those that have nontrivial restriction to the derived subgroup.  
 This observation underlies the definition of commutative character sheaves for non-commutative $G$.  
-We state our second main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
+We state our main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
 Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves.
 %
 In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize the representations of compact $p$-adic groups appearing in the types for: we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\rho)$.
-The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:review} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}. \todo{There are some grammatical errors in this paragraph, and I'm not 100\% sure how they should be corrected}
+The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:review} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
 
 
 We are extremely grateful to Loren Spice for explaining Yu's theory of types to us.
@@ -229,16 +229,17 @@ This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of
 We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
 
-In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$, where $\gcs{L}$ is an $\ell$-adic sheaf on $\bG \ceq G\otimes_{\Fq} \bFq$ and where $\phi : \Frob{}^*\gcs{L} \to \gcs{L}$ is an isomorphism of $\ell$-adic sheaves. 
+In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$ where $\gcs{L}$ is an $\ell$-adic sheaf on $\bG \ceq G\otimes_{\Fq} \bFq$ and where $\phi : \Frob{}^*\gcs{L} \to \gcs{L}$ is an isomorphism of $\ell$-adic sheaves. 
 We also follow convention by referring to $\cs{L}$  as a Weil sheaf on $G$. 
-If $\cs{L}$ and $\cs{L}' \ceq (\gcs{L}', \phi')$ are Weil sheaves, we write $\alpha : \cs{L} \to \cs{L}'$ for a morphism $\alpha : \gcs{L} \to \gcs{L}$ such that 
+We will also write $\alpha : \cs{L} \to \cs{L}'$ for a morphism $\alpha : \gcs{L} \to \gcs{L}$ such that 
 \[
 \begin{tikzcd}
 \Frob{}^* \gcs{L} \arrow{d}[swap]{\phi} \arrow{r}{\Frob{}^*\alpha} &  \Frob{}^* \gcs{L} \arrow{d}{\phi'}\\
 \gcs{L} \arrow{r}{\alpha} & \gcs{L}
 \end{tikzcd}
 \]
-commutes.  While these conventions simplify notation considerably, they are not consistent with \cite{cunningham-roe:13a}.
+commutes, where $\cs{L}'$ refers to $(\gcs{L}',\phi')$.
+While this simplifies notation considerably, it is, unfortunately, not consistent with our earlier paper.
 
 We write $m : G \times G \to G$ for the multiplication morphism, and $G(k)^*$ for $\Hom(G(k), \EEx)$.
 Define $\theta : G\times G \to G\times G$ by $\theta(g,h) = (h,g)$.
@@ -258,7 +259,7 @@ the character sheaves of Lusztig, we will refer to the former as \emph{linear ch
 
 \section{Commutative character sheaves on commutative groups}\label{sec:comcom}
 
-We consider first the case that $G$ is commutative, which we will later apply to the case of general smooth $G$.
+We consider first the case that $G$ is commutative, which will be used for general smooth $G$.
 Let $\cs{L}$ be a character sheaf on $G$.  Since $m = m \circ \theta$ in this case,
 there is a canonical isomorphism $\xi : m^* \cs{L} \to \theta^* m^* \cs{L}$.
 There is also an isomorphism $\vartheta : \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes\cs{L})$
@@ -335,8 +336,8 @@ If $G$ is a connected commutative algebraic group over $\Fq$ then every characte
 \begin{proof}
 We can use \'etale descent to see that pullback by the Lang isogeny defines an equivalence
 of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$.  Thus every character
-sheaf on $G$ arises through the Lang isogeny; since the covering group is $G(k)$, which is commutative,
-every character sheaf on $G$ is commutative. \todo{why does this imply that the sheave is commutative in our sense?}
+sheaf on $G$ arises through the Lang isogeny; since the covering group is $G$ itself, which is commutative,
+every character sheaf on $G$ is commutative.
 \end{proof}
 
 \begin{theorem} \label{thm:trfrobiso}
@@ -409,10 +410,10 @@ Let $\CS'(G)$ be the category of such triples, $(\cs{L},\mu,\beta)$, in which a 
 %
 
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
-Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
-Both are smooth morphism of $\Fq$-schemes.
-Set $m' = i \circ m \circ \theta$; we have $j\circ c = m \circ (m \times m')$.
-Then $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms below.
+Let $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
+Then $c$ is a smooth morphism of $\Fq$ schemes.
+Set $m' = i \circ m \circ \theta$; then $j\circ c = m \circ (m \times m')$.
+Then, $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms, below.
 \begin{equation}
 \begin{tikzcd}
 \arrow[equal]{d} c^* (\cs{L}\vert_{G\der}) \arrow{r}{c^*(\beta)} 
@@ -430,7 +431,7 @@ Using the monoidal structure of the category of Weil local systems on $G\times G
 \[
 m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
 \]
-Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $\cs{L}^\vee \iso i^*\cs{L}$, \todo{should we write $i^*(\cs{L}^\vee) \cong \cs{L}$ instead?} canonically, this defines the promised isomorphism
+Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $\cs{L}^\vee \iso i^*\cs{L}$, canonically, this defines the promised isomorphism
 \[
 \begin{tikzcd}
 \gamma : m^*\cs{L} \arrow{r} & \theta^* m^* \cs{L}.
@@ -438,25 +439,25 @@ Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canoni
 \]
 
 \begin{definition}\label{def:CCS}
-The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subcategory of $\CS'(G)$ consisting of triples $(\cs{L},\mu,\beta)$ such that the following diagram of Weil sheaves on $G \times G$ commutes:
+The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subcategory of $\CS'(G)$ consisting of triples $(\cs{L},\mu,\beta)$ such that the following diagram of Weil sheaves on $G \times G$ commutes,
   \[
   \begin{tikzcd}[row sep=30]
    m^*\cs{L} \arrow{d}[swap]{\gamma} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
-   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L}).
+   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
   \]
-Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ above.
+where $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$, above.
 \end{definition}
 
 \subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
 
 Suppose $G$ is commutative, so $G\der = 1$. 
 Suppose $(\cs{L},\mu,\beta)$ is an object in $\CS'(G)$.
-Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, which is unique by \cite{cunningham-roe:13a}*{Thm 3.9}.
+Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, and unique by \cite{cunningham-roe:13a}*{Thm 3.9}.
 Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find 
 %\todo{I'm having some trouble seeing this.} 
 that $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ is the canonical isomorphism coming from the equation $m = m \circ \theta$. 
-Thus, when $G$ is commutative, Definition~\ref{def:CCS} agrees with Definition~\ref{def:CCScom}.
+Thus, when $G$ is commutative, Definition~\ref{def:CCS} recovers Definition~\ref{def:CCScom}.
 The next result generalizes this observation.
 
 
@@ -472,18 +473,18 @@ defines an equivalence of categories
 Sections~\ref{ssec:equivariant1}, \ref{ssec:equivariant2}, \ref{ssec:descent} and \ref{ssec:closed} set up machinery needed to prove Theorem~\ref{thm:Gab}.
 The precise definition of the functor $\CCS(G\ab) \to \CCS(G)$ will be given with the proof of Theorem~\ref{thm:Gab}, in Section~\ref{ssec:proof2}.
 
-Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}.  At the same time, changing $\CS(G)$ to $\CCS(G)$ resolves the lack of bijectivity in \cite{cunningham-roe:13a}*{Thm. 3.6}.
+Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}; at the same time, it is the categorical solution to the problem, discussed in Section~\ref{ssec:defect}, that the dictionary between linear character sheaves on $G\ab$ and characters of $G\ab$, need not be perfect.
 %
 But a description of $\CCS(G)$ requires, at the very least, a description of isomorphism classes of objects, and maps. 
 
 \begin{corollary}\label{cor:Gab}
 %Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
-The category $\CCS(G)$ is monoidal and there is a canonical isomorphism
+Category $\CCS(G)$ is monoidal and 
 \[
-\CCSiso{G} \iso \Hom(G\ab(\Fq),\EEx).
+\CCSiso{G} \iso \Hom(G\ab(\Fq),\EEx),
 \]
-Every map in $\CCS(G)$ is either trivial or an isomorphism, and the automorphism group of any object in $\CCS(G)$ is canonically
-isomorphic to $\Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$.
+canonically.
+Every map in $\CCS(G)$ is either trivial or an isomorphism, and the automorphism group of any object in $\CCS(G)$ is $\Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$, canonically.
 \end{corollary}
 
 \subsection{Geometrization of characters} \label{ssec:geo}
@@ -498,7 +499,7 @@ The trace of Frobenius $\TrFrob{} : \CCSiso{G}\to G(\Fq)^*$ fits into the follow
 \end{tikzcd}
 \]
 where $\Delta_G$ denotes the image of the connecting homomorphism $G\ab(\Fq) \to \Hh^1(\Fq, G\der)$. 
-Thus the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. The geometrization of $\chi : G(\Fq) \to \EEx$ is not unique, but the group of isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
+Thus, category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. The geometrization of $\chi : G(\Fq) \to \EEx$ is not unique, but the group of isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
 \end{theorem}
 
 \begin{proof}
@@ -517,7 +518,7 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Theorem 
 \end{proof}
 
 \begin{remark}
-Note that when $\Hh^1(k,G\der) = 0$, as is the case when $G\der(\bFq)$ ``is simply connected,'' \todo{Can we make this more precise?} then $\CCSiso{G} \iso G(\Fq)^*$, so
+Note that when $\Hh^1(k,G\der) = 0$, as is the case when $G\der(\bFq)$ ``is simply connected,'' then $\CCSiso{G} \iso G(\Fq)^*$, so
 we succeed in geometrizing characters of $G(k)$ on the nose.
 \end{remark}
 
@@ -574,7 +575,7 @@ of Weil local systems on $H\times G$ such that
 \begin{equation}\label{E1}
 s^*(\nu) = \id_{\cs{L}}
 \end{equation}
-and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes. \todo{Maybe we should give a reference for this definition?}
+and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes.
 \begin{equation}\label{E2}
 \begin{tikzcd}
 \ &  \arrow{dl}{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
@@ -615,7 +616,7 @@ c_2 : H \times G\times G &\to H\times G \\
 c_3 : H \times G\times G &\to G\times G \\
 (h, g_1, g_2) &\mapsto (g_1, g_2).
 \end{align*}
-We require that the following diagram of Weil local systems on $H \times G\times G$ commutes: \todo{Something's wrong: the top left actually requires $a \circ c_2 = m \circ c_1$, which isn't true.}
+We require that the following diagram of Weil local systems on $H \times G\times G$ commutes:
 \begin{equation}\label{ECS1}
 \begin{tikzcd}[column sep=30]
 \ & \arrow{dl}{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{dr}[swap]{p\circ c_2 = m\circ c_3}  &  \\
@@ -669,7 +670,7 @@ p_2 : H\times G\times H\times G &\to G\times G \\
 The following diagram defines the isomorphisms needed to see that both $m^*\cs{L}$ and $\cs{L}\boxtimes\cs{L}$ are $H\times H$-equivariant Weil local systems.
 \[
 \begin{tikzcd}[column sep=40]
-\arrow{d}[swap]{a_2^*(\mu)} a_2^* (m^*\cs{L}) \arrow[dashed]{r} 
+\arrow{d}[swap]{a_2(\mu)} a_2^* (m^*\cs{L}) \arrow[dashed]{r} 
 	& \arrow{d}{p_2^*(\mu)} p_2^*(m^*\cs{L})\\
 \arrow{d}[swap]{a_2= (a\times a)\circ d} a_2^*(\cs{L}\boxtimes\cs{L}) \arrow[dashed]{r} 
 	& \arrow{d}{p_2= (p\times p)\circ d} p_2^*(\cs{L}\boxtimes\cs{L}) \\
@@ -937,7 +938,7 @@ All supercuspidal representations of unramified $p$-adic groups can be built fro
 The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from Yu's data. 
 Let us refer to the types arising in this manner as {\it Yu types}.
 In this section we offer an application of Theorem~\ref{thm:geo}, by showing that Yu types are geometrizable, subject to a very mild hypothesis.
-The proof of that statement, made precise in Theorem~\ref{thm:geotypes}, requires: the geometrization of the character of the Heisenberg-Weil representation over finite fields (Section~\ref{ssec:Jacobi}); a review of some basic properties of Yu types (Section~\ref{ssec:review}); a review of some facts from Yu's notes on smooth integral models (Section~\ref{ssec:models}); and the geometrization of characters of representations of reductive groups over finite fields with cyclic geometric component groups, using Lusztig's character sheaves on these groups. These pieces are assembled in Section~\ref{ssec:geotypes}. 
+The proof that statement, made precise in Theorem~\ref{thm:geotypes}, requires: the geometrization of the character of the Heisenberg-Weil representation over finite fields in Section~\ref{ssec:Jacobi}; a review of some basic properties of Yu types in Section~\ref{ssec:review}; a review of some facts from Yu's notes on integral models in Section~\ref{ssec:models}; and the geometrization of characters of representations of reductive groups over finite fields with cyclic geometric component groups, using Lusztig's character sheaves on these groups. These pieces are assembled in Section~\ref{ssec:geotypes}. 
 
 
 \subsection{Quasicharacters of smooth group schemes over certain henselian traits}
@@ -1002,7 +1003,7 @@ The big stratum, $S_0$, is dense in $\Sp(V)$.
 %the boundary of $S_0$ is $\cup_{0< r\leq \dim V} S_r$. 
  From \cite{howe:73a}*{Prop. 2} we learn that if $g\in S_r$ then $q^{-r/2} \trace(W_\psi)(g)$ has complex norm $1$.
 
-It is one of the main results of \cite{gurevich-hadani:07a} (see also \cite{gurevich-hadani:11a}*{Thm. 4.5}) that there is a Weil sheaf complex $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$ such that 
+It is one of the main results of \cite{gurevich-hadani:07a} (see also \cite{gurevich-hadani:11a}*{Thm. 4.5}) that there is a Weil sheaf complex $\cs{K}_{\psi}$ on $\Sp(V)\ltimes V^\sharp$ such that 
 \begin{equation}
 \trFrob{\cs{K}_\psi} = \trace(W_\psi).
 \end{equation}
@@ -1020,23 +1021,23 @@ One begins by observing that $S_0$ is the domain of the Cayley transform $\cay :
  where $\gamma_\psi$ is the Gauss sum for $\psi$ and $\sigma : \Fq^\times \to \EE^\times$ is the quadratic character of $\Fq^\times$.
 By a simple adaptation of what in \cite{gurevich-hadani:07a}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ (in fact, a Weil local system) on $S_0 \times V^\sharp$ such that 
 \[
-\trFrob{\cs{K}_0(\frac{\dim V}{2})} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
+\trFrob{\cs{K}_0[\dim V](\frac{\dim V}{2})} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
 \]
-where $\cs{K}_0(\frac{\dim V}{2})$ is the Tate twist of $\cs{K}$.
+where $\cs{K}_0[\dim V](\frac{\dim V}{2})$ is the Tate twist of the shift of $\cs{K}_0$.
 %
-Next, one forms $\cs{K}_\psi \ceq j_{!*} \cs{K}_0[\dim V]$, the perverse extension of $\cs{K}_0 [\dim V]$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
+Next, one forms $\cs{K}_\psi \ceq j_{!*} \cs{K}_0$, the perverse extension of $\cs{K}_0$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
 It follows from \cite{gurevich-hadani:07a} that 
 \[
-\trFrob{\cs{K}_\psi} = \trace(W_\psi).
+\trFrob{\cs{K}} = \trace(W_\psi).
 \]
-Then $\cs{K}_\psi$ is the promised Weil sheaf complex.
+Then $\cs{K}$ is the promised Weil sheaf complex.
 
 \subsection{Review of Yu's types}\label{ssec:review}
 
 For the rest of Section~\ref{sec:types}, $K$ is a $p$-adic field.
 
 
-A Yu type is a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$,  constructed from the following information, derived from a Yu datum:
+A Yu type is a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$, directly from the following information, derived from a Yu datum:
 \begin{enumerate}
 \labitem{Y0}{Y0} a sequence of compact groups $C^0 \subseteq C^1 \subseteq \cdots \subseteq C^d= C$;
 \labitem{Y1}{Y1} a continuous representation $\rho_0$ of $C^0$;
@@ -1131,18 +1132,18 @@ This is the representation of $C^d = C$ determining the Yu type $(C,\rho)$.
 \caption{Comparison with notation of \cite{yu:01a}}
 \begin{center}
 \begin{tabular}{c|l}
-$C^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
-$\rho_0$ & $\,^\circ \rho^0$\\% \cite{yu:01a}*{\S 15} \\
-$C^{i+1}$ & $\,^\circ K^{i+1} = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$\\% \cite{yu:01a}*{\S 15} \\
-$\rho_{i+1}$ & $\,^\circ \rho^{i+1}$\\% \cite{yu:01a}*{\S 15} \\
+$C^0$ & $\,^\circ K^0 = G^0(F)_y$, \cite{yu:01a}*{\S 15} \\
+$\rho_0$ & $\,^\circ \rho^0$ \cite{yu:01a}*{\S 15} \\
+$C^{i+1}$ & $\,^\circ K^i = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$, \cite{yu:01a}*{\S 15} \\
+$\rho_{i+1}$ & $\,^\circ \rho^{i+1}$, \cite{yu:01a}*{\S 15} \\
 $\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ \\
 $J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ \\
 $V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ \\ 
-$V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
+$W_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
 %$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
-$Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ % \cite{yu:01a}*{\S 11} \\
-%$(f_{j+1}, j_{i+1})$ & $(f,j)$ \cite{yu:01a}*{\S 11} \\
-%$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} 
+$Z_{i+1}$ & $C$, \cite{yu:01a}*{\S 11} \\
+$(f_{j+1}, j_{i+1})$ & $(f,j)$ \cite{yu:01a}*{\S 11} \\
+$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} 
 \end{tabular}
 \end{center}
 \label{table:notation}
@@ -1306,9 +1307,9 @@ Observe that $\trace(\rho_0)_m$ may be recovered from ${A}_m^0$:
 %Then $\cs{A}^0$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^0)$ from which the character of $\rho_0$ may be recovered.
 
 Consider the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ and the Heisenberg-Weil representation $W_{i+1}$ appearing in Section~\ref{ssec:models}.
-Let $\cs{K}^{i+1}$ be the Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi}, such that
+Let $\cs{K}_{i+1}$ be the Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi}, such that
 \[
-\trFrob{\cs{K}^{i+1}} = \trace(W_{i+1}).
+\trFrob{\cs{K}_{i+1}} = \trace(W_{i+1}).
 \]
 Recall from Section~\ref{ssec:models} that $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ is a quotient of the special fibre of the smooth group scheme $\underline{G}^{i} \ltimes \underline{J}^{i+1}$.
 Let $\cs{K}_0^{i+1}$ be the Weil sheaf on the special fibre of $\underline{G}^{i} \ltimes \underline{J}^{i+1}$ obtained from $W_{i+1}$ by pullback. 
@@ -1400,8 +1401,6 @@ as desired.
 
 %\bibliography{bibliography/Biblio}
 % \bib, bibdiv, biblist are defined by the amsrefs package.
-%\iffalse
-
 \begin{bibdiv}
 \begin{biblist}
 
@@ -1570,6 +1569,5 @@ URL = {http://journals.cambridge.org/article_S1474748015000286},
 
 \end{biblist}
 \end{bibdiv}
-%\fi
 
 \end{document}
