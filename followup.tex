@@ -213,9 +213,13 @@ We state our second main result, Theorem~\ref{thm:geo}, that pullback along the 
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
 Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves.
-%
-In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize the representations of compact $p$-adic groups appearing in the types for: we find a group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a Weil sheaf $\mathcal{F}$ on $G$ such that $\trFrob{\cs{F}} = \trace(\rho)$.
-The proof of this statement is quite technical, so it must be delayed to Section~\ref{ssec:geotypes}, after reviewing types in Section~\ref{ssec:review} and models Section~\ref{ssec:models} developed by Yu, for which we must also review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}. \todo{There are some grammatical errors in this paragraph, and I'm not 100\% sure how they should be corrected}
+
+In Section~\ref{sec:types} we give an application of Theorem~\ref{thm:geo} by geometrizing types for supercuspidal representations of $p$-adic groups. Specifically, we show that if $C$ is a compact $p$-adic group and $\rho$ is a representation of $C$ and $(C,\rho)$ is a type for a tamely ramified $p$-adic group then there is a  group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a virtual Weil sheaf $\mathcal{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
+As preparation for the proof of this statement, we review types (Section~\ref{ssec:review}) and smooth integral models (Section~\ref{ssec:models}), both as developed by Yu.  
+We also review some facts about the Heisenberg-Weil representation and its geometrization (Section~\ref{ssec:Jacobi}).
+These elements are pulled together in Section~\ref{ssec:geotypes}, where the proof Theorem~\ref{thm:geotypes}.
+
+ \todo{There are some grammatical errors in this paragraph, and I'm not 100\% sure how they should be corrected}
 
 
 We are extremely grateful to Loren Spice for explaining Yu's theory of types to us.
@@ -430,7 +434,7 @@ Using the monoidal structure of the category of Weil local systems on $G\times G
 \[
 m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
 \]
-Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $\cs{L}^\vee \iso i^*\cs{L}$, \todo{should we write $i^*(\cs{L}^\vee) \cong \cs{L}$ instead?} canonically, this defines the promised isomorphism
+Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $i^*(\cs{L}^\vee) \cong \cs{L}$ canonically, this defines the promised isomorphism
 \[
 \begin{tikzcd}
 \gamma : m^*\cs{L} \arrow{r} & \theta^* m^* \cs{L}.
@@ -615,10 +619,10 @@ c_2 : H \times G\times G &\to H\times G \\
 c_3 : H \times G\times G &\to G\times G \\
 (h, g_1, g_2) &\mapsto (g_1, g_2).
 \end{align*}
-We require that the following diagram of Weil local systems on $H \times G\times G$ commutes: \todo{Something's wrong: the top left actually requires $a \circ c_2 = m \circ c_1$, which isn't true.}
+We require that the following diagram of Weil local systems on $H \times G\times G$ commutes: %\todo{Something's wrong: the top left actually requires $a \circ c_2 = m \circ c_1$, which isn't true.}
 \begin{equation}\label{ECS1}
 \begin{tikzcd}[column sep=30]
-\ & \arrow{dl}{c_2\circ a = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{dr}[swap]{p\circ c_2 = m\circ c_3}  &  \\
+\ & \arrow{dl}{a\circ c_2 = m\circ c_1}  c_2^* a^* \cs{L} \arrow{r}{c_2^*(\nu)} & c_2^* p^* \cs{L} \arrow{dr}[swap]{p\circ c_2 = m\circ c_3}  &  \\
 \arrow{d}[swap]{c_1^*(\mu)} c_1^* m^* \cs{L} &&& c_3^* m^*\cs{L} \arrow{d}{c_3^*(\mu)} \\
 c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{dr}{p_i\circ c_1 = a\circ p_i\circ c_0} &&& \arrow{dl}[swap]{p\circ p_i\circ c_0 = p_i \circ c_3} c_3^*(\cs{L}\boxtimes \cs{L}) \\
  & c_0^*(a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{c_0^*(\nu\boxtimes \nu)} & c_0^*(p^*\cs{L} \boxtimes p^*\cs{L}) & 
@@ -933,7 +937,7 @@ By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = 
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
-All supercuspidal representations of unramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}, as established in \cite{kim:07a}.
+All supercuspidal representations of tamely ramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}, as established in \cite{kim:07a}.
 The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from Yu's data. 
 Let us refer to the types arising in this manner as {\it Yu types}.
 In this section we offer an application of Theorem~\ref{thm:geo}, by showing that Yu types are geometrizable, subject to a very mild hypothesis.
