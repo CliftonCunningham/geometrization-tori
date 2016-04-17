@@ -388,7 +388,7 @@ that does not vanish on $G\der$, defined by the extension
 \]
 In order to obtain a relationship between character sheaves on $G$ and characters of $G(k)$,
 he opts to give a different definition of commutator and, in doing so, introduces a `stacky abelianization' of $G$ in order to geometrize characters of $G(\Fq)$.
- Since we has already seen the need to adapt the
+ Since we have already seen the need to adapt the
 notion of character sheaf, even in the commutative case, we instead add restrictions
 to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged, allowing us to use the schematic abelianization of $G$ in the geometrization of characters of $G(\Fq)$; see Theorem~\ref{thm:geo}.
 
@@ -396,7 +396,11 @@ to the definition of commutative character sheaf and leave the definition of $G\
 
 In order to get character sheaves that correspond to characters in $G(k)^*$, we must discard those
 character sheaves whose restriction to the derived subgroup is nontrivial.
-Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves  when $G$ is smooth but not necessarily commutative.
+Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves when $G$ is smooth but not necessarily commutative.  Also recall the short exact sequence of group schemes
+
+\[
+1 \to G\der \xrightarrow{j} G \xrightarrow{q} G\ab \to 1.
+\]
 
 \begin{proposition} \label{prop:Gder_triv}
 Suppose $G$ is a smooth group scheme and $(\cs{L},\mu) \in \CS(G)$.
@@ -522,8 +526,9 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Theorem 
 \end{proof}
 
 \begin{remark}
-Note that when $\Hh^1(k,G\der) = 0$, as is the case when $G\der(\bFq)$ ``is simply connected,'' \todo{Can we make this more precise?} then $\CCSiso{G} \iso G(\Fq)^*$, so
-we succeed in geometrizing characters of $G(k)$ on the nose.
+Note that when $\Hh^1(k,G\der) = 0$ then $\CCSiso{G} \iso G(\Fq)^*$, so
+we succeed in geometrizing characters of $G(k)$ on the nose.  This condition will be satisfied
+when $G\der(\bFq) = \underline{G}(K)$ for a simply connected group $\underline{G}$ over a local field $K$.
 \end{remark}
 
 
