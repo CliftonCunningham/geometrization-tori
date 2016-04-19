@@ -439,7 +439,7 @@ Using the monoidal structure of the category of Weil local systems on $G\times G
 \[
 m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
 \]
-Since $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ canonically, and since $i^*(\cs{L}^\vee) \cong \cs{L}$ canonically, this defines the promised isomorphism
+Applying the canonical isomorphisms $(\theta^* m^* i^*\cs{L})^\vee \iso \theta^* m^* i^* (\cs{L}^\vee)$ and $i^*(\cs{L}^\vee) \cong \cs{L}$, this map provides the promised isomorphism
 \[
 \begin{tikzcd}
 \gamma : m^*\cs{L} \arrow{r} & \theta^* m^* \cs{L}.
@@ -454,7 +454,7 @@ The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subca
    \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L}).
   \end{tikzcd}
   \]
-Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ above.
+Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ above. \todo{Why not use $\gamma$ directly instead of $\beta$?}
 \end{definition}
 
 \subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
@@ -527,8 +527,7 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Theorem 
 
 \begin{remark}
 Note that when $\Hh^1(k,G\der) = 0$ then $\CCSiso{G} \iso G(\Fq)^*$, so
-we succeed in geometrizing characters of $G(k)$ on the nose.  This condition will be satisfied
-when $G\der(\bFq) = \underline{G}(K)$ for a simply connected group $\underline{G}$ over a local field $K$.
+we succeed in geometrizing characters of $G(k)$ on the nose.
 \end{remark}
 
 
