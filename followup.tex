@@ -950,7 +950,6 @@ The proof of that statement, made precise in Theorem~\ref{thm:geotypes}, require
 %We begin with the case of continuous linear characters.
 
 Let $R$ be a complete discrete valuation ring with maximal ideal $\mathfrak{m}$ and perfect residue field $\Fq$. 
-Then $\Spec{R}$ is a henselian trait.
 Let $\underline{G}$ be a smooth group scheme over $R$.
 Here we shall use  \cite{bertapelle-gonzales:Greenberg} for the definition and fundamental properties of the Greenberg transform.
 Let $G$ be the Greenberg transform of $\underline{G}$; then $G$ is a group scheme over $\Fq$ and there is a canonical isomorphism
@@ -960,10 +959,10 @@ G(\Fq) = \underline{G}(R).
 
 \begin{proposition}\label{prop:quasicharacters}
 With notation as above, suppose $\Fq$ is a finite field.
-For every quasicharacter character $\varphi : \underline{G}(S) \to \EEx$ \todo{What is $S$?} there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} =  \varphi.\] \end{proposition}
+For every quasicharacter character $\varphi : \underline{G}(R) \to \EEx$ there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} =  \varphi.\] \end{proposition}
 
 \begin{proof}
-By continuity of $\varphi : \underline{G}(S) \to \EE^\times$, there is some $m \in \NN$ and a factorization
+By continuity of $\varphi : \underline{G}(R) \to \EE^\times$, there is some $m \in \NN$ and a factorization
 \[
 \begin{tikzcd}
 \underline{G}(S) \arrow{rr}{\varphi} \arrow{rd} && \EEx\\
@@ -989,44 +988,21 @@ Then $\cs{L}$ is a quasicharacter sheaf on $G$, in the sense of \cite{cunningham
 For use below, we recall some facts about the Heisenberg-Weil representation.
 
 Let $V$ be a finite-dimensional vector space over a finite field $\Fq$ equipped with a symplectic paring $\langle\ ,\ \rangle : V\times V \to Z$, where $Z$ is a one-dimensional vector space over $\Fq$.
-Let $V^\sharp$ be the Heisenberg group determined by $(Z, \langle\ ,\ \rangle)$. \todo{We should include a reference defining the Heisenberg group}
-Then $V^\sharp$ is a split extension of $V$ by $Z$. \todo{split in what category?}
+Let $V^\sharp$ be the Heisenberg group determined by $(Z, \langle\ ,\ \rangle)$ \cite{gurevich-hadani:07a}*{\S 1.1}.
 Let $\Sp(V)$ be the symplectic group determined by the symplectic pairing $\langle\ ,\ \rangle$; this group acts on $V^\sharp$.
 The group $\Sp(V)\ltimes V^\sharp$ is called the Jacobi group. 
 From the construction above, it is clear that the Jacobi group may be viewed as the $\Fq$-points of an algebraic group over $\Fq$; we will refer to that algebraic group as the Jacobi group.
 
-Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the Heisenberg representation on $V^\sharp$ with central character $\psi$. 
+Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the Heisenberg representation on $V^\sharp$ with central character $\psi$ \cite{gurevich-hadani:07a}*{\S 1.1}. 
 The Heisenberg representation determines a representation $\pi_{\psi}$ of $\Sp(V)$ with the same representation space as $\omega_\psi$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\psi(g)$ determines an isomorphism of representations $\omega_\psi^g \to \omega_\psi$.
-Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$.
+Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$ \cite{gurevich-hadani:07a}*{\S 2.2}.
 
-The character $\trace(W_\psi) : \Sp(V)\ltimes V^\sharp \to \EE^\times$ of $W_\psi$ is studied in \cite{howe:73a}, where is it shown that $\trace(W_\psi)$ is determined by its restriction to $\Sp(V)$ and by $\psi$.  Moreover, $\trace(W_\psi)(g,v,z) =0$ unless $v\in \ker(g-1)$, in which case $(g,v,z)$ lies in a conjugacy class intersecting $\Sp(V) \ltimes Z$. 
-%
-The group $\Sp(V)$ is naturally stratified into the conjugation-stable subvarieties $S_r = \{ g\in \Sp(V) \tq \dim \ker (g-1) = r \}$. 
-The big stratum, $S_0$, is dense in $\Sp(V)$.
-%the boundary of $S_0$ is $\cup_{0< r\leq \dim V} S_r$. 
- From \cite{howe:73a}*{Prop. 2} we learn that if $g\in S_r$ then $q^{-r/2} \trace(W_\psi)(g)$ has complex norm $1$. \todo{We should say something about $\CC$ vs $\EE$}
-
-It is one of the main results of \cite{gurevich-hadani:07a} \todo{Can we give a specific reference here?} (see also \cite{gurevich-hadani:11a}*{Thm. 4.5}) that there is a Weil sheaf complex $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$ such that 
+There is a Weil sheaf complex $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$ \cite{gurevich-hadani:07a}*{Thm 3.2.2.1} (see also \cite{gurevich-hadani:11a}*{Thm. 4.5}) such that 
 \begin{equation}
 \trFrob{\cs{K}_\psi} = \trace(W_\psi).
 \end{equation}
 %
-Since $\cs{K}_\psi$ is an object in Deligne's category $D^b_c(\Sp(V)\ltimes V^\sharp,\EE)$, the left hand side of this equality must be interpreted accordingly.  Although only the existence of $\cs{K}_\psi$ will be needed below, we recall its construction briefly.
-
-Fix an isomorphism $\CC \approx \EE$ so that we may mix classical and geometric facts. 
-Observe that $S_0$ is the domain of the Cayley transform $\cay : g \mapsto (g-1)^{-1}(g+1)$ on $\Sp(V)$.
-If $(g,v,z) \in S_0\times V\times Z$ then
-\begin{equation}\label{Cayley}
-\trace(W_\psi)(g,v,z) =  \frac{\gamma_\psi^{\dim V}}{q^{\dim V/2} } \sigma(\det(1+\cay(g)))\ \psi\left(\langle \cay(g)v,v\rangle/4 \right) \psi(z),
-\end{equation}
- where $\gamma_\psi$ is the Gauss sum for $\psi$ and $\sigma : \Fq^\times \to \EE^\times$ is the quadratic character of $\Fq^\times$.
-An adaptation of the non-normalized kernels and the normalization coefficients \cite{gurevich-hadani:07a}*{Appendix B.1} allows for the geometrization of \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ (in fact, a Weil local system) on $S_0 \times V^\sharp$ such that 
-\[
-\trFrob{\cs{K}_0(\frac{\dim V}{2})} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
-\]
-where $\cs{K}_0(\frac{\dim V}{2})$ is the Tate twist of $\cs{K}$.
-%
-We set $\cs{K}_\psi \ceq j_{!*} \cs{K}_0[\dim V]$, the perverse extension of $\cs{K}_0 [\dim V]$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$.
+Since $\cs{K}_\psi$ is an object in Deligne's category $D^b_c(\Sp(V)\ltimes V^\sharp,\EE)$, the left hand side of this equality must be interpreted accordingly.
 
 \subsection{Review of Yu's types}\label{ssec:review}
 
