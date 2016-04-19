@@ -338,10 +338,16 @@ If $G$ is a connected commutative algebraic group over $\Fq$ then every characte
 \end{lemma}
 
 \begin{proof}
+Suppose $S_G(\cs{L}) = [\alpha\oplus \beta]\in \Hh^2(E_G^\bullet)$.
+As above, pick $a \in Z^2(\bG, \EEx)$ corresponding to $\alpha$. 
 We can use \'etale descent to see that pullback by the Lang isogeny defines an equivalence
-of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$.  Thus every character
-sheaf on $G$ arises through the Lang isogeny; since the covering group is $G(k)$, which is commutative,
-every character sheaf on $G$ is commutative. \todo{why does this imply that the sheave is commutative in our sense?}
+of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$.  
+Thus every character sheaf $\cs{L}$ on $G$ arises through the Lang isogeny, together with a character $G(\Fq) \to \EEx$.
+Pushing forward the Lang isogeny along this character defines an extension of $\bG$ by $\EEx$, and thus $a\in Z^2(\bG, \EEx)$ whose class is fixed by Frobenius.
+Then $a$ corresponds to $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$, as above.
+Since the covering group of the Lang isogeny is $G(k)$, which is commutative, then the class of this extension satisfies $a(x,y) = a(y,x)$ for all $x,y \in \bG$. 
+This shows that $S_{G}(\cs{L}$ is symmetric.
+It follows from Lemma~\ref{lem:symccslink} that $\cs{L}$ is a commutative character sheaf.
 \end{proof}
 
 \begin{theorem} \label{thm:trfrobiso}
@@ -372,7 +378,7 @@ For general smooth commutative group schemes, we use Lemma \ref{lem:conncomm} an
 
 \begin{remark}
 Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningham-roe:13a}*{Ex. 2.10}, the functor
-$\CCS(G) \to \CS(G)$ is not an equivalence of categories in general.
+$\CCS(G) \to \CS(G)$ is not an equivalence of categories in general. 
 \end{remark}
 
 \section{Commutative character sheaves on non-commutative groups}\label{sec:noncom}
@@ -548,7 +554,9 @@ we succeed in geometrizing characters of $G(k)$ on the nose.
 
 Let $G$ be a smooth group scheme over $k$, as above.
 Let $H$ be a group scheme and write $n : H \times H \to H$ for the multiplication morphism.
-Let $a : H \times G\to G$ be a group action compatible with the group structure on $G$ and write $p : H\times G \to G$ for projection. 
+Let $a : H \times G\to G$ be an action of $H$ on $G$ 
+%group action compatible with the group structure on $G$ 
+and write $p : H\times G \to G$ for projection. 
 Consider the morphisms
 \[
 \begin{tikzcd}
@@ -583,7 +591,7 @@ of Weil local systems on $H\times G$ such that
 \begin{equation}\label{E1}
 s^*(\nu) = \id_{\cs{L}}
 \end{equation}
-and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes. \todo{Maybe we should give a reference for this definition?}
+and the following diagram of isomorphisms of local systems on $H\times H\times G$ commutes. 
 \begin{equation}\label{E2}
 \begin{tikzcd}
 \ &  \arrow{dl}{a\circ b_1 = a\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
@@ -609,14 +617,11 @@ p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
 \end{equation}
 commutes.
 This defines $\Loc_H(G)$, the category of $H$-equivariant Weil local systems on $G$.
-\todo{Maybe we should give a reference for this definition?}
 The reader will recognize this notion as the Weil sheaf version of equivariant sheaves for the action $a$ of $H$ on $G$, as can be found, for example, in \cite{bernstein-lunts:equivariant}*{0.2}. 
-
 
 \subsubsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
 
-The notation of an $H$-equivariant Weil sheaf on $G$, as described in Section~\ref{ssec:equivariant1}, does not use that fact that the action $a: H\times G \to G$ is compatible with the group structure on $G$.
-Here we a introduce a notion which makes use of that condition.
+With reference to Section~\ref{ssec:equivariant1}, suppose now that $H$ acts on $G$ through group homomorphisms, so $a(h)(m(g_1,g_2)) = m(a(h)(g_1), a(h)(g_2))$.
 
 We define an $H$-equivariant linear character sheaf on $G$ to be a triple $(\cs{L},\mu, \nu)$, where $(\cs{L},\mu)$ is a linear character sheaf and $(\cs{L},\nu)$ is an $H$-equivariant local system.  We require that $\mu$ be compatible with $\nu$ in the following sense.
 We define morphisms:
@@ -639,6 +644,8 @@ c_1^*(\cs{L}\boxtimes \cs{L}) \arrow{dr}{p_i\circ c_1 = a\circ p_i\circ c_0} &&&
  & c_0^*(a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{c_0^*(\nu\boxtimes \nu)} & c_0^*(p^*\cs{L} \boxtimes p^*\cs{L}) & 
 \end{tikzcd}
 \end{equation}
+Note that $a\circ c_2 = m\circ c_1$ precisely because $H$ acts on $G$ through group homomorphisms.
+
 
 %On stalks, this condition is
 %\[
@@ -1028,22 +1035,23 @@ Although nothing more that this statement will be needed below, the construction
 The reader pressed for time is invited to skip the next paragraph without loosing anything needed for the arguments in the rest of Section~\ref{sec:types}.
 
 Fix an isomorphism $\CC \approx \EE$ so that we may mix classical and geometric facts. 
-One begins by observing that $S_0$ is the domain of the Cayley transform $\cay : g \mapsto (g-1)^{-1}(g+1)$ on $\Sp(V)$ and that if $(g,v,z) \in S_0\times V\times Z$ then
+Observe that $S_0$ is the domain of the Cayley transform $\cay : g \mapsto (g-1)^{-1}(g+1)$ on $\Sp(V)$.
+If $(g,v,z) \in S_0\times V\times Z$ then
 \begin{equation}\label{Cayley}
 \trace(W_\psi)(g,v,z) =  \frac{\gamma_\psi^{\dim V}}{q^{\dim V/2} } \sigma(\det(1+\cay(g)))\ \psi\left(\langle \cay(g)v,v\rangle/4 \right) \psi(z),
 \end{equation}
  where $\gamma_\psi$ is the Gauss sum for $\psi$ and $\sigma : \Fq^\times \to \EE^\times$ is the quadratic character of $\Fq^\times$.
-By a simple adaptation of what in \cite{gurevich-hadani:07a}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize the function in \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ (in fact, a Weil local system) on $S_0 \times V^\sharp$ such that 
-\[
+By a simple adaptation of what in \cite{gurevich-hadani:07a}*{Appendix B.1} are called the non-normalized kernels and the normalization coefficients, it is easy to geometrize \eqref{Cayley} with a $\Sp(V)\ltimes V^\sharp$-equivariant irreducible Weil sheaf $\cs{K}_0$ (in fact, a Weil local system) on $S_0 \times V^\sharp$ such that 
+$
 \trFrob{\cs{K}_0(\frac{\dim V}{2})} = \trace(W_\psi)\vert_{S_0\times V^\sharp},
-\]
+$
 where $\cs{K}_0(\frac{\dim V}{2})$ is the Tate twist of $\cs{K}$.
 %
 Next, one forms $\cs{K}_\psi \ceq j_{!*} \cs{K}_0[\dim V]$, the perverse extension of $\cs{K}_0 [\dim V]$ along $j : S_0 \times V^\sharp \hookrightarrow \Sp(V) \ltimes V^\sharp$; recall that $S_0$ is Zariski dense in $\Sp(V)$. 
 It follows from \cite{gurevich-hadani:07a} that 
-\[
+$
 \trFrob{\cs{K}_\psi} = \trace(W_\psi).
-\]
+$
 Then $\cs{K}_\psi$ is the promised Weil sheaf complex.
 
 \subsection{Review of Yu's types}\label{ssec:review}
