@@ -172,9 +172,21 @@ As an application, we use these \emph{commutative character sheaves} to geometri
 
 \section*{Introduction}
 
-In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary from connected, commutative, algebraic groups over a finite field $k$ to smooth commutative group schemes $G$ over $k$.  
-Writing $G(k)^*$ for $\Hom(G(k), \EEx)$, we described a category $\CS(G)$ of \emph{character sheaves} on $G$ and a surjective homomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
-In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel; we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
+The function-sheaf dictionary over a finite field $k$ \cite{deligne:SGA4.5}*{Sommes trig.}
+provides a way of encoding functions on the $k$-rational points of an algebraic group $G$
+as $\ell$-adic local systems on $G$.  More specifically, if $G$ is a connected, commutative, algebraic group
+then there is a certain category $\CS(G)$ of rank-one local systems on $G$ and an
+explicit isomorphism between $G(k)^* \ceq \Hom(G(k), \EEx)$ and isomorphism classes
+of objects in $\CS(G)$.  Objects in $\CS(G)$ are referred to as \emph{character sheaves};
+the isomorphism is given by mapping a character sheaf $\cs{L}$ to the function
+$g \mapsto \Tr(\Frob{} \vert \cs{L}_g)$.
+
+In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary to
+smooth commutative group schemes $G$, allowing for non-connected groups.
+We gave a description of the category $\CS(G)$ of character sheaves in this context, as well
+as the isomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
+In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel;
+we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
 
 The first aim of this paper is to repair this defect in the function-sheaf dictionary for characters of smooth commutative group schemes $G$ by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
 We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
