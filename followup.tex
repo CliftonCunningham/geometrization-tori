@@ -281,8 +281,6 @@ if the following diagram of Weil sheaves on $G \times G$ commutes.
 We write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
  \end{definition}
 
-\subsection{Eliminating Invisible Character Sheaves}\label{ssec:defect}
-
 In \cite{cunningham-roe:13a}*{Thm. 3.6}, we showed that $\TrFrob{G} : \CSiso{G} \to G(k)^*$ is surjective and
 explicitly computed its kernel.  In this section, we show that the corresponding map
 $\TrFrob{G} : \CCSiso{G} \to G(k)^*$ for commutative character sheaves is an isomorphism.
@@ -345,8 +343,8 @@ of categories between local systems on $G$ and $G(\Fq)$-equivariant local system
 Thus every character sheaf $\cs{L}$ on $G$ arises through the Lang isogeny, together with a character $G(\Fq) \to \EEx$.
 Pushing forward the Lang isogeny along this character defines an extension of $\bG$ by $\EEx$, and thus $a\in Z^2(\bG, \EEx)$ whose class is fixed by Frobenius.
 Then $a$ corresponds to $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$, as above.
-Since the covering group of the Lang isogeny is $G(k)$, which is commutative, then the class of this extension satisfies $a(x,y) = a(y,x)$ for all $x,y \in \bG$. 
-This shows that $S_{G}(\cs{L}$ is symmetric.
+Since the covering group of the Lang isogeny is $G(k)$, which is commutative, the class of this extension satisfies $a(x,y) = a(y,x)$ for all $x,y \in \bG$. 
+This shows that $S_{G}(\cs{L})$ is symmetric.
 It follows from Lemma~\ref{lem:symccslink} that $\cs{L}$ is a commutative character sheaf.
 \end{proof}
 
@@ -378,7 +376,8 @@ For general smooth commutative group schemes, we use Lemma \ref{lem:conncomm} an
 
 \begin{remark}
 Since $\Hh^0(\Weil{},\Hh^2(\bG,\EEx))$ is not necessarily trivial \cite{cunningham-roe:13a}*{Ex. 2.10}, the functor
-$\CCS(G) \to \CS(G)$ is not an equivalence of categories in general. 
+$\CCS(G) \to \CS(G)$ is not necessarily essentially surjective.  Indeed, the invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8}
+defined in our previous paper are precisely those non-commutative character sheaves with trivial trace of Frobenius.
 \end{remark}
 
 \section{Commutative character sheaves on non-commutative groups}\label{sec:noncom}
