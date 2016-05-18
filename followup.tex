@@ -100,7 +100,8 @@
 \newcommand{\tq}{{\ \vert\ }}
 \newcommand{\iso}{{\ \cong\ }}
 \newcommand{\trFrob}[1]{t_{#1}}
-\newcommand{\TrFrob}[1]{\operatorname{Tr}_{#1}}
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand{\TrFrob}[1]{\Tr_{#1}}
 %% Limits
 \newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
 \newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
@@ -188,7 +189,8 @@ as the isomorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
 In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel;
 we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
 
-The first aim of this paper is to repair this defect in the function-sheaf dictionary for characters of smooth commutative group schemes $G$ by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
+The first aim of this paper is to repair this defect in the function-sheaf dictionary
+ by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
 We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
 When $G$ is connected, all character sheaves on $G$ are commutative.
 This category clarifies several questions about character sheaves on $G$.  Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those $\cs{L}$ with $\TrFrob{G}(\cs{L}) = 1$ that are not commutative.  Moreover, $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
@@ -196,7 +198,7 @@ This category clarifies several questions about character sheaves on $G$.  Invis
 Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
 In this paper, we do not consider Lusztig's geometrization for characters of representations of connected, reductive groups $G(k)$
 using character sheaves \cite{lusztig:85a}*{Def.~2.10}.  Instead, we focus on the group of $1$-dimensional characters
-$G(k)^*$, assuming that $G$ is smooth, but not that it is connected or reductive.
+$G(k)^*$, assuming that $G$ is smooth, but not that it is connected, reductive or commutative. \todo{Is there a relationship with Lusztig's character sheaves that we can easily summarize?}
 The category $\CS(G)$ has a straightforward generalization to this case, but again
 there are more character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
 We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
@@ -1445,6 +1447,16 @@ pages = {1--37},
 numpages = {37},
 doi = {10.1017/S1474748015000286},
 URL = {http://journals.cambridge.org/article_S1474748015000286},
+}
+
+\bib{deligne:SGA4.5}{book}{
+	address = {Berlin},
+	author = {Pierre Deligne},
+	publisher = {{Springer-Verlag}},
+	series = {Lecture Notes in Mathematics},
+	title = {{Cohomologie \'etale}},
+	volume = {569},
+	year = {1977},
 }
 
 \bib{demazure:SGA3-VIA}{inproceedings}{
