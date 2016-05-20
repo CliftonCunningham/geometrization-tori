@@ -234,9 +234,6 @@ As preparation for the proof, we review some facts about the Heisenberg-Weil rep
 Then, in Section~\ref{ssec:review}, we review Yu's theory of types and his study of smooth integral models, in Section~\ref{ssec:models}.  
 These elements are pulled together in Section~\ref{ssec:geotypes}, where the proof Theorem~\ref{thm:geotypes} is given.
 
- \todo{There are some grammatical errors in this paragraph, and I'm not 100\% sure how they should be corrected}
-
-
 We are extremely grateful to Loren Spice for explaining Yu's theory of types to us.
 We also thank Masoud Kamgarpour for helpful conversations.
 
@@ -351,12 +348,11 @@ If $G$ is a connected commutative algebraic group over $\Fq$ then every characte
 
 \begin{proof}
 Suppose $S_G(\cs{L}) = [\alpha\oplus \beta]\in \Hh^2(E_G^\bullet)$.
-As above, pick $a \in Z^2(\bG, \EEx)$ corresponding to $\alpha$. 
 We can use \'etale descent to see that pullback by the Lang isogeny defines an equivalence
 of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$.  
 Thus every character sheaf $\cs{L}$ on $G$ arises through the Lang isogeny, together with a character $G(\Fq) \to \EEx$.
-Pushing forward the Lang isogeny along this character defines an extension of $\bG$ by $\EEx$, and thus $a\in Z^2(\bG, \EEx)$ whose class is fixed by Frobenius.
-Then $a$ corresponds to $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$, as above.
+Pushing forward the Lang isogeny along this character defines an extension of $\bG$ by $\EEx$ whose class is fixed by Frobenius; let $a\in Z^2(\bG, \EEx)$ be a representative $2$-cocycle.
+Then $a$ corresponds to the $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$, above. \todo{Check this.}
 Since the covering group of the Lang isogeny is $G(k)$, which is commutative, the class of this extension satisfies $a(x,y) = a(y,x)$ for all $x,y \in \bG$. 
 This shows that $S_{G}(\cs{L})$ is symmetric.
 It follows from Lemma~\ref{lem:symccslink} that $\cs{L}$ is a commutative character sheaf.
@@ -473,7 +469,7 @@ The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subca
    \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L}).
   \end{tikzcd}
   \]
-Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ above. \todo{Why not use $\gamma$ directly instead of $\beta$?}
+Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ above. 
 \end{definition}
 
 \subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
