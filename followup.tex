@@ -193,7 +193,7 @@ The first aim of this paper is to repair this defect in the function-sheaf dicti
  by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
 We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
 When $G$ is connected, all character sheaves on $G$ are commutative.
-This category clarifies several questions about character sheaves on $G$.  Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those $\cs{L}$ with $\TrFrob{G}(\cs{L}) = 1$ that are not commutative.  Moreover, $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
+This category clarifies several questions about $\CS(G)$. \todo{Small change here.} Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those $\cs{L}$ with $\TrFrob{G}(\cs{L}) = 1$ that are not commutative.  Moreover, $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
 Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
 We assume $G$ is smooth, but not that it is connected, reductive or commutative. 
@@ -207,17 +207,15 @@ defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  Note that the fu
 essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
 %
 
-In order to further justify referring to objects in $\CCS(G)$ as commutative character sheaves,
-suppose for the moment that $G$ is a connected, reductive algebraic group over $\Fq$.
-In this case, every object in $\CCS(G)$ is a Frobenius-stable character sheaf on $G$ in the sense of \cite{lusztig:85a}*{Def.~2.10}.
-Moreover, if $A$ is a character sheaf on $G$ in this sense, and if the characteristic function of $A$ is a character of $G(k)$, then the dictionary determines an object in $\CCS(G)$ from $A$.
-These two rules determine an injection from $\CCSiso{G}$ to isomorphism classes of Frobenius-stable character sheaves on $G$.
-Accordingly, we may refer to character sheaves on $G$ that arise in this manner as commutative character sheaves.
-Of course, such sheaves represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields. 
-
 As an application, we use the category $\CCS(G)$ to give a geometric description of types for supercuspidal representations of connected reductive groups over $p$-adic fields fields.
 In this way, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category:
 virtual Weil perverse sheaves on group schemes over finite fields. 
+
+In order to provide further justification for referring to objects in $\CCS(G)$ as commutative character sheaves, suppose for the moment that $G$ is a connected, reductive algebraic group over $\Fq$.
+In this case, it can be shown that there is a forgetful functor taking every object in $\CCS(G)$ to a Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:85a}*{Def.~2.10}, for which the characteristic function is a character of $G(k)$.
+Of course, such sheaves represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields,
+but they are precisely the part needed to describe characters of such groups.
+\bigskip
 
 We now summarize the sections of the paper in more detail.
 %
@@ -233,13 +231,14 @@ This observation underlies the definition of commutative character sheaves for n
 We state our second main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
-Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves.
-
+Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. \todo{There was a paragraph break here. Why?}
+% 
 In Section~\ref{sec:types} we give an application of Theorem~\ref{thm:geo} by geometrizing types for supercuspidal representations of $p$-adic groups. The proof of this statement, which is made precise in Theorem~\ref{thm:geotypes}, is given in Section~\ref{ssec:geotypes}. 
  %Specifically, we show that if $C$ is a compact $p$-adic group and $\rho$ is a representation of $C$ and $(C,\rho)$ is a type for a tamely ramified $p$-adic group then there is a  group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a virtual Weil sheaf $\mathcal{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
 As preparation for the proof, we review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
 Then, in Section~\ref{ssec:review}, we review Yu's theory of types and his study of smooth integral models, in Section~\ref{ssec:models}.  
 These elements are pulled together in Section~\ref{ssec:geotypes}, where the proof Theorem~\ref{thm:geotypes} is given.
+\bigskip
 
 We are extremely grateful to Loren Spice for explaining Yu's theory of types to us.
 We also thank Masoud Kamgarpour for helpful conversations.
