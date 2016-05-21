@@ -193,7 +193,8 @@ The first aim of this paper is to repair this defect in the function-sheaf dicti
  by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
 We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
 When $G$ is connected, all character sheaves on $G$ are commutative.
-This category clarifies several questions about $\CS(G)$. \todo{Small change here.} Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those $\cs{L}$ with $\TrFrob{G}(\cs{L}) = 1$ that are not commutative.  Moreover, $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
+This category clarifies several questions about $\CS(G)$. 
+Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those $\cs{L}$ with $\TrFrob{G}(\cs{L}) = 1$ that are not commutative.  Moreover, $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
 Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
 We assume $G$ is smooth, but not that it is connected, reductive or commutative. 
@@ -212,7 +213,10 @@ In this way, we provide all of the ingredients needed to parametrize supercuspid
 virtual Weil perverse sheaves on group schemes over finite fields. 
 
 In order to provide further justification for referring to objects in $\CCS(G)$ as commutative character sheaves, suppose for the moment that $G$ is a connected, reductive algebraic group over $\Fq$.
-In this case, it can be shown that there is a forgetful functor taking every object in $\CCS(G)$ to a Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:85a}*{Def.~2.10}.
+Let $\gcs{L}$ be the geometric part of an object in $\CCS(G)$; see Section~\ref{sec:defs}.
+Let $T$ be a maximal torus in $\bG$ and let $\gcs{L}_T$ be the restriction of $\gcs{L}$ to $T$.
+Then $\gcs{L}$ appears in the semisimple complex $\operatorname{ind}_{B,T}^{\bG}(\gcs{L}_T)$.
+It follows that every object in $\CCS(G)$ determines Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:85a}*{Def.~2.10}.
 Of course, such sheaves represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields,
 but they are precisely the part needed to describe one dimensional characters of such groups.
 \bigskip
@@ -231,12 +235,12 @@ This observation underlies the definition of commutative character sheaves for n
 We state our second main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
-Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. \todo{There was a paragraph break here. Why?}
+Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. 
 % 
 In Section~\ref{sec:types} we give an application of Theorem~\ref{thm:geo} by geometrizing types for supercuspidal representations of $p$-adic groups. The proof of this statement, which is made precise in Theorem~\ref{thm:geotypes}, is given in Section~\ref{ssec:geotypes}. 
  %Specifically, we show that if $C$ is a compact $p$-adic group and $\rho$ is a representation of $C$ and $(C,\rho)$ is a type for a tamely ramified $p$-adic group then there is a  group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a virtual Weil sheaf $\mathcal{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
 As preparation for the proof, we review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
-Then, in Section~\ref{ssec:review}, we review Yu's theory of types and his study of smooth integral models, in Section~\ref{ssec:models}.  
+Then, in Section~\ref{ssec:review}, we review Yu's theory of types and his study of smooth integral models.  
 These elements are pulled together in Section~\ref{ssec:geotypes}, where the proof Theorem~\ref{thm:geotypes} is given.
 
 \bigskip
@@ -359,7 +363,7 @@ We can use \'etale descent to see that pullback by the Lang isogeny defines an e
 of categories between local systems on $G$ and $G(\Fq)$-equivariant local systems on $G$.  
 Thus every character sheaf $\cs{L}$ on $G$ arises through the Lang isogeny, together with a character $G(\Fq) \to \EEx$.
 Pushing forward the Lang isogeny along this character defines an extension of $\bG$ by $\EEx$ whose class is fixed by Frobenius; let $a\in Z^2(\bG, \EEx)$ be a representative $2$-cocycle.
-Then $a$ corresponds to the $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$, above. \todo{Check this.}
+Then $a$ corresponds to the $\alpha \in C^0(\Weil{}, C^2(\bG, \EEx))$, above. 
 Since the covering group of the Lang isogeny is $G(k)$, which is commutative, the class of this extension satisfies $a(x,y) = a(y,x)$ for all $x,y \in \bG$. 
 This shows that $S_{G}(\cs{L})$ is symmetric.
 It follows from Lemma~\ref{lem:symccslink} that $\cs{L}$ is a commutative character sheaf.
@@ -958,7 +962,7 @@ All supercuspidal representations of tamely ramified $p$-adic groups can be buil
 The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from Yu's data. 
 Let us refer to the types arising in this manner as {\it Yu types}.
 In this section we offer an application of Theorem~\ref{thm:geo}, by showing that Yu types are geometrizable, subject to a very mild hypothesis.
-The proof of that statement, made precise in Theorem~\ref{thm:geotypes}, requires: the geometrization of the character of the Heisenberg-Weil representation over finite fields (Section~\ref{ssec:Jacobi}); a review of some basic properties of Yu types (Section~\ref{ssec:review}); a review of some facts from Yu's notes on smooth integral models (Section~\ref{ssec:models}); and the geometrization of characters of representations of reductive groups over finite fields with cyclic geometric component groups, using Lusztig's character sheaves on these groups. These pieces are assembled in Section~\ref{ssec:geotypes}. 
+The proof of that statement, made precise in Theorem~\ref{thm:geotypes}, requires: the geometrization of the character of the Heisenberg-Weil representation over finite fields (Section~\ref{ssec:Jacobi}); a review of some basic properties of Yu types (Section~\ref{ssec:review}); a review of some facts from Yu's notes on smooth integral models (Section~\ref{ssec:review}); and the geometrization of characters of representations of reductive groups over finite fields with cyclic geometric component groups, using Lusztig's character sheaves on these groups. These pieces are assembled in Section~\ref{ssec:geotypes}. 
 
 
 \subsection{Quasicharacters of smooth group schemes over certain henselian traits}
@@ -1020,10 +1024,9 @@ There is a Weil sheaf complex $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$ \cite{gu
 %
 Since $\cs{K}_\psi$ is an object in Deligne's category $D^b_c(\Sp(V)\ltimes V^\sharp,\EE)$, the left hand side of this equality must be interpreted accordingly.
 
-\subsection{Review of Yu's types}\label{ssec:review}
+\subsection{Review of Yu's types and associated models}\label{ssec:review}
 
 For the rest of Section~\ref{sec:types}, $K$ is a $p$-adic field.
-
 
 A Yu type is a pair $(C,\rho)$, where $C$ is a compact group and $\rho$ is a representation of $C$,  constructed from the following information, derived from a Yu datum:
 \begin{enumerate}
@@ -1138,9 +1141,7 @@ $Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ % \cite{yu:01a}*{\S 11} \\
 \end{table}%
 
 
-
-
-\subsection{Review of Yu's smooth models}\label{ssec:models}
+%\subsection{Review of Yu's smooth models}\label{ssec:review}
 
 Regarding the construction of the type $(C,\rho)$, the paper \cite{yu:03a} concludes with the following observation.
 \begin{quotation}
@@ -1148,7 +1149,7 @@ Regarding the construction of the type $(C,\rho)$, the paper \cite{yu:03a} concl
  the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
 important role in the representation theory of $p$-adic groups.} %\cite{yu:03a}
 \end{quotation}
-In this section we explain the first sentence; in Section~\ref{ssec:geotypes} we follow the suggestion in the second sentence.
+We now explain the first sentence; in Section~\ref{ssec:geotypes} we follow the suggestion in the second sentence.
 
 %\begin{enumerate}
 %\labitem{M1}{M1}
@@ -1240,8 +1241,7 @@ Finally, we come to the main result of Section~\ref{sec:types}.
 Since Yu's theory refers to complex representations, and since our geometrization uses $\ell$-adic sheaves, we grit our teeth and fix an isomorphism $\CC \approx \EE$.
 
 \begin{theorem}\label{thm:geotypes}
-Let $(C,\rho)$ be a Yu type, constructed as in Section~\ref{ssec:review}.
-Let $G^0 = \Gr_{R}(\underline{G}^0)$ be the Greenberg transform of the smooth group scheme $\underline{G}^0$ appearing in Section~\ref{ssec:models}.
+Let $(C,\rho)$ be a Yu type and let $G^0 = \Gr_{R}(\underline{G}^0)$ be the Greenberg transform of the smooth group scheme $\underline{G}^0$ appearing in Section~\ref{ssec:review}.
 Assume $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
 Then there is a virtual Weil sheaf complex $\cs{A}$ on $G = \Gr_{R}(\underline{G})$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
 \end{theorem}
@@ -1294,12 +1294,12 @@ Observe that $\trace(\rho_0)_m$ may be recovered from ${A}_m^0$:
 %Let $\cs{A}^0$ be the pull-back of $\cs{A}^0_m$ along  $\Gr^{R}(\underline{G}^0) \to \Gr^{R}_{m}(\underline{G}^0)$.
 %Then $\cs{A}^0$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^0)$ from which the character of $\rho_0$ may be recovered.
 
-Consider the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ and the Heisenberg-Weil representation $W_{i+1}$ appearing in Section~\ref{ssec:models}.
+Consider the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ and the Heisenberg-Weil representation $W_{i+1}$ appearing in Section~\ref{ssec:review}.
 Let $\cs{K}^{i+1}$ be the Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi}, such that
 \[
 \trFrob{\cs{K}^{i+1}} = \trace(W_{i+1}).
 \]
-Recall from Section~\ref{ssec:models} that $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ is a quotient of the special fibre of the smooth group scheme $\underline{G}^{i} \ltimes \underline{J}^{i+1}$.
+Recall from Section~\ref{ssec:review} that $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ is a quotient of the special fibre of the smooth group scheme $\underline{G}^{i} \ltimes \underline{J}^{i+1}$.
 Let $\cs{K}_0^{i+1}$ be the Weil sheaf on the special fibre of $\underline{G}^{i} \ltimes \underline{J}^{i+1}$ obtained from $W_{i+1}$ by pullback. 
 Let $\cs{K}_m^{i+1}$ be the Weil sheaf on $\Gr^{R}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1})$ obtained from $\cs{K}_0^{i+1}$ by pullback along the affine morphism
 $\Gr^{R}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1}) \to \Gr^{R}_0(\underline{G}^{i} \ltimes \underline{J}^{i+1})$.
