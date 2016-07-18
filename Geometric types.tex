@@ -24,6 +24,11 @@
 \usetikzlibrary{shapes,arrows,calc,matrix}
 \usepackage{tikz-cd}
 
+%%%%% for spacing
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{setspace}
+
 %%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
 \theoremstyle{plain}
       \newtheorem{theorem}{Theorem}[section]
@@ -190,9 +195,9 @@ important role in the representation theory of $p$-adic groups.} %\cite{Yu:model
 \end{quotation}
 %
 In this paper we follow the suggestion above by showing that Yu type data are geometrizable, in the following sense.
-A Yu type datum determines a sequence $(\oK^i,\orho_i)$, for $i=0, \ldots, d$, of types for supercuspidal representations of a sequence of $p$-adic groups.
+A Yu type datum determines a sequence of representations $\orho_i$ of compact $p$-adic groups $\oK^i$, for $i=0, \ldots, d$, such that $(\oK^d, \rho_d)$ is a type for a supercuspidal representation of a $p$-adic group.
 The main result of \cite{Yu:models} explains how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $\O$ of integers of the $p$-adic field with $\underline{G}^i(\O)=\,^\circ K^i $.
-In this paper we show in Theorem~\ref{thm:geotypes} that if the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic, then each type $(\oK^i,\orho_i)$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
+In this paper we show in Theorem~\ref{thm:geotypes} that if the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic, then each representation $\orho_i$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
 where $\cs{F}^i$ is a virtual Weil sheaf on the Greenberg transform $G^i$ of $\underline{G}^i$, such that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i),
@@ -205,7 +210,7 @@ where $\trFrob{\cs{F}^i}$ refers to the function on $G^i(k) = \underline{G}^i(\O
 \end{tikzcd}
 \]
 %Theorem~\ref{thm:geotypes} shows how to construct the virtual Weil sheaf $\cs{F}^i$ from the Yu type datum, so that \eqref{eqn:intro1} holds.
-We refer to the pairs $(\underline{G}^i, \cs{F}^i)$ as \emph{geometric types} for supercuspidal representations.
+We refer to the pair $(\underline{G}^d, \cs{F}^d)$ as a \emph{geometric type}.
 
 In order to prove Theorem~\ref{thm:geotypes}, we must address the lacuna highlighted in the quote from \cite{Yu:models}, above; namely, we must find a way to geometrize linear characters of groups of the form $\underline{H}(\O)$, where $\underline{H}$ is a smooth group scheme over $\O$. 
 In order to do this is a systematic manner, we begin this paper by finding the function-sheaf dictionary for characters of arbitrary smooth group schemes over finite fields. 
@@ -1003,11 +1008,7 @@ By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = 
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
-All supercuspidal representations of tamely ramified $p$-adic groups can be built from the data of \cite{yu:01a}*{\S 15}, as established in \cite{kim:07a}.
-The type, in the sense of \cite{bushnell-kutzko:98a}, of the resulting supercuspidal representations can be constructed directly from Yu's data. 
-Let us refer to the types arising in this manner as {\it Yu types}.
-In this section we offer an application of Theorem~\ref{thm:geo}, by showing that Yu types are geometrizable, subject to a very mild hypothesis.
-The proof of that statement, made precise in Theorem~\ref{thm:geotypes}, requires: the geometrization of the character of the Heisenberg-Weil representation over finite fields (Section~\ref{ssec:Jacobi}); a review of some basic properties of Yu types (Section~\ref{ssec:review}); a review of some facts from Yu's notes on smooth integral models (Section~\ref{ssec:review}); and the geometrization of characters of representations of reductive groups over finite fields with cyclic geometric component groups, using Lusztig's character sheaves on these groups. These pieces are assembled in Section~\ref{ssec:geotypes}. 
+We now show how to use Theorem~\ref{thm:geo} to geometrize Yu type data and how to geometrize types for supercuspidal representations of $p$-adic groups.
 
 
 \subsection{Quasicharacters of smooth group schemes over certain henselian traits}
@@ -1083,10 +1084,13 @@ The representation $\orho^0$ and the quasicharacters $(\varphi^0, \ldots , \varp
 In order to prepare for the construction of the geometric types of Theorem~\ref{thm:geotypes}  we review some further detail here.
 In Table~\ref{table:notation} we explain how to convert the constructions appearing in this section into the notation of \cite{yu:01a}.
 
-\begin{table}[htp]
-\caption{Comparison with notation of \cite{yu:01a}}
-\begin{center}
-\begin{tabular}{c|l}
+\begin{table}[ht]
+\caption{Notation conversion chart.}
+\begin{spacing}{1.2}
+\begin{tabular}{| c|l |}
+\hline
+\text{this paper} & \cite{yu:01a}\\
+\hline
 %$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
 %$\oK^{i+1}$ & $\,^\circ K^{i+1} = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$\\% \cite{yu:01a}*{\S 15} \\
 %$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
@@ -1097,11 +1101,12 @@ $J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ \\
 $V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ \\ 
 $V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
 %$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
-$Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ % \cite{yu:01a}*{\S 11} \\
+$Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ \\ % \cite{yu:01a}*{\S 11} \\
 %$(f_{j+1}, j_{i+1})$ & $(f,j)$ \cite{yu:01a}*{\S 11} \\
 %$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} 
+\hline
 \end{tabular}
-\end{center}
+\end{spacing}
 \label{table:notation}
 \end{table}%
 
@@ -1246,7 +1251,7 @@ The continuous representation $\orho^0$ of $\oK^0$ is a representation of $\unde
 In fact, $\varrho_0$ is itself obtained by pulling back a representation $\varrho_0^\reductive$ along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 \labitem{M2}{M2} The quasicharacters $\varphi^i$ are quasicharacters of $\underline{G}^i(R)$, for $i=0, \ldots d$.
 \labitem{M3}{M3}
-Diagram \eqref{eq:semiprod} is now replaced by the following exact diagram of smooth group schemes over $R$.
+Diagram \eqref{eq:semiprod} is now replaced by the following diagram of smooth group schemes over $R$.
 \begin{equation}\label{eq:pimodel}
 \begin{tikzcd}
 \ && 1 \arrow{d} && \\
