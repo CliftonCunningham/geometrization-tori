@@ -180,7 +180,7 @@ We combine these sheaves with Lusztig's character sheaves on reductive algebraic
 
 \maketitle
 
-\tableofcontents
+%\tableofcontents
 
 \section*{Introduction}
 
@@ -189,8 +189,9 @@ While the type, in the sense of Bushnell \& Kutzko \cite{bushnell-kutzko:98a}, o
 Yu type data are studied in \cite{Yu:models}, which concludes with the following observation.
 %
 \begin{quotation}
-{\it Therefore, up to some linear characters, all the ingredient representations [appearing in Yu type data] are on groups of
- the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+{\it Therefore, up to some linear characters, all the ingredient representations 
+%[appearing in Yu type data]
+ are on groups of the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
 important role in the representation theory of $p$-adic groups.} %\cite{Yu:models}
 \end{quotation}
 %
@@ -583,7 +584,8 @@ The trace of Frobenius $\TrFrob{} : \CCSiso{G}\to G(\Fq)^*$ fits into the follow
 \end{tikzcd}
 \]
 where $\Delta_G$ denotes the image of the connecting homomorphism $G\ab(\Fq) \to \Hh^1(\Fq, G\der)$. 
-Thus the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. The geometrization of $\chi : G(\Fq) \to \EEx$ is not unique, but the group of isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
+Thus the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. 
+While the geometrization of $\chi : G(\Fq) \to \EEx$ is not unique, the group of isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
 \end{theorem}
 
 \begin{proof}
@@ -992,7 +994,7 @@ in particular $\gamma = (q\times q)^* \xi$.
 &  \theta^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
 \]
-By Lemma~\ref{lem:HH}, we may interpret the diagram on the right as a diagram in $\Loc_{H\times H}(G\times G)$.
+Using Lemma~\ref{lem:HH}, we may interpret the diagram on the right as a diagram in $\Loc_{H\times H}(G\times G)$.
 By Lemma~\ref{lem:torsor}, this corresponds to a diagram in $\Loc(G\ab\times G\ab)$, necessarily the diagram on the left, above, and also that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
 In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
 if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$.
@@ -1008,7 +1010,7 @@ By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = 
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
-We now show how to use Theorem~\ref{thm:geo} to geometrize Yu type data and how to geometrize types for supercuspidal representations of $p$-adic groups.
+We now show how to use Theorem~\ref{thm:geo} to geometrize Yu type data and how to geometrize types for supercuspidal representations of tamely ramified $p$-adic groups.
 
 
 \subsection{Quasicharacters of smooth group schemes over certain henselian traits}
