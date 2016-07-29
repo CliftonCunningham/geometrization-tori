@@ -184,8 +184,8 @@ We combine these sheaves with Lusztig's character sheaves on reductive algebraic
 
 \section*{Introduction}
 
-As proved by Ju-Lee Kim in \cite{kim:07a}, all irreducible supercuspidal representations of tamely ramified $p$-adic groups can be built from the datum introduced by Jiu-Kang Yu in \cite{yu:01a}*{\S 15}.
-While the type, in the sense of Bushnell \& Kutzko \cite{bushnell-kutzko:98a}, of a supercuspidal representation built from Yu datum can be constructed directly from the datum, it is convenient to consider and intermediate object, introduced in \cite{yu:01a}*{Remark 15.4}, which we call a \emph{Yu type datum}. 
+As proved by Ju-Lee Kim in \cite{kim:07a}, all irreducible supercuspidal representations of tamely ramified $p$-adic groups can be built from ``data'' introduced by Jiu-Kang Yu in \cite{yu:01a}*{\S 15}.
+While the type, in the sense of Bushnell \& Kutzko \cite{bushnell-kutzko:98a}, of a supercuspidal representation built from Yu data can be constructed directly from the datum, it is convenient to consider and intermediate object, introduced in \cite{yu:01a}*{Remark 15.4}, which we call a \emph{Yu type datum}. 
 Yu type data are studied in \cite{Yu:models}, which concludes with the following observation.
 %
 \begin{quotation}
@@ -198,12 +198,13 @@ important role in the representation theory of $p$-adic groups.} %\cite{Yu:model
 In this paper we follow the suggestion above by showing that Yu type data are geometrizable, in the following sense.
 A Yu type datum determines a sequence of representations $\orho_i$ of compact $p$-adic groups $\oK^i$, for $i=0, \ldots, d$, such that $(\oK^d, \rho_d)$ is a type for a supercuspidal representation of a $p$-adic group.
 The main result of \cite{Yu:models} explains how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $\O$ of integers of the $p$-adic field with $\underline{G}^i(\O)=\,^\circ K^i $.
-In this paper we show, in Theorem~\ref{thm:geotypes}, that if the geometric component group of the reductive quotient of the special fiber of the group scheme $\underline{G}^0$ is cyclic, then each representation $\orho_i$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
-where $\cs{F}^i$ is a virtual Weil sheaf on the Greenberg transform $G^i$ of $\underline{G}^i$.  Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OK) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the virtual complex $\cs{F}^i$, the sheaf $\cs{F}^i$ is characterized by the property
+In this paper we show that if the geometric component group of the reductive quotient of the special fiber of the group scheme $\underline{G}^0$ is cyclic, then each representation $\orho_i$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
+where $\cs{F}^i$ is a virtual Weil sheaf on the Greenberg transform $G^i$ of $\underline{G}^i$.  
+Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OK) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
 \end{equation}
-Via this theorem, we obtain geometric avatars for each type in a Yu datum:
+Via this theorem, then, we obtain geometric avatars for each type in a Yu datum:
 \[
 \begin{tikzcd}
 (\oK^i,\orho_i) \arrow[bend left, dashed]{rrr}{\text{geometrization}} &&& \arrow[bend left, dashed]{lll}{\text{trace of Frob}}
@@ -213,7 +214,7 @@ Via this theorem, we obtain geometric avatars for each type in a Yu datum:
 %Theorem~\ref{thm:geotypes} shows how to construct the virtual Weil sheaf $\cs{F}^i$ from the Yu type datum, so that \eqref{eqn:intro1} holds.
 We refer to the pair $(\underline{G}^d, \cs{F}^d)$ as a \emph{geometric type}.
 
-In order to prove Theorem~\ref{thm:geotypes}, we must find a way to geometrize linear characters of groups of the form $\underline{H}(\O)$, where $\underline{H}$ is a smooth group scheme over $\O$. 
+To prove Theorem~\ref{thm:geotypes}, we must find a way to geometrize linear characters of groups of the form $\underline{H}(\O)$, where $\underline{H}$ is a smooth group scheme over $\O$. 
 In order to do so in a systematic manner, we begin this paper by describing the function-sheaf dictionary for characters of arbitrary smooth group schemes over finite fields. 
 When coupled with the Greenberg transform, this dictionary will allow for the geometrization of linear characters of $\underline{H}(\O)$.
 
@@ -221,34 +222,37 @@ The function-sheaf dictionary over a finite field $k$ \cite{deligne:SGA4.5}*{Som
 provides a way of encoding functions on the $k$-rational points of an algebraic group $G$
 as $\ell$-adic local systems on $G$.  More specifically, if $G$ is a connected, commutative, algebraic group
 then there is a certain category $\CS(G)$ of rank-one local systems on $G$ and an
-explicit isomorphism between $G(k)^* \ceq \Hom(G(k), \EEx)$ and isomorphism classes
-of objects in $\CS(G)$.  Objects in $\CS(G)$ are referred to as \emph{character sheaves};
-the isomorphism is given by mapping a character sheaf $\cs{L}$ to the function
+explicit isomorphism between isomorphism classes
+of objects in $\CS(G)$ and $G(k)^* \ceq \Hom(G(k), \EEx)$; 
+%Objects in $\CS(G)$ are referred to as \emph{character sheaves}.
+the isomorphism is given by mapping $\cs{L}$ to the function
 $\TrFrob{G} : g \mapsto \Tr(\Frob{} \vert \cs{L}_g)$.
 
 In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary to
 smooth commutative group schemes $G$, allowing for non-connected groups.
-We gave a description of the category $\CS(G)$ of character sheaves in this context, as well
+We gave a description of the category $\CS(G)$ in this context, as well
 as an epimorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
 In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel;
 we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
 
 We repair this defect in the function-sheaf dictionary
  by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
-We refer to the resulting objects as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
+We refer to objects of $\CS(G)$ as character sheaves and objects in $\CCS(G)$ as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
 When $G$ is connected, all character sheaves on $G$ are commutative.
-This category clarifies several questions about $\CS(G)$. 
+
+Category $\CCS(G)$ clarifies several questions about $\CS(G)$. 
 Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely those $\cs{L}$ with $\TrFrob{G}(\cs{L}) = 1$ that are not commutative.  Moreover, $\TrFrob{G}^{-1} : G(k)^* \to \CCSiso{G}$ provides a canonical splitting of $\TrFrob{G} : \CSiso{G} \to G(k)^*$ \cite{cunningham-roe:13a}*{Rem. 3.7}.
 
 Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
 We assume $G$ is smooth, but not that it is connected, reductive or commutative. 
 The category $\CS(G)$ has a straightforward generalization to this case, but again
 there are more character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
-We define a category $\CCS(G)$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
+We then define category $\CCS(G)$ for such $G$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
 is an isomorphism.  
 Since $G\ab(k)^*$ surjects onto $G(k)^*$, it follows that for each character $\chi \in G(k)^*$ there is a commutative
 character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, we find that pullback along the quotient $q : G \to G\ab$
-defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  Note that the functor $\CCS(G) \to \CS(G)$ is not
+defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  
+The functor $\CCS(G) \to \CS(G)$ is not
 essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
 %
 
@@ -260,7 +264,7 @@ It follows that every object in $\CCS(G)$ determines a Frobenius-stable characte
 Of course, the sheaves arising in this way represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields:
 they are precisely those needed to describe one-dimensional characters of such groups.
 
-Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we may return to the task of geometrizing Yu type data. 
+Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we return to the task of geometrizing Yu type data. 
 The proof of Theorem~\ref{thm:geotypes} requires: Yu's work on smooth integral models \cite{Yu:models}; the geometrization of the character of the Heisenberg-Weil representation over finite fields by Gurevich \& Hadani \cite{gurevich-hadani:07a}; Lusztig's character sheaves on reductive groups over finite fields; and finally, the function-sheaf dictionary for characters of smooth group schemes over finite fields, now at our disposal in Theorem~\ref{thm:geo}.
 These pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
 With this theorem, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category:
@@ -286,7 +290,8 @@ In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationsh
 We also compute the automorphism groups in $\CCS(G)$.
 Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. 
 % 
-In Section~\ref{sec:types} we give an application of Theorem~\ref{thm:geo} by geometrizing types for supercuspidal representations of $p$-adic groups. The proof of this statement, which is made precise in Theorem~\ref{thm:geotypes}, is given in Section~\ref{ssec:geotypes}. 
+In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize types for supercuspidal representations of $p$-adic groups, in a sense made precise in Theorem~\ref{thm:geotypes}. 
+% is given in Section~\ref{ssec:geotypes}. 
  %Specifically, we show that if $C$ is a compact $p$-adic group and $\rho$ is a representation of $C$ and $(C,\rho)$ is a type for a tamely ramified $p$-adic group then there is a  group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a virtual Weil sheaf $\mathcal{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
 As preparation for the proof, we review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
 Then, in Section~\ref{ssec:review}, we review Yu's theory of types and his study of smooth integral models.  
@@ -1165,7 +1170,7 @@ a group homomorphism $h_{i+1} : \oK^i \ltimes J_{i+1} \to  \Sp(V_{i+1})\ltimes V
 
 We can now recall how Yu uses all this to construct representations $\orho^i$ of $\oK^i$, for $i=1, \ldots, d$ and the types $(\oK^i,\orho_i)$.
 The representations $\orho^i$ and $\orho_i$ are defined recursively.
-For the base case $i=0$, set $\orho_0 \ceq \orho^i\otimes \varphi^i$; see \ref{Y1} above.
+For the base case $i=0$, set $\orho_0 \ceq \orho^0\otimes \varphi^0$; see \ref{Y1} above.
 Now fix $i$.
 Let $W_{i+1}$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$, whose restriction to $V_{i+1}^\sharp$ has central character $\psi_{i+1}$.
 Pull-back along $h_{i+1}$ to form $h_{i+1}^*(W_{i+1})$, a representation of $\oK^i \ltimes J_{i+1}$.
@@ -1218,7 +1223,7 @@ gives $(\underline{G}^i \ltimes \underline{J}^{i+1})(R) = \oK^i \ltimes J_{i+1}$
 
 \newcommand{\reductive}{{\operatorname{red}}}
 
-Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S S_1$ of $\underline{J}^{i+1}$. 
+Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S \Spec{k}$ of $\underline{J}^{i+1}$. 
 The vector space $V_{i+1}$ may realized as the $\Fq$-points on a variety $V^{i+1}$ over $\Fq$, where $V^{i+1}$, appears as a quotient $\underline{J}^{i+1}_{\Fq} \to V^{i+1}$ of algebraic groups over $\Fq$. Then the quotient $J_{i+1} \to V_{i+1}$ is realized as the composition
 \[
 \underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to V^{i+1}(\Fq) = V_{i+1}.
@@ -1228,7 +1233,7 @@ Likewise, the Heisenberg $p$-group $H_{i+1}$, appearing in \ref{ssec:review}, ma
 \underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq) = H_{i+1}.
 \]
 Finally, the group homomorphism $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ may be made geometric in much the same way. 
-Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S S_1$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ is realized as the composition
+Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S \Spec{k}$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ is realized as the composition
 \[
 \underline{G}^{i}(R) \to \underline{G}^{i}(\Fq) = \underline{G}^{i}_\Fq(\Fq) \to  \underline{G}^{i,\reductive}_\Fq(\Fq) \to W^{i+1}_{\Fq}(\Fq) = \Sp(V_{i+1}).
 \]
@@ -1251,7 +1256,7 @@ The compact groups $\oK^i$ have been replaced by the smooth group schemes $\unde
 \labitem{M1}{M1}
 The continuous representation $\orho^0$ of $\oK^0$ is a representation of $\underline{G}^0(R)$ obtained by inflation along $\underline{G}^0(R) \to \underline{G}^0(\Fq)$ from a representation $\varrho_0$ of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
 In fact, $\varrho_0$ is itself obtained by pulling back a representation $\varrho_0^\reductive$ along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
-\labitem{M2}{M2} The quasicharacters $\varphi^i$ are quasicharacters of $\underline{G}^i(R)$, for $i=0, \ldots d$.
+\labitem{M2}{M2} The quasicharacters $\varphi^i$ are quasicharacters of $\underline{G}^i(R)$, for $i=0, \ldots, d$.
 \labitem{M3}{M3}
 Diagram \eqref{eq:semiprod} is now replaced by the following diagram of smooth group schemes over $R$.
 \begin{equation}\label{eq:pimodel}
@@ -1303,7 +1308,7 @@ G^i(\Fq) \arrow{rr}{\varphi^i} \arrow{rd} && \EEx\\
 & \underline{G}^i(R_m) \arrow{ru}[swap]{\varphi^i_m} 
 \end{tikzcd}
 \] 
-for all $i=0, \ldots d$.
+for all $i=0, \ldots, d$.
 Set $G_m^i = \Gr_m^{R}(\underline{G}^i)$.
 Then $G_m^i$ is a smooth group scheme over $\Fq$ and $G_m^i(\Fq) = \underline{G}^i(R_m)$, canonically.
 Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear character $\varphi^i_m: G_m^i \to \CC^\times$; so
@@ -1389,7 +1394,7 @@ Consider the sheaf
 \cs{B}_m^{i+1} \ceq \cs{K}_m^{i+1} \otimes (p_m^{i})^*(\cs{A}_m^{i}\otimes \cs{L}_m^{i})
 \]
 on $G_m^{i}\ltimes J_m^{i+1}$.
-Comparing with \eqref{eq:tensor}, we see that $\trFrob{\cs{B}_m^{i+1}}$ is precisely the function obtained by factoring the character of $\orho^{i+1}$ through $(\underline{G}^{i}\ltimes \underline{J}^{i+1})(R) \to (\underline{G}^{i}\ltimes \underline{J}^{i+1})(R/\mathfrak{p}_K^{m+1})$ using the canonical identification $(G_m^{i}\times_{G_m} J_m^{i+1})(\Fq) =  (\underline{G}^{i}\ltimes \underline{J}^{i+1})(R/\mathfrak{p}_K^{m+1})$. 
+Comparing with \eqref{eq:tensor}, we see that $\trFrob{\cs{B}_m^{i+1}}$ is precisely the function obtained by factoring the character of $\orho^{i+1}$ through $(\underline{G}^{i}\ltimes \underline{J}^{i+1})(R) \to (\underline{G}^{i}\ltimes \underline{J}^{i+1})(R_m)$ using the canonical identification $(G_m^{i}\times_{G_m} J_m^{i+1})(\Fq) =  (\underline{G}^{i}\ltimes \underline{J}^{i+1})(R_m)$. 
 In particular, $\trFrob{\cs{B}^{i+1}_m}$ is constant on $(G_m^{i}\times_{G_m} J_m^{i+1})(\Fq)$, taking the value $\dim \orho^{i+1}$.
 With reference to the morphism $\pi_m^{i+1} : G_m^i \ltimes J_m^{i+1} \to G_m^{i+1}$ from \eqref{eq:pi}, define 
 \[
