@@ -200,7 +200,7 @@ A Yu type datum determines a sequence of representations $\orho_i$ of compact $p
 The main result of \cite{Yu:models} explains how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $\O$ of integers of the $p$-adic field with $\underline{G}^i(\O)=\,^\circ K^i $.
 In this paper we show that if the geometric component group of the reductive quotient of the special fiber of the group scheme $\underline{G}^0$ is cyclic, then each representation $\orho_i$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
 where $\cs{F}^i$ is a virtual Weil sheaf on the Greenberg transform $G^i$ of $\underline{G}^i$.  
-Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OK) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
+Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OO{}) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
 \end{equation}
@@ -501,7 +501,7 @@ Let $\CS'(G)$ be the category of such triples, $(\cs{L},\mu,\beta)$, in which a 
 
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
 Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
-Both are smooth morphism of $\Fq$-schemes.
+Both are smooth morphisms of $\Fq$-schemes.
 Set $m' = i \circ m \circ \theta$; we have $j\circ c = m \circ (m \times m')$.
 Then $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms below.
 \begin{equation}
@@ -952,7 +952,7 @@ Applying the forgetful functor $\CS_H(G)\to \CS(G)$ to this isomorphism, it foll
 
 Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
 Then $j^*(\cs{L},\mu) \iso j^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(H)$. 
-Since $q\circ j = 1$, it follows that $\cs{L}\vert_{G\der} \to (\EE)_{H}$ in $\CS(H)$.
+Since $q\circ j = 1$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{H}$ in $\CS(H)$.
 This completes the proof of Proposition~\ref{prop:Gder_triv}.
 %\end{proof}
 
@@ -1038,7 +1038,7 @@ For every quasicharacter character $\varphi : \underline{G}(R) \to \EEx$ there i
 By continuity of $\varphi : \underline{G}(R) \to \EE^\times$, there is some $m \in \NN$ and a factorization
 \[
 \begin{tikzcd}
-\underline{G}(S) \arrow{rr}{\varphi} \arrow{rd} && \EEx\\
+\underline{G}(R) \arrow{rr}{\varphi} \arrow{rd} && \EEx\\
 & \underline{G}(R/\mathfrak{p}^{m+1}) \arrow{ru}[swap]{\varphi_m} 
 \end{tikzcd}
 \] 
@@ -1223,7 +1223,7 @@ gives $(\underline{G}^i \ltimes \underline{J}^{i+1})(R) = \oK^i \ltimes J_{i+1}$
 
 \newcommand{\reductive}{{\operatorname{red}}}
 
-Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_S \Spec{k}$ of $\underline{J}^{i+1}$. 
+Write $\underline{J}^{i+1}_\Fq$ for the special fibre $\underline{J}^{i+1}\times_{\Spec{R}} \Spec{k}$ of $\underline{J}^{i+1}$. 
 The vector space $V_{i+1}$ may realized as the $\Fq$-points on a variety $V^{i+1}$ over $\Fq$, where $V^{i+1}$, appears as a quotient $\underline{J}^{i+1}_{\Fq} \to V^{i+1}$ of algebraic groups over $\Fq$. Then the quotient $J_{i+1} \to V_{i+1}$ is realized as the composition
 \[
 \underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to V^{i+1}(\Fq) = V_{i+1}.
@@ -1233,7 +1233,7 @@ Likewise, the Heisenberg $p$-group $H_{i+1}$, appearing in \ref{ssec:review}, ma
 \underline{J}^{i+1}(R) \to \underline{J}^{i+1}(\Fq) = \underline{J}^{i+1}_\Fq(\Fq) \to H^{i+1}_{\Fq}(\Fq) = H_{i+1}.
 \]
 Finally, the group homomorphism $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ may be made geometric in much the same way. 
-Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_S \Spec{k}$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ is realized as the composition
+Writing $\underline{G}^{i}_\Fq$ for the special fibre $\underline{G}^{i}\times_{\Spec{R}} \Spec{k}$ of $\underline{G}^{i}$, and writing $\underline{G}^{i,\reductive}_\Fq$ for the reductive quotient of $\underline{G}^{i}_\Fq$, there is a quotient of algebraic groups $\underline{G}^{i,\reductive}_\Fq \to W^{i+1}_\Fq$ so that $f_i : J_0\cdots J_i \to \Sp(V_{i+1})$ is realized as the composition
 \[
 \underline{G}^{i}(R) \to \underline{G}^{i}(\Fq) = \underline{G}^{i}_\Fq(\Fq) \to  \underline{G}^{i,\reductive}_\Fq(\Fq) \to W^{i+1}_{\Fq}(\Fq) = \Sp(V_{i+1}).
 \]
@@ -1430,7 +1430,7 @@ G^i(\Fq) \arrow{rr}{\trace(\orho_i)} \arrow{rd} && \EE\\
 \end{tikzcd}
 \]
 commutes.
-Let $\cs{F}^i$ be the virtural Weil sheaf on the group scheme $G^i= \Gr_{R}(\underline{G}^i)$ obtained by pulling back $\cs{F}_m^i$ along $G^i \to G^i_m$.
+Let $\cs{F}^i$ be the virtual Weil sheaf on the group scheme $G^i= \Gr_{R}(\underline{G}^i)$ obtained by pulling back $\cs{F}_m^i$ along $G^i \to G^i_m$.
 Then 
 \[
 \trFrob{\cs{F}^i} = \trace(\orho_i),
