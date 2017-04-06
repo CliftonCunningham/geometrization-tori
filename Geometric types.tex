@@ -598,9 +598,8 @@ the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \
 \end{corollary}
 
 \begin{proof}
-As above, we set $H=G\der$
-and let $j : H\hookrightarrow G$ be the inclusion. 
-With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the following diagram.
+Notation as above.
+Consider the following diagram.
 %\[
 %\begin{tikzcd}
 %{} & G\times G \arrow{d}{c} &&&\\
@@ -610,20 +609,20 @@ With reference to \eqref{qH} and Section~\ref{ssec:closed}, consider the followi
 %gives
 \[
 \begin{tikzcd}
-\CS(H) & \arrow{l}[swap]{j^*} \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G\ab) \arrow{dl}{\text{equiv}}[swap]{q_{H}^*} \\
+\CS(G\der) & \arrow{l}[swap]{j^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\ab) \arrow{dl}{\text{equiv}}[swap]{q\ab^*} \\
 & \CSab(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
 \]
 
-Now, suppose $(\cs{L},\mu)\in \CS(G)$ and there is an isomorphism $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ in $\CS(H)$.
+Now, suppose $(\cs{L},\mu)\in \CS(G)$ and there is an isomorphism $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ in $\CS(G\der)$.
 Then $(\cs{L},\mu,\beta) \in \CSab(G)$.
 By Proposition \ref{prop:CSGabab}, $(\cs{L},\mu,\beta) \iso q\ab^*(\cs{L}\ab,\mu\ab)$ for some $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$.
-Applying the forgetful functor $\CS_H(G)\to \CS(G)$ to this isomorphism, it follows that $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, as desired. 
+Applying the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ to this isomorphism, it follows that $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, as desired. 
 
 Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
-Then $j^*(\cs{L},\mu) \iso j^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(H)$. 
-Since $q\circ j = 1$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{H}$ in $\CS(H)$.
+Then $j^*(\cs{L},\mu) \iso j^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G\der)$. 
+Since $q\circ j = 1$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
 \end{proof}
 
 %\subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
