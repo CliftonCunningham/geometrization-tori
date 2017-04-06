@@ -598,7 +598,7 @@ the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \
 \end{corollary}
 
 \begin{proof}
-Notation as above.
+Notation as in the proof of Proposition~\ref{prop:CSGabab}.
 Consider the following diagram.
 %\[
 %\begin{tikzcd}
@@ -622,7 +622,7 @@ Applying the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ to this isomorphism, i
 
 Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
 Then $j^*(\cs{L},\mu) \iso j^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G\der)$. 
-Since $q\circ j = 1$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
+Since $q\circ j = 1_{G\ab}$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
 \end{proof}
 
 %\subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
@@ -699,7 +699,7 @@ Since $q\circ j = 1$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ i
 
 
 We may now define commutative character sheaves on $G$.
-
+%
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
 Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Both are smooth morphisms of $\Fq$-schemes.
@@ -762,10 +762,10 @@ defines an equivalence of categories \todo{Is this trivial now?}
 \end{theorem}
 
 \begin{proof}
-We again write $H$ for $G\der$.
+%We again write $H$ for $G\der$.
 By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory.
-Since the comparison functor $\CS(G\ab) \to \CS_{H}(G)$ is an equivalence, it determines a full subcategory $\CCS_{H}(G)$ which is equivalent to $\CCS(G\ab)$, as pictured below.
-The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of $\CCS_H(G)$ under the equivalence $\CS_{H}(G) \to \CSab(G)$ is $\CCS(G)$.
+Since the comparison functor $\CS(G\ab) \to \CS_{G\der}(G)$ is an equivalence, it determines a full subcategory $\CCS_{G\der}(G)$ which is equivalent to $\CCS(G\ab)$, as pictured below.
+The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of $\CCS_{G\der}(G)$ under the equivalence $\CS_{G\der}(G) \to \CSab(G)$ is $\CCS(G)$.
 \[
 \begin{tikzcd}[row sep=30, column sep=40]
 \CSab(G) & \CS(G\ab) \arrow{l}{\text{equiv}}[swap]{q\ab^*} \\
@@ -786,30 +786,31 @@ The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essen
 %\end{tikzcd}
 \]
 
-Let $(\cs{L},\mu,\nu)$ be the image of $(\cs{L},\mu,\beta)\in \CSab(G)$ and of $(\cs{L}\ab,\mu\ab)$ under $q_H^*$;
+Let $(\cs{L},\mu,\nu)$ be the image of $(\cs{L},\mu,\beta)\in \CSab(G)$ and of $(\cs{L}\ab,\mu\ab)$ under $q\ab^*$;
 we must show that $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G\ab)$.
 Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}\ab$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ as in Section~\ref{sec:comcom}.
 Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $\beta : \cs{L}\vert_{H} \to (\EE)_{H}$ as in Section~\ref{ssec:noncomdef}.
-Then the diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $(q\times q)^*$ to the diagram in Definition~\ref{def:CCScom}, as pictured below; 
-in particular $\gamma = (q\times q)^* \xi$.
+Recall the equivalence $L_2 : \Loc(G^2\ab) \to  \Loc_{G^2\der}(G^2)$ from Proposition~\ref{prop:CSGabab}.
+The diagram in Definition~\ref{def:CCS} is precisely the result of applying the functor $L_2$ to the diagram in Definition~\ref{def:CCScom}, as pictured below; 
+in particular $\gamma = (q^2)^* \xi$.
   \[
   \begin{tikzcd}[row sep=10, column sep = 20]
    m_0^*\cs{L}_0 \arrow{dd}[swap]{\xi} \arrow{r}{\mu_0} 
    & \cs{L}_0\boxtimes\cs{L}_0 \arrow{dd}{\vartheta}
 &&&   m^*\cs{L} \arrow{dd}[swap]{\gamma} \arrow{r}{\mu} 
  & \cs{L}\boxtimes\cs{L} \arrow{dd}{\vartheta}\\
- && \arrow{r}{(q\times q)^*}  &\ & & &\\ 
+ && \arrow{r}{(q^2)^*}  &\ & & &\\ 
    \theta^*(m_0^*\cs{L}_0) \arrow{r}{{\theta}^*\mu_0} 
  &  \theta^*(\cs{L}_0\boxtimes\cs{L}_0)
 &&&   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} 
 &  \theta^*(\cs{L}\boxtimes\cs{L})
   \end{tikzcd}
 \]
-Using Lemma~\ref{lem:HH}, we may interpret the diagram on the right as a diagram in $\Loc_{H\times H}(G\times G)$.
-By Lemma~\ref{lem:torsor}, this corresponds to a diagram in $\Loc(G\ab\times G\ab)$, necessarily the diagram on the left, above, and also that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
+The diagram on the right is a diagram in $\Loc_{G^2\der}(G^2)$.
+Using the equivalence $L_2$, this corresponds to a diagram in $\Loc(G^2\ab)$, necessarily the diagram on the left, above.
+It follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
 In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$
 if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G)$.
-
 \end{proof}
 
 %
