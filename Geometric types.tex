@@ -571,22 +571,22 @@ Consider the functor
 \]
 Since both $L$ and $L_2$ are equivalences, this functor $\CS(G\ab) \to \CSab'(G)$ is an equivalence of categories.
 
-Let $j : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j\times 1_G : G\der \to G\times G$ by $i\der(h) = (j(h),1_G)$. \todo{There's some kind of typo here....}
-For $(\cs{L},\mu,\nu)\in \CSab'(G)$, $(j\times 1_G)^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism.
+Let $i : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\times G$ by $j(h) = (i(h),1_G)$. \todo{There's some kind of typo here....}
+For $(\cs{L},\mu,\nu)\in \CSab'(G)$, $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism.
 This defines a functor
 \[
 \begin{array}{rcl}
 \CSab'(G) &\to& \CSab(G) \\
-(\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,i\der^*(\nu)).
+(\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,j^*(\nu)).
 \end{array}
 \]
-Define $j\times\id_G: G\der\times G\to G\times G$ by $j\times\id_G(h,g) = (j(h),g)$.
+Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i(h),g)$.
 Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p_n^*\cs{L}$ by
 \[
 \begin{tikzcd}
-& n^* \cs{L} \arrow{dl}{m\circ (j\times\id_G) = n} \arrow{r} & p_n^*\cs{L} &  \\ 
-(j\times\id_G)^* m^* \cs{L} \arrow{dr}{(j\times\id_G)^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
-& (j\times\id_G)^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\times 1}
+& n^* \cs{L} \arrow{dl}{m\circ k = n} \arrow{r} & p_n^*\cs{L} &  \\ 
+k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
+& k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\times 1}
 \end{tikzcd}
 \]
 Then $(\cs{L},\mu,\nu)\in \CSab'(G)$.
@@ -611,7 +611,7 @@ Consider the following diagram.
 \[
 \begin{tikzcd}
 \CS(G\der) & \arrow{l}[swap]{j^*} \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G\ab) \arrow{dl}{\text{equiv}}[swap]{q\ab^*} \\
+\CS(G\ab) \arrow{dl}{q\ab^*} \\
 & \CSab(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
 \]
