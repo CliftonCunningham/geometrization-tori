@@ -552,15 +552,17 @@ Then pullback along $q : G \to G\ab$ defines an equivalence $q\ab^*: \CS(G\ab) \
 %To simplify notation below, set $H=G\der$.
 Since the quotient $q : G \to G\ab$ is a $G\der$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, 
 it is also an $H$-torsor in the fpqc topology.  
+Let $\Loc(G\ab)$ be the category of local systems on $G\ab$ and let $\Loc_{G\der}(G)$
 It now follows from descent theory that the comparison functor $L : \Loc(G\ab) \to \Loc_{G\der}(G)$ is an equivalence: argue as in \cite{Vistoli:notes}*{Thm 4.46} for example. \todo{Haven't defined $\Loc$ and $\Loc_{G\der}$}
-Let $m : G\times G\to G$ be multiplication and $p : G\times G \to G$ projection to the second component.  For $\cs{L}\ab\in \Loc(G\ab)$, we may write $L(\cs{L}\ab) = (\cs{L}, \nu)$, where $\cs{L} = q^*(\cs{L}\ab)$ and $\nu : m^*\cs{L}  \to p^*\cs{L}$ is an isomorphism. 
+Let $m : G\times G\to G$ be in $G$ and let $n : G\der\times G\to G$ be the restriction of multiplication in $G$ to $G\der\times  G$ and $p : G\der\times G \to G$ projection to the second component.  
+For $\cs{L}\ab\in \Loc(G\ab)$, we may write $L(\cs{L}\ab) = (\cs{L}, \nu)$, where $\cs{L} = q^*(\cs{L}\ab)$ and $\nu : n^*\cs{L}  \to p^*\cs{L}$ is an isomorphism. 
 Observe that $L$ followed by the forgetful functor $\Loc_{G\der}(G)\to \Loc(G)$ coincides with $q^*: \Loc(G\ab)\to \Loc(G)$. 
 %
 Now set $G^2 \ceq G\times G$, so $G^2\ab =  G\ab \times G\ab$ and $G^2\der = G\der \times G\der$. Let $q_2 : G^2 \to G^2\ab$ be the abelianization quotient.  
 Let $L_2 : \Loc(G^2\ab) \to \Loc_{G^2\der}(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$.
 Then $L_2$ is also an equivalence since $q_2$ is also a $G^2\der$-torsor.
 
-Now consider the category $\CSab'(G)$ of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$; thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p_n^*\cs{L}$ are isomorphisms where $n : G\der\times G\to G$ is the restriction of $m$ to $G\der\times G$ and where $p_n : G\der\times G\to G$ is projection to the second component. \todo{How is $\nu_2$ the same as $\nu$ above?}
+Now consider the category $\CSab'(G)$ of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$; thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p^*\cs{L}$ are isomorphisms where $n : G\der\times G\to G$ is the restriction of $m$ to $G\der\times G$ and where $p_n : G\der\times G\to G$ is projection to the second component. \todo{How is $\nu_2$ the same as $\nu$ above?}
 Morphisms are morphisms in $\Loc(G)$ commuting with $\mu$ and $\nu$. \todo{Is this definition of morphisms sufficiently clear?} 
 Consider the functor
 \[
