@@ -205,7 +205,7 @@ Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OO{})
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
 \end{equation}
-Via this theorem, then, we obtain geometric avatars for each type in a Yu datum:
+By this theorem, then, we obtain geometric avatars for each type in a Yu datum:
 \[
 \begin{tikzcd}
 (\oK^i,\orho_i) \arrow[bend left, dashed]{rrr}{\text{geometrization}} &&& \arrow[bend left, dashed]{lll}{\text{trace of Frob}}
@@ -558,7 +558,7 @@ Thus, objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a 
 \[
 \begin{tikzcd}
 s^*n^*\cs{L} \arrow{r}{s^*(\nu)} & s^*p^*\cs{L}\\
-\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{n\circ s = \id_G} 
+\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{p\circ s = \id_G} 
 \end{tikzcd}
 \]
 commutes, where $s: G \to G\der\times G$ is $s(g) = (1,g)$ and such that the following diagram commutes, where $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$.
@@ -569,6 +569,7 @@ n_1^*n^*\cs{L} \arrow{dr}[swap]{n_1^*(\nu)} &&&& \arrow{dl}{p_2^*(\nu)} p_2^*n^*
 & n_1^*p^*\cs{L} \arrow[equal]{rr}{p\circ n_1 = p\circ p_2} && p_2^*p^*\cs{L}  & 
 \end{tikzcd}
 \]
+A morphism $(\cs{L},\nu)\to (\cs{L}',\nu')$ in $\Loc_{G\der}(G)$ is a morphism $\alpha :\cs{L} \to \cs{L}'$ such that...
 It now follows from descent theory that the comparison functor $L : \Loc(G\ab) \to \Loc_{G\der}(G)$ is an equivalence: argue as in \cite{Vistoli:notes}*{Thm 4.46} for example. 
 For $\cs{L}\ab\in \Loc(G\ab)$, we may write $L(\cs{L}\ab) = (\cs{L}, \nu)$, where $\cs{L} = q^*(\cs{L}\ab)$ and $\nu : n^*\cs{L}  \to p^*\cs{L}$ is an isomorphism. 
 Observe that $L$ followed by the forgetful functor $\Loc_{G\der}(G)\to \Loc(G)$ coincides with $q^*: \Loc(G\ab)\to \Loc(G)$. 
