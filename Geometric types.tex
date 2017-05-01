@@ -205,7 +205,7 @@ Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OO{})
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
 \end{equation}
-Via this theorem, then, we obtain geometric avatars for each type in a Yu datum:
+By this theorem, then, we obtain geometric avatars for each type in a Yu datum:
 \[
 \begin{tikzcd}
 (\oK^i,\orho_i) \arrow[bend left, dashed]{rrr}{\text{geometrization}} &&& \arrow[bend left, dashed]{lll}{\text{trace of Frob}}
@@ -501,7 +501,7 @@ $\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the following two di
 \[
 \begin{tikzcd}
 s^*n^*\cs{L} \arrow{r}{s^*(\nu)} & s^*p^*\cs{L}\\
-\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{n\circ s = \id_G},
+\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{n=p\circ s = \id_G},
 \end{tikzcd}
 \]
 and with $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$,
@@ -576,9 +576,6 @@ Suppose $G$ is a smooth group scheme.
 Then pullback along $q : G \to G\ab$ defines an equivalence $q\ab^*: \CS(G\ab) \to \CSab(G)$.
 \end{proposition}
 \begin{proof}
-%To simplify notation below, set $H=G\der$.
-Since the quotient $q : G \to G\ab$ is a $G\der$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, it is also an $G\der$-torsor in the fpqc topology.  
-
 It now follows from descent theory that the comparison functor $L : \Loc(G\ab) \to \Loc_{G\der}(G)$ is an equivalence: argue as in \cite{Vistoli:notes}*{Thm 4.46} for example. 
 For $\cs{L}\ab\in \Loc(G\ab)$, we may write $L(\cs{L}\ab) = (\cs{L}, \nu)$, where $\cs{L} = q^*(\cs{L}\ab)$ and $\nu : n^*\cs{L}  \to p^*\cs{L}$ is an isomorphism. 
 Observe that $L$ followed by the forgetful functor $\Loc_{G\der}(G)\to \Loc(G)$ coincides with $q^*: \Loc(G\ab)\to \Loc(G)$. 
