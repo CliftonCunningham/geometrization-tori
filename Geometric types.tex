@@ -484,12 +484,39 @@ motivating the following category.
 
 Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as
 in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves when $G$ is smooth but
-not necessarily commutative.
-Let $\CSab(G)$ denote the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu) \in \CS(G)$ and
+not necessarily commutative.  In order to define commutative character sheaves, we need to define
+some auxiliary categories.
+\begin{itemize}
+\item Let $\CSab(G)$ denote the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu) \in \CS(G)$ and
 $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism in $\CS(G\der)$.
 A morphism $(\cs{L},\mu,\beta)\to (\cs{L}',\mu',\beta')$ is a morphism $\alpha : (\cs{L},\mu)\to (\cs{L}',\mu')$
 in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{G\der}$.  We will define commutative character sheaves
-as a subcategory of $\CSab(G)$, but we first relate $\CSab(G)$ to $\CS(G\ab)$.  Let $q : G \to G\ab$ be the quotient map.
+as a subcategory of $\CSab(G)$.
+\item Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
+\item Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$, whose definition we now recall.
+Let $m : G\times G\to G$ be multiplication in $G$, $n : G\der\times G\to G$ be its to $G\der\times G$,
+$p : G\der\times G \to G$ projection to the second component, and $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
+Then objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and
+$\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the following two diagrams commute.
+\[
+\begin{tikzcd}
+s^*n^*\cs{L} \arrow{r}{s^*(\nu)} & s^*p^*\cs{L}\\
+\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{n\circ s = \id_G},
+\end{tikzcd}
+\]
+and with $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$,
+\[
+\begin{tikzcd}
+& \arrow[equal]{dl}{n\circ n_2=n\circ n_1} n_2^*n^*\cs{L} \arrow{rr}{n_2^*(\nu)} && n_2^*p^*\cs{L} \arrow[equal]{dr}[swap]{n_2\circ p = n\circ p_2}& \\
+n_1^*n^*\cs{L} \arrow{dr}[swap]{n_1^*(\nu)} &&&& \arrow{dl}{p_2^*(\nu)} p_2^*n^*\cs{L}\\
+& n_1^*p^*\cs{L} \arrow[equal]{rr}{p\circ n_1 = p\circ p_2} && p_2^*p^*\cs{L} .
+\end{tikzcd}
+\]
+Morphisms are morphisms in $\Loc(G)$ commuting with $\nu$.
+\item Let $\CSab'(G)$ be the category of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$; thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p^*\cs{L}$ are isomorphisms.
+Morphisms are morphisms in $\Loc(G)$ commuting with $\mu$ and $\nu$. 
+\end{itemize}
+We relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
 %\todo{Define $q\ab^* : \CS(G\ab) \to \CSab(G)$; missing definition of $\beta$ in the following commented section}
 %Now suppose $q : G \to Q$ is a regular epimorphism of smooth group schemes with kernel pair $(a,p)$
 %\[
@@ -550,25 +577,8 @@ Then pullback along $q : G \to G\ab$ defines an equivalence $q\ab^*: \CS(G\ab) \
 \end{proposition}
 \begin{proof}
 %To simplify notation below, set $H=G\der$.
-Since the quotient $q : G \to G\ab$ is a $G\der$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, it is also an $H$-torsor in the fpqc topology.  
-Let $\Loc(G\ab)$ be the category of local systems on $G\ab$.
-Let $m : G\times G\to G$ be in $G$ and let $n : G\der\times G\to G$ be the restriction of multiplication in $G$ to $G\der\times  G$ and $p : G\der\times G \to G$ projection to the second component.  
-Let $\Loc(G\ab)$ be the category of local systems on $G\ab$ and let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$.
-Thus, objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and $\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that 
-\[
-\begin{tikzcd}
-s^*n^*\cs{L} \arrow{r}{s^*(\nu)} & s^*p^*\cs{L}\\
-\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{n\circ s = \id_G} 
-\end{tikzcd}
-\]
-commutes, where $s: G \to G\der\times G$ is $s(g) = (1,g)$ and such that the following diagram commutes, where $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$.
-\[
-\begin{tikzcd}
-& \arrow[equal]{dl}{n\circ n_2=n\circ n_1} n_2^*n^*\cs{L} \arrow{rr}{n_2^*(\nu)} && n_2^*p^*\cs{L} \arrow[equal]{dr}[swap]{n_2\circ p = n\circ p_2}& \\
-n_1^*n^*\cs{L} \arrow{dr}[swap]{n_1^*(\nu)} &&&& \arrow{dl}{p_2^*(\nu)} p_2^*n^*\cs{L}\\
-& n_1^*p^*\cs{L} \arrow[equal]{rr}{p\circ n_1 = p\circ p_2} && p_2^*p^*\cs{L}  & 
-\end{tikzcd}
-\]
+Since the quotient $q : G \to G\ab$ is a $G\der$-torsor in the fppf topology \cite{demazure:SGA3-VIA}*{Thm. 3.2}, it is also an $G\der$-torsor in the fpqc topology.  
+
 It now follows from descent theory that the comparison functor $L : \Loc(G\ab) \to \Loc_{G\der}(G)$ is an equivalence: argue as in \cite{Vistoli:notes}*{Thm 4.46} for example. 
 For $\cs{L}\ab\in \Loc(G\ab)$, we may write $L(\cs{L}\ab) = (\cs{L}, \nu)$, where $\cs{L} = q^*(\cs{L}\ab)$ and $\nu : n^*\cs{L}  \to p^*\cs{L}$ is an isomorphism. 
 Observe that $L$ followed by the forgetful functor $\Loc_{G\der}(G)\to \Loc(G)$ coincides with $q^*: \Loc(G\ab)\to \Loc(G)$. 
@@ -577,8 +587,6 @@ Now set $G^2 \ceq G\times G$, so $G^2\ab =  G\ab \times G\ab$ and $G^2\der = G\d
 Let $L_2 : \Loc(G^2\ab) \to \Loc_{G^2\der}(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$.
 Then $L_2$ is also an equivalence since $q_2$ is also a $G^2\der$-torsor.
 
-Now consider the category $\CSab'(G)$ of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$; thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p^*\cs{L}$ are isomorphisms.
-Morphisms are morphisms in $\Loc(G)$ commuting with $\mu$ and $\nu$. 
 Consider the functor
 \[
 \begin{array}{rcl}
@@ -606,7 +614,7 @@ k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[eq
 & k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\times 1}
 \end{tikzcd}
 \]
-Then $(\cs{L},\mu,\nu)\in \CSab'(G)$.
+Then $(\cs{L},\mu,\nu)\in \CSab'(G)$ maps to $(\cs{L},\mu,\beta)$.
 It now follows that $\CSab'(G) \to \CSab(G)$ is an equivalence.
 \end{proof}
 
