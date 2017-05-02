@@ -481,6 +481,11 @@ In order to get character sheaves that correspond to characters in $G(k)^*$, we 
 character sheaves whose restriction to the derived subgroup is nontrivial.  Moreover, the isomorphism
 with the trivial sheaf on the derived subgroup will be important in relating to sheaves on the abelianization,
 motivating the following category.
+%
+Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as
+in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves when $G$ is smooth but
+not necessarily commutative.  
+
 
 \begin{definition}\label{def:CSab}
 Let $\CSab(G)$ denote the category of triples $(\cs{L},\mu,\beta)$ where $(\cs{L},\mu) \in \CS(G)$ and
@@ -536,9 +541,38 @@ Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from 
 
 \subsection{Descent}
 
-Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as
-in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves when $G$ is smooth but
-not necessarily commutative.  
+In this section we pullback along the abelianization $q : G \to G\ab$ to give a functor $\CS\ab(G\ab)\to \CS\ab(G)$.
+
+
+\begin{lemma}\label{lemma:morinCSab}
+If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G\times G)$.
+\end{lemma}
+\begin{proof}
+Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1'g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1'g_2') = g_i g_i'$.
+First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$.
+If $(\cs{L},\mu) \in \CS(G)$ then $m^*\cs{L}$ equipped with the isomorphism $\mu_m^2: (m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
+\[
+\begin{tikzcd}
+(m^2)^* (m^*\cs{L}) \arrow{d}{(m^2)^*\mu} \arrow{rr}{\mu_m^2} && m^*\cs{L} \boxtimes m^*\cs{L}\\
+ (m^2)^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & (m^2)^*(p_1)^*\cs{L} \otimes (m^2)^*(p_2)^*\cs{L} \arrow{r} & (p^2_1)^*m^*\cs{L} \otimes (p^2_2)^*m^*\cs{L} \arrow[equal]{u}
+\end{tikzcd}
+\] 
+The pair $(m^*\cs{L},\mu_m^2)$ satisfies the conditions appearing in \cite{cunningham-roe:13a}*{Def. 1.1}.
+The restriction of $m^*\cs{L}$ to $G^2\der= G\der\times G\der$ is canonically isomorphic to $(\EE)_{G^2\der}$ by
+\[
+\begin{tikzcd}
+(m^*\cs{L})\vert_{G^2\der} \arrow{d}{\mu\vert_{G^2\der}} \arrow{r}{\beta^2} & (\EE)_{G^2\der}\\
+(\cs{L}\boxtimes\cs{L})\vert_{G^2\der} \arrow[equal]{r} & (\cs{L}\vert_{G\der})\boxtimes(\cs{L}\vert_{G\der}) \arrow{u}{\beta\boxtimes\beta}.
+\end{tikzcd}
+\]
+This shows that $(m^*\cs{L},\mu_m^2,\beta_m^2) \in \CS\ab(G)$. 
+Similar work defines $(\cs{L}\boxtimes\cs{L},\mu_\boxtimes^2,\beta_\boxtimes^2) \in \CS\ab(G)$.
+By construction, $\mu: m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism in $\CS\ab(G^2)$.
+Similar work shows that $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are also morphisms in $\CS\ab(G^2)$.
+\end{proof}
+
+
+
 In order to study commutative character sheaves, we need some auxiliary categories.
 \begin{itemize}
 \item Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
@@ -626,33 +660,6 @@ Proposition~\ref{prop:Gder_triv} will be proven in Section \ref{ssec:proof1}.
 
 \fi
 %%%%%%%%%%%%%%%%%
-
-\begin{lemma}\label{lemma:morinCSab}
-If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G\times G)$.
-\end{lemma}
-\begin{proof}
-Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1'g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1'g_2') = g_i g_i'$.
-First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$.
-If $(\cs{L},\mu) \in \CS(G)$ then $m^*\cs{L}$ equipped with the isomorphism $\mu_m^2: (m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
-\[
-\begin{tikzcd}
-(m^2)^* (m^*\cs{L}) \arrow{d}{(m^2)^*\mu} \arrow{rr}{\mu_m^2} && m^*\cs{L} \boxtimes m^*\cs{L}\\
- (m^2)^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & (m^2)^*(p_1)^*\cs{L} \otimes (m^2)^*(p_2)^*\cs{L} \arrow{r} & (p^2_1)^*m^*\cs{L} \otimes (p^2_2)^*m^*\cs{L} \arrow[equal]{u}
-\end{tikzcd}
-\] 
-The pair $(m^*\cs{L},\mu_m^2)$ satisfies the conditions appearing in \cite{cunningham-roe:13a}*{Def. 1.1}.
-The restriction of $m^*\cs{L}$ to $G^2\der= G\der\times G\der$ is canonically isomorphic to $(\EE)_{G^2\der}$ by
-\[
-\begin{tikzcd}
-(m^*\cs{L})\vert_{G^2\der} \arrow{d}{\mu\vert_{G^2\der}} \arrow{r}{\beta^2} & (\EE)_{G^2\der}\\
-(\cs{L}\boxtimes\cs{L})\vert_{G^2\der} \arrow[equal]{r} & (\cs{L}\vert_{G\der})\boxtimes(\cs{L}\vert_{G\der}) \arrow{u}{\beta\boxtimes\beta}.
-\end{tikzcd}
-\]
-This shows that $(m^*\cs{L},\mu_m^2,\beta_m^2) \in \CS\ab(G)$. 
-Similar work defines $(\cs{L}\boxtimes\cs{L},\mu_\boxtimes^2,\beta_\boxtimes^2) \in \CS\ab(G)$.
-By construction, $\mu: m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism in $\CS\ab(G^2)$.
-Similar work shows that $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are also morphisms in $\CS\ab(G^2)$.
-\end{proof}
 
 \begin{proposition} \label{prop:CSGabab}
 Suppose $G$ is a smooth group scheme.  
