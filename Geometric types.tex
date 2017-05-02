@@ -628,10 +628,19 @@ Proposition~\ref{prop:Gder_triv} will be proven in Section \ref{ssec:proof1}.
 %%%%%%%%%%%%%%%%%
 
 \begin{lemma}
-If $(\cs{L},\mu)\in \CS(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism in $\CS(G^2)$.
+If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism in $\CS\ab(G\times G)$.
 \end{lemma}
 \begin{proof}
-First we show that $m^*\cs{L}$ is an  object in $\CS(G^2)$.
+Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1'g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1'g_2') = g_i g_i'$.
+First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$.
+If $(\cs{L},\mu) \in \CS(G)$ then $m^*\cs{L}$ equipped with the isomorphism $(m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
+\[
+\begin{tikzcd}
+(m^2)^* (m^*\cs{L}) \arrow{d}{(m^2)^*\mu} \arrow{rr} && m^*\cs{L} \boxtimes m^*\cs{L}\\
+ (m^2)^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & (m^2)^*(p_1)^*\cs{L} \otimes (m^2)^*(p_2)^*\cs{L} \arrow[equal]{r} & (p^2_1)^*m^*\cs{L} \otimes (p^2_2)^*m^*\cs{L} \arrow[equal]{u}
+\end{tikzcd}
+\] 
+\todo{Clifton is working here}
 \end{proof}
 
 \begin{proposition} \label{prop:CSGabab}
@@ -806,7 +815,31 @@ defines an equivalence of categories \todo{Is this trivial now?}
 \end{theorem}
 
 \begin{proof}
-%We again write $H$ for $G\der$.
+\[
+\begin{tikzcd}
+{} & \arrow{dl}[swap]{q^*\ab} \CS(G\ab)\\
+\CS\ab(G) & \arrow{l} \CS\ab(G\ab) \arrow{u}[swap]{\text{equiv.}}\\
+\CCS(G) \arrow[>->]{u} & \arrow{l} \CCS(G\ab) \arrow[>->]{u}\\
+\end{tikzcd}
+\]
+\todo{Clifton is working here}
+\[
+  \begin{tikzcd}[row sep=10, column sep = 20]
+   m^*\cs{L} \arrow{dd}[swap]{\gamma} \arrow{r}{\mu} 
+ & \cs{L}\boxtimes\cs{L} \arrow{dd}{\vartheta}
+ &&&  m\ab^*\cs{L}\ab \arrow{dd}[swap]{\xi} \arrow{r}{\mu\ab} 
+   & \cs{L}\ab\boxtimes\cs{L}\ab \arrow{dd}{\vartheta}\\
+%
+ && \  &\arrow{l}[swap]{(q^2)^*\ab}  & & &\\ 
+%
+   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} 
+&  \theta^*(\cs{L}\boxtimes\cs{L}) 
+ &&&   \theta^*(m\ab^*\cs{L}\ab) \arrow{r}{{\theta}^*\mu\ab} 
+ &  \theta^*(\cs{L}\ab\boxtimes\cs{L}\ab)
+ \end{tikzcd}
+\]
+
+
 By Definition~\ref{def:CCScom}, $\CCS(G\ab) \to \CS(G\ab)$ is a full subcategory.
 Since the comparison functor $\CS(G\ab) \to \CS_{G\der}(G)$ is an equivalence, it determines a full subcategory $\CCS_{G\der}(G)$ which is equivalent to $\CCS(G\ab)$, as pictured below.
 The proof of Theorem~\ref{thm:Gab} now reduces to the following claim: the essential image of $\CCS_{G\der}(G)$ under the equivalence $\CS_{G\der}(G) \to \CSab(G)$ is $\CCS(G)$.
