@@ -689,7 +689,7 @@ It now follows that $\CSab'(G) \to \CSab(G)$ is an equivalence.
 
 \begin{corollary} 
 If $G$ is a smooth group scheme and $(\cs{L},\mu) \in \CS(G)$, then
-the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \cong q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, for some $(\cs{L}\ab,\mu\ab) \in \CS(G\ab)$. \todo{What is the ``kernel'' of the forgetful functor?  Ie, is there a natural parameterization of the possible choices of $\beta$?}
+the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \cong q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, for some $(\cs{L}\ab,\mu\ab) \in \CS(G\ab)$.
 \end{corollary}
 
 \begin{proof}
@@ -718,6 +718,30 @@ Applying the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ to this isomorphism, i
 Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
 Then $j^*(\cs{L},\mu) \iso j^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G\der)$. 
 Since $q\circ j = 1_{G\ab}$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
+\end{proof}
+
+We may interpret this corollary as measuring how far $q^*$ is from being essentially surjective.  The next result shows that it is also not full.
+Let $C$ denote the cokernel of the natural map
+\[
+\Hom(\pi_0(\bar{G})_{\mathcal{W}}, \EEx) \to \Hom(\pi_0(\bar{G}\der)_{\mathcal{W}}, \EEx),
+\]
+where $\pi_0(\bar{G})_\mathcal{W}$ denotes the covariants of the action of Frobenius on
+the component group of $G$
+
+\begin{corollary}
+If $G$ is a smooth group scheme and $(\cs{L},\mu)$ is a character sheaf on $G$ with trivial restriction to $G\der$,
+then the set of isomorphism classes of objects in $\CS(G\ab)$ mapping to $(\cs{L},\mu)$ under $q^*$ is a principal homogeneous space
+for $C$.
+\end{corollary}
+\begin{proof}
+By Proposition~\ref{prop:CSGabab}, it suffices to find the set of isomorphism classes in $\CSab(G)$ mapping to
+$(\cs{L},\mu)$ under the forgetful functor.  By the previous corollary this set is nonempty.
+If $(\cs{L},\mu,\beta)$ and $(\cs{L},\mu,\beta')$ both map to $(\cs{L},\mu)$, then $\beta' \circ \beta^{-1}$ is an
+automorphism of the constant sheaf on $G\der$.  Conversely, if $\varphi$ is an automorphism of $(\EE)_{G\der}$
+and $(\cs{L},\mu,\beta) \in \CSab(G)$ then $(\cs{L},\mu,\varphi \circ \beta) \in \CSab(G)$.  By \cite{cunningham-roe:13a}*{Thm. 3.9},
+the automorphism group is isomorphic to $\Hom(\pi_0(\bar{G}\der)_{\mathcal{W}}, \EEx)$.  Finally, we note that any
+automorphism $\alpha$ of $(\cs{L},\mu) \in \CS(G)$ defines an isomorphism $(\cs{L},\mu,\beta \circ \alpha|_{G\der}) \to (\cs{L},\mu,\beta)$.
+Applying \cite{cunningham-roe:13a}*{Thm. 3.9} again yields the desired result.
 \end{proof}
 
 %\subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
