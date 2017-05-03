@@ -501,7 +501,7 @@ We will define commutative character sheaves as a subcategory of $\CSab(G)$.
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
 Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Both are smooth morphisms of $\Fq$-schemes.
-Set $m' = i \circ m \circ \theta$; we have $j\circ c = m \circ (m \times m')$.
+Set $m' = i \circ m \circ \theta$; we have $j\circ c = m \circ (m \times m')$. \todo{$j$ is not defined, and the needed definition conflicts with the definition of $i$ and $j$ given later.}
 Then $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms below.
 \begin{equation}
 \begin{tikzcd}
@@ -549,9 +549,8 @@ We start with a method that will allow us to situate the diagram in Definition \
 If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G\times G)$.
 \end{lemma}
 \begin{proof}
-Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1'g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1'g_2') = g_i g_i'$.
-First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$.
-If $(\cs{L},\mu) \in \CS(G)$ then $m^*\cs{L}$ equipped with the isomorphism $\mu_m^2: (m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
+Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1',g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1,'g_2') = (g_i,g_i')$.
+First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$ by equipping it with an isomorphism $\mu_m^2: (m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
 \[
 \begin{tikzcd}
 (m^2)^* (m^*\cs{L}) \arrow{d}{(m^2)^*\mu} \arrow{rr}{\mu_m^2} && m^*\cs{L} \boxtimes m^*\cs{L}\\
@@ -578,20 +577,20 @@ In order to study commutative character sheaves, we need some auxiliary categori
 \begin{itemize}
 \item Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
 \item Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$, whose definition we now recall.
-Let $m : G\times G\to G$ be multiplication in $G$, $n : G\der\times G\to G$ be its to $G\der\times G$,
+Let $m : G\times G\to G$ be multiplication in $G$, $n : G\der\times G\to G$ be its restriction to $G\der\times G$,
 $p : G\der\times G \to G$ projection to the second component, and $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
 Then objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and
 $\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the following two diagrams commute.
 \[
 \begin{tikzcd}
 s^*n^*\cs{L} \arrow{r}{s^*(\nu)} & s^*p^*\cs{L}\\
-\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{n=p\circ s = \id_G},
+\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{p\circ s = \id_G},
 \end{tikzcd}
 \]
 and with $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$,
 \[
 \begin{tikzcd}
-& \arrow[equal]{dl}{n\circ n_2=n\circ n_1} n_2^*n^*\cs{L} \arrow{rr}{n_2^*(\nu)} && n_2^*p^*\cs{L} \arrow[equal]{dr}[swap]{n_2\circ p = n\circ p_2}& \\
+& \arrow[equal]{dl}{n\circ n_2=n\circ n_1} n_2^*n^*\cs{L} \arrow{rr}{n_2^*(\nu)} && n_2^*p^*\cs{L} \arrow[equal]{dr}[swap]{p \circ n_2 = n\circ p_2}& \\
 n_1^*n^*\cs{L} \arrow{dr}[swap]{n_1^*(\nu)} &&&& \arrow{dl}{p_2^*(\nu)} p_2^*n^*\cs{L}\\
 & n_1^*p^*\cs{L} \arrow[equal]{rr}{p\circ n_1 = p\circ p_2} && p_2^*p^*\cs{L} .
 \end{tikzcd}
@@ -672,7 +671,7 @@ For $\cs{L}\ab\in \Loc(G\ab)$, we may write $L(\cs{L}\ab) = (\cs{L}, \nu)$, wher
 Observe that $L$ followed by the forgetful functor $\Loc_{G\der}(G)\to \Loc(G)$ coincides with $q^*: \Loc(G\ab)\to \Loc(G)$. 
 %
 Now set $G^2 \ceq G\times G$, so $G^2\ab =  G\ab \times G\ab$ and $G^2\der = G\der \times G\der$. Let $q_2 : G^2 \to G^2\ab$ be the abelianization quotient.  
-Let $L_2 : \Loc(G^2\ab) \to \Loc_{G^2\der}(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$.
+Let $L_2 : \Loc(G^2\ab) \to \Loc_{G^2\der}(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$. \todo{Add reference to Lemma 3.3}
 Then $L_2$ is also an equivalence since $q_2$ is also a $G^2\der$-torsor.
 
 Consider the functor
@@ -682,10 +681,10 @@ Consider the functor
 (\cs{L}\ab,\mu\ab) &\mapsto& (L(\cs{L}\ab), L_2(\mu\ab))
 \end{array}
 \]
-Since both $L$ and $L_2$ are equivalences, this functor $\CS(G\ab) \to \CSab'(G)$ is an equivalence of categories.
+Since both $L$ and $L_2$ are equivalences, this functor $\CS(G\ab) \to \CSab'(G)$ is an equivalence of categories. \todo{I'm a bit wary of constructing an equivalence componentwise in this way; how does it show that the result is full and faithful since it's just talking about objects?}
 
 Let $i : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\times G$ by $j(h) = (i(h),1_G)$. 
-For $(\cs{L},\mu,\nu)\in \CSab'(G)$, $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism.
+For $(\cs{L},\mu,\nu)\in \CSab'(G)$, $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. \todo{For $j^*(\nu)$ to make sense, need $j : G\der \to G\der \times G$}
 This defines a functor
 \[
 \begin{array}{rcl}
@@ -694,7 +693,7 @@ This defines a functor
 \end{array}
 \]
 Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i(h),g)$.
-Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p_n^*\cs{L}$ by
+Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p_n^*\cs{L}$ \todo{I assume this should be $p^*\cs{L}$?} by
 \[
 \begin{tikzcd}
 & n^* \cs{L} \arrow{dl}{m\circ k = n} \arrow{r} & p_n^*\cs{L} &  \\ 
@@ -703,7 +702,7 @@ k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[eq
 \end{tikzcd}
 \]
 Then $(\cs{L},\mu,\nu)\in \CSab'(G)$ maps to $(\cs{L},\mu,\beta)$.
-It now follows that $\CSab'(G) \to \CSab(G)$ is an equivalence.
+It now follows that $\CSab'(G) \to \CSab(G)$ is an equivalence. \todo{Is it easy to see why the morphisms that commute with $\mu$ and $\beta$ are the same as those commuting with $\mu$ and $\nu$?  Is this straight from the definition of the functor?}
 \end{proof}
 
 \begin{corollary} 
@@ -723,7 +722,7 @@ Consider the following diagram.
 %gives
 \[
 \begin{tikzcd}
-\CS(G\der) & \arrow{l}[swap]{j^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
 \CS(G\ab) \arrow{dl}{q\ab^*} \\
 & \CSab(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
@@ -735,17 +734,17 @@ By Proposition \ref{prop:CSGabab}, $(\cs{L},\mu,\beta) \iso q\ab^*(\cs{L}\ab,\mu
 Applying the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ to this isomorphism, it follows that $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, as desired. 
 
 Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
-Then $j^*(\cs{L},\mu) \iso j^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G\der)$. 
-Since $q\circ j = 1_{G\ab}$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
+Then $i^*(\cs{L},\mu) \iso i^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G\der)$. 
+Since $q\circ i = 1_{G\ab}$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
 \end{proof}
 
 We may interpret this corollary as measuring how far $q^*$ is from being essentially surjective.  The next result shows that it is also not full.
 Let $C$ denote the cokernel of the natural map
 \[
-\Hom(\pi_0(\bar{G})_{\mathcal{W}}, \EEx) \to \Hom(\pi_0(\bar{G}\der)_{\mathcal{W}}, \EEx),
+\Hom(\pi_0(\bar{G})_{\Frob{}}, \EEx) \to \Hom(\pi_0(\bar{G}\der)_{\Frob{}}, \EEx),
 \]
-where $\pi_0(\bar{G})_\mathcal{W}$ denotes the covariants of the action of Frobenius on
-the component group of $G$
+where $\pi_0(\bar{G})_{\Frob{}}$ denotes the covariants of the action of Frobenius on
+the component group of $\bar{G}$
 
 \begin{corollary}
 If $G$ is a smooth group scheme and $(\cs{L},\mu)$ is a character sheaf on $G$ with trivial restriction to $G\der$,
@@ -758,7 +757,7 @@ $(\cs{L},\mu)$ under the forgetful functor.  By the previous corollary this set 
 If $(\cs{L},\mu,\beta)$ and $(\cs{L},\mu,\beta')$ both map to $(\cs{L},\mu)$, then $\beta' \circ \beta^{-1}$ is an
 automorphism of the constant sheaf on $G\der$.  Conversely, if $\varphi$ is an automorphism of $(\EE)_{G\der}$
 and $(\cs{L},\mu,\beta) \in \CSab(G)$ then $(\cs{L},\mu,\varphi \circ \beta) \in \CSab(G)$.  By \cite{cunningham-roe:13a}*{Thm. 3.9},
-the automorphism group is isomorphic to $\Hom(\pi_0(\bar{G}\der)_{\mathcal{W}}, \EEx)$.  Finally, we note that any
+the automorphism group is isomorphic to $\Hom(\pi_0(\bar{G}\der)_{\Frob{}}, \EEx)$.  Finally, we note that any
 automorphism $\alpha$ of $(\cs{L},\mu) \in \CS(G)$ defines an isomorphism $(\cs{L},\mu,\beta \circ \alpha|_{G\der}) \to (\cs{L},\mu,\beta)$.
 Applying \cite{cunningham-roe:13a}*{Thm. 3.9} again yields the desired result.
 \end{proof}
@@ -876,7 +875,7 @@ Then $(\cs{L},\nu,\beta)\in \CS\ab(G)$.
 Let $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ be given by the equivalences above.
 Let $\xi : m\ab^*\cs{L}\ab \to \theta^* m\ab^*\cs{L}\ab$ be the isomorphism attached to $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$ as in Section~\ref{sec:comcom}.
 Let $\gamma : m^*\cs{L} \to \theta^* m^*\cs{L}$ be the isomorphism attached to $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ as in Section~\ref{ssec:noncomdef}.
-By Lemma~\ref{lemma:morinCSab}, the diagram on the right, below, is in $\CS(G\ab)$ and the diagram on the left, below, is in $\CS\ab(G)$.
+By Lemma~\ref{lemma:morinCSab}, the diagrams below are in $\CS(G\ab)$ (right) and $\CS\ab(G)$ (left).
 \[
   \begin{tikzcd}[row sep=10, column sep = 20]
    m^*\cs{L} \arrow{dd}[swap]{\gamma} \arrow{r}{\mu} 
@@ -892,7 +891,7 @@ By Lemma~\ref{lemma:morinCSab}, the diagram on the right, below, is in $\CS(G\ab
  &  \theta^*(\cs{L}\ab\boxtimes\cs{L}\ab)
  \end{tikzcd}
 \]
-The diagram on the left, above, is precisely the result of applying the functor $(q^2)^*\ab$ to the diagram on the right, above; in particular $\gamma = (q^2)^*\ab \xi$.
+The diagram on the left is the result of applying the functor $(q^2)^*\ab$ to the one on the right; in particular $\gamma = (q^2)^*\ab \xi$.
 Since $(q^2)^*\ab$ is an equivalence by Proposition~\ref{prop:CSGabab}, it follows that the diagram in Definition~\ref{def:CCS} commutes if and only if the diagram in Definition~\ref{def:CCScom} commutes. 
 In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\ab)\in \CCS(G\ab)$.
 
@@ -1057,13 +1056,13 @@ The category $\CCS(G)$ is monoidal and there is a canonical isomorphism
 \CCSiso{G} \iso \Hom(G\ab(\Fq),\EEx).
 \]
 Every map in $\CCS(G)$ is either trivial or an isomorphism, and the automorphism group of any object in $\CCS(G)$ is canonically
-isomorphic to $\Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$.
+isomorphic to $\Hom(\pi_0(\bar{G}\ab)_{\Frob{}},\EEx)$.
 \end{corollary}
 
 \begin{proof}
-Let us write $(\cs{L},\mu,\beta) \mapsto (\cs{L}\ab,\mu\ab)$ to indicate the equivalence appearing in Theorem~\ref{thm:Gab};
+The first claim follows from Theorems \ref{thm:trfrobiso} and \ref{thm:Gab}. Let us write $(\cs{L},\mu,\beta) \mapsto (\cs{L}\ab,\mu\ab)$ to indicate the equivalence appearing in Theorem~\ref{thm:Gab};
 then \[\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab).\] 
-By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = \Hom(\pi_0(G\ab)_{\Frob{}},\EEx)$.
+By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = \Hom(\pi_0(\bar{G}\ab)_{\Frob{}},\EEx)$.
 \end{proof}
 
 \subsection{Geometrization of characters} \label{ssec:geo}
