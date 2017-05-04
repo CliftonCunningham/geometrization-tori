@@ -3,7 +3,7 @@
 \title[Commutative character sheaves and geometric types]{Commutative character sheaves and geometric types for supercuspidal representations}
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
-\email{cunning@math.ucalgary.ca}
+\email{cunningham@pims.math.ca}
 \author{David Roe}
 \address{Department of Mathematics, University of Pittsburgh, 301 Thackeray Hall, Pittsburgh, PA , United States, 15260.}
 \email{roed.math@gmail.com}
@@ -19,6 +19,14 @@
 \usepackage{enumitem}
 % Hyperrefs
 \usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = green %Colour of citations
+}
+\usepackage[margin=3.5cm]{geometry}
+%\renewcommand{\baselinestretch}{1.0}
 
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,calc,matrix}
@@ -186,7 +194,7 @@ We combine these sheaves with Lusztig's character sheaves on reductive algebraic
 \section*{Introduction}
 
 As proved by Ju-Lee Kim in \cite{kim:07a}, all irreducible supercuspidal representations of tamely ramified $p$-adic groups can be built from ``data'' introduced by Jiu-Kang Yu in \cite{yu:01a}*{\S 15}.
-While the type, in the sense of Bushnell \& Kutzko \cite{bushnell-kutzko:98a}, of a supercuspidal representation built from Yu data can be constructed directly from the datum, it is convenient to consider and intermediate object, introduced in \cite{yu:01a}*{Remark 15.4}, which we call a \emph{Yu type datum}. 
+While the type, in the sense of Bushnell \& Kutzko \cite{bushnell-kutzko:98a}, of a supercuspidal representation built from Yu data can be constructed directly from the datum, it is convenient to consider an intermediate object, introduced in \cite{yu:01a}*{Remark 15.4}, which we call a \emph{Yu type datum}. 
 Yu type data are studied in \cite{Yu:models}, which concludes with the following observation.
 %
 \begin{quotation}
@@ -289,7 +297,7 @@ This observation underlies the definition of commutative character sheaves for n
 We state our second main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
-Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. 
+Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. \todo{Fix this.}
 % 
 In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize types for supercuspidal representations of $p$-adic groups, in a sense made precise in Theorem~\ref{thm:geotypes}. 
 % is given in Section~\ref{ssec:geotypes}. 
@@ -561,7 +569,7 @@ The pair $(m^*\cs{L},\mu_m^2)$ satisfies the conditions appearing in \cite{cunni
 The restriction of $m^*\cs{L}$ to $G^2\der= G\der\times G\der$ is canonically isomorphic to $(\EE)_{G^2\der}$ by
 \[
 \begin{tikzcd}
-(m^*\cs{L})\vert_{G^2\der} \arrow{d}{\mu\vert_{G^2\der}} \arrow{r}{\beta^2} & (\EE)_{G^2\der}\\
+(m^*\cs{L})\vert_{G^2\der} \arrow{d}{\mu\vert_{G^2\der}} \arrow{r}{\beta^2_m} & (\EE)_{G^2\der}\\
 (\cs{L}\boxtimes\cs{L})\vert_{G^2\der} \arrow[equal]{r} & (\cs{L}\vert_{G\der})\boxtimes(\cs{L}\vert_{G\der}) \arrow{u}{\beta\boxtimes\beta}.
 \end{tikzcd}
 \]
@@ -734,7 +742,11 @@ By Proposition \ref{prop:CSGabab}, $(\cs{L},\mu,\beta) \iso q\ab^*(\cs{L}\ab,\mu
 Applying the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ to this isomorphism, it follows that $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, as desired. 
 
 Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
-Then $i^*(\cs{L},\mu) \iso i^*q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G\der)$. 
+Then 
+\[
+i^*(\cs{L},\mu) \iso i^*q^*(\cs{L}\ab,\mu\ab)
+\]
+ in $\CS(G\der)$.
 Since $q\circ i = 1_{G\ab}$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
 \end{proof}
 
@@ -1189,31 +1201,6 @@ The representation $\orho^0$ and the quasicharacters $(\varphi^0, \ldots , \varp
 In order to prepare for the construction of the geometric types of Theorem~\ref{thm:geotypes}  we review some further detail here.
 In Table~\ref{table:notation} we explain how to convert the constructions appearing in this section into the notation of \cite{yu:01a}.
 
-\begin{table}[ht]
-\caption{Notation conversion chart.}
-\begin{spacing}{1.2}
-\begin{tabular}{| c|l |}
-\hline
-\text{this paper} & \cite{yu:01a}\\
-\hline
-%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
-%$\oK^{i+1}$ & $\,^\circ K^{i+1} = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$\\% \cite{yu:01a}*{\S 15} \\
-%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
-%$\orho^0$ & $\,^\circ \rho^0$\\% \cite{yu:01a}*{\S 15} \\
-%$\orho^{i+1}$ & $\,^\circ \rho^{i+1}$\\% \cite{yu:01a}*{\S 15} \\
-$\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ \\
-$J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ \\
-$V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ \\ 
-$V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
-%$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
-$Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ \\ % \cite{yu:01a}*{\S 11} \\
-%$(f_{j+1}, j_{i+1})$ & $(f,j)$ \cite{yu:01a}*{\S 11} \\
-%$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} 
-\hline
-\end{tabular}
-\end{spacing}
-\label{table:notation}
-\end{table}%
 
 First, Yu introduces 
 \begin{enumerate}
@@ -1265,6 +1252,32 @@ a group homomorphism $h_{i+1} : \oK^i \ltimes J_{i+1} \to  \Sp(V_{i+1})\ltimes V
 \end{tikzcd}
 \]
 \end{enumerate}
+
+\begin{table}[ht]
+\caption{Notation conversion chart.}
+\begin{spacing}{1.2}
+\begin{tabular}{| c|l |}
+\hline
+\text{this paper} & \cite{yu:01a}\\
+\hline
+%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
+%$\oK^{i+1}$ & $\,^\circ K^{i+1} = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$\\% \cite{yu:01a}*{\S 15} \\
+%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
+%$\orho^0$ & $\,^\circ \rho^0$\\% \cite{yu:01a}*{\S 15} \\
+%$\orho^{i+1}$ & $\,^\circ \rho^{i+1}$\\% \cite{yu:01a}*{\S 15} \\
+$\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ \\
+$J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ \\
+$V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ \\ 
+$V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
+%$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
+$Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ \\ % \cite{yu:01a}*{\S 11} \\
+%$(f_{j+1}, j_{i+1})$ & $(f,j)$ \cite{yu:01a}*{\S 11} \\
+%$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} 
+\hline
+\end{tabular}
+\end{spacing}
+\label{table:notation}
+\end{table}%
 
 We can now recall how Yu uses all this to construct representations $\orho^i$ of $\oK^i$, for $i=1, \ldots, d$ and the types $(\oK^i,\orho_i)$.
 The representations $\orho^i$ and $\orho_i$ are defined recursively.
