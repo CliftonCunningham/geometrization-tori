@@ -297,7 +297,7 @@ This observation underlies the definition of commutative character sheaves for n
 We state our second main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
-Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. \todo{Fix this.}
+%Then in Section \ref{ssec:proofs}, we give proofs of the results in Section \ref{sec:noncom}, which require a development of equivariant linear character sheaves. \todo{Fix this.}
 % 
 In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize types for supercuspidal representations of $p$-adic groups, in a sense made precise in Theorem~\ref{thm:geotypes}. 
 % is given in Section~\ref{ssec:geotypes}. 
@@ -509,13 +509,14 @@ We will define commutative character sheaves as a subcategory of $\CSab(G)$.
 Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
 Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Both are smooth morphisms of $\Fq$-schemes.
-Set $m' = i \circ m \circ \theta$; we have $j\circ c = m \circ (m \times m')$. \todo{$j$ is not defined, and the needed definition conflicts with the definition of $i$ and $j$ given later.}
+Set $m' = i \circ m \circ \theta$ and let $j\der : G\der\to G$ be inclusion; then $j\der\circ c = m \circ (m \times m')$.
+% \todo{$j$ is not defined, and the needed definition conflicts with the definition of $i$ and $j$ given later.}
 Then $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms below.
 \begin{equation}
 \begin{tikzcd}
 \arrow[equal]{d} c^* (\cs{L}\vert_{G\der}) \arrow{r}{c^*(\beta)} 
 	&  c^*((\EE)_{G\der}) \arrow[equal]{d} \\
-\arrow{d}[swap]{j\circ c = m \circ (m \times m')} c^* j^* \cs{L} 
+\arrow{d}[swap]{j\der\circ c = m \circ (m \times m')} c^* j\der^* \cs{L} 
 	&   (\EE)_{G\times G} \\
 (m \times m')^* m^* \cs{L} \arrow{d}[swap]{(m \times m')^*(\mu)} 
 	&  m^*\cs{L} \otimes \theta^* m^* i^* \cs{L}  \arrow[dashed]{u}[swap]{\gamma'} \\
@@ -523,7 +524,7 @@ Then $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism 
 	& m^*\cs{L} \otimes (m')^*\cs{L} \arrow{u}[swap]{m' = i\circ m\circ \theta} 
 \end{tikzcd}
 \end{equation}
-In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations; so, for example, the middle left isomorphism comes from $(m\times m')^* m^* \iso c^* j^*$ since $j\circ c = m \circ (m \times m')$.
+In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations; so, for example, the middle left isomorphism comes from $(m\times m')^* m^* \iso c^* j\der^*$ since $j\der\circ c = m \circ (m \times m')$.
 Using the monoidal structure of the category of Weil local systems on $G\times G$, the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ defines an isomorphism
 \[
 m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
@@ -543,7 +544,7 @@ The category $\CCS(G)$ of commutative character sheaves on $G$ is the full subca
    \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L}).
   \end{tikzcd}
   \]
-Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ above. 
+Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ as above. 
 \end{definition}
 
 
@@ -573,8 +574,8 @@ The restriction of $m^*\cs{L}$ to $G^2\der= G\der\times G\der$ is canonically is
 (\cs{L}\boxtimes\cs{L})\vert_{G^2\der} \arrow[equal]{r} & (\cs{L}\vert_{G\der})\boxtimes(\cs{L}\vert_{G\der}) \arrow{u}{\beta\boxtimes\beta}.
 \end{tikzcd}
 \]
-This shows that $(m^*\cs{L},\mu_m^2,\beta_m^2) \in \CS\ab(G)$. 
-Similar work defines $(\cs{L}\boxtimes\cs{L},\mu_\boxtimes^2,\beta_\boxtimes^2) \in \CS\ab(G)$.
+This shows that $(m^*\cs{L},\mu_m^2,\beta_m^2) \in \CS\ab(G^2)$. 
+Similar work defines $(\cs{L}\boxtimes\cs{L},\mu_\boxtimes^2,\beta_\boxtimes^2) \in \CS\ab(G^2)$.
 By construction, $\mu: m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism in $\CS\ab(G^2)$.
 Similar work shows that $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are also morphisms in $\CS\ab(G^2)$.
 \end{proof}
@@ -585,9 +586,9 @@ In order to study commutative character sheaves, we need some auxiliary categori
 \begin{itemize}
 \item Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
 \item Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$, whose definition we now recall.
-Let $m : G\times G\to G$ be multiplication in $G$, $n : G\der\times G\to G$ be its restriction to $G\der\times G$,
-$p : G\der\times G \to G$ projection to the second component, and $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
-Then objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and
+Let $n : G\der\times G\to G$ be the restriction of $m : G\times G\to G$ to $G\der\times G$,
+let $p_n : G\der\times G \to G$ be projection to the second component, and let $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
+Objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and
 $\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the following two diagrams commute.
 \[
 \begin{tikzcd}
@@ -605,9 +606,13 @@ n_1^*n^*\cs{L} \arrow{dr}[swap]{n_1^*(\nu)} &&&& \arrow{dl}{p_2^*(\nu)} p_2^*n^*
 \]
 Morphisms are morphisms in $\Loc(G)$ commuting with $\nu$.
 \item Let $\CSab'(G)$ be the category of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$; thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p^*\cs{L}$ are isomorphisms.
-Morphisms are morphisms in $\Loc(G)$ commuting with $\mu$ and $\nu$. 
+Morphisms in $\Loc_{G\der}(G)$ are morphisms in $\Loc(G)$ commuting with $\mu$ and $\nu$. 
 \end{itemize}
-We relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
+
+\begin{lemma}\label{lemma:descent}
+\end{lemma}
+
+We may now relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
 
 %%%%%%%%
 \iffalse
@@ -691,7 +696,7 @@ Consider the functor
 \]
 Since both $L$ and $L_2$ are equivalences, this functor $\CS(G\ab) \to \CSab'(G)$ is an equivalence of categories. \todo{I'm a bit wary of constructing an equivalence componentwise in this way; how does it show that the result is full and faithful since it's just talking about objects?}
 
-Let $i : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\times G$ by $j(h) = (i(h),1_G)$. 
+Let $i\der : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\der\times G$ by $j(h) = (i\der(h),1_G)$. 
 For $(\cs{L},\mu,\nu)\in \CSab'(G)$, $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. \todo{For $j^*(\nu)$ to make sense, need $j : G\der \to G\der \times G$}
 This defines a functor
 \[
@@ -700,7 +705,7 @@ This defines a functor
 (\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,j^*(\nu)).
 \end{array}
 \]
-Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i(h),g)$.
+Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i\der(h),g)$.
 Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p_n^*\cs{L}$ \todo{I assume this should be $p^*\cs{L}$?} by
 \[
 \begin{tikzcd}
@@ -730,7 +735,7 @@ Consider the following diagram.
 %gives
 \[
 \begin{tikzcd}
-\CS(G\der) & \arrow{l}[swap]{i^*} \CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\der) & \arrow{l}[swap]{i\der^*} \CS(G) &\arrow{l}[swap]{q^*} 
 \CS(G\ab) \arrow{dl}{q\ab^*} \\
 & \CSab(G) \arrow{u}{\text{forget}}  & 
 \end{tikzcd}
@@ -744,10 +749,10 @@ Applying the forgetful functor $\CS_{G\der}(G)\to \CS(G)$ to this isomorphism, i
 Conversely, suppose $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\mu) \iso q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$.
 Then 
 \[
-i^*(\cs{L},\mu) \iso i^*q^*(\cs{L}\ab,\mu\ab)
+i\der^*(\cs{L},\mu) \iso i\der^*q^*(\cs{L}\ab,\mu\ab)
 \]
  in $\CS(G\der)$.
-Since $q\circ i = 1_{G\ab}$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
+Since $q\circ i\der = 1$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$ in $\CS(G\der)$.
 \end{proof}
 
 We may interpret this corollary as measuring how far $q^*$ is from being essentially surjective.  The next result shows that it is also not full.
