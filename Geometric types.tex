@@ -552,42 +552,13 @@ Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from 
 
 In this section we give an equivalence of categories between $\CS(G\ab)$ and $\CSab(G)$ and use it to describe
 the pullback functor $q^* : \CS(G\ab) \to \CS(G)$ in terms of the forgetful functor $\CSab(G) \to \CS(G)$.
-We start with a method that will allow us to situate the diagram in Definition \ref{def:CCS} within $\CSab(G \times G)$.
-
-\begin{lemma}\label{lemma:morinCSab}
-If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G\times G)$.
-\end{lemma}
-\begin{proof}
-Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1',g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1,'g_2') = (g_i,g_i')$.
-First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$ by equipping it with an isomorphism $\mu_m^2: (m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
-\[
-\begin{tikzcd}
-(m^2)^* (m^*\cs{L}) \arrow{d}{(m^2)^*\mu} \arrow{rr}{\mu_m^2} && m^*\cs{L} \boxtimes m^*\cs{L}\\
- (m^2)^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & (m^2)^*(p_1)^*\cs{L} \otimes (m^2)^*(p_2)^*\cs{L} \arrow{r} & (p^2_1)^*m^*\cs{L} \otimes (p^2_2)^*m^*\cs{L} \arrow[equal]{u}
-\end{tikzcd}
-\] 
-The pair $(m^*\cs{L},\mu_m^2)$ satisfies the conditions appearing in \cite{cunningham-roe:13a}*{Def. 1.1}.
-The restriction of $m^*\cs{L}$ to $G^2\der= G\der\times G\der$ is canonically isomorphic to $(\EE)_{G^2\der}$ by
-\[
-\begin{tikzcd}
-(m^*\cs{L})\vert_{G^2\der} \arrow{d}{\mu\vert_{G^2\der}} \arrow{r}{\beta^2_m} & (\EE)_{G^2\der}\\
-(\cs{L}\boxtimes\cs{L})\vert_{G^2\der} \arrow[equal]{r} & (\cs{L}\vert_{G\der})\boxtimes(\cs{L}\vert_{G\der}) \arrow{u}{\beta\boxtimes\beta}.
-\end{tikzcd}
-\]
-This shows that $(m^*\cs{L},\mu_m^2,\beta_m^2) \in \CS\ab(G^2)$. 
-Similar work defines $(\cs{L}\boxtimes\cs{L},\mu_\boxtimes^2,\beta_\boxtimes^2) \in \CS\ab(G^2)$.
-By construction, $\mu: m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism in $\CS\ab(G^2)$.
-Similar work shows that $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are also morphisms in $\CS\ab(G^2)$.
-\end{proof}
-
-
 
 In order to study commutative character sheaves, we need some auxiliary categories.
 \begin{itemize}
 \item Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
 \item Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$, whose definition we now recall.
 Let $n : G\der\times G\to G$ be the restriction of $m : G\times G\to G$ to $G\der\times G$,
-let $p_n : G\der\times G \to G$ be projection to the second component, and let $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
+let $p : G\der\times G \to G$ be projection to the second component, and let $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
 Objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and
 $\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the following two diagrams commute.
 \[
@@ -706,10 +677,11 @@ This defines a functor
 \end{array}
 \]
 Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i\der(h),g)$.
-Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p_n^*\cs{L}$ \todo{I assume this should be $p^*\cs{L}$?} by
+Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p^*\cs{L}$ 
+%\todo{I assume this should be $p^*\cs{L}$?} by
 \[
 \begin{tikzcd}
-& n^* \cs{L} \arrow{dl}{m\circ k = n} \arrow{r} & p_n^*\cs{L} &  \\ 
+& n^* \cs{L} \arrow{dl}{m\circ k = n} \arrow{r} & p^*\cs{L} &  \\ 
 k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
 & k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\times 1}
 \end{tikzcd}
@@ -853,6 +825,35 @@ Applying \cite{cunningham-roe:13a}*{Thm. 3.9} again yields the desired result.
 
 
 \subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
+
+We start with a method that will allow us to situate the diagram in Definition \ref{def:CCS} within $\CSab(G \times G)$.
+
+\begin{lemma}\label{lemma:morinCSab}
+If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G\times G)$.
+\end{lemma}
+\begin{proof}
+Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1',g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1,'g_2') = (g_i,g_i')$.
+First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$ by equipping it with an isomorphism $\mu_m^2: (m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
+\[
+\begin{tikzcd}
+(m^2)^* (m^*\cs{L}) \arrow{d}{(m^2)^*\mu} \arrow{rr}{\mu_m^2} && m^*\cs{L} \boxtimes m^*\cs{L}\\
+ (m^2)^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & (m^2)^*(p_1)^*\cs{L} \otimes (m^2)^*(p_2)^*\cs{L} \arrow{r} & (p^2_1)^*m^*\cs{L} \otimes (p^2_2)^*m^*\cs{L} \arrow[equal]{u}
+\end{tikzcd}
+\] 
+The pair $(m^*\cs{L},\mu_m^2)$ satisfies the conditions appearing in \cite{cunningham-roe:13a}*{Def. 1.1}.
+The restriction of $m^*\cs{L}$ to $G^2\der= G\der\times G\der$ is canonically isomorphic to $(\EE)_{G^2\der}$ by
+\[
+\begin{tikzcd}
+(m^*\cs{L})\vert_{G^2\der} \arrow{d}{\mu\vert_{G^2\der}} \arrow{r}{\beta^2_m} & (\EE)_{G^2\der}\\
+(\cs{L}\boxtimes\cs{L})\vert_{G^2\der} \arrow[equal]{r} & (\cs{L}\vert_{G\der})\boxtimes(\cs{L}\vert_{G\der}) \arrow{u}{\beta\boxtimes\beta}.
+\end{tikzcd}
+\]
+This shows that $(m^*\cs{L},\mu_m^2,\beta_m^2) \in \CS\ab(G^2)$. 
+Similar work defines $(\cs{L}\boxtimes\cs{L},\mu_\boxtimes^2,\beta_\boxtimes^2) \in \CS\ab(G^2)$.
+By construction, $\mu: m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ is a morphism in $\CS\ab(G^2)$.
+Similar work shows that $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are also morphisms in $\CS\ab(G^2)$.
+\end{proof}
+
 
 Suppose $G$ is commutative, so $G\der = 1$. 
 Suppose $(\cs{L},\mu,\beta)$ is an object in $\CSab(G)$.
