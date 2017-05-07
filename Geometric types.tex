@@ -554,20 +554,34 @@ In this section we give an equivalence of categories between $\CS(G\ab)$ and $\C
 the pullback functor $q^* : \CS(G\ab) \to \CS(G)$ in terms of the forgetful functor $\CSab(G) \to \CS(G)$.
 
 In order to study commutative character sheaves, we need some auxiliary categories.
-\begin{itemize}
-\item Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
-\item Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$, whose definition we now recall.
+%\begin{itemize}
+%\item 
+Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
+%\item 
+Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$, whose definition we now recall.
 Let $n : G\der\times G\to G$ be the restriction of $m : G\times G\to G$ to $G\der\times G$,
 let $p : G\der\times G \to G$ be projection to the second component, and let $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
-Objects in $\Loc_{G\der}(G)$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and
-$\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the following two diagrams commute.
+Then $q : G \to G\ab$ is a regular epimorphism of smooth group schemes with kernel pair $(n,p)$.
+\[
+\begin{tikzcd}
+G\der\times G
+ \arrow[shift left=1]{r}{n}
+  \arrow[shift right=1,swap]{r}{p}
+&
+G 
+\arrow{r}{q}
+& 
+G\ab
+\end{tikzcd}
+\]
+Objects in the category $\Loc_{G\der}(G)$ of $G\der$-equivariant local systems on $G$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and $\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the diagram
 \[
 \begin{tikzcd}
 s^*n^*\cs{L} \arrow{r}{s^*(\nu)} & s^*p^*\cs{L}\\
 \cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{p\circ s = \id_G},
 \end{tikzcd}
 \]
-and with $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$,
+commutes, and also such that the following diagram commutes, where $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$.
 \[
 \begin{tikzcd}
 & \arrow[equal]{dl}{n\circ n_2=n\circ n_1} n_2^*n^*\cs{L} \arrow{rr}{n_2^*(\nu)} && n_2^*p^*\cs{L} \arrow[equal]{dr}[swap]{p \circ n_2 = n\circ p_2}& \\
@@ -575,50 +589,42 @@ n_1^*n^*\cs{L} \arrow{dr}[swap]{n_1^*(\nu)} &&&& \arrow{dl}{p_2^*(\nu)} p_2^*n^*
 & n_1^*p^*\cs{L} \arrow[equal]{rr}{p\circ n_1 = p\circ p_2} && p_2^*p^*\cs{L} .
 \end{tikzcd}
 \]
-Morphisms are morphisms in $\Loc(G)$ commuting with $\nu$.
-\item Let $\CSab'(G)$ be the category of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$; thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p^*\cs{L}$ are isomorphisms.
-Morphisms in $\Loc_{G\der}(G)$ are morphisms in $\Loc(G)$ commuting with $\mu$ and $\nu$. 
-\end{itemize}
+Morphisms in $\Loc_{G\der}(G)$ are morphisms in $\Loc(G)$ commuting with $\nu$.
+
+%\item 
+Let $\CS_{G\der}(G)$ be the category of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$.
+%Thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p^*\cs{L}$ are isomorphisms.
+Morphisms in $\CS_{G\der}(G)$ are morphisms in $\CS(G)$ commuting with $\nu$. 
+%\end{itemize}
+
+
+
+%%%%%%%%
+%\iffalse
 
 \begin{lemma}\label{lemma:descent}
 \end{lemma}
 
-We may now relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
-
-%%%%%%%%
-\iffalse
 
 \todo{Define $q\ab^* : \CS(G\ab) \to \CSab(G)$; missing definition of $\beta$ in the following commented section}
-Now suppose $q : G \to Q$ is a regular epimorphism of smooth group schemes with kernel pair $(a,p)$
-\[
-\begin{tikzcd}
-H\times G
- \arrow[shift left=2]{r}{a}
-  \arrow[shift right=2,swap]{r}{p}
-&
-G 
-\arrow{r}{q}
-& 
-Q.
-\end{tikzcd}
-\]
-Let $(\cs{L}_0, \mu_0)$ be a linear character sheaf on $Q$ and set $(\cs{L}, \mu) \ceq (q^*\cs{L}_0, (q\times q)^* \mu_0)$.
+
+%Let $(\cs{L}_0, \mu_0)$ be a linear character sheaf on $Q$ and set $(\cs{L}, \mu) \ceq (q^*\cs{L}_0, (q\times q)^* \mu_0)$.
 Consider the functor
 \[
-q^* : \CS(Q) \to \CS(G)
+q^* : \CS(G\ab) \to \CS(G)
 \]
-given on objects by $(\cs{L}_0,\mu_0) \mapsto (\cs{L}, \mu)$; see \cite{cunningham-roe:13a}*{Lem 1.4}.
-To see that $(q^*\cs{L}_0, (q\times q)^* \mu_0)$ is indeed a linear character sheaf on $G$,
-verify \cite{cunningham-roe:13a}, CS.3], arguing as in \cite{cunningham-roe:13a}].
-The linear character sheaf $(\cs{L},\mu)$ on $G$ comes equipped with a canonical isomorphism $\nu : a^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
+given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$ where $q^2= q\times q$; see \cite{cunningham-roe:13a}*{Lem 1.4}.
+To see that $(q^*\cs{L}\ab, (q^2)^* \mu\ab)$ is indeed a linear character sheaf on $G$,
+verify \cite{cunningham-roe:13a}*{CS.3}. %, arguing as in \cite{cunningham-roe:13a}.
+The linear character sheaf $(\cs{L},\mu)$ on $G$ comes equipped with a canonical isomorphism $\nu : n^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
 \[
 \begin{tikzcd}[column sep=40]
-a^*\cs{L} \arrow[equal]{d} \arrow[dashed]{r}{\nu} &  \arrow[equal]{d} p^*\cs{L} \\
-a^* ( q^*\cs{L}_0) \arrow{r}{q\circ a = q\circ p}
-& p^* (q^*\cs{L}_0)
+n^*\cs{L} \arrow[equal]{d} \arrow[dashed]{r}{\nu} &  \arrow[equal]{d} p^*\cs{L} \\
+n^* ( q^*\cs{L}\ab) \arrow{r}{q\circ n = q\circ p}
+& p^* (q^*\cs{L}\ab)
 \end{tikzcd}
 \]
-Since this isomorphism satisfies \eqref{ECS1}, it follows that $(\cs{L}, \mu,\nu)$ is an $H$-equivariant linear character sheaf on $G$.
+Then $(\cs{L}, \mu,\nu)$ is an object in $\CS_{G\der}(G)$.
 If $\alpha_0 : (\cs{L}_0,\mu_0) \to (\cs{L}_0',\mu_0')$ is a morphism in $\CS(Q)$, 
 then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha$ is a morphism in $\CS(G)$.
 These simple observations define the comparison functor
@@ -635,14 +641,11 @@ and show that the functor $q^* : \CS(Q) \to \CS(G)$ factors according to the fol
 \end{equation}
 The definition of $q_H^* : \CS(Q)\to \CS_H(G)$ will be revisited in the proof of the following result.
 
+We may now begin to relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
 
-\begin{proposition} \label{prop:Gder_triv}
-Suppose $G$ is a smooth group scheme and $(\cs{L},\mu) \in \CS(G)$.
-Then the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \cong q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, for some $(\cs{L}\ab,\mu\ab) \in \CS(G\ab)$.
-\end{proposition}
-Proposition~\ref{prop:Gder_triv} will be proven in Section \ref{ssec:proof1}.
 
-\fi
+
+%\fi
 %%%%%%%%%%%%%%%%%
 
 \begin{proposition} \label{prop:CSGabab}
@@ -667,7 +670,7 @@ Consider the functor
 \]
 Since both $L$ and $L_2$ are equivalences, this functor $\CS(G\ab) \to \CSab'(G)$ is an equivalence of categories. \todo{I'm a bit wary of constructing an equivalence componentwise in this way; how does it show that the result is full and faithful since it's just talking about objects?}
 
-Let $i\der : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\der\times G$ by $j(h) = (i\der(h),1_G)$. 
+Let $i\der : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\der\times G$ by $j(h) = (h,1_G)$. 
 For $(\cs{L},\mu,\nu)\in \CSab'(G)$, $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. \todo{For $j^*(\nu)$ to make sense, need $j : G\der \to G\der \times G$}
 This defines a functor
 \[
