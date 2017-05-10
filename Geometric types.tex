@@ -208,8 +208,8 @@ In this paper we follow the suggestion above by showing that Yu type data are ge
 A Yu type datum determines a sequence of representations $\orho_i$ of compact $p$-adic groups $\oK^i$, for $i=0, \ldots, d$, such that $(\oK^d, \rho_d)$ is a type for a supercuspidal representation of a $p$-adic group.
 The main result of \cite{Yu:models} explains how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $\O$ of integers of the $p$-adic field with $\underline{G}^i(\O)=\,^\circ K^i $.
 In this paper we show that if the geometric component group of the reductive quotient of the special fiber of the group scheme $\underline{G}^0$ is cyclic, then each representation $\orho_i$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
-where $\cs{F}^i$ is a virtual Weil sheaf on the Greenberg transform $G^i$ of $\underline{G}^i$.  
-Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OO{}) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
+where $\cs{F}^i$ is a {\it rational virtual Weil local system} on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean an element in the group obtained  by tensoring the Grothendieck group of such local systems with $\QQ$.
+Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OO{}) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
 \end{equation}
@@ -220,7 +220,7 @@ By this theorem, then, we obtain geometric avatars for each type in a Yu datum:
 (\underline{G}^i, \cs{F}^i).
 \end{tikzcd}
 \]
-%Theorem~\ref{thm:geotypes} shows how to construct the virtual Weil sheaf $\cs{F}^i$ from the Yu type datum, so that \eqref{eqn:intro1} holds.
+%Theorem~\ref{thm:geotypes} shows how to construct the rational virtual Weil sheaf $\cs{F}^i$ from the Yu type datum, so that \eqref{eqn:intro1} holds.
 We refer to the pair $(\underline{G}^d, \cs{F}^d)$ as a \emph{geometric type}.
 
 To prove Theorem~\ref{thm:geotypes}, we must find a way to geometrize linear characters of groups of the form $\underline{H}(\O)$, where $\underline{H}$ is a smooth group scheme over $\O$. 
@@ -276,8 +276,7 @@ they are precisely those needed to describe one-dimensional characters of such g
 Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we return to the task of geometrizing Yu type data. 
 The proof of Theorem~\ref{thm:geotypes} requires: Yu's work on smooth integral models \cite{Yu:models}; the geometrization of the character of the Heisenberg-Weil representation over finite fields by Gurevich \& Hadani \cite{gurevich-hadani:07a}; Lusztig's character sheaves on reductive groups over finite fields; and finally, the function-sheaf dictionary for characters of smooth group schemes over finite fields, now at our disposal in Theorem~\ref{thm:geo}.
 These pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
-With this theorem, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category:
-virtual Weil perverse sheaves on group schemes over finite fields. 
+With this theorem, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category: rational virtual Weil perverse sheaves on group schemes over finite fields. 
  
 The hypothesis in Theorem~\ref{thm:geotypes} -- that the geometric component group of the reductive quotient of the special fibre of the smooth group scheme $\underline{G}^0$ appearing in the Yu type datum is cyclic --  is required only because Lusztig's theory of character sheaves has the same hypothesis.
 If Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then the hypothesis in Theorem~\ref{thm:geotypes} can be removed.
@@ -301,7 +300,7 @@ We also compute the automorphism groups in $\CCS(G)$.
 % 
 In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize types for supercuspidal representations of $p$-adic groups, in a sense made precise in Theorem~\ref{thm:geotypes}. 
 % is given in Section~\ref{ssec:geotypes}. 
- %Specifically, we show that if $C$ is a compact $p$-adic group and $\rho$ is a representation of $C$ and $(C,\rho)$ is a type for a tamely ramified $p$-adic group then there is a  group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a virtual Weil sheaf $\mathcal{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
+ %Specifically, we show that if $C$ is a compact $p$-adic group and $\rho$ is a representation of $C$ and $(C,\rho)$ is a type for a tamely ramified $p$-adic group then there is a  group scheme $G$ over $\Fq$ such that $G(\Fq) = C$ and a rational virtual Weil sheaf $\mathcal{A}$ on $G$ such that $\trFrob{\cs{A}} = \trace(\rho)$.
 As preparation for the proof, we review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
 Then, in Section~\ref{ssec:review}, we review Yu's theory of types and his study of smooth integral models.  
 These elements are pulled together in Section~\ref{ssec:geotypes}, where the proof Theorem~\ref{thm:geotypes} is given.
@@ -1368,21 +1367,21 @@ a group homomorphism $h_{i+1} : \oK^i \ltimes J_{i+1} \to  \Sp(V_{i+1})\ltimes V
 \begin{table}[ht]
 \caption{Notation conversion chart.}
 \begin{spacing}{1.2}
-\begin{tabular}{| c|l |}
+\begin{tabular}{| c|l | l | }
 \hline
-\text{this paper} & \cite{yu:01a}\\
+\text{this paper} & \text{Yu, Jiu-Kang, {\it Construction of tame supercuspidal representations}} & \cite{yu:01a} \\
 \hline
-%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
-%$\oK^{i+1}$ & $\,^\circ K^{i+1} = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$\\% \cite{yu:01a}*{\S 15} \\
-%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$\\% \cite{yu:01a}*{\S 15} \\
+%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$ & \cite{yu:01a}*{\S 15} \\
+%$\oK^{i+1}$ & $\,^\circ K^{i+1} = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$ & \cite{yu:01a}*{\S 15} \\
+%$\oK^0$ & $\,^\circ K^0 = G^0(F)_y$ & \cite{yu:01a}*{\S 15} \\
 %$\orho^0$ & $\,^\circ \rho^0$\\% \cite{yu:01a}*{\S 15} \\
-%$\orho^{i+1}$ & $\,^\circ \rho^{i+1}$\\% \cite{yu:01a}*{\S 15} \\
-$\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ \\
-$J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ \\
-$V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ \\ 
-$V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
-%$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ \\
-$Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ \\ % \cite{yu:01a}*{\S 11} \\
+%$\orho^{i+1}$ & $\,^\circ \rho^{i+1}$ &  \cite{yu:01a}*{\S 15} \\
+$\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ & \\
+$J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ &  \\
+$V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ & \\ 
+$V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ & \\
+%$H^{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi_i}\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ & \\
+$Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ & \cite{yu:01a}*{\S 11} \\
 %$(f_{j+1}, j_{i+1})$ & $(f,j)$ \cite{yu:01a}*{\S 11} \\
 %$\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$, \cite{yu:01a}*{\S 11} 
 \hline
@@ -1517,7 +1516,7 @@ Let $\oK^i$ $\orho^0$, $\varphi^i$, for $i=0, \ldots d$, be a Yu type datum as i
 Let $\underline{G}^i$ and $\varrho_0\red$ be as in Section~\ref{ssec:review}, \ref{M0} and \ref{M1}.
 Assume $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
 For $i=0, \ldots ,d$, let $G^i = \Gr_{R}(\underline{G}^i)$ be the Greenberg transform of the smooth group scheme $\underline{G}^i$ appearing in Section~\ref{ssec:review}.
-Then there is a virtual Weil sheaf complex $\cs{F}_i$ on $G^i$ such that $\trFrob{\cs{F}_i} = \trace(\orho_i)$, for $i=0, \ldots , d$.
+Then there is a rational virtual Weil sheaf complex $\cs{F}_i$ on $G^i$ such that $\trFrob{\cs{F}_i} = \trace(\orho_i)$, for $i=0, \ldots , d$.
 \end{theorem}
 
 \begin{proof}
@@ -1542,7 +1541,7 @@ Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear 
 %Let $\cs{L}^i$ be the  Weil sheaf on $\Gr^{R}(\underline{G}^i)$ obtained from $\cs{L}^i_m$ by pullback along $\Gr^{R}(\underline{G}^i) \to \Gr^{R}_{m}(\underline{G}^i)$. 
 %Then $\cs{L}^i$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^i)$ from which the quasicharacter $\varphi^i$ may be recovered.
 
-By \cite{lusztig:disconnected1}, there is a virtual Weil sheaf $A = ({\bar A},\phi)$ on $(\underline{G}^0)_\Fq^\reductive$ such that ${\bar A}$ is a virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
+By \cite{lusztig:disconnected1}, there is a rational virtual Weil sheaf $A = ({\bar A},\phi)$ on $(\underline{G}^0)_\Fq^\reductive$ such that ${\bar A}$ is a rational virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
 \[
 \trFrob{A} = \trace \varrho_0^\reductive.
 \]
@@ -1634,7 +1633,7 @@ Since $\trFrob{\cs{B}^{i+1}_m}$ is constant on $(G_m^{i}\times_{G_m} J_m^{i+1})(
 \trFrob{\cs{C}^{i+1}_m} = n \trFrob{\cs{B}^{i+1}_m}
 \]
 on $G_m^{i+1}(\Fq)$ for $n = \# (G_m^{i}\times_{G_m} J_m^{i+1})(\Fq) \times \dim \orho^{i+1} $.
-Let $\cs{A}_m^{i+1}$ be the \emph{virtual} Weil sheaf on $G_m^i$ given by $\cs{A}_m^{i+1} = \frac{1}{n} \cs{C}_m^{i+1}$. 
+Let $\cs{A}_m^{i+1}$ be the \emph{rational virtual} Weil sheaf on $G_m^i$ given by $\cs{A}_m^{i+1} = \frac{1}{n} \cs{C}_m^{i+1}$. 
 %
 This completes the inductive definition of $\cs{A}_m^i$ so that the following diagram commutes.
 \[
@@ -1645,7 +1644,7 @@ G^{i+1}(\Fq) \arrow{rr}{\trace(\orho^{i+1})} \arrow{rd} && \EE\\
 \]
 
 Now set $\cs{F}^i_m = \cs{A}_m^{i} \otimes \cs{L}_m^i$, for $i=0, \ldots ,d$.
-Then $\cs{F}^i_m$ is a virtual Weil sheaf on $G^i_m = \Gr^{R}_m(\underline{G}^i)$ such that
+Then $\cs{F}^i_m$ is a rational virtual Weil sheaf on $G^i_m = \Gr^{R}_m(\underline{G}^i)$ such that
 \[
 \begin{tikzcd}
 G^i(\Fq) \arrow{rr}{\trace(\orho_i)} \arrow{rd} && \EE\\
@@ -1653,7 +1652,7 @@ G^i(\Fq) \arrow{rr}{\trace(\orho_i)} \arrow{rd} && \EE\\
 \end{tikzcd}
 \]
 commutes.
-Let $\cs{F}^i$ be the virtual Weil sheaf on the group scheme $G^i= \Gr_{R}(\underline{G}^i)$ obtained by pulling back $\cs{F}_m^i$ along $G^i \to G^i_m$.
+Let $\cs{F}^i$ be the rational virtual Weil sheaf on the group scheme $G^i= \Gr_{R}(\underline{G}^i)$ obtained by pulling back $\cs{F}_m^i$ along $G^i \to G^i_m$.
 Then 
 \[
 \trFrob{\cs{F}^i} = \trace(\orho_i),
