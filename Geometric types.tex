@@ -612,7 +612,7 @@ and such that the following diagram of isomorphisms of local systems on $G\der\t
 \begin{equation}\label{E2}
 \begin{tikzcd}
 \ &  \arrow{dl}{n\circ b_1 = n\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
-b_1^* n^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
+b_1^* n^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu)} b_3^* n^*\, \mathcal{L} \\
 & b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L} & 
 \end{tikzcd}
 \end{equation}
@@ -672,6 +672,7 @@ This defines a functor on objects by
 \]
 and on morphisms, trivially.
 It is easy to verify that morphisms that commute with $\mu$ and $\nu$ also commute with $\mu$ and $j^*(\nu)$.
+This functor is an equivalence. Its adjoint is given as follows.
 Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i\der(h),g)$.
 Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p^*\cs{L}$ by the following diagram.
 \[
@@ -681,8 +682,7 @@ k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[eq
 & k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id_\cs{L}}
 \end{tikzcd}
 \]
-Then $(\cs{L},\mu,\nu)\in \CS\der(G)$ maps to $(\cs{L},\mu,\beta)$.
-It now follows that $\CS\der(G) \to \CSab(G)$ is an equivalence. \todo{Should we add more detail to this proof?}
+This defines the functor  $\CS\ab(G) \to \CS\der(G)$, after confirming that morphisms that commute with $\mu$ and $\beta$ also commute with $\mu$ and $\nu$.
 \end{proof}
 
 
