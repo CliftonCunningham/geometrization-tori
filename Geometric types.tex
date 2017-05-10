@@ -200,16 +200,17 @@ Yu type data are studied in \cite{Yu:models}, which concludes with the following
 \begin{quotation}
 {\it Therefore, up to some linear characters, all the ingredient representations 
 %[appearing in Yu type data]
- are on groups of the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+ are on groups of the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$ [a henselian discrete valuation with finite residue field $\kappa$], and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
 important role in the representation theory of $p$-adic groups.} %\cite{Yu:models}
 \end{quotation}
 %
 In this paper we follow the suggestion above by showing that Yu type data are geometrizable, in the following sense.
 A Yu type datum determines a sequence of representations $\orho_i$ of compact $p$-adic groups $\oK^i$, for $i=0, \ldots, d$, such that $(\oK^d, \rho_d)$ is a type for a supercuspidal representation of a $p$-adic group.
-The main result of \cite{Yu:models} explains how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $\O$ of integers of the $p$-adic field with $\underline{G}^i(\O)=\,^\circ K^i $.
+Let $R$ be the ring of integers of a local field with finite residue field $k$.
+The main result of \cite{Yu:models} shows how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $R$ with $\underline{G}^i(R)=\,^\circ K^i $.
 In this paper we show that if the geometric component group of the reductive quotient of the special fiber of the group scheme $\underline{G}^0$ is cyclic, then each representation $\orho_i$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
-where $\cs{F}^i$ is a {\it rational virtual Weil local system} on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean an element in the group obtained  by tensoring the Grothendieck group of such local systems with $\QQ$.
-Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(\OO{}) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
+where $\cs{F}^i$ is a {\it rational virtual} sheaf complex on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean an element in the group obtained by tensoring the Grothendieck group of such local systems with $\QQ$.
+Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
 \end{equation}
@@ -223,9 +224,9 @@ By this theorem, then, we obtain geometric avatars for each type in a Yu datum:
 %Theorem~\ref{thm:geotypes} shows how to construct the rational virtual Weil sheaf $\cs{F}^i$ from the Yu type datum, so that \eqref{eqn:intro1} holds.
 We refer to the pair $(\underline{G}^d, \cs{F}^d)$ as a \emph{geometric type}.
 
-To prove Theorem~\ref{thm:geotypes}, we must find a way to geometrize linear characters of groups of the form $\underline{H}(\O)$, where $\underline{H}$ is a smooth group scheme over $\O$. 
+To prove Theorem~\ref{thm:geotypes}, we must find a way to geometrize linear characters of groups of the form $\underline{H}(R)$, where $\underline{H}$ is a smooth group scheme over $R$. 
 In order to do so in a systematic manner, we begin this paper by describing the function-sheaf dictionary for characters of arbitrary smooth group schemes over finite fields. 
-When coupled with the Greenberg transform, this dictionary will allow for the geometrization of linear characters of $\underline{H}(\O)$.
+When coupled with the Greenberg transform, this dictionary will allow for the geometrization of linear characters of $\underline{H}(R)$.
 
 The function-sheaf dictionary over a finite field $k$ \cite{deligne:SGA4.5}*{Sommes trig.}
 provides a way of encoding functions on the $k$-rational points of an algebraic group $G$
@@ -1243,7 +1244,8 @@ We now show how to use Theorem~\ref{thm:geo} to geometrize Yu type data and how 
 
 %We begin with the case of continuous linear characters.
 
-Let $R$ be a complete discrete valuation ring with maximal ideal $\mathfrak{m}$ and perfect residue field $\Fq$. 
+Recall that $R$ is the ring of integers of a local field with finite residue field $k$.
+The maximal idea of $R$ will be denoted by $\mathfrak{m}$. 
 Let $\underline{G}$ be a smooth group scheme over $R$.
 Here we shall use  \cite{bertapelle-gonzales:Greenberg} for the definition and fundamental properties of the Greenberg transform.
 Let $G$ be the Greenberg transform of $\underline{G}$; then $G$ is a group scheme over $\Fq$ and there is a canonical isomorphism
@@ -1252,7 +1254,7 @@ G(\Fq) = \underline{G}(R).
 \]
 
 \begin{proposition}\label{prop:quasicharacters}
-With notation as above, suppose $\Fq$ is a finite field.
+%With notation as above, suppose $\Fq$ is a finite field.
 For every quasicharacter character $\varphi : \underline{G}(R) \to \EEx$ there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} =  \varphi.\] \end{proposition}
 
 \begin{proof}
@@ -1390,7 +1392,7 @@ $Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ & \cite{yu:01a}*{\S 11} \\
 \label{table:notation}
 \end{table}%
 
-We can now recall how Yu uses all this to construct representations $\orho^i$ of $\oK^i$, for $i=1, \ldots, d$ and the types $(\oK^i,\orho_i)$.
+We can now recall how Yu uses all this to construct representations $\orho^i$ of $\oK^i$, for $i=1, \ldots, d$ and the types $(\oK^i,\orho_i)$.  \todo{Following [these sections] of Yu.}
 The representations $\orho^i$ and $\orho_i$ are defined recursively.
 For the base case $i=0$, set $\orho_0 \ceq \orho^0\otimes \varphi^0$; see \ref{Y1} above.
 Now fix $i$.
