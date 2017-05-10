@@ -550,19 +550,19 @@ Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from 
 
 \subsection{Descent}
 
-Let $q : G\to G\ab$ be the quotient
 In this section we give an equivalence of categories between $\CS(G\ab)$ and $\CSab(G)$ and use it to describe
 the pullback functor $q^* : \CS(G\ab) \to \CS(G)$ in terms of the forgetful functor $\CSab(G) \to \CS(G)$.
 
 In order to study commutative character sheaves, we need some auxiliary categories.
-%\begin{itemize}
-%\item 
-Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of local systems on $G$ and $G\ab$, respectively.
-%\item 
-Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant local systems on $G$, whose definition we now recall.
+
+\subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
+
+Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of Weil local systems on $G$ and $G\ab$, respectively.
+%
+Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant Weil local systems on $G$, whose definition we now recall.
 Let $n : G\der\times G\to G$ be the restriction of $m : G\times G\to G$ to $G\der\times G$,
 let $p : G\der\times G \to G$ be projection to the second component, and let $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
-Then $q : G \to G\ab$ is a regular epimorphism of smooth group schemes with kernel pair $(n,p)$.
+Then the quotient $q : G \to G\ab$ is a regular epimorphism of smooth group schemes with kernel pair $(n,p)$.
 \[
 \begin{tikzcd}
 G\der\times G
@@ -575,76 +575,187 @@ G
 G\ab
 \end{tikzcd}
 \]
-Objects in the category $\Loc_{G\der}(G)$ of $G\der$-equivariant local systems on $G$ are pairs $(\cs{L},\nu)$ where $\cs{L}$ is a local system on $G$ and $\nu : n^*\cs{L} \to p^*\cs{L}$ is an isomorphism such that the diagram
+Consider the morphisms
 \[
 \begin{tikzcd}
-s^*n^*\cs{L} \arrow{r}{s^*(\nu)} & s^*p^*\cs{L}\\
-\cs{L} \arrow[equal]{u}{n\circ s = \id_G}  \arrow{r}{\id_{\cs{L}}} & \cs{L} \arrow[equal]{u}[swap]{p\circ s = \id_G},
+G\der \times G\der \times G 
+\arrow[shift left=2]{r}{b_1, b_2, b_3} 
+\arrow{r}{}
+\arrow[shift right=2]{r}{} 
+& G\der \times G 
+\arrow[shift left=1]{r}{n}
+\arrow[shift right=1]{r}[swap]{p}
+ & G 
 \end{tikzcd}
 \]
-commutes, and also such that the following diagram commutes, where $n_1(h_1,h_2,g) = (h_1h_2,g)$, $n_2(h_1,h_2,g) = (h_1,n(h_2,g))$ and $p_2(h_1,h_2,g) = (h_2,g)$.
+defined by 
+\begin{align*}
+b_1(h_1,h_2,g) &= (h_1h_2,g) \\
+b_2(h_1,h_2,g) &= (h_1,h_2g) \\
+b_3(h_1,h_2,g) &= (h_2,g).
+\end{align*}
+Note that
+\begin{align*}
+n\circ b_1 &= n\circ b_2 \\
+n\circ b_3 &= p\circ b_2 \numberthis \label{eqn:bap}\\
+p\circ b_1 &= p\circ b_3.
+\end{align*}
+Define $s : G\to G\der\times G$ by $s(g) = (1,g)$.
+A $G\der$-equivariant Weil local sytem on $G$ is a Weil local system $\cs{L}$ on $G$ together with an isomorphism  
 \[
+\nu : n^*\cs{L} \to p^*\cs{L}
+\] 
+of Weil local systems on $G\der\times G$ such that 
+\begin{equation}\label{E1}
+s^*(\nu) = \id_{\cs{L}}
+\end{equation}
+and such that the following diagram of isomorphisms of local systems on $G\der\times G\der\times G$ commutes. 
+\begin{equation}\label{E2}
 \begin{tikzcd}
-& \arrow[equal]{dl}{n\circ n_2=n\circ n_1} n_2^*n^*\cs{L} \arrow{rr}{n_2^*(\nu)} && n_2^*p^*\cs{L} \arrow[equal]{dr}[swap]{p \circ n_2 = n\circ p_2}& \\
-n_1^*n^*\cs{L} \arrow{dr}[swap]{n_1^*(\nu)} &&&& \arrow{dl}{p_2^*(\nu)} p_2^*n^*\cs{L}\\
-& n_1^*p^*\cs{L} \arrow[equal]{rr}{p\circ n_1 = p\circ p_2} && p_2^*p^*\cs{L} .
+\ &  \arrow{dl}{n\circ b_1 = n\circ b_2}  b_2^*  a^*\, \mathcal{L} \arrow{rr}{b_2^*(\nu)} && b_2^* p^*\, \mathcal{L} \arrow{dr}[swap]{p\circ b_2 = a\circ b_3} & \\
+b_1^* n^*\, \mathcal{L} \arrow{dr}{b_1^*(\nu)} &&&&   \arrow{dl}[swap]{b_3^*(\nu)} b_3^* a^*\, \mathcal{L} \\
+& b_1^* p^*\, \mathcal{L}  && \arrow{ll}[swap]{p\circ b_3 = p\circ b_1} b_3^* p^*\, \mathcal{L} & 
 \end{tikzcd}
-\]
-Morphisms in $\Loc_{G\der}(G)$ are morphisms in $\Loc(G)$ commuting with $\nu$.
+\end{equation}
+%In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from equations \eqref{eqn:bap}; so, for example, the top left isomorphism comes from $b_1^* n^* \iso b_2^* n^*$ since $n\circ b_1 = n\circ b_2$.
+%On stalks, this condition is ...
+%\[
+%\begin{tikzcd}
+%\ &  \cs{L}_{h_1\cdot(h_2\cdot g)} \arrow{r}{\nu_{h_1,h_2\cdot g}} & \cs{L}_{h_2\cdot g} & \\
+%\cs{L}_{(h_1 h_2) \cdot g} \arrow{dr}[swap]{\nu_{(h_1h_2),g}} \arrow[equal]{ur} &&& \arrow[equal]{ul}  \arrow{dl}{\nu_{h_2,g}} \cs{L}_{h_2\cdot g} \\
+%& \cs{L}_g \arrow[equal]{r} & \cs{L}_g & 
+%\end{tikzcd}
+%\]
+Morphisms of $H$-equivariant Weil local systems $(\cs{L},\nu)\to (\cs{L}',\nu')$ are morphisms of Weil local systems $\alpha: \cs{L}\to \cs{L}'$ for which the diagram
+\begin{equation}\label{E3}
+\begin{tikzcd}
+\arrow{d}[swap]{\nu} n^*\cs{L} \arrow{r}{n^*(\alpha)} & n^*\cs{L}' \arrow{d}{\nu'} \\
+p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
+\end{tikzcd}
+\end{equation}
+commutes.
+This defines $\Loc_{G\der}(G)$, the category of $G\der$-equivariant Weil local systems on $G$.
+The reader will recognize this notion as the Weil local system version of equivariant sheaves for the action $n$ of $G\der$ on $G$, as can be found, for example, in \cite{bernstein-lunts:equivariant}*{0.2}. 
 
-Suppose $\cs{L}\ab\in \Loc(G\ab)$.
-The local system $q^*\cs{L}\ab \in \Loc(G)$ is equivariant, for $\nu : n^*q^*\cs{L}\ab\to p^*q^*\cs{L}\ab$ defined by
 
-\begin{lemma}\label{lemma:descent}
+\subsubsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
+
+With reference to Section~\ref{ssec:equivariant1}, we define a $G\der$-equivariant linear character sheaf on $G$ to be a triple $(\cs{L},\mu, \nu)$, where $(\cs{L},\mu)$ is a linear character sheaf and $(\cs{L},\nu)$ is an $G\der$-equivariant Weil local system.  
+A morphism of $G\der$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $G\der$-equivariant Weil local systems $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves.
+%so
+%\begin{equation}\label{CS4}
+%\begin{tikzcd}
+%\arrow{d}[swap]{\mu} m^*\cs{L} \arrow{r}{m^*(\alpha)} & m^*\cs{L}' \arrow{d}{\mu'} \\
+%\cs{L}\boxtimes \cs{L} \arrow{r}{\alpha\boxtimes\alpha} & \cs{L}'\boxtimes\cs{L}' 
+%\end{tikzcd}
+%\end{equation}
+%commutes; see also \cite{cunningham-roe:13a}, CS.4].
+%
+Let $\CS\der(G)$ be the category of $G\der$-equivariant linear character sheaves on $G$.
+
+%Is $\CS_H(G)$ a rigid monoidal category?
+
+%If $(\cs{L},\mu,\nu)$ and $(\cs{L},\mu,\nu')$ in $\CS_H(G)$, then $\nu = \nu'$?
+
+\begin{lemma}
+Categories $\CS\der(G)$ and $\CS\ab(G)$ are equivalent.
 \end{lemma}
 
+\begin{proof}
+Let $i\der : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\der\times G$ by $j(h) = (h,1_G)$. 
+If $(\cs{L},\mu,\nu)\in \CS\der(G)$ then $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. 
+This defines a functor on objects by
+\[
+\begin{array}{rcl}
+\CS\der(G) &\to& \CSab(G) \\
+(\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,j^*(\nu))
+\end{array}
+\]
+and on morphisms, trivially.
+It is easy to verify that morphisms that commute with $\mu$ and $\nu$ also commute with $\mu$ and $j^*(\nu)$.
+Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i\der(h),g)$.
+Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p^*\cs{L}$ by the following diagram.
+\[
+\begin{tikzcd}
+& n^* \cs{L} \arrow{dl}{m\circ k = n} \arrow{r}{\nu} & p^*\cs{L} &  \\ 
+k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
+& k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id_\cs{L}}
+\end{tikzcd}
+\]
+Then $(\cs{L},\mu,\nu)\in \CS\der(G)$ maps to $(\cs{L},\mu,\beta)$.
+It now follows that $\CS\der(G) \to \CSab(G)$ is an equivalence. \todo{Add more detail to this proof?}
+\end{proof}
 
-%\item 
-Let $\CS_{\text{eq}}(G)$ be the category of triples $(\cs{L},\nu,\mu)$ where $(\cs{L},\mu)\in \CS(G)$ and $(\cs{L},\nu)\in \Loc_{G\der}(G)$.
-%Thus, $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu :  n^*\cs{L} \to p^*\cs{L}$ are isomorphisms.
-Morphisms in $\CS_{G\der}(G)$ are morphisms in $\CS(G)$ commuting with $\nu$. 
-%\end{itemize}
+
+Set $G^2 = G\times G$. Then $G^2\der = G\der\times G\der$ and $G^2\ab = G\ab\times G\ab$.
+
+\begin{lemma}\label{lem:HH}
+If $(\cs{L},\mu,\nu)$ is a $G\der$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ 
+%and $\vartheta : \cs{L}\boxtimes \cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ 
+is a morphism of $G^2\der$-equivariant Weil local systems on $G^2$. 
+\end{lemma}
+
+\begin{proof} 
+Define
+\begin{align*}
+d : H\times H\times G\times G &\to H\times G\times H\times G \\
+(h_1,h_2,g_1,g_2) &\mapsto (h_1, g_1, h_2, g_2)\\
+a_2 : H\times G\times H\times G &\to G\times G \\
+(h_1,g_1,h_2,g_2) &\mapsto (h_1g_1, h_2g_2) \\
+p_2 : H\times G\times H\times G &\to G\times G \\
+(h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2) \\
+\theta_2 : H \times G \times H \times G &\to H \times G \times H \times G \\
+(h_1,g_1,h_2,g_2) &\mapsto (h_2,g_2,h_1,g_1).
+\end{align*}
+The following diagram defines the isomorphisms needed to see that both $m^*\cs{L}$ and $\cs{L}\boxtimes\cs{L}$ are $H\times H$-equivariant Weil local systems.
+\[
+\begin{tikzcd}[column sep=40]
+\arrow{d}[swap]{a_2^*(\mu)} a_2^* (m^*\cs{L}) \arrow[dashed]{r} 
+	& \arrow{d}{p_2^*(\mu)} p_2^*(m^*\cs{L})\\
+\arrow{d}[swap]{a_2= (a\times a)\circ d} a_2^*(\cs{L}\boxtimes\cs{L}) \arrow[dashed]{r} 
+	& \arrow{d}{p_2= (p\times p)\circ d} p_2^*(\cs{L}\boxtimes\cs{L}) \\
+%d^* (a\times a)^* (\cs{L}\boxtimes\cs{L}) & d^* (p\times p)^* (\cs{L}\boxtimes\cs{L}) \\
+d^* (a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{d^*(\nu\boxtimes \nu)}& d^*(p^*\cs{L}\boxtimes p^*\cs{L}) 
+\end{tikzcd}
+\]
+The dashed arrows both satisfy \eqref{E1} and \eqref{E2} as they apply here.
+This diagram also shows that $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a morphism of equivariant sheaves, since it satisfies \eqref{E3} as it applies here.
+\end{proof}
 
 
+\subsubsection{Descent}
 
-%%%%%%%%
-%\iffalse
-
-
-\todo{Define $q\ab^* : \CS(G\ab) \to \CSab(G)$; missing definition of $\beta$ in the following commented section}
-
-%Let $(\cs{L}_0, \mu_0)$ be a linear character sheaf on $Q$ and set $(\cs{L}, \mu) \ceq (q^*\cs{L}_0, (q\times q)^* \mu_0)$.
 Consider the functor
 \[
 q^* : \CS(G\ab) \to \CS(G)
 \]
-given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$ where $q^2= q\times q$; see \cite{cunningham-roe:13a}*{Lem 1.4}.
+given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$ where $q^2= q\times q$; this is an instance of \cite{cunningham-roe:13a}*{Lemma 1.4}.
 To see that $(q^*\cs{L}\ab, (q^2)^* \mu\ab)$ is indeed a linear character sheaf on $G$,
 verify \cite{cunningham-roe:13a}*{CS.3}. %, arguing as in \cite{cunningham-roe:13a}.
 The linear character sheaf $(\cs{L},\mu)$ on $G$ comes equipped with a canonical isomorphism $\nu : n^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
 \[
 \begin{tikzcd}[column sep=40]
-n^*\cs{L} \arrow[equal]{d} \arrow[dashed]{r}{\nu} &  \arrow[equal]{d} p^*\cs{L} \\
+n^*\cs{L} \arrow[equal]{d} \arrow{r}{\nu} &  \arrow[equal]{d} p^*\cs{L} \\
 n^* ( q^*\cs{L}\ab) \arrow{r}{q\circ n = q\circ p}
 & p^* (q^*\cs{L}\ab)
 \end{tikzcd}
 \]
-Then $(\cs{L}, \mu,\nu)$ is an object in $\CS_{G\der}(G)$.
-If $\alpha_0 : (\cs{L}_0,\mu_0) \to (\cs{L}_0',\mu_0')$ is a morphism in $\CS(Q)$, 
-then $q^*(\alpha_0) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha$ is a morphism in $\CS(G)$.
+Then $(\cs{L}, \mu,\nu)$ is an object in $\CS\der(G)$.
+If $\alpha : (\cs{L}\ab,\mu\ab) \to (\cs{L}\ab',\mu\ab')$ is a morphism in $\CS(G\ab)$, 
+then $q^*(\alpha\ab) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha$ is a morphism in $\CS(G)$.
 These simple observations define the comparison functor
 \[
-q_H^* : \CS(Q) \to CS_H(G)
+q\ab^* : \CS(G\ab) \to \CS\der(G)
 \]
 and show that the functor $q^* : \CS(Q) \to \CS(G)$ factors according to the following commuting diagram of functors
 \begin{equation}\label{qH}
 \begin{tikzcd}
 \CS(G) &\arrow{l}[swap]{q^*} 
-\CS(Q) \arrow{dl}{q_H^*}\\
-\arrow{u}{\text{forget}} \CS_{H}(G). & 
+\CS(G\ab) \arrow{dl}{q\ab^*}\\
+\arrow{u}{\text{forget}} \CS\der(G). & 
 \end{tikzcd}
 \end{equation}
-The definition of $q_H^* : \CS(Q)\to \CS_H(G)$ will be revisited in the proof of the following result.
+The definition of $q\ab^* : \CS(G\ab)\to \CS\der(G)$ will be revisited in the proof of the following result.
 
 We may now begin to relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
 
@@ -675,27 +786,7 @@ Consider the functor
 \]
 Since both $L$ and $L_2$ are equivalences, this functor $\CS(G\ab) \to \CSab'(G)$ is an equivalence of categories. \todo{I'm a bit wary of constructing an equivalence componentwise in this way; how does it show that the result is full and faithful since it's just talking about objects?}
 
-Let $i\der : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\der\times G$ by $j(h) = (h,1_G)$. 
-For $(\cs{L},\mu,\nu)\in \CSab'(G)$, $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. \todo{For $j^*(\nu)$ to make sense, need $j : G\der \to G\der \times G$}
-This defines a functor
-\[
-\begin{array}{rcl}
-\CSab'(G) &\to& \CSab(G) \\
-(\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,j^*(\nu)).
-\end{array}
-\]
-Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i\der(h),g)$.
-Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p^*\cs{L}$ 
-%\todo{I assume this should be $p^*\cs{L}$?} by
-\[
-\begin{tikzcd}
-& n^* \cs{L} \arrow{dl}{m\circ k = n} \arrow{r} & p^*\cs{L} &  \\ 
-k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
-& k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\times 1}
-\end{tikzcd}
-\]
-Then $(\cs{L},\mu,\nu)\in \CSab'(G)$ maps to $(\cs{L},\mu,\beta)$.
-It now follows that $\CSab'(G) \to \CSab(G)$ is an equivalence. \todo{Is it easy to see why the morphisms that commute with $\mu$ and $\beta$ are the same as those commuting with $\mu$ and $\nu$?  Is this straight from the definition of the functor?}
+(I moved the rest...)
 \end{proof}
 
 \begin{corollary} 
