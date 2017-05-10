@@ -242,7 +242,7 @@ smooth commutative group schemes $G$, allowing for non-connected groups.
 We gave a description of the category $\CS(G)$ in this context, as well
 as an epimorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
 In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel;
-we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Thm. 3.6}.  
+we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Theorem 3.6}.  
 
 We repair this defect in the function-sheaf dictionary
  by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
@@ -368,7 +368,7 @@ if the following diagram of Weil sheaves on $G \times G$ commutes.
 We write $\CCS(G)$ for the full subcategory of $\CS(G)$ consisting of commutative character sheaves.
  \end{definition}
 
-In \cite{cunningham-roe:13a}*{Thm. 3.6}, we showed that $\TrFrob{G} : \CSiso{G} \to G(k)^*$ is surjective and
+In \cite{cunningham-roe:13a}*{Theorem 3.6}, we showed that $\TrFrob{G} : \CSiso{G} \to G(k)^*$ is surjective and
 explicitly computed its kernel.  In this section, we show that the corresponding map
 $\TrFrob{G} : \CCSiso{G} \to G(k)^*$ for commutative character sheaves is an isomorphism.
 We begin by reinterpreting Definition \ref{def:CCScom} in terms of cocycles.
@@ -457,7 +457,7 @@ To see that $\TrFrob{G}$ is still surjective on $\CCSiso{G}$, note that the char
 \cite{cunningham-roe:13a}*{Prop. 2.6} has trivial $\alpha$, and is thus commutative.
 
 For general smooth commutative group schemes, we use Lemma \ref{lem:conncomm} and the snake lemma, as in the proof of
-\cite{cunningham-roe:13a}*{Thm. 3.6}
+\cite{cunningham-roe:13a}*{Theorem 3.6}
 \end{proof}
 
 \begin{remark}
@@ -552,14 +552,13 @@ Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from 
 
 In this section we give an equivalence of categories between $\CS(G\ab)$ and $\CSab(G)$ and use it to describe
 the pullback functor $q^* : \CS(G\ab) \to \CS(G)$ in terms of the forgetful functor $\CSab(G) \to \CS(G)$.
-
-In order to study commutative character sheaves, we need some auxiliary categories.
+But first, in order to study commutative character sheaves, we need some auxiliary categories.
 
 \subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
 
 Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of Weil local systems on $G$ and $G\ab$, respectively.
 %
-Let $\Loc_{G\der}(G)$ be the category of $G\der$-equivariant Weil local systems on $G$, whose definition we now recall.
+Let $\Loc\der(G)$ be the category of $G\der$-equivariant Weil local systems on $G$, whose definition we now recall.
 Let $n : G\der\times G\to G$ be the restriction of $m : G\times G\to G$ to $G\der\times G$,
 let $p : G\der\times G \to G$ be projection to the second component, and let $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
 Then the quotient $q : G \to G\ab$ is a regular epimorphism of smooth group schemes with kernel pair $(n,p)$.
@@ -634,7 +633,7 @@ p^*\cs{L} \arrow{r}{p^*(\alpha)} & p^*\cs{L}'
 \end{tikzcd}
 \end{equation}
 commutes.
-This defines $\Loc_{G\der}(G)$, the category of $G\der$-equivariant Weil local systems on $G$.
+This defines $\Loc\der(G)$, the category of $G\der$-equivariant Weil local systems on $G$.
 The reader will recognize this notion as the Weil local system version of equivariant sheaves for the action $n$ of $G\der$ on $G$, as can be found, for example, in \cite{bernstein-lunts:equivariant}*{0.2}. 
 
 
@@ -657,7 +656,7 @@ Let $\CS\der(G)$ be the category of $G\der$-equivariant linear character sheaves
 
 %If $(\cs{L},\mu,\nu)$ and $(\cs{L},\mu,\nu')$ in $\CS_H(G)$, then $\nu = \nu'$?
 
-\begin{lemma}
+\begin{lemma}\label{lemma:nubeta}
 Categories $\CS\der(G)$ and $\CS\ab(G)$ are equivalent.
 \end{lemma}
 
@@ -683,11 +682,13 @@ k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[eq
 \end{tikzcd}
 \]
 Then $(\cs{L},\mu,\nu)\in \CS\der(G)$ maps to $(\cs{L},\mu,\beta)$.
-It now follows that $\CS\der(G) \to \CSab(G)$ is an equivalence. \todo{Add more detail to this proof?}
+It now follows that $\CS\der(G) \to \CSab(G)$ is an equivalence. \todo{Should we add more detail to this proof?}
 \end{proof}
 
 
-Set $G^2 = G\times G$. Then $G^2\der = G\der\times G\der$ and $G^2\ab = G\ab\times G\ab$.
+Set $G^2 = G\times G$, so $G^2\der = G\der\times G\der$ and $G^2\ab = G\ab\times G\ab$.
+Likewise define $n^2 : G\der^2 \times G^2 \to G^2$ and $p^2 : G\der^2\times G \to G$.
+
 
 \begin{lemma}\label{lem:HH}
 If $(\cs{L},\mu,\nu)$ is a $G\der$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ 
@@ -698,24 +699,24 @@ is a morphism of $G^2\der$-equivariant Weil local systems on $G^2$.
 \begin{proof} 
 Define
 \begin{align*}
-d : H\times H\times G\times G &\to H\times G\times H\times G \\
+d : G\der\times G\der\times G\times G &\to G\der\times G\times G\der\times G \\
 (h_1,h_2,g_1,g_2) &\mapsto (h_1, g_1, h_2, g_2)\\
-a_2 : H\times G\times H\times G &\to G\times G \\
+n_2 : G\der\times G\times G\der\times G &\to G\times G \\
 (h_1,g_1,h_2,g_2) &\mapsto (h_1g_1, h_2g_2) \\
-p_2 : H\times G\times H\times G &\to G\times G \\
-(h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2) \\
-\theta_2 : H \times G \times H \times G &\to H \times G \times H \times G \\
-(h_1,g_1,h_2,g_2) &\mapsto (h_2,g_2,h_1,g_1).
+p_2 : G\der\times G\times G\der\times G &\to G\times G \\
+(h_1,g_1,h_2,g_2) &\mapsto ( g_1,g_2). %\\
+%\theta_2 : H \times G \times H \times G &\to H \times G \times H \times G \\
+%(h_1,g_1,h_2,g_2) &\mapsto (h_2,g_2,h_1,g_1).
 \end{align*}
-The following diagram defines the isomorphisms needed to see that both $m^*\cs{L}$ and $\cs{L}\boxtimes\cs{L}$ are $H\times H$-equivariant Weil local systems.
+The following diagram defines the isomorphisms needed to see that both $m^*\cs{L}$ and $\cs{L}\boxtimes\cs{L}$ are $G\der^2$-equivariant Weil local systems.
 \[
 \begin{tikzcd}[column sep=40]
-\arrow{d}[swap]{a_2^*(\mu)} a_2^* (m^*\cs{L}) \arrow[dashed]{r} 
+\arrow{d}[swap]{n_2^*(\mu)} n_2^* (m^*\cs{L}) \arrow[dashed]{r} 
 	& \arrow{d}{p_2^*(\mu)} p_2^*(m^*\cs{L})\\
-\arrow{d}[swap]{a_2= (a\times a)\circ d} a_2^*(\cs{L}\boxtimes\cs{L}) \arrow[dashed]{r} 
-	& \arrow{d}{p_2= (p\times p)\circ d} p_2^*(\cs{L}\boxtimes\cs{L}) \\
-%d^* (a\times a)^* (\cs{L}\boxtimes\cs{L}) & d^* (p\times p)^* (\cs{L}\boxtimes\cs{L}) \\
-d^* (a^*\cs{L}\boxtimes a^*\cs{L}) \arrow{r}{d^*(\nu\boxtimes \nu)}& d^*(p^*\cs{L}\boxtimes p^*\cs{L}) 
+\arrow{d}[swap]{n_2= n^2\circ d} n_2^*(\cs{L}\boxtimes\cs{L}) \arrow[dashed]{r} 
+	& \arrow{d}{p_2= p^2\circ d} p_2^*(\cs{L}\boxtimes\cs{L}) \\
+%d^* (n\times n)^* (\cs{L}\boxtimes\cs{L}) & d^* (p\times p)^* (\cs{L}\boxtimes\cs{L}) \\
+d^* (n^*\cs{L}\boxtimes n^*\cs{L}) \arrow{r}{d^*(\nu\boxtimes \nu)}& d^*(p^*\cs{L}\boxtimes p^*\cs{L}) 
 \end{tikzcd}
 \]
 The dashed arrows both satisfy \eqref{E1} and \eqref{E2} as they apply here.
@@ -725,21 +726,37 @@ This diagram also shows that $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a m
 
 \subsubsection{Descent}
 
-Consider the functor
-\[
-q^* : \CS(G\ab) \to \CS(G)
-\]
-given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$ where $q^2= q\times q$; this is an instance of \cite{cunningham-roe:13a}*{Lemma 1.4}.
-To see that $(q^*\cs{L}\ab, (q^2)^* \mu\ab)$ is indeed a linear character sheaf on $G$,
-verify \cite{cunningham-roe:13a}*{CS.3}. %, arguing as in \cite{cunningham-roe:13a}.
-The linear character sheaf $(\cs{L},\mu)$ on $G$ comes equipped with a canonical isomorphism $\nu : n^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
+If $\cs{L}\ab\in \Loc(G\ab)$ then $q^*\cs{L}\ab\in \Loc(G)$ comes equipped with a canonical isomorphism $\nu(\cs{L}\ab) : n^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
 \[
 \begin{tikzcd}[column sep=40]
-n^*\cs{L} \arrow[equal]{d} \arrow{r}{\nu} &  \arrow[equal]{d} p^*\cs{L} \\
+n^*\cs{L} \arrow[equal]{d} \arrow{r}{\nu(\cs{L}\ab)} &  \arrow[equal]{d} p^*\cs{L} \\
 n^* ( q^*\cs{L}\ab) \arrow{r}{q\circ n = q\circ p}
 & p^* (q^*\cs{L}\ab)
 \end{tikzcd}
 \]
+Then $(q^*\cs{L}\ab,\nu(\cs{L}\ab))$ satisfies \eqref{E1} and \eqref{E2}, so $(q^*\cs{L}\ab,\nu(\cs{L}\ab))$ is an object in $\Loc\der(G)$.
+Moreover, if $\alpha\ab : \cs{L}\ab \to \cs{L}\ab$ is a morphism in $\Loc(G\ab)$ then $q^*(\alpha\ab)$ satisfies the condition in \eqref{E3}, so $q^*(\alpha\ab)$ is a morphism in $\Loc\der(G)$.
+This defines the functor
+\[
+L : \Loc(G\ab)\to \Loc\der(G)
+\]
+
+\begin{lemma}\label{lemma:descent}
+The functor $L : \Loc(G\ab)\to \Loc\der(G)$ is an equivalence.
+\end{lemma}
+\begin{proof}
+The quotient $q : G \to G\ab$ is an $G\der$-torsor in the fppf topology by \cite{demazure:SGA3-VIA}*{Thm. 3.2}, and thus an $G\der$-torsor in the fpqc topology.
+The lemma is now a result from descent theory, arguing as in \cite{Vistoli:notes}*{Theorem 4.46} for example. 
+\end{proof}
+
+Consider the functor
+\[
+q^* : \CS(G\ab) \to \CS(G)
+\]
+given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$; this is an instance of \cite{cunningham-roe:13a}*{Lemma 1.4}.
+To see that $(q^*\cs{L}\ab, (q^2)^* \mu\ab)$ is indeed a linear character sheaf on $G$,
+verify \cite{cunningham-roe:13a}*{CS.3}. %, arguing as in \cite{cunningham-roe:13a}.
+Now set $L(\cs{L}\ab) = (\cs{L},\nu)$, where $L : \Loc(G\ab) \to \Loc\der(G)$ is the comparison functor above, so $\cs{L} = q^*\cs{L}\ab$ and $\nu = \nu(\cs{L}\ab)$.
 Then $(\cs{L}, \mu,\nu)$ is an object in $\CS\der(G)$.
 If $\alpha : (\cs{L}\ab,\mu\ab) \to (\cs{L}\ab',\mu\ab')$ is a morphism in $\CS(G\ab)$, 
 then $q^*(\alpha\ab) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha$ is a morphism in $\CS(G)$.
@@ -747,7 +764,7 @@ These simple observations define the comparison functor
 \[
 q\ab^* : \CS(G\ab) \to \CS\der(G)
 \]
-and show that the functor $q^* : \CS(Q) \to \CS(G)$ factors according to the following commuting diagram of functors
+and also show that the functor $q^* : \CS(G\ab) \to \CS(G)$ factors according to the following commuting diagram of functors
 \begin{equation}\label{qH}
 \begin{tikzcd}
 \CS(G) &\arrow{l}[swap]{q^*} 
@@ -756,37 +773,26 @@ and show that the functor $q^* : \CS(Q) \to \CS(G)$ factors according to the fol
 \end{tikzcd}
 \end{equation}
 The definition of $q\ab^* : \CS(G\ab)\to \CS\der(G)$ will be revisited in the proof of the following result.
+We may now relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
 
-We may now begin to relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
-
-
-
-%\fi
-%%%%%%%%%%%%%%%%%
 
 \begin{proposition} \label{prop:CSGabab}
 Suppose $G$ is a smooth group scheme.  
-Then pullback along $q : G \to G\ab$ defines an equivalence $q\ab^*: \CS(G\ab) \to \CSab(G)$.
+Then pullback along $q : G \to G\ab$ defines an equivalence $\CS(G\ab) \to \CSab(G)$.
 \end{proposition}
 \begin{proof}
-It now follows from descent theory that the comparison functor $L : \Loc(G\ab) \to \Loc_{G\der}(G)$ is an equivalence: argue as in \cite{Vistoli:notes}*{Thm 4.46} for example. 
-For $\cs{L}\ab\in \Loc(G\ab)$, we may write $L(\cs{L}\ab) = (\cs{L}, \nu)$, where $\cs{L} = q^*(\cs{L}\ab)$ and $\nu : n^*\cs{L}  \to p^*\cs{L}$ is an isomorphism. 
-Observe that $L$ followed by the forgetful functor $\Loc_{G\der}(G)\to \Loc(G)$ coincides with $q^*: \Loc(G\ab)\to \Loc(G)$. 
-%
-Now set $G^2 \ceq G\times G$, so $G^2\ab =  G\ab \times G\ab$ and $G^2\der = G\der \times G\der$. Let $q_2 : G^2 \to G^2\ab$ be the abelianization quotient.  
-Let $L_2 : \Loc(G^2\ab) \to \Loc_{G^2\der}(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$. \todo{Add reference to Lemma 3.3}
-Then $L_2$ is also an equivalence since $q_2$ is also a $G^2\der$-torsor.
-
-Consider the functor
+In light of Lemma~\ref{lemma:nubeta}, it suffices to prove that the comparison functor $q\ab^* : \CS(G\ab) \to \CS\der(G)$ is an equivalence. 
+Let $L^2 : \Loc(G^2\ab) \to \Loc\der(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$. 
+Then $L^2$ is also an equivalence by Lemma~\ref{lemma:descent}.
+Using Lemma~\ref{lem:HH}, we may rewrite the comparison functor $q\ab^*$ on objects by
 \[
 \begin{array}{rcl}
-\CS(G\ab) &\to& \CSab'(G) \\
-(\cs{L}\ab,\mu\ab) &\mapsto& (L(\cs{L}\ab), L_2(\mu\ab))
+\CS(G\ab) &\to& \CS\der(G) \\
+(\cs{L}\ab,\mu\ab) &\mapsto& (L(\cs{L}\ab), L^2(\mu\ab))
 \end{array}
 \]
-Since both $L$ and $L_2$ are equivalences, this functor $\CS(G\ab) \to \CSab'(G)$ is an equivalence of categories. \todo{I'm a bit wary of constructing an equivalence componentwise in this way; how does it show that the result is full and faithful since it's just talking about objects?}
-
-(I moved the rest...)
+and on morphisms by $\alpha \mapsto L(\alpha)$.
+The proposition now follows from the fact that both $L$ and $L^2$ are equivalences.
 \end{proof}
 
 \begin{corollary} 
@@ -844,10 +850,10 @@ By Proposition~\ref{prop:CSGabab}, it suffices to find the set of isomorphism cl
 $(\cs{L},\mu)$ under the forgetful functor.  By the previous corollary this set is nonempty.
 If $(\cs{L},\mu,\beta)$ and $(\cs{L},\mu,\beta')$ both map to $(\cs{L},\mu)$, then $\beta' \circ \beta^{-1}$ is an
 automorphism of the constant sheaf on $G\der$.  Conversely, if $\varphi$ is an automorphism of $(\EE)_{G\der}$
-and $(\cs{L},\mu,\beta) \in \CSab(G)$ then $(\cs{L},\mu,\varphi \circ \beta) \in \CSab(G)$.  By \cite{cunningham-roe:13a}*{Thm. 3.9},
+and $(\cs{L},\mu,\beta) \in \CSab(G)$ then $(\cs{L},\mu,\varphi \circ \beta) \in \CSab(G)$.  By \cite{cunningham-roe:13a}*{Theorem 3.9},
 the automorphism group is isomorphic to $\Hom(\pi_0(\bar{G}\der)_{\Frob{}}, \EEx)$.  Finally, we note that any
 automorphism $\alpha$ of $(\cs{L},\mu) \in \CS(G)$ defines an isomorphism $(\cs{L},\mu,\beta \circ \alpha|_{G\der}) \to (\cs{L},\mu,\beta)$.
-Applying \cite{cunningham-roe:13a}*{Thm. 3.9} again yields the desired result.
+Applying \cite{cunningham-roe:13a}*{Theorem 3.9} again yields the desired result.
 \end{proof}
 
 %\subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
@@ -925,13 +931,14 @@ Applying \cite{cunningham-roe:13a}*{Thm. 3.9} again yields the desired result.
 
 \subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
 
-We start with a method that will allow us to situate the diagram in Definition \ref{def:CCS} within $\CSab(G \times G)$.
+We start with a method that will allow us to situate the diagram in Definition \ref{def:CCS} within $\CSab(G^2)$.
 
 \begin{lemma}\label{lemma:morinCSab}
 If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G\times G)$.
 \end{lemma}
 \begin{proof}
-Set $G^2 = G\times G$. Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1',g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1,'g_2') = (g_i,g_i')$.
+%Set $G^2 = G\times G$. 
+Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1',g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1,'g_2') = (g_i,g_i')$.
 First we show that $m^*\cs{L}$ is an object in $\CS(G^2)$ by equipping it with an isomorphism $\mu_m^2: (m^2)^* (m^*\cs{L}) \to m^*\cs{L} \boxtimes m^*\cs{L}$ defined by the diagram below.
 \[
 \begin{tikzcd}
@@ -956,7 +963,7 @@ Similar work shows that $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vart
 
 Suppose $G$ is commutative, so $G\der = 1$. 
 Suppose $(\cs{L},\mu,\beta)$ is an object in $\CSab(G)$.
-Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, which is unique by \cite{cunningham-roe:13a}*{Thm 3.9}.
+Then $\beta : \cs{L}_1\to \EE$ is an isomorphism in $\CS(1)$, which is unique by \cite{cunningham-roe:13a}*{Theorem 3.9}.
 Tracing through the construction of $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ from $\beta : \cs{L}_1\to \EE$, we find 
 %\todo{I'm having some trouble seeing this.} 
 that $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ is the canonical isomorphism coming from the equation $m = m \circ \theta$. 
@@ -1162,7 +1169,7 @@ In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\a
 %\end{proof}
 
 
-Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}.  At the same time, changing $\CS(G)$ to $\CCS(G)$ resolves the lack of bijectivity in \cite{cunningham-roe:13a}*{Thm. 3.6}.
+Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}.  At the same time, changing $\CS(G)$ to $\CCS(G)$ resolves the lack of bijectivity in \cite{cunningham-roe:13a}*{Theorem 3.6}.
 %
 We may also use Theorem~\ref{thm:Gab} to give a description of the morphisms and the isomorphism classes of objects in $\CCS(G)$. 
 
@@ -1179,7 +1186,7 @@ isomorphic to $\Hom(\pi_0(\bar{G}\ab)_{\Frob{}},\EEx)$.
 \begin{proof}
 The first claim follows from Theorems \ref{thm:trfrobiso} and \ref{thm:Gab}. Let us write $(\cs{L},\mu,\beta) \mapsto (\cs{L}\ab,\mu\ab)$ to indicate the equivalence appearing in Theorem~\ref{thm:Gab};
 then \[\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab).\] 
-By \cite{cunningham-roe:13a}*{Thm 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = \Hom(\pi_0(\bar{G}\ab)_{\Frob{}},\EEx)$.
+By \cite{cunningham-roe:13a}*{Theorem 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = \Hom(\pi_0(\bar{G}\ab)_{\Frob{}},\EEx)$.
 \end{proof}
 
 \subsection{Geometrization of characters} \label{ssec:geo}
@@ -1285,7 +1292,7 @@ Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the He
 The Heisenberg representation determines a representation $\pi_{\psi}$ of $\Sp(V)$ with the same representation space as $\omega_\psi$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\psi(g)$ determines an isomorphism of representations $\omega_\psi^g \to \omega_\psi$.
 Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$ \cite{gurevich-hadani:07a}*{\S 2.2}.
 
-There is a Weil sheaf complex $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$ \cite{gurevich-hadani:07a}*{Thm 3.2.2.1} (see also \cite{gurevich-hadani:11a}*{Thm. 4.5}) such that 
+There is a Weil sheaf complex $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$ \cite{gurevich-hadani:07a}*{Theorem 3.2.2.1} (see also \cite{gurevich-hadani:11a}*{Theorem 4.5}) such that 
 \begin{equation}
 \trFrob{\cs{K}_\psi} = \trace(W_\psi).
 \end{equation}
