@@ -311,7 +311,7 @@ These elements are pulled together in Section~\ref{ssec:geotypes}, where the pro
 \bigskip
 
 We are extremely grateful to Loren Spice for explaining Yu's types for supercuspidal representations.
-We also thank Masoud Kamgarpour for helpful conversations.
+We also thank Masoud Kamgarpour for helpful conversations, and the anonymous referee of this paper, would pointed out an error in an earlier version of the paper and helped us clarify several points.
 
 \section{Recollections and definitions} \label{sec:defs}
 
@@ -1220,11 +1220,16 @@ defined by pullback along $q$, the square in the statement of the theorem commut
 Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Theorem \ref{thm:trfrobiso}.
 \end{proof}
 
+%\begin{remark}\label{rem:dictionary}
+Observe that $\CCS(G)$ is a subcategory of $\CS\ab(G)$, by Definition~\ref{def:CCS}, and that Definition~\ref{def:CSab} makes it clear that there is a forgetful functor $\CS\ab(G) \to \CS(G)$, and also a forgetful functor $\CS(G)\to \Loc(G)$.
+Consequently, while the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the sense explained in Theorem~\ref{thm:geo}, it is also true that $\CS(G)$, and even $\Loc(G)$ as introduces in Section~\ref{ssec:equivariant1}, geometrizes characters of $G(\Fq)$ in the sense that for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $\cs{L}$ in $\Loc(G)$ such that $\trFrob{\cs{L}} = \chi$.
+The point of category $\CCS(G)$ is to make this translation from characters $\chi$ to Weil local systems $\cs{L}$ as precise as possible. Theorem~\ref{thm:geo} shows that benefit of equipping Weil local systems $\cs{L}$ with the extra structure $\mu$ and $\beta$ makes the defect in this dictionary as small as it could possibly be, namely, the image $\Delta_G$ of the connecting homomorphism $G\ab(\Fq) \to \Hh^1(\Fq, G\der)$.
+%\end{remark}
+
 \begin{remark}
 Note that when $\Hh^1(k,G\der) = 0$ then $\CCSiso{G} \iso G(\Fq)^*$, so
 we succeed in geometrizing characters of $G(k)$ on the nose.
 \end{remark}
-
 
 
 %\todo{Masound's definition is designed to match the definition coming from central extensions, while we have one that matches Ext1 in Ab, in the connected case. So, I think the modification is easy: add mop to diagram 2.4 in Masoud's paper. \\ -CC}
@@ -1378,10 +1383,10 @@ $\oK^0$ & $\,^\circ K^0 = G^0(F)_y$ & \cite{yu:01a}*{\S 15} \\
 $\oK^{i+1}$ & $\,^\circ K^{i+1} = (\,^\circ K^0) \vec{G}^{(i+1)}(F)_{y,(0, s_0, \ldots, s_{i})}$ & \cite{yu:01a}*{\S 15} \\
 $\orho^0$ & $\,^\circ \rho^0$ & \cite{yu:01a}*{\S 15} \\
 $\orho^{i+1}$ & $\,^\circ \rho^{i+1}$ &  \cite{yu:01a}*{\S 15} \\
-$\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ & \\
-$J_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ &  \\
-$V_{i+1}$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ & \\ 
-$V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ & \\
+$\varphi^i$ & $\phi_i\vert_{\,^\circ K^i }$ & \cite{yu:01a}*{\S 3}\\
+$J_{i+1}$ & $J^{i+1} = (G^i,G^{i+1})(F)_{y, (r_i, s_i)}$ & \cite{yu:01a}*{\S 3} \\
+$V_{i+1}$ & $J^{i+1}/J^{i+1}_+ = (G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ (G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}$ & \cite{yu:01a}*{\S 3} \\ 
+$V_{i+1}^\sharp$ & $(G^i,G^{i+1})(F)_{y, (r_i, s_i)}/ \ker(\widehat{\phi}_i\vert_{(G^i,G^{i+1})(F)_{y, (r_i, s_i^+)}})$ &  \cite{yu:01a}*{\S 4} \\
 $Z_{i+1}$ & $\ker(V_{i+1}^\sharp\to V_{i+1})$ & \cite{yu:01a}*{\S 11} \\
 $(f_{j+1}, j_{i+1})$ & $(f,j)$ & \cite{yu:01a}*{\S 11} \\
 $\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$ & \cite{yu:01a}*{\S 11} \\
@@ -1391,7 +1396,7 @@ $\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$ & \cite{yu:01a}*{\S 11} \\
 \label{table:notation}
 \end{table}%
 
-We can now recall how Yu uses all this to construct representations $\orho^i$ of $\oK^i$, for $i=1, \ldots, d$ and the types $(\oK^i,\orho_i)$.  \todo{Following [these sections] of Yu.}
+We can now recall how Yu uses all this to construct representations $\orho^i$ of $\oK^i$, for $i=1, \ldots, d$ and the types $(\oK^i,\orho_i)$; see \cite{yu:01a}*{\S\S 4, 15}.
 The representations $\orho^i$ and $\orho_i$ are defined recursively.
 For the base case $i=0$, set $\orho_0 \ceq \orho^0\otimes \varphi^0$; see \ref{Y1} above.
 Now fix $i$.
@@ -1534,7 +1539,7 @@ G^i(\Fq) \arrow{rr}{\varphi^i} \arrow{rd} && \EEx\\
 for all $i=0, \ldots, d$.
 Set $G_m^i = \Gr_m^{R}(\underline{G}^i)$.
 Then $G_m^i$ is a smooth group scheme over $\Fq$ and $G_m^i(\Fq) = \underline{G}^i(R_m)$, canonically.
-Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear character $\varphi^i_m: G_m^i \to \CC^\times$; so
+Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear character $\varphi^i_m: G_m^i(k) \to \CC^\times$; so
 \[
 \trFrob{\cs{L}^i_m} = \varphi^i_m.
 \]
@@ -1660,6 +1665,7 @@ Then
 \] 
 as desired.
 \end{proof}
+
 
 %\bibliography{bibliography/Biblio}
 % \bib, bibdiv, biblist are defined by the amsrefs package.
