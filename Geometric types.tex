@@ -492,13 +492,13 @@ Section~\ref{sec:noncom} concludes with Theorem~\ref{thm:geo}, showing that the 
 \subsection{Main definition}\label{ssec:noncomdef}
 
 In order to get character sheaves that correspond to characters in $G(k)^*$, we must discard those
-character sheaves whose restriction to the derived subgroup is nontrivial.  Moreover, the isomorphism
-with the trivial sheaf on the derived subgroup will be important in relating to sheaves on the abelianization,
-motivating the following category.
+character sheaves whose restriction to the derived subgroup is nontrivial.
 %
 Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as
 in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves when $G$ is smooth but
 not necessarily commutative.  
+We define the following category to track the trivialization on the derived subgroup;
+commutative character sheaves will then be defined as a subcategory.
 
 
 \begin{definition}\label{def:CSab}
@@ -508,11 +508,8 @@ A morphism $(\cs{L},\mu,\beta)\to (\cs{L}',\mu',\beta')$ is a morphism $\alpha :
 in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{G\der}$.  
 \end{definition}
 
-%
-We will define commutative character sheaves as a subcategory of $\CSab(G)$.
-%We may now define commutative character sheaves on $G$.
-%
-Every $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows.
+The reason for tracking $\beta$ is that it determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows,
+which will replace the $\xi$ of Definition \ref{def:CCScom}.
 Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Both are smooth morphisms of $\Fq$-schemes.
 Set $m' = i \circ m \circ \theta$ and let $j\der : G\der\to G$ be inclusion; then $j\der\circ c = m \circ (m \times m')$.
