@@ -200,7 +200,7 @@ Yu type data are studied in \cite{Yu:models}, which concludes with the following
 \begin{quotation}
 {\it Therefore, up to some linear characters, all the ingredient representations 
 %[appearing in Yu type data]
- are on groups of the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over $\mathcal{O}$ [a henselian discrete valuation with finite residue field $\kappa$], and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
+ are on groups of the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over [a henselian discrete valuation ring with finite residue field $\kappa$] $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
 important role in the representation theory of $p$-adic groups.} %\cite{Yu:models}
 \end{quotation}
 %
@@ -208,8 +208,8 @@ In this paper we follow the suggestion above by showing that Yu type data are ge
 A Yu type datum determines a sequence of representations $\orho_i$ of compact $p$-adic groups $\oK^i$, for $i=0, \ldots, d$, such that $(\oK^d, \rho_d)$ is a type for a supercuspidal representation of a $p$-adic group.
 Let $R$ be the ring of integers of a local field with finite residue field $k$.
 The main result of \cite{Yu:models} shows how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $R$ with $\underline{G}^i(R)=\,^\circ K^i $.
-In this paper we show that if the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic, then each representation $\orho_i$ in this sequence can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, 
-where $\cs{F}^i$ is a {\it rational virtual} sheaf complex on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean an element in the group obtained by tensoring the Grothendieck group of such local systems with $\QQ$.
+The geometrization of the Yu type datum uses Lusztig's theory of character sheaves on reductive groups over finis fields, so it is necessary to assume that the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic, in order to bring his work to bear. \todo{I made some changes here. Discuss.}
+Under this assumption we show how each representation $\orho_i$, for each  $i=0, \ldots , d$, can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a {\it rational virtual} sheaf complex on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean $\cs{F}^i$ is an element in the group obtained by tensoring the Grothendieck group of such sheaves with $\QQ$. 
 Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
@@ -271,8 +271,7 @@ Let $\gcs{L}$ be the geometric part of an object in $\CCS(G)$; see Section~\ref{
 Let $T$ be a maximal torus in $\bG$ and let $\gcs{L}_T$ be the restriction of $\gcs{L}$ to $T$.
 Then the perverse sheaf $\gcs{L}[\dim G]$ appears in the semisimple complex $\operatorname{ind}_{B,T}^{\bG}(\gcs{L}_T)$ produced by parabolic induction.
 It follows that every object in $\CCS(G)$ determines a Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:85a}*{Def.~2.10}.
-Of course, the sheaves arising in this way represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields:
-they are precisely those needed to describe one-dimensional characters of such groups.
+Of course, the sheaves arising in this way represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields, but they are precisely those needed to describe one-dimensional characters of such groups. \todo{}
 
 Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we return to the task of geometrizing Yu type data. 
 The proof of Theorem~\ref{thm:geotypes} requires: Yu's work on smooth integral models \cite{Yu:models}; the geometrization of the character of the Heisenberg-Weil representation over finite fields by Gurevich \& Hadani \cite{gurevich-hadani:07a}; Lusztig's character sheaves on reductive groups over finite fields; and finally, the function-sheaf dictionary for characters of smooth group schemes over finite fields, now at our disposal in Theorem~\ref{thm:geo}.
@@ -311,7 +310,7 @@ These elements are pulled together in Section~\ref{ssec:geotypes}, where the pro
 \bigskip
 
 We are extremely grateful to Loren Spice for explaining Yu's types for supercuspidal representations.
-We also thank Masoud Kamgarpour for helpful conversations, and the anonymous referee of this paper, would pointed out an error in an earlier version of the paper and helped us clarify several points.
+We also thank Masoud Kamgarpour for helpful conversations, and the anonymous referee of this paper, would pointed out an error in an earlier version and helped us clarify several points.
 
 \section{Recollections and definitions} \label{sec:defs}
 
@@ -330,7 +329,8 @@ If $\cs{L}$ and $\cs{L}' \ceq (\gcs{L}', \phi')$ are Weil sheaves, we write $\al
 \gcs{L} \arrow{r}{\alpha} & \gcs{L}
 \end{tikzcd}
 \]
-commutes.  While these conventions simplify notation considerably, they are not consistent with \cite{cunningham-roe:13a}.
+commutes.  
+These conventions simplify notation considerably, but they were not employed in \cite{cunningham-roe:13a}. \todo{}
 
 We write $m : G \times G \to G$ for the multiplication morphism, and $G(k)^*$ for $\Hom(G(k), \EEx)$.
 Define $\theta : G\times G \to G\times G$ by $\theta(g,h) = (h,g)$.
@@ -1547,11 +1547,13 @@ Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear 
 %Let $\cs{L}^i$ be the  Weil sheaf on $\Gr^{R}(\underline{G}^i)$ obtained from $\cs{L}^i_m$ by pullback along $\Gr^{R}(\underline{G}^i) \to \Gr^{R}_{m}(\underline{G}^i)$. 
 %Then $\cs{L}^i$ is a quasicharacter sheaf, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, on $\Gr^{R}(\underline{G}^i)$ from which the quasicharacter $\varphi^i$ may be recovered.
 
-By \cite{lusztig:disconnected1}, there is a rational virtual Weil sheaf $A = ({\bar A},\phi)$ on $(\underline{G}^0)_\Fq^\reductive$ such that ${\bar A}$ is a rational virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
+By \cite{lusztig:disconnected1}, there is a rational virtual Weil sheaf complex $A = ({\bar A},\phi)$ on $(\underline{G}^0)_\Fq^\reductive$ such that ${\bar A}$ is a rational virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
 \[
 \trFrob{A} = \trace \varrho_0^\reductive.
 \]
 (This uses the hypothesis that $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.)
+We  remark that \todo{} 
+
 Let $A^0$ be the Weil sheaf on $(\underline{G}^0)_\Fq$ obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 Then 
 \[
