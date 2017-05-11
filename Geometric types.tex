@@ -554,7 +554,7 @@ Here $\gamma : m^*\cs{L} \to \theta^* m^* \cs{L}$ is the isomorphism built from 
 \subsection{Descent}\label{ssec:descent}
 
 In this section we give an equivalence of categories between $\CS(G\ab)$ and $\CSab(G)$ and use it to describe
-the pullback functor $q^* : \CS(G\ab) \to \CS(G)$ in terms of the forgetful functor $\CSab(G) \to \CS(G)$.
+the pullback functor $q^* : \CS(G\ab) \to \CS(G)$ in terms of the forgetful functor $\CSab(G) \to \CS(G)$, where $q : G\to G\ab$ is the abelianization quotient with kernel $G\der$.
 But first, in order to study commutative character sheaves, we need some auxiliary categories.
 
 \subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
@@ -728,6 +728,9 @@ This diagram also shows that $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a m
 
 \subsubsection{Descent}
 
+We may now relate $\CSab(G)$ to $\CS(G\ab)$.
+To do so, we use decent along $q : G \to G\ab$.
+
 If $\cs{L}\ab\in \Loc(G\ab)$ then $q^*\cs{L}\ab\in \Loc(G)$ comes equipped with a canonical isomorphism $\nu(\cs{L}\ab) : n^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
 \[
 \begin{tikzcd}[column sep=40]
@@ -755,7 +758,7 @@ Consider the functor
 \[
 q^* : \CS(G\ab) \to \CS(G)
 \]
-given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$; this is an instance of \cite{cunningham-roe:13a}*{Lemma 1.4}.
+given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$; this is an instance of \cite{cunningham-roe:13a}*{Lem. 1.4}.
 To see that $(q^*\cs{L}\ab, (q^2)^* \mu\ab)$ is indeed a linear character sheaf on $G$,
 verify \cite{cunningham-roe:13a}*{CS.3}. %, arguing as in \cite{cunningham-roe:13a}.
 Now set $L(\cs{L}\ab) = (\cs{L},\nu)$, where $L : \Loc(G\ab) \to \Loc\der(G)$ is the comparison functor above, so $\cs{L} = q^*\cs{L}\ab$ and $\nu = \nu(\cs{L}\ab)$.
@@ -775,7 +778,6 @@ and also show that the functor $q^* : \CS(G\ab) \to \CS(G)$ factors according to
 \end{tikzcd}
 \end{equation}
 The definition of $q\ab^* : \CS(G\ab)\to \CS\der(G)$ will be revisited in the proof of the following result.
-We may now relate $\CSab(G)$ to $\CS(G\ab)$ via the quotient map $q : G \to G\ab$.
 
 
 \begin{proposition} \label{prop:CSGabab}
@@ -933,6 +935,7 @@ Applying \cite{cunningham-roe:13a}*{Theorem 3.9} again yields the desired result
 
 \subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
 
+We are now in a position to prove that commutative character sheaves on $G$ match perfectly with commutative character sheaves on $G\ab$.
 We start with a method that will allow us to situate the diagram in Definition \ref{def:CCS} within $\CSab(G^2)$.
 
 \begin{lemma}\label{lemma:morinCSab}
@@ -1193,6 +1196,8 @@ By \cite{cunningham-roe:13a}*{Theorem 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab
 
 \subsection{Geometrization of characters} \label{ssec:geo}
 
+Corollary~\ref{cor:Gab} shows that commutative character sheaves on $G$ provide a natural geometrization of characters of $G\ab(k)$. In Theorem~\ref{thm:geo} we take this one small step further by exploring the relation between characters of $G(k)$ and objects in $\CCS(G)$. 
+
 \begin{theorem}\label{thm:geo}
 %Let $G$ be a smooth group scheme over a finite field $\Fq$. Let $\CCS(G)$ be the category of {\it commutative characters sheaves} on $G$; see Definition~\ref{def:CCS}.
 The trace of Frobenius $\TrFrob{} : \CCSiso{G}\to G(\Fq)^*$ fits into the following diagram,
@@ -1226,7 +1231,7 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Theorem 
 Observe that $\CCS(G)$ is a subcategory of $\CS\ab(G)$, by Definition~\ref{def:CCS}, and that Definition~\ref{def:CSab} makes it clear that there is a forgetful functor $\CS\ab(G) \to \CS(G)$, and also a forgetful functor $\CS(G)\to \Loc(G)$.
 Consequently, while the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the sense of Theorem~\ref{thm:geo}, it is also true that $\CS(G)$ and even $\Loc(G)$
 geometrize characters of $G(\Fq)$ in the sense that for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $\cs{L}$ in $\Loc(G)$ such that $\trFrob{\cs{L}} = \chi$.
-The purpose of the category $\CCS(G)$ is to make this translation from characters $\chi$ to Weil local systems $\cs{L}$ as precise as possible by making $\TrFrob{} : \CCSiso{G} \to G(k)^*$ as close to an isomorphism as possible.
+However, category $\CCS(G)$ has made this translation from characters $\chi$ to Weil local systems $\cs{L}$ as precise as possible by making $\TrFrob{} : \CCSiso{G} \to G(k)^*$ as close to an isomorphism as possible.
 %\end{remark}
 
 \begin{remark}
