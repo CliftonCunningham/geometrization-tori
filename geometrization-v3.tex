@@ -1,0 +1,815 @@
+% !TEX encoding = UTF-8 Unicode
+%\documentclass{compositio}
+\documentclass{amsart}
+\pdfoutput=1
+
+%%%%%%%%%%%%%%%%%% HEADING %%%%%%%%%%%%%%%%%%
+\title[Geometrization of the local Langlands correspondence for tori]{Geometrization of the local Langlands correspondence for algebraic tori}
+\date{\today}
+\author{Clifton Cunningham}
+\email{cunning@math.ucalgary.ca}
+\address{University of Calgary}
+\author{David Roe}
+\email{roed.math@gmail.com}
+\address{Pacific Institute for the Mathematical Sciences at the University of Calgary}
+%\classification{14L15 (primary), 11G25, 14F05, 14D24, 11S31 (secondary)}
+%\keywords{quasicharacters, quasicharacter sheaves, algebraic tori, Greenberg transforms, N\'eron models, local fields, group schemes}
+
+%%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%
+% Encodings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% AMS packages
+\usepackage{amsmath, amsthm, amssymb, geometry}
+\usepackage[alphabetic]{amsrefs}
+\usepackage{todonotes}
+% Fonts
+\usepackage{mathrsfs, yfonts}
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
+% Hyperrefs
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
+\theoremstyle{plain}
+      \newtheorem{theorem}{Theorem}[section]
+      \newtheorem{proposition}[theorem]{Proposition}
+      \newtheorem{lemma}[theorem]{Lemma}
+      \newtheorem{corollary}[theorem]{Corollary}
+
+      \theoremstyle{definition}
+      \newtheorem{definition}[theorem]{Definition}
+
+      \theoremstyle{remark}
+      \newtheorem{remark}[theorem]{Remark}
+
+%%%%%%%%%%%%%%%% TIKZ SETTINGS %%%%%%%%%%%%%%%%
+\tikzset{every picture/.style={>=stealth},label/.style={font=\footnotesize}}
+
+%%%%%%%%%%%%%%% RINGS AND GROUPS %%%%%%%%%%%%%%%
+\newcommand{\FF}{{\mathbb{F}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\QQ}{{\mathbb{Q}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\EE}{\mathbb{\bar Q}_\ell}
+\newcommand{\Zl}{\mathbb{\bar Z}_\ell}
+\newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\pK}{\mathfrak{p}_K}
+\newcommand{\OKp}{\mathcal{O}_{K'}}
+\newcommand{\pKp}{\mathfrak{p}_{K'}}
+\newcommand{\OL}{\mathcal{O}_L}
+\newcommand{\OO}[1]{\mathcal{O}_{#1}}
+\newcommand{\Zp}{\mathbb{Z}_p}
+\newcommand{\Qp}{\mathbb{Q}_p}
+\newcommand{\bFq}{\bar{k}}
+\newcommand{\Fq}{k}
+\newcommand{\Fqm}{k_m}
+\newcommand{\WW}{\mathbb{W}}
+\newcommand{\EEx}{\EE^\times}
+\newcommand{\Zlx}{\mathbb{\bar Z}_\ell^\times}
+\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
+\newcommand{\comp}{\Pi} % Component group
+
+%%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
+\newcommand{\mathswab}[1]{\operatorname{\textswab{#1}}}
+\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
+\newcommand{\GN}[1]{\mathswab{#1}}
+\newcommand{\bGN}[1]{{\bar{\mathswab{#1}}}}
+\newcommand{\TT}{\underline{T}}
+\newcommand{\TL}{\underline{T_L}}
+\newcommand{\TTp}{\underline{T}'}
+
+%%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\W}{W}
+\newcommand{\Frob}[1]{\operatorname{F}_{#1}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Irrep}{Irrep}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hh}{H}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Nm}{Nm}
+\DeclareMathOperator{\trace}{Tr}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\Lang}{Lang}
+\DeclareMathOperator{\image}{im}
+\DeclareMathOperator{\Loc}{Loc}
+\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}\hskip-1pt( #1 )}}
+
+%%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
+\newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
+\newcommand{\abs}[1]{{\vert #1 \vert}}
+\newcommand{\ceq}{{\, :=\, }}
+\newcommand{\tq}{{\ \vert\ }}
+\newcommand{\iso}{{\ \cong\ }}
+\newcommand{\dual}[1]{{\hat{#1}}}
+%% Limits
+\newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
+\newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
+\newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
+\newcommand{\colimit}[1]{\mathop{\textsc{colim}}\limits_{#1}}
+%% Fonts for quasicharacter sheaves
+\newcommand{\qcs}[1]{{\mathcal{#1}}}
+\newcommand{\gqcs}[1]{{\mathcal{\bar #1}}}
+\newcommand{\dualgcs}[1]{\gqcs{#1}^\dagger}
+\newcommand{\dualcs}[1]{\qcs{#1}^\dagger}
+%% Categories
+\newcommand{\QC}{{\mathcal{Q\hskip-0.8pt C}}}
+\newcommand{\QCb}{{\QC_0}}
+\newcommand{\QCf}{{\QC_f}}
+\newcommand{\QCiso}[1]{\QC(#1)_{/\text{iso}}}
+\newcommand{\QCbiso}[1]{\QCb(#1)_{/\text{iso}}}
+\newcommand{\QCfiso}[1]{\QCf(#1)_{/\text{iso}}}
+\newcommand{\trFrob}[1]{t_{#1}}
+\newcommand{\TrFrob}[1]{T_{#1}}
+%% amsmath replacements for \atop
+\newcommand{\latop}[2]{\genfrac{}{}{0pt}{0}{#1}{#2}}
+\newcommand{\partop}[2]{\genfrac{(}{)}{0pt}{0}{#1}{#2}}
+%% Labeled items
+\makeatletter
+\newcommand{\labitem}[2]{
+\def\@itemlabel{\textbf{#1}}
+\item
+\def\@currentlabel{#1}\label{#2}}
+\makeatother
+%% Shorthand for bars
+\renewcommand{\bf}{\bar{f}}
+\newcommand{\bg}{\bar{g}}
+\newcommand{\bm}{\bar{m}}
+\newcommand{\bG}{\bar{G}}
+\newcommand{\bH}{\bar{H}}
+%% Spacing control
+\newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
+\newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
+\newcommand{\bfxf}{\text{$\bar{f} \tight{1}{\times}{1} \bar{f}$}}
+\newcommand{\GxxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\LxL}{\text{$\gqcs{L} \tight{0}{\boxtimes}{0} \gqcs{L}$}}
+\newcommand{\ExE}{\text{$\qcs{E}\tight{0}{\boxtimes}{0}\qcs{E}$}}
+\newcommand{\bExE}{\text{$\gqcs{E}\tight{0}{\boxtimes}{0}\gqcs{E}$}}
+\newcommand{\AxA}{\text{$A \tight{1}{\times}{1} A$}}
+\newcommand{\BxB}{\text{$B \tight{1}{\times}{1} B$}}
+\newcommand{\GzxGz}{\text{$G^0 \tight{1}{\times}{1} G^0$}}
+%% Margin notes
+\newcommand\Clifton[1]{\marginpar{\smaller\smaller CC: #1}}
+\newcommand\David[1]{\marginpar{\smaller\smaller DR: #1}}
+%% Hyphenation override
+\hyphenation{quasi-character}
+\hyphenation{quasi-characters}
+%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%
+\begin{document}
+
+\begin{abstract}
+For any non-archimedean local field $K$
+  and any algebraic torus $T$ over $K$, we use the
+  function--sheaf dictionary for smooth group schemes over finite fields
+  to geometrize quasicharacters of $T(K)$
+  as quasicharacter sheaves on the Greenberg transform of the Néron
+  model of $T$.
+ We offer two applications of this geometrization:
+ a categorical transfer of quasicharacters between characteristic-$p$ tori and
+ characteristic-$0$ tori; and a geoemtric proof of the local Langlands correspondence for algebraic tori.
+  \end{abstract}
+
+\maketitle
+
+\section*{Introduction}
+
+
+
+This paper provides a geometric proof of the local Langlands Correspondence for algebraic tori.
+The new ingredient in this proof is the geometrization of quasicharacters of algebraic tori over local fields,
+which relies on the function--sheaf dictionary for smooth group schemes over finite fields developed recently by the authors.
+We also use the class field theory of Serre and Hasewinkel.
+
+Here is the main idea of the paper.
+Let $K$ be a non-Archimedean local field with finite residue field $\Fq$; we place no restriction on the characteristic of $K$.
+Let $T$ be an algebraic torus over $K$; we place no restriction on the ramification of $T$.
+For every positive integer $n$, let $\GN{T}_n$ be the Greenberg transform of base change of the Neron model of $T$ to $\OK/\pK^n$,
+where $\OK$ denotes the ring of integers of $K$ and $\pK$ is the maximal ideal in $\OK$.
+Let $\QC(\GN{T}_n)$ be the rigid monoidal category of quasicharacter sheaves on $\GN{T}_n$,
+obtained by applying the theory developed in [CR1] to the smooth commutative group scheme $\GN{T}_n$ over $\Fq$.
+The category $\QC(\GN{T}_n)$ comes equipped with a canonical isomorphism
+\[
+\QCiso{\GN{T}_n} \to \Hom_{n}(T(K),\EEx)
+\]
+from the group of isomorphisms classes of quasicharacter sheaves on $\GN{T}_n$ to the group of quasicharacters of $T(K)$ of depth less than $n$ in Jiu-Kang Yu's filtration of $T(K)$.
+In this paper we define a canonical isomorphism
+\[
+\QCiso{\GN{T}_n} \to H^1_{n}(\Weil{K},\hat{T}_\ell)
+\]
+to the group of Langlands parameters of depth less than $n$ in the upper-index filtration of the Weil group $\Weil{K}$.
+We then verify that the local Langlands Correspondence matches $\chi \in \Hom_{n}(T(K),\EEx)$ with $\rho \in H^1_{n}(K,\hat{T}_\ell)$ if and only if $\chi$ and $\rho$ arise from the same quasicharacter sheaf on $\GN{T}_n$.
+After passing from $\GN{T}_n$ to the group scheme $\GN{T} = \invlim{n} \GN{T}_n$, this shows that the local Langlands Correspondence for $T$ can be found within the category $\QC(\GN{T})$ of quasicharacter sheaves on $\GN{T}$.
+\[
+\begin{tikzcd}
+\ & \arrow[swap]{dl}{} \QCiso{\GN{T}} \arrow{dr}{} & \\
+\Hom_\text{qc}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(\Weil{K},\hat{T}_\ell)
+\end{tikzcd}
+\]
+
+\subsection*{Old stuff}
+While we have not yet fully explored the applications of such a geometrization, we want to highlight
+some of the potential benefits of Theorem~\ref{thm:application} here.
+Characters on $T$ have limited
+functoriality: they can be pulled back along maps to $T$, but it is less clear what to do with them
+in the presence of maps from $T$ to other groups.  Sheaves, on the other hand, come
+equipped with a host of functors, including pushforward.
+We hope to use this to our advantage as we work toward an adaptation of
+Lusztig's theory of characters sheaves to the study of characters of
+admissible representations of reductive $p$-adic groups that extends beyond the case of $p$-adic tori.
+
+DeBacker and Reeder have recently applied Deligne-Lusztig
+representations to part of the depth-zero part of the
+local Langlands correspondence \cite{reeder-debacker:09a}.
+Deligne-Lusztig theory also plays an important role in
+Waldspurger's work on nilpotent distributions \cite{waldspurger:01}.
+After developing Deligne-Lusztig representations,
+the next step Lusztig took in studying representations
+of finite groups of Lie type was to introduce character sheaves for reductive groups over $\Fq$.
+We hope that our quasicharacter sheaves
+can provide a stepping stone to a similar theory for
+representations of $p$-adic groups, especially
+in the positive-depth case.
+
+The scope of the Langlands program has grown explosively in the past several decades, and
+different parts of it apply to different kinds of representations.  In particular, the classic local Langlands
+correspondence addresses complex (or $\ell$-adic) representations of real and $p$-adic groups, while
+the geometric Langlands program aims at representations of groups in characteristic $p$.  The fact that
+characteristic $p$ group schemes arise as the space underlying quasicharacter sheaves, regardless of
+the characteristic of $K$, provides a potential bridge allowing the methods of the geometric Langlands
+program to be applied to the classic context.
+
+Finally, we are tantalized by the possibility of providing an alternate perspective on local class field theory
+through quasicharacter sheaves.  The local Langlands correspondence for tori provides an isomorphism
+$
+\Hh^1(\Weil{K}, \hat{T}_\ell) \cong \Hom(T(K), \EEx)
+$,
+where $\Weil{K}$ is the Weil group for $K$.
+A geometric description of the resulting isomorphism $\Hh^1(\Weil{K}, \hat{T}_\ell) \cong \QCiso{\GN{T}}$
+would yield a different description of the Artin reciprocity map.
+
+We close the introduction with a more detailed description of the structure of this paper.
+In Section~\ref{sec:GN} we review the Greenberg transform of N\'eron models of tori, which produces
+group schemes over $\Fq$ from algebraic tori $T$ over $K$.
+Section~\ref{sec:bdchar} then uses \cite{cunningham-roe:dictionary} to give a geometrization of characters of $T$
+of bounded depth.
+We give a reinterpretation of this result in Section~\ref{sec:quasichar}, using a limit process to simultaneously
+geometrize all quasicharacters of $T$.  Sections~\ref{sec:bdchar}, \ref{sec:quasichar} and \ref{sec:wrK} also include
+functoriality results that we hope to use in a future discussion of
+local class field theory.
+In Section~\ref{sec:transfer} we discuss a transfer principle which allows
+a geometric transfer of characters between characteristic $p$ tori and characteristic $0$ tori.
+We close the paper with Section~\ref{sec:reciprocity}, in which we suggest that quasicharacter
+sheaves may play a key role in a geometric and categorical form of the local Langlands
+correspondence for algebraic tori over local fields.
+
+%\begin{acknowledgements}
+\subsection*{Acknowledgements}
+%We would like to thank Masoud Kamgarpour, Pramod Achar, and Hadi Salmasian for allowing us to hijack much of our Research in Teams meeting at BIRS into a discussion of quasicharacter sheaves; their knowledge and help have been invaluable.
+We thank Alessandra Bertrapelle and Cristian Gonz\'ales-Avil\'es for disabusing us of a misapprehension concerning the Greenberg realization functor and for pointing us to a proof of Lemma~\ref{lemma:wrK}.
+
+We also gratefully acknowledge the financial support of the Pacific Institute for the Mathematical Sciences
+and the National Science and Engineering Research Council.
+%as well the hospitality of the Banff International Research Station during our weeklong stay in May 2012.
+
+%\end{acknowledgements}
+
+\tableofcontents
+
+\section{The geometrization of quasicharacters of algebraic tori over local fields}
+
+\subsection{Notations}
+
+Let $\Fq$ be a finite field and let $K$ be a non-archimedean local field with residue field $\Fq$.
+We place no restriction on the characteristic of $K$.
+We write $\OK$ for the ring of integers of $K$ and $\pK$ for the maximal ideal in $\OK$.
+Let $T$ be an algebraic torus over $K$; the filtrations defined by Moy-Prasad and Yu \cite{yu:03a}*{\S 5}
+allow us to define the depth of character $\chi$ as the infimum of the $r$ so that $\chi$ vanishes on $T(K)_r$.
+We write
+\[
+\Hom_{< n}(T(K),\EEx)
+\]
+for the group of characters of $T(K)$ depth less than $n$
+and
+\[
+\Hom_{\text{qc}}(T(K),\EEx)
+\]
+for the group of characters of $T(K)$ of arbitrary finite depth;
+we call these quasicharacters of $T(K)$, following \cite{tate:67a}*{2.3}.
+
+\subsection{Greenberg of N\'eron}
+\label{sec:GN}
+
+A N\'eron model for $T$ is a smooth group scheme $\TT$ over $\OK$ with generic fiber $T$
+that satisfies the N\'eron mapping property: if $S$ is any smooth scheme over $\OK$ then every morphism
+$S_\eta \to T$ over $K$ extends uniquely to a morphism $S \to \TT$.  N\'eron models exist for any torus
+$T$ \cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch 10.1, Thm 6} and are unique up to isomorphism;
+$\TT$ is separated, commutative, locally finite type over $\OK$ and satisfies $\TT(\OK) = T(K)$.
+
+We will also need the Greenberg functor \citelist{\cite{greenberg:61} \cite{greenberg:63a}}:
+a functor from the category of schemes locally of finite type
+over an Artinian local ring with perfect residue field $k$
+to the category of schemes locally of finite type over $k$.
+This functor respects open immersions, closed immersions, \'etale morphisms, smooth morphisms and geometric components.
+See
+\citelist{
+\cite{demazure-gabriel:GroupesAlgebriques}*{V, \S 4, no. 1}
+\cite{bosch-lutkebohmert-reynaud:NeronModels}*{Ch. 9, \S 6}
+\cite{nicaise-sebag:motivicSerre}*{\S 2.2}
+\cite{bertrapelle-gonzales:Greenberg}*{\S 5}
+}
+for the definition and fundamental properties of the Greenberg functor as it is used here.
+
+\begin{definition}\label{def:Grn}
+For any local field $K$ with residue field $\Fq$ and for any positive integer $n$, let
+\[
+\Gr_n : \partop{\text{Schemes}}{\text{lft over $\OK$}} \to \partop{\text{Schemes}}{\text{lft over $\Fq$}}
+\]
+be the functor produced by precomposing pullback along $\OK \to \OK/\pK^n$ with the Greenberg functor.
+\end{definition}
+
+The surjective ring homomorphism $\OK/\pK^{n+1} \to \OK/\pK^n$ determines a
+natural transformation $P_{n} : \Gr_{n+1} \to \Gr_n$ between additive functors.
+For a given Néron model $\TT$ of $T$, set
+\begin{align*}
+ \GN{T}_n &\ceq \Gr_n(\TT), \\
+ f_n &\ceq P_n(\TT).
+\end{align*}
+
+We list some fundamental properties of $f_n$ and $\GN{T}_n$ for further use:
+ \begin{enumerate}
+  \labitem{(GN.0)}{truncation}
+  $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is a surjective morphism of group schemes over $\Fq$
+  \citelist{\cite{bosch-lutkebohmert-reynaud:NeronModels}*{p. 276} \cite{bertrapelle-gonzales:Greenberg}*{Prop. 7.2}}.
+  We remark that $f_n : \GN{T}_{n+1} \to \GN{T}_n$ is not induced from a morphism of Néron models.
+  \labitem{(GN.1)}{smooth}
+  $\GN{T}_n$ is a $\QC$-scheme.
+  Note that $\underline{T}$ is a smooth group scheme over $\OK$, by construction.
+  Since smoothness is preserved under base change, the group scheme
+  $\TT_n \ceq \underline{T} \times_\Spec{\OK} \Spec{\OK/\pK^n}$
+  is smooth over an Artinian ring with perfect residue field.
+  The Greenberg functor preserves smoothness,
+  so $\GN{T}_n$ is a smooth group scheme locally of finite type over $\Fq$.
+  The Greenberg functor takes the geometric identity component of $\TT_n$
+  to the geometric identity component of $\GN{T}_n$.
+  In fact, $\pi_0(\GN{T}_n)$ is independent of $n$, equal to $\comp \ceq \pi_0(\TT) \times_{\Spec{\OK}} \Spec{\Fq}$.
+  Moreover, $\Pi$ is finitely generated \cite{xarles:93a}*{2.18}.
+  \labitem{(GN.2)}{identity} $\GN{T}_n^\circ$ is affine of finite type over $\Fq$.
+  \labitem{(GN.3)}{points} $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$, canonically.
+\end{enumerate}
+
+\begin{proposition}
+The projective limit of the system
+\[
+\cdots \xrightarrow{f_n} \GN{T}_{n+1} \xrightarrow{f_{n-1}} \cdots \xrightarrow{f_1} \GN{T}_1
+\]
+exists in the category of group schemes over $\Fq$.
+\end{proposition}
+\begin{proof}
+Since the component group $\comp$ is independent of $n$, the projective system induces a sequence of affine schemes
+\begin{equation} \label{eq:Ti}
+\cdots \xrightarrow{f^i_n} \GN{T}^i_{n+1} \xrightarrow{f^i_{n-1}} \cdots \xrightarrow{f^i_1} \GN{T}^i_1
+\end{equation}
+for each $i \in \comp$.
+Since the category of affine schemes over $k$ is equivalent to the category of $k$-algebras, which has direct limits \todo{citation},
+the limit of \eqref{eq:Ti} exists in the category of affine group schemes over $k$ for each $i \in \comp$.  Write $\GN{T}^i$ for the limit,
+and define
+\[
+\GN{T} \ceq \coprod_{i \in \comp} \GN{T}^i
+\]
+as a $k$-scheme.  We claim that $\GN{T}$ is a projective limit of the original system, in the category of $k$-schemes.  Suppose that $Z$ is a $k$-scheme
+with a system of morphisms $z_n : Z \to \GN{T}_n$.  Let $\alpha : \pi_0(Z) \to \comp$ be the induced map on component groups, which is
+independent of $n$.  \todo{the components of $Z$ are not necessarily affine; is the projective limit in the category of affine schemes still the limit in the category of schemes?}
+
+
+The multiplication maps $m_n : \GN{T}_n \times \GN{T}_n \to \GN{T}_n$ induce maps of affine schemes
+$m_n^{i,j} : \GN{T}_n^i \times \GN{T}_n^j \to \GN{T}_n^{i+j},$ inducing maps $m^{i,j} : \GN{T}^i \times \GN{T}$ [under construction]
+\end{proof}
+
+\subsection{The function--sheaf dictionary for quasicharacters of bounded depth}\label{sec:qcs}
+
+In \cite{cunningham-roe:dictionary} we extended the function--sheaf dictionary of Deligne  \cite{deligne:SGA4.5}*{sommes trig.} to smooth commutative group schemes over finite fields.
+Since we will use this dictionary here, we briefly review the main notation and result from that paper.
+
+Let $G$ be a smooth commutative group scheme over $\Fq$ for which the geometric component group is finitely generated. A quasicharacter sheaf on $G$ is a triple $\qcs{L}\ceq
+(\gqcs{L},\mu,\phi)$ where $\gqcs{L}$ is an $\ell$-adic local system on $\bG$ of rank~one and $\mu: m^*
+\gqcs{L} \to \LxL$ and $\phi : \Frob{G}^*\gqcs{L} \to \gqcs{L}$ are isomorphisms satisfying natural compatibilty conditions; see \cite{cunningham-roe:dictionary}.
+%
+Quasicharacter sheaves on $G$ form a rigid monoidal category, denoted by $\QC(G)$
+and the trace of Frobenius
+\begin{equation}\label{snake}
+  \trFrob{G} : \QCiso{G} \to G(\Fq)^*
+\end{equation}
+  is a functorial isomorphism of groups \cite{cunningham-roe:dictionary}*{Thm. 11.1}.
+
+
+%\section{Application to quasicharacters of bounded depth} \label{sec:bdchar}
+
+%We now apply the results of Section~\ref{sec:qcs} to characters of $T(K)$.
+
+\begin{theorem}\label{thm:application}
+Let $n$ be a positive integer.
+For every algebraic torus $T$ over $K$, the trace of Frobenius
+  \[
+\trFrob{T,n}:  \QCiso{\GN{T}_n} \to \Hom_{< n}(T(K),\EEx)
+  \]
+is an isomomorphism.
+Moreover, the isomorphism $\trFrob{T,n}$ is a natural transformation
+between the additive functors
+\begin{enumerate}
+\item[$F_1$:] $T \mapsto \QCiso{\GN{T}_n}$
+\item[$F_2$:] $T \mapsto \Hom_{<n}(T(K),\EEx)$
+\end{enumerate}
+from the additive category of algebraic tori over $K$ to the category of abelian groups.
+\end{theorem}
+
+\begin{proof}
+  By \ref{smooth}, we may use \cite{cunningham-roe:dictionary}*{Thm. 11.1}
+   to give the functorial isomorphism
+  $\QCiso{\GN{T}_n} \iso \GN{T}_n(\Fq)^*$.
+  By \ref{points}, $\GN{T}_n(\Fq) = \TT(\OK/\pK^n)$.
+  Then we recall that the filtration of $T(K)$ used to
+  define depth has the property that $\TT(\OK/\pK^n) \cong T(K) / T(K)_n$
+  \cite{yu:03a}*{Prop 5.2}, so characters of $\GN{T}_n(\Fq)$
+  are in bijection with characters of $T(K)$ vanishing on $T(K)_n$.
+  This shows that $\trFrob{T,n}$ is an isomorphism.
+
+  The definition of $F_1$ depends
+  on the choice of a Néron model for every algebraic torus $T$.
+  However, since Néron models are unique up to unique isomorphism,
+  the isomorphism class of $\GN{T}_n$ is uniquely determined by $T$
+  and the group of isomorphism classes of objects in $\QC(\GN{T}_n)$
+  is uniquely determined by $T$.
+  To define $F_1$ on morphisms one uses the Néron mapping property.
+
+  Finally, we show that $\trFrob{T,n}$ is functorial.
+The first part of \cite{cunningham-roe:dictionary}*{Prop. 4.1} shows that $F_1$ is a functor,
+while the second part shows that trace of Frobenius is a natural transformation
+$t_{ - ,n} : F_1 \to F_2$. When further combined with \cite{cunningham-roe:dictionary}*{Prop. 4.2},
+we see that $F_1$ is an additive functor and $t_{ - ,n}: F_1 \to F_2$ is a
+natural transformation between additive functors.
+\end{proof}
+
+
+\subsection{A function--sheaf dictionary for quasicharacters} \label{sec:quasichar}
+
+In this section we package the isomorphisms of Theorem~\ref{thm:application} into
+a single dictionary.
+
+\begin{definition}\label{def:objGN}
+The \emph{Greenberg transform of the N\'eron model of $T$}
+is the pro-group scheme over $\Fq$ given by
+$\GN{T} \ceq \varprojlim_{n\in \ZZ_{>0}} \GN{T}_{n}$,
+with reference to the family of  surjective morphisms of
+$\Fq$-group schemes $f_n : \GN{T}_{n+1} \to \GN{T}_n$.
+\end{definition}
+
+For any  ordered pair of positive integers $n< m$ define
+$f_{n\leq m} : \GN{T}_{m} \to \GN{T}_{n}$
+by $f_{n\leq m}\ceq f_n \circ f_{n+1} \circ \cdots \circ f_{m-1}$;
+also set $f_{n\leq n} \ceq \id_{\GN{T}_n}$.
+Note that $f_{n\leq m}:  \GN{T}_{m} \to \GN{T}_{n}$ is a surjective morphism
+of group schemes over $\Fq$.
+Let
+\[
+f_{n\leq m}^* : \QC(\GN{T}_n) \to \QC(\GN{T}_{m})
+\]
+be the functor produced by applying \cite{cunningham-roe:dictionary}*{Prop. 4.1} to $f_{n\leq m}$.
+We now define a category which allows us to extend the notion
+of quasicharacter sheaf to the pro-group scheme $\GN{T}$.
+
+\begin{definition}\label{def:catGN}
+An object in $\QC(\GN{T})$ is a triple $(n, \{\qcs{L}_i\}_{i \ge n}, \{\alpha_{i \le j}\}_{j \ge i \ge n})$, where $n$
+is a positive integer, each $\qcs{L}_i$ is a quasicharacter sheaf on $\GN{T}_i$ and each
+$\alpha_{i \le j} : \qcs{L}_j \to f^*_{i \le j} \qcs{L}_i$ is an isomorphism.  We require $\alpha_{i \le i}$ to be
+the identity and that the $\alpha_{i \le j}$ are compatible with each other.  If $\qcs{L} \ceq (n, \{\qcs{L}_i\}, \{\alpha_{i \le j}\})$
+and $\qcs{L}' \ceq (m, \{\qcs{L}'_i\}, \{\alpha'_{i \le j}\})$ are objects then $\Hom(\qcs{L}, \qcs{L}')$ is the set
+of equivalence classes of pairs $(k, \{\beta_i\}_{i \ge k})$.  Here $k \ge m, n$ and the $\beta_i : \qcs{L}_i \to \qcs{L}'_i$ are
+morphisms of quasicharacter sheaves so that
+\[
+\begin{tikzcd}
+\qcs{L}_j \rar{\alpha_j} \dar{\beta_i} & f^*_{i \le j} \qcs{L}_i \dar{f_{i \le j}^*\beta_j} \\
+\qcs{L}'_j \rar{\alpha_j} & f^*_{i \le j} \qcs{L}'_i
+\end{tikzcd}
+\]
+commutes for all $j \ge i \ge k$.  We identify two such pairs $(k, \{\beta_i\})$ and $(l, \{\gamma_i\})$ if $\beta_i = \gamma_i$
+for sufficiently large $i$.  Identities and composites are defined in the natural way.
+
+If $n$ is a positive integer and $\qcs{L}_n \in \QC(\GN{T}_n)$ then we may define an object
+\[
+[\qcs{L}_n] \ceq (n, \{f_{n \le i} \qcs{L}_n\}_{i \ge n}, \{1_{\qcs{L}_j}\}_{j \ge i \ge n}).
+\]
+Every object in $\QC(\GN{T})$ is isomorphic to such a $[\qcs{L}_n]$.  Similarly, any morphism is equal to one of the form
+\[
+[\beta_k] \ceq (k, \{f_{k \le i}^* \beta_k\}_{i \ge k}).
+\]
+
+We may define a tensor product on $\QC(\GN{T})$ by setting
+\[
+ \qcs{L} \otimes \qcs{L}' \ceq (k, \{\qcs{L}_i \otimes \qcs{L}'_i\}, \{\alpha_{i \le j} \otimes \alpha'_{i \le j}\}),
+\]
+where $k = \max(m, n)$.
+Similarly, the dual of an object $\qcs{L}$ is defined by
+\[
+\qcs{L}^\vee \ceq (n, \{\qcs{L}_i^\vee\}, \{ \alpha_{i \le j}^\vee \}).
+\]
+We refer to objects in the rigid monoidal category
+$\QC(\GN{T})$ as \emph{quasicharacter sheaves on $\GN{T}$}
+or \emph{quasicharacter sheaves for $T$}.
+\end{definition}
+
+\begin{corollary}\label{cor:application}
+For every algebraic torus $T$ over $K$, the trace of Frobenius
+  \[
+\trFrob{T}:  \QCiso{\GN{T}} \to \Hom_{\text{qc}}(T(K),\EEx)
+  \]
+is an isomomorphism.
+Moreover, the isomorphism $\trFrob{T}$ is a natural transformation
+between the additive functors
+\begin{enumerate}
+\item[$F_{\QC}$:] $T \mapsto \QCiso{\GN{T}}$
+\item[$F_{\text{qc}}$:] $T \mapsto \Hom_{\text{qc}}(T(K),\EEx)$
+\end{enumerate}
+from the additive category of algebraic tori over $K$ to the category of abelian groups.
+\end{corollary}
+
+\begin{proof}
+We may define full and faithful functors $F_n : \QC(\GN{T}_n) \to \QC(\GN{T})$
+for each $n$ by $F_n(\qcs{L}) \ceq [\qcs{L}_n]$ and $F_n(\alpha_n) \ceq [\alpha_n]$.
+For positive integers $n \le m$ these functors fit together into a diagram
+\[
+\begin{tikzcd}
+\ & & & \QC(\GN{T})\\
+\arrow{urrr}{F_n} \QC(\GN{T}_n) \arrow[swap]{rr}{f_{n\leq m}^*} && \QC(\GN{T}_m) \arrow[swap]{ur}{F_m}. &
+\end{tikzcd}
+\]
+Passing to isomorphism classes of objects and invoking the
+universal property of direct limits gives a group isomorphism
+$\theta: \varinjlim_{n\in \ZZ_{>0}} \QCiso{\GN{T}_n} \to \QCiso{\GN{T}}$
+with inverse $[\qcs{L}]_{/\text{iso}} \mapsto [\qcs{L}_{/\text{iso}}]$.
+Now use Theorem~\ref{thm:application}, \cite{cunningham-roe:dictionary}*{Prop. 4.1}
+and the fact that  $\Hom_{\text{qc}}(T(K),\EEx) = \varinjlim_{n\in \ZZ_{>0}} \GN{T}_n(k)^*$,
+where this direct limit is taken with respect to the family of group homomorphisms
+dual to $f_{n} : \GN{T}_{n+1}(\Fq) \to \GN{T}_n(\Fq)$.
+\end{proof}
+
+
+\subsection{Application: Transfer of quasicharacter sheaves} \label{sec:transfer}
+
+The techniques in this paper apply to all non-archimdean local fields $K$ with residue field $k$
+and to all algebraic tori $T$ over $K$, without placing any restrictions on the characteristic of $K$
+or on the ramification of $T$.
+We may therefore ask for a comparison of
+quasicharacter sheaves on $T$ and on $T'$ whenever there is a relationship
+between characters of $T(K)$ and of $T'(K')$.
+Such a relationship can exist between characters of $T(K)$ and $T'(K')$ even
+when the characteristics of $K$ and $K'$ differ
+\citelist{\cite{chai-yu:01a} \cite{deligne:84a}*{\S 1}}.
+
+We recall the notion of $N$-congruent tori from \cite{chai-yu:01a}*{\S 2}.
+Suppose $T$ and $T'$ are tori over non-archimedian local fields $K$ and $K'$,
+splitting over $L$ and $L'$ respectively.
+Then $T$ and $T'$ are said to be \emph{$N$-congruent} if there are isomorphisms
+ \begin{align*}
+  \alpha : \OL/\pi_K^N \OL &\to \OO{L'}/\pi_{K'}^N \OO{L'} \\
+  \beta : \Gal(L/K) &\to \Gal(L'/K') \\
+  \phi : X^*(T) &\to X^*(T')
+ \end{align*}
+ satisfying the conditions
+ \begin{enumerate}
+  \item $\alpha$ induces an isomorphism $\OK/\pi_K^N \OK \to \OO{K'}/\pi_{K'}^N \OO{K'}$,
+  \item $\alpha$ is $\Gal(L/K)$-equivariant relative to $\beta$, and
+  \item $\phi$ is $\Gal(L/K)$-equivariant relative to $\beta$.
+ \end{enumerate}
+If $T$ and $T'$ are $N$-congruent then $\alpha$, $\beta$ and $\phi$ determine an isomorphism
+\begin{equation}\label{transfer}
+  \Hom_{<N}(T(K), \EEx) \iso \Hom_{<N}(T'(K'),\EEx).
+\end{equation}
+Note that if $T$ and $T'$ are $N$-congruent, then they are $N'$ congruent for every
+$N' \leq N$, the isomorphism \eqref{transfer} is depth-preserving at integers less than $N$.
+In this section we show that the isomorphism \eqref{transfer} comes from an equivalence of
+categories of quasicharacter sheaves on $\GN{T}_n$ and those on $\GN{T}'_n$.
+
+One of the main results of \cite{chai-yu:01a} gives an isomorphism of group schemes between
+$\TT_n$ and $\TT'_n$ assuming that $T$ and $T'$ are sufficiently congruent.
+They define a quantity $h$ as the smallest integer so that $\pi^h$ lies in the
+Jacobian ideal associated to a natural embedding of $T$ into an induced torus \cite{chai-yu:01a}*{\S 8.1}.
+Then it follows from \cite{chai-yu:01a}*{Thm. 8.5} that if $N > 3h$ and $T$ and $T'$ are $N$-congruent
+then there is a canonical isomorphism of smooth group schemes
+ $
+  \TT_{N-3h} \to \TT'_{N-3h}
+ $
+ determined by $\alpha, \beta$ and $\phi$.
+Combining this with Theorem~\ref{thm:application} gives the geometrization and categorification of the transfer of characters.
+
+\begin{corollary}\label{cor:transfer}
+ With notation above, suppose that $T$ and $T'$ are $N$-congruent and $N > 3h$.  Set $n \ceq N-3h$.
+ Then there is a canonical equivalence of categories
+ \[
+  \QC(\GN{T}'_{n}) \to \QC(\GN{T}_{n})
+ \]
+ determined by $\alpha, \beta$ and $\phi$ inducing the isomorphism
+ \[
+  \Hom_{<n}(T'(K'), \EEx) \to \Hom_{<n}(T(K), \EEx)
+ \]
+ through the trace of Frobenius.
+\end{corollary}
+
+
+\subsection{Restriction of scalars over local fields}
+\label{sec:wrK}
+
+As indicated in the Introduction, we are tantalized
+by the idea that quasicharacter sheaves for $T$
+may play a key role in a new geometric, categorial version
+of the local Langlands correspondence for algebraic tori
+over non-archimedean local fields.
+As with the local Langlands correspondence for algebraic tori over local fields,
+it should be possible to reduce the essential points of the argument to the case $T= \Gm{K}$,
+provided that the category of quasicharacter sheaves behaves properly with regard to
+Weil restriction, as in \cite{yu:09a}*{Thm 7.5 (2)}.
+The next lemma shows that the category of quasicharacter sheaves for
+algebraic tori does indeed behave properly with regard to Weil restriction.
+
+\begin{lemma}\label{lemma:wrK}
+Weil restriction is compatible with the Greenberg transform in the following sense:
+if $e$ is the ramification degree of $K'/K$ and $k'$ is the residue field of $K'$ then,
+for every positive integer $n$,
+\begin{equation}
+\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)
+\iso
+\Res_{k'/k} \Gr_{en}(\TTp).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+First, note that since $\Res_{\OKp/\OK}(\TTp)$
+is a scheme over $\OK$,
+the Greenberg transform $\Gr_{n}\left( \Res_{\OKp/\OK}(\TTp)\right)$
+is obtained by base change along $\OK \to \OK/\pK^n$
+followed by the Greenberg functor over the Artinian ring $\OK/\pK^n$.
+On the other hand, since $\TTp$ is a scheme over $\OKp$,
+the Greenberg transform $\Gr_{en}(\TTp)$ is defined by base change along
+$\OKp \to \OKp/\pKp^{en}$
+followed by the Greenberg functor over the Artinian ring $\OKp/\pKp^{en}$.
+Note also that
+\begin{equation}\label{nem}
+\OKp \otimes_{\OK} \OK/\pK^n \iso \OKp/\pKp^{en}.
+\end{equation}
+Now Lemma~\ref{lemma:wrK} follows from \cite{bertrapelle-gonzales:Greenberg}*{Prop. 6.3} after observing that  $\TTp \times_\Spec{\OKp} \Spec{\OKp/\pKp^{en}}$ is admissible relative to $\Spec{\OKp/\pKp^{en}} \to \Spec{\OK/\pK^n}$, cf. \cite{bertrapelle-gonzales:Greenberg}*{Rem 2.9 (a)}.
+\end{proof}
+
+\begin{proposition}\label{prop:wrK}
+Let $K'/K$ be a finite Galois extension and
+let $k'/k$ be the corresponding extension of residue fields.
+Let $T$ be an algebraic torus over $K$ and
+set $T' \ceq T \times_\Spec{K} \Spec{K'}$.
+The canonical closed immersion $T \hookrightarrow \Res_{K'/K} T'$
+induces a map of group pro-schemes $\GN{T} \to \Res_{k'/k} \GN{T}'$ which,
+through the pullback functor and the trace of Frobenius, induces the homomorphism
+\[
+\begin{tikzcd}[column sep=60]
+\Hom_{\text{qc}}(T(K'), \EEx) \arrow{r}{\chi \mapsto \chi\vert_{T(K)}} &\Hom_{\text{qc}}(T(K), \EEx).
+\end{tikzcd}
+\]
+\end{proposition}
+
+\begin{proof}
+Adapting the argument in \cite{bosch-lutkebohmert-reynaud:NeronModels}*{\S 7.6, Prop 6} to locally finite type Néron models,
+one may show that $\Res_{\OKp/\OK}(\TTp)$ is a Néron model for $\Res_{K'/K}(T')$.
+By the Néron mapping property, the canonical closed immersion
+$T\hookrightarrow \Res_{K'/K}(T')$ extends uniquely to a morphism
+$\underline{T}\to \Res_{\OKp/\OK}(\TTp)$ of smooth $\OK$-group schemes.
+Applying the Greenberg transform $\Gr_{n}$ to this morphism
+and using Lemma~\ref{lemma:wrK} defines the morphism of $\Fq$-group schemes
+\begin{equation}\label{men}
+\GN{T}_n \to \Res_{k'/k} \GN{T}'_{en}.
+\end{equation}
+Passing to the pro-group schemes in Definition~\ref{def:objGN}
+the family of morphisms \eqref{men} determines a morphism of pro-group schemes
+\[
+\GN{T} \to \Res_{k'/k} \GN{T}'.
+\]
+Since $\left(\Res_{k'/k} \GN{T}'_{en} \right)(\Fq) = \left(\GN{T}'_{en}\right)(k')$,
+the pullback functor $\QC(\Res_{k'/k} \GN{T}'_{en})\to \QC(\GN{T}_n)$
+obtained by applying \cite{cunningham-roe:dictionary}*{Prop. 4.1} to \eqref{men} gives
+\[
+\Hom_{< en}(T'(K'),\EEx) \to \Hom_{< n}(T(K),\EEx).
+\]
+Passing to inverse limits defines
+\[
+\Hom_{\text{qc}}(T(K'),\EEx) \to \Hom_{\text{qc}}(T(K),\EEx).
+\]
+Argue as in \cite{cunningham-roe:dictionary}*{Prop. 5.1} to see that this is indeed restriction of characters.
+\end{proof}
+
+If we specialize Proposition~\ref{prop:wrK} to the case when
+$T = \Gm{K}$ then we see how to geometrize and categorify the restriction of quasicharacters from $(K')^\times$ to $K^\times$.
+
+
+\section{Parameters from quasicharacter sheaves}
+
+The component group scheme $\pi_0(\GN{T}_n)$, which is independent of $n$, is defined by the short exact sequence
+\[
+\begin{tikzcd}
+0 \arrow{r} & \GN{T}_n^0 \arrow{r}{\iota_0} & \GN{T}_n \arrow{r}{\pi_0} & \pi_0(\GN{T}_n) \arrow{r} & 0.
+\end{tikzcd}
+\]
+As we saw in [CR], this exact sequence of smooth commutative group schemes defines an isomorphism of exact sequences of commutative groups
+\[
+\begin{tikzcd}
+0 \arrow{r} & \QCiso{\pi_0(\GN{T}_n)} \arrow{r}{\pi_0^*} \arrow{d} & \QCiso{\GN{T}} \arrow{r}{\iota^*} \arrow{d} &  \QCiso{\GN{T}_n^0} \arrow{r} \arrow{d} & 0\\
+0 \arrow{r} & \Hom(\pi_0(\GN{T}_n)(\Fq),\EEx) \arrow{r} & \Hom(\GN{T}_n(\Fq),\EEx) \arrow{r} & \Hom(\GN{T}_n^0(\Fq),\EEx) \arrow{r} & 0
+\end{tikzcd}
+\]
+We have already seen $\Hom(\GN{T}_n(\Fq),\EEx) = \Hom_{<n}(T(K),\EEx)$;
+by similar arguments,
+\[
+\Hom(\GN{T}^0_n(\Fq),\EEx) = \Hom_{<n}(T(\OK),\EEx).
+\]
+Consequently,
+\[
+\Hom(\pi_0(\GN{T}_n)(\Fq),\EEx) = \Hom(T(K)/T(\OK),\EEx).
+\]
+Our goal in the next three sections is to define the three dashed arrows below in the diagram below, in which the bottom row is the inflation-restriction sequence with the initial and terminal groups elided.
+\[
+\begin{tikzcd}[column sep=-5, row sep = 20]
+&& & \arrow{dl} \QCiso{\pi_0(\GN{T}_n)} \arrow{rr} \arrow[dashed]{dd}[near start]{?} && \arrow{dl}  \QCiso{\GN{T}_n} \arrow[dashed]{dd}[near start]{?} \arrow{rr}  && \arrow{dl}  \QCiso{\GN{T}_n^\circ} \arrow[dashed]{dd}[near start]{?}  &  &  \\
+&& \Hom(T(K)/T(\OK),\EEx)  \arrow[crossing over]{rr} \arrow{rd}{} && \Hom_{<n}(T(K),\EEx) \arrow[crossing over]{rr} \arrow{rd}{\text{rec}_T} && \Hom_{<n}(T(\OK),\EEx)  \arrow{rd}{}  &&  & \\
+&&  & \Hh^1(\Weil{\Fq},\hat{T}_\ell^{I_K}) \arrow{rr} && \Hh^1_{<n}(\Weil{K},\hat{T}_\ell)\arrow{rr} && \Hh^1_{<n}(I_K,\hat{T}_\ell)^{\Weil{\Fq}} &  &
+\end{tikzcd}
+\]
+
+\subsection{Component group}
+
+There is another description of $\Hom(\pi_0(\GN{T}_n)(\Fq),\EEx)$ which leads easily to Langlands parameters for $T$:
+\begin{eqnarray*}
+\Hom(\pi_0(\GN{T}_n)(\Fq),\EEx)
+&\iso & \Hom(\left(X_*(T)_{I_K}\right)^{\Weil{\Fq}},\EEx)\\
+&\iso& \Hom(X_*(T)_{I_K},\EEx)_{\Weil{\Fq}}\\
+&=& \Hh^1(\Weil{\Fq}, \Hom(X_*(T)_{I_K},\EEx)) \\
+&\iso& \Hh^1(\Weil{\Fq}, \Hom(X_*(T),\EEx)^{I_K}) \\
+&=& \Hh^1(\Weil{\Fq}, (X^*(T)\otimes_{\ZZ} \EEx)^{I_K}) \\
+&=& \Hh^1(\Weil{\Fq}, \dual{T}_\ell^{I_K}).
+\end{eqnarray*}
+
+
+\subsection{Connected component}
+
+
+\subsection{General case}
+
+
+\section{Geometric reciprocity for tori over local fields}
+\label{sec:reciprocity}
+
+We have given a functorial relationship between quasicharacter sheaves
+on the Greenberg transform of the Néron model of $T$
+and quasicharacters of $T(K)$.
+When coupled with the reciprocity map $\text{rec}_T $ for $T$,
+which enjoys the same functorial properties,
+it follows that quasicharacter sheaves for $T$
+functorially correspond to Langlands parameters for $T$.
+We suspect that it is possible to extract Langlands parameters
+from quasicharacter sheaves directly and that the reciprocity map
+can then be viewed as a matching between quasicharacters and Langlands parameters coming
+ from the same quasicharacter sheaf.
+ \[
+\begin{tikzcd}
+\ & \arrow[swap]{dl}{\trFrob{G}} \QCiso{\GN{T}} \arrow[dashed]{dr} & \\
+\Hom_{\text{qc}}(T(K),\EEx) \arrow{rr}{\text{rec}_T} && H^1(K,\hat{T}_\ell)
+\end{tikzcd}
+\]
+ Results in this paper provide tools for reduction of the problem to the case $T=\Gm{K}$.
+ In that case, our suspicions are all but confirmed
+ by the class field theory of Serre-Hazewinkel
+ \citelist{\cite{serre:60a} \cite{serre:61a} \cite{demazure-gabriel:GroupesAlgebriques}*{Appendice}},
+ especially as revisited in \cite{suzuki-yoshida:12a}*{\S 2}.
+ What remains to be done is a careful comparison of
+ quasicharacter sheaves for $\Gm{K}$ and the local systems on
+  the fpqc-site of the pro-quasi-algebraic varieties appearing in \cite{suzuki-yoshida:12a}.
+In this regard, a comparison between the results in this paper and those in \cite{cunningham-kamgarpour:geometrization} might also be illuminating.
+
+
+
+
+
+
+\bibliographystyle{amsalpha}
+\bibliography{Biblio}
+
+\end{document}
+%sagemathcloud={"zoom_width":100}
