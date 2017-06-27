@@ -295,8 +295,8 @@ These elements are pulled together in Section~\ref{ssec:geotypes}, where the pro
 
 \bigskip
 
-We are extremely grateful to Loren Spice for explaining Yu's types for supercuspidal representations.
-We also thank Masoud Kamgarpour for helpful conversations, and the anonymous referee of this paper, would pointed out an error in an earlier version and helped us clarify several points.
+We are extremely grateful to Loren Spice for explaining Yu's types for supercuspidal representations and Masoud Kamgarpour for helpful conversations.
+We also thank Will Sawin and the anonymous referee, who pointed out errors in earlier versions of this paper and helped us clarify several points.
 
 \section{Recollections and definitions} \label{sec:defs}
 
@@ -455,16 +455,16 @@ defined in our previous paper are precisely those non-commutative character shea
 \section{Commutative character sheaves on non-commutative groups}\label{sec:noncom}
 
 We now consider the case of a smooth group scheme without the commutativity assumption.  We start
-by relating character sheaves on $G$ to character sheaves on its abelianization.
+by relating linear character sheaves on $G$ to character sheaves on its abelianization.
 
 If $\chi \in G(k)^*$ is a character, it must vanish on the derived subgroup $G\der(k)$. \todo{Error} 
-Kamgarpour gives an example \cite{kamgarpour:09a}*{(1.1)} of a character sheaf
+Kamgarpour gives an example \cite{kamgarpour:09a}*{(1.1)} of a linear character sheaf
 on $G = \PGL_n$ that does not vanish on $G\der = \PGL_n$, defined by the extension
 \[
 1 \to \mu_n \to \SL_n \to \PGL_n \to 1
 \]
 together with a non-trivial character of $\mu_n(k)$. \todo{Small change here.}
-In order to obtain a relationship between character sheaves on $G$ and characters of $G(k)$,
+In order to obtain a relationship between linear character sheaves on $G$ and characters of $G(k)$,
 he opts to give a different definition of commutator and, in doing so, introduces a `stacky abelianization' of $G$ in order to geometrize characters of $G(\Fq)$.
  Since we have already seen the need to adapt the
 notion of character sheaf, even in the commutative case, we instead add restrictions
@@ -479,8 +479,6 @@ Section~\ref{sec:noncom} concludes with Theorem~\ref{thm:geo}, showing that the 
 
 \subsection{Main definition}\label{ssec:noncomdef}
 
-In order to get character sheaves that correspond to characters in $G(k)^*$, we must discard those
-character sheaves whose restriction to the derived subgroup is nontrivial.
 Recall from Section~\ref{sec:defs} that we refer to objects in category $\CS(G)$, defined as
 in \cite{cunningham-roe:13a}*{Def. 1.1}, as linear character sheaves when $G$ is smooth but
 not necessarily commutative.  
@@ -498,14 +496,14 @@ in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{G\der}$.
 The reason for tracking $\beta$ is that it determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows,
 which will replace the $\xi$ of Definition \ref{def:CCScom}.
 Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
-Both are smooth morphisms of $\Fq$-schemes.
-Set $m' = i \circ m \circ \theta$ and let $j\der : G\der\to G$ be inclusion; then $j\der\circ c = m \circ (m \times m')$.
+Both are morphisms of $\Fq$-schemes.
+Set $m' = i \circ m \circ \theta$ and let $i\der : G\der\to G$ be inclusion; then $i\der\circ c = m \circ (m \times m')$.
 Then $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ by the diagram of isomorphisms below.
 \begin{equation}
 \begin{tikzcd}
 \arrow[equal]{d} c^* (\cs{L}\vert_{G\der}) \arrow{r}{c^*(\beta)} 
 	&  c^*((\EE)_{G\der}) \arrow[equal]{d} \\
-\arrow{d}[swap]{j\der\circ c = m \circ (m \times m')} c^* j\der^* \cs{L} 
+\arrow{d}[swap]{i\der\circ c = m \circ (m \times m')} c^* i\der^* \cs{L} 
 	&   (\EE)_{G\times G} \\
 (m \times m')^* m^* \cs{L} \arrow{d}[swap]{(m \times m')^*(\mu)} 
 	&  m^*\cs{L} \otimes \theta^* m^* i^* \cs{L}  \arrow[dashed]{u}[swap]{\gamma'} \\
@@ -513,7 +511,7 @@ Then $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ determines the isomorphism 
 	& m^*\cs{L} \otimes (m')^*\cs{L} \arrow{u}[swap]{m' = i\circ m\circ \theta} 
 \end{tikzcd}
 \end{equation}
-In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations; so, for example, the middle left isomorphism comes from $(m\times m')^* m^* \iso c^* j\der^*$ since $j\der\circ c = m \circ (m \times m')$.
+In the diagram above, the arrows labeled with equations come from canonical isomorphisms of functors on Weil sheaves derived from the equations; so, for example, the middle left isomorphism comes from $(m\times m')^* m^* \iso c^* i\der^*$ since $i\der\circ c = m \circ (m \times m')$.
 Using the monoidal structure of the category of Weil local systems on $G\times G$, the isomorphism $\gamma' : m^*\cs{L} \otimes \theta^* m^* i^*\cs{L} \to (\EE)_{G\times G}$ defines an isomorphism
 \[
 m^*\cs{L} \to (\theta^* m^* i^*\cs{L})^\vee.
@@ -657,7 +655,7 @@ Likewise define $n^2 : G\der^2 \times G^2 \to G^2$ and $p^2 : G\der^2\times G \t
 
 \begin{lemma}\label{lem:HH}
 If $(\cs{L},\mu,\nu)$ is a $G\der$-equivariant linear character sheaf on $G$ then $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ 
-is a morphism of $G^2\der$-equivariant Weil local systems on $G^2$. 
+is a morphism of $G^2\der$-equivariant Weil local systems on $G^2$, as defined in Section \ref{ssec:equivariant1}.
 \end{lemma}
 
 \begin{proof} 
@@ -797,7 +795,7 @@ where $\pi_0(\bar{G})_{\Frob{}}$ denotes the covariants of the action of Frobeni
 the component group of $\bar{G}$
 
 \begin{corollary}
-If $G$ is a smooth group scheme and $(\cs{L},\mu)$ is a character sheaf on $G$ with trivial restriction to $G\der$,
+If $G$ is a smooth group scheme and $(\cs{L},\mu)$ is a linear character sheaf on $G$ with trivial restriction to $G\der$,
 then the set of isomorphism classes of objects in $\CS(G\ab)$ mapping to $(\cs{L},\mu)$ under $q^*$ is a principal homogeneous space
 for $C$.
 \end{corollary}
@@ -806,10 +804,10 @@ By Proposition~\ref{prop:CSGabab}, it suffices to find the set of isomorphism cl
 $(\cs{L},\mu)$ under the forgetful functor.  By the previous corollary this set is nonempty.
 If $(\cs{L},\mu,\beta)$ and $(\cs{L},\mu,\beta')$ both map to $(\cs{L},\mu)$, then $\beta' \circ \beta^{-1}$ is an
 automorphism of the constant sheaf on $G\der$.  Conversely, if $\varphi$ is an automorphism of $(\EE)_{G\der}$
-and $(\cs{L},\mu,\beta) \in \CSab(G)$ then $(\cs{L},\mu,\varphi \circ \beta) \in \CSab(G)$.  By \cite{cunningham-roe:13a}*{Theorem 3.9},
+and $(\cs{L},\mu,\beta) \in \CSab(G)$ then $(\cs{L},\mu,\varphi \circ \beta) \in \CSab(G)$.  As in \cite{cunningham-roe:13a}*{Theorem 3.9},
 the automorphism group is isomorphic to $\Hom(\pi_0(\bar{G}\der)_{\Frob{}}, \EEx)$.  Finally, we note that any
 automorphism $\alpha$ of $(\cs{L},\mu) \in \CS(G)$ defines an isomorphism $(\cs{L},\mu,\beta \circ \alpha|_{G\der}) \to (\cs{L},\mu,\beta)$.
-Applying \cite{cunningham-roe:13a}*{Theorem 3.9} again yields the desired result.
+Applying the analogue of \cite{cunningham-roe:13a}*{Theorem 3.9} again yields the desired result.
 \end{proof}
 
 \subsection{Objects and maps in commutative character sheaves} \label{ssec:obmor}
@@ -818,7 +816,7 @@ We are now in a position to prove that commutative character sheaves on $G$ matc
 We start with a method that will allow us to situate the diagram in Definition \ref{def:CCS} within $\CSab(G^2)$.
 
 \begin{lemma}\label{lemma:morinCSab}
-If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G\times G)$.
+If $(\cs{L},\mu,\beta)\in \CS\ab(G)$ then $\mu  : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, $\gamma : m^*\cs{L} \to  \theta^*(m^*\cs{L})$ and $\vartheta: \cs{L}\boxtimes\cs{L} \to \theta^*(\cs{L}\boxtimes \cs{L})$ are morphisms in $\CS\ab(G^2)$.
 \end{lemma}
 \begin{proof}
 Define $m^2 : G^2\times G^2 \to G^2$ by $m^2(g_1,g_2,g_1',g_2') = (g_1g_1',g_2g_2')$. Also define $p^2_i : G^2\times G^2 \to G^2$ by $p^2_i(g_1,g_2,g_1,'g_2') = (g_i,g_i')$.
@@ -993,8 +991,8 @@ Using Theorem~\ref{thm:geo}, let $\cs{L}_m$ be a geometrization of the character
 on $G_m(\Fq)$.
 %
 Recall that the full Greenberg transform $G \ceq \Gr^{R}(\underline{G})$ is a group scheme over $\Fq$ such that $G(\Fq) = \underline{G}(R)$; it comes equipped with a morphism $G \to G_m$.
-Let $\cs{L}$ be the  Weil sheaf on $G$ obtained from $\cs{L}_m$ by pullback along $G \to G_m$. 
-Then $\cs{L}$ is a quasicharacter sheaf on $G$, in the sense of \cite{cunningham-roe:13a}*{Def 4.3}, such that $\trFrob{\cs{L}} = \varphi$.
+Let $\cs{L}$ be the Weil sheaf on $G$ obtained from $\cs{L}_m$ by pullback along $G \to G_m$. 
+Then $\cs{L}$ is a quasicharacter sheaf on $G$, in the sense of \cite{cunningham-roe:13a}*{Def 4.2}, such that $\trFrob{\cs{L}} = \varphi$.
 \end{proof}
 
 \subsection{Jacobi theory over finite fields}\label{ssec:Jacobi}
