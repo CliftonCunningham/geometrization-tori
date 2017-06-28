@@ -705,7 +705,6 @@ Suppose $G$ is a smooth group scheme.
 Then pullback along $q : G \to G\ab$ defines an equivalence $\CS(G\ab) \to \CS\der(G)$.
 \end{proposition}
 \begin{proof}
-%In light of Lemma~\ref{lemma:nubeta}, it suffices to prove that the comparison functor $q\ab^* : \CS(G\ab) \to \CS\der(G)$ is an equivalence. 
 Let $L^2 : \Loc(G^2\ab) \to \Loc\der(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$. 
 Then $L^2$ is also an equivalence by Lemma~\ref{lemma:descent}.
 Moreover, using Lemma~\ref{lem:HH}, we may rewrite the comparison functor $q\ab^*$ on objects by
@@ -724,11 +723,13 @@ The proposition now follows from the fact that both $L$ and $L^2$ are equivalenc
 We may now relate $\CS\ab(G)$ to $\CS(G\ab)$.
 %To do so, we use decent along $q : G \to G\ab$.
 
-\begin{lemma}\label{lemma:nubeta}
-Categories $\CS\der(G)$ and $\CS\ab(G)$ are equivalent.
-\end{lemma}
+\begin{proposition}\label{prop:nubeta}
+The categories $\CS\ab(G)$ and $\CS(G\ab)$ are equivalent.
+\end{proposition}
 
 \begin{proof}
+In light of Proposition~\ref{prop:CSGabab}, it suffices to exhibit an equivalence  between $\CS\der(G)$ and $\CS\ab(G)$.
+
 We begin by defining a functor $\CS\ab(G) \to \CS\der(G)$.
 Let $j\der : G\der \to G$ be the kernel of $q:G \to G\ab$ 
 Define $k: G\der\times G\to G\times G$ by $k(h,g) = (j\der(h),g)$.
