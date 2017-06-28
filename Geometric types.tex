@@ -494,8 +494,7 @@ A morphism $(\cs{L},\mu,\beta)\to (\cs{L}',\mu',\beta')$ is a morphism $\alpha :
 in $\CS(G)$ such that $\beta = \beta' \circ \alpha\vert_{G\der}$.  
 \end{definition}
 
-The reason for tracking $\beta$ is that it determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ as follows,
-which will replace the $\xi$ of Definition \ref{def:CCScom}.
+The reason for tracking $\beta$ is that it determines an isomorphism $\gamma : m^*\cs{L} \to \theta^*m^*\cs{L}$ which will replace the $\xi$ of Definition \ref{def:CCScom}, as follows.
 Let $i : G \to G$ be inversion and $c : G\times G\to G\der$ be the commutator map, defined by $c(x,y)= xyx^{-1}y^{-1}$.
 Both are morphisms of $\Fq$-schemes.
 Set $m' = i \circ m \circ \theta$ and let $i\der : G\der\to G$ be inclusion; then $i\der\circ c = m \circ (m \times m')$.
@@ -544,7 +543,7 @@ But first, in order to study commutative character sheaves, we need some auxilia
 
 \subsubsection{Equivariant Weil local systems}\label{ssec:equivariant1}
 
-Let $\Loc(G)$ and $\Loc(G\ab)$ be the categories of Weil local systems on $G$ and $G\ab$, respectively.
+Let $\Loc(G)$ be the category of Weil local systems on $G$.
 Let $\Loc\der(G)$ be the category of $G\der$-equivariant Weil local systems on $G$, whose definition we now recall.
 Let $n : G\der\times G\to G$ be the restriction of $m : G\times G\to G$ to $G\der\times G$,
 let $p : G\der\times G \to G$ be projection to the second component, and let $s: G \to G\der\times G$ be given by $s(g) = (1,g)$.
@@ -613,41 +612,63 @@ commutes.
 This defines $\Loc\der(G)$, the category of $G\der$-equivariant Weil local systems on $G$.
 The reader will recognize this notion as the Weil local system version of equivariant sheaves for the action $n$ of $G\der$ on $G$, as can be found, for example, in \cite{bernstein-lunts:equivariant}*{0.2}. 
 
+Let $\Loc(G\ab)$ be the category of Weil local systems on $G\ab$.
+If $\cs{L}\ab\in \Loc(G\ab)$ then $q^*\cs{L}\ab\in \Loc(G)$ comes equipped with a canonical isomorphism $\nu(\cs{L}\ab) : n^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
+\[
+\begin{tikzcd}[column sep=40]
+n^*\cs{L} \arrow[equal]{d} \arrow[dashed]{r}{\nu(\cs{L}\ab)} &  \arrow[equal]{d} p^*\cs{L} \\
+n^* ( q^*\cs{L}\ab) \arrow[equal]{r}{q\circ n = q\circ p}
+& p^* (q^*\cs{L}\ab)
+\end{tikzcd}
+\]
+Then $(q^*\cs{L}\ab,\nu(\cs{L}\ab))$ satisfies \eqref{E1} and \eqref{E2}, so $(q^*\cs{L}\ab,\nu(\cs{L}\ab)) \in \Loc\der(G)$.
+Moreover, if $\alpha\ab : \cs{L}\ab \to \cs{L}\ab$ is a morphism in $\Loc(G\ab)$ then $q^*(\alpha\ab)$ satisfies the condition in \eqref{E3}, so $q^*(\alpha\ab)$ is a morphism in $\Loc\der(G)$.
+This defines the functor
+\[
+L : \Loc(G\ab)\to \Loc\der(G)
+\]
+
+\begin{lemma}\label{lemma:descent}
+The functor $L : \Loc(G\ab)\to \Loc\der(G)$ is an equivalence.
+\end{lemma}
+\begin{proof}
+The quotient $q : G \to G\ab$ is an $G\der$-torsor in the fppf topology by \cite{demazure:SGA3-VIA}*{Thm. 3.2}, and thus a $G\der$-torsor in the fpqc topology.
+The lemma is now a result from descent theory, arguing as in \cite{Vistoli:notes}*{Theorem 4.46} for example. 
+\end{proof}
+
+Observe that if $(\cs{L},\nu)\in \Loc\der(G)$ then ... \todo{New lemma?}
 
 \subsubsection{Equivariant linear character sheaves}\label{ssec:equivariant2}
 
 With reference to Section~\ref{ssec:equivariant1}, we define a $G\der$-equivariant linear character sheaf on $G$ to be a triple $(\cs{L},\mu, \nu)$, where $(\cs{L},\mu)$ is a linear character sheaf and $(\cs{L},\nu)$ is an $G\der$-equivariant Weil local system.  
-A morphism of $G\der$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $G\der$-equivariant Weil local systems $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves.
+A morphism of $G\der$-equivariant linear character sheaves $(\cs{L},\mu,\nu) \to (\cs{L}',\mu',\nu')$ is a morphism of $G\der$-equivariant Weil local systems $\alpha : \cs{L}\to \cs{L}'$ which is also a morphism of linear character sheaves; 
 Let $\CS\der(G)$ be the category of $G\der$-equivariant linear character sheaves on $G$.
 
-\begin{lemma}\label{lemma:nubeta}
-Categories $\CS\der(G)$ and $\CS\ab(G)$ are equivalent.
-\end{lemma}
-
-\begin{proof}
-Let $i\der : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\der\times G$ by $j(h) = (h,1)$. 
-If $(\cs{L},\mu,\nu)\in \CS\der(G)$ then $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. 
-This defines a functor by
+Consider the functor
 \[
-\begin{array}{rcl}
-\CS\der(G) &\to& \CSab(G) \\
-(\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,j^*(\nu))
-\end{array}
+q^* : \CS(G\ab) \to \CS(G)
 \]
-on objects and trivially on morphisms.
-It is easy to verify that morphisms that commute with $\mu$ and $\nu$ also commute with $\mu$ and $j^*(\nu)$.
-This functor is an equivalence; its adjoint is given as follows.
-Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i\der(h),g)$.
-Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p^*\cs{L}$ by the following diagram.
+given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$; this is an instance of \cite{cunningham-roe:13a}*{Lem. 1.4}.
+To see that $(q^*\cs{L}\ab, (q^2)^* \mu\ab)$ is indeed a linear character sheaf on $G$,
+verify \cite{cunningham-roe:13a}*{CS.3}.
+Now set $L(\cs{L}\ab) = (\cs{L},\nu)$, where $L : \Loc(G\ab) \to \Loc\der(G)$ is the comparison functor above, so $\cs{L} = q^*\cs{L}\ab$ and $\nu = \nu(\cs{L}\ab)$.
+Then $(\cs{L}, \mu,\nu)$ is an object in $\CS\der(G)$.
+If $\alpha\ab : (\cs{L}\ab,\mu\ab) \to (\cs{L}\ab',\mu\ab')$ is a morphism in $\CS(G\ab)$, 
+then $q^*(\alpha\ab) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha = q^*(\alpha\ab)$ is a morphism in $\CS(G)$.
+These observations define the comparison functor
 \[
+q\ab^* : \CS(G\ab) \to \CS\der(G)
+\]
+and also show that the functor $q^* : \CS(G\ab) \to \CS(G)$ factors according to the following commuting diagram of functors
+\begin{equation}\label{qH}
 \begin{tikzcd}
-& n^* \cs{L} \arrow{dl}{m\circ k = n} \arrow[dashed]{r}{\nu} & p^*\cs{L} &  \\ 
-k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
-& k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id_\cs{L}}
+\CS(G) &\arrow{l}[swap]{q^*} 
+\CS(G\ab) \arrow{dl}{q\ab^*}\\
+\arrow{u}{\text{forget}} \CS\der(G). & 
 \end{tikzcd}
-\]
-This defines the functor  $\CS\ab(G) \to \CS\der(G)$, after confirming that morphisms that commute with $\mu$ and $\beta$ also commute with $\mu$ and $\nu$.
-\end{proof}
+\end{equation}
+The definition of $q\ab^* : \CS(G\ab)\to \CS\der(G)$ will be revisited in the proof of Proposition~\ref{prop:CSGabab}.
+
 
 
 Set $G^2 = G\times G$, so $G^2\der = G\der\times G\der$ and $G^2\ab = G\ab\times G\ab$.
@@ -684,77 +705,60 @@ This diagram also shows that $\mu : m^*\cs{L} \to \cs{L}\boxtimes \cs{L}$ is a m
 \end{proof}
 
 
+\begin{proposition} \label{prop:CSGabab}
+Suppose $G$ is a smooth group scheme.  
+Then pullback along $q : G \to G\ab$ defines an equivalence $\CS(G\ab) \to \CS\der(G)$.
+\end{proposition}
+\begin{proof}
+%In light of Lemma~\ref{lemma:nubeta}, it suffices to prove that the comparison functor $q\ab^* : \CS(G\ab) \to \CS\der(G)$ is an equivalence. 
+Let $L^2 : \Loc(G^2\ab) \to \Loc\der(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$. 
+Then $L^2$ is also an equivalence by Lemma~\ref{lemma:descent}.
+Moreover, using Lemma~\ref{lem:HH}, we may rewrite the comparison functor $q\ab^*$ on objects by
+\[
+\begin{array}{rcl}
+\CS(G\ab) &\to& \CS\der(G) \\
+(\cs{L}\ab,\mu\ab) &\mapsto& (L(\cs{L}\ab), L^2(\mu\ab)).
+\end{array}
+\]
+and on morphisms by $\alpha \mapsto L(\alpha)$.
+The proposition now follows from the fact that both $L$ and $L^2$ are equivalences.
+\end{proof}
+
+
+
 \subsubsection{Descent}
 
 We may now relate $\CSab(G)$ to $\CS(G\ab)$.
 To do so, we use decent along $q : G \to G\ab$.
 
-If $\cs{L}\ab\in \Loc(G\ab)$ then $q^*\cs{L}\ab\in \Loc(G)$ comes equipped with a canonical isomorphism $\nu(\cs{L}\ab) : n^* \cs{L} \to p^* \cs{L}$ defined by the following diagram of isomorphisms.
-\[
-\begin{tikzcd}[column sep=40]
-n^*\cs{L} \arrow[equal]{d} \arrow[dashed]{r}{\nu(\cs{L}\ab)} &  \arrow[equal]{d} p^*\cs{L} \\
-n^* ( q^*\cs{L}\ab) \arrow{r}{q\circ n = q\circ p}
-& p^* (q^*\cs{L}\ab)
-\end{tikzcd}
-\]
-Then $(q^*\cs{L}\ab,\nu(\cs{L}\ab))$ satisfies \eqref{E1} and \eqref{E2}, so $(q^*\cs{L}\ab,\nu(\cs{L}\ab)) \in \Loc\der(G)$.
-Moreover, if $\alpha\ab : \cs{L}\ab \to \cs{L}\ab$ is a morphism in $\Loc(G\ab)$ then $q^*(\alpha\ab)$ satisfies the condition in \eqref{E3}, so $q^*(\alpha\ab)$ is a morphism in $\Loc\der(G)$.
-This defines the functor
-\[
-L : \Loc(G\ab)\to \Loc\der(G)
-\]
-
-\begin{lemma}\label{lemma:descent}
-The functor $L : \Loc(G\ab)\to \Loc\der(G)$ is an equivalence.
+\begin{lemma}\label{lemma:nubeta}
+Categories $\CS\der(G)$ and $\CS\ab(G)$ are equivalent.
 \end{lemma}
+
 \begin{proof}
-The quotient $q : G \to G\ab$ is an $G\der$-torsor in the fppf topology by \cite{demazure:SGA3-VIA}*{Thm. 3.2}, and thus a $G\der$-torsor in the fpqc topology.
-The lemma is now a result from descent theory, arguing as in \cite{Vistoli:notes}*{Theorem 4.46} for example. 
-\end{proof}
-
-Consider the functor
-\[
-q^* : \CS(G\ab) \to \CS(G)
-\]
-given on objects by $(\cs{L}\ab,\mu\ab) \mapsto (q^*\cs{L}\ab, (q^2)^* \mu\ab)$; this is an instance of \cite{cunningham-roe:13a}*{Lem. 1.4}.
-To see that $(q^*\cs{L}\ab, (q^2)^* \mu\ab)$ is indeed a linear character sheaf on $G$,
-verify \cite{cunningham-roe:13a}*{CS.3}.
-Now set $L(\cs{L}\ab) = (\cs{L},\nu)$, where $L : \Loc(G\ab) \to \Loc\der(G)$ is the comparison functor above, so $\cs{L} = q^*\cs{L}\ab$ and $\nu = \nu(\cs{L}\ab)$.
-Then $(\cs{L}, \mu,\nu)$ is an object in $\CS\der(G)$.
-If $\alpha\ab : (\cs{L}\ab,\mu\ab) \to (\cs{L}\ab',\mu\ab')$ is a morphism in $\CS(G\ab)$, 
-then $q^*(\alpha\ab) : (\cs{L},\mu) \to (\cs{L}',\mu')$ satisfies \cite{cunningham-roe:13a}*{CS4}, so $\alpha = q^*(\alpha\ab)$ is a morphism in $\CS(G)$.
-These simple observations define the comparison functor
-\[
-q\ab^* : \CS(G\ab) \to \CS\der(G)
-\]
-and also show that the functor $q^* : \CS(G\ab) \to \CS(G)$ factors according to the following commuting diagram of functors
-\begin{equation}\label{qH}
-\begin{tikzcd}
-\CS(G) &\arrow{l}[swap]{q^*} 
-\CS(G\ab) \arrow{dl}{q\ab^*}\\
-\arrow{u}{\text{forget}} \CS\der(G). & 
-\end{tikzcd}
-\end{equation}
-The definition of $q\ab^* : \CS(G\ab)\to \CS\der(G)$ will be revisited in the proof of the following result.
-
-
-\begin{proposition} \label{prop:CSGabab}
-Suppose $G$ is a smooth group scheme.  
-Then pullback along $q : G \to G\ab$ defines an equivalence $\CS(G\ab) \to \CSab(G)$.
-\end{proposition}
-\begin{proof}
-In light of Lemma~\ref{lemma:nubeta}, it suffices to prove that the comparison functor $q\ab^* : \CS(G\ab) \to \CS\der(G)$ is an equivalence. 
-Let $L^2 : \Loc(G^2\ab) \to \Loc\der(G^2)$ be the comparison functor for the quotient $q^2  : G^2 \to G^2\ab$. 
-Then $L^2$ is also an equivalence by Lemma~\ref{lemma:descent}.
-Using Lemma~\ref{lem:HH}, we may rewrite the comparison functor $q\ab^*$ on objects by
+Let $i\der : G\der \to G$ be the kernel of $q:G \to G\ab$ and define $j : G\der \to G\der\times G$ by $j(h) = (h,1)$. 
+If $(\cs{L},\mu,\nu)\in \CS\der(G)$ then $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. 
+\todo{Address referee's comment here}
+This defines a functor by
 \[
 \begin{array}{rcl}
-\CS(G\ab) &\to& \CS\der(G) \\
-(\cs{L}\ab,\mu\ab) &\mapsto& (L(\cs{L}\ab), L^2(\mu\ab))
+\CS\der(G) &\to& \CSab(G) \\
+(\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,j^*(\nu))
 \end{array}
 \]
-and on morphisms by $\alpha \mapsto L(\alpha)$.
-The proposition now follows from the fact that both $L$ and $L^2$ are equivalences.
+on objects and trivially on morphisms.
+It is easy to verify that morphisms that commute with $\mu$ and $\nu$ also commute with $\mu$ and $j^*(\nu)$.
+This functor is an equivalence; its adjoint is given as follows.
+Define $k: G\der\times G\to G\times G$ by $k(h,g) = (i\der(h),g)$.
+Then for $(\cs{L},\mu,\beta) \in \CSab(G)$, define $\nu : n^*\cs{L} \to p^*\cs{L}$ by the following diagram.
+\[
+\begin{tikzcd}
+& n^* \cs{L} \arrow[equal]{dl}{m\circ k = n} \arrow[dashed]{r}{\nu} & p^*\cs{L} &  \\ 
+k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
+& k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id_\cs{L}}
+\end{tikzcd}
+\]
+This defines the functor  $\CS\ab(G) \to \CS\der(G)$, after confirming that morphisms that commute with $\mu$ and $\beta$ also commute with $\mu$ and $\nu$.
 \end{proof}
 
 \begin{corollary} 
@@ -792,7 +796,7 @@ Let $C$ denote the cokernel of the natural map
 \[
 \Hom(\pi_0(\bar{G})_{\Frob{}}, \EEx) \to \Hom(\pi_0(\bar{G}\der)_{\Frob{}}, \EEx),
 \]
-where $\pi_0(\bar{G})_{\Frob{}}$ denotes the covariants of the action of Frobenius on
+where $\pi_0(\bar{G})_{\Frob{}}$ denotes the coinvariants of the action of Frobenius on
 the component group of $\bar{G}$
 
 \begin{corollary}
