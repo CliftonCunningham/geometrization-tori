@@ -722,9 +722,7 @@ and on morphisms by $\alpha \mapsto L(\alpha)$.
 The proposition now follows from the fact that both $L$ and $L^2$ are equivalences.
 \end{proof}
 
-
-
-\subsubsection{Rigidification} \todo{Not sure that's the right subsection title. Other  suggestions?}
+\subsubsection{Rigidification} 
 
 We may now relate $\CS\ab(G)$ to $\CS(G\ab)$.
 %To do so, we use decent along $q : G \to G\ab$.
@@ -738,36 +736,40 @@ We begin by defining a functor $\CS\ab(G) \to \CS\der(G)$.
 Let $j\der : G\der \to G$ be the kernel of $q:G \to G\ab$ 
 Define $k: G\der\times G\to G\times G$ by $k(h,g) = (j\der(h),g)$.
 Then for $(\cs{L},\mu,\nu) \in \CS\der(G)$, define $\beta : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ by the following diagram.
-\[
+\begin{equation}\label{eqn:betanu}
 \begin{tikzcd}
 & n^* \cs{L} \arrow[equal]{dl}{m\circ k = n} \arrow{r}{\nu} & p^*\cs{L} &  \\ 
 k^* m^* \cs{L} \arrow{dr}{k^*(\mu)} &&& (\EE)_{G\der} \boxtimes \cs{L} \arrow[equal]{ul} \\
 & k^*(\cs{L}\boxtimes\cs{L}) \arrow[equal]{r} & \cs{L}\vert_{G\der}\boxtimes \cs{L} \arrow{ur}{\beta\boxtimes \id_\cs{L}}
 \end{tikzcd}
-\]
-Then $\beta = r\der \circ j^*(\nu)$, where $r\der : (\cs{L}_1)_{G\der} \to (\EE)_{G\der}$ is the isomorphism of constant local systems  determined by the rigidification $r: \cs{L}_1 \to \EE$ of $\cs{L}$ determined by $\mu$  (see \cite{cunningham-roe:13a}*{Remark~1.11}).
-To show that $(\cs{L},\mu,\beta) \in \CS\ab(G)$, we must see that $\beta$ is a morphism in $\CS(G\der)$.
-By Proposition~\ref{prop:CSGabab}, $\cs{L} = q^*\cs{L}\ab$.
+\end{equation}
+Then $\beta = r\der \circ j^*(\nu)$, where $r\der : (\cs{L}_1)_{G\der} \to (\EE)_{G\der}$ is the isomorphism of constant local systems  determined by the rigidification $r: \cs{L}_1 \to \EE$ of $\cs{L}$ determined by $\mu$ (see \cite{cunningham-roe:13a}*{Remark~1.11}) so that
+\begin{equation}\label{eqn:rigidification}
+\begin{tikzcd}
+\cs{L}_1 \arrow{r}{r} \arrow{d}{\mu_{(1,1)}}  & \EE \arrow[equal]{d} \\
+\cs{L}_1\otimes\cs{L}_1 \arrow{r}{r\otimes r}  & \EE\otimes  \EE
+\end{tikzcd}
+\end{equation}
+commutes where, as usual, $=$ denotes a canonical isomorphism.
+%
+To show that $(\cs{L},\mu,\beta) \in \CS\ab(G)$, we must see that $\beta$ is a morphism in $\CS(G\der)$ by showing that the following diagram commutes in $\Loc(G\der^2)$.
+\begin{equation}\label{eqn:betaGder}
+\begin{tikzcd}
+m\der^*\cs{L}\vert_{G\der} \arrow{rr}{m\der^* \beta} \arrow[equal]{d} && \arrow[equal]{d} (\EE)_{G\der^2}\\
+\cs{L}\vert_{G\der} \boxtimes \cs{L}\vert_{G\der} \arrow{rr}{\beta\boxtimes\beta} &&  (\EE)_{G\der}\boxtimes (\EE)_{G\der} 
+\end{tikzcd}
+\end{equation}
+By Proposition~\ref{prop:CSGabab}, $\cs{L} = q^*\cs{L}\ab$, for some $(\cs{L}\ab,\mu\ab)\in \CS(G\ab)$.
+Thus, $\cs{L}\vert_{G\der} = (\cs{L}_1)_{G\der}$ and the diagram above becomes a diagram of constant Weil local systems on $G\der^2$.
+We can therefore test  whether  diagram commutes by evaluating all local systems at $(1,1)\in G\der^2$.  Doing this recovers \eqref{eqn:rigidification} from \eqref{eqn:betaGder}, so \eqref{eqn:rigidification} commutes.
+%
+After confirming that morphisms that commute with $\mu$ and $\beta$ also commute with $\mu$ and $\nu$, this concludes the definition of the functor  $\CS\ab(G) \to \CS\der(G)$.
 
 
-This defines the functor  $\CS\ab(G) \to \CS\der(G)$, after confirming that morphisms that commute with $\mu$ and $\beta$ also commute with $\mu$ and $\nu$.
-
-
-and define $j : G\der \to G\der\times G$ by $j(h) = (h,1)$. 
-
-If $(\cs{L},\mu,\nu)\in \CS\der(G)$ then $j^*(\nu) : \cs{L}\vert_{G\der} \to (\EE)_{G\der}$ is an isomorphism. 
-\todo{Address referee's comment here}
-This defines a functor by
-\[
-\begin{array}{rcl}
-\CS\der(G) &\to& \CS\ab(G) \\
-(\cs{L},\mu,\nu) &\mapsto& (\cs{L},\mu,j^*(\nu))
-\end{array}
-\]
-on objects and trivially on morphisms.
-It is easy to verify that morphisms that commute with $\mu$ and $\nu$ also commute with $\mu$ and $j^*(\nu)$.
-This functor is an equivalence; its adjoint is given as follows.
-
+The adjoint functor $\CS\der(G) \to \CS\ab(G)$ is given by a  similar  strategy: given $(\cs{L},\mu,\beta)\in \CS\der(G)$, define $(\cs{L},\mu,\nu)$ again using  \eqref{eqn:betanu}.
+Then and verify that $(\cs{L},\nu)$ satisfies \eqref{E2} as it applies here, so that $(\cs{L},\nu)\in \Loc\der(G)$.
+After confirming that morphisms that commute with $\mu$ and $\nu$ also commute with $\mu$ and $\beta$, this concludes the definition of the functor  $\CS\der(G) \to \CS\ab(G)$.
+From these constructions,  it is now clear that $\CS\der(G) \to \CS\ab(G)$ is an equivalence.
 \end{proof}
 
 \begin{corollary} 
