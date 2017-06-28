@@ -13,6 +13,7 @@
 
 \usepackage{amssymb}
 \usepackage{amsrefs}
+\usepackage{multirow}
 % Fonts
 \usepackage{mathrsfs}
 % Enumitem
@@ -55,6 +56,7 @@
       \newtheorem{conjecture}[theorem]{Conjecture}
 %%%%%%%%%%%%%%% RINGS AND GROUPS %%%%%%%%%%%%%%%
 \newcommand{\FF}{{\mathbb{F}}}
+\newcommand{\FFF}{{\mathbf{F}_3}}
 \newcommand{\ZZ}{{\mathbb{Z}}}
 \newcommand{\NN}{{\mathbb{N}}}
 \newcommand{\CC}{{\mathbb{C}}}
@@ -126,6 +128,7 @@
 \newcommand{\gcs}[1]{{\mathcal{\bar #1}}}
 \newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
 \newcommand{\dualcs}[1]{\cs{#1}^\dagger}
+\newcommand{\IC}{\mathcal{IC}}
 %% Categories
 \newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
 \newcommand{\CCS}{{\mathcal{C\hskip-.8pt C\hskip-0.8pt S}}}
@@ -168,6 +171,9 @@
 \renewcommand{\O}{{\mathcal{O}}}
 \newcommand{\oK}{{\,^\circ \hskip-1pt K}}
 \newcommand{\orho}{{\,^\circ \hskip-1pt \rho}}
+
+% Matrices
+\newcommand{\smat}[4]{$\left(\begin{smallmatrix}#1 & #2 \\ #3 & #4 \end{smallmatrix}\right)$}
 
 %% Hyphenation override
 \hyphenation{quasi-character}
@@ -455,28 +461,18 @@ defined in our previous paper are precisely those non-commutative character shea
 
 \section{Commutative character sheaves on non-commutative groups}\label{sec:noncom}
 
-We now consider the case of a smooth group scheme without the commutativity assumption.  We start
-by relating linear character sheaves on $G$ to character sheaves on its abelianization.
-
-If $\chi \in G(k)^*$ is a character, it must vanish on the derived subgroup $G\der(k)$. \todo{Error} 
-Kamgarpour gives an example \cite{kamgarpour:09a}*{(1.1)} of a linear character sheaf
-on $G = \PGL_n$ that does not vanish on $G\der = \PGL_n$, defined by the extension
-\[
-1 \to \mu_n \to \SL_n \to \PGL_n \to 1
-\]
-together with a non-trivial character of $\mu_n(k)$. \todo{Small change here.}
-In order to obtain a relationship between linear character sheaves on $G$ and characters of $G(k)$,
-he opts to give a different definition of commutator and, in doing so, introduces a `stacky abelianization' of $G$ in order to geometrize characters of $G(\Fq)$.
- Since we have already seen the need to adapt the
-notion of character sheaf, even in the commutative case, we instead add restrictions
-to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged, allowing us to use the schematic abelianization of $G$ in the geometrization of characters of $G(\Fq)$.
-
-
+We now consider the case of a smooth group scheme without the commutativity assumption.  Our approach
+is to relate linear character sheaves on $G$ to character sheaves on its abelianization $G\ab = G / G\der$.
+While every character $\chi \in G(k)^*$ vanishes on $G(k)\der$, it may not vanish on $G\der(k)$.  For example,
+if $k$ has odd characteristic then there are nontrivial characters $\PGL_2(k) \to \EEx$ vanishing on
+$\PGL_2(k)\der = \PSL_2(k)$ (see Section \ref{sec:badchar}).  In passing to $G\ab$,
+we may only hope to geometrize characters that vanish on all of $G\der(k)$.
 
 We begin this section with the main definition in this paper - the category $\CCS(G)$ of commutative character sheaves, Definition~\ref{def:CCS}. 
 This definition is delicate and somewhat technical, but it is vindicated in Theorem~\ref{thm:Gab} which shows that $\CCS(G)$ is equivalent to the category of commutative character sheaves on the abelianization $G\ab$ of $G$. 
 To prove Theorem~\ref{thm:Gab} we use descent theory in Section~\ref{ssec:descent}, in the process giving insight into Definition~\ref{def:CCS}. 
-Section~\ref{sec:noncom} concludes with Theorem~\ref{thm:geo}, showing that the dictionary from $\CCS(G)$ to characters of $G(k)$ is as precise as possible.
+Section~\ref{sec:noncom} concludes with Theorem~\ref{thm:geo}, showing that the dictionary from $\CCS(G)$
+to characters of $G(k)$ in fact encompasses every character vanishing on $G\der(k)$.
 
 \subsection{Main definition}\label{ssec:noncomdef}
 
@@ -905,8 +901,7 @@ In other words, $(\cs{L},\mu,\beta)\in \CCS(G)$ if and only if $(\cs{L}\ab,\mu\a
 
 \end{proof}
 
-Theorem~\ref{thm:Gab} shows that $\CCS(G)$ is a categorical solution to the problem that linear character sheaves on $G$ need not be trivial on $G\der$, as discussed at the beginning of Section~\ref{sec:noncom}.  At the same time, changing $\CS(G)$ to $\CCS(G)$ resolves the lack of bijectivity in \cite{cunningham-roe:13a}*{Theorem 3.6}.
-We may also use Theorem~\ref{thm:Gab} to give a description of the morphisms and the isomorphism classes of objects in $\CCS(G)$. 
+We may use Theorem~\ref{thm:Gab} to give a description of the morphisms and the isomorphism classes of objects in $\CCS(G)$. 
 
 \begin{corollary}\label{cor:Gab}
 The category $\CCS(G)$ is monoidal and there is a canonical isomorphism
@@ -932,41 +927,96 @@ The trace of Frobenius $\TrFrob{} : \CCSiso{G}\to G(\Fq)^*$ fits into the follow
 \[
 \begin{tikzcd}
 \ & & \CCSiso{G\ab} \arrow{d}{\TrFrob{}}[swap]{\iso} \arrow{r}{\iso} & \CCSiso{G} \arrow{d}{\TrFrob{}}& \\
-1 \arrow{r} & \Delta_G^* \arrow{r} & G\ab(k)^* \arrow{r} & G(k)^* \arrow{r} & 1,
+1 \arrow{r} & \Delta_G^* \arrow{r} & G\ab(k)^* \arrow{r} & G(k)^* \arrow{r} & G\der(k)^* \arrow{r} & 1,
 \end{tikzcd}
 \]
 where $\Delta_G$ is the image of the connecting homomorphism $G\ab(\Fq) \to \Hh^1(\Fq, G\der)$. 
-Thus the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. 
-While the geometrization of $\chi : G(\Fq) \to \EEx$ is not unique, the group of isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
+Thus the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the following sense: for every group homomorphism $\chi : G(\Fq) \to \EEx$ that vanishes on $G\der(\Fq)$, there is an object $(\cs{L},\mu,\beta)$ in $\CCS(G)$ such that $\trFrob{\cs{L}} = \chi$. 
+While the geometrization of $\chi$ is not unique, the isomorphism classes of possibilities are enumerated by $\Delta_G^*$.
 \end{theorem}
 
 \begin{proof}
 By the definition of $\Delta_G$, we have a short exact sequence
 \[
-1 \to G(k) / G\der(k) \to G\ab(k) \to \Delta_G \to 1.
+1 \to G\der(k) \to G(k) \to G\ab(k) \to \Delta_G \to 1.
 \]
-Applying $\Hom(-, \EEx)$ and using the fact that every homomorphism $G(k) \to \EEx$ vanishes on $G\der(k)$,\todo{Error here} we get
-\[
-1 \to \Delta_G^* \to G\ab(k)^* \to G(k)^* \to 1.
-\]
+Applying $\Hom(-, \EEx)$ yields the bottom row in the statement.
+
 By Theorem~\ref{thm:Gab}, the map $\CCSiso{G\ab} \to \CCSiso{G}$ is an isomorphism.
 Moreover, since both $\CCSiso{G\ab} \to \CCSiso{G}$ and $G\ab(k)^* \to G(k)^*$ are
 defined by pullback along $q$, the square in the statement of the theorem commutes.
 Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Corollary \ref{cor:Gab}.
 \end{proof}
 
-\begin{remark}
-Note that when $\Hh^1(k,G\der) = 0$ then $\CCSiso{G} \iso G(\Fq)^*$, so
-we succeed in geometrizing characters of $G(k)$ on the nose.
-\end{remark}
-
-\section{Examples of Nontrivial Characters on the Derived Subgroup}
+\section{Examples of Nontrivial Characters on the Derived Subgroup} \label{sec:badchar}
 
 In this section we give two examples of characters of $G(k)$ that do not vanish on $G\der(k)$.
 
 \subsection{\texorpdfstring{$\PGL_2(k)$}{PGL(2, k)}}
 
-Let $G = \PGL_2$ over a finite field $k$ of odd characteristic.  Then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  There is thus a nontrivial character $\chi : G(k) \to \{\pm 1\} \subset \EEx$.  We may construct a character sheaf 
+Let $G = \PGL_2$ over a finite field $k$ of odd characteristic.  Then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  There is thus a nontrivial character $\chi : G(k) \to \{\pm 1\} \subset \EEx$.  We may construct a linear character sheaf with trace $\chi$ as follows.  Consider the standard isogeny $f : \SL_2 \to \PGL_2$ with kernel $\mu_2$ and the nontrivial map $\psi : \mu_2 \to \EEx$.  Then the pushforward $f_! \EE$ of the constant sheaf on $\SL_2$ is a $2$-dimensional local system, and its $\psi$-isotypic component $(f_! \EE)_\psi$ is a linear character sheaf on $\PGL_2$ with trace of Frobenius $\chi$ (c.f. \cite{cunningham-roe:13a}*{Prop 1.10}).
+
+\subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}
+
+Let $G = \SL_2$ over $\FFF$.  Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements, isomorphic to the quaternion group $Q_8$ and of index $3$.  There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  The method described above for producing a linear character sheaf corresponding to this character no longer works, since $\SL_2$ is simply connected and thus has no discrete isogenies mapping onto it.  We may still produce a local system with the correct trace of Frobenius, by pushing forward the constant sheaf along the Lang isogeny and picking out the isotypic component corresponding to $\chi$.  However, since $\SL_2$ is nonabelian, the Lang isogeny is not a homomorphism and the resulting local system is not a linear character sheaf.
+
+Alternatively, we can use the fact that Lusztig's character sheaves provide a basis for the space of class functions \cite{lusztig:86a}*{Cor. 25.7} to give a different geometrization of $\chi$.  Lusztig's character sheaves are constructed by perverse extension of local systems on a certain stratification of $G$.  In the case of $\SL_2$, there are five strata:
+
+\vspace{0.1in}
+
+\begin{tabular}{|l|l|}
+\hline
+$C_3$ & regular semisimple elements \\
+$C_2$ & regular unipotent elements \\
+$C_2^-$ & $\{-u : \mbox{ regular unipotent $u$}\}$ \\
+$1$ & $\{1\}$ \\
+$-1$ & $\{-1\}$ \\
+\hline
+\end{tabular}
+
+\vspace{0.1in}
+
+Suppose that $C$ is a stratum and $x \in C$. Local systems on $C$ are classified up to isomorphism by irreducible representations of $\pi_0(Z_G(x))$.  This component group is trivial for $C_3$, $1$ and $-1$, and of order $2$ for $C_2$ and $C_2^-$.  Denote the nontrivial local systems on $C_2$ and $C_2^-$ by $\cs{E}_{C_2}$ and $\cs{E}_{C_2^-}$.  Then the character sheaves on $\SL_2$ are the following, where the second column gives a decomposition in the Grothendieck group of standard sheaves on $G$.
+
+\vspace{0.1in}
+
+\begin{tabular}{|l|l|ccccccc|}
+\hline
+Perverse & Standard & \multicolumn{7}{|c|}{Trace of Frobenius values} \\ \cline{3-9}
+
+Sheaf & Sheaves & \smat1001 & \smat2002 & \smat0120 & \smat1101 & \smat1201 & \smat2102 & \smat2202 \\
+\hline
+$\IC(\mathbf{1}_{C_3})$ & $\mathbf{1}_{C_3}[3]$ & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
+$\IC(\mathbf{1}_{C_2})$ & $\mathbf{1}_{C_2}[2] \oplus \mathbf{1}_1[0]$ & 1 & 0 & 0 & 1 & 1 & 0 & 0 \\
+$\IC(\cs{E}_{C_2})$ & $\cs{E}_{C_2}[2]$ & 0 & 0 & 0 & $\sqrt{-3}$ & $-\sqrt{-3}$ & 0 & 0 \\
+$\IC(\mathbf{1}_{C_2^-})$ & $\mathbf{1}_{C_2^-}[2] \oplus \mathbf{1}_{-1}[0]$ & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\
+$\IC(\cs{E}_{C_2^-})$ & $\cs{E}_{C_2^-}[2]$ & 0 & 0 & 0 & 0 & 0 & $\sqrt{-3}$ & $-\sqrt{-3}$ \\
+$\IC(\mathbf{1}_1)$ & $\mathbf{1}_1[0]$ & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+$\IC(\mathbf{1}_{-1})$ & $\mathbf{1}_{-1}[0]$ & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+
+\vspace{0.1in}
+\noindent Using the trace of Frobenius values, we find that 
+\[
+- \IC(\mathbf{1}_{C_3}) - \frac32 \IC(\mathbf{1}_{C_2}) + \frac12 \IC(\cs{E}_{C_2}) - \frac32 \IC(\mathbf{1}_{C_2^-}) - \frac12 \IC(\cs{E}_{C_2^-}) + \frac32 \IC(\mathbf{1}_1) + \frac32 \IC(\mathbf{1}_{-1})
+\]
+also geometrizes $\chi$.  Note that all seven character sheaves appear in this geometrization, even though we start just with a character.
+
+\subsection{The True Commutator}
+
+
+Kamgarpour gives an example \cite{kamgarpour:09a}*{(1.1)} of a linear character sheaf
+on $G = \PGL_n$ that does not vanish on $G\der = \PGL_n$, defined by the extension
+\[
+1 \to \mu_n \to \SL_n \to \PGL_n \to 1
+\]
+together with a non-trivial character of $\mu_n(k)$. \todo{Small change here.}
+In order to obtain a relationship between linear character sheaves on $G$ and characters of $G(k)$,
+he opts to give a different definition of commutator and, in doing so, introduces a `stacky abelianization' of $G$ in order to geometrize characters of $G(\Fq)$.
+ Since we have already seen the need to adapt the
+notion of character sheaf, even in the commutative case, we instead add restrictions
+to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged, allowing us to use the schematic abelianization of $G$ in the geometrization of characters of $G(\Fq)$.
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
@@ -1503,6 +1553,18 @@ URL = {http://journals.cambridge.org/article_S1474748015000286},
       volume={56},
        pages={193\ndash 237},
 }
+
+\bib{lusztig:86a}{article}{
+	Author = {George Lusztig},
+	Date-Added = {2017-06-28 19:26:19 +0000},
+	Date-Modified = {2017-06-28 19:28:23 +0000},
+	Journal = {Advances in Math.},
+	Keywords = {qcsheaves},
+	Number = {2},
+	Pages = {{103--155}},
+	Title = {{Character sheaves V}},
+	Volume = {61},
+	Year = {1986}}
 
 \bib{lusztig:disconnected1}{article}{
       author={Lusztig, George},
