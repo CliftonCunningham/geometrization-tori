@@ -961,13 +961,13 @@ defined by pullback along $q$, the square in the statement of the theorem commut
 Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Corollary \ref{cor:Gab}.
 \end{proof}
 
-\section{Examples of Nontrivial Characters on the Derived Subgroup} \label{sec:badchar}
+\section{Geometrizing Characters Nontrivial on the Derived Subgroup} \label{sec:badchar}
 
-In this section we give two examples of characters of $G(k)$ that do not vanish on $G\der(k)$.
+If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$, Section \ref{sec:noncom} provides a \emph{local system} $\cs{L}$ that is \emph{conjugation equivariant} and satisfies $\TrFrob{}(\cs{L}) = \chi$.   In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation invariant.
 
-\subsection{\texorpdfstring{$\PGL_2(k)$}{PGL(2, k)}}
+\subsection{Pushforward along the Lang isogeny}
 
-Let $G = \PGL_2$ over a finite field $k$ of odd characteristic.  Then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  There is thus a nontrivial character $\chi : G(k) \to \{\pm 1\} \subset \EEx$.  We may construct a linear character sheaf with trace $\chi$ as follows.  Consider the standard isogeny $f : \SL_2 \to \PGL_2$ with kernel $\mu_2$ and the nontrivial map $\psi : \mu_2 \to \EEx$.  Then the pushforward $f_! \EE$ of the constant sheaf on $\SL_2$ is a $2$-dimensional local system, and its $\psi$-isotypic component $(f_! \EE)_\psi$ is a linear character sheaf on $\PGL_2$ with trace of Frobenius $\chi$ (c.f. \cite{cunningham-roe:13a}*{Prop 1.10}).
+For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(x) = x^{-1}\Frob{G}(x)$.  Then the pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$.
 
 \subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}
 
@@ -1015,6 +1015,10 @@ $\IC(\mathbf{1}_{-1})$ & $\mathbf{1}_{-1}[0]$ & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
 - \IC(\mathbf{1}_{C_3}) - \frac32 \IC(\mathbf{1}_{C_2}) + \frac12 \IC(\cs{E}_{C_2}) - \frac32 \IC(\mathbf{1}_{C_2^-}) - \frac12 \IC(\cs{E}_{C_2^-}) + \frac32 \IC(\mathbf{1}_1) + \frac32 \IC(\mathbf{1}_{-1})
 \]
 also geometrizes $\chi$.  Note that all seven character sheaves appear in this geometrization, even though we start just with a character.
+
+\subsection{\texorpdfstring{$\PGL_2(k)$}{PGL(2, k)}}
+
+Let $G = \PGL_2$ over a finite field $k$ of odd characteristic.  Then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  There is thus a nontrivial character $\chi : G(k) \to \{\pm 1\} \subset \EEx$.  We may construct a linear character sheaf with trace $\chi$ as follows.  Consider the standard isogeny $f : \SL_2 \to \PGL_2$ with kernel $\mu_2$ and the nontrivial map $\psi : \mu_2 \to \EEx$.  Then the pushforward $f_! \EE$ of the constant sheaf on $\SL_2$ is a $2$-dimensional local system, and its $\psi$-isotypic component $(f_! \EE)_\psi$ is a linear character sheaf on $\PGL_2$ with trace of Frobenius $\chi$ (c.f. \cite{cunningham-roe:13a}*{Prop 1.10}).
 
 \subsection{The True Commutator}
 
