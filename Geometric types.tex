@@ -208,11 +208,13 @@ Yu type data are studied in \cite{Yu:models}, which concludes with the following
  are on groups of the form $\underline{H}(\mathcal{O})$, where $\underline{H}$ is a smooth group scheme over [a henselian discrete valuation ring with finite residue field $\kappa$] $\mathcal{O}$, and the representations are inflated from $\underline{H}(\kappa)$. These results suggest that algebraic geometry and group schemes should play an
 important role in the representation theory of $p$-adic groups.}
 \end{quotation}
-In this paper we follow the suggestion above by showing that Yu type data are geometrizable, in the following sense.
+In this paper we follow the suggestion above by showing that certain Yu type data are geometrizable, in the following sense.
 A Yu type datum determines a sequence of representations $\orho_i$ of compact $p$-adic groups $\oK^i$, for $i=0, \ldots, d$, such that $(\oK^d, \rho_d)$ is a type for a supercuspidal representation of a $p$-adic group.
 Let $R$ be the ring of integers of a local field with finite residue field $k$.
 The main result of \cite{Yu:models} shows how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $R$ with $\underline{G}^i(R)=\,^\circ K^i $.
-The geometrization of the Yu type datum uses Lusztig's theory of character sheaves on reductive groups over finite fields, so it is necessary to assume that the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic, in order to bring his work to bear. Under this assumption we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a {\it rational virtual} sheaf complex on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean $\cs{F}^i$ is an element in the group obtained by tensoring the Grothendieck group of such sheaves with $\QQ$. 
+The geometrization of the Yu type datum that we consider in this paper uses Lusztig's theory of character sheaves on reductive groups over finite fields, for which it is necessary to assume that the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic. 
+We must also place a condition on the linear characters that appear in the Yu datum, 
+Under this assumption we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a {\it rational virtual} sheaf complex on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean $\cs{F}^i$ is an element in the group obtained by tensoring the Grothendieck group of such sheaves with $\QQ$. 
 Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
@@ -260,7 +262,7 @@ The category $\CS(G)$ has a straightforward generalization to this case, but aga
 there are more character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
 We then define category $\CCS(G)$ for such $G$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
 is an isomorphism.  
-Since $G\ab(k)^*$ surjects onto $G(k)^*$, it follows that for each character $\chi \in G(k)^*$ there is a commutative
+Since $G\ab(k)^*$ surjects onto $G(k)^*$, it follows that for each character $\chi \in G(k)^*$ trivial on $G\der(k)$ there is a commutative
 character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, we find that pullback along the quotient $q : G \to G\ab$
 defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  
 The functor $\CCS(G) \to \CS(G)$ is not
@@ -280,6 +282,9 @@ With this theorem, we provide all of the ingredients needed to parametrize super
  
 The hypothesis in Theorem~\ref{thm:geotypes} -- that the geometric component group of the reductive quotient of the special fibre of the smooth group scheme $\underline{G}^0$ appearing in the Yu type datum is cyclic --  is required only because Lusztig's theory of character sheaves has the same hypothesis.
 If Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then the hypothesis in Theorem~\ref{thm:geotypes} can be removed.
+%
+The second hypothesis  in Theorem~\ref{thm:geotypes} -- that the quasicharacters $\varphi^i$ appearing in the Yu type datum satisfy the hypothesis of Proposition~\ref{prop:quasicharacters} -- ensures that we may use Section~\ref{sec:noncom} to find a geometric type which equivariant for conjugation, as defined in Section~\ref{ssec:equivariant}.
+Section~\ref{sec:badchar} presents some evidence to suggest that this hypothesis is not always necessary. 
 \bigskip
 
 We now summarize the sections of the paper in more detail.
@@ -462,7 +467,7 @@ defined in our previous paper are precisely those non-commutative character shea
 \section{Commutative character sheaves on non-commutative groups}\label{sec:noncom}
 
 We now consider the case of a smooth group scheme without the commutativity assumption.  Our approach
-is to relate linear character sheaves on $G$ to character sheaves on its abelianization $G\ab = G / G\der$.
+is to relate linear character sheaves on $G$ to character sheaves on its abelianization $G\ab = G / G\der$, where $G\der$ is defined by \cite{demazure:SGA3-VIB}*{D\'efinition 7.2.2} and the quotient is $G\ab$ is an instance of  \cite{demazure:SGA3-VIA}*{Section 7.2.2}.
 While every character $\chi \in G(k)^*$ vanishes on $G(k)\der$, it may not vanish on $G\der(k)$.  For example,
 if $k$ has odd characteristic then there are nontrivial characters $\PGL_2(k) \to \EEx$ vanishing on
 $\PGL_2(k)\der = \PSL_2(k)$ (see Section \ref{sec:badchar}).  In passing to $G\ab$,
@@ -765,7 +770,7 @@ After confirming that morphisms that commute with $\mu$ and $\beta$ also commute
 
 
 The adjoint functor $\CS\der(G) \to \CS\ab(G)$ is given by a  similar  strategy: given $(\cs{L},\mu,\beta)\in \CS\der(G)$, define $(\cs{L},\mu,\nu)$ again using  \eqref{eqn:betanu}.
-Then and verify that $(\cs{L},\nu)$ satisfies \eqref{E2} as it applies here, so that $(\cs{L},\nu)\in \Loc\der(G)$.
+Then verify that $(\cs{L},\nu)$ satisfies \eqref{E2} as it applies here, so that $(\cs{L},\nu)\in \Loc\der(G)$.
 After confirming that morphisms that commute with $\mu$ and $\nu$ also commute with $\mu$ and $\beta$, this concludes the definition of the functor  $\CS\der(G) \to \CS\ab(G)$.
 From these constructions,  it is now clear that $\CS\der(G) \to \CS\ab(G)$ is an equivalence.
 \end{proof}
@@ -963,8 +968,31 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Corollar
 
 \section{Geometrizing Characters Nontrivial on the Derived Subgroup} \label{sec:badchar}
 
+
 If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$, Section \ref{sec:noncom} provides a \emph{local system} $\cs{L}$ that is \emph{conjugation equivariant} and satisfies $\TrFrob{}(\cs{L}) = \chi$.   In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation invariant.
 
+
+\subsection{Equivariance Weil sheaf complexes (move to somewhere else?)}\label{ssec:equivariant}
+
+Suppose $(\cs{L},\mu)$ is a linear character sheaf on $G$. 
+As the diagram below explains, the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$, where  $a : G\times G\to G$ is conjugation $a(x,y)=xyx^{-1}$ and $p_2: G\times G\to G$ is projection $p_2(x,y)=y$.
+\[
+\begin{tikzcd}[column sep = 30]
+a^*\cs{L} \arrow[equal]{d}[swap]{a= m\circ (m\times (i\circ p_1))} \arrow[dotted]{r} & p_2^*\cs{L}  \\
+(m\times (i\circ p_1))^* m^*\cs{L} \arrow{d}[swap]{(m\times (i\circ p_1))^*\mu}  & p_1^*(\cs{L} \otimes \cs{L}^\vee) \otimes p_2^*\cs{L} \arrow[equal]{u}[swap]{\cs{L}\otimes \cs{L}^\vee \iso (\EE)_{G}}\\
+m^*\cs{L}\otimes (i\circ p_1))^*\cs{L} \arrow{r}{\mu \otimes \id} & p_1^*\cs{L} \otimes p_2^*\cs{L} \otimes p_1^*\cs{L}^\vee \arrow[equal]{u}
+\end{tikzcd}
+\]
+Although every linear character sheaf on $G$ is a conjugation-equivariant Weil local systems on $G$, the converse is certainly not true. 
+
+For connected reductive groups $G$ over $k$, Lusztig's character sheaves are simple perverse sheaves $\IC(C,\mathcal{L})$ on $G$ that come equipped with an isomorphism $a^*\, \IC(C,\mathcal{L}) \to p_2^*\, \IC(C,\mathcal{L})$ in Deligne's category $D^b_c(G;\EE)$.
+Consequently, when $\IC(C,\mathcal{L})$ is also a Weil sheaf complex, its trace of Frobenius function $\trFrob{\IC(C,\cs{L})} : G(k)\to \EE$ is a class function, called the characteristic function of $\IC(C,\cs{L})$.
+By \cite{lusztig:86a}*{Cor. 25.7}, Weil character sheaves on $G$ determine a basis for the $\EE$-space of class functions on $G(k)$.
+In particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear combination of characteristic functions of Weil character sheaves on $G$.
+We will refer to a formal sum $\sum_{i\in I} a_i \cs{F}_i$ of conjugation-equivariant Weil $\ell$-adic sheaf complexes with ${\bar \QQ}$-coefficients as a rational virtual equivariant Weil sheaf complex on $G$.
+When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.
+We see an example of this in Section~\ref{ssec:SL23}.
+ 
 \subsection{Pushforward along the Lang isogeny}
 
 For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(x) = x^{-1}\Frob{G}(x)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$.
@@ -984,14 +1012,16 @@ x_1 x_2^{-1} &= y_1^{-1} z y_1 y_2^{-1} z^{-1} y_2 \\
 Thus $\chi(x_1 x_2^{-1}) = 1$ so $\chi(x_1) = \chi(x_2)$ and $\chi'$ is well defined. \todo{Finish proof here}
 \end{proof}
 
-\subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}
+\subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}\label{ssec:SL23}
 
-Let $G = \SL_2$ over $\FFF$.  Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements, isomorphic to the quaternion group $Q_8$ and of index $3$.  There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  The method described above for producing a linear character sheaf corresponding to this character no longer works, since $\SL_2$ is simply connected and thus has no discrete isogenies mapping onto it.  We may still produce a local system with the correct trace of Frobenius, by pushing forward the constant sheaf along the Lang isogeny and picking out the isotypic component corresponding to $\chi$.  However, since $\SL_2$ is nonabelian, the Lang isogeny is not a homomorphism and the resulting local system is not a linear character sheaf.
+Let $G = \SL_2$ over $\FFF$.  Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements, isomorphic to the quaternion group $Q_8$ and of index $3$.  There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  The method described above for producing a linear character sheaf corresponding to this character no longer works, since $\SL_2$ is simply connected and thus has no discrete isogenies mapping onto it.  We may still produce a local system with the correct trace of Frobenius, by pushing forward the constant sheaf along the Lang isogeny and picking out the isotypic component corresponding to $\chi$.\todo{So, maybe not?}  However, since $\SL_2$ is nonabelian, the Lang isogeny is not a homomorphism and the resulting local system is not a linear character sheaf.
 
-Alternatively, we can use the fact that Lusztig's character sheaves provide a basis for the space of class functions \cite{lusztig:86a}*{Cor. 25.7} to give a different geometrization of $\chi$.  Lusztig's character sheaves are constructed by perverse extension of local systems on a certain stratification of $G$.  In the case of $\SL_2$, there are five strata:
+Alternatively, we can use the fact that Lusztig's character sheaves provide a basis for the space of class functions \cite{lusztig:86a}*{Cor. 25.7} to give a different geometrization of $\chi$, as discussed in Section~\ref{ssec:equivariant}.  Lusztig's character sheaves are constructed by perverse extension of local systems on a certain stratification of $G$.  In the case of $\SL_2$, there are five strata:
 
 \vspace{0.1in}
 
+\begin{center}
+\begin{spacing}{1.3}
 \begin{tabular}{|l|l|}
 \hline
 $C_3$ & regular semisimple elements \\
@@ -1001,31 +1031,38 @@ $1$ & $\{1\}$ \\
 $-1$ & $\{-1\}$ \\
 \hline
 \end{tabular}
+\end{spacing}
+\end{center}
 
 \vspace{0.1in}
 
-Suppose that $C$ is a stratum and $x \in C$. Local systems on $C$ are classified up to isomorphism by irreducible representations of $\pi_0(Z_G(x))$.  This component group is trivial for $C_3$, $1$ and $-1$, and of order $2$ for $C_2$ and $C_2^-$.  Denote the nontrivial local systems on $C_2$ and $C_2^-$ by $\cs{E}_{C_2}$ and $\cs{E}_{C_2^-}$.  Then the character sheaves on $\SL_2$ are the following, where the second column gives a decomposition in the Grothendieck group of standard sheaves on $G$.
+\noindent
+Each Weil character sheaf on $\SL_2$ over $\FFF$ is the perverse extension of one of the following local systems: the rank-$1$ constant sheaf $\mathbf{1}_{C_3}$ (resp. $\mathbf{1}_{C_2}$, $\mathbf{1}_{C_2^-}$, $\mathbf{1}_{1}$,  $\mathbf{1}_{-1}$) on $C_3$ (resp. $C_2$, $C_2^-$, $1$, $-1$), or the non-trivial rank-$1$ local system $\cs{E}_{C_2}$  (resp.  $\cs{E}_{C_2^-}$) on $C_2^{-1}$  (resp.  $\cs{E}_{C_2^-}$) trivialized by the double cover of $C_2$ (resp. $C_2^-$).
+The following table describes these perverse sheaves by showing how they decompose in the Grothendieck group into standard sheaves on $\SL_2$, and also gives the values of the trace of Frobenius on the $7$ conjugacy classes in $\SL_2(\FFF)$.
 
 \vspace{0.1in}
 
-\begin{tabular}{|l|l|ccccccc|}
+\begin{spacing}{1.3}
+\[
+\begin{array}{|l|l|ccccccc|}
 \hline
-Perverse & Standard & \multicolumn{7}{|c|}{Trace of Frobenius values} \\ \cline{3-9}
-
-Sheaf & Sheaves & \smat1001 & \smat2002 & \smat0120 & \smat1101 & \smat1201 & \smat2102 & \smat2202 \\
+\text{Perverse} & \text{Standard} & \multicolumn{7}{|c|}{\text{Trace of Frobenius values at conjugacy classes}} \\ \cline{3-9}
+\text{Sheaf} & \text{Sheaves} & (\begin{smallmatrix}1 & 0\\ 0 & 1\end{smallmatrix}) & (\begin{smallmatrix}2 & 0\\ 0 & 2\end{smallmatrix}) & (\begin{smallmatrix}0 & 1\\ 2 & 0\end{smallmatrix})  & (\begin{smallmatrix}1 & 1\\ 0 & 1\end{smallmatrix})  & (\begin{smallmatrix}1 & 2\\ 0 & 1\end{smallmatrix}) & (\begin{smallmatrix}2 & 1\\ 0 & 2\end{smallmatrix})  & (\begin{smallmatrix}2 & 2\\ 0 & 2\end{smallmatrix}) \\
 \hline
-$\IC(\mathbf{1}_{C_3})$ & $\mathbf{1}_{C_3}[3]$ & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
-$\IC(\mathbf{1}_{C_2})$ & $\mathbf{1}_{C_2}[2] \oplus \mathbf{1}_1[0]$ & 1 & 0 & 0 & 1 & 1 & 0 & 0 \\
-$\IC(\cs{E}_{C_2})$ & $\cs{E}_{C_2}[2]$ & 0 & 0 & 0 & $\sqrt{-3}$ & $-\sqrt{-3}$ & 0 & 0 \\
-$\IC(\mathbf{1}_{C_2^-})$ & $\mathbf{1}_{C_2^-}[2] \oplus \mathbf{1}_{-1}[0]$ & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\
-$\IC(\cs{E}_{C_2^-})$ & $\cs{E}_{C_2^-}[2]$ & 0 & 0 & 0 & 0 & 0 & $\sqrt{-3}$ & $-\sqrt{-3}$ \\
-$\IC(\mathbf{1}_1)$ & $\mathbf{1}_1[0]$ & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-$\IC(\mathbf{1}_{-1})$ & $\mathbf{1}_{-1}[0]$ & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+\IC(\mathbf{1}_{C_3})  &  \mathbf{1}_{C_3}[3]  & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
+ \IC(\mathbf{1}_{C_2})  &  \mathbf{1}_{C_2}[2] \oplus \mathbf{1}_1[0]  & 1 & 0 & 0 & 1 & 1 & 0 & 0 \\
+ \IC(\cs{E}_{C_2})  &  \cs{E}_{C_2}[2]  & 0 & 0 & 0 &  \sqrt{-3}  &  -\sqrt{-3} & 0 & 0 \\
+ \IC(\mathbf{1}_{C_2^-})  &  \mathbf{1}_{C_2^-}[2] \oplus \mathbf{1}_{-1}[0]  & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\
+ \IC(\cs{E}_{C_2^-})  &  \cs{E}_{C_2^-}[2]  & 0 & 0 & 0 & 0 & 0 &   \sqrt{-3}  &   -\sqrt{-3}  \\
+ \IC(\mathbf{1}_1)  &  \mathbf{1}_1[0]  & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ \IC(\mathbf{1}_{-1})  &  \mathbf{1}_{-1}[0]  & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
 \hline
-\end{tabular}
+\end{array}
+\]
+\end{spacing}
 
 \vspace{0.1in}
-\noindent Using the trace of Frobenius values, we find that 
+\noindent Using the trace of Frobenius values, we find that the rational virtual equivariant Weil sheaf complex
 \[
 - \IC(\mathbf{1}_{C_3}) - \frac32 \IC(\mathbf{1}_{C_2}) + \frac12 \IC(\cs{E}_{C_2}) - \frac32 \IC(\mathbf{1}_{C_2^-}) - \frac12 \IC(\cs{E}_{C_2^-}) + \frac32 \IC(\mathbf{1}_1) + \frac32 \IC(\mathbf{1}_{-1})
 \]
@@ -1035,6 +1072,16 @@ also geometrizes $\chi$.  Note that all seven character sheaves appear in this g
 
 Let $G = \PGL_2$ over a finite field $k$ of odd characteristic.  Then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  There is thus a nontrivial character $\chi : G(k) \to \{\pm 1\} \subset \EEx$.  We may construct a linear character sheaf with trace $\chi$ as follows.  Consider the standard isogeny $f : \SL_2 \to \PGL_2$ with kernel $\mu_2$ and the nontrivial map $\psi : \mu_2 \to \EEx$.  Then the pushforward $f_! \EE$ of the constant sheaf on $\SL_2$ is a $2$-dimensional local system, and its $\psi$-isotypic component $(f_! \EE)_\psi$ is a linear character sheaf on $\PGL_2$ with trace of Frobenius $\chi$ (c.f. \cite{cunningham-roe:13a}*{Prop 1.10}).
 
+\todo{}
+Explain that while $(f_! \EE)_\psi$ is not a commutative character sheaf, it does satisfy a weaker version of Definition~\ref{def:CCS}. Namely, there is an isomorphism $\gamma$ such that
+ \[
+  \begin{tikzcd}[row sep=30]
+   m^*\cs{L} \arrow{d}[swap]{\gamma} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
+   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L}).
+  \end{tikzcd}
+  \]
+
+
 \subsection{The True Commutator}
 
 
@@ -1043,7 +1090,7 @@ on $G = \PGL_n$ that does not vanish on $G\der = \PGL_n$, defined by the extensi
 \[
 1 \to \mu_n \to \SL_n \to \PGL_n \to 1
 \]
-together with a non-trivial character of $\mu_n(k)$. \todo{Small change here.}
+together with a non-trivial character of $\mu_n(k)$. 
 In order to obtain a relationship between linear character sheaves on $G$ and characters of $G(k)$,
 he opts to give a different definition of commutator and, in doing so, introduces a `stacky abelianization' of $G$ in order to geometrize characters of $G(\Fq)$.
  Since we have already seen the need to adapt the
@@ -1054,7 +1101,7 @@ to the definition of commutative character sheaf and leave the definition of $G\
 
 We now show how to use Theorem~\ref{thm:geo} to geometrize Yu type data and how to geometrize types for supercuspidal representations of tamely ramified $p$-adic groups.
 
-\subsection{Quasicharacters of smooth group schemes over certain henselian traits}
+\subsection{Quasicharacters of smooth group schemes over certain henselian traits}\label{ssec:quasicharacters}
 
 Recall that $R$ is the ring of integers of a local field with finite residue field $k$.
 The maximal idea of $R$ will be denoted by $\mathfrak{m}$. 
@@ -1064,31 +1111,48 @@ Let $G$ be the Greenberg transform of $\underline{G}$; then $G$ is a group schem
 \[
 G(\Fq) = \underline{G}(R).
 \]
-
-\begin{proposition}\label{prop:quasicharacters}
-For every quasicharacter character $\varphi : \underline{G}(R) \to \EEx$ there is a Weil sheaf $\cs{L}$ on $G$ such that \[\trFrob{\cs{L}} =  \varphi.\] \end{proposition}
-
-\begin{proof}
-By continuity of $\varphi : \underline{G}(R) \to \EE^\times$, there is some $m \in \NN$ and a factorization
+Let $\varphi : \underline{G}(R) \to \EEx$ be a quasicharacter. 
+By the continuity of $\varphi$ there is some $r \in \NN$ and a factorization
 \[
 \begin{tikzcd}
 \underline{G}(R) \arrow{rr}{\varphi} \arrow{rd} && \EEx\\
-& \underline{G}(R/\mathfrak{p}^{m+1}) \arrow{ru}[swap]{\varphi_m} 
+& \underline{G}(R/\mathfrak{p}^{r+1}) \arrow{ru}[swap]{\varphi_r} 
 \end{tikzcd}
 \] 
-Set $R_m = R/\mathfrak{p}^{m+1}$ and
-set $G_m = \Gr_m^{R}(\underline{G})$, the Greenberg transform of $\underline{G}\times_{\Spec{R}}\Spec{R_m}$.
-Then $G_m$ is a smooth group scheme over $\Fq$ and $G_m(\Fq) = \underline{G}(R_m)$.
-Using Theorem~\ref{thm:geo}, let $\cs{L}_m$ be a geometrization of the character $\varphi_m: G_m(\Fq) \to \EEx$; so
+The least such $r\in \NN$ is called the {\it level} of $\varphi$.
+For any $r\in \NN$, define $R_r \ceq R/\mathfrak{p}^{r+1}$ and
+set $G_r \ceq \Gr_r^{R}(\underline{G})$, the Greenberg transform of $\underline{G}\times_{\Spec{R}}\Spec{R_r}$.
+Then $G_r$ is a smooth group scheme over $\Fq$ and $G_r(\Fq) = \underline{G}(R_r)$.
+
+\begin{proposition}\label{prop:quasicharacters}
+Let $\underline{G}$ be a smooth group scheme over $R$.
+Let $\varphi : \underline{G}(R) \to \EEx$ be quasicharacter and let $r$ be the level of $\varphi$.
+If $\varphi_r : G_m(k)\to \EEx$ is trivial on $G_{r,\operatorname{der}}(k)$ then 
+there is a commutative character sheaf $\cs{L}_r\in \CCS(G_r)$ such that 
 \[
-\trFrob{\cs{L}_m} = \varphi_m
-\]
-on $G_m(\Fq)$.
-%
-Recall that the full Greenberg transform $G \ceq \Gr^{R}(\underline{G})$ is a group scheme over $\Fq$ such that $G(\Fq) = \underline{G}(R)$; it comes equipped with a morphism $G \to G_m$.
-Let $\cs{L}$ be the Weil sheaf on $G$ obtained from $\cs{L}_m$ by pullback along $G \to G_m$. 
-Then $\cs{L}$ is a quasicharacter sheaf on $G$, in the sense of \cite{cunningham-roe:13a}*{Def 4.2}, such that $\trFrob{\cs{L}} = \varphi$.
+\trFrob{\cs{L}_r} =  \varphi_r.
+\] 
+\end{proposition}
+
+\begin{proof}
+This is a direct consequence of Theorem~\ref{thm:geo}.
+%let $\cs{L}_r$ be a geometrization of the character $\varphi_r: G_r(\Fq) \to \EEx$.
 \end{proof}
+
+With $\varphi$ as above, note that if $r'$ is any integer greater or equal to the level $r$ of $\varphi$, then the pullback of $\cs{L}_r$ along $G_{r'} \to G_{r}$ is a linear character sheaf on $G_r$. 
+Thus, $\cs{L}_{r'}$ is conjugation-equivariant in the sense of Section~\ref{ssec:equivariant}
+
+
+$a_r : G_r\times G_r \to G_r$ is conjugation for $G_r$, then this determines an isomorphism $a_r^*\cs{L}_r \iso (\EE)_{G_r}\boxtimes \cs{L}_r$, so $\cs{L}_r$ is 
+
+
+Recall that the full Greenberg transform $G \ceq \Gr^{R}(\underline{G})$ is a group scheme over $\Fq$ such that $G(\Fq) = \underline{G}(R)$; it comes equipped with a morphism $G \to G_m$.
+The Weil sheaf on $G$ obtained from $\cs{L}_m$ by pullback along the morphism of group schemes $G \to G_m$ is a quasicharacter sheaf on $G$, in the sense of \cite{cunningham-roe:13a}*{Def 4.2}, such that 
+\[
+\trFrob{\cs{L}} = \varphi.
+\]
+
+
 
 \subsection{Jacobi theory over finite fields}\label{ssec:Jacobi}
 
@@ -1104,8 +1168,8 @@ Let $\psi : Z \to \EEx$ be an additive character and let $\omega_\psi$ be the He
 The Heisenberg representation determines a representation $\pi_{\psi}$ of $\Sp(V)$ with the same representation space as $\omega_\psi$ and with the defining property: for each $g\in \Sp(V)$, $\pi_\psi(g)$ determines an isomorphism of representations $\omega_\psi^g \to \omega_\psi$.
 Let $W_\psi = \pi_\psi \ltimes \omega_\psi$ be the Heisenberg-Weil representation of the Jacobi group $\Sp(V)\ltimes V^\sharp$ given by $\omega_\psi$ and $\pi_\psi$ \cite{gurevich-hadani:07a}*{\S 2.2}.
 
-There is a Weil sheaf complex $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$ \cite{gurevich-hadani:07a}*{Theorem 3.2.2.1} (see also \cite{gurevich-hadani:11a}*{Theorem 4.5}) such that 
-\begin{equation}
+By \cite{gurevich-hadani:07a}*{Theorem 3.2.2.1} (see also \cite{gurevich-hadani:11a}*{Theorem 4.5}), there is a Frobenius-stable conjugation-equivariant perverse sheaf $\cs{K}_\psi$ on $\Sp(V)\ltimes V^\sharp$  such that 
+\begin{equation}\label{eqn:Jacobi}
 \trFrob{\cs{K}_\psi} = \trace(W_\psi).
 \end{equation}
 %
@@ -1145,6 +1209,7 @@ and, for $i=0, \ldots d-1$, a natural action of $\oK^i$ on $J_{i+1}$ defining th
 \end{equation}
 \end{enumerate}
 %
+
 Next, Yu defines a group homomorphism (in fact, a quotient) 
 $
 J_{i+1} \to V_{i+1}
@@ -1173,7 +1238,7 @@ a group homomorphism $h_{i+1} : \oK^i \ltimes J_{i+1} \to  \Sp(V_{i+1})\ltimes V
 
 \begin{table}[ht]
 \caption{Notation conversion chart.}
-\begin{spacing}{1.2}
+\begin{spacing}{1.3}
 \begin{tabular}{| c|l | l | }
 \hline
 \text{this paper} & \text{Jiu-Kang Yu, {\it Construction of tame}} & \cite{yu:01a} \\
@@ -1261,13 +1326,13 @@ This realizes the Jacobi group $\Sp(V_{i+1}) \ltimes V_{i+1}^\sharp$ as a quotie
 We may now revisit the ingredients in the construction of the representation $\rho$ of $\underline{G}(R)$ along the lines indicated by Yu and recalled in Section~\ref{ssec:review}.
 \begin{enumerate}
 \labitem{M0}{M0}
-The compact groups $\oK^i$ have been replaced by the smooth group schemes $\underline{G}^i$.
+The compact groups $\oK^i$ appearing in \ref{Y0} have been replaced by the smooth group schemes $\underline{G}^i$.
 \labitem{M1}{M1}
-The continuous representation $\orho^0$ of $\oK^0$ is a representation of $\underline{G}^0(R)$ obtained by inflation along $\underline{G}^0(R) \to \underline{G}^0(\Fq)$ from a representation $\varrho_0$ of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
+The continuous representation $\orho^0$ of $\oK^0$ appearing in \ref{Y1} may be interpreted as a representation of $\underline{G}^0(R)$ obtained by inflation along $\underline{G}^0(R) \to \underline{G}^0(\Fq)$ from a representation $\varrho_0$ of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
 In fact, $\varrho_0$ is itself obtained by pulling back a representation $\varrho_0^\reductive$ along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
-\labitem{M2}{M2} The quasicharacters $\varphi^i$ are quasicharacters of $\underline{G}^i(R)$, for $i=0, \ldots, d$.
+\labitem{M2}{M2} The quasicharacters $\varphi^i$ appearing in \ref{Y2} are now quasicharacters of $\underline{G}^i(R)$, for $i=0, \ldots, d$.
 \labitem{M3}{M3}
-Diagram \eqref{eq:semiprod} is now replaced by the following diagram of smooth group schemes over $R$.
+Diagram \eqref{eq:semiprod} in \ref{Y3} is now replaced by the following diagram of smooth group schemes over $R$.
 \begin{equation}\label{eq:pimodel}
 \begin{tikzcd}
 \ && 1 \arrow{d} && \\
@@ -1292,52 +1357,49 @@ Then $w_{i+1}$ is itself obtained by pulling back the representation $W_{i+1}$ a
 
 This brings us back to \cite{Yu:models}*{\S 10.5} as quoted in the Introduction to this paper.
 
-\subsection{Geometrization of characters of types}\label{ssec:geotypes}
+\subsection{Geometrization of characters of certain types}\label{ssec:geotypes}
 
-Finally, we come to the main result of Section~\ref{sec:types}.
+We may now give the main result of Section~\ref{sec:types}.
 %
 Since Yu's theory refers to complex representations, and since our geometrization uses $\ell$-adic sheaves, we grit our teeth and fix an isomorphism $\CC \approx \EE$.
+From Section~\ref{ssec:equivariant}, recall the definition of a rational virtual equivariant Weil sheaf complex.
 
 \begin{theorem}\label{thm:geotypes}
 Let $\oK^i$ $\orho^0$, $\varphi^i$, for $i=0, \ldots d$, be a Yu type datum as in Section~\ref{ssec:review}, \ref{Y0}, \ref{Y1} and \ref{Y2}.
 Let $\underline{G}^i$ and $\varrho_0\red$ be as in Section~\ref{ssec:review}, \ref{M0} and \ref{M1}.
 Assume $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
 For $i=0, \ldots ,d$, let $G^i = \Gr_{R}(\underline{G}^i)$ be the Greenberg transform of the smooth group scheme $\underline{G}^i$ appearing in Section~\ref{ssec:review}.
-Then there is a rational virtual Weil sheaf complex $\cs{F}_i$ on $G^i$ such that $\trFrob{\cs{F}_i} = \trace(\orho_i)$, for $i=0, \ldots , d$.
+Suppose that the quasicharacters $\varphi^i$, given in Section~\ref{ssec:review}, \ref{M2}, satisfy the hypothesis of Proposition~\ref{prop:quasicharacters}.
+Then there is a rational virtual equivariant Weil sheaf complex $\cs{F}_i$ on $G^i$ such that $\trFrob{\cs{F}_i} = \trace(\orho_i)$, for $i=0, \ldots , d$.
 \end{theorem}
 
 \begin{proof}
-For every $i=0, \ldots ,d$, set $G^i = \Gr_{R}(\underline{G}^i)$.
+%For every $i=0, \ldots ,d$, set $G^i = \Gr_{R}(\underline{G}^i)$.
 Recall that $G^i(\Fq) = \underline{G}^i(R) = \oK^i$, canonically.
-We begin with an argument already employed in the proof of Proposition~\ref{prop:quasicharacters}.
-By continuity of the quasicharacters $\varphi^i : G^i(\Fq) \to \CC^\times$, there is some $m \in \NN$ and a factorization
-\[
-\begin{tikzcd}
-G^i(\Fq) \arrow{rr}{\varphi^i} \arrow{rd} && \EEx\\
-& \underline{G}^i(R_m) \arrow{ru}[swap]{\varphi^i_m} 
-\end{tikzcd}
-\] 
-for all $i=0, \ldots, d$.
-Set $G_m^i = \Gr_m^{R}(\underline{G}^i)$.
+Set $G_m^i = \Gr_m^{R}(\underline{G}^i)$, for $i=0, \ldots, d$.
 Then $G_m^i$ is a smooth group scheme over $\Fq$ and $G_m^i(\Fq) = \underline{G}^i(R_m)$, canonically.
-Using Theorem~\ref{thm:geo}, let $\cs{L}^i_m$ be a geometrization of the linear character $\varphi^i_m: G_m^i(k) \to \CC^\times$; so
+Let $m_i$ be the level of $\varphi$ as defined in Section~\ref{ssec:quasicharacters}.
+Let $\cs{L}^i_m$ be the commutative character sheaf on $G_{m_i}$ given by Proposition~\ref{prop:quasicharacters}; then
+$\trFrob{\cs{L}^i_{m_i}} = \varphi^i_{m_i}$.
+Set $m = \max\{ m_i \tq i=0, \ldots ,d\}$ and, for each $i$, let $\cs{L}^i_{m}$ be the pull-back of $\cs{L}^i_{m_i}$ along $G^i_{m} \to G^i_{m_i}$; then $\cs{L}^i_{m}$ is a linear character sheaf and
 \[
-\trFrob{\cs{L}^i_m} = \varphi^i_m.
+\trFrob{\cs{L}^i_{m}} = \varphi^i_{m}.
 \]
 
-By \cite{lusztig:disconnected1}, there is a rational virtual Weil character sheaf $A = ({\bar A},\phi)$ on $(\underline{G}^0)_\Fq^\reductive$ such that ${\bar A}$ is a rational virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
+By \cite{lusztig:disconnected1}, there is a rational virtual Weil character sheaf $A = ({\bar A},\phi)$ on $(\underline{G}^0)_\Fq^\reductive$ such that 
+%${\bar A}$ is a rational virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
 \[
 \trFrob{A} = \trace \varrho_0^\reductive.
 \]
-(This uses the hypothesis that $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.)
+This uses the hypothesis that $\pi_0((\underline{G}^0)_\Fq^\reductive)$ is cyclic.
 %
-Let $A^0$ be the Weil sheaf on $(\underline{G}^0)_\Fq$ obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+Let $A^0$ be the equivariant Weil sheaf on $(\underline{G}^0)_\Fq$ obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 Then 
 \[
 \trFrob{A^0} = \trace \varrho_0.
 \]
 The special fibre $(\underline{G}^0)_\Fq$ of the smooth group scheme $\underline{G}^0$ is itself a smooth group scheme, and may be identified with the Greenberg transform $Q^0 = \Gr^{R}_0(\underline{G}^0)$ \cite{cunningham-roe:13a}*{\S 4.3}. 
-With $m\in \NN$ as above, let ${A}_m^0$ be the Weil sheaf on the algebraic group $G_m^i$ obtained by pull-back from $A^0$ along the affine morphism $G_m^i \to Q^0$.
+With $m\in \NN$ as above, let ${A}_m^0$ be the equivariant Weil sheaf on the algebraic group $G_m^i$ obtained by pull-back from $A^0$ along the affine morphism $G_m^i \to Q^0$.
 Factor
 \begin{equation}\label{eqn:tracerho}
 \begin{tikzcd}
@@ -1351,16 +1413,16 @@ Observe that $\trace(\orho^0)_m$ may be recovered from ${A}_m^0$:
 \]
 
 Consider the Jacobi group $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ and the Heisenberg-Weil representation $W_{i+1}$ appearing in Section~\ref{ssec:review}.
-Let $\cs{K}^{i+1}$ be the Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi}, such that
+Let $\cs{K}^{i+1}$ be the equivariant Weil sheaf on the Jacobi group, recalled in Section~\ref{ssec:Jacobi}, such that
 \[
 \trFrob{\cs{K}^{i+1}} = \trace(W_{i+1}).
 \]
 Recall from Section~\ref{ssec:review} that $\Sp(V_{i+1})\ltimes V_{i+1}^\sharp$ is a quotient of the special fibre of the smooth group scheme $\underline{G}^{i} \ltimes \underline{J}^{i+1}$.
 Let $\cs{K}_0^{i+1}$ be the Weil sheaf on the special fibre of $\underline{G}^{i} \ltimes \underline{J}^{i+1}$ obtained from $W_{i+1}$ by pullback. 
-Let $\cs{K}_m^{i+1}$ be the Weil sheaf on $\Gr^{R}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1})$ obtained from $\cs{K}_0^{i+1}$ by pullback along the affine morphism
+Let $\cs{K}_m^{i+1}$ be the equivariant Weil sheaf on $\Gr^{R}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1})$ obtained from $\cs{K}_0^{i+1}$ by pullback along the affine morphism
 $\Gr^{R}_m(\underline{G}^{i} \ltimes \underline{J}^{i+1}) \to \Gr^{R}_0(\underline{G}^{i} \ltimes \underline{J}^{i+1})$.
 
-We now define Weil sheaves $\cs{A}^i_m$ on $G_m^i \ceq \Gr^{R}_m(\underline{G}^{i})$, for $i=0,\ldots ,d$, recursively, following the construction of the representations $\orho^i$, as reviewed in Section~\ref{ssec:review}.
+We now define equivariant Weil sheaves $\cs{A}^i_m$ on $G_m^i \ceq \Gr^{R}_m(\underline{G}^{i})$, for $i=0,\ldots ,d$, recursively, following the construction of the representations $\orho^i$, as reviewed in Section~\ref{ssec:review}.
 First, set $\cs{A}_m^0 = A_m^0$ and note that \eqref{eqn:tracerho} commutes with $\trace(\orho^0)_m$ replaced by $\trFrob{\cs{A}_m^0}$.
 Now, suppose $\cs{A}^i_m$ on $G_m^i$ is defined such that
 \[
@@ -1382,7 +1444,7 @@ Applying the Greenberg functor $\Gr^{R}_m$, to \eqref{eq:pimodel} gives
 \end{equation}
 where $J_m^{i+1} \ceq \Gr^{R}_m(\underline{J}^{i+1})$ and $G_m^{i} \ceq \Gr^{R}_m(\underline{G}^{i})$.
 By \cite{bertapelle-gonzales:Greenberg}*{Prop 7.1}, the sequences are exact.
-Consider the sheaf 
+Consider the rational virtual equivariant Weil sheaf 
 \[
 \cs{B}_m^{i+1} \ceq \cs{K}_m^{i+1} \otimes (p_m^{i})^*(\cs{A}_m^{i}\otimes \cs{L}_m^{i})
 \]
@@ -1393,7 +1455,7 @@ With reference to the morphism $\pi_m^{i+1} : G_m^i \ltimes J_m^{i+1} \to G_m^{i
 \[
 \cs{C}_m^{i+1} \ceq (\pi_m^{i+1})_! (\cs{B}_m^{i+1}).
 \]
-Then
+Then $\cs{C}_m^{i+1}$ is an equivariant Weil sheaf and
 \begin{eqnarray*}
 \trFrob{\cs{C}^{i+1}_m}(x)
 &=& \sum_{y\in (\pi_m^{i+1})^{-1}(x)}  \trFrob{\cs{B}_m^{i+1}}(y).
@@ -1403,7 +1465,7 @@ Since $\trFrob{\cs{B}^{i+1}_m}$ is constant on $(G_m^{i}\times_{G_m} J_m^{i+1})(
 \trFrob{\cs{C}^{i+1}_m} = n \trFrob{\cs{B}^{i+1}_m}
 \]
 on $G_m^{i+1}(\Fq)$ for $n = \# (G_m^{i}\times_{G_m} J_m^{i+1})(\Fq) \times \dim \orho^{i+1} $.
-Let $\cs{A}_m^{i+1}$ be the \emph{rational virtual} Weil sheaf on $G_m^i$ given by $\cs{A}_m^{i+1} = \frac{1}{n} \cs{C}_m^{i+1}$. 
+Let $\cs{A}_m^{i+1}$ be the rational virtual equivariant Weil sheaf on $G_m^i$ given by $\cs{A}_m^{i+1} = \frac{1}{n} \cs{C}_m^{i+1}$. 
 %
 This completes the inductive definition of $\cs{A}_m^i$ so that the following diagram commutes.
 \[
@@ -1414,7 +1476,7 @@ G^{i+1}(\Fq) \arrow{rr}{\trace(\orho^{i+1})} \arrow{rd} && \EE\\
 \]
 
 Now set $\cs{F}^i_m = \cs{A}_m^{i} \otimes \cs{L}_m^i$, for $i=0, \ldots ,d$.
-Then $\cs{F}^i_m$ is a rational virtual Weil sheaf on $G^i_m = \Gr^{R}_m(\underline{G}^i)$ such that
+Then $\cs{F}^i_m$ is a rational virtual equivariant Weil sheaf on $G^i_m = \Gr^{R}_m(\underline{G}^i)$ such that
 \[
 \begin{tikzcd}
 G^i(\Fq) \arrow{rr}{\trace(\orho_i)} \arrow{rd} && \EE\\
@@ -1422,13 +1484,16 @@ G^i(\Fq) \arrow{rr}{\trace(\orho_i)} \arrow{rd} && \EE\\
 \end{tikzcd}
 \]
 commutes.
-Let $\cs{F}^i$ be the rational virtual Weil sheaf on the group scheme $G^i= \Gr_{R}(\underline{G}^i)$ obtained by pulling back $\cs{F}_m^i$ along $G^i \to G^i_m$.
+Let $\cs{F}^i$ be the rational virtual equivariant Weil sheaf on the group scheme $G^i= \Gr_{R}(\underline{G}^i)$ obtained by pulling back $\cs{F}_m^i$ along $G^i \to G^i_m$.
 Then 
 \[
 \trFrob{\cs{F}^i} = \trace(\orho_i),
 \] 
 as desired.
 \end{proof}
+
+
+\bigskip
 
 
 \begin{bibdiv}
@@ -1508,6 +1573,20 @@ URL = {http://journals.cambridge.org/article_S1474748015000286},
       author={Gabriel, Pierre},
        title={{Expos\'e VI$_\mathrm{A}$: G\'en\'eralit\'es sur les groupes
   alg\'ebriques}},
+        date={1970},
+   booktitle={S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois Marie, Sch\'emas en groupes I (SGA3) {Proprietes generales des schemas en
+  groupes}},
+      editor={Demazure, Michel},
+      editor={Grothendieck, Alexander},
+      series={Lecture Notes in Math},
+      volume={151},
+   publisher={Springer-Verlag},
+     address={Berlin},
+}
+
+\bib{demazure:SGA3-VIB}{inproceedings}{
+      author={Bertin, J.E.},
+       title={{Expos\'e VI$_\mathrm{B}$: G\'en\'eralit\'es sur les pr\'esch\'emas en groupes}},
         date={1970},
    booktitle={S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois Marie, Sch\'emas en groupes I (SGA3) {Proprietes generales des schemas en
   groupes}},
