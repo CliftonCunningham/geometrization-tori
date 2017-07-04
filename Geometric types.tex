@@ -967,7 +967,22 @@ If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$, Section \ref{sec:non
 
 \subsection{Pushforward along the Lang isogeny}
 
-For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(x) = x^{-1}\Frob{G}(x)$.  Then the pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$.
+For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(x) = x^{-1}\Frob{G}(x)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$.
+
+Now drop the assumption that $G$ is commutative, but assume that $G(k) \subset \image(L)$ (which will hold if $G$ is connected).  We apply a similar strategy to construct a local system on $G$ whose trace of Frobenius is $\chi$.
+
+\begin{lemma}
+If $\chi \in G(k)^*$ then there is a character $\chi' \in G(k)^*$ so that $\chi'(yxy^{-1}) = \chi(x)$ for all $x \in G(k)$ and $y \in L^{-1}(x^{-1})$.
+\end{lemma}
+\begin{proof}
+The condition $y \in L^{-1}(x^{-1})$ is equivalent to $\Frob{}(y) = yx^{-1}$, and thus $yxy^{-1} \in G(k)$ since $\Frob{}(yxy^{-1}) = (yx^{-1})x(xy^{-1}) = yxy^{-1}.$
+Given $z \in G(k)$, we want to write $z = yxy^{-1} = y\Frob{}(y^{-1}) = L(y^{-1})$ in order to define $\chi'(z) = \chi(x)$.  This is possible by our assumption that $G(k) \subset \image(L)$.  To see that $\chi'$ is well-defined, suppose that $z = y_1 x_1 y_1^{-1} = y_2 x_2 y_2^{-1}$ with $y_i \in L^{-1}(x_i^{-1})$.  Then $y_1 \Frob{}(y_1^{-1}) = y_2 \Frob{}(y_2^{-1})$ so $y_1^{-1} y_2 \in G(k)$ and $y_2^{-1} y_1 \in G(k)$.  We can now write
+\begin{align*}
+x_1 x_2^{-1} &= y_1^{-1} z y_1 y_2^{-1} z^{-1} y_2 \\
+&= (y_1^{-1} y_2) (y_2^{-1} z y_2) (y_2^{-1} y_1) (y_2^{-1} z^{-1} y_2) \in G(k)\der.
+\end{align*}
+Thus $\chi(x_1 x_2^{-1}) = 1$ so $\chi(x_1) = \chi(x_2)$ and $\chi'$ is well defined. \todo{Finish proof here}
+\end{proof}
 
 \subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}
 
