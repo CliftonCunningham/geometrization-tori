@@ -1012,8 +1012,8 @@ Alternatively, we can use the fact that Lusztig's character sheaves provide a ba
 $C_3$ & regular semisimple elements \\
 $C_2$ & regular unipotent elements \\
 $C_2^-$ & $\{-u : \mbox{ regular unipotent $u$}\}$ \\
-$1$ & $\{1\}$ \\
-$2$ & $\{2\}$ \\
+$\{1\}$ & $\{1\}$ \\
+$\{2\}$ & $\{2\}$ \\
 \hline
 \end{tabular}
 \end{spacing}
@@ -1022,7 +1022,7 @@ $2$ & $\{2\}$ \\
 \vspace{0.1in}
 
 \noindent
-Each Weil character sheaf on $\SL_2$ over $\FFF$ is the perverse extension of one of the following local systems: the rank-$1$ constant sheaf $\mathbf{1}_{C_3}$ (resp. $\mathbf{1}_{C_2}$, $\mathbf{1}_{C_2^-}$, $\mathbf{1}_{1}$,  $\mathbf{1}_{-1}$) on $C_3$ (resp. $C_2$, $C_2^-$, $1$, $-1$), or the non-trivial rank-$1$ local system $\cs{E}_{C_2}$  (resp.  $\cs{E}_{C_2^-}$) on $C_2^{-1}$  (resp.  $\cs{E}_{C_2^-}$) trivialized by the double cover of $C_2$ (resp. $C_2^-$).
+Each Weil character sheaf on $\SL_2$ over $\FFF$ is the perverse extension of one of the following local systems: the rank-$1$ constant sheaf $\mathbf{1}_{C_3}$ (resp. $\mathbf{1}_{C_2}$, $\mathbf{1}_{C_2^-}$, $\mathbf{1}_{\{1\}}$,  $\mathbf{1}_{\{2\}}$) on $C_3$ (resp. $C_2$, $C_2^-$, $\{1\}$, $\{2\}$), or the non-trivial rank-$1$ local system $\cs{E}_{C_2}$  (resp.  $\cs{E}_{C_2^-}$) on $C_2^{-}$  (resp.  $\cs{E}_{C_2^-}$) trivialized by the double cover of $C_2$ (resp. $C_2^-$).
 The following table describes these perverse sheaves by showing how they decompose in the Grothendieck group into standard sheaves on $\SL_2$, and also gives the values of the trace of Frobenius on the $7$ conjugacy classes in $\SL_2(\FFF)$.
 
 \vspace{0.1in}
@@ -1032,15 +1032,15 @@ The following table describes these perverse sheaves by showing how they decompo
 \begin{array}{|l|l|ccccccc|}
 \hline
 \text{Perverse} & \text{Standard} & \multicolumn{7}{|c|}{\text{Trace of Frobenius values at conjugacy classes}} \\ \cline{3-9}
-\text{Sheaf} & \text{Sheaves} & (\begin{smallmatrix}1 & 0\\ 0 & 1\end{smallmatrix}) & (\begin{smallmatrix}2 & 0\\ 0 & 2\end{smallmatrix}) & (\begin{smallmatrix}0 & 1\\ 2 & 0\end{smallmatrix})  & (\begin{smallmatrix}1 & 1\\ 0 & 1\end{smallmatrix})  & (\begin{smallmatrix}1 & 2\\ 0 & 1\end{smallmatrix}) & (\begin{smallmatrix}2 & 1\\ 0 & 2\end{smallmatrix})  & (\begin{smallmatrix}2 & 2\\ 0 & 2\end{smallmatrix}) \\
+\text{Sheaf} & \text{Sheaves} & (\begin{smallmatrix}1 & 0 \\ 0 & 1\end{smallmatrix}) & (\begin{smallmatrix} 2 & 0\\ 0 & 2\end{smallmatrix}) & (\begin{smallmatrix}0 & 1 \\ 2 & 0\end{smallmatrix})  & (\begin{smallmatrix} 1 & 1\\ 0 & 1 \end{smallmatrix})  & (\begin{smallmatrix}1 & 2 \\ 0 & 1 \end{smallmatrix}) & (\begin{smallmatrix} 2 & 1\\ 0 & 2 \end{smallmatrix})  & (\begin{smallmatrix}2 & 2 \\ 0 & 2 \end{smallmatrix}) \\
 \hline
 \IC(\mathbf{1}_{C_3})  &  \mathbf{1}_{\SL_2}[3]  & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
- \IC(\mathbf{1}_{C_2})  &  \mathbf{1}_{C_2}[2] \oplus \mathbf{1}_1[2]  & 1 & 0 & 0 & 1 & 1 & 0 & 0 \\
+ \IC(\mathbf{1}_{C_2})  &  \mathbf{1}_{C_2}[2] \oplus \mathbf{1}_{\{1\}}[2]  & 1 & 0 & 0 & 1 & 1 & 0 & 0 \\
  \IC(\cs{E}_{C_2})  &  \cs{E}_{C_2}[2]  & 0 & 0 & 0 &  \sqrt{-3}  &  -\sqrt{-3} & 0 & 0 \\
- \IC(\mathbf{1}_{C_2^-})  &  \mathbf{1}_{C_2^-}[2] \oplus \mathbf{1}_{2}[2]  & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\
+ \IC(\mathbf{1}_{C_2^-})  &  \mathbf{1}_{C_2^-}[2] \oplus \mathbf{1}_{\{2\}}[2]  & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\
  \IC(\cs{E}_{C_2^-})  &  \cs{E}_{C_2^-}[2]  & 0 & 0 & 0 & 0 & 0 &   \sqrt{-3}  &   -\sqrt{-3}  \\
- \IC(\mathbf{1}_1)  &  \mathbf{1}_1[0]  & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
- \IC(\mathbf{1}_{2})  &  \mathbf{1}_{2}[0]  & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+ \IC(\mathbf{1}_{\{1\}})  &  \mathbf{1}_{\{1\}}[0]  & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ \IC(\mathbf{1}_{\{2\}})  &  \mathbf{1}_{\{2\}}[0]  & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
 \hline
 \end{array}
 \]
@@ -1049,7 +1049,7 @@ The following table describes these perverse sheaves by showing how they decompo
 \vspace{0.1in}
 \noindent Using the trace of Frobenius values, we find that the rational virtual equivariant Weil sheaf complex
 \[
-- \IC(\mathbf{1}_{C_3}) - \frac32 \IC(\mathbf{1}_{C_2}) + \frac12 \IC(\cs{E}_{C_2}) - \frac32 \IC(\mathbf{1}_{C_2^-}) - \frac12 \IC(\cs{E}_{C_2^-}) + \frac32 \IC(\mathbf{1}_1) + \frac32 \IC(\mathbf{1}_{2})
+- \IC(\mathbf{1}_{C_3}) - \frac32 \IC(\mathbf{1}_{C_2}) + \frac12 \IC(\cs{E}_{C_2}) - \frac32 \IC(\mathbf{1}_{C_2^-}) - \frac12 \IC(\cs{E}_{C_2^-}) + \frac32 \IC(\mathbf{1}_{\{1\}}) + \frac32 \IC(\mathbf{1}_{\{2\}})
 \]
 also geometrizes $\chi$.  Note that all seven character sheaves appear in this geometrization, even though we start just with a character.
 
