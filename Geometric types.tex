@@ -970,9 +970,27 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Corollar
 
 
 If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$, Section \ref{sec:noncom} provides a \emph{local system} $\cs{L}$ that is \emph{conjugation equivariant} and satisfies $\TrFrob{}(\cs{L}) = \chi$.   In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation invariant.
+ 
+\subsection{Pushforward along the Lang isogeny}
 
+For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(y) = y^{-1}\Frob{G}(y)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$.
 
-\subsection{Equivariance Weil sheaf complexes (move to somewhere else?)}\label{ssec:equivariant}
+If $G$ is nonabelian or disconnected, a similar strategy sometimes succeeds in geometrizing characters $\chi : G(k) \to \EEx$.
+Suppose that
+\begin{enumerate}
+\labitem{(L.1)}{L.1} $G(k) \subset \image(L)$ (which will hold if $G$ is connected).
+\end{enumerate}
+Then we may associate to each $\chi$ a function $\tilde{\chi}$ as follows.
+Define $\tilde{L} : G \to G$ by $\tilde{L}(y) = \Frob{G}(y)y^{-1}$.
+If $x \in G(k)$, write $x = L(y)$ and define $\tilde{\chi}(x) = \chi(\tilde{L}(y))$.
+Note that $\tilde{\chi}$ is well defined since changing $y$ to $gy$ for $g \in G(k)$ has the
+effect of conjugating $\tilde{L}(y)$ by $g$, which has no effect on the value $\chi(\tilde{L}(y))$.
+Then we must also assume that
+\begin{enumerate}
+\labitem{(L.2)}{L.2} $\tilde{\chi}$ is also a character.
+\end{enumerate}
+
+\subsection{Equivariant Weil sheaf complexes}\label{ssec:equivariant}
 
 Suppose $(\cs{L},\mu)$ is a linear character sheaf on $G$. 
 As the diagram below explains, the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$, where  $a : G\times G\to G$ is conjugation $a(x,y)=xyx^{-1}$ and $p_2: G\times G\to G$ is projection $p_2(x,y)=y$.
@@ -992,25 +1010,6 @@ In particular, any character of any representation of $G(k)$ can be expressed as
 We will refer to a formal sum $\sum_{i\in I} a_i \cs{F}_i$ of conjugation-equivariant Weil $\ell$-adic sheaf complexes with ${\bar \QQ}$-coefficients as a rational virtual equivariant Weil sheaf complex on $G$.
 When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.
 We see an example of this in Section~\ref{ssec:SL23}.
- 
-\subsection{Pushforward along the Lang isogeny}
-
-For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(y) = y^{-1}\Frob{G}(y)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$.
-
-If $G$ is nonabelian or disconnected, a similar strategy sometimes succeeds in geometrizing characters $\chi : G(k) \to \EEx$.
-Suppose that
-\begin{enumerate}
-\labitem{(Lang.1)}{Lang.1} $G(k) \subset \image(L)$ (which will hold if $G$ is connected).
-\end{enumerate}
-Then we may associate to each $\chi$ a function $\tilde{\chi}$ as follows.
-Define $\tilde{L} : G \to G$ by $\tilde{L}(y) = \Frob{G}(y)y^{-1}$.
-If $x \in G(k)$, write $x = L(y)$ and define $\tilde{\chi}(x) = \chi(\tilde{L}(y))$.
-Note that $\tilde{\chi}$ is well defined since changing $y$ to $gy$ for $g \in G(k)$ has the
-effect of conjugating $\tilde{L}(y)$ by $g$, which has no effect on the value $\chi(\tilde{L}(y))$.
-Then we must also assume that
-\begin{enumerate}
-\labitem{(Lang.2)}{Lang.2} $\tilde{\chi}$ is also a character.
-\end{enumerate}
 
 \subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}\label{ssec:SL23}
 
