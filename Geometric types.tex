@@ -998,12 +998,19 @@ We see an example of this in Section~\ref{ssec:SL23}.
 For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(y) = y^{-1}\Frob{G}(y)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$.
 
 If $G$ is nonabelian or disconnected, a similar strategy sometimes succeeds in geometrizing characters $\chi : G(k) \to \EEx$.
-Suppose that $G(k) \subset \image(L)$ (which will hold if $G$ is connected).  Then we may associate to each $\chi$ a function $\tilde{\chi}$ as follows.
+Suppose that
+\begin{enumerate}
+\labitem{(Lang.1)}{Lang.1} $G(k) \subset \image(L)$ (which will hold if $G$ is connected).
+\end{enumerate}
+Then we may associate to each $\chi$ a function $\tilde{\chi}$ as follows.
 Define $\tilde{L} : G \to G$ by $\tilde{L}(y) = \Frob{G}(y)y^{-1}$.
-If $x \in G(k)$, write $x = L(y) = y^{-1}\Frob{G}(y)$ and define $\tilde{\chi}(x) = \chi(\tilde{L}(y))$.
+If $x \in G(k)$, write $x = L(y)$ and define $\tilde{\chi}(x) = \chi(\tilde{L}(y))$.
 Note that $\tilde{\chi}$ is well defined since changing $y$ to $gy$ for $g \in G(k)$ has the
 effect of conjugating $\tilde{L}(y)$ by $g$, which has no effect on the value $\chi(\tilde{L}(y))$.
-Our second assumption required to geometrize $\chi$ is that $\tilde{\chi}$ is also a character.
+Then we must also assume that
+\begin{enumerate}
+\labitem{(Lang.2)}{Lang.2} $\tilde{\chi}$ is also a character.
+\end{enumerate}
 
 \subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}\label{ssec:SL23}
 
