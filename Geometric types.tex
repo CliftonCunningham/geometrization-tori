@@ -976,13 +976,14 @@ If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$, Section \ref{sec:non
 For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(y) = y^{-1}\Frob{G}(y)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$, and the local system $\cs{L}$ associated to $\chi^{-1}$ will have $\TrFrob{}(\cs{L}) = \chi$.
 
 If $G$ is nonabelian or disconnected, a similar strategy sometimes succeeds in geometrizing characters $\chi : G(k) \to \EEx$.
+Define $\tilde{L} : G \to G$ by $\tilde{L}(y) = \Frob{G}(y)y^{-1}$.
+The fibers of $L$ are right cosets of $G(k)$ and the fibers of $\tilde{L}$ are left cosets.
 Suppose that
 \begin{enumerate}
-\labitem{(L.1)}{L.1} $G(k) \subset \image(L)$ (which will hold if $G$ is connected).
+\labitem{(L.1)}{L.1} $G(k) \subset \image(\tilde{L}) \cap \image(L)$ (which will hold if $G$ is connected).
 \end{enumerate}
-Then we may associate to each $\chi$ a function $\tilde{\chi}$ as follows.
-Define $\tilde{L} : G \to G$ by $\tilde{L}(y) = \Frob{G}(y)y^{-1}$.
-If $x \in G(k)$, write $x = \tilde{L}(y)$ and define $\tilde{\chi}(x) = \chi(L(y))$.
+Then we may associate to each $\chi$ a function $\tilde{\chi} : G(k) \to \EEx$ as folllows.
+If $z \in G(k)$, write $z = \tilde{L}(y)$ and define $\tilde{\chi}(z) = \chi(L(y))$.
 Note that $\tilde{\chi}$ is well defined since changing $y$ to $ya$ for $a \in G(k)$ has the
 effect of conjugating $L(y)$ by $a^{-1}$, which has no effect on the value $\chi(L(y))$.
 In order to obtain a local system with trace $\chi$, we must also assume that
@@ -998,11 +999,11 @@ The stalk of $\cs{L}$ at $x \in G(k)$ is
 \[
 \cs{L}_x = \{ s : L^{-1}(x) \to \EE : s(ay) = \tilde{\chi}^{-1}(a) s(y) \mbox{ for all $a \in G(k), y \in L^{-1}(x)$}\}.
 \]
-Frobenius acts by
+For any $y \in L^{-1}(x)$, note that $\Frob{G}^{-1}(y) = yx^{-1}$ and $\tilde{L}(y) = yxy^{-1} \in G(k)$.  Frobenius acts on $s \in \cs{L}_x$ by
 \[
-(^{\Frob{}}s)(y) = s(\Frob{}^{-1}(y)) = s(yx^{-1}) = s(yx^{-1}y^{-1}y) = \tilde{\chi}(yxy^{-1})s(y) = \tilde{\chi}(\tilde{L}(y))s(y) = \chi(x)s(y),
+(^{\Frob{}}s)(y) = s(\Frob{G}^{-1}(y)) = \tilde{\chi}^{-1}(yx^{-1}y^{-1})s(y) = \tilde{\chi}(\tilde{L}(y))s(y) = \chi(x)s(y),
 \]
-thus proving the claim. Need $z$ with $L(z) = \tilde{L}(y)$.  Note that $z = \Frob{G}(y^{-1})$ does not do the job.
+thus proving the claim.
 \end{proof}
 
 \subsection{Equivariant Weil sheaf complexes}\label{ssec:equivariant}
