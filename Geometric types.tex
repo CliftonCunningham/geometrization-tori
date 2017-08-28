@@ -971,7 +971,7 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Corollar
 
 If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$, Section \ref{sec:noncom} provides a \emph{local system} $\cs{L}$ that is \emph{conjugation equivariant} and satisfies $\TrFrob{}(\cs{L}) = \chi$.   In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation invariant.
  
-\subsection{Pushforward along the Lang isogeny}
+\subsection{Pushforward along the Lang isogeny} \label{ssec:Lang_pushforward}
 
 For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(y) = y^{-1}\Frob{G}(y)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$, and the local system $\cs{L}$ associated to $\chi^{-1}$ will have $\TrFrob{}(\cs{L}) = \chi$.
 
@@ -1006,6 +1006,9 @@ For any $y \in L^{-1}(x)$, note that $\Frob{G}^{-1}(y) = yx^{-1}$ and $\tilde{L}
 thus proving the claim.
 \end{proof}
 
+Note that the resulting sheaf is a local system, but is not necessarily conjugation equivariant in the sense of Section \ref{ssec:equivariant1} because
+the Lang map is not a homomorphism when $G$ is nonabelian.
+
 \subsection{Equivariant Weil sheaf complexes}\label{ssec:equivariant}
 
 Suppose $(\cs{L},\mu)$ is a linear character sheaf on $G$. 
@@ -1022,16 +1025,22 @@ Although every linear character sheaf on $G$ is a conjugation-equivariant Weil l
 For connected reductive groups $G$ over $k$, Lusztig's character sheaves are simple perverse sheaves $\IC(C,\mathcal{L})$ on $G$ that come equipped with an isomorphism $a^*\, \IC(C,\mathcal{L}) \to p_2^*\, \IC(C,\mathcal{L})$ in Deligne's category $D^b_c(G;\EE)$.
 Consequently, when $\IC(C,\mathcal{L})$ is also a Weil sheaf complex, its trace of Frobenius function $\trFrob{\IC(C,\cs{L})} : G(k)\to \EE$ is a class function, called the characteristic function of $\IC(C,\cs{L})$.
 By \cite{lusztig:86a}*{Cor. 25.7}, Weil character sheaves on $G$ determine a basis for the $\EE$-space of class functions on $G(k)$.
-In particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear \todo{should this be $\EE$-linear?} combination of characteristic functions of Weil character sheaves on $G$.
+In particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear combination of characteristic functions of Weil character sheaves on $G$.
 We will refer to a formal sum $\sum_{i\in I} a_i \cs{F}_i$ of conjugation-equivariant Weil $\ell$-adic sheaf complexes with ${\bar \QQ}$-coefficients as a rational virtual equivariant Weil sheaf complex on $G$.
-When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.
-We will see an example of this in Section~\ref{ssec:SL23}.
+When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.  Of course, the resulting objects are generally not local systems.
+We will see an example of this phenomenon in the next section.
 
-\subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}\label{ssec:SL23}
+\subsection{Examples}\label{ssec:badderived_examples}
 
-Let $G = \SL_2$ over $\FFF$.  Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements, isomorphic to the quaternion group $Q_8$ and of index $3$.  There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  The method described above for producing a linear character sheaf corresponding to this character no longer works, since $\SL_2$ is simply connected and thus has no discrete isogenies mapping onto it.  We may still produce a local system with the correct trace of Frobenius, by pushing forward the constant sheaf along the Lang isogeny and picking out the isotypic component corresponding to $\chi$.\todo{So, maybe not?}  However, since $\SL_2$ is nonabelian, the Lang isogeny is not a homomorphism and the resulting local system is not a linear character sheaf.
+We now consider examples of both of these methods.  Suppose first that $G = \SL_2$ over $\FFF$.
+Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements,
+isomorphic to the quaternion group $Q_8$ and of index $3$.
+There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  The method of Section \ref{ssec:Lang_pushforward} applies
+since $G$ is connected and $\tilde{\chi} = \chi^{-1}$ is also a character.
 
-Alternatively, we can use the fact that Lusztig's character sheaves provide a basis for the space of class functions \cite{lusztig:86a}*{Cor. 25.7} to give a different geometrization of $\chi$, as discussed in Section~\ref{ssec:equivariant}.  Lusztig's character sheaves are constructed by perverse extension of local systems on a certain stratification of $G$.  In the case of $\SL_2$, there are five strata:
+Alternatively, we use the method discussed in Section~\ref{ssec:equivariant}. 
+Lusztig's character sheaves are constructed by perverse extension of local systems on a certain stratification of $G$.
+In the case of $\SL_2$, there are five strata:
 
 \vspace{0.1in}
 
@@ -1083,11 +1092,10 @@ The following table describes these perverse sheaves by showing how they decompo
 \]
 also geometrizes $\chi$.  Note that all seven character sheaves appear in this geometrization, even though we start just with a character.
 
-\subsection{\texorpdfstring{$\PGL_2(k)$}{PGL(2, k)}}
+For $p > 3$ and $G = \SL_2$, we have $G\der(k) = G(k)\der$ so the methods described above are not required.
+However, there are other examples for large $p$ where $G\der(k) \ne G(k)\der$.  For example, when $G = \PGL_2$ and $k$ has odd characteristic, then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  As in the case of $\SL_2(\FFF)$, both of the methods described in this section apply to $\PGL_2$.
 
-Let $G = \PGL_2$ over a finite field $k$ of odd characteristic.  Then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  There is thus a nontrivial character $\chi : G(k) \to \{\pm 1\} \subset \EEx$.  We may construct a linear character sheaf with trace $\chi$ as follows.  Consider the standard isogeny $f : \SL_2 \to \PGL_2$ with kernel $\mu_2$ and the nontrivial map $\psi : \mu_2 \to \EEx$.  Then the pushforward $f_! \EE$ of the constant sheaf on $\SL_2$ is a $2$-dimensional local system, and its $\psi$-isotypic component $(f_! \EE)_\psi$ is a linear character sheaf on $\PGL_2$ with trace of Frobenius $\chi$ (c.f. \cite{cunningham-roe:13a}*{Prop 1.10}).
-
-\todo{}
+\todo{I don't know what you mean here; should this still be included?}
 Explain that while $(f_! \EE)_\psi$ is not a commutative character sheaf, it does satisfy a weaker version of Definition~\ref{def:CCS}. Namely, there is an isomorphism $\gamma$ such that
  \[
   \begin{tikzcd}[row sep=30]
