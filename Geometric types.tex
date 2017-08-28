@@ -1009,7 +1009,7 @@ thus proving the claim.
 \subsection{Equivariant Weil sheaf complexes}\label{ssec:equivariant}
 
 Suppose $(\cs{L},\mu)$ is a linear character sheaf on $G$. 
-As the diagram below explains, the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$, where  $a : G\times G\to G$ is conjugation $a(x,y)=xyx^{-1}$ and $p_2: G\times G\to G$ is projection $p_2(x,y)=y$.
+As the diagram below explains, the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$, where  $a : G\times G\to G$ is conjugation $a(x,y)=xyx^{-1}$ and $p_2: G\times G\to G$ is projection $p_2(x,y)=y$. \todo{problem with bottom left of diagram}
 \[
 \begin{tikzcd}[column sep = 30]
 a^*\cs{L} \arrow[equal]{d}[swap]{a= m\circ (m\times (i\circ p_1))} \arrow[dotted]{r} & p_2^*\cs{L}  \\
@@ -1017,15 +1017,15 @@ a^*\cs{L} \arrow[equal]{d}[swap]{a= m\circ (m\times (i\circ p_1))} \arrow[dotted
 m^*\cs{L}\otimes (i\circ p_1))^*\cs{L} \arrow{r}{\mu \otimes \id} & p_1^*\cs{L} \otimes p_2^*\cs{L} \otimes p_1^*\cs{L}^\vee \arrow[equal]{u}
 \end{tikzcd}
 \]
-Although every linear character sheaf on $G$ is a conjugation-equivariant Weil local systems on $G$, the converse is certainly not true. 
+Although every linear character sheaf on $G$ is a conjugation-equivariant Weil local system on $G$, the converse is certainly not true. 
 
 For connected reductive groups $G$ over $k$, Lusztig's character sheaves are simple perverse sheaves $\IC(C,\mathcal{L})$ on $G$ that come equipped with an isomorphism $a^*\, \IC(C,\mathcal{L}) \to p_2^*\, \IC(C,\mathcal{L})$ in Deligne's category $D^b_c(G;\EE)$.
 Consequently, when $\IC(C,\mathcal{L})$ is also a Weil sheaf complex, its trace of Frobenius function $\trFrob{\IC(C,\cs{L})} : G(k)\to \EE$ is a class function, called the characteristic function of $\IC(C,\cs{L})$.
 By \cite{lusztig:86a}*{Cor. 25.7}, Weil character sheaves on $G$ determine a basis for the $\EE$-space of class functions on $G(k)$.
-In particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear combination of characteristic functions of Weil character sheaves on $G$.
+In particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear \todo{should this be $\EE$-linear?} combination of characteristic functions of Weil character sheaves on $G$.
 We will refer to a formal sum $\sum_{i\in I} a_i \cs{F}_i$ of conjugation-equivariant Weil $\ell$-adic sheaf complexes with ${\bar \QQ}$-coefficients as a rational virtual equivariant Weil sheaf complex on $G$.
 When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.
-We see an example of this in Section~\ref{ssec:SL23}.
+We will see an example of this in Section~\ref{ssec:SL23}.
 
 \subsection{\texorpdfstring{$\SL_2(\FFF)$}{\SL(2, 3)}}\label{ssec:SL23}
 
@@ -1095,22 +1095,6 @@ Explain that while $(f_! \EE)_\psi$ is not a commutative character sheaf, it doe
    \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L}).
   \end{tikzcd}
   \]
-
-
-\subsection{The True Commutator}
-
-
-Kamgarpour gives an example \cite{kamgarpour:09a}*{(1.1)} of a linear character sheaf
-on $G = \PGL_n$ that does not vanish on $G\der = \PGL_n$, defined by the extension
-\[
-1 \to \mu_n \to \SL_n \to \PGL_n \to 1
-\]
-together with a non-trivial character of $\mu_n(k)$. 
-In order to obtain a relationship between linear character sheaves on $G$ and characters of $G(k)$,
-he opts to give a different definition of commutator and, in doing so, introduces a `stacky abelianization' of $G$ in order to geometrize characters of $G(\Fq)$.
- Since we have already seen the need to adapt the
-notion of character sheaf, even in the commutative case, we instead add restrictions
-to the definition of commutative character sheaf and leave the definition of $G\der$ unchanged, allowing us to use the schematic abelianization of $G$ in the geometrization of characters of $G(\Fq)$.
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
