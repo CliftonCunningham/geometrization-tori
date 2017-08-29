@@ -3,7 +3,7 @@
 \title[Commutative character sheaves and geometric types]{Commutative character sheaves and geometric types for supercuspidal representations}
 \author{Clifton Cunningham}
 \address{Department of Mathematics and Statistics, University of Calgary, 2500 University Drive Northwest, Calgary, Alberta, Canada, {T2N~1N4}.}
-\email{cunningham@pims.math.ca}
+\email{cunning@math.ucalgary.ca}
 \author{David Roe}
 \address{Department of Mathematics, University of Pittsburgh, 301 Thackeray Hall, Pittsburgh, PA , United States, 15260.}
 \email{roed.math@gmail.com}
@@ -213,8 +213,8 @@ A Yu type datum determines a sequence of representations $\orho_i$ of compact $p
 Let $R$ be the ring of integers of a local field with finite residue field $k$.
 The main result of \cite{Yu:models} shows how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $R$ with $\underline{G}^i(R)=\,^\circ K^i $.
 The geometrization of the Yu type datum that we consider in this paper uses Lusztig's theory of character sheaves on reductive groups over finite fields, for which it is necessary to assume that the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic. 
-We must also place a condition on the linear characters that appear in the Yu datum, 
-Under this assumption we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a {\it rational virtual} sheaf complex on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean $\cs{F}^i$ is an element in the group obtained by tensoring the Grothendieck group of such sheaves with $\QQ$. 
+We must also place a condition on the linear characters that appear in the Yu datum. 
+Under these assumptions we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a {\it rational virtual} sheaf complex on the Greenberg transform $G^i$ of $\underline{G}^i$, by which we mean $\cs{F}^i$ is an element in the Grothendieck group of such sheaves, tensored with $\QQ$. 
 Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
@@ -229,7 +229,7 @@ By this theorem, then, we obtain geometric avatars for each type in a Yu datum:
 We refer to the pair $(\underline{G}^d, \cs{F}^d)$ as a \emph{geometric type}.
 
 To prove Theorem~\ref{thm:geotypes}, we must find a way to geometrize linear characters of groups of the form $\underline{H}(R)$, where $\underline{H}$ is a smooth group scheme over $R$. 
-In order to do so in a systematic manner, we begin this paper by describing the function-sheaf dictionary for characters of arbitrary smooth group schemes over finite fields. 
+In order to do so in a systematic manner, we begin this paper by describing the function-sheaf dictionary for certain \todo{Certain?} characters of arbitrary smooth group schemes over finite fields. 
 When coupled with the Greenberg transform, this dictionary will allow for the geometrization of linear characters of $\underline{H}(R)$.
 
 The function-sheaf dictionary over a finite field $k$ \cite{deligne:SGA4.5}*{Sommes trig.}
@@ -241,14 +241,14 @@ of objects in $\CS(G)$ and $G(k)^* \ceq \Hom(G(k), \EEx)$;
 the isomorphism is given by mapping $\cs{L}$ to the function
 $\TrFrob{G} : g \mapsto \Tr(\Frob{} \vert \cs{L}_g)$.
 
-In previous work \cite{cunningham-roe:13a}, we generalized the function-sheaf dictionary to
+In previous work \cite{cunningham-roe:13a}, we studied the function-sheaf dictionary to characters
 smooth commutative group schemes $G$, allowing for non-connected groups.
 We gave a description of the category $\CS(G)$ in this context, as well
 as an epimorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
 In contrast to the connected case, $\TrFrob{G}$ may have nontrivial kernel;
 we gave an explicit description of its kernel as $\Hh^2(\pi_0(\bG), \EEx)^{\Frob{}}$ \cite{cunningham-roe:13a}*{Theorem 3.6}.  
 
-We repair this defect in the function-sheaf dictionary
+In this paper we repair this defect in the function-sheaf dictionary
  by describing a full subcategory $\CCS(G)$ of $\CS(G)$ so that $\TrFrob{G}$ restricts to an isomorphism $\CCSiso{G} \to G(k)^*$.
 We refer to objects of $\CS(G)$ as character sheaves and objects in $\CCS(G)$ as \emph{commutative character sheaves}, since the passage from $\CS(G)$ to $\CCS(G)$ involves a condition that exchanges the inputs to the multiplication morphism on $G$ (see Definition \ref{def:CCScom}).  
 When $G$ is connected, all character sheaves on $G$ are commutative.
@@ -259,20 +259,21 @@ Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely t
 Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
 We assume $G$ is smooth, but not that it is connected, reductive or commutative. 
 The category $\CS(G)$ has a straightforward generalization to this case, but again
-there are more character sheaves than there are characters, as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
+there are more character sheaves than there are characters. 
+% as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
 We then define category $\CCS(G)$ for such $G$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
 is an isomorphism.  
 Since $G\ab(k)^*$ surjects onto $G(k)^*$, it follows that for each character $\chi \in G(k)^*$ trivial on $G\der(k)$ there is a commutative
 character sheaf $\cs{L}$ on $G$ with $\TrFrob{G}(\cs{L}) = \chi$. Moreover, we find that pullback along the quotient $q : G \to G\ab$
 defines an equivalence of categories $\CCS(G\ab) \to \CCS(G)$.  
 The functor $\CCS(G) \to \CS(G)$ is not
-essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour.
+essentially surjective, missing the kinds of linear character sheaves highlighted by Kamgarpour in \cite{kamgarpour:09a}*{(1.1)}.
 
 In order to provide further justification for referring to objects in $\CCS(G)$ as commutative character sheaves, suppose for the moment that $G$ is a connected, reductive algebraic group over $\Fq$.
 Let $\gcs{L}$ be the geometric part of an object in $\CCS(G)$; see Section~\ref{sec:defs}.
 Let $T$ be a maximal torus in $\bG$ and let $\gcs{L}_T$ be the restriction of $\gcs{L}$ to $T$.
 Then the perverse sheaf $\gcs{L}[\dim G]$ appears in the semisimple complex $\operatorname{ind}_{B,T}^{\bG}(\gcs{L}_T)$ produced by parabolic induction.
-It follows that every object in $\CCS(G)$ determines a Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:85a}*{Def.~2.10}.
+It follows that every object in $\CCS(G)$ determines a Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:85a}*{Def.~2.10}. \todo{Must revisit this}
 Of course, the sheaves arising in this way represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields, but they are precisely those needed to describe one-dimensional characters of such groups. 
 
 Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we return to the task of geometrizing Yu type data. 
@@ -936,7 +937,7 @@ then \[\Aut_{\CCS(G)}(\cs{L},\mu,\beta) = \Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab).\]
 By \cite{cunningham-roe:13a}*{Theorem 3.9},  $\Aut_{\CCS(G\ab)}(\cs{L}\ab,\mu\ab) = \Hom(\pi_0(\bar{G}\ab)_{\Frob{}},\EEx)$.
 \end{proof}
 
-\subsection{Geometrization of characters} \label{ssec:geo}
+\subsection{Geometrizing characters trivial on the derived subgroup} \label{ssec:geo}
 
 Corollary~\ref{cor:Gab} shows that commutative character sheaves on $G$ provide a natural geometrization of characters of $G\ab(k)$. In Theorem~\ref{thm:geo} we take this one small step further by exploring the relation between characters of $G(k)$ and objects in $\CCS(G)$. 
 
@@ -968,80 +969,41 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Corollar
 
 \section{Geometrizing Characters Nontrivial on the Derived Subgroup} \label{sec:badchar}
 
+If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$ then Theorem~\ref{thm:geo} shows that there is a \emph{local system} $\cs{L}$ such that $m^*\cs{L} \iso \cs{L}\boxtimes\cs{L}$ and $\TrFrob{}(\cs{L}) = \chi$.
+In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation equivariant.
 
-If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$, Section \ref{sec:noncom} provides a \emph{local system} $\cs{L}$ that is \emph{conjugation equivariant} and satisfies $\TrFrob{}(\cs{L}) = \chi$.   In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation invariant.
- 
-\subsection{Pushforward along the Lang isogeny} \label{ssec:Lang_pushforward}
+\subsection{Conjugation equivariant sheaves}\label{ssec:equivariant}
 
-For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(y) = y^{-1}\Frob{G}(y)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$, and the local system $\cs{L}$ associated to $\chi^{-1}$ will have $\TrFrob{}(\cs{L}) = \chi$.
-
-If $G$ is nonabelian or disconnected, a similar strategy sometimes succeeds in geometrizing characters $\chi : G(k) \to \EEx$.
-Define $\tilde{L} : G \to G$ by $\tilde{L}(y) = \Frob{G}(y)y^{-1}$.
-The fibers of $L$ are right cosets of $G(k)$ and the fibers of $\tilde{L}$ are left cosets.
-Suppose that
-\begin{enumerate}
-\labitem{(L.1)}{L.1} $G(k) \subset \image(\tilde{L}) \cap \image(L)$ (which will hold if $G$ is connected).
-\end{enumerate}
-Then we may associate to each $\chi$ a function $\tilde{\chi} : G(k) \to \EEx$ as folllows.
-If $z \in G(k)$, write $z = \tilde{L}(y)$ and define $\tilde{\chi}(z) = \chi(L(y))$.
-Note that $\tilde{\chi}$ is well defined since changing $y$ to $ya$ for $a \in G(k)$ has the
-effect of conjugating $L(y)$ by $a^{-1}$, which has no effect on the value $\chi(L(y))$.
-In order to obtain a local system with trace $\chi$, we must also assume that
-\begin{enumerate}
-\labitem{(L.2)}{L.2} $\tilde{\chi}$ is also a character.
-\end{enumerate}
-
-\begin{proposition}
-Let $G$ be a smooth group scheme over $k$ and assume \ref{L.1} and \ref{L.2}.  Let $\cs{L} = (L_!(\EE)_G)_{\tilde{\chi}^{-1}}$.  Then $\TrFrob{}(\cs{L}) = \chi$.
-\end{proposition}
-\begin{proof}
-The stalk of $\cs{L}$ at $x \in G(k)$ is
-\[
-\cs{L}_x = \{ s : L^{-1}(x) \to \EE : s(ay) = \tilde{\chi}^{-1}(a) s(y) \mbox{ for all $a \in G(k), y \in L^{-1}(x)$}\}.
-\]
-For any $y \in L^{-1}(x)$, note that $\Frob{G}^{-1}(y) = yx^{-1}$ and $\tilde{L}(y) = yxy^{-1} \in G(k)$.  Frobenius acts on $s \in \cs{L}_x$ by
-\[
-(^{\Frob{}}s)(y) = s(\Frob{G}^{-1}(y)) = \tilde{\chi}^{-1}(yx^{-1}y^{-1})s(y) = \tilde{\chi}(\tilde{L}(y))s(y) = \chi(x)s(y),
-\]
-thus proving the claim.
-\end{proof}
-
-Note that the resulting sheaf is a local system, but is not necessarily conjugation equivariant in the sense of Section \ref{ssec:equivariant1} because
-the Lang map is not a homomorphism when $G$ is nonabelian.
-
-\subsection{Equivariant Weil sheaf complexes}\label{ssec:equivariant}
-
-Suppose $(\cs{L},\mu)$ is a linear character sheaf on $G$. 
-As the diagram below explains, the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$, where  $a : G\times G\to G$ is conjugation $a(x,y)=xyx^{-1}$ and $p_2: G\times G\to G$ is projection $p_2(x,y)=y$. \todo{problem with bottom left of diagram}
+A Weil local system $\cs{L}$ is said to be \emph{conjugation equivariant} if $a^*\cs{L} \iso p_2^*\cs{L}$, where  $a : G\times G\to G$ is conjugation $a(x,y)=xyx^{-1}$ and $p_2: G\times G\to G$ is projection $p_2(x,y)=y$. 
+If $(\cs{L},\mu)$ is a linear character sheaf on $G$, then $\cs{L}$ is conjugation equivariant. Indeed,
+the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$ by the following diagram. \todo{problem with bottom left of diagram}
 \[
 \begin{tikzcd}[column sep = 30]
 a^*\cs{L} \arrow[equal]{d}[swap]{a= m\circ (m\times (i\circ p_1))} \arrow[dotted]{r} & p_2^*\cs{L}  \\
-(m\times (i\circ p_1))^* m^*\cs{L} \arrow{d}[swap]{(m\times (i\circ p_1))^*\mu}  & p_1^*(\cs{L} \otimes \cs{L}^\vee) \otimes p_2^*\cs{L} \arrow[equal]{u}[swap]{\cs{L}\otimes \cs{L}^\vee \iso (\EE)_{G}}\\
-m^*\cs{L}\otimes (i\circ p_1))^*\cs{L} \arrow{r}{\mu \otimes \id} & p_1^*\cs{L} \otimes p_2^*\cs{L} \otimes p_1^*\cs{L}^\vee \arrow[equal]{u}
+(m\times (i\circ p_1))^* m^*\cs{L} \arrow{d}[swap]{(m\times (i\circ p_1))^*\mu}  & p_1^*(\cs{L} \otimes \cs{L}^\vee) \otimes p_2^*\cs{L} \arrow[equal]{u}[swap]{\cs{L}\otimes \cs{L}^\vee \iso (\EE)_{G}} \\
+(m\times (i\circ p_1))^* ( \cs{L}\boxtimes\cs{L}) \arrow[equal]{d}{m= p_1\circ(m\times(i\circ p_1))}[swap]{i\circ p_1 = p_1\circ(m\times(i\circ p_1))} & p_1^*\cs{L} \otimes p_2^*\cs{L} \otimes p_1^*\cs{L}^\vee \arrow[equal]{u} \\
+m^*\cs{L}\otimes (i\circ p_1))^*\cs{L} \arrow{r}[swap]{\mu \otimes \id} & (\cs{L}\boxtimes\cs{L})\otimes (i\circ p_1)^*\cs{L} \arrow[equal]{u}
 \end{tikzcd}
 \]
 Although every linear character sheaf on $G$ is a conjugation-equivariant Weil local system on $G$, the converse is certainly not true. 
 
-For connected reductive groups $G$ over $k$, Lusztig's character sheaves are simple perverse sheaves $\IC(C,\mathcal{L})$ on $G$ that come equipped with an isomorphism $a^*\, \IC(C,\mathcal{L}) \to p_2^*\, \IC(C,\mathcal{L})$ in Deligne's category $D^b_c(G;\EE)$.
+\subsection{Lusztig's character sheaves}
+
+For connected reductive groups $G$ over $k$, Lusztig's character sheaves are simple perverse sheaves $\IC(C,\mathcal{L})$ on $G$ that come equipped with an isomorphism $a^*\, \IC(C,\mathcal{L}) \to p_2^*\, \IC(C,\mathcal{L})$ in the triangulated category $D^b_c(G\times G;\EE)$.
 Consequently, when $\IC(C,\mathcal{L})$ is also a Weil sheaf complex, its trace of Frobenius function $\trFrob{\IC(C,\cs{L})} : G(k)\to \EE$ is a class function, called the characteristic function of $\IC(C,\cs{L})$.
 By \cite{lusztig:86a}*{Cor. 25.7}, Weil character sheaves on $G$ determine a basis for the $\EE$-space of class functions on $G(k)$.
 In particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear combination of characteristic functions of Weil character sheaves on $G$.
 We will refer to a formal sum $\sum_{i\in I} a_i \cs{F}_i$ of conjugation-equivariant Weil $\ell$-adic sheaf complexes with ${\bar \QQ}$-coefficients as a rational virtual equivariant Weil sheaf complex on $G$.
-When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.  Of course, the resulting objects are generally not local systems.
-We will see an example of this phenomenon in the next section.
 
-\subsection{Examples}\label{ssec:badderived_examples}
+When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.  Of course, the resulting objects are generally not local systems, in general.
 
-We now consider examples of both of these methods.  Suppose first that $G = \SL_2$ over $\FFF$.
+Here is an example when this method can be used to geometrize a character of $G(k)$ which is not trivial on $G\der(k)$.
+Let $G = \SL_2$ over $\FFF$.
 Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements,
 isomorphic to the quaternion group $Q_8$ and of index $3$.
-There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  The method of Section \ref{ssec:Lang_pushforward} applies
-since $G$ is connected and $\tilde{\chi} = \chi^{-1}$ is also a character.
-
-Alternatively, we use the method discussed in Section~\ref{ssec:equivariant}. 
+There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  
 Lusztig's character sheaves are constructed by perverse extension of local systems on a certain stratification of $G$.
 In the case of $\SL_2$, there are five strata:
-
 \vspace{0.1in}
 
 \begin{center}
@@ -1058,7 +1020,7 @@ $\{2\}$ & $\{2\}$ \\
 \end{spacing}
 \end{center}
 
-\vspace{0.1in}
+%\vspace{0.1in}
 
 \noindent
 Each Weil character sheaf on $\SL_2$ over $\FFF$ is the perverse extension of one of the following local systems: the rank-$1$ constant sheaf $\mathbf{1}_{C_3}$ (resp. $\mathbf{1}_{C_2}$, $\mathbf{1}_{C_2^-}$, $\mathbf{1}_{\{1\}}$,  $\mathbf{1}_{\{2\}}$) on $C_3$ (resp. $C_2$, $C_2^-$, $\{1\}$, $\{2\}$), or the non-trivial rank-$1$ local system $\cs{E}_{C_2}$  (resp.  $\cs{E}_{C_2^-}$) on $C_2^{-}$  (resp.  $\cs{E}_{C_2^-}$) trivialized by the double cover of $C_2$ (resp. $C_2^-$).
@@ -1090,19 +1052,58 @@ The following table describes these perverse sheaves by showing how they decompo
 \[
 - \IC(\mathbf{1}_{C_3}) - \frac32 \IC(\mathbf{1}_{C_2}) + \frac12 \IC(\cs{E}_{C_2}) - \frac32 \IC(\mathbf{1}_{C_2^-}) - \frac12 \IC(\cs{E}_{C_2^-}) + \frac32 \IC(\mathbf{1}_{\{1\}}) + \frac32 \IC(\mathbf{1}_{\{2\}})
 \]
-also geometrizes $\chi$.  Note that all seven character sheaves appear in this geometrization, even though we start just with a character.
+geometrizes $\chi$.  
 
-For $p > 3$ and $G = \SL_2$, we have $G\der(k) = G(k)\der$ so the methods described above are not required.
-However, there are other examples for large $p$ where $G\der(k) \ne G(k)\der$.  For example, when $G = \PGL_2$ and $k$ has odd characteristic, then $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.  As in the case of $\SL_2(\FFF)$, both of the methods described in this section apply to $\PGL_2$.
+Note that all seven character sheaves appear in this geometrization, even though we start just with a character; in particular, the geometrization of the character $\chi$ given by this method is not a local system.
 
-\todo{I don't know what you mean here; should this still be included?}
-Explain that while $(f_! \EE)_\psi$ is not a commutative character sheaf, it does satisfy a weaker version of Definition~\ref{def:CCS}. Namely, there is an isomorphism $\gamma$ such that
- \[
-  \begin{tikzcd}[row sep=30]
-   m^*\cs{L} \arrow{d}[swap]{\gamma} \arrow{r}{\mu} & \cs{L}\boxtimes\cs{L} \arrow{d}{\vartheta}\\
-   \theta^*(m^*\cs{L}) \arrow{r}{{\theta}^*\mu} &  \theta^*(\cs{L}\boxtimes\cs{L}).
-  \end{tikzcd}
-  \]
+We remark that for $p > 3$ and $G = \SL_2$, we have $G\der(k) = G(k)\der$ so, in this case, any character of $G(k)$ may be geometrized by a local system by Theorem~\ref{thm:geo}, so Lusztig's character sheaves are not required.
+
+
+\subsection{Pushforward along the Lang isogeny} \label{ssec:Lang_pushforward}
+
+For connected, commutative groups, the standard method for geometrizing a character $\chi$ is to use the Lang isogeny $L : G \to G$, defined by $L(y) = y^{-1}\Frob{G}(y)$.  The pushforward $L_! (\EE)_G$ of the constant sheaf decomposes into a direct sum of rank $1$ local systems according to characters of the automorphism group $G(k)$ of the cover $L$, and the local system $\cs{L}$ associated to $\chi^{-1}$ will have $\TrFrob{}(\cs{L}) = \chi$.
+
+If $G$ is nonabelian or disconnected, a similar strategy sometimes succeeds in geometrizing characters $\chi : G(k) \to \EEx$.
+Define $\tilde{L} : G \to G$ by $\tilde{L}(y) = \Frob{G}(y)y^{-1}$.
+The fibers of $L$ are right cosets of $G(k)$ and the fibers of $\tilde{L}$ are left cosets.
+Suppose that
+\begin{enumerate}
+\labitem{(L.1)}{L.1} $G(k) \subset \image(\tilde{L}) \cap \image(L)$ (which will hold if $G$ is connected).
+\end{enumerate}
+Then we may associate to each $\chi$ a function $\tilde{\chi} : G(k) \to \EEx$ as folllows.
+If $z \in G(k)$, write $z = \tilde{L}(y)$ and define $\tilde{\chi}(z) = \chi(L(y))$.
+Note that $\tilde{\chi}$ is well defined since changing $y$ to $ya$ for $a \in G(k)$ has the
+effect of conjugating $L(y)$ by $a^{-1}$, which has no effect on the value $\chi(L(y))$.
+In order to obtain a local system with trace $\chi$, we must also assume that
+\begin{enumerate}
+\labitem{(L.2)}{L.2} $\tilde{\chi}$ is also a character.
+\end{enumerate}
+
+\begin{proposition}\label{prop:chitilde}
+Let $G$ be a smooth group scheme over $k$ and assume \ref{L.1} and \ref{L.2}.  Let $\cs{L} = (L_!(\EE)_G)_{\tilde{\chi}^{-1}}$.  Then $\TrFrob{}(\cs{L}) = \chi$.
+\end{proposition}
+\begin{proof}
+The stalk of $\cs{L}$ at $x \in G(k)$ is
+\[
+\cs{L}_x = \{ s : L^{-1}(x) \to \EE : s(ay) = \tilde{\chi}^{-1}(a) s(y) \mbox{ for all $a \in G(k), y \in L^{-1}(x)$}\}.
+\]
+For any $y \in L^{-1}(x)$, note that $\Frob{G}^{-1}(y) = yx^{-1}$ and $\tilde{L}(y) = yxy^{-1} \in G(k)$.  Frobenius acts on $s \in \cs{L}_x$ by
+\[
+(^{\Frob{}}s)(y) = s(\Frob{G}^{-1}(y)) = \tilde{\chi}^{-1}(yx^{-1}y^{-1})s(y) = \tilde{\chi}(\tilde{L}(y))s(y) = \chi(x)s(y),
+\]
+thus proving the claim.
+\end{proof}
+
+Note that the resulting sheaf is a local system, but is not necessarily conjugation equivariant because
+the Lang map is not a homomorphism when $G$ is nonabelian.
+
+This method of geometrization also applies to the example considered above.
+Let $G = \SL_2$ over $\FFF$ and let $\chi : G(k) \to \mu_3 \subset \EEx$ be the character non-trivial on $G\der(k)$ considered above.
+In this case, $\tilde{\chi}= \chi^{-1}$. 
+Since $G$ is connected and $\tilde{\chi}$ is a character Proposition~\ref{prop:chitilde} produces a local system $\cs{L}$ on $G$ which geometrizes $\chi$; however, this $\cs{L}$ is not conjugation equivariant 
+
+The same method of geometrization applies to $G = \PGL_2$ when $k$ has odd characteristic.
+In this case, $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$, so any non-trivial character $\chi$ of $G(k)$ ...\todo{Need help finishing this}
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
@@ -1147,11 +1148,7 @@ This is a direct consequence of Theorem~\ref{thm:geo}.
 \end{proof}
 
 With $\varphi$ as above, note that if $r'$ is any integer greater or equal to the level $r$ of $\varphi$, then the pullback of $\cs{L}_r$ along $G_{r'} \to G_{r}$ is a linear character sheaf on $G_r$. 
-Thus, $\cs{L}_{r'}$ is conjugation-equivariant in the sense of Section~\ref{ssec:equivariant}
-
-
-$a_r : G_r\times G_r \to G_r$ is conjugation for $G_r$, then this determines an isomorphism $a_r^*\cs{L}_r \iso (\EE)_{G_r}\boxtimes \cs{L}_r$, so $\cs{L}_r$ is 
-
+Thus, $\cs{L}_{r'}$ is conjugation equivariant in the sense of Section~\ref{ssec:equivariant}.
 
 Recall that the full Greenberg transform $G \ceq \Gr^{R}(\underline{G})$ is a group scheme over $\Fq$ such that $G(\Fq) = \underline{G}(R)$; it comes equipped with a morphism $G \to G_m$.
 The Weil sheaf on $G$ obtained from $\cs{L}_m$ by pullback along the morphism of group schemes $G \to G_m$ is a quasicharacter sheaf on $G$, in the sense of \cite{cunningham-roe:13a}*{Def 4.2}, such that 

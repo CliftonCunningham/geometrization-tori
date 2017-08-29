@@ -1,0 +1,219 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[letter,10pt]{amsart}
+%\usepackage[british]{babel}
+%\usepackage{datetime}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{geometry}
+\renewcommand{\baselinestretch}{1.2}
+%\bibstyle{alphanumeric}
+%\bibliographystyle{amsalpha}
+
+\usepackage{amssymb}
+\usepackage{amsrefs}
+% Fonts
+\usepackage{mathrsfs}
+% Enumitem
+\usepackage{enumitem}
+% Hyperrefs
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = green %Colour of citations
+}
+\usepackage[margin=3.5cm]{geometry}
+%\renewcommand{\baselinestretch}{1.0}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
+\usepackage{todonotes}
+
+%%%%% for spacing
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{setspace}
+
+%%%%%%%%%%%%%%% THEOREM STYLES %%%%%%%%%%%%%%%
+\theoremstyle{plain}
+      \newtheorem{theorem}{Theorem}[section]
+      \newtheorem*{theorem*}{Theorem}
+      \newtheorem{proposition}[theorem]{Proposition}
+      \newtheorem{lemma}[theorem]{Lemma}
+      \newtheorem{corollary}[theorem]{Corollary}
+
+      \theoremstyle{definition}
+      \newtheorem{definition}[theorem]{Definition}
+
+      %\theoremstyle{remark}
+      \newtheorem{remark}[theorem]{Remark}
+      \newtheorem{example}[theorem]{Example}
+      
+      \newtheorem{conjecture}[theorem]{Conjecture}
+%%%%%%%%%%%%%%% RINGS AND GROUPS %%%%%%%%%%%%%%%
+\newcommand{\FF}{{\mathbb{F}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\QQ}{{\mathbb{Q}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\EE}{\mathbb{\bar Q}_\ell}
+\newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\OL}{\mathcal{O}_L}
+\newcommand{\OO}[1]{\mathcal{O}_{#1}}
+\newcommand{\bFq}{\bar{k}}
+\newcommand{\Fq}{k}
+\newcommand{\Fqm}{k_m}
+\newcommand{\EEx}{\EE^\times}
+\newcommand{\ZEx}{\mathbb{\bar Z}_\ell^\times}
+\newcommand{\Weil}[1]{\mathcal{W}_{#1}}
+\newcommand{\m}{{\mathfrak{m}}}
+%%%%%%%%%%%%%%% ALGEBRAIC GROUPS %%%%%%%%%%%%%%%
+\newcommand{\Gm}[1]{\mathbb{G}_{\hskip-1pt\textbf{m},#1}}
+\DeclareMathOperator{\GL}{GL}
+\newcommand{\comp}{\Pi} % Component group
+\newcommand{\G}{\textbf{G}}
+%%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
+\DeclareMathOperator{\Gal}{Gal}
+\newcommand{\Frob}[1]{\operatorname{Fr}_{#1}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Irrep}{Irrep}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hh}{H}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Nm}{Nm}
+\DeclareMathOperator{\trace}{Tr}
+\DeclareMathOperator{\obj}{obj}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\Lang}{Lang}
+\DeclareMathOperator{\image}{im}
+\DeclareMathOperator{\Loc}{Loc}
+\DeclareMathOperator{\Tot}{Tot}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\newcommand{\gal}[1]{{\operatorname{Gal}\hskip-1pt\left( {\bar #1}/#1 \right)}}
+\newcommand{\Spec}[1]{{\operatorname{Spec}(#1)}}
+\newcommand{\op}{_{\operatorname{op}}}
+\newcommand{\der}{_{\operatorname{der}}}
+\newcommand{\ab}{_{\operatorname{ab}}}
+
+%%%%%%%%%%%% MISCELLANEOUS OPERATORS %%%%%%%%%%%%
+\newcommand{\sheafHom}{{\mathscr{H}\hskip-4pt{\it o}\hskip-2pt{\it m}}}
+\newcommand{\abs}[1]{{\vert #1 \vert}}
+\newcommand{\ceq}{{\, :=\, }}
+\newcommand{\tq}{{\ \vert\ }}
+\newcommand{\iso}{{\ \cong\ }}
+\newcommand{\trFrob}[1]{t_{#1}}
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand{\TrFrob}[1]{\Tr_{#1}}
+%% Limits
+\newcommand{\invlim}[1]{\lim\limits_{\overleftarrow{#1}}}
+\newcommand{\dirlim}[1]{\lim\limits_{\overrightarrow{#1}}}
+\newcommand{\limit}[1]{\mathop{\textsc{lim}}\limits_{#1}}
+\newcommand{\colimit}[1]{\mathop{\textsc{colim}}\limits_{#1}}
+%% Fonts for quasicharacter sheaves
+\newcommand{\cs}[1]{{\mathcal{#1}}}
+\newcommand{\gcs}[1]{{\mathcal{\bar #1}}}
+\newcommand{\dualgcs}[1]{\gcs{#1}^\dagger}
+\newcommand{\dualcs}[1]{\cs{#1}^\dagger}
+%% Categories
+\newcommand{\CS}{{\mathcal{C\hskip-0.8pt S}}}
+\newcommand{\CCS}{{\mathcal{C\hskip-.8pt C\hskip-0.8pt S}}}
+\newcommand{\bCS}{{\CS_0}}
+\newcommand{\CSab}{\CS_{\operatorname{ab}}}
+\newcommand{\catname}[1]{\normalfont{\textsf{#1}}}
+\newcommand{\Sch}[1]{{\catname{Sch}_{/#1}}}
+\newcommand{\QCS}{{\mathcal{QC\hskip-0.8pt S}}}
+\newcommand{\CSiso}[1]{\CS(#1)_{/\text{iso}}}
+\newcommand{\bCSiso}[1]{\bCS(#1)_{/\text{iso}}}
+\newcommand{\QCSiso}[1]{\QCS(#1)_{/\text{iso}}}
+\newcommand{\CCSiso}[1]{\CCS(#1)_{/\text{iso}}}
+%% Labeled items
+\makeatletter
+\newcommand{\labitem}[2]{
+\def\@itemlabel{\textbf{#1}}
+\item
+\def\@currentlabel{#1}\label{#2}}
+\makeatother
+%% Shorthand for bars
+\renewcommand{\bf}{\bar{f}}
+\newcommand{\bg}{{\bar{g}}}
+\newcommand{\bm}{\bar{m}}
+\newcommand{\bG}{\bar{G}}
+\newcommand{\bH}{\bar{H}}
+\newcommand{\brho}{{\bar\rho}}
+\newcommand{\bx}{{\bar{x}}}
+%% Spacing control
+\newcommand{\tight}[3]{\hspace{-#1pt}{#2}\hspace{-#3pt}}
+\newcommand{\GxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\bGxG}{\text{$\bar{G} \tight{1}{\times}{1} \bar{G}$}}
+\newcommand{\bfxf}{\text{$\bar{f} \tight{1}{\times}{1} \bar{f}$}}
+\newcommand{\GxxG}{\text{$G \tight{1}{\times}{1} G$}}
+\newcommand{\LxL}{\text{$\gcs{L} \tight{0}{\boxtimes}{0} \gcs{L}$}}
+
+\newcommand{\red}{^{\operatorname{red}}}
+\newcommand{\Sp}{{\operatorname{Sp}}}
+\newcommand{\cay}{{\operatorname{cay}}}
+
+\renewcommand{\O}{{\mathcal{O}}}
+\newcommand{\oK}{{\,^\circ \hskip-1pt K}}
+\newcommand{\orho}{{\,^\circ \hskip-1pt \rho}}
+
+
+
+\begin{document}
+{\hfill {2017 May 11} \\ 
+%\rightline{Calgary}
+}
+
+\setcounter{equation}{-1}
+
+
+\noindent\textbf{Regarding CJM: MS 1903 (Commutative character sheaves and geometric types for supercuspidal representations)} % subject of the letter
+
+\bigskip
+
+\noindent{Dear Isolde Prince,}
+\medskip
+
+Again
+Thank you for sending us the review from the referee. We have now addressed all the comments, as summarized below. Allow us also to express our gratitude for such  insightful remarks and helpful comments.
+\medskip
+
+Best  regards,
+\bigskip
+
+Clifton and David
+
+\bigskip
+
+\begin{enumerate}
+\item[(1)] We are extremely grateful for this observation. We had made a mistake. Previously, we considered a category of triples $(\cs{L},\mu,\nu)$ with a compatibility condition on $\mu : a^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ and $\nu : n^* \cs{L}\to (\EE)_{H}\boxtimes \cs{L}$. But that compatibility condition had the error built into it that was noticed in the review. In the process of fixing the error, we found that it was more natural to drop the compatibility condition entirely and replace $\mu$ as above with $\mu : n^*\cs{L} \to \cs{L}\boxtimes\cs{L}$, where $n: G\der\times G\to G$ is the restriction of the group action from $G\times G$ to $G\der\times G$. Also, in an effort to improve clarity of presentation of Section 3, we moved the proofs from the last subsection back into the flow of the paper, made some notational changes, and added exposition.
+Fortunately, this had the effect of simplifying the constructions and did not add to the length of the paper. 
+\item[(2)] It is quite true that it would be possible to view Section 4 as an application of our earlier paper, bypassing the first part of the paper under review. Our main motivation for Sections 1--3 was twofold: to address the `defect' in the dictionary from our earlier paper; and to extend that dictionary, as it pertains to characters, to non-commutative groups. (Although it wasn't our motivation, we were also happy to find an alternative to the stacky abelianization of Kamgarpour.) 
+The category of commutative character sheaves is a subcategory of $\CS\ab(G)$ and there is a forgetful functor $\CS\ab(G) \to \CS(G)$ and another $\CS(G)\to \Loc(G)$.
+So while the category $\CCS(G)$ geometrizes characters of $G(\Fq)$ in the sense of Theorem~3.12, it is also true that $\CS(G)$ and even $\Loc(G)$ geometrizes characters of $G(\Fq)$ in the sense that for every group homomorphism $\chi : G(\Fq) \to \EEx$ there is an object $\cs{L}$ in $\Loc(G)$ such that $\trFrob{\cs{L}} = \chi$.
+The category $\CCS(G)$ only serves to make this translation from characters $\chi$ to Weil local systems $\cs{L}$ as precise as possible by making $\TrFrob{} : \CCSiso{G} \to G(k)^*$ as close to an isomorphism as possible.
+\end{enumerate}
+
+\begin{enumerate}
+\item[(i)] Thank you for noticing this. We referred to the geometric type $\cs{F}^d$ constructed in the paper as a virtual sheaf complex, but this is misleading, since that would reasonably be interpreted as an element in the Grothendieck group of sheaf complexes, while the geometric type is an element of the group obtained by tensoring this Grothendieck group with  $\QQ$. To clarify this, we have used the term {\it rational virtual} for formal linear combinations of sheaf complexes, with rational coefficients. 
+\item[(ii)] We replaced all instances of $\O$ with $R$, and declared $R$ to be the ring of integers of a local ring with finite residue field $k$. 
+\item[(iii)] We fixed this typo.
+\item[(iv)] Yes, there was an isomorphism sign missing here. Fixed now. This sentence is now part of the proof of Corollary 3.7
+\item[(v)] We replaced every instance of $S$ with $\Spec{R}$, which is what we meant by $S$, though we had neglected to say that.
+\item[(vi)]  The notation conversion chart now has a third column, listing the relevant section in Yu's paper. In fact, we have expanded this chart from 5 to 11 rows, to make the comparison with Yu's paper easier. We have also given a precise citation to Yu's paper showing where the "recursive construction" can be found, there.
+\item[(vii)] Fixed this typo.
+\end{enumerate}
+
+
+\end{document}
