@@ -241,7 +241,7 @@ of objects in $\CS(G)$ and $G(k)^* \ceq \Hom(G(k), \EEx)$;
 the isomorphism is given by mapping $\cs{L}$ to the function
 $\TrFrob{G} : g \mapsto \Tr(\Frob{} \vert \cs{L}_g)$.
 
-In previous work \cite{cunningham-roe:13a}, we studied the function-sheaf dictionary to characters
+In previous work \cite{cunningham-roe:13a}, we studied the function-sheaf dictionary for characters
 smooth commutative group schemes $G$, allowing for non-connected groups.
 We gave a description of the category $\CS(G)$ in this context, as well
 as an epimorphism $\TrFrob{G} : \CSiso{G} \to G(k)^*$.
@@ -970,18 +970,18 @@ Finally, $\TrFrob{} : \CCSiso{G\ab} \to G\ab(k)^*$ is an isomorphism by Corollar
 \section{Geometrizing Characters Nontrivial on the Derived Subgroup} \label{sec:badchar}
 
 If $\chi$ is a character of $G(k)$ vanishing on $G\der(k)$ then Theorem~\ref{thm:geo} shows that there is a \emph{local system} $\cs{L}$ such that $m^*\cs{L} \iso \cs{L}\boxtimes\cs{L}$ and $\TrFrob{}(\cs{L}) = \chi$.
-In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation equivariant.
+In this section, we give methods for geometrizing characters that do not vanish on $G\der(k)$, though the results may not be local systems or conjugation equivariant, a notion that we now define.
 
 \subsection{Conjugation equivariant sheaves}\label{ssec:equivariant}
 
 A Weil local system $\cs{L}$ is said to be \emph{conjugation equivariant} if $a^*\cs{L} \iso p_2^*\cs{L}$, where  $a : G\times G\to G$ is conjugation $a(x,y)=xyx^{-1}$ and $p_2: G\times G\to G$ is projection $p_2(x,y)=y$. 
 If $(\cs{L},\mu)$ is a linear character sheaf on $G$, then $\cs{L}$ is conjugation equivariant. Indeed,
-the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$ by the following diagram. \todo{problem with bottom left of diagram}
+the isomorphism $\mu : m^*\cs{L} \to \cs{L}\boxtimes\cs{L}$ determines an isomorphism $a^*\cs{L} \to p_2^*\cs{L}$ of Weil local systems on $G\times G$ by the following diagram.
 \[
 \begin{tikzcd}[column sep = 30]
 a^*\cs{L} \arrow[equal]{d}[swap]{a= m\circ (m\times (i\circ p_1))} \arrow[dotted]{r} & p_2^*\cs{L}  \\
 (m\times (i\circ p_1))^* m^*\cs{L} \arrow{d}[swap]{(m\times (i\circ p_1))^*\mu}  & p_1^*(\cs{L} \otimes \cs{L}^\vee) \otimes p_2^*\cs{L} \arrow[equal]{u}[swap]{\cs{L}\otimes \cs{L}^\vee \iso (\EE)_{G}} \\
-(m\times (i\circ p_1))^* ( \cs{L}\boxtimes\cs{L}) \arrow[equal]{d}{m= p_1\circ(m\times(i\circ p_1))}[swap]{i\circ p_1 = p_1\circ(m\times(i\circ p_1))} & p_1^*\cs{L} \otimes p_2^*\cs{L} \otimes p_1^*\cs{L}^\vee \arrow[equal]{u} \\
+(m\times (i\circ p_1))^* ( \cs{L}\boxtimes\cs{L}) \arrow[equal]{d}{i\circ p_1 = p_2\circ(m\times(i\circ p_1))}[swap]{m= p_1\circ(m\times(i\circ p_1))}  & p_1^*\cs{L} \otimes p_2^*\cs{L} \otimes p_1^*\cs{L}^\vee \arrow[equal]{u} \\
 m^*\cs{L}\otimes (i\circ p_1))^*\cs{L} \arrow{r}[swap]{\mu \otimes \id} & (\cs{L}\boxtimes\cs{L})\otimes (i\circ p_1)^*\cs{L} \arrow[equal]{u}
 \end{tikzcd}
 \]
@@ -995,10 +995,9 @@ By \cite{lusztig:86a}*{Cor. 25.7}, Weil character sheaves on $G$ determine a bas
 In particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear combination of characteristic functions of Weil character sheaves on $G$.
 We will refer to a formal sum $\sum_{i\in I} a_i \cs{F}_i$ of conjugation-equivariant Weil $\ell$-adic sheaf complexes with ${\bar \QQ}$-coefficients as a rational virtual equivariant Weil sheaf complex on $G$.
 
-When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.  Of course, the resulting objects are generally not local systems, in general.
+When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ as a rational virtual equivariant Weil sheaf complex on $G$.  Of course, the resulting objects are generally not local systems.
 
-Here is an example when this method can be used to geometrize a character of $G(k)$ which is not trivial on $G\der(k)$.
-Let $G = \SL_2$ over $\FFF$.
+For an example when this method can be used to geometrize a character of $G(k)$ which is not trivial on $G\der(k)$, consider $G = \SL_2$ over $\FFF$.
 Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements,
 isomorphic to the quaternion group $Q_8$ and of index $3$.
 There is thus a nontrivial character $\chi : G(k) \to \mu_3 \subset \EEx$.  
@@ -1048,15 +1047,17 @@ The following table describes these perverse sheaves by showing how they decompo
 \end{spacing}
 
 \vspace{0.1in}
-\noindent Using the trace of Frobenius values, we find that the rational virtual equivariant Weil sheaf complex
+\noindent Using the trace of Frobenius values, we find that 
+%the rational virtual equivariant Weil sheaf complex
 \[
 - \IC(\mathbf{1}_{C_3}) - \frac32 \IC(\mathbf{1}_{C_2}) + \frac12 \IC(\cs{E}_{C_2}) - \frac32 \IC(\mathbf{1}_{C_2^-}) - \frac12 \IC(\cs{E}_{C_2^-}) + \frac32 \IC(\mathbf{1}_{\{1\}}) + \frac32 \IC(\mathbf{1}_{\{2\}})
 \]
 geometrizes $\chi$.  
-
+%
 Note that all seven character sheaves appear in this geometrization, even though we start just with a character; in particular, the geometrization of the character $\chi$ given by this method is not a local system.
 
-We remark that for $p > 3$ and $G = \SL_2$, we have $G\der(k) = G(k)\der$ so, in this case, any character of $G(k)$ may be geometrized by a local system by Theorem~\ref{thm:geo}, so Lusztig's character sheaves are not required.
+We remark that for $p > 3$ and $G = \SL_2$, we have $G\der(k) = G(k)\der$.
+In this case, therefore, any character of $G(k)$ may be geometrized by a local system using Theorem~\ref{thm:geo}, so Lusztig's character sheaves are not required.
 
 
 \subsection{Pushforward along the Lang isogeny} \label{ssec:Lang_pushforward}
@@ -1098,12 +1099,14 @@ Note that the resulting sheaf is a local system, but is not necessarily conjugat
 the Lang map is not a homomorphism when $G$ is nonabelian.
 
 This method of geometrization also applies to the example considered above.
-Let $G = \SL_2$ over $\FFF$ and let $\chi : G(k) \to \mu_3 \subset \EEx$ be the character non-trivial on $G\der(k)$ considered above.
+Let $G = \SL_2$ over $\FFF$ and let $\chi : G(k) \to \mu_3 \subset \EEx$ be a non-trivial character.
 In this case, $\tilde{\chi}= \chi^{-1}$. 
-Since $G$ is connected and $\tilde{\chi}$ is a character Proposition~\ref{prop:chitilde} produces a local system $\cs{L}$ on $G$ which geometrizes $\chi$; however, this $\cs{L}$ is not conjugation equivariant 
+Since $G$ is connected and $\tilde{\chi}$ is a character, Proposition~\ref{prop:chitilde} produces a local system $\cs{L}$ on $G$ which geometrizes $\chi$.
+This $\cs{L}$ is not conjugation equivariant 
 
 The same method of geometrization applies to $G = \PGL_2$ when $k$ has odd characteristic.
-In this case, $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$, so any non-trivial character $\chi$ of $G(k)$ ...\todo{Need help finishing this}
+In this case, $G\der = G$, but $G(k)\der = \PSL_2(k)$ has index $2$ in $G(k)$.
+For the non-trivial character $\chi$ of $G(k)$, $\tilde{\chi} = \chi$, so again we may use Proposition~\ref{prop:chitilde} to geometrize $\chi$ as a local system. 
 
 \section{Application to type theory for \texorpdfstring{$p$}{p}-adic groups}\label{sec:types}
 
