@@ -278,7 +278,7 @@ Of course, the sheaves arising in this way represent a small part of Lusztig's g
 
 Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we return to the task of geometrizing Yu type data. 
 The proof of Theorem~\ref{thm:geotypes} requires: Yu's work on smooth integral models \cite{Yu:models}; the geometrization of the character of the Heisenberg-Weil representation over finite fields by Gurevich \& Hadani \cite{gurevich-hadani:07a}; Lusztig's character sheaves on reductive groups over finite fields; and finally, the function-sheaf dictionary for characters of smooth group schemes over finite fields, now at our disposal in Theorem~\ref{thm:geo}.
-In order to use these tools we must restrict our attention to Yu type data that satisfy two technical conditions, given as Hyptheses~\ref{H0} and \ref{H1}. 
+In order to use these tools we must restrict our attention to Yu type data that satisfy two technical conditions, appearing in Section~\ref{ssec:geotypes} as Hypotheses~\ref{H0} and \ref{H1}. 
 Granting these hypotheses, these pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
 With this theorem, we provide all of the ingredients needed to parametrize certain supercuspidal representations of arbitrary depth as rational virtual conjugation equivariant Weil sheaf complexes on group schemes over finite fields. 
  
@@ -1370,10 +1370,10 @@ Since Yu's theory refers to complex representations, and since our geometrizatio
 
 As we recalled in Section~\ref{ssec:review}, a Yu type datum consists of compact groups $\oK^i$, a representation $\orho^0$ of $\oK^0$ and quasicharacters $\varphi^i$ of $\oK^i$, for $i=0,\ldots, d$; see \ref{Y0}, \ref{Y1} and \ref{Y2}.
 In Section~\ref{ssec:review} we also saw how a Yu type datum determines smooth group schemes $\underline{G}^i$, a representation $\varrho_0\red$ of the reductive quotient $(\underline{G}^0)\red_{k}$ of the special fibre $\underline{G}^0_{k}$ of $\underline{G}^0$, and quasicharacters $\varphi_i$ of the group of $k$-rational points on the level-$r_i$ Greenberg transform $G_i$ of $\underline{G}^i$; see \ref{M0}, \ref{M1} and \ref{M2}.
-
+%
 Theorem~\ref{thm:geotypes} places the following conditions on the Yu type datum:
 \begin{enumerate}
-\labitem{H0}{H0} the geometric component group of the reductive quotient of the special fibre of the group scheme $\underline{G}^0$ is cyclic;
+\labitem{H0}{H0} the geometric component group of $(\underline{G}^0)\red_{k}$ is cyclic;
 \labitem{H1}{H1} for each $i=0,\ldots, d$, either
 \begin{enumerate}
 \labitem{H1(a)}{H1a} $G_i$ is reductive with cyclic geometric component group, or
@@ -1381,8 +1381,8 @@ Theorem~\ref{thm:geotypes} places the following conditions on the Yu type datum:
 \end{enumerate}
 \end{enumerate}
 Hypothesis~\ref{H0} will allow us to use Lusztig's character sheaves to geometrize the character of the representation of $\orho^0$.
-Hypothesis~\ref{H1a} allows us to use Proposition~\ref{prop:quasicharacters} to geometrize each quasicharacter $\varphi_i$ using local systems on $G_i$, or more precisely, using commutative character sheaves on $G_i$;
-alternatively, Hypothesis~\ref{H1b} may be used to geometrize each quasicharacter $\varphi_i$ using an element in the Grothendieck group of perverse sheaves on $G_i$, tensored with ${\bar\QQ}$.
+Hypothesis~\ref{H1a} may be used to geometrize each quasicharacter $\varphi_i$ using an element in the Grothendieck group of perverse sheaves on $G_i$, tensored with ${\bar\QQ}$.
+Alternatively, Hypothesis~\ref{H1b} allows us to use Proposition~\ref{prop:quasicharacters} to geometrize each quasicharacter $\varphi_i$ using local systems on $G_i$, or more precisely, using commutative character sheaves on $G_i$;
 We remark that if Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then Hypothesis~\ref{H0} can be removed and Hypothesis~\ref{H1a} can be replaced with the hypothesis that each $G_i$ is reductive.
 Note that when Hypothesis~\ref{H1b} applies, it provides a considerably simpler geometrization than when Hypothesis~\ref{H1a} applies.
 
@@ -1435,7 +1435,7 @@ $\Gr^{R}_r(\underline{G}^{i} \ltimes \underline{J}^{i+1}) \to \Gr^{R}_0(\underli
 
 We now define rational virtual conjugation equivariant Weil sheaves $\cs{A}^i_r$ on $G_r^i \ceq \Gr^{R}_r(\underline{G}^{i})$, for $i=0,\ldots ,d$, recursively, following the construction of the representations $\orho_i$, as reviewed in Section~\ref{ssec:review}.
 First, set $\cs{A}_r^0 = A_r^0$ and note that \eqref{eqn:tracerho} commutes with $\trace(\orho^0)_r$ replaced by $\trFrob{\cs{A}_r^0}$.
-Using Hypothesis~\ref{H1}, let $\cs{L}_i$ be the geometrization of the quasicharacter $\varphi_i \ceq \varphi^i_{r_i}$ appearing in \ref{M1}.
+Using Hypothesis~\ref{H1}, let $\cs{L}_i$ be the geometrization of the quasicharacter $\varphi_i \ceq \varphi^i_{r_i}$ appearing in \ref{M2}.
 If \ref{H1a} applies, then $\cs{L}_i$ is a rational virtual character sheaf on $G_i \ceq G^i_{r_i}$, using \cite{lusztig:disconnected1};
 if \ref{H1b} applies, then $\cs{L}_i$ is the commutative character sheaf on $G_i \ceq G^i_{r_i}$ given by Proposition~\ref{prop:quasicharacters} which, by Section~\ref{ssec:equivariant}, is conjugation equivariant.
 In either case, $\cs{L}_i$ is a rational virtual conjugation equivariant Weil sheaf complex and
