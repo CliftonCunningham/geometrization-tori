@@ -215,7 +215,7 @@ Let $R$ be the ring of integers of a local field with finite residue field $k$.
 The main result of \cite{Yu:models} shows how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $R$ with $\underline{G}^i(R)=\,^\circ K^i $.
 Under certain assumptions on the Yu type datum, we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a formal ${\bar\QQ}$-linear conbination of conjugation-equivariant sheaf complexes on the Greenberg transform $G^i$ of $\underline{G}^i$.
 %
-Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
+Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
 \end{equation}
@@ -774,7 +774,7 @@ From these constructions,  it is now clear that $\CS\der(G) \to \CS\ab(G)$ is an
 
 \begin{corollary} 
 If $G$ is a smooth group scheme and $(\cs{L},\mu) \in \CS(G)$, then
-the restriction of $\cs{L}$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \cong q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, for some $(\cs{L}\ab,\mu\ab) \in \CS(G\ab)$.
+the restriction of $(\cs{L},\mu)$ to $G\der$ is trivial if and only if $(\cs{L},\mu) \cong q^*(\cs{L}\ab,\mu\ab)$ in $\CS(G)$, for some $(\cs{L}\ab,\mu\ab) \in \CS(G\ab)$.
 \end{corollary}
 
 \begin{proof}
@@ -799,7 +799,7 @@ Then
 j\der^*(\cs{L},\mu) \iso j\der^*q^*(\cs{L}\ab,\mu\ab)
 \]
  in $\CS(G\der)$.
-Since $q\circ j\der = 1$, it follows that $\cs{L}\vert_{G\der} \iso (\EE)_{G\der}$.
+Since $q\circ j\der = 1$, it follows that the restriction of $(\cs{L},\mu)$ to $G\der$ is trivial.
 \end{proof}
 
 We may interpret this corollary as measuring how far $q^*$ is from being essentially surjective.  The next result shows that it is also not full.
@@ -988,11 +988,11 @@ Although every linear character sheaf on $G$ is a conjugation-equivariant Weil l
 For connected reductive groups $G$ over $k$, Lusztig's character sheaves are simple perverse sheaves $\IC(C,\mathcal{L})$ on $G$ that come equipped with an isomorphism $a^*\, \IC(C,\mathcal{L}) \to p_2^*\, \IC(C,\mathcal{L})$ in the triangulated category $D^b_c(G\times G;\EE)$.
 Consequently, when $\IC(C,\mathcal{L})$ is also a Weil sheaf complex, its trace of Frobenius function $\trFrob{\IC(C,\cs{L})} : G(k)\to \EE$ is a class function, called the characteristic function of $\IC(C,\cs{L})$.
 By \cite{lusztig:86a}*{Cor. 25.7}, Weil character sheaves on $G$ determine a basis for the vector space of class functions on $G(k)$; in particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear combination of characteristic functions of Weil character sheaves on $G$.
-Let us use the notation $\mathsf{D}^b_{c,G}(G;\EE)$ for the category of conjugation-equivariant objects in $\mathsf{D}^b_{c}(G;\EE)$, as defined in \cite{bernstein-lunts:equivariant} for example, and $\mathsf{KD}^b_{c,G}(G;\EE)$ for the Grothendieck group of $\mathsf{D}^b_{c,G}(G;\EE)$; we set $\mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)\ceq \mathsf{KD}^b_{c,G}(G;\EE)\times_{\ZZ} {\bar\QQ}$.
-Thus, for every representation $\rho$ of $G(k)$ there is some $\cs{F}\in \mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)$ such that $\trace\rho = \trFrob{\cs{F}}$.
-This result extends to reductive groups $G$ over $k$ for which the geometric component group for $G$ is cyclic \cite{lusztig:disconnected1}.
+Let us use the notation $\mathsf{D}^b_{c,G}(G;\EE)$ for the category of conjugation-equivariant objects in $\mathsf{D}^b_{c}(G;\EE)$, as defined in \cite{bernstein-lunts:equivariant} for example, and $\mathsf{KD}^b_{c,G}(G;\EE)$ for the Grothendieck group of $\mathsf{D}^b_{c,G}(G;\EE)$; we set $\mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)\ceq \mathsf{KD}^b_{c,G}(G;\EE)\otimes_{\ZZ} {\bar\QQ}$.
+Thus, Lusztig's result shows that for every representation $\rho$ of $G(k)$ there is some $\cs{F}\in \mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)$ such that $\trace\rho = \trFrob{\cs{F}}$.
+This result is extended in the papers beginning with \cite{lusztig:disconnected1} to reductive groups $G$ over $k$ for which the geometric component group for $G$ is cyclic.
 
-When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ using $\mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)$; of course, the resulting element of this group is generally not a local system.
+When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ using $\mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)$; of course, the resulting geometrization is generally not a local system.
 %
 For an example when this method can be used to geometrize a character of $G(k)$ which is not trivial on $G\der(k)$, consider $G = \SL_2$ over $\FFF$.
 Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements,
@@ -1390,7 +1390,7 @@ Note that when Hypothesis~\ref{H1b} applies, it provides a considerably simpler 
 We remark that if Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then Hypothesis~\ref{H0} can be removed and Hypothesis~\ref{H1a} can be replaced with the hypothesis that each $G_i$ is reductive.
 
 \begin{theorem}\label{thm:geotypes}
-Let $(\oK^i, \orho^0, \varphi^i,d)$ be a Yu type datum that satisfies Hypotheses~\ref{H0} and \ref{H1}, and let $\orho_i$ be the representation of $\oK^i$ constructed from it in Section~\ref{ssec:review}.  Then for each $i=0,\dots, d$ there is an element $\cs{F}_i \in \mathcal{K}_{\bar\QQ} D_{G^i}(G^i)$ such that
+Let $(\oK^i, \orho^0, \varphi^i,d)$ be a Yu type datum that satisfies Hypotheses~\ref{H0} and \ref{H1}, and let $\orho_i$ be the representation of $\oK^i$ constructed from it in Section~\ref{ssec:review}.  Then for each $i=0,\dots, d$ there is an element $\cs{F}_i \in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G^i}(G^i;\EE)$ such that
 \[
 \trFrob{\cs{F}_i} = \trace(\orho_i).
 \]
@@ -1402,14 +1402,14 @@ Recall that $G^i(\Fq) = \underline{G}^i(R) = \oK^i$, canonically.
 Let $r_i$ be the level of $\varphi^i$ as defined in Section~\ref{ssec:quasicharacters}.
 Set $r = \max\{ r_i \tq i=0, \ldots ,d\}$.
 
-By \cite{lusztig:disconnected1}, there is a rational virtual Weil character sheaf $A = ({\bar A},\phi)$ on $(\underline{G}^0)_\Fq^\reductive$ such that 
+By \cite{lusztig:disconnected1}, there is $A \in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,(\underline{G}^0)_\Fq\red}((\underline{G}^0)_\Fq\red;\EE)$ such that 
 %${\bar A}$ is a rational virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
 \[
 \trFrob{A} = \trace \varrho_0^\reductive.
 \]
 This uses Hypothesis~\ref{H0}.
 %
-Let $A^0$ be the conjugation-equivariant Weil sheaf on $(\underline{G}^0)_\Fq$ obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+Let $A^0\in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,(\underline{G}^0)_\Fq}((\underline{G}^0)_\Fq;\EE)$ be obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 Then 
 \[
 \trFrob{A^0} = \trace \varrho_0.
@@ -1685,6 +1685,7 @@ URL = {http://journals.cambridge.org/article_S1474748015000286},
        pages={825\ndash 846},
 }
 
+\iffalse
 \bib{KR:l'adic}{book}{
    author={Kiehl, Reinhardt},
    author={Weissauer, Rainer},
@@ -1700,6 +1701,7 @@ URL = {http://journals.cambridge.org/article_S1474748015000286},
 %   review={\MR{1855066}},
 %   doi={10.1007/978-3-662-04576-3},
 }
+\fi
 
 \bib{kim:07a}{article}{
       author={Kim, Ju-Lee},
@@ -1722,10 +1724,10 @@ URL = {http://journals.cambridge.org/article_S1474748015000286},
 
 \bib{lusztig:86a}{article}{
 	Author = {George Lusztig},
-	Date-Added = {2017-06-28 19:26:19 +0000},
-	Date-Modified = {2017-06-28 19:28:23 +0000},
+%	Date-Added = {2017-06-28 19:26:19 +0000},
+%	Date-Modified = {2017-06-28 19:28:23 +0000},
 	Journal = {Advances in Math.},
-	Keywords = {qcsheaves},
+%	Keywords = {qcsheaves},
 	Number = {2},
 	Pages = {{103--155}},
 	Title = {{Character sheaves V}},
