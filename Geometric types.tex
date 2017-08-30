@@ -214,7 +214,7 @@ A Yu type datum determines a sequence of representations $\orho_i$ of compact $p
 Let $R$ be the ring of integers of a local field with finite residue field $k$.
 The main result of \cite{Yu:models} shows how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $R$ with $\underline{G}^i(R)=\,^\circ K^i $.
 Under certain assumptions on the Yu type datum, we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a formal ${\bar\QQ}$-linear conbination of conjugation equivariant sheaf complexes on the Greenberg transform $G^i$ of $\underline{G}^i$.
-
+%
 Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on the rational virtual complex $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
 \trFrob{\cs{F}^i} = \trace(\,^\circ\rho_i).
@@ -258,8 +258,8 @@ Invisible character sheaves \cite{cunningham-roe:13a}*{Def. 2.8} are precisely t
 
 Next, we broaden our scope further to encompass smooth group schemes $G$ over $\Fq$ that are not necessarily commutative.
 We assume $G$ is smooth, but not that it is connected, reductive or commutative. 
-The category $\CS(G)$ has a straightforward generalization to this case, but again
-there are more character sheaves than there are characters. 
+The category $\CS(G)$ has a straightforward generalization to this case.
+% but again there are more character sheaves than there are characters. 
 % as pointed out by Kamgarpour \cite{kamgarpour:09a}*{(1.1)}.
 We then define category $\CCS(G)$ for such $G$ and a forgetful functor to $\CS(G)$ so that $\TrFrob{G} : \CCSiso{G} \to G\ab(k)^*$
 is an isomorphism.  
@@ -278,14 +278,10 @@ Of course, the sheaves arising in this way represent a small part of Lusztig's g
 
 Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we return to the task of geometrizing Yu type data. 
 The proof of Theorem~\ref{thm:geotypes} requires: Yu's work on smooth integral models \cite{Yu:models}; the geometrization of the character of the Heisenberg-Weil representation over finite fields by Gurevich \& Hadani \cite{gurevich-hadani:07a}; Lusztig's character sheaves on reductive groups over finite fields; and finally, the function-sheaf dictionary for characters of smooth group schemes over finite fields, now at our disposal in Theorem~\ref{thm:geo}.
-These pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
-With this theorem, we provide all of the ingredients needed to parametrize supercuspidal representations of arbitrary depth in the same category: rational virtual Weil perverse sheaves on group schemes over finite fields. 
+In order to use these tools we must restrict our attention to Yu type data that satisfy two technical conditions, given as Hyptheses~\ref{H0} and \ref{H1}. 
+Granting these hypotheses, these pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
+With this theorem, we provide all of the ingredients needed to parametrize certain supercuspidal representations of arbitrary depth as rational virtual conjugation equivariant Weil sheaf complexes on group schemes over finite fields. 
  
-The hypothesis in Theorem~\ref{thm:geotypes} -- that the geometric component group of the reductive quotient of the special fibre of the smooth group scheme $\underline{G}^0$ appearing in the Yu type datum is cyclic --  is required only because Lusztig's theory of character sheaves has the same hypothesis.
-If Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then the hypothesis in Theorem~\ref{thm:geotypes} can be removed.
-%
-The second hypothesis  in Theorem~\ref{thm:geotypes} -- that the quasicharacters $\varphi^i$ appearing in the Yu type datum satisfy the hypothesis of Proposition~\ref{prop:quasicharacters} -- ensures that we may use Section~\ref{sec:noncom} to find a geometric type which equivariant for conjugation, as defined in Section~\ref{ssec:equivariant}.
-Section~\ref{sec:badchar} presents some evidence to suggest that this hypothesis is not always necessary. 
 \bigskip
 
 We now summarize the sections of the paper in more detail.
@@ -299,7 +295,7 @@ This observation underlies the definition of commutative character sheaves for n
 We state our second main result, Theorem~\ref{thm:geo}, that pullback along the abelianization map defines an equivalence of categories $\CCS(G) \to \CCS(G\ab)$.
 In Section \ref{ssec:obmor}, we use Galois cohomology to describe the relationship between $G(k)^*$ and $G\ab(k)^*$.  
 We also compute the automorphism groups in $\CCS(G)$.
-In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize types for supercuspidal representations of $p$-adic groups, in a sense made precise in Theorem~\ref{thm:geotypes}.
+In Section~\ref{sec:types} we use Theorem~\ref{thm:geo} to geometrize types for certain supercuspidal representations of $p$-adic groups, in a sense made precise in Theorem~\ref{thm:geotypes}.
 As preparation for the proof, we review some facts about the Heisenberg-Weil representation and its geometrization, in Section~\ref{ssec:Jacobi}.
 Then, in Section~\ref{ssec:review}, we review Yu's theory of types and his study of smooth integral models.  
 These elements are pulled together in Section~\ref{ssec:geotypes}, where the proof Theorem~\ref{thm:geotypes} is given.
@@ -1385,8 +1381,10 @@ Theorem~\ref{thm:geotypes} places the following conditions on the Yu type datum:
 \end{enumerate}
 \end{enumerate}
 Hypothesis~\ref{H0} will allow us to use Lusztig's character sheaves to geometrize the character of the representation of $\orho^0$.
-Hypothesis~\ref{H1a} allows us to use Proposition~\ref{prop:quasicharacters} to geometrize each quasicharacter $\varphi^i$ using local systems on $G_i$, or more precisely, using commutative character sheaves on $G_i$;
-alternatively, Hypothesis~\ref{H1b} may be used to geometrize each quasicharacter $\varphi^i$ using an element in the Grothendieck group of perverse sheaves on $G_i$, tensored with ${\bar\QQ}$.
+Hypothesis~\ref{H1a} allows us to use Proposition~\ref{prop:quasicharacters} to geometrize each quasicharacter $\varphi_i$ using local systems on $G_i$, or more precisely, using commutative character sheaves on $G_i$;
+alternatively, Hypothesis~\ref{H1b} may be used to geometrize each quasicharacter $\varphi_i$ using an element in the Grothendieck group of perverse sheaves on $G_i$, tensored with ${\bar\QQ}$.
+We remark that if Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then Hypothesis~\ref{H0} can be removed and Hypothesis~\ref{H1a} can be replaced with the hypothesis that each $G_i$ is reductive.
+Note that when Hypothesis~\ref{H1b} applies, it provides a considerably simpler geometrization than when Hypothesis~\ref{H1a} applies.
 
 \begin{theorem}\label{thm:geotypes}
 Let $\oK^i$, $\orho^0$ and $\varphi^i$, be a Yu type datum, with $i=0,\ldots, d$, satisfying Hypotheses~\ref{H0} and \ref{H1}.
