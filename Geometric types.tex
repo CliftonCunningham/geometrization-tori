@@ -201,7 +201,7 @@ To define \emph{geometric types}, we combine commutative character sheaves with 
 
 \section*{Introduction}
 
-As proved by Ju-Lee Kim in \cite{kim:07a} and Jessica Fintzen in \cite{fintzen:18a}, \todo{check this fix} all irreducible supercuspidal representations of a tamely ramified $p$-adic group $G$ can be built from ``data'' introduced by Jiu-Kang Yu in \cite{yu:01a}*{\S 15} as long as $p$ does not divide the order of the Weyl group of $G$.
+The combined work of Ju-Lee Kim in \cite{kim:07a} and Jessica Fintzen in \cites{fintzen:18a,fintzen:19a} establishes that all irreducible supercuspidal representations of a tamely ramified $p$-adic group $G$ can be built from ``data'' introduced by Jiu-Kang Yu \cite{yu:01a}*{\S 15}, as long as $p$ does not divide the order of the Weyl group of $G$.
 While the type, in the sense of Bushnell \& Kutzko \cite{bushnell-kutzko:98a}, of a supercuspidal representation built from Yu data can be constructed directly from the datum, it is convenient to consider an intermediate object, introduced in \cite{yu:01a}*{Remark 15.4}, which we call a \emph{Yu type datum}. 
 Yu type data are studied in \cite{Yu:models}, which concludes with the following observation.
 \begin{quotation}
@@ -214,7 +214,7 @@ In this paper we follow the suggestion above by showing that certain Yu type dat
 A Yu type datum determines a sequence of representations $\orho_i$ of compact $p$-adic groups $\oK^i$, for $i=0, \ldots, d$, such that $(\oK^d, \orho_d)$ is a type for a supercuspidal representation of a $p$-adic group.
 Let $R$ be the ring of integers of a local field with finite residue field $k$.
 The main result of \cite{Yu:models} shows how to find, for each $i=0, \ldots, d$, a smooth group scheme $\underline{G}^i$ over the ring $R$ with $\underline{G}^i(R)=\,^\circ K^i $.
-Under certain assumptions on the Yu type datum, we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a formal ${\bar\QQ}$-linear \todo{${\bar\QQ}$ is not defined} combination of conjugation-equivariant sheaf complexes on the Greenberg transform $G^i$ of $\underline{G}^i$.
+Under certain assumptions on the Yu type datum, we show how each representation $\orho_i$ can be replaced by a pair $(\underline{G}^i, \cs{F}^i)$, where $\cs{F}^i$ is a formal ${\bar\QQ}$-linear combination of conjugation-equivariant sheaf complexes on the Greenberg transform $G^i$ of $\underline{G}^i$.
 %
 Writing $\trFrob{\cs{F}^i}$ for the function on $G^i(k) = \underline{G}^i(R) = \,^\circ K^i$ obtained by evaluating the trace of the action of Frobenius on $\cs{F}^i$, we show in Theorem~\ref{thm:geotypes} that 
 \begin{equation}\label{eqn:intro1}
@@ -272,7 +272,7 @@ essentially surjective, missing the kinds of linear character sheaves highlighte
 
 In order to provide further justification for referring to objects in $\CCS(G)$ as commutative character sheaves, suppose for the moment that $G$ is a connected, reductive algebraic group over $\Fq$.
 Let $\gcs{L}$ be the geometric part of an object in $\CCS(G)$; see Section~\ref{sec:defs}.
-Let $T$ be a maximal torus in the base change $\bG$ of $G$ to an algebraic closure $\bar{k}$ of $k$, and let $\gcs{L}_T$ be the restriction of $\gcs{L}$ to $T$.
+Let $T$ be a maximal torus in the base change $\bG$ of $G$ to $\bar{k}$ and let $\gcs{L}_T$ be the restriction of $\gcs{L}$ to $T$.
 Then the perverse sheaf $\gcs{L}[\dim G]$ appears in the semisimple complex $\operatorname{ind}_{B,T}^{\bG}(\gcs{L}_T)$ produced by parabolic induction.
 It follows that every object in $\CCS(G)$ determines a Frobenius-stable character sheaf on $G$, in the sense of \cite{lusztig:85a}*{Def.~2.10}. 
 Of course, the sheaves arising in this way represent a small part of Lusztig's geometrization of characters of representations of connected, reductive groups over finite fields, but they are precisely those needed to describe one-dimensional characters of such groups. 
@@ -316,7 +316,10 @@ This implies $G \to \Spec{\Fq}$ is locally of finite type, but not that it is of
 We remark that the identity component $G^0$ of $G$ is of finite type over $\Fq$, while the component group scheme
 $\pi_0(G)$ of $G$ is an \'etale group scheme over $\Fq$, and both are smooth over $\Fq$.
 
-In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$, where $\gcs{L}$ is an $\ell$-adic sheaf on $\bG \ceq G\otimes_{\Fq} \bFq$ \todo{the notation $\bFq$ isn't defined} and where $\phi : \Frob{}^*\gcs{L} \to \gcs{L}$ is an isomorphism of $\ell$-adic sheaves. 
+Let $\bFq$ be a fixed algebraic closure of $\Fq$. 
+In general, we use overline to denote a separable closure of a field or the base change a geometric object to a scheme over a separable closure of a field.
+%
+In this paper we use a common formalism for Weil sheaves, writing $\cs{L}$ for the pair $(\gcs{L},\phi)$, where $\gcs{L}$ is an $\ell$-adic sheaf on $\bG = G\otimes_{\Fq} \bFq$  and where $\phi : \Frob{}^*\gcs{L} \to \gcs{L}$ is an isomorphism of $\ell$-adic sheaves. 
 We also follow convention by referring to $\cs{L}$  as a Weil sheaf on $G$, as in \cite{Deligne:Weil}*{D\'efinition 1.1.10}.
 If $\cs{L}$ and $\cs{L}' \ceq (\gcs{L}', \phi')$ are Weil sheaves, we write $\alpha : \cs{L} \to \cs{L}'$ for a morphism $\alpha : \gcs{L} \to \gcs{L}$ such that 
 \[
@@ -1180,9 +1183,8 @@ By \cite{gurevich-hadani:07a}*{Theorem 3.2.2.1} (see also \cite{gurevich-hadani:
 %
 In particular, this geometrization uses $\mathsf{D}^b_{c,\Sp(V)\ltimes V^\sharp}(\Sp(V)\ltimes V^\sharp;\EE)$, as recalled in Section~\ref{ssec:LCS}, to geometrize $\trace(W_\psi)$. 
 
-\subsection{Review of Yu's types and associated models}\label{ssec:review}
+\subsection{Yu's types and integral models}\label{ssec:review}
 
-For the rest of Section~\ref{sec:types}, $R$ is the ring of integers of a $p$-adic field. \todo{I think that that ``p-adic field'' can be replaced by the more general notion of ``non-archimedean local field with finite residue field'' (that is, fields with equal characteristic should be be allowed) thanks to the results of arXiv:1810.04198 already mentioned.}
 A Yu type datum $(\oK^i,\orho^0,\varphi^i,d)$ consists of the following:
 \begin{enumerate}
 \labitem{Y0}{Y0} a sequence of compact groups $\oK^0 \subseteq \oK^1 \subseteq \cdots \subseteq \oK^d = \oK$;
@@ -1294,7 +1296,7 @@ As explained in \cite{Yu:models}*{\S 10.4}, there is morphism of affine smooth g
 \[
 \underline{J}^i \to \underline{G},
 \] 
-for each $i=0,\ldots d$, such that $\underline{J}^i(R) = J_i$ as a subgroup of $C$ \todo{define $C$} and such that the image of the $R$-points under the multiplication map $\underline{J}^0 \times \cdots \times \underline{J}^i \to \underline{G}$ is $\oK^i$, for $i=0, \ldots , d$.
+for each $i=0,\ldots d$, such that $\underline{J}^i(R) = J_i$ as a subgroup of $G$ and such that the image of the $R$-points under the multiplication map $\underline{J}^0 \times \cdots \times \underline{J}^i \to \underline{G}$ is $\oK^i$, for $i=0, \ldots , d$.
 There is a natural action of $\underline{G}^i$ on $\underline{J}^{i+1}$ in the category of smooth affine group schemes over $R$ so that the group scheme
 \[
 \underline{G}^i \ltimes \underline{J}^{i+1}
@@ -1655,6 +1657,13 @@ interesting manner.}
         date={1967},
      journal={Inst. Hautes \'Etudes Sci. Publ. Math.},
       number={32},
+}
+
+\bib{fintzen:19a}{unpublished}{
+   author={Fintzen, Jessica},
+   title={On the construction of tame supercuspidal representations},
+   date={2019},
+   note={\href{http://arxiv.org/abs/1908.09819}{arXiv:1908.09819 [math.RT]}}
 }
 
 \bib{fintzen:18a}{unpublished}{
