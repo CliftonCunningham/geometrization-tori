@@ -279,9 +279,10 @@ Of course, the sheaves arising in this way represent a small part of Lusztig's g
 
 Armed with the function-sheaf dictionary for smooth group schemes over finite fields, we return to the task of geometrizing Yu type data. 
 The proof of Theorem~\ref{thm:geotypes} requires: Yu's work on smooth integral models \cite{Yu:models}; the geometrization of the character of the Heisenberg-Weil representation over finite fields by Gurevich \& Hadani \cite{gurevich-hadani:07a}; Lusztig's character sheaves on reductive groups over finite fields; and finally, the function-sheaf dictionary for characters of smooth group schemes over finite fields, now at our disposal in Theorem~\ref{thm:geo}.
-In order to use these tools we must restrict our attention to Yu type data that satisfy two technical conditions, appearing in Section~\ref{ssec:geotypes} as Hypotheses~\ref{H0} and \ref{H1}. 
-Granting these hypotheses, these pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
-With this theorem, we provide all of the ingredients needed to geometrize a class of supercuspidal representations of arbitrary depth.
+
+In order to use these tools we must restrict our attention to Yu type data that satisfy a technical condition, appearing in Section~\ref{ssec:geotypes} as Hypothesis~\ref{H1}. 
+Granting this hypothesis, these pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
+With this theorem, we provide all of the ingredients needed to geometrize a class of supercuspidal representations of arbitrary depth. 
 
 Yu's construction has been revisited recently by several authors.
 Hakim \cite{hakim:18a}*{\S 2.1} gives an alternate construction beginning with a
@@ -290,7 +291,8 @@ Unfortunately, this ingredient does not lend itself to geometrization using our 
 In contrast, Kaletha \cite{kaletha:19a} has given a construction in terms of a
 tame elliptic maximal torus $S \subset G$ and a character $\theta$ of $S$.
 The pair $(S, \theta)$ can already be geometrized using \cite{cunningham-roe:13a} since $S$ is commutative.
-However, Kaletha's construction only produces a subset of Yu's supercuspidal representations \cite{kaletha:19a}*{Prop. 3.7.14}, so we phrase our geometrization in terms of Yu's original construction. 
+However, Kaletha's construction only produces a subset of Yu's supercuspidal representations \cite{kaletha:19a}*{Prop. 3.7.14}, so we phrase our geometrization in terms of Yu's original construction.
+
  
 \bigskip
 
@@ -1001,11 +1003,11 @@ Although every linear character sheaf on $G$ is a conjugation-equivariant Weil l
 For connected reductive groups $G$ over $k$, Lusztig's character sheaves are simple perverse sheaves $\IC(C,\mathcal{L})$ on $G$ that come equipped with an isomorphism $a^*\, \IC(C,\mathcal{L}) \to p_2^*\, \IC(C,\mathcal{L})$ in the triangulated category $D^b_c(G\times G;\EE)$.
 Consequently, when $\IC(C,\mathcal{L})$ is also a Weil sheaf complex, its trace of Frobenius function $\trFrob{\IC(C,\cs{L})} : G(k)\to \EE$ is a class function, called the characteristic function of $\IC(C,\cs{L})$.
 By \cite{lusztig:86a}*{Cor. 25.7}, Weil character sheaves on $G$ determine a basis for the vector space of class functions on $G(k)$; in particular, any character of any representation of $G(k)$ can be expressed as a ${\bar \QQ}$-linear combination of characteristic functions of Weil character sheaves on $G$.
-Let us use the notation $\mathsf{D}^b_{c,G}(G;\EE)$ for the category of conjugation-equivariant objects in $\mathsf{D}^b_{c}(G;\EE)$, as defined in \cite{bernstein-lunts:equivariant} for example, and $\mathsf{KD}^b_{c,G}(G;\EE)$ for the Grothendieck group of $\mathsf{D}^b_{c,G}(G;\EE)$; we set $\mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)\ceq \mathsf{KD}^b_{c,G}(G;\EE)\otimes_{\ZZ} {\bar\QQ}$.
-Thus, Lusztig's result shows that for every representation $\rho$ of $G(k)$ there is some $\cs{F}\in \mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)$ such that $\trace\rho = \trFrob{\cs{F}}$.
-This result is extended in the papers beginning with \cite{lusztig:disconnected1} \todo{it is necessary to provide the precise reference in ``the papers beginning with [18]'' where the existence of F is proved.} to reductive groups $G$ over $k$ for which the geometric component group for $G$ is cyclic.
+Let us use the notation $\mathsf{D}^b_{c,G}(G;\EE)$ for the category of conjugation-equivariant objects in $\mathsf{D}^b_{c}(G;\EE)$, as defined in \cite{bernstein-lunts:equivariant} for example, and $\mathsf{KD}^b_{c,G}(G;\EE)$ for the Grothendieck group of $\mathsf{D}^b_{c,G}(G;\EE)$; we set $\mathsf{K}_{\EE}\textsc{D}^b_{c,G}(G;\EE)\ceq \mathsf{KD}^b_{c,G}(G;\EE)\otimes_{\ZZ} {\EE}$.
+Thus, Lusztig's result shows that for every representation $\rho$ of $G(k)$ there is some $\cs{F}\in \mathsf{K}_{\EE}\textsc{D}^b_{c,G}(G;\EE)$ such that $\trace\rho = \trFrob{\cs{F}}$.
+By \cite{lusztig:disconnected4}*{Thm. 21.21}, this result extends to all reductive groups $G$ over $k$ without the hypothesis that $G$ is connected.% for which the geometric component group for $G$ is cyclic.
 
-When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ using $\mathsf{K}_{\bar\QQ}\textsc{D}^b_{c,G}(G;\EE)$; of course, the resulting geometrization is generally not a local system.
+When specialized to the case of characters $\chi$ of $G(k)$, Lusztig's theory of character sheaves geometrizes $\chi$ using $\mathsf{K}_{\EE}\textsc{D}^b_{c,G}(G;\EE)$; of course, the resulting geometrization is generally not a local system.
 %
 For an example when this method can be used to geometrize a character of $G(k)$ which is not trivial on $G\der(k)$, consider $G = \SL_2$ over $\FFF$.
 Then $G\der = G$, but $G(k)\der$ is the subgroup of semisimple elements,
@@ -1346,7 +1348,8 @@ We may now revisit the ingredients in the construction of the representation $\r
 The compact groups $\oK^i$ appearing in \ref{Y0} have been replaced by the smooth group schemes $\underline{G}^i$.
 \labitem{M1}{M1}
 The continuous representation $\orho^0$ of $\oK^0$ appearing in \ref{Y1} may be interpreted as a representation of $\underline{G}^0(R)$ obtained by inflation along $\underline{G}^0(R) \to \underline{G}^0(\Fq)$ from a representation $\varrho_0$ of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
-In fact, $\varrho_0$ is itself obtained by pulling back a representation $\varrho_0^\reductive$ \todo{why can $\varrho_0$ be obtained by pulling back a representation $\varrho_0^\reductive$} along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
+In fact, $\varrho_0$ is itself obtained by pulling back a representation $\varrho_0^\reductive$; this is a consequence of \cite{Yu:models}*{\S 10.5 (i)}.
+%\todo{why can $\varrho_0$ be obtained by pulling back a representation $\varrho_0^\reductive$} along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$ 
 \labitem{M2}{M2} The quasicharacters $\varphi^i$ appearing in \ref{Y2} are now quasicharacters of $\underline{G}^i(R)$, for $i=0, \ldots, d$.
 In fact, if $r_i$ is the level of $\varphi^i$, as it appears in Section~\ref{ssec:quasicharacters}, then $\varphi^i$ is obtained by pulling back a quasicharacter $\varphi_i\ceq \varphi^i_{r_i}$ of the smooth group scheme $G_i\ceq G^i_{r_i} \ceq \Gr_{r_i}^{R}(\underline{G}^i)$ along $G^i \to G_i$.
 \labitem{M3}{M3}
@@ -1375,7 +1378,6 @@ Then $w_{i+1}$ is itself obtained by pulling back the representation $W_{i+1}$ a
 
 This brings us back to the point made in \cite{Yu:models}*{\S 10.5} as quoted in the Introduction to this paper.
 
-
 \subsection{Geometrization of characters of certain types}\label{ssec:geotypes}
 
 We may now give the main result of Section~\ref{sec:types}, Theorem~\ref{thm:geotypes}.
@@ -1387,23 +1389,24 @@ In Section~\ref{ssec:review} we also saw how a Yu type datum determines smooth g
 %
 Theorem~\ref{thm:geotypes} places the following conditions on the Yu type datum:
 \begin{enumerate}
-\labitem{H0}{H0} the geometric component group of $(\underline{G}^0)\red_{k}$ is cyclic;
+%\labitem{H0}{H0} the geometric component group of $(\underline{G}^0)\red_{k}$ is cyclic;
 \labitem{H1}{H1} for each $i=0,\ldots, d$, either
 \begin{enumerate}
-\labitem{H1(a)}{H1a} $G_i$ is reductive with cyclic geometric component group, or
+\labitem{H1(a)}{H1a} $G_i$ is reductive, or % with cyclic geometric component group, or
 \labitem{H1(b)}{H1b} the quasicharacter $\varphi_i$ of $G_i$ is trivial on  $G_{i,\operatorname{der}}(k)$. \todo{It would be worth to provide an example of supercuspidal representation (with positive depth) of a non-commutative p-adic group for which the hypothesis H1(b) is satsified}
 \end{enumerate}
 \end{enumerate}
-Hypothesis~\ref{H0} will allow us to use Lusztig's character sheaves to geometrize the character of the representation of $\orho^0$.
+%Hypothesis~\ref{H0} will allow us to use Lusztig's character sheaves to geometrize the character of the representation of $\orho^0$.
 Hypothesis~\ref{H1a} may be used to geometrize each quasicharacter $\varphi_i$ using $\mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$.
 Alternatively, Hypothesis~\ref{H1b} allows us to use Proposition~\ref{prop:quasicharacters} to geometrize each quasicharacter $\varphi_i$ using local systems on $G_i$, or more precisely, using commutative character sheaves on $G_i$.
 Using Sections~\ref{ssec:equivariant} and \ref{ssec:LCS} we see that, in both cases, the resulting geometrization may be interpreted as an element in $\mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$.
 Note that when Hypothesis~\ref{H1b} applies, it provides a considerably simpler geometrization than when Hypothesis~\ref{H1a} applies.
 
-We remark that if Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then Hypothesis~\ref{H0} can be removed and Hypothesis~\ref{H1a} can be replaced with the hypothesis that each $G_i$ is reductive.
+%We remark that if Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then Hypothesis~\ref{H0} can be removed and Hypothesis~\ref{H1a} can be replaced with the hypothesis that each $G_i$ is reductive.
 
 \begin{theorem}\label{thm:geotypes}
-Let $(\oK^i, \orho^0, \varphi^i,d)$ be a Yu type datum that satisfies Hypotheses~\ref{H0} and \ref{H1}, and let $\orho_i$ be the representation of $\oK^i$ constructed from it in Section~\ref{ssec:review}.  Then for each $i=0,\dots, d$ there is an element $\cs{F}_i \in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G^i}(G^i;\EE)$ such that
+Let $(\oK^i, \orho^0, \varphi^i,d)$ be a Yu type datum that satisfies Hypotheses~%\ref{H0} and 
+\ref{H1}, and let $\orho_i$ be the representation of $\oK^i$ constructed from it in Section~\ref{ssec:review}.  Then for each $i=0,\dots, d$ there is an element $\cs{F}_i \in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G^i}(G^i;\EE)$ such that
 \[
 \trFrob{\cs{F}_i} = \trace(\orho_i).
 \]
@@ -1412,15 +1415,16 @@ Let $(\oK^i, \orho^0, \varphi^i,d)$ be a Yu type datum that satisfies Hypotheses
 \begin{proof}
 %For every $i=0, \ldots ,d$, set $G^i = \Gr_{R}(\underline{G}^i)$.
 Recall that $G^i(\Fq) = \underline{G}^i(R) = \oK^i$, canonically.
-Let $r_i$ be the level of $\varphi^i$ as defined in Section~\ref{ssec:quasicharacters}. \todo{the precise reference in the series of Lusztig articles on character sheaves on disconnected groups must be provided.}
+Let $r_i$ be the level of $\varphi^i$ as defined in Section~\ref{ssec:quasicharacters}. 
+%\todo{the precise reference in the series of Lusztig articles on character sheaves on disconnected groups must be provided.}
 Set $r = \max\{ r_i \tq i=0, \ldots ,d\}$.
 
-By \cite{lusztig:disconnected1}, there is $A \in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,(\underline{G}^0)_\Fq\red}((\underline{G}^0)_\Fq\red;\EE)$ such that 
+By \cite{lusztig:disconnected4}*{Thm. 21.21}, there is $A \in \mathsf{K}_{\EE}\mathsf{D}^b_{c,(\underline{G}^0)_\Fq\red}((\underline{G}^0)_\Fq\red;\EE)$ such that 
 %${\bar A}$ is a rational virtual character sheaf on $(\underline{G}^0)_{\bFq}^\reductive$ and
 \[
 \trFrob{A} = \trace \varrho_0^\reductive.
 \]
-This uses Hypothesis~\ref{H0}.
+%This uses Hypothesis~\ref{H0}.
 %
 Let $A^0\in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,(\underline{G}^0)_\Fq}((\underline{G}^0)_\Fq;\EE)$ be obtained by pullback along the quotient $(\underline{G}^0)_\Fq \to (\underline{G}^0)_\Fq^\reductive$.
 Then 
@@ -1454,9 +1458,10 @@ $\Gr^{R}_r(\underline{G}^{i} \ltimes \underline{J}^{i+1}) \to \Gr^{R}_0(\underli
 We now define $\cs{A}^i_r  \in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G^i_r}$ for $i=0,\ldots ,d$ recursively, following the construction of the representations $\orho^i$, as reviewed in Section~\ref{ssec:review}.
 First, set $\cs{A}_r^0 = A_r^0$ and note that \eqref{eqn:tracerho} commutes with $\trace(\orho^0)_r$ replaced by $\trFrob{\cs{A}_r^0}$.
 Using Hypothesis~\ref{H1}, let $\cs{L}_i$ be the geometrization of the quasicharacter $\varphi_i \ceq \varphi^i_{r_i}$ appearing in \ref{M2}.
-If \ref{H1a} applies, then $\cs{L}_i \in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$, using \cite{lusztig:disconnected1};
-if \ref{H1b} applies, then $\cs{L}_i\in \CCS(G_i)$, using Proposition~\ref{prop:quasicharacters}. \todo{provide exact reference}
-In either case, $\cs{L}_i\in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$ and
+If \ref{H1a} applies, then $\cs{L}_i \in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G_i}(G_i;\EE)$, using \cite{lusztig:disconnected4}*{Thm. 21.21};
+if \ref{H1b} applies, then $\cs{L}_i\in \CCS(G_i)$, using Proposition~\ref{prop:quasicharacters}. 
+%\todo{provide exact reference}
+In either case, $\cs{L}_i\in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G_i}(G_i;\EE)$ and
 \[
 \trFrob{\cs{L}_i} = \varphi_i.
 \]
@@ -1484,7 +1489,7 @@ Applying the Greenberg functor $\Gr^{R}_r$ to \eqref{eq:pimodel} gives
 \end{equation}
 where $J_r^{i+1} \ceq \Gr^{R}_r(\underline{J}^{i+1})$ and $G_r^{i} \ceq \Gr^{R}_r(\underline{G}^{i})$.
 By \cite{bertapelle-gonzales:Greenberg}*{Prop 14.2}, the sequences are exact.
-Consider $\cs{B}_r^{i+1}\in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_r^{i}\ltimes J_r^{i+1}}(G_r^{i}\ltimes J_r^{i+1};\EE)$ defined by
+Consider $\cs{B}_r^{i+1}\in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G_r^{i}\ltimes J_r^{i+1}}(G_r^{i}\ltimes J_r^{i+1};\EE)$ defined by
 \[
 \cs{B}_r^{i+1} \ceq \cs{K}_r^{i+1} \otimes (p_r^{i})^*(\cs{A}_r^{i}\otimes \cs{L}_r^{i}).
 \]
@@ -1494,7 +1499,7 @@ With reference to the morphism $\pi_r^{i+1} : G_r^i \ltimes J_r^{i+1} \to G_r^{i
 \[
 \cs{C}_r^{i+1} \ceq (\pi_r^{i+1})_! (\cs{B}_r^{i+1}).
 \]
-Then $\cs{C}_r^{i+1}\in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_r^{i+1}}(G_r^{i+1};\EE)$ and
+Then $\cs{C}_r^{i+1}\in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G_r^{i+1}}(G_r^{i+1};\EE)$ and
 \begin{eqnarray*}
 \trFrob{\cs{C}^{i+1}_r}(x)
 &=& \sum_{y\in (\pi_r^{i+1})^{-1}(x)}  \trFrob{\cs{B}_r^{i+1}}(y).
@@ -1515,7 +1520,7 @@ G^{i+1}(\Fq) \arrow{rr}{\trace(\orho^{i+1})} \arrow{rd} && \EE\\
 \]
 
 Now set $\cs{F}^i_r = \cs{A}_r^{i} \otimes \cs{L}_r^i$, for $i=0, \ldots ,d$.
-Then $\cs{F}^i_r \in \mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_r^{i}}(G_r^{i};\EE)$ such that
+Then $\cs{F}^i_r \in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G_r^{i}}(G_r^{i};\EE)$ such that
 \[
 \begin{tikzcd}
 G^i(\Fq) \arrow{rr}{\trace(\orho_i)} \arrow{rd} && \EE\\
@@ -1787,14 +1792,17 @@ pages={1071--1170},
 	Volume = {61},
 	Year = {1986}}
 
-\bib{lusztig:disconnected1}{article}{
-      author={Lusztig, George},
-       title={{Character sheaves on disconnected groups I}},
-        date={2003},
-     journal={Representation Theory},
-      volume={7},
-       pages={374\ndash 403},
+\bib{lusztig:disconnected4}{article}{
+   author={Lusztig, G.},
+   title={Character sheaves on disconnected groups. IV},
+   journal={Represent. Theory},
+   volume={8},
+   date={2004},
+   pages={145--178},
+%   review={\MR{2048590}},
+%   doi={10.1090/S1088-4165-04-00240-7},
 }
+		
 
 \bib{Vistoli:notes}{article}{
    author={Vistoli, Angelo},
