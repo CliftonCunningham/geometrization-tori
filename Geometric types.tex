@@ -281,7 +281,16 @@ Armed with the function-sheaf dictionary for smooth group schemes over finite fi
 The proof of Theorem~\ref{thm:geotypes} requires: Yu's work on smooth integral models \cite{Yu:models}; the geometrization of the character of the Heisenberg-Weil representation over finite fields by Gurevich \& Hadani \cite{gurevich-hadani:07a}; Lusztig's character sheaves on reductive groups over finite fields; and finally, the function-sheaf dictionary for characters of smooth group schemes over finite fields, now at our disposal in Theorem~\ref{thm:geo}.
 In order to use these tools we must restrict our attention to Yu type data that satisfy two technical conditions, appearing in Section~\ref{ssec:geotypes} as Hypotheses~\ref{H0} and \ref{H1}. 
 Granting these hypotheses, these pieces are assembled in Section~\ref{ssec:geotypes}, where we prove Theorem~\ref{thm:geotypes}.
-With this theorem, we provide all of the ingredients needed to geometrize a class of supercuspidal representations of arbitrary depth. 
+With this theorem, we provide all of the ingredients needed to geometrize a class of supercuspidal representations of arbitrary depth.
+
+Yu's construction has been revisited recently by several authors.
+Hakim \cite{hakim:18a}*{\S 2.1} gives an alternate construction beginning with a
+representation of a compact-mod-center subgroup of $G$.
+Unfortunately, this ingredient does not lend itself to geometrization using our techniques.
+In contrast, Kaletha \cite{kaletha:19a} has given a construction in terms of a
+tame elliptic maximal torus $S \subset G$ and a character $\theta$ of $S$.
+The pair $(S, \theta)$ can already be geometrized using \cite{cunningham-roe:13a} since $S$ is commutative.
+However, Kaletha's construction only produces a subset of Yu's supercuspidal representations \cite{kaletha:19a}*{Prop. 3.7.14}, so we phrase our geometrization in terms of Yu's original construction. 
  
 \bigskip
 
@@ -959,7 +968,7 @@ By the definition of $\Delta_G$, we have a short exact sequence
 \[
 1 \to G\der(k) \to G(k) \to G\ab(k) \to \Delta_G \to 1.
 \]
-Applying $\Hom(-, \EEx)$ yields the bottom row in the statement.
+Applying $\Hom(-, \EEx)$, which is exact since $\EEx$ is divisible, yields the bottom row in the statement.
 
 By Theorem~\ref{thm:Gab}, the map $\CCSiso{G\ab} \to \CCSiso{G}$ is an isomorphism.
 Moreover, since both $\CCSiso{G\ab} \to \CCSiso{G}$ and $G\ab(k)^* \to G(k)^*$ are
@@ -1692,14 +1701,31 @@ interesting manner.}
         note={\href{http://arxiv.org/abs/1108.0351}{arXiv:1108.0351 [math.RT]}}
 }
 
+\bib{hakim:18a}{article}{
+author={Hakim, Jeffrey},
+title={Constructing tame supercuspidal representations},
+journal={Representation Theory},
+volume={22},
+date={2018},
+pages={45--86}
+}
 
 \bib{howe:73a}{article}{
    author={Howe, Roger E.},
-   title={On the character of Weil's representation},
+   title={{On the character of Weil's representation}},
    journal={Trans. Amer. Math. Soc.},
    volume={177},
    date={1973},
    pages={287--298},
+}
+
+\bib{kaletha:19a}{article}{
+author={Kaletha, Tasho},
+title={Regular supercuspidal representations},
+journal={J. Amer. Math. Soc.},
+volume={32},
+date={2019},
+pages={1071--1170},
 }
 
 \bib{kamgarpour:09a}{article}{
