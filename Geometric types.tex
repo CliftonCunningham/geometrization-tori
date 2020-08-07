@@ -1402,6 +1402,24 @@ Alternatively, Hypothesis~\ref{H1b} allows us to use Proposition~\ref{prop:quasi
 Using Sections~\ref{ssec:equivariant} and \ref{ssec:LCS} we see that, in both cases, the resulting geometrization may be interpreted as an element in $\mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$.
 Note that when Hypothesis~\ref{H1b} applies, it provides a considerably simpler geometrization than when Hypothesis~\ref{H1a} applies.
 
+We give examples illustrating Hypothesis \ref{H1b}: first,
+an example of a quasicharacter that does not vanish on $G_{i, \der}(k)$,
+and then a class of Yu data where it is always satisfied.
+Let $G = \SL_2$ over $\QQ_2$.
+Then the hyperspecial maximal compact $\oK^0$ reduces to $\SL_2(\ZZ/2^{d+1}\ZZ)$ at depth $d$.
+The derived subgroup of $\SL_2(\ZZ/2\ZZ)$ has index $2$, while it has index $4$ in positive depth.
+There is therefore a character $\varphi^0$ of $K$ of order $4$ and depth $1$
+factoring through the quotient of $\SL_2(\ZZ/4\ZZ)$ by its derived subgroup.
+Taking the trivial representation for $\orho^0$ gives a Yu datum not satisfying \ref{H1b}. \todo{Does Yu require tameness?  Can we say that this is an example if so?}
+
+In contrast, there is a broad class of representations that automatically satisfy \ref{H1b}.
+Recall that a representation is \emph{toral} \citelist{\cite{adler:98a} \cite{kaletha:19a}*{\S 6}}
+if it arises from a Yu datum of the form $(S \subset G, \orho^0=1, (\varphi^{d-1}, 1)$ where
+$S$ is an elliptic maximal torus and $\varphi^{d-1}$ is $G$-generic character of $S(F)$ of positive depth.
+Since $S$ is abelian, it has trivial derived subgroup and thus \ref{H1b} is satisfied.
+Toral representations include epipelagic representations \cite{reeder-yu:14a} and
+the representations considered by Reeder in \cite{reeder:08a}.
+
 %We remark that if Lusztig's theory of character sheaves can be generalized to all disconnected reductive algebraic groups, then Hypothesis~\ref{H0} can be removed and Hypothesis~\ref{H1a} can be replaced with the hypothesis that each $G_i$ is reductive.
 
 \begin{theorem}\label{thm:geotypes}
@@ -1545,6 +1563,16 @@ interesting manner.}
 
 \begin{bibdiv}
 \begin{biblist}
+
+\bib{adler:98a}{article}{
+	author={Adler, Jeffrey},
+	title={Refined  anisotropic $K$-types  and  supercuspidal  representations},
+	journal={Pacific J. Math.},
+	volume={185},
+	date={1998},
+	number={1},
+	pages={1--32},
+}
 
 \bib{berndt-schmidt:98a}{book}{
       author={Berndt, Rolf},
@@ -1802,7 +1830,25 @@ pages={1071--1170},
 %   review={\MR{2048590}},
 %   doi={10.1090/S1088-4165-04-00240-7},
 }
-		
+
+\bib{reeder:08a}{article}{
+    author={Reeder, Mark},
+    title={Supercuspidal $L$-packets of positive depth and twisted {Coxeter} elements},
+    journal={J. Reine Angew. Math.},
+    volume={620},
+    date={2008},
+    pages={1--33},
+}
+
+\bib{reeder-yu:14a}{article}{
+    author={Reeder, Mark},
+    author={Yu, Jiu-Kang},
+    title={Epipelagic representations and invariant theory},
+    journal={J. Amer. Math. Soc.},
+    volume={27},
+    number={2},
+    pages={437--477},
+}
 
 \bib{Vistoli:notes}{article}{
    author={Vistoli, Angelo},
