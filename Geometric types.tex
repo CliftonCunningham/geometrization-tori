@@ -193,7 +193,6 @@ In this paper we give a modification of the category of character sheaves that r
 We then use these \emph{commutative character sheaves} to geometrize the linear characters that appear in the types introduced by Jiu-Kang Yu, assuming that the character vanishes on a certain derived subgroup.
 To define \emph{geometric types}, we combine commutative character sheaves with Gurevich and Hadani's geometrization of the Weil representation and Lusztig's character sheaves.
 \end{abstract}
-\todo{Since Yu's article ``Construction of tame supercuspidal representation'' [20] is a key ingredient, I would like to inform the authors that, as recently noticed by Loren Spice, Proposition 14.1 and Theorem 14.2 in [20] are not always true (they rely on a misprinted statement in a reference). An alternative proof of Yu's main results which avoids these steps was provided by Jessica Fintzen in ``On the construction of tame supercuspidal representations'', arXiv:1908.09819. I think that it should be mentioned, even if does not affect the results of manuscript.}
 
 \maketitle
 
@@ -1278,7 +1277,6 @@ $\langle\ ,\ \rangle_{i+1}$ & $\langle\ ,\ \rangle$ & \cite{yu:01a}*{\S 11} \\
 \end{spacing}
 \label{table:notation}
 \end{table}%
-\todo{the quasicharacter $\varphi^i$ is defined to be the restriction to $^\circ K_i$ of the quasicharacter $\phi_i$ which appears in [20].  Yu assumes that $\phi^i$ is $G^{i+1}$ generic.  It would be interesting to see if $G^{i+1}$-genericity property could be translated into a condition of $\varphi^i$, viewed as a quasicharacter of $\underline{G}^i(R)$ as in M2.}
 
 We can now recall how Yu uses all this to construct the types $(\oK^i,\orho_i)$; see \cite{yu:01a}*{\S\S 4, 15}.
 The representations $\orho_i$ are defined recursively.
@@ -1349,7 +1347,6 @@ The compact groups $\oK^i$ appearing in \ref{Y0} have been replaced by the smoot
 \labitem{M1}{M1}
 The continuous representation $\orho^0$ of $\oK^0$ appearing in \ref{Y1} may be interpreted as a representation of $\underline{G}^0(R)$ obtained by inflation along $\underline{G}^0(R) \to \underline{G}^0(\Fq)$ from a representation $\varrho_0$ of $\underline{G}^0(\Fq) = \underline{G}^0_\Fq(\Fq)$.
 In fact, $\varrho_0$ is itself obtained by pulling back a representation $\varrho_0^\reductive$; this is a consequence of \cite{Yu:models}*{\S 10.5 (i)}.
-%\todo{why can $\varrho_0$ be obtained by pulling back a representation $\varrho_0^\reductive$} along the $\Fq$-points of the quotient $\underline{G}^0_\Fq \to (\underline{G}^0)_\Fq^\reductive$ 
 \labitem{M2}{M2} The quasicharacters $\varphi^i$ appearing in \ref{Y2} are now quasicharacters of $\underline{G}^i(R)$, for $i=0, \ldots, d$.
 In fact, if $r_i$ is the level of $\varphi^i$, as it appears in Section~\ref{ssec:quasicharacters}, then $\varphi^i$ is obtained by pulling back a quasicharacter $\varphi_i\ceq \varphi^i_{r_i}$ of the smooth group scheme $G_i\ceq G^i_{r_i} \ceq \Gr_{r_i}^{R}(\underline{G}^i)$ along $G^i \to G_i$.
 \labitem{M3}{M3}
@@ -1393,7 +1390,7 @@ Theorem~\ref{thm:geotypes} places the following conditions on the Yu type datum:
 \labitem{H1}{H1} for each $i=0,\ldots, d$, either
 \begin{enumerate}
 \labitem{H1(a)}{H1a} $G_i$ is reductive, or % with cyclic geometric component group, or
-\labitem{H1(b)}{H1b} the quasicharacter $\varphi_i$ of $G_i$ is trivial on  $G_{i,\operatorname{der}}(k)$. \todo{It would be worth to provide an example of supercuspidal representation (with positive depth) of a non-commutative p-adic group for which the hypothesis H1(b) is satsified}
+\labitem{H1(b)}{H1b} the quasicharacter $\varphi_i$ of $G_i$ is trivial on  $G_{i,\operatorname{der}}(k)$.
 \end{enumerate}
 \end{enumerate}
 %Hypothesis~\ref{H0} will allow us to use Lusztig's character sheaves to geometrize the character of the representation of $\orho^0$.
@@ -1410,7 +1407,7 @@ Then the hyperspecial maximal compact $\oK^0$ reduces to $\SL_2(\ZZ/2^{d+1}\ZZ)$
 The derived subgroup of $\SL_2(\ZZ/2\ZZ)$ has index $2$, while it has index $4$ in positive depth.
 There is therefore a character $\varphi^0$ of $K$ of order $4$ and depth $1$
 factoring through the quotient of $\SL_2(\ZZ/4\ZZ)$ by its derived subgroup.
-Taking the trivial representation for $\orho^0$ gives a Yu datum not satisfying \ref{H1b}. \todo{Does Yu require tameness?  Can we say that this is an example if so?}
+Taking the trivial representation for $\orho^0$ gives a datum not satisfying \ref{H1b}.
 
 In contrast, there is a broad class of representations that automatically satisfy \ref{H1b}.
 Recall that a representation is \emph{toral} \citelist{\cite{adler:98a} \cite{kaletha:19a}*{\S 6}}
@@ -1434,7 +1431,6 @@ Let $(\oK^i, \orho^0, \varphi^i,d)$ be a Yu type datum that satisfies Hypotheses
 %For every $i=0, \ldots ,d$, set $G^i = \Gr_{R}(\underline{G}^i)$.
 Recall that $G^i(\Fq) = \underline{G}^i(R) = \oK^i$, canonically.
 Let $r_i$ be the level of $\varphi^i$ as defined in Section~\ref{ssec:quasicharacters}. 
-%\todo{the precise reference in the series of Lusztig articles on character sheaves on disconnected groups must be provided.}
 Set $r = \max\{ r_i \tq i=0, \ldots ,d\}$.
 
 By \cite{lusztig:disconnected4}*{Thm. 21.21}, there is $A \in \mathsf{K}_{\EE}\mathsf{D}^b_{c,(\underline{G}^0)_\Fq\red}((\underline{G}^0)_\Fq\red;\EE)$ such that 
@@ -1478,7 +1474,6 @@ First, set $\cs{A}_r^0 = A_r^0$ and note that \eqref{eqn:tracerho} commutes with
 Using Hypothesis~\ref{H1}, let $\cs{L}_i$ be the geometrization of the quasicharacter $\varphi_i \ceq \varphi^i_{r_i}$ appearing in \ref{M2}.
 If \ref{H1a} applies, then $\cs{L}_i \in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G_i}(G_i;\EE)$, using \cite{lusztig:disconnected4}*{Thm. 21.21};
 if \ref{H1b} applies, then $\cs{L}_i\in \CCS(G_i)$, using Proposition~\ref{prop:quasicharacters}. 
-%\todo{provide exact reference}
 In either case, $\cs{L}_i\in \mathsf{K}_{\EE}\mathsf{D}^b_{c,G_i}(G_i;\EE)$ and
 \[
 \trFrob{\cs{L}_i} = \varphi_i.
@@ -1554,12 +1549,6 @@ Then
 as desired.
 \end{proof}
 
-
-\bigskip
-
-\todo{It would be worth to quote also the recent article by Jeffrey Hakim ``Constructing tame
-supercuspidal representations'' (Represent. Theory 22, 2018), which revisits Yu's construction in an
-interesting manner.}
 
 \begin{bibdiv}
 \begin{biblist}
