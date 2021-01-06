@@ -1394,7 +1394,7 @@ Theorem~\ref{thm:geotypes} places the following conditions on the Yu type datum:
 \end{enumerate}
 \end{enumerate}
 %Hypothesis~\ref{H0} will allow us to use Lusztig's character sheaves to geometrize the character of the representation of $\orho^0$.
-Hypothesis~\ref{H1a} may be used to geometrize each quasicharacter $\varphi_i$ using $\mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$.
+Hypothesis~\ref{H1a} may be used to geometrize each quasicharacter $\varphi_i$ inside the Grothendieck group $\mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$.
 Alternatively, Hypothesis~\ref{H1b} allows us to use Proposition~\ref{prop:quasicharacters} to geometrize each quasicharacter $\varphi_i$ using local systems on $G_i$, or more precisely, using commutative character sheaves on $G_i$.
 Using Sections~\ref{ssec:equivariant} and \ref{ssec:LCS} we see that, in both cases, the resulting geometrization may be interpreted as an element in $\mathsf{K}_{\bar\QQ}\mathsf{D}^b_{c,G_i}(G_i;\EE)$.
 Note that when Hypothesis~\ref{H1b} applies, it provides a considerably simpler geometrization than when Hypothesis~\ref{H1a} applies.
@@ -1408,10 +1408,12 @@ The derived subgroup of $\SL_2(\ZZ/2\ZZ)$ has index $2$, while it has index $4$ 
 There is therefore a character $\varphi^0$ of $K$ of order $4$ and depth $1$
 factoring through the quotient of $\SL_2(\ZZ/4\ZZ)$ by its derived subgroup.
 Taking the trivial representation for $\orho^0$ gives a datum not satisfying \ref{H1b}.
+Note that this datum does not satisfy \ref{H1a} either since the depth 1 Greenberg transform
+of the hyperspecial $\oK^0$ is not reductive.
 
 In contrast, there is a broad class of representations that automatically satisfy \ref{H1b}.
 Recall that a representation is \emph{toral} \citelist{\cite{adler:98a} \cite{kaletha:19a}*{\S 6}}
-if it arises from a Yu datum of the form $(S \subset G, \orho^0=1, (\varphi^{d-1}, 1)$ where
+if it arises from a Yu datum of the form $(S \subset G, \orho^0=1, (\varphi^{d-1}, 1))$ where
 $S$ is an elliptic maximal torus and $\varphi^{d-1}$ is $G$-generic character of $S(F)$ of positive depth.
 Since $S$ is abelian, it has trivial derived subgroup and thus \ref{H1b} is satisfied.
 Toral representations include epipelagic representations \cite{reeder-yu:14a} and
@@ -1603,7 +1605,7 @@ as desired.
 
 \bib{bushnell-kutzko:98a}{article}{
       author={Bushnell, Colin},
-      author={Kutzko, Phil},
+      author={Kutzko, Philip},
        title={{Smooth representations of reductive $p$-adic groups: structure
   theory via types}},
         date={1998},
@@ -1668,7 +1670,7 @@ as desired.
 }
 
 \bib{demazure:SGA3-VIB}{inproceedings}{
-      author={Bertin, J.E.},
+      author={Bertin, Jean-\'Etienne},
        title={{Expos\'e VI$_\mathrm{B}$: G\'en\'eralit\'es sur les pr\'esch\'emas en groupes}},
         date={1970},
    booktitle={S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois Marie, Sch\'emas en groupes I (SGA3) {Proprietes generales des schemas en
@@ -1810,7 +1812,7 @@ pages={1071--1170},
 	Year = {1986}}
 
 \bib{lusztig:disconnected4}{article}{
-   author={Lusztig, G.},
+   author={Lusztig, George},
    title={Character sheaves on disconnected groups. IV},
    journal={Represent. Theory},
    volume={8},
