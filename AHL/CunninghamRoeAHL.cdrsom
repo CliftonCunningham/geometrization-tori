@@ -1,0 +1,15 @@
+\begingroup
+%  Article : AHL_-1__1_0_0_0
+%  Fichier : CunninghamRoeAHL.tex
+%  Date prod. : 2021/1/6
+\SomLine
+    {\initial {C.} \lastname {Cunningham}\unskip {} \@@and ~\initial {D.} \lastname {Roe}}
+    {\firstname {Clifton} \lastname {Cunningham}\hasaddress {}{ Department of Mathematics and Statistics, \\ University of Calgary, \\ 2500 University Drive Northwest, \\ Calgary, AB, Canada, {T2N~1N4}}\hasemail {}{cunning@math.ucalgary.ca}\unskip {} \@@and ~\firstname {David} \lastname {Roe}\hasaddress {}{Department of Mathematics, \\ Massachusetts Institute of Technology, \\ 77 Massachusetts Ave, \\ Cambridge, MA, United States, 02139}\hasemail {}{roed@mit.edu}\hasthanks {Roe was supported by Simons Foundation grant 550033.}}
+    {english}
+    {Commutative character sheaves and geometric types for supercuspidal representations}
+    {Missing translated title}
+    {\ignorespaces  We show that some types for supercuspidal representations of tamely ramified $p$-adic groups that appear in Jiu-Kang Yu's work are geometrizable. To do so, we define a function-sheaf dictionary for one-dimen\-sion\-al characters of arbitrary smooth group schemes over finite fields. In previous work we considered the case of commutative smooth group schemes and found that the standard definition of character sheaves produced a dictionary with a nontrivial kernel. In this paper we give a modification of the category of character sheaves that remedies this defect, and is also extensible to non-commutative groups. We then use these \emph {commutative character sheaves} to geometrize the linear characters that appear in the types introduced by Jiu-Kang Yu, assuming that the character vanishes on a certain derived subgroup. To define \emph {geometric types}, we combine commutative character sheaves with Gurevich and Hadani's geometrization of the Weil representation and Lusztig's character sheaves. }
+    {}
+    {1}
+    {30}
+\endgroup

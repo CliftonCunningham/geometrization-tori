@@ -1,0 +1,812 @@
+%% cedram-AHL.clo pour cedram.cls
+%% Version du 04-09-2019
+
+%----------------------------------------------------------
+%% M\'etadonn\'ees
+% titre du journal
+\def\currentjournaltitle{Annales Henri Lebesgue}%
+% entit\'e \'editrice du journal
+\protected@edef\currentjournalpublisher{\'ENS Rennes}
+% titre abr\'eg\'e du journal
+\def\currentjournalshorttitle{Ann. Henri Leb.}%
+% acronyme
+\def\cdr@journalacro{AHL}
+% ISSN
+%\ISSN{TODO}
+\eISSN{2644-9463}
+%
+\CDRjournalURL{ahl}
+\def\CDRcopyright{License CC BY 4.0 https://creativecommons.org/licenses/by/4.0/}
+
+%----------------------------------------------------------
+%% g\'eom\'etrie de la page
+\usepackage[height=24cm,a4paper,hmargin={3cm,3cm},headsep=1.3cm, includehead]{geometry}
+
+%% videos attachees
+\def\youtubevideo#1{%
+\CDRsupplementary[streaming-video]{%
+  \CDRsupptitle{Talk}
+  \CDRsuppalttitle{Expos\'e}
+  \CDRsupplement{online}
+  {youtube}
+  {\youtubeonline{#1}}
+  }
+}
+\newcommand\localvideo[2][mp4]{%
+\CDRsupplementary[hosted-video]{%
+  \CDRsupptitle{Talk}
+  \CDRsuppalttitle{Expos\'e}
+  \CDRsupplement{video/#1}
+  {local}
+  {#2}
+  }
+}
+
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+%% Typographie
+\footskip36pt
+\def\footnoterule{\kern-6\p@
+  \hrule width 1truein \kern 5.6\p@}
+\skip\footins=12pt plus 4pt minus 4pt
+\parskip=0pt
+%5pt plus 1pt minus .6pt
+\parindent=10pt
+% 24pt
+\normalparindent=10pt
+\smallskipamount=3pt plus 1pt minus .6pt
+\medskipamount=5pt plus 1pt minus .6pt
+\bigskipamount=13pt plus 2pt minus 1pt
+\renewcommand\baselinestretch{}
+\frenchspacing
+\let\bbl@nonfrenchspacing\frenchspacing
+% remettre les sfcode = 1000 pour les capitales
+\count255=`A
+  \sfcode\count255=1000
+  \loop
+   \ifnum\count255<`Z
+   \advance\count255 by 1
+   \sfcode\count255=1000
+  \repeat
+\StandardFootnotes
+\def\sloppy{%
+  \tolerance 9999%
+  \emergencystretch 1em%
+  \hfuzz .5\p@
+  \vfuzz\hfuzz}
+%% 10 pt et dimensions TeX...
+\def\@mainsize{12}\def\@ptsize{2}%
+  \normaltopskip=12pt \relax
+  \def\@typesizes{%
+    \or{7}{8}\or{8}{10}\or{9}{11}\or{10}{12}\or{\@xipt}{13}%
+    \or{\@xiipt}{14}% normalsize
+    \or{\@xivpt}{17}\or{\@xviipt}{20}\or{\@xxpt}{24}%
+    \or{\@xxvpt}{30}\or{\@xxvpt}{30}}%
+  \normalsize \linespacing=\baselineskip
+
+\let\ept\Small
+%%%% Versions jolies -- macros sp\'ecifiques
+\RequirePackage{amssymb}
+\let\le\leqslant
+\let\ge\geqslant
+\let\leq\leqslant
+\let\geq\geqslant
+\def\vcorr{~\\*[-2\baselineskip]}
+%% Truc discutable... Je le desactive (SG)
+%\DeclareRobustCommand\em
+%        {\@nomath\em \ifdim \fontdimen\@ne\font >\z@
+%                       \upshape \else \slshape \fi}
+%%
+\def\todo{\`A faire !}
+\def\pointir{\discretionary{.}{}{.\kern.3em---\kern.4em\ignorespaces}}
+% Pas de mise en romain des num\'erotations intempestives !
+\def\@upn#1{#1}
+\let\cdr@up\relax
+%% mathtools corrige quelques bugs des paquets ams, et apporte plein de
+%% fonctionnalites tres pratiques
+\RequirePackage{mathtools}
+%
+% Pour pouvoir utiliser la police OratorFS dans les titres
+% Attention : il faut aussi configurer tex pour qu'il trouve les fontes,
+% soit en copiant le contenu du sous-r\'epertoire texmf-AHL \`a des endroits
+% regard\'es par latex, soit en lui disant de regarder dans texmf-AHL en ajustant
+% TEXINPUTS et TEXFONTS
+% Cette police est sous copyright, on ne peut pas la distribuer aux auteurs
+% qui voudraient compiler pour voir ce que \c{c}a donne. Si la fonte OratorFS
+% n'est pas disponible, on utilise une police de remplacement (police avantgarde,
+% nom de la famille = pag), disponible sur une installation latex standard
+
+\newif\ifOrator
+\IfFileExists{OratorFS.sty}\Oratortrue\Oratorfalse
+\ifOrator
+\def\OratorFont{OratorFS-TLF}
+% La ligne suivante evite d'avoir \`a appeler updmap
+\pdfmapfile{+OratorFS.map}
+\else
+\typeout{^^JThe (copyrighted) font OratorFS used by AHL is not available, use
+avantgarde font as fallback -- the result of this compilation will not correspond
+exactly to the final result regarding the title and authors font.%
+^^J}
+\def\OratorFont{pag}
+\fi
+
+%% microtype ameliore considerablement la typographie
+% On s'en sert entre autres pour espacer plus les lettres de la police
+% OratorFS
+\RequirePackage[stretch=10, tracking=true, letterspace = 130]{microtype}
+\DeclareMicrotypeSet*[tracking]{oratorset}{family=OratorFS-TLF}
+
+
+
+
+% Couleur
+\definecolor{AHL-color}{RGB}{0,167,212}
+% Nice backrefs with hyperref
+\AtBeginDocument{%
+\def\backreflastsep{, }
+\def\backreftwosep{, }
+\def\backref#1{}
+\def\backrefalt#1#2#3#4{%
+\ifcase #1%
+    \or $\uparrow$#2%
+    \else $\uparrow$#2%
+\fi
+}}
+% editor commands
+\def\editor#1{\def\editor@name{#1}}
+\def\frencheditorname{\'editeur}
+\def\womandeditor{\def\frencheditorname{\'editrice}}
+\editor{{\color{red}Missing editor}}
+\if@francais
+\def\editor@string{Recommand\'e par l'\frencheditorname{} \editor@name.}
+\else
+\def\editor@string{Recommended by Editor \editor@name.}
+\fi
+
+%Copyright notice
+\if@francais
+\def\copyright@string{Publi\'e sous la licence \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.}
+\else
+\def\copyright@string{Published under license \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.}
+\fi
+\def\copyright@notice{\copyright@string\\[4pt]\includegraphics[height=18pt]{cc-by.pdf}}
+%% Mersenne Member notice
+\if@francais
+%
+\def\MersenneMember@statement{Cette revue est membre
+  % Les \emph{Annales Henri Lebesgue} sont  membres
+  du}%
+\else%
+\def\MersenneMember@statement{This journal
+  % \emph{Annales Henri Lebesgue}
+  is a member of}%
+\fi
+%
+\def\MersenneMember@notice{%
+  {\MersenneMember@statement\ \href{http://www.\CDRdomain}{Centre Mersenne}.}\\[2pt]
+  % \raisebox{.8cm}
+  {\href{\journalURL item/\CDRidart}{\includegraphics[height=1.5cm]{logo_Mersenne-nb.png}}}}
+
+%----------------------------------------------------------
+%% compatibilit\'e enumerate.sty
+\AtBeginDocument{%%
+\@ifpackageloaded{enumerate}{%
+\def\@@enum@[#1]{%
+  \@enLab{}\let\@enThe\@enQmark
+  \@enloop#1\@enum@
+  \ifx\@enThe\@enQmark\@warning{The counter will not be printed.%
+   ^^J\space\@spaces\@spaces\@spaces The label is: \the\@enLab}\fi
+  \expandafter\edef\csname label\@enumctr\endcsname{\the\@enLab}%
+  \expandafter\let\csname the\@enumctr\endcsname\@enThe
+  \csname c@\@enumctr\endcsname7
+  \expandafter\settowidth
+            \csname leftmargin\romannumeral\@enumdepth\endcsname
+            {\the\@enLab\hspace{\labelsep}}%
+  \advance\leftmargini by \normalparindent
+  \@enum@}
+\def\@enum@{\list{\csname label\@enumctr\endcsname}%
+           {\usecounter{\@enumctr}\def\makelabel##1{\hss\llap{\upshape##1}}}}%
+}{}}% fin de AtBeginDocument
+
+%----------------------------------------------------------------------------
+% Mise en page premi\`ere page
+\pagenumbering{arabic}%
+%% Forme des r\'esum\'es (n\'eant !)
+\def\abstractheadfont{\scshape}
+\def\@setabstracthead{{\abstractheadfont\hspace*{1em}\abstractname\unskip\pointir\ignorespaces}}
+\def\@setaltabstracthead{{\abstractheadfont\hspace*{1em}\altabstractname\unskip\pointir\ignorespaces}}
+%
+%\ifcdr@HTML
+%\def\@setgenabstract#1{#1}%
+%\else
+%\def\@setgenabstract#1{}%
+%\fi
+%% Mention de copyright
+\def\@setcopyright{}%
+%% Pas de « logo » pour certains articles sp\'eciaux
+\def\NoLogo{\xdef\article@logo{}}
+%% noms dans les ent\^ets
+%\def\@maketitle@shortauthors@hook{
+\def\cdr@evenheadcode{\def\lastname##1{\def\l@stmp@{##1}\uppercasenonmath\l@stmp@\l@stmp@}}
+
+%------------------------------------------------------------------------
+%% Style des pages courantes
+\def\ps@ahl{%\ps@empty
+  \def\@evenhead{%
+    \normalfont%
+    \rlap{\thepage}{}\hfil
+    \def\thanks{\protect\thanks@warning}%
+    {\scriptsize\leftmark}{}{}\hfil}%
+  \def\@oddhead{%
+    \setTrue{runhead}%
+    \normalfont \hfil
+    \def\thanks{\protect\thanks@warning}%
+    {\scriptsize\rightmark}{}{}\hfil \llap{\thepage}{}}%
+  \def\@evenfoot{\Tiny\MakeUppercase{\currentjournaltitle}\hfill}%
+  \def\@oddfoot{\Tiny\MakeUppercase{TOME \currentvolume\
+      (\currentyear)}\hfill}%
+  \let\@mkboth\cdr@markboth
+}%
+\let\ps@plain\ps@ahl
+\pagestyle{ahl}%
+%% Style de la premi\`ere page
+\def\ps@firstpage{\ps@plain
+  \def\@oddfoot{\global\topskip\normaltopskip}%
+  \let\@evenfoot\@oddfoot
+  \def\@oddhead{\@serieslogo\hss}%
+  \let\@evenhead\@oddhead % in case an article starts on a left-hand page
+}%
+% %% Identification article premi\`ere page
+ \def\@logofont{\Small}
+ % \ifcdr@special
+% \def\article@logo{}%
+% \else
+\def\@stripnotyear#1-#2-#3\\{#1}
+\def\stripnotyear#1{\@stripnotyear#1\\}
+ \def\article@logo{%
+   \set@logo{%
+     {\shortpublname}\\
+     \ifx\@empty\currentvolume \textbf{Version de travail}
+     \else \ifnum\currentvolume>\z@\textbf{\currentvolume} (\currentyear) \pageinfo
+	\else {\selectlanguage{french}Article \`a para\^\i tre\ifx\@empty\@dateposted \else \\
+  \emph{Mis en ligne le \printdate{\@dateposted}}\fi}.\\
+	\fi
+     \fi
+   }%
+ }
+% \fi
+
+%----------------------------------------------------------
+%% Pr\'esentation du titre
+% On veut toujours avoir un sous-titre traduit.
+% Appeler la commande \noalttitle si, vraiment, on n'en veut pas
+\def\@alttitle{Missing translated title}
+\newif\if@alttitle\@alttitletrue
+\let\noalttitle\@alttitlefalse
+\def\@settitle{%
+  \bgroup
+  \raggedright
+  \vskip20pt plus 6pt minus 3pt
+  \fontfamily{\OratorFont}\fontsize{26}{26}\fontseries{m}\selectfont
+  \uppercasenonmath\@title
+  \@title
+  \if@alttitle
+  \vskip8pt plus 1pt minus 1pt
+  \fontsize{20}{22}\selectfont%
+  \color{AHL-color}%
+  \uppercasenonmath\@alttitle
+  \@alttitle
+  \fi
+  \vskip20pt plus 6pt minus 3pt
+  \egroup
+}
+
+\def\@setredactor@contribs{%
+\if@francais
+R\'edig\'e par
+\else
+Redacted by
+\fi
+\author@andify\redactor@contribs
+\redactor@contribs
+}
+\def\@setappendixwriter@contribs{%
+\if@francais
+Avec un appendice par
+\else
+With an appendix by
+\fi
+\author@andify\appendixwriter@contribs
+\appendixwriter@contribs
+}
+
+
+
+\def\@setauthors{%
+  \begingroup
+  \raggedright
+  \fontfamily{\OratorFont}\fontsize{18pt}{18pt}\fontseries{m}\selectfont
+  \parindent=0pt\normalparindent=0pt%
+  \def\lastname##1{\def\l@stmp@{##1}\uppercasenonmath\l@stmp@\l@stmp@}%
+  \let\firstname\lastname%
+  %\myspace : filet entre les noms des auteurs
+  \def\myspace{\vskip5pt plus 1pt minus 1pt\hrule height 0.2pt\vskip5pt plus 1pt minus 1pt\relax}%
+  % Dans la macro \authors, les noms des auteurs sont espac\'es par \and.
+  % On fait en sorte que cette commande passe \`a la ligne et affiche le filet, comme
+  % \c{c}a tout se fait tout seul si on ex\'ecute \authors.
+  % On rajoute aussi une bo\^{\i}te invisible de taille verticale
+  % la taille verticale maximale des noms des auteurs, pour assurer que les filets
+  % soient tous \'equitablement espac\'es (utile s'il y a des auteurs avec accents et
+  % des auteurs sans accents)
+  \def\and{\myspace\leavevmode\begingroup\def\and{}\vphantom{\authors}\endgroup}%
+  \and\authors\myspace\unskip%
+  \endgroup
+}
+
+% Le logo suivant est fait integralement en latex, mais il ne correspond pas tout
+% a fait au logo, on va plutot utiliser une version pdf du logo.
+\def\AHLlogoold{%
+  \begingroup
+  \centering
+  \setlength{\unitlength}{1mm}
+  \begin{picture}(36,18)(-2,-5)
+  \put(5,0){\line(1,0){18.5}}
+  \put(3.25,5.63){\line(500,866){9.25}}
+  \color{AHL-color}
+  \put(15, 25.98){\circle*{3}}
+  \put(0, 0){\circle*{6}}
+  \put(30, 0){\circle*{9}}
+  \end{picture}%
+  \vskip3pt
+  \fontfamily{\OratorFont}\fontsize{12pt}{14pt}\selectfont
+  \ifOrator%
+  annales\else%
+  \textsc{annales}\fi\\
+  %next lines are a hack to fake bold on a font without bold
+  \pdfliteral direct {2 Tr 0.3 w}%
+  HENRI LEBESGUE%
+  \pdfliteral direct {0 Tr 0 w}%
+  \vskip0pt\relax
+  \endgroup
+}
+
+\def\AHLlogo{%
+  \begingroup
+  \centering
+  \vspace*{-1.8cm}
+  \href{https://annales.lebesgue.fr/}{\includegraphics[width=4.5cm]{logoAHL.pdf}}
+  \vskip0pt\relax
+  \endgroup
+}
+
+%On modifie \@maketitle car on veut mettre les auteurs avant le titre
+\def\@maketitle{%
+\ifcdr@recup
+  \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
+\else
+  \normalfont\normalsize
+  \@adminfootnotes
+%  \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
+  \AHLlogo%
+  \vskip35pt plus 10pt minus 5pt
+  \global\topskip\@titletopskip\relax % 5.5pc   "   "   "     "     "
+  \ifx\@empty\authors \else \@setauthors \fi
+  \@settitle
+  \hrule height0.1pt\vskip5pt%
+  \ifx\@empty\@subtitle\else \@setsubtitle\fi
+  \ifx\@empty\@afterauthor\else \@setafterauthor\fi
+  \ifx\@empty\@dedicatory\else\@setdedicatory\fi
+    \vskip20pt plus 8pt minus 5pt
+    \@setabstract@first
+    \cdr@interabstracthook
+    \@setabstract@last
+    \cdr@postabstracthook
+  \normalsize
+  \if@titlepage
+    \newpage
+  \else
+    \dimen@\@titlebotskip \advance\dimen@-\baselineskip
+    \vskip\dimen@\relax
+  \fi
+\fi} % end \@maketitle
+
+
+\def\@setsubtitle{%
+  \bgroup
+  \centering
+  \vglue-3mm
+  \fontfamily{\OratorFont}
+  \fontsize{12}{15}\selectfont
+  %\usefont{T1}{lmr}{b}{n}%
+%  \uppercasenonmath\@subtitle
+  \@subtitle
+  \vskip10pt plus 3pt minus 4pt
+  \egroup
+}
+\def\@setafterauthor{%
+  \bgroup
+  \centering
+  \vglue-3mm
+  \fontsize{12}{15}\fontseries{b}\selectfont
+  %\usefont{T1}{lmr}{b}{n}%
+%  \uppercasenonmath\@afterauthor
+  \@afterauthor
+  \vskip10pt plus 3pt minus 4pt
+  \egroup
+}
+\def\@setdedicatory{%
+	\vskip6pt
+	\vtop{\raggedleft{\footnotesize\slshape\@dedicatory\@@par}}
+\vskip-6pt}
+\advance\@titlebotskip-7mm
+
+
+%----------------------------------------------------------
+%% Pb num\'erotations relatives \`a la section si pas de section !
+\newif\ifcdr@nosections\cdr@nosectionsfalse
+\def\NoSections{\global\cdr@nosectionstrue}
+\def\cdr@postabstracthook{%
+  \ifcdr@nosections\gdef\thesection##1{}\fi}
+%% Notes
+\def\@makefnmark{%
+  \leavevmode
+	\raise.9ex\hbox{\fontsize\sf@size\z@\normalfont(\@thefnmark)\kern.15em}\ignorespaces%
+}
+\def\@makefntext{\noindent\@makefnmark}
+%% Notes de la premi\`ere page
+\def\@adminfootnotes{%
+  \let\@makefnmark\relax  \let\@thefnmark\relax
+  \begingroup\parindent=0pt\normalparindent=0pt
+ % \ifx\@empty\@date\else \@footnotetext{\@setdate}\fi
+  \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords}\fi
+  \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
+  \ifx\CDRdoi\@empty\@footnotetext{\texttt{\textcolor{red}{DOI unassigned yet}}}%
+    \else\@footnotetext{\@setDOI}\fi
+  \ifx\@empty\@translators \else\@footnotetext{\@settranslators}\fi
+  \ifx\@empty\thankses\else \@footnotetext{%
+    \def\par{\let\par\@par}\@setthanks}%
+  \fi
+\endgroup}
+\def\@settranslators{%
+  \def\lastname##1{\def\l@stmp@{##1}\uppercasenonmath\l@stmp@\l@stmp@}%
+  \def\junior##1{\unskip, ##1}%
+\andify\@translators
+\if@francais
+Traduit par
+\else
+Translated by
+\fi
+\@translators\@addpunct.}
+% on next line, \gdef\@thefnmark{} is a hack to avoid a bad
+% interaction between the pagebackref feature of hyperref and the
+% \thanks command of amsart, making \cite commands in \thanks problematic
+\def\@setthanks{\def\thanks##1{\gdef\@thefnmark{}\par##1\@addpunct.}%
+  (*)\kern\fontdimen2\font\thankses}%
+\def\@setsubjclass{%
+  {\slshape\subjclassname\thsp:}\space\@subjclass\@addpunct.}
+\def\@setkeywords{%
+  {\slshape \keywordsname\thsp:}\space \@keywords\@addpunct.}
+\if@francais
+ \def\keywordsname{Mots-cl\'es}
+\else
+ \def\keywordsname{Keywords}
+\fi
+\@xp\let\csname subjclassname@2010\endcsname \subjclassname
+\if@francais
+\RequirePackage[french,orig]{isodate}
+\else
+\RequirePackage[english,orig]{isodate}
+\fi
+\def\@setDOI{%
+  {\slshape DOI\thsp:}\space \url{https://doi.org/\CDRdoi}}
+
+
+%-----------------------------------------------------------------------
+%% Derni\`ere page
+\if@francais
+\def\@setdatereceived{%
+  \nobreak\par
+  Manuscrit re\c{c}u le \printdate\@datereceived,}%
+\def\@setdaterevised{%
+  \newline\nopagebreak
+  r\'evis\'e le \printdate\@daterevised,}%
+\def\@setdateaccepted{%
+  \newline\nopagebreak
+  accept\'e le \printdate\@dateaccepted.}%
+\else
+\def\@setdatereceived{%
+  \nobreak\par
+  Manuscript received on \printdate\@datereceived,}%
+\def\@setdaterevised{%
+  \newline\nopagebreak
+  revised on \printdate\@daterevised,}%
+\def\@setdateaccepted{%
+  \newline\nopagebreak
+  accepted on \printdate\@dateaccepted.}%
+\fi
+%
+%
+\def\rightragged{%
+  \let\\\@centercr\@rightskip\@flushglue \rightskip\@rightskip
+%  \leftskip\z@skip
+%  \parindent\z@
+}
+\def\@setaddresses{\par
+  \ifcdr@hyperref  \url@samestyle
+  \else\def\url##1{##1}%
+  \def\href##1##2{##2}\fi
+%  \nobreak
+  \begingroup
+   \rightragged
+  \interlinepenalty\@M
+    \def\lastname##1{\def\l@stmp@{##1}\uppercasenonmath\l@stmp@\l@stmp@}%
+  \def\junior##1{\unskip, ##1}%
+\ifcdr@printnames
+  \def\author##1{\par\allowbreak\addvspace\medskipamount\ignorespaces##1\unskip}%
+  \def\noauthor##1##2{\par\allowbreak\addvspace\medskipamount\ignorespaces##2\unskip}%
+  \def\address##1##2{\begingroup
+    \newline\nopagebreak%\addvspace\bigskipamount\indent
+    \@ifnotempty{##1}{(\ignorespaces##1\unskip)\newline\nopagebreak }%
+    {\ignorespaces##2\unskip}\endgroup}%
+\else
+   \def\author##1{\relax}%
+   \def\noauthor##1{\relax}%
+   \def\address##1##2{\par\allowbreak\addvspace\medskipamount\ignorespaces\begingroup
+    %\newline\nopagebreak%\addvspace\bigskipamount\indent
+    \@ifnotempty{##1}{\ignorespaces##1\unskip\newline\nopagebreak }%
+    {\ignorespaces##2\unskip}\endgroup}%
+\fi
+  \def\curraddr##1##2{\begingroup
+    \newline\nopagebreak
+    \@ifnotempty{##2}{\curraddrname{}%
+      \@ifnotempty{##1}{(\ignorespaces##1\unskip)}\thsp:\\*
+      ##2}\endgroup}%
+  \def\email##1##2{\begingroup\nopagebreak\par\addvspace\smallskipamount
+    \@ifnotempty{##2}{%\nobreak%\indent
+      \@ifnotempty{##1}{\emailaddrname \space (\ignorespaces##1\unskip):\\*}%
+      \href{mailto:##2}{##2}}\endgroup}%
+  \def\urladdr##1##2{\begingroup\newline\nopagebreak
+%    \def~{\char`\~}%
+    \@ifnotempty{##2}{%\nobreak\indent\urladdrname
+      \@ifnotempty{##1}{\urladdrname \space (\ignorespaces##1\unskip):\\*}%
+      \url{##2}}\endgroup}%
+  \addresses
+  \endgroup
+}
+%% final
+\def\@printauthors{\samepage
+\par\normalfont\footnotesize
+\nobreak\addvspace{.4cm}\leftskip6.5cm\parindent=0pt\parskip0pt\relax
+\begingroup\interlinepenalty\@M
+\ifx\@empty\@datereceived\else\@setdatereceived
+%Non, il n'y a plus de faute d'orthographe dans recie/eived !
+\ifx\@empty\@daterevised\else\@setdaterevised\fi
+\ifx\@empty\@dateaccepted\newline\nopagebreak Manuscrit non accept\'e !\else\@setdateaccepted\fi\fi
+\vskip.3cm
+\editor@string\\
+\copyright@notice\\[1ex]
+\MersenneMember@notice
+\endgroup
+\vspace{.3cm}
+\ifx\@empty\addresses \else\@setaddresses\fi\@@par}
+\def\printauthors{\xdef\enddoc@text{}{\@printauthors}}
+\ifcdr@special\def\enddoc@text{}\else
+\def\enddoc@text{\@printauthors}
+\fi
+
+
+%-----------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% sections
+% \section remplace TITRE
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+{27pt plus 6pt minus 8pt}{14pt plus 6pt minus 8pt}%%
+{\center\normalfont\large\bfseries}}
+% \subsection remplace \titre
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+{27pt plus 6pt minus 8pt}{14pt plus 6pt minus 8pt}%%
+{\center\normalfont\bfseries}}
+% \subsubsection ne remplace rien, mais sert pour la biblio
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+{18pt plus 6pt minus 8pt}{14pt plus 6pt minus 8pt}%%
+{\center\normalfont}}
+% \paragraph remplace \sect
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\parindent}%
+{3mm}{-.33em}{\normalfont\bfseries}}
+% \paragraphc ne remplace rien
+\newcommand\paragraphc{\@startsection{paragraph}{4}{\parindent}%
+{3mm}{1sp}{\normalfont\bfseries}}
+% \subparagraph remplace \ssection ?
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+{3mm}{-.3em}{\normalfont\scshape}}
+% \subparagraphc remplace \ssect ?
+\newcommand{\subparagraphc}{\@startsection{subparagraph}{5}{\parindent}%
+{3mm}{1sp}{\normalfont\scshape}}
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname .\hspace{0.5em}\ignorespaces}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\def\TOCNoIndent{\hbox to 2.6em}
+\AtBeginDocument{\pdfstringdefDisableCommands{%
+\let\TOCNoIndent\relax
+\let\except\@gobbletwo}{}}
+ \renewcommand{\tocsection}[3]{%
+ \@ifnotempty{#2}{\TOCNoIndent{\ignorespaces#1 #2.\hfill}}#3}
+\let\tocsubsection\tocsection
+\let\tocsubsubsection\tocsection
+\def\l@section{\@tocline{1}{0pt}{\abstractmargin}{1em}{}}
+\def\l@subsection{\@tocline{2}{0pt}{\abstractmargin}{1em}{}}
+\def\l@subsubsection{\@tocline{3}{0pt}{\abstractmargin}{1em}{}}
+% \renewcommand{\tocsection}[3]{%
+%   \indentlabel{\@ifnotempty{#2}{\ignorespaces#1 #2.\quad}}#3}
+
+%-----------------------------------------------------------------------
+%% Biblio
+%% Un peu autoritaire !
+\AtBeginDocument{\bibliographystyle{amsalpha+eid}%
+\def\bibliographystyle#1{\typeout{^^JThe bibliography style has already been assigned
+by the AHL class file, the command bibliographystyle in the current file will be ignored.%
+^^J}}
+\if@francais
+\def\Refname{BIBLIOGRAPHIE}%
+\def\refname{Bibliographie}%
+\else
+\def\Refname{BIBLIOGRAPHY}%
+\def\refname{Bibliography}%
+\fi}
+\newcommand\refnamefont{\normalfont}
+\renewcommand{\@bibtitlestyle}{%
+  \par\removelastskip\vskip\z@skip
+   \@startsection{}\@M\z@{18pt plus 6pt minus 8pt}{14pt plus 6pt minus 8pt}%%
+{\centering\refnamefont}{\Refname}%
+     \phantomsection\addcontentsline{toc}{section}{\protect\tocsection {}{}{\refname}}%
+}
+\bibitemsep\smallskipamount
+%% ToC
+\let\tableofcontentsfontsize\footnotesize
+\def\tableofcontents{%
+  \begingroup
+  \setTrue{toc}%
+  \par\removelastskip\vskip\z@skip
+   \@startsection{}\@M\z@{18pt plus 6pt minus 8pt}{14pt plus 6pt minus 8pt}%%
+  {\centering\contentsnamefont}{\contentsname}%
+  \makeatletter
+  \sloppy\tableofcontentsfontsize
+  \@input{\jobname.toc}%
+  \if@filesw
+    \@xp\newwrite\csname tf@toc\endcsname
+    \immediate\@xp\openout\csname tf@toc\endcsname \jobname.toc\relax
+  \fi
+  \global\@nobreakfalse \endgroup
+  \addvspace{32\p@\@plus14\p@}%
+  \let\tableofcontents\relax
+}
+
+%--------------------------------------------------------------------------
+%% Th\'eor\`emes
+\OneNumberAllTheorems
+\def\th@plain{%
+  \thm@bodyfont{\normalfont\slshape}
+  \thm@headfont{\normalfont\scshape}
+  \thm@notefont{\normalfont}
+  \thm@headpunct{\pointir}
+%  \let\thmheadnl\relax
+%  \let\thm@swap\@gobble
+  \thm@headsep 0\p@\relax
+  \let\thm@indent\indent
+  \def\thm@space@setup{%
+    \thm@preskip=\smallskipamount
+    \thm@postskip=\thm@preskip}
+  \slshape
+}
+\def\th@remark{%
+  \thm@bodyfont{\normalfont}
+  \thm@headfont{\normalfont\slshape}
+  \thm@notefont{\normalfont\slshape}
+  \thm@headpunct{\pointir}
+  \let\thm@indent\indent
+  \def\thm@space@setup{%
+    \thm@preskip=\smallskipamount
+    \thm@postskip=\thm@preskip}%
+}
+\let\th@definition\th@plain
+
+%% noms suppl.
+\equalenv{lem}{lemm}
+\equalenv{rem}{rema}
+\equalenv{cor}{coro}
+\equalenv{deftn}{defi}
+\equalenv{defn}{defi}
+
+%--------------------------------------------------------------------------
+% Preuves
+%\def\proofheadfont{\slshape}
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep\smallskipamount
+  \trivlist
+  \item\hskip\parindent
+        \slshape
+        #1\@addpunct{\pointir}\ignorespaces\normalfont
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\newenvironment{proofc}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep\smallskipamount
+  \trivlist
+  \item\hskip\parindent
+        \slshape
+        #1\@addpunct{.}\ignorespaces\nobreak\par\normalfont
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+%
+%--------------------------------------------------------------------------
+%% Floats
+\def\@captionheadfont{\slshape}
+\def\@captionfont{\slshape}
+\newskip\abovecaptionskip \abovecaptionskip=12pt \relax
+\newskip\belowcaptionskip \belowcaptionskip=12pt \relax
+\newdimen\captionindent \captionindent=\normalparindent
+%% Page de garde
+\if@francais
+\def\proofsname{\'Epreuves}
+\else
+\def\proofsname{Proofs}
+\fi
+\ifcdr@epreuves
+\RequirePackage{eso-pic}
+\definecolor{grisclair}{gray}{.85}
+\fi
+
+\AtEndOfClass{\let\C\relax}
+
+
+%-----------------------------------------------------------------------
+% Pas de page garde pour les annales Henri Lebesgue
+% Comme c'est prevu par le cedram, il faut juste mettre une commande vide
+\def\@makePagedeGarde{}%
+%
+\ifcdr@sommaire
+\def\lastname#1{\MakeUppercase{#1}}
+\def\junior#1{\unskip, #1}%
+\advance\@titlebotskip7mm
+\renewcommand{\@pnumwidth}{4.5em}
+\def\enddoc@text{}
+\newcommand\SomLine[9]{%
+  \par \addpenalty\@secpenalty\addvspace{\medskipamount}%
+    \begingroup\def\\{\allowbreak}%
+	\hyphenpenalty50
+    \parindent-\normalparindent \leftskip\normalparindent\relax
+    \rightskip\@pnumwidth% plus6em
+	 \parfillskip-\@pnumwidth
+    \ignorespaces#2\unskip\pointir\ignorespaces\if@francais#5\else#4\fi\unskip\leavevmode
+    \nobreak\hskip2pt\nobreak \leaders\hbox{$\m@th \mkern 1.5mu\hbox{.}\mkern
+      1.5mu$}\hfill \nobreak
+     \hb@xt@\@pnumwidth{\@tocpagenum{\ignorespaces#8\unskip-\ignorespaces#9\unskip}}%
+     \par\nobreak\vskip6pt%
+    \endgroup
+    \begingroup\parindent\normalparindent\parskip\z@
+	\leftskip2.4em\footnotesize\ignorespaces\if@francais#7\else#6\fi\unskip\par
+    \endgroup
+}
+\fi
+
+\ifcdr@volume
+\def\@makefront{%
+%  \IncludeSom{\cdr@journalacro -Sommaire-fr}%
+%  \IncludeSom{\cdr@journalacro -Sommaire-en}%
+  \cleardoublepage
+}
+\def\@makebody{%
+  \ifcdr@newsom
+  \immediate\write18{rm -f \cdr@journalacro -Sommaire-data.tex}%
+  \fi
+  \pagenumbering{arabic}%
+  \setcounter{page}{\@FirstPage}%
+  \tkkp={\setpage}%
+}
+
+\def\enddoc@text{}
+\fi
