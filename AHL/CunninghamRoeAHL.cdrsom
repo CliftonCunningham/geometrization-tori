@@ -1,7 +1,7 @@
 \begingroup
 %  Article : AHL_-1__1_0_0_0
 %  Fichier : CunninghamRoeAHL.tex
-%  Date prod. : 2021/1/6
+%  Date prod. : 2021/1/9
 \SomLine
     {\initial {C.} \lastname {Cunningham}\unskip {} \@@and ~\initial {D.} \lastname {Roe}}
     {\firstname {Clifton} \lastname {Cunningham}\hasaddress {}{ Department of Mathematics and Statistics, \\ University of Calgary, \\ 2500 University Drive Northwest, \\ Calgary, AB, Canada, {T2N~1N4}}\hasemail {}{cunning@math.ucalgary.ca}\unskip {} \@@and ~\firstname {David} \lastname {Roe}\hasaddress {}{Department of Mathematics, \\ Massachusetts Institute of Technology, \\ 77 Massachusetts Ave, \\ Cambridge, MA, United States, 02139}\hasemail {}{roed@mit.edu}\hasthanks {Roe was supported by Simons Foundation grant 550033.}}
